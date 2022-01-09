@@ -29,4 +29,5 @@ final class HTTPClient: Network {
     
     private let provider = MoyaProvider<MultiTarget>()
     private let decoder = JSONDecoder()
+    
 }
