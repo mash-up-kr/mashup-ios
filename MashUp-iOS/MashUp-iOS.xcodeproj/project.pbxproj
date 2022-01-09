@@ -20,6 +20,7 @@
 		CE4A6C02278B46970052F7E7 /* RxMoya in Frameworks */ = {isa = PBXBuildFile; productRef = CE4A6C01278B46970052F7E7 /* RxMoya */; };
 		CE4A6C05278B47040052F7E7 /* HTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4A6C04278B47040052F7E7 /* HTTPClient.swift */; };
 		CE4A6C07278B47A80052F7E7 /* ResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4A6C06278B47A80052F7E7 /* ResponseModel.swift */; };
+		CE4A6C09278B4A3C0052F7E7 /* NetworkConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4A6C08278B4A3C0052F7E7 /* NetworkConfig.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +46,7 @@
 		CE3960E3278B45A00073AEF4 /* MashUpAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MashUpAPI.swift; sourceTree = "<group>"; };
 		CE4A6C04278B47040052F7E7 /* HTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClient.swift; sourceTree = "<group>"; };
 		CE4A6C06278B47A80052F7E7 /* ResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseModel.swift; sourceTree = "<group>"; };
+		CE4A6C08278B4A3C0052F7E7 /* NetworkConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkConfig.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -133,8 +135,8 @@
 		CE3960B4278B3DBD0073AEF4 /* Source */ = {
 			isa = PBXGroup;
 			children = (
-				CE3960E5278B45CA0073AEF4 /* New Group */,
 				CE3960B0278B3D6A0073AEF4 /* App */,
+				CE3960E5278B45CA0073AEF4 /* Common */,
 				CE3960E0278B45360073AEF4 /* Network */,
 				CE3960B1278B3D850073AEF4 /* Screen */,
 			);
@@ -161,6 +163,7 @@
 		CE3960E0278B45360073AEF4 /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				CE4A6C08278B4A3C0052F7E7 /* NetworkConfig.swift */,
 				CE4A6C03278B46DA0052F7E7 /* Model */,
 				CE3960E6278B45D50073AEF4 /* API */,
 				CE4A6C04278B47040052F7E7 /* HTTPClient.swift */,
@@ -168,11 +171,11 @@
 			path = Network;
 			sourceTree = "<group>";
 		};
-		CE3960E5278B45CA0073AEF4 /* New Group */ = {
+		CE3960E5278B45CA0073AEF4 /* Common */ = {
 			isa = PBXGroup;
 			children = (
 			);
-			path = "New Group";
+			path = Common;
 			sourceTree = "<group>";
 		};
 		CE3960E6278B45D50073AEF4 /* API */ = {
@@ -315,6 +318,7 @@
 				CE396080278B3CB40073AEF4 /* AppDelegate.swift in Sources */,
 				CE4A6C05278B47040052F7E7 /* HTTPClient.swift in Sources */,
 				CE3960E4278B45A00073AEF4 /* MashUpAPI.swift in Sources */,
+				CE4A6C09278B4A3C0052F7E7 /* NetworkConfig.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

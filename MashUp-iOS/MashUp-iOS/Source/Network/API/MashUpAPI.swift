@@ -11,3 +11,6 @@ import Moya
 protocol MashUpAPI: TargetType {
     associatedtype Response: Decodable
 }
+extension MashUpAPI {
+    var baseURL: URL { URL(string: NetworkConfig.mashupHost)! }
+}
