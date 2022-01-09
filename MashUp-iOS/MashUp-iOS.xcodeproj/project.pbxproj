@@ -158,6 +158,8 @@
 			dependencies = (
 			);
 			name = "MashUp-iOS";
+			packageProductDependencies = (
+			);
 			productName = "MashUp-iOS";
 			productReference = CE39607C278B3CB40073AEF4 /* MashUp-iOS.app */;
 			productType = "com.apple.product-type.application";
@@ -208,6 +210,18 @@
 				Base,
 			);
 			mainGroup = CE396073278B3CB40073AEF4;
+			packageReferences = (
+				CE3960B7278B3F270073AEF4 /* XCRemoteSwiftPackageReference "RxSwift" */,
+				CE3960C2278B3F640073AEF4 /* XCRemoteSwiftPackageReference "Moya" */,
+				CE3960C7278B3F8E0073AEF4 /* XCRemoteSwiftPackageReference "ReactorKit" */,
+				CE3960CA278B3FBF0073AEF4 /* XCRemoteSwiftPackageReference "Then" */,
+				CE3960CD278B3FD30073AEF4 /* XCRemoteSwiftPackageReference "SnapKit" */,
+				CE3960D0278B40170073AEF4 /* XCRemoteSwiftPackageReference "Quick" */,
+				CE3960D3278B40320073AEF4 /* XCRemoteSwiftPackageReference "Nimble" */,
+				CE3960D6278B40490073AEF4 /* XCRemoteSwiftPackageReference "RxGesture" */,
+				CE3960D9278B40740073AEF4 /* XCRemoteSwiftPackageReference "RxOptional" */,
+				CE3960DC278B40DF0073AEF4 /* XCRemoteSwiftPackageReference "Kingfisher" */,
+			);
 			productRefGroup = CE39607D278B3CB40073AEF4 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -411,7 +425,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 8BQHKQSA4Y;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "MashUp-iOS/Info.plist";
+				INFOPLIST_FILE = "MashUp-iOS/SupportFile/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -439,7 +453,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 8BQHKQSA4Y;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "MashUp-iOS/Info.plist";
+				INFOPLIST_FILE = "MashUp-iOS/SupportFile/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -539,6 +553,89 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		CE3960B7278B3F270073AEF4 /* XCRemoteSwiftPackageReference "RxSwift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ReactiveX/RxSwift";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 6.0.0;
+			};
+		};
+		CE3960C2278B3F640073AEF4 /* XCRemoteSwiftPackageReference "Moya" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Moya/Moya";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+		CE3960C7278B3F8E0073AEF4 /* XCRemoteSwiftPackageReference "ReactorKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ReactorKit/ReactorKit";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.0.0;
+			};
+		};
+		CE3960CA278B3FBF0073AEF4 /* XCRemoteSwiftPackageReference "Then" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/devxoul/Then";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
+		CE3960CD278B3FD30073AEF4 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+		CE3960D0278B40170073AEF4 /* XCRemoteSwiftPackageReference "Quick" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Quick/Quick";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.0.0;
+			};
+		};
+		CE3960D3278B40320073AEF4 /* XCRemoteSwiftPackageReference "Nimble" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Quick/Nimble";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 9.0.0;
+			};
+		};
+		CE3960D6278B40490073AEF4 /* XCRemoteSwiftPackageReference "RxGesture" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/RxSwiftCommunity/RxGesture";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.0.0;
+			};
+		};
+		CE3960D9278B40740073AEF4 /* XCRemoteSwiftPackageReference "RxOptional" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/RxSwiftCommunity/RxOptional";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+		CE3960DC278B40DF0073AEF4 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
 	};
 	rootObject = CE396074278B3CB40073AEF4 /* Project object */;
 }
