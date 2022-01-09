@@ -18,6 +18,8 @@
 		CE4A6BFE278B46970052F7E7 /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = CE4A6BFD278B46970052F7E7 /* Moya */; };
 		CE4A6C00278B46970052F7E7 /* ReactiveMoya in Frameworks */ = {isa = PBXBuildFile; productRef = CE4A6BFF278B46970052F7E7 /* ReactiveMoya */; };
 		CE4A6C02278B46970052F7E7 /* RxMoya in Frameworks */ = {isa = PBXBuildFile; productRef = CE4A6C01278B46970052F7E7 /* RxMoya */; };
+		CE4A6C05278B47040052F7E7 /* HTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4A6C04278B47040052F7E7 /* HTTPClient.swift */; };
+		CE4A6C07278B47A80052F7E7 /* ResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4A6C06278B47A80052F7E7 /* ResponseModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,6 +43,8 @@
 		CE396092278B3CB60073AEF4 /* MashUp-iOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "MashUp-iOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE396096278B3CB60073AEF4 /* MashUp_iOSTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MashUp_iOSTests.swift; sourceTree = "<group>"; };
 		CE3960E3278B45A00073AEF4 /* MashUpAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MashUpAPI.swift; sourceTree = "<group>"; };
+		CE4A6C04278B47040052F7E7 /* HTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClient.swift; sourceTree = "<group>"; };
+		CE4A6C06278B47A80052F7E7 /* ResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -159,6 +163,7 @@
 			children = (
 				CE4A6C03278B46DA0052F7E7 /* Model */,
 				CE3960E6278B45D50073AEF4 /* API */,
+				CE4A6C04278B47040052F7E7 /* HTTPClient.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -181,6 +186,7 @@
 		CE4A6C03278B46DA0052F7E7 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				CE4A6C06278B47A80052F7E7 /* ResponseModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -304,8 +310,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE4A6C07278B47A80052F7E7 /* ResponseModel.swift in Sources */,
 				CE396084278B3CB40073AEF4 /* ViewController.swift in Sources */,
 				CE396080278B3CB40073AEF4 /* AppDelegate.swift in Sources */,
+				CE4A6C05278B47040052F7E7 /* HTTPClient.swift in Sources */,
 				CE3960E4278B45A00073AEF4 /* MashUpAPI.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
