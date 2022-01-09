@@ -76,12 +76,9 @@
 		CE39607E278B3CB40073AEF4 /* MashUp-iOS */ = {
 			isa = PBXGroup;
 			children = (
-				CE39607F278B3CB40073AEF4 /* AppDelegate.swift */,
-				CE396083278B3CB40073AEF4 /* ViewController.swift */,
-				CE396085278B3CB40073AEF4 /* Main.storyboard */,
-				CE396088278B3CB60073AEF4 /* Assets.xcassets */,
-				CE39608A278B3CB60073AEF4 /* LaunchScreen.storyboard */,
-				CE39608D278B3CB60073AEF4 /* Info.plist */,
+				CE3960B5278B3DC30073AEF4 /* Resource */,
+				CE3960B4278B3DBD0073AEF4 /* Source */,
+				CE3960B6278B3DC90073AEF4 /* SupportFile */,
 			);
 			path = "MashUp-iOS";
 			sourceTree = "<group>";
@@ -92,6 +89,57 @@
 				CE396096278B3CB60073AEF4 /* MashUp_iOSTests.swift */,
 			);
 			path = "MashUp-iOSTests";
+			sourceTree = "<group>";
+		};
+		CE3960B0278B3D6A0073AEF4 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				CE39607F278B3CB40073AEF4 /* AppDelegate.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		CE3960B1278B3D850073AEF4 /* Screen */ = {
+			isa = PBXGroup;
+			children = (
+				CE3960B3278B3D9D0073AEF4 /* Main */,
+			);
+			path = Screen;
+			sourceTree = "<group>";
+		};
+		CE3960B3278B3D9D0073AEF4 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				CE396085278B3CB40073AEF4 /* Main.storyboard */,
+				CE396083278B3CB40073AEF4 /* ViewController.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		CE3960B4278B3DBD0073AEF4 /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				CE3960B0278B3D6A0073AEF4 /* App */,
+				CE3960B1278B3D850073AEF4 /* Screen */,
+			);
+			path = Source;
+			sourceTree = "<group>";
+		};
+		CE3960B5278B3DC30073AEF4 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				CE39608A278B3CB60073AEF4 /* LaunchScreen.storyboard */,
+				CE396088278B3CB60073AEF4 /* Assets.xcassets */,
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
+		CE3960B6278B3DC90073AEF4 /* SupportFile */ = {
+			isa = PBXGroup;
+			children = (
+				CE39608D278B3CB60073AEF4 /* Info.plist */,
+			);
+			path = SupportFile;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
