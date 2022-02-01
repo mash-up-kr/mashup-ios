@@ -26,10 +26,18 @@ final class FakeQRScanViewController: UIViewController, ReactorKit.View {
     }
     
     func bind(reactor: FakeQRScanReactor) {
-        self.rx.viewDidLoad.map { .didSetup }
-        .bind(to: reactor.action)
-        .disposed(by: self.disposeBag)
-        
+        self.dispatch(to: reactor)
+        self.render(reactor)
+        self.consume(reactor)
+    }
+    
+    private func dispatch(to reactor: Reactor) {
+            self.rx.viewDidLoad.map { .didSetup }
+            .bind(to: reactor.action)
+            .disposed(by: self.disposeBag)
+    }
+    
+    private func render(_ reactor: Reactor) {
         reactor.state.map { $0.captureSession }
         .distinctUntilChanged()
         .subscribe(onNext: { [weak self] session in
@@ -41,7 +49,9 @@ final class FakeQRScanViewController: UIViewController, ReactorKit.View {
         .distinctUntilChanged()
         .bind(to: self.codeLabel.rx.text)
         .disposed(by: self.disposeBag)
-        
+    }
+    
+    private func consume(_ reactor: Reactor) {
         reactor.pulse(\.$alertMessage)
             .compactMap { $0 }
             .observe(on: MainScheduler.instance)
