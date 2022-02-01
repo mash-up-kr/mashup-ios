@@ -32,9 +32,9 @@ final class FakeQRScanViewController: UIViewController, ReactorKit.View {
     }
     
     private func dispatch(to reactor: Reactor) {
-            self.rx.viewDidLoad.map { .didSetup }
-            .bind(to: reactor.action)
-            .disposed(by: self.disposeBag)
+        self.rx.viewDidLoad.map { .didSetup }
+        .bind(to: reactor.action)
+        .disposed(by: self.disposeBag)
     }
     
     private func render(_ reactor: Reactor) {
@@ -52,13 +52,12 @@ final class FakeQRScanViewController: UIViewController, ReactorKit.View {
     }
     
     private func consume(_ reactor: Reactor) {
-        reactor.pulse(\.$alertMessage)
-            .compactMap { $0 }
-            .observe(on: MainScheduler.instance)
-            .subscribe(onNext: { [weak self] message in
-                self?.showAlert(message: message)
-            })
-            .disposed(by: self.disposeBag)
+        reactor.pulse(\.$alertMessage).compactMap { $0 }
+        .observe(on: MainScheduler.instance)
+        .subscribe(onNext: { [weak self] message in
+            self?.showAlert(message: message)
+        })
+        .disposed(by: self.disposeBag)
     }
     
     private func updateCaptureSession(_ session: AVCaptureSession) {
