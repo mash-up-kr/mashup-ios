@@ -23,7 +23,9 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     private func createQRScanViewController() -> UIViewController {
-        return FakeQRScanViewController()
+        let viewController = FakeQRScanViewController()
+        viewController.reactor = FakeQRScanReactor()
+        return viewController
     }
 }
 

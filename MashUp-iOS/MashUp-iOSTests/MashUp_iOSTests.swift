@@ -7,7 +7,7 @@
 //
 
 import XCTest
-@testable import MashUp_iOS
+//@testable import MashUp_iOS
 
 class MashUp_iOSTests: XCTestCase {
 
