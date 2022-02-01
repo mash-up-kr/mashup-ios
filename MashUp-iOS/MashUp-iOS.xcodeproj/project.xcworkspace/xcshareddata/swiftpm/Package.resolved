@@ -78,8 +78,8 @@
         "repositoryURL": "https://github.com/ReactorKit/ReactorKit",
         "state": {
           "branch": null,
-          "revision": "72bd20b76891566688f03594da4651d4e6771b8c",
-          "version": "3.1.0"
+          "revision": "8fa33f09c6f6621a2aa536d739956d53b84dd139",
+          "version": "3.2.0"
         }
       },
       {
@@ -98,15 +98,6 @@
           "branch": null,
           "revision": "f116ec9c727a76e92fabc1724bb7f57e4772402f",
           "version": "5.0.4"
-        }
-      },
-      {
-        "package": "RxSwift",
-        "repositoryURL": "https://github.com/ReactiveX/RxSwift",
-        "state": {
-          "branch": null,
-          "revision": "4f96dc3548b316b0affe1117bc0be52f03b97b80",
-          "version": "6.5.0"
         }
       },
       {

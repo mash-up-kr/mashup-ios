@@ -21,6 +21,10 @@
 		CE4A6C05278B47040052F7E7 /* HTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4A6C04278B47040052F7E7 /* HTTPClient.swift */; };
 		CE4A6C07278B47A80052F7E7 /* ResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4A6C06278B47A80052F7E7 /* ResponseModel.swift */; };
 		CE4A6C09278B4A3C0052F7E7 /* NetworkConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4A6C08278B4A3C0052F7E7 /* NetworkConfig.swift */; };
+		CEB60F4327A9713B001260DB /* TestAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB60F4227A9713B001260DB /* TestAppDelegate.swift */; };
+		CEB60F4527A97163001260DB /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB60F4427A97163001260DB /* main.swift */; };
+		CEB60F4827A9746E001260DB /* QRScanService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB60F4727A9746E001260DB /* QRScanService.swift */; };
+		CEB60F4B27A975AD001260DB /* FakeQRScanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB60F4A27A975AD001260DB /* FakeQRScanViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +51,10 @@
 		CE4A6C04278B47040052F7E7 /* HTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClient.swift; sourceTree = "<group>"; };
 		CE4A6C06278B47A80052F7E7 /* ResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseModel.swift; sourceTree = "<group>"; };
 		CE4A6C08278B4A3C0052F7E7 /* NetworkConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkConfig.swift; sourceTree = "<group>"; };
+		CEB60F4227A9713B001260DB /* TestAppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestAppDelegate.swift; sourceTree = "<group>"; };
+		CEB60F4427A97163001260DB /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		CEB60F4727A9746E001260DB /* QRScanService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRScanService.swift; sourceTree = "<group>"; };
+		CEB60F4A27A975AD001260DB /* FakeQRScanViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeQRScanViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +111,7 @@
 			isa = PBXGroup;
 			children = (
 				CE396096278B3CB60073AEF4 /* MashUp_iOSTests.swift */,
+				CEB60F4227A9713B001260DB /* TestAppDelegate.swift */,
 			);
 			path = "MashUp-iOSTests";
 			sourceTree = "<group>";
@@ -111,6 +120,7 @@
 			isa = PBXGroup;
 			children = (
 				CE39607F278B3CB40073AEF4 /* AppDelegate.swift */,
+				CEB60F4427A97163001260DB /* main.swift */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -119,6 +129,7 @@
 			isa = PBXGroup;
 			children = (
 				CE3960B3278B3D9D0073AEF4 /* Main */,
+				CEB60F4927A9759C001260DB /* QRScan */,
 			);
 			path = Screen;
 			sourceTree = "<group>";
@@ -139,6 +150,7 @@
 				CE3960E5278B45CA0073AEF4 /* Common */,
 				CE3960E0278B45360073AEF4 /* Network */,
 				CE3960B1278B3D850073AEF4 /* Screen */,
+				CEB60F4627A97418001260DB /* Service */,
 			);
 			path = Source;
 			sourceTree = "<group>";
@@ -192,6 +204,22 @@
 				CE4A6C06278B47A80052F7E7 /* ResponseModel.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		CEB60F4627A97418001260DB /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				CEB60F4727A9746E001260DB /* QRScanService.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		CEB60F4927A9759C001260DB /* QRScan */ = {
+			isa = PBXGroup;
+			children = (
+				CEB60F4A27A975AD001260DB /* FakeQRScanViewController.swift */,
+			);
+			path = QRScan;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -315,11 +343,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				CE4A6C07278B47A80052F7E7 /* ResponseModel.swift in Sources */,
+				CEB60F4527A97163001260DB /* main.swift in Sources */,
+				CEB60F4B27A975AD001260DB /* FakeQRScanViewController.swift in Sources */,
 				CE396084278B3CB40073AEF4 /* ViewController.swift in Sources */,
 				CE396080278B3CB40073AEF4 /* AppDelegate.swift in Sources */,
 				CE4A6C05278B47040052F7E7 /* HTTPClient.swift in Sources */,
 				CE3960E4278B45A00073AEF4 /* MashUpAPI.swift in Sources */,
 				CE4A6C09278B4A3C0052F7E7 /* NetworkConfig.swift in Sources */,
+				CEB60F4827A9746E001260DB /* QRScanService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -327,6 +358,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CEB60F4327A9713B001260DB /* TestAppDelegate.swift in Sources */,
 				CE396097278B3CB60073AEF4 /* MashUp_iOSTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -459,6 +491,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -543,7 +576,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 8BQHKQSA4Y;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -568,7 +601,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 8BQHKQSA4Y;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -621,6 +654,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -677,7 +711,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 8BQHKQSA4Y;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
