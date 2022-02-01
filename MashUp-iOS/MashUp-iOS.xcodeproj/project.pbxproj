@@ -31,6 +31,8 @@
 		CEB60F7227A9BDAE001260DB /* RxMoya in Frameworks */ = {isa = PBXBuildFile; productRef = CEB60F7127A9BDAE001260DB /* RxMoya */; };
 		CEB60F7427A9BDF4001260DB /* FakeQRScanReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB60F7327A9BDF4001260DB /* FakeQRScanReactor.swift */; };
 		CEB60F7627A9BE67001260DB /* ViewContorller+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB60F7527A9BE67001260DB /* ViewContorller+Rx.swift */; };
+		CEB60F7F27A9C536001260DB /* AttendanceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB60F7E27A9C536001260DB /* AttendanceService.swift */; };
+		CEB60F8427A9C602001260DB /* FakeAttendanceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB60F8327A9C602001260DB /* FakeAttendanceService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,6 +64,8 @@
 		CEB60F7327A9BDF4001260DB /* FakeQRScanReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeQRScanReactor.swift; sourceTree = "<group>"; };
 		CEB60F7527A9BE67001260DB /* ViewContorller+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewContorller+Rx.swift"; sourceTree = "<group>"; };
 		CEB60F7827A9C0C9001260DB /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Platforms/iPhoneOS.platform/Developer/Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		CEB60F7E27A9C536001260DB /* AttendanceService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttendanceService.swift; sourceTree = "<group>"; };
+		CEB60F8327A9C602001260DB /* FakeAttendanceService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeAttendanceService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -150,11 +154,11 @@
 		CE3960B4278B3DBD0073AEF4 /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				CEB60F8027A9C5DC001260DB /* Domain */,
 				CE3960B0278B3D6A0073AEF4 /* App */,
 				CE3960E5278B45CA0073AEF4 /* Common */,
 				CE3960E0278B45360073AEF4 /* Network */,
 				CE3960B1278B3D850073AEF4 /* Screen */,
-				CEB60F4627A97418001260DB /* Service */,
 			);
 			path = Source;
 			sourceTree = "<group>";
@@ -211,14 +215,6 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
-		CEB60F4627A97418001260DB /* Service */ = {
-			isa = PBXGroup;
-			children = (
-				CEB60F4727A9746E001260DB /* QRReaderService.swift */,
-			);
-			path = Service;
-			sourceTree = "<group>";
-		};
 		CEB60F4927A9759C001260DB /* QRScan */ = {
 			isa = PBXGroup;
 			children = (
@@ -242,6 +238,32 @@
 				CEB60F7527A9BE67001260DB /* ViewContorller+Rx.swift */,
 			);
 			path = Rx;
+			sourceTree = "<group>";
+		};
+		CEB60F8027A9C5DC001260DB /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				CEB60F8227A9C5EA001260DB /* Attencance */,
+				CEB60F8127A9C5E1001260DB /* QR */,
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		CEB60F8127A9C5E1001260DB /* QR */ = {
+			isa = PBXGroup;
+			children = (
+				CEB60F4727A9746E001260DB /* QRReaderService.swift */,
+			);
+			path = QR;
+			sourceTree = "<group>";
+		};
+		CEB60F8227A9C5EA001260DB /* Attencance */ = {
+			isa = PBXGroup;
+			children = (
+				CEB60F7E27A9C536001260DB /* AttendanceService.swift */,
+				CEB60F8327A9C602001260DB /* FakeAttendanceService.swift */,
+			);
+			path = Attencance;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -367,10 +389,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CEB60F7F27A9C536001260DB /* AttendanceService.swift in Sources */,
 				CE4A6C07278B47A80052F7E7 /* ResponseModel.swift in Sources */,
 				CEB60F4527A97163001260DB /* main.swift in Sources */,
 				CEB60F4B27A975AD001260DB /* FakeQRScanViewController.swift in Sources */,
 				CEB60F7427A9BDF4001260DB /* FakeQRScanReactor.swift in Sources */,
+				CEB60F8427A9C602001260DB /* FakeAttendanceService.swift in Sources */,
 				CEB60F7627A9BE67001260DB /* ViewContorller+Rx.swift in Sources */,
 				CE396080278B3CB40073AEF4 /* AppDelegate.swift in Sources */,
 				CE4A6C05278B47040052F7E7 /* HTTPClient.swift in Sources */,

@@ -30,21 +30,36 @@ final class FakeQRScanViewController: UIViewController, ReactorKit.View {
         .bind(to: reactor.action)
         .disposed(by: self.disposeBag)
         
-        reactor.state.map { $0.code }
-        .distinctUntilChanged()
-        .bind(to: self.codeLabel.rx.text)
-        .disposed(by: self.disposeBag)
-        
         reactor.state.map { $0.captureSession }
         .distinctUntilChanged()
         .subscribe(onNext: { [weak self] session in
             self?.updateCaptureSession(session)
         })
         .disposed(by: self.disposeBag)
+        
+        reactor.state.map { $0.code }
+        .distinctUntilChanged()
+        .bind(to: self.codeLabel.rx.text)
+        .disposed(by: self.disposeBag)
+        
+        reactor.pulse(\.$alertMessage)
+            .compactMap { $0 }
+            .observe(on: MainScheduler.instance)
+            .subscribe(onNext: { [weak self] message in
+                self?.showAlert(message: message)
+            })
+            .disposed(by: self.disposeBag)
     }
     
     private func updateCaptureSession(_ session: AVCaptureSession) {
         self.capturePreviewLayer.session = session
+    }
+    
+    private func showAlert(message: String) {
+        let alertController = UIAlertController(title: nil, message: message, preferredStyle: .alert)
+        let ok = UIAlertAction(title: "확인", style: .default)
+        alertController.addAction(ok)
+        self.present(alertController, animated: true, completion: nil)
     }
     
     private let capturePreviewLayer = AVCaptureVideoPreviewLayer()

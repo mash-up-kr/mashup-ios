@@ -23,9 +23,18 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     private func createQRScanViewController() -> UIViewController {
+        let attendanceService = self.createAttendanceService()
+        let reactor = FakeQRScanReactor(attendanceService: attendanceService)
         let viewController = FakeQRScanViewController()
-        viewController.reactor = FakeQRScanReactor()
+        viewController.reactor = reactor
         return viewController
+    }
+    
+    private func createAttendanceService() -> AttendanceService {
+        #warning("실제 객체로 변경해야합니다.")
+        let attendanceService = FakeAttendanceService()
+        attendanceService.stubedCorrectCode = "Mash up iOS"
+        return attendanceService
     }
 }
 
