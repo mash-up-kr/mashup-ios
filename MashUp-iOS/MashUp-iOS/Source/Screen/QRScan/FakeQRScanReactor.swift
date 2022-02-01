@@ -36,21 +36,14 @@ final class FakeQRScanReactor: Reactor {
         attendanceService: AttendanceService = AttendanceServiceImpl()
     ) {
         self.qrReader = qrReader
-        self.initialState = State(captureSession: qrReader.captureSession, hasAttended: false)
         self.attencanceService = attendanceService
+        self.initialState = State(captureSession: qrReader.captureSession, hasAttended: false)
     }
     
     func mutate(action: Action) -> Observable<Mutation> {
         switch action {
         case .didSetup:
-            return self.qrReader.scanCode()
-                .debug("🔳 QR:")
-                .flatMap { code -> Observable<Mutation> in
-                    return .concat([
-                        .just(.updateCode(code)),
-                        self.attencanceService.attend(withCode: code).map { .updateAttendance($0)}
-                    ])
-                }
+            return self.qrReader.scanCode().flatMap(self.updateCodeAndAttendance)
         }
     }
     
@@ -62,15 +55,20 @@ final class FakeQRScanReactor: Reactor {
             
         case .updateAttendance(let attendance):
             newState.hasAttended = attendance
-            if attendance {
-                newState.alertMessage = "✅ 출석을 완료하셨습니다."
-            } else {
-                newState.alertMessage = "❌ 올바른 코드가 아닙니다."
-            }
+            newState.alertMessage = messageOf(attendance: attendance)
         }
         return newState
     }
     
+    private func updateCodeAndAttendance(code: Code) -> Observable<Mutation> {
+        let updateCode = Observable.just(Mutation.updateCode(code))
+        let updateAttendacne = self.attencanceService.attend(withCode: code).map { Mutation.updateAttendance($0) }
+        return .concat(updateCode, updateAttendacne)
+    }
+    
+    private func messageOf(attendance: Bool) -> String {
+        return attendance ? "✅ 출석을 완료하셨습니다." : "❌ 올바른 코드가 아닙니다."
+    }
     
     private let qrReader: QRReaderService
     private let attencanceService: AttendanceService
