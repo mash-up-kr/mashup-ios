@@ -33,7 +33,7 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
     private func createAttendanceService() -> AttendanceService {
         #warning("실제 객체로 변경해야합니다.")
         let attendanceService = FakeAttendanceService()
-        attendanceService.stubedCorrectCode = "Mash up iOS"
+        attendanceService.stubedCorrectCode = "I'm correct"
         return attendanceService
     }
 }

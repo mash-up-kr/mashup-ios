@@ -44,7 +44,7 @@ final class FakeQRScanReactor: Reactor {
         switch action {
         case .didSetup:
             return self.qrReader.scanCode()
-                .throttle(.seconds(5), scheduler: MainScheduler.instance)
+                .debug("🔳 QR:")
                 .flatMap { code -> Observable<Mutation> in
                     return .concat([
                         .just(.updateCode(code)),
