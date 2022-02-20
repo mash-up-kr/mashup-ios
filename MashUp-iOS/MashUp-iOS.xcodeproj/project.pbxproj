@@ -10,7 +10,6 @@
 		CE396080278B3CB40073AEF4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE39607F278B3CB40073AEF4 /* AppDelegate.swift */; };
 		CE396089278B3CB60073AEF4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE396088278B3CB60073AEF4 /* Assets.xcassets */; };
 		CE39608C278B3CB60073AEF4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE39608A278B3CB60073AEF4 /* LaunchScreen.storyboard */; };
-		CE396097278B3CB60073AEF4 /* MashUp_iOSTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE396096278B3CB60073AEF4 /* MashUp_iOSTests.swift */; };
 		CE3960E4278B45A00073AEF4 /* MashUpAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3960E3278B45A00073AEF4 /* MashUpAPI.swift */; };
 		CE4A6C05278B47040052F7E7 /* HTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4A6C04278B47040052F7E7 /* HTTPClient.swift */; };
 		CE4A6C07278B47A80052F7E7 /* ResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4A6C06278B47A80052F7E7 /* ResponseModel.swift */; };
@@ -22,7 +21,7 @@
 		CE9E735427C28A6100922D8B /* Swinject in Frameworks */ = {isa = PBXBuildFile; productRef = CE9E735327C28A6100922D8B /* Swinject */; };
 		CE9E735627C28B2200922D8B /* RxBlocking in Frameworks */ = {isa = PBXBuildFile; productRef = CE9E735527C28B2200922D8B /* RxBlocking */; };
 		CE9E735827C28B2200922D8B /* RxTest in Frameworks */ = {isa = PBXBuildFile; productRef = CE9E735727C28B2200922D8B /* RxTest */; };
-		CE9E735D27C294E800922D8B /* QRScannReactorSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9E735C27C294E800922D8B /* QRScannReactorSpec.swift */; };
+		CE9E735D27C294E800922D8B /* QRScanReactorSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9E735C27C294E800922D8B /* QRScanReactorSpec.swift */; };
 		CE9E736727C29F4700922D8B /* MashUp_iOSTests-Mock.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9E736627C29F4700922D8B /* MashUp_iOSTests-Mock.generated.swift */; };
 		CEB60F4327A9713B001260DB /* TestAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB60F4227A9713B001260DB /* TestAppDelegate.swift */; };
 		CEB60F4527A97163001260DB /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB60F4427A97163001260DB /* main.swift */; };
@@ -61,12 +60,11 @@
 		CE39608B278B3CB60073AEF4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CE39608D278B3CB60073AEF4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CE396092278B3CB60073AEF4 /* MashUp-iOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "MashUp-iOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		CE396096278B3CB60073AEF4 /* MashUp_iOSTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MashUp_iOSTests.swift; sourceTree = "<group>"; };
 		CE3960E3278B45A00073AEF4 /* MashUpAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MashUpAPI.swift; sourceTree = "<group>"; };
 		CE4A6C04278B47040052F7E7 /* HTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClient.swift; sourceTree = "<group>"; };
 		CE4A6C06278B47A80052F7E7 /* ResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseModel.swift; sourceTree = "<group>"; };
 		CE4A6C08278B4A3C0052F7E7 /* NetworkConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkConfig.swift; sourceTree = "<group>"; };
-		CE9E735C27C294E800922D8B /* QRScannReactorSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QRScannReactorSpec.swift; sourceTree = "<group>"; };
+		CE9E735C27C294E800922D8B /* QRScanReactorSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QRScanReactorSpec.swift; sourceTree = "<group>"; };
 		CE9E736627C29F4700922D8B /* MashUp_iOSTests-Mock.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MashUp_iOSTests-Mock.generated.swift"; sourceTree = "<group>"; };
 		CEB60F4227A9713B001260DB /* TestAppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestAppDelegate.swift; sourceTree = "<group>"; };
 		CEB60F4427A97163001260DB /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
@@ -149,7 +147,6 @@
 			isa = PBXGroup;
 			children = (
 				CE9E735B27C294E800922D8B /* Specs */,
-				CE396096278B3CB60073AEF4 /* MashUp_iOSTests.swift */,
 				CEB60F4227A9713B001260DB /* TestAppDelegate.swift */,
 			);
 			path = "MashUp-iOSTests";
@@ -239,7 +236,7 @@
 		CE9E735B27C294E800922D8B /* Specs */ = {
 			isa = PBXGroup;
 			children = (
-				CE9E735C27C294E800922D8B /* QRScannReactorSpec.swift */,
+				CE9E735C27C294E800922D8B /* QRScanReactorSpec.swift */,
 			);
 			path = Specs;
 			sourceTree = "<group>";
@@ -485,9 +482,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				CEB60F4327A9713B001260DB /* TestAppDelegate.swift in Sources */,
-				CE9E735D27C294E800922D8B /* QRScannReactorSpec.swift in Sources */,
+				CE9E735D27C294E800922D8B /* QRScanReactorSpec.swift in Sources */,
 				CE9E736727C29F4700922D8B /* MashUp_iOSTests-Mock.generated.swift in Sources */,
-				CE396097278B3CB60073AEF4 /* MashUp_iOSTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -14,7 +14,7 @@ import Quick
 import RxBlocking
 @testable import MashUp_iOS
 
-final class QRScannReactorSpec: QuickSpec {
+final class QRScanReactorSpec: QuickSpec {
   
   override func spec() {
     var sut: QRScanReactor!
