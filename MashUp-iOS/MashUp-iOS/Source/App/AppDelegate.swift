@@ -24,8 +24,8 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
 
     private func createQRScanViewController() -> UIViewController {
         let attendanceService = self.createAttendanceService()
-        let reactor = FakeQRScanReactor(attendanceService: attendanceService)
-        let viewController = FakeQRScanViewController()
+        let reactor = QRScanReactor(attendanceService: attendanceService)
+        let viewController = QRScanViewController()
         viewController.reactor = reactor
         return viewController
     }

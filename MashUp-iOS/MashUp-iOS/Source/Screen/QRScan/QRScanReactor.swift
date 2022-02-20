@@ -10,7 +10,7 @@ import Foundation
 import ReactorKit
 import AVFoundation
 
-final class FakeQRScanReactor: Reactor {
+final class QRScanReactor: Reactor {
     
     enum Action {
         case didSetup

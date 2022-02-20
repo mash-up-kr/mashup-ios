@@ -13,8 +13,8 @@ import RxCocoa
 import SnapKit
 import UIKit
 
-final class FakeQRScanViewController: UIViewController, ReactorKit.View {
-    typealias Reactor = FakeQRScanReactor
+final class QRScanViewController: UIViewController, ReactorKit.View {
+    typealias Reactor = QRScanReactor
     
     var disposeBag: DisposeBag = DisposeBag()
     
@@ -25,7 +25,7 @@ final class FakeQRScanViewController: UIViewController, ReactorKit.View {
         self.setupCodeLabel()
     }
     
-    func bind(reactor: FakeQRScanReactor) {
+    func bind(reactor: QRScanReactor) {
         self.dispatch(to: reactor)
         self.render(reactor)
         self.consume(reactor)
@@ -77,7 +77,7 @@ final class FakeQRScanViewController: UIViewController, ReactorKit.View {
 
 
 // MARK: Setup
-extension FakeQRScanViewController {
+extension QRScanViewController {
     
     private func setupCapturePreviewLayer() {
         self.capturePreviewLayer.frame = self.view.layer.bounds

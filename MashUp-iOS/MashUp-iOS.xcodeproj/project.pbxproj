@@ -15,10 +15,19 @@
 		CE4A6C05278B47040052F7E7 /* HTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4A6C04278B47040052F7E7 /* HTTPClient.swift */; };
 		CE4A6C07278B47A80052F7E7 /* ResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4A6C06278B47A80052F7E7 /* ResponseModel.swift */; };
 		CE4A6C09278B4A3C0052F7E7 /* NetworkConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4A6C08278B4A3C0052F7E7 /* NetworkConfig.swift */; };
+		CE9E734527C2889200922D8B /* Nimble in Frameworks */ = {isa = PBXBuildFile; productRef = CE9E734427C2889200922D8B /* Nimble */; };
+		CE9E734827C2889E00922D8B /* Quick in Frameworks */ = {isa = PBXBuildFile; productRef = CE9E734727C2889E00922D8B /* Quick */; };
+		CE9E734B27C288B700922D8B /* Mockingbird in Frameworks */ = {isa = PBXBuildFile; productRef = CE9E734A27C288B700922D8B /* Mockingbird */; };
+		CE9E735127C28A4200922D8B /* RxFlow in Frameworks */ = {isa = PBXBuildFile; productRef = CE9E735027C28A4200922D8B /* RxFlow */; };
+		CE9E735427C28A6100922D8B /* Swinject in Frameworks */ = {isa = PBXBuildFile; productRef = CE9E735327C28A6100922D8B /* Swinject */; };
+		CE9E735627C28B2200922D8B /* RxBlocking in Frameworks */ = {isa = PBXBuildFile; productRef = CE9E735527C28B2200922D8B /* RxBlocking */; };
+		CE9E735827C28B2200922D8B /* RxTest in Frameworks */ = {isa = PBXBuildFile; productRef = CE9E735727C28B2200922D8B /* RxTest */; };
+		CE9E735D27C294E800922D8B /* QRScannReactorSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9E735C27C294E800922D8B /* QRScannReactorSpec.swift */; };
+		CE9E736727C29F4700922D8B /* MashUp_iOSTests-Mock.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9E736627C29F4700922D8B /* MashUp_iOSTests-Mock.generated.swift */; };
 		CEB60F4327A9713B001260DB /* TestAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB60F4227A9713B001260DB /* TestAppDelegate.swift */; };
 		CEB60F4527A97163001260DB /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB60F4427A97163001260DB /* main.swift */; };
 		CEB60F4827A9746E001260DB /* QRReaderService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB60F4727A9746E001260DB /* QRReaderService.swift */; };
-		CEB60F4B27A975AD001260DB /* FakeQRScanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB60F4A27A975AD001260DB /* FakeQRScanViewController.swift */; };
+		CEB60F4B27A975AD001260DB /* QRScanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB60F4A27A975AD001260DB /* QRScanViewController.swift */; };
 		CEB60F5C27A9BDAE001260DB /* ReactorKit in Frameworks */ = {isa = PBXBuildFile; productRef = CEB60F5B27A9BDAE001260DB /* ReactorKit */; };
 		CEB60F5E27A9BDAE001260DB /* Then in Frameworks */ = {isa = PBXBuildFile; productRef = CEB60F5D27A9BDAE001260DB /* Then */; };
 		CEB60F6027A9BDAE001260DB /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = CEB60F5F27A9BDAE001260DB /* SnapKit */; };
@@ -29,7 +38,7 @@
 		CEB60F6E27A9BDAE001260DB /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = CEB60F6D27A9BDAE001260DB /* Moya */; };
 		CEB60F7027A9BDAE001260DB /* ReactiveMoya in Frameworks */ = {isa = PBXBuildFile; productRef = CEB60F6F27A9BDAE001260DB /* ReactiveMoya */; };
 		CEB60F7227A9BDAE001260DB /* RxMoya in Frameworks */ = {isa = PBXBuildFile; productRef = CEB60F7127A9BDAE001260DB /* RxMoya */; };
-		CEB60F7427A9BDF4001260DB /* FakeQRScanReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB60F7327A9BDF4001260DB /* FakeQRScanReactor.swift */; };
+		CEB60F7427A9BDF4001260DB /* QRScanReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB60F7327A9BDF4001260DB /* QRScanReactor.swift */; };
 		CEB60F7627A9BE67001260DB /* ViewContorller+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB60F7527A9BE67001260DB /* ViewContorller+Rx.swift */; };
 		CEB60F7F27A9C536001260DB /* AttendanceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB60F7E27A9C536001260DB /* AttendanceService.swift */; };
 		CEB60F8427A9C602001260DB /* FakeAttendanceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB60F8327A9C602001260DB /* FakeAttendanceService.swift */; };
@@ -57,11 +66,13 @@
 		CE4A6C04278B47040052F7E7 /* HTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClient.swift; sourceTree = "<group>"; };
 		CE4A6C06278B47A80052F7E7 /* ResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseModel.swift; sourceTree = "<group>"; };
 		CE4A6C08278B4A3C0052F7E7 /* NetworkConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkConfig.swift; sourceTree = "<group>"; };
+		CE9E735C27C294E800922D8B /* QRScannReactorSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QRScannReactorSpec.swift; sourceTree = "<group>"; };
+		CE9E736627C29F4700922D8B /* MashUp_iOSTests-Mock.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MashUp_iOSTests-Mock.generated.swift"; sourceTree = "<group>"; };
 		CEB60F4227A9713B001260DB /* TestAppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestAppDelegate.swift; sourceTree = "<group>"; };
 		CEB60F4427A97163001260DB /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		CEB60F4727A9746E001260DB /* QRReaderService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRReaderService.swift; sourceTree = "<group>"; };
-		CEB60F4A27A975AD001260DB /* FakeQRScanViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeQRScanViewController.swift; sourceTree = "<group>"; };
-		CEB60F7327A9BDF4001260DB /* FakeQRScanReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeQRScanReactor.swift; sourceTree = "<group>"; };
+		CEB60F4A27A975AD001260DB /* QRScanViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRScanViewController.swift; sourceTree = "<group>"; };
+		CEB60F7327A9BDF4001260DB /* QRScanReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRScanReactor.swift; sourceTree = "<group>"; };
 		CEB60F7527A9BE67001260DB /* ViewContorller+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewContorller+Rx.swift"; sourceTree = "<group>"; };
 		CEB60F7827A9C0C9001260DB /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Platforms/iPhoneOS.platform/Developer/Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		CEB60F7E27A9C536001260DB /* AttendanceService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttendanceService.swift; sourceTree = "<group>"; };
@@ -73,6 +84,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE9E735127C28A4200922D8B /* RxFlow in Frameworks */,
 				CEB60F6827A9BDAE001260DB /* RxOptional in Frameworks */,
 				CEB60F6C27A9BDAE001260DB /* CombineMoya in Frameworks */,
 				CEB60F6027A9BDAE001260DB /* SnapKit in Frameworks */,
@@ -83,6 +95,7 @@
 				CEB60F6E27A9BDAE001260DB /* Moya in Frameworks */,
 				CEB60F5E27A9BDAE001260DB /* Then in Frameworks */,
 				CEB60F7027A9BDAE001260DB /* ReactiveMoya in Frameworks */,
+				CE9E735427C28A6100922D8B /* Swinject in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -90,6 +103,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE9E735827C28B2200922D8B /* RxTest in Frameworks */,
+				CE9E734827C2889E00922D8B /* Quick in Frameworks */,
+				CE9E735627C28B2200922D8B /* RxBlocking in Frameworks */,
+				CE9E734527C2889200922D8B /* Nimble in Frameworks */,
+				CE9E734B27C288B700922D8B /* Mockingbird in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -99,11 +117,13 @@
 		CE396073278B3CB40073AEF4 = {
 			isa = PBXGroup;
 			children = (
+				CE9E735E27C295D300922D8B /* MockingbirdMocks */,
 				CE39607E278B3CB40073AEF4 /* MashUp-iOS */,
 				CE396095278B3CB60073AEF4 /* MashUp-iOSTests */,
 				CE39607D278B3CB40073AEF4 /* Products */,
 				CEB60F5A27A9BDAE001260DB /* Frameworks */,
 			);
+			indentWidth = 2;
 			sourceTree = "<group>";
 		};
 		CE39607D278B3CB40073AEF4 /* Products */ = {
@@ -128,6 +148,7 @@
 		CE396095278B3CB60073AEF4 /* MashUp-iOSTests */ = {
 			isa = PBXGroup;
 			children = (
+				CE9E735B27C294E800922D8B /* Specs */,
 				CE396096278B3CB60073AEF4 /* MashUp_iOSTests.swift */,
 				CEB60F4227A9713B001260DB /* TestAppDelegate.swift */,
 			);
@@ -215,11 +236,27 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		CE9E735B27C294E800922D8B /* Specs */ = {
+			isa = PBXGroup;
+			children = (
+				CE9E735C27C294E800922D8B /* QRScannReactorSpec.swift */,
+			);
+			path = Specs;
+			sourceTree = "<group>";
+		};
+		CE9E735E27C295D300922D8B /* MockingbirdMocks */ = {
+			isa = PBXGroup;
+			children = (
+				CE9E736627C29F4700922D8B /* MashUp_iOSTests-Mock.generated.swift */,
+			);
+			path = MockingbirdMocks;
+			sourceTree = "<group>";
+		};
 		CEB60F4927A9759C001260DB /* QRScan */ = {
 			isa = PBXGroup;
 			children = (
-				CEB60F4A27A975AD001260DB /* FakeQRScanViewController.swift */,
-				CEB60F7327A9BDF4001260DB /* FakeQRScanReactor.swift */,
+				CEB60F4A27A975AD001260DB /* QRScanViewController.swift */,
+				CEB60F7327A9BDF4001260DB /* QRScanReactor.swift */,
 			);
 			path = QRScan;
 			sourceTree = "<group>";
@@ -293,6 +330,8 @@
 				CEB60F6D27A9BDAE001260DB /* Moya */,
 				CEB60F6F27A9BDAE001260DB /* ReactiveMoya */,
 				CEB60F7127A9BDAE001260DB /* RxMoya */,
+				CE9E735027C28A4200922D8B /* RxFlow */,
+				CE9E735327C28A6100922D8B /* Swinject */,
 			);
 			productName = "MashUp-iOS";
 			productReference = CE39607C278B3CB40073AEF4 /* MashUp-iOS.app */;
@@ -302,6 +341,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = CE3960A9278B3CB60073AEF4 /* Build configuration list for PBXNativeTarget "MashUp-iOSTests" */;
 			buildPhases = (
+				CE9E735A27C2936B00922D8B /* Generate TestDouble (MockingBird) */,
 				CE39608E278B3CB60073AEF4 /* Sources */,
 				CE39608F278B3CB60073AEF4 /* Frameworks */,
 				CE396090278B3CB60073AEF4 /* Resources */,
@@ -309,9 +349,17 @@
 			buildRules = (
 			);
 			dependencies = (
+				CE9E736327C29A3A00922D8B /* PBXTargetDependency */,
 				CE396094278B3CB60073AEF4 /* PBXTargetDependency */,
 			);
 			name = "MashUp-iOSTests";
+			packageProductDependencies = (
+				CE9E734427C2889200922D8B /* Nimble */,
+				CE9E734727C2889E00922D8B /* Quick */,
+				CE9E734A27C288B700922D8B /* Mockingbird */,
+				CE9E735527C28B2200922D8B /* RxBlocking */,
+				CE9E735727C28B2200922D8B /* RxTest */,
+			);
 			productName = "MashUp-iOSTests";
 			productReference = CE396092278B3CB60073AEF4 /* MashUp-iOSTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
@@ -354,6 +402,11 @@
 				CE3960D9278B40740073AEF4 /* XCRemoteSwiftPackageReference "RxOptional" */,
 				CE3960DC278B40DF0073AEF4 /* XCRemoteSwiftPackageReference "Kingfisher" */,
 				CE4A6BFA278B46970052F7E7 /* XCRemoteSwiftPackageReference "Moya" */,
+				CE9E734327C2889200922D8B /* XCRemoteSwiftPackageReference "Nimble" */,
+				CE9E734627C2889E00922D8B /* XCRemoteSwiftPackageReference "Quick" */,
+				CE9E734927C288B700922D8B /* XCRemoteSwiftPackageReference "mockingbird" */,
+				CE9E734F27C28A4200922D8B /* XCRemoteSwiftPackageReference "RxFlow" */,
+				CE9E735227C28A6100922D8B /* XCRemoteSwiftPackageReference "Swinject" */,
 			);
 			productRefGroup = CE39607D278B3CB40073AEF4 /* Products */;
 			projectDirPath = "";
@@ -384,6 +437,29 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		CE9E735A27C2936B00922D8B /* Generate TestDouble (MockingBird) */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Generate TestDouble (MockingBird)";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${SRCROOT}/MockingbirdMocks/MashUp_iOSTests-Mock.generated.swift",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "set -eu\n\n# Prevent Xcode 13 from running this script while indexing.\n[[ \"${ACTION}\" == \"indexbuild\" ]] && exit 0\n\n# Infer the derived data location from the build environment.\n[[ -z \"${DERIVED_DATA+x}\" ]] && DERIVED_DATA=\"$(echo \"${BUILD_ROOT}\" | sed -n 's|\\(.*\\)/Build/.*|\\1|p')\"\n\n\"${DERIVED_DATA}/SourcePackages/checkouts/mockingbird/mockingbird\" generate --targets \"MashUp-iOS\" --outputs \"${SRCROOT}/MockingbirdMocks/MashUp_iOSTests-Mock.generated.swift\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		CE396078278B3CB40073AEF4 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -392,8 +468,8 @@
 				CEB60F7F27A9C536001260DB /* AttendanceService.swift in Sources */,
 				CE4A6C07278B47A80052F7E7 /* ResponseModel.swift in Sources */,
 				CEB60F4527A97163001260DB /* main.swift in Sources */,
-				CEB60F4B27A975AD001260DB /* FakeQRScanViewController.swift in Sources */,
-				CEB60F7427A9BDF4001260DB /* FakeQRScanReactor.swift in Sources */,
+				CEB60F4B27A975AD001260DB /* QRScanViewController.swift in Sources */,
+				CEB60F7427A9BDF4001260DB /* QRScanReactor.swift in Sources */,
 				CEB60F8427A9C602001260DB /* FakeAttendanceService.swift in Sources */,
 				CEB60F7627A9BE67001260DB /* ViewContorller+Rx.swift in Sources */,
 				CE396080278B3CB40073AEF4 /* AppDelegate.swift in Sources */,
@@ -409,6 +485,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				CEB60F4327A9713B001260DB /* TestAppDelegate.swift in Sources */,
+				CE9E735D27C294E800922D8B /* QRScannReactorSpec.swift in Sources */,
+				CE9E736727C29F4700922D8B /* MashUp_iOSTests-Mock.generated.swift in Sources */,
 				CE396097278B3CB60073AEF4 /* MashUp_iOSTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -420,6 +498,10 @@
 			isa = PBXTargetDependency;
 			target = CE39607B278B3CB40073AEF4 /* MashUp-iOS */;
 			targetProxy = CE396093278B3CB60073AEF4 /* PBXContainerItemProxy */;
+		};
+		CE9E736327C29A3A00922D8B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			productRef = CE9E736227C29A3A00922D8B /* Mockingbird */;
 		};
 /* End PBXTargetDependency section */
 
@@ -435,7 +517,7 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		CE3960A4278B3CB60073AEF4 /* DEV */ = {
+		CE3960A4278B3CB60073AEF4 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -471,7 +553,7 @@
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				ENABLE_TESTABILITY = NO;
+				ENABLE_TESTABILITY = YES;
 				ENABLE_TESTING_SEARCH_PATHS = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -495,9 +577,9 @@
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG DEV";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
-			name = DEV;
+			name = Debug;
 		};
-		CE3960A5278B3CB60073AEF4 /* RC */ = {
+		CE3960A5278B3CB60073AEF4 /* Inhouse */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -534,7 +616,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				ENABLE_TESTABILITY = NO;
+				ENABLE_TESTABILITY = YES;
 				ENABLE_TESTING_SEARCH_PATHS = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -553,9 +635,9 @@
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				VALIDATE_PRODUCT = YES;
 			};
-			name = RC;
+			name = Inhouse;
 		};
-		CE3960A7278B3CB60073AEF4 /* DEV */ = {
+		CE3960A7278B3CB60073AEF4 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -580,9 +662,9 @@
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
-			name = DEV;
+			name = Debug;
 		};
-		CE3960A8278B3CB60073AEF4 /* RC */ = {
+		CE3960A8278B3CB60073AEF4 /* Inhouse */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -607,9 +689,9 @@
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
-			name = RC;
+			name = Inhouse;
 		};
-		CE3960AA278B3CB60073AEF4 /* DEV */ = {
+		CE3960AA278B3CB60073AEF4 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
@@ -634,9 +716,9 @@
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MashUp-iOS.app/MashUp-iOS";
 			};
-			name = DEV;
+			name = Debug;
 		};
-		CE3960AB278B3CB60073AEF4 /* RC */ = {
+		CE3960AB278B3CB60073AEF4 /* Inhouse */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
@@ -661,9 +743,9 @@
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MashUp-iOS.app/MashUp-iOS";
 			};
-			name = RC;
+			name = Inhouse;
 		};
-		CE4A6C0D278B503B0052F7E7 /* REAL */ = {
+		CE4A6C0D278B503B0052F7E7 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -719,9 +801,9 @@
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				VALIDATE_PRODUCT = YES;
 			};
-			name = REAL;
+			name = Release;
 		};
-		CE4A6C0E278B503B0052F7E7 /* REAL */ = {
+		CE4A6C0E278B503B0052F7E7 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -746,9 +828,9 @@
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
-			name = REAL;
+			name = Release;
 		};
-		CE4A6C0F278B503B0052F7E7 /* REAL */ = {
+		CE4A6C0F278B503B0052F7E7 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
@@ -756,7 +838,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 8BQHKQSA4Y;
-				ENABLE_TESTABILITY = YES;
+				ENABLE_TESTABILITY = NO;
 				ENABLE_TESTING_SEARCH_PATHS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -773,7 +855,7 @@
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MashUp-iOS.app/MashUp-iOS";
 			};
-			name = REAL;
+			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
@@ -781,32 +863,32 @@
 		CE396077278B3CB40073AEF4 /* Build configuration list for PBXProject "MashUp-iOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				CE3960A4278B3CB60073AEF4 /* DEV */,
-				CE3960A5278B3CB60073AEF4 /* RC */,
-				CE4A6C0D278B503B0052F7E7 /* REAL */,
+				CE3960A4278B3CB60073AEF4 /* Debug */,
+				CE3960A5278B3CB60073AEF4 /* Inhouse */,
+				CE4A6C0D278B503B0052F7E7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = DEV;
+			defaultConfigurationName = Release;
 		};
 		CE3960A6278B3CB60073AEF4 /* Build configuration list for PBXNativeTarget "MashUp-iOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				CE3960A7278B3CB60073AEF4 /* DEV */,
-				CE3960A8278B3CB60073AEF4 /* RC */,
-				CE4A6C0E278B503B0052F7E7 /* REAL */,
+				CE3960A7278B3CB60073AEF4 /* Debug */,
+				CE3960A8278B3CB60073AEF4 /* Inhouse */,
+				CE4A6C0E278B503B0052F7E7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = DEV;
+			defaultConfigurationName = Release;
 		};
 		CE3960A9278B3CB60073AEF4 /* Build configuration list for PBXNativeTarget "MashUp-iOSTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				CE3960AA278B3CB60073AEF4 /* DEV */,
-				CE3960AB278B3CB60073AEF4 /* RC */,
-				CE4A6C0F278B503B0052F7E7 /* REAL */,
+				CE3960AA278B3CB60073AEF4 /* Debug */,
+				CE3960AB278B3CB60073AEF4 /* Inhouse */,
+				CE4A6C0F278B503B0052F7E7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = DEV;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
@@ -875,9 +957,89 @@
 				kind = branch;
 			};
 		};
+		CE9E734327C2889200922D8B /* XCRemoteSwiftPackageReference "Nimble" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Quick/Nimble";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+		CE9E734627C2889E00922D8B /* XCRemoteSwiftPackageReference "Quick" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Quick/Quick";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+		CE9E734927C288B700922D8B /* XCRemoteSwiftPackageReference "mockingbird" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/birdrides/mockingbird";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+		CE9E734F27C28A4200922D8B /* XCRemoteSwiftPackageReference "RxFlow" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/RxSwiftCommunity/RxFlow";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
+		CE9E735227C28A6100922D8B /* XCRemoteSwiftPackageReference "Swinject" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Swinject/Swinject";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		CE9E734427C2889200922D8B /* Nimble */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CE9E734327C2889200922D8B /* XCRemoteSwiftPackageReference "Nimble" */;
+			productName = Nimble;
+		};
+		CE9E734727C2889E00922D8B /* Quick */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CE9E734627C2889E00922D8B /* XCRemoteSwiftPackageReference "Quick" */;
+			productName = Quick;
+		};
+		CE9E734A27C288B700922D8B /* Mockingbird */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CE9E734927C288B700922D8B /* XCRemoteSwiftPackageReference "mockingbird" */;
+			productName = Mockingbird;
+		};
+		CE9E735027C28A4200922D8B /* RxFlow */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CE9E734F27C28A4200922D8B /* XCRemoteSwiftPackageReference "RxFlow" */;
+			productName = RxFlow;
+		};
+		CE9E735327C28A6100922D8B /* Swinject */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CE9E735227C28A6100922D8B /* XCRemoteSwiftPackageReference "Swinject" */;
+			productName = Swinject;
+		};
+		CE9E735527C28B2200922D8B /* RxBlocking */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CE3960B7278B3F270073AEF4 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxBlocking;
+		};
+		CE9E735727C28B2200922D8B /* RxTest */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CE3960B7278B3F270073AEF4 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxTest;
+		};
+		CE9E736227C29A3A00922D8B /* Mockingbird */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CE9E734927C288B700922D8B /* XCRemoteSwiftPackageReference "mockingbird" */;
+			productName = Mockingbird;
+		};
 		CEB60F5B27A9BDAE001260DB /* ReactorKit */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = CE3960C7278B3F8E0073AEF4 /* XCRemoteSwiftPackageReference "ReactorKit" */;

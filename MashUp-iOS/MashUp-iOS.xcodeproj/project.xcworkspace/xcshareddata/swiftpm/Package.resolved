@@ -11,6 +11,24 @@
         }
       },
       {
+        "package": "CwlCatchException",
+        "repositoryURL": "https://github.com/mattgallagher/CwlCatchException.git",
+        "state": {
+          "branch": null,
+          "revision": "35f9e770f54ce62dd8526470f14c6e137cef3eea",
+          "version": "2.1.1"
+        }
+      },
+      {
+        "package": "CwlPreconditionTesting",
+        "repositoryURL": "https://github.com/mattgallagher/CwlPreconditionTesting.git",
+        "state": {
+          "branch": null,
+          "revision": "c21f7bab5ca8eee0a9998bbd17ca1d0eb45d4688",
+          "version": "2.1.0"
+        }
+      },
+      {
         "package": "Kingfisher",
         "repositoryURL": "https://github.com/onevcat/Kingfisher",
         "state": {
@@ -20,11 +38,38 @@
         }
       },
       {
+        "package": "Mockingbird",
+        "repositoryURL": "https://github.com/birdrides/mockingbird",
+        "state": {
+          "branch": "master",
+          "revision": "5645d27536fb07e74bcede0873eb057354c5fc46",
+          "version": null
+        }
+      },
+      {
         "package": "Moya",
         "repositoryURL": "https://github.com/Moya/Moya",
         "state": {
           "branch": "master",
           "revision": "6959c4440315a6dcf7227ed70728c2c3d5eb28ee",
+          "version": null
+        }
+      },
+      {
+        "package": "Nimble",
+        "repositoryURL": "https://github.com/Quick/Nimble",
+        "state": {
+          "branch": "main",
+          "revision": "0bf627cd68085345ac52c165ba02d1f73c584eed",
+          "version": null
+        }
+      },
+      {
+        "package": "Quick",
+        "repositoryURL": "https://github.com/Quick/Quick",
+        "state": {
+          "branch": "main",
+          "revision": "c81db820d66350863a9ae3647fbaef921ba5c066",
           "version": null
         }
       },
@@ -47,6 +92,15 @@
         }
       },
       {
+        "package": "RxFlow",
+        "repositoryURL": "https://github.com/RxSwiftCommunity/RxFlow",
+        "state": {
+          "branch": null,
+          "revision": "8114d4781b9c5de693ed225cfb28ca3b695b023a",
+          "version": "2.12.4"
+        }
+      },
+      {
         "package": "RxGesture",
         "repositoryURL": "https://github.com/RxSwiftCommunity/RxGesture",
         "state": {
@@ -65,12 +119,30 @@
         }
       },
       {
+        "package": "RxSwift",
+        "repositoryURL": "https://github.com/ReactiveX/RxSwift",
+        "state": {
+          "branch": null,
+          "revision": "b4307ba0b6425c0ba4178e138799946c3da594f8",
+          "version": "6.5.0"
+        }
+      },
+      {
         "package": "SnapKit",
         "repositoryURL": "https://github.com/SnapKit/SnapKit",
         "state": {
           "branch": null,
           "revision": "d458564516e5676af9c70b4f4b2a9178294f1bc6",
           "version": "5.0.1"
+        }
+      },
+      {
+        "package": "Swinject",
+        "repositoryURL": "https://github.com/Swinject/Swinject",
+        "state": {
+          "branch": null,
+          "revision": "f10b6e9ebff440f985c43008f7c2d097639fcb81",
+          "version": "2.8.1"
         }
       },
       {
