@@ -40,36 +40,36 @@ final class QRScannReactorSpec: QuickSpec {
         it("qr reader is ready to scan code") {
           verify(qrReaderMock.scanCode()).wasCalled()
         }
-        context("when capture code from session") {
-          let stubbedCode = "stubbed.code"
-          let correctCode: String = "correct.code"
-          let wrongCode: String = "wrong.code"
+      }
+      context("when capture code from session") {
+        let stubbedCode = "stubbed.code"
+        let correctCode: String = "correct.code"
+        let wrongCode: String = "wrong.code"
+        beforeEach {
+          given(qrReaderMock.scanCode()).willReturn(.just(stubbedCode))
+          given(attendanceServiceMock.attend(withCode: any())).willReturn(.just(false))
+          given(attendanceServiceMock.attend(withCode: correctCode)).willReturn(.just(true))
+        }
+        it("request attendence with captured code") {
+          sut.action.onNext(.didSetup)
+          verify(attendanceServiceMock.attend(withCode: stubbedCode)).wasCalled()
+        }
+        context("when request attendance with correct code") {
           beforeEach {
-            given(qrReaderMock.scanCode()).willReturn(.just(stubbedCode))
-            given(attendanceServiceMock.attend(withCode: any())).willReturn(.just(false))
-            given(attendanceServiceMock.attend(withCode: correctCode)).willReturn(.just(true))
+            given(qrReaderMock.scanCode()).willReturn(.just(correctCode))
           }
-          it("request attendence with captured code") {
+          it("attendance did success") {
             sut.action.onNext(.didSetup)
-            verify(attendanceServiceMock.attend(withCode: stubbedCode)).wasCalled()
+            expect { sut.currentState.alertMessage }.to(equal("✅ 출석을 완료하셨습니다."))
           }
-          context("requesting attendance with correct code") {
-            beforeEach {
-              given(qrReaderMock.scanCode()).willReturn(.just(correctCode))
-            }
-            it("attendance did success") {
-              sut.action.onNext(.didSetup)
-              expect { sut.currentState.alertMessage }.to(equal("✅ 출석을 완료하셨습니다."))
-            }
+        }
+        context("when request attendance with wrong code") {
+          beforeEach {
+            given(qrReaderMock.scanCode()).willReturn(.just(wrongCode))
           }
-          context("requesting attendance with wrong code") {
-            beforeEach {
-              given(qrReaderMock.scanCode()).willReturn(.just(wrongCode))
-            }
-            it("attendance did failure") {
-              sut.action.onNext(.didSetup)
-              expect { sut.currentState.alertMessage }.to(equal("❌ 올바른 코드가 아닙니다."))
-            }
+          it("attendance did failure") {
+            sut.action.onNext(.didSetup)
+            expect { sut.currentState.alertMessage }.to(equal("❌ 올바른 코드가 아닙니다."))
           }
         }
       }
