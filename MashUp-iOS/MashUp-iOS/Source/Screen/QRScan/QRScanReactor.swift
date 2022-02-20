@@ -62,8 +62,8 @@ final class QRScanReactor: Reactor {
     
     private func updateCodeAndAttendance(code: Code) -> Observable<Mutation> {
         let updateCode = Observable.just(Mutation.updateCode(code))
-        let updateAttendacne = self.attencanceService.attend(withCode: code).map { Mutation.updateAttendance($0) }
-        return .concat(updateCode, updateAttendacne)
+        let updateAttendance = self.attencanceService.attend(withCode: code).map { Mutation.updateAttendance($0) }
+        return .concat(updateCode, updateAttendance)
     }
     
     private func messageOf(attendance: Bool) -> String {

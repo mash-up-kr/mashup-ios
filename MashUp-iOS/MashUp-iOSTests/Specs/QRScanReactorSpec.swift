@@ -15,7 +15,7 @@ import RxBlocking
 @testable import MashUp_iOS
 
 final class QRScanReactorSpec: QuickSpec {
-  
+   
   override func spec() {
     var sut: QRScanReactor!
     var captureSessionDummy: AVCaptureSession!
