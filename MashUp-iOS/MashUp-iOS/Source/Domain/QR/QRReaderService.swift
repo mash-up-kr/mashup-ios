@@ -25,11 +25,15 @@ final class QRReaderServiceImpl: NSObject, QRReaderService  {
     
     func scanCodeWhileSessionIsOpen() -> Observable<Code> {
         if self.isReadyToScan == false {
-            self.readVideoCapture()
-            self.decodeVideoCapture()
+            self.setupScanPipeline()
             self.isReadyToScan = true
         }
         return self.codeRelay.asObservable()
+    }
+    
+    private func setupScanPipeline() {
+        self.readVideoCapture()
+        self.decodeVideoCapture()
     }
     
     private func readVideoCapture() {
