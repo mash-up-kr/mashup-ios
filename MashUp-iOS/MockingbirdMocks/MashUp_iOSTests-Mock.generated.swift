@@ -106,9 +106,9 @@ public final class QRReaderServiceMock: MashUp_iOS.QRReaderService, Mockingbird.
     QRReaderServiceMock.mockingbirdContext.sourceLocation = sourceLocation
   }
 
-  // MARK: Mocked `scanCode`()
-  public func scanCodeWhileSessionIsOpen() -> Observable<MashUp_iOS.Code> {
-    return self.mockingbirdContext.mocking.didInvoke(Mockingbird.SwiftInvocation(selectorName: "`scanCode`() -> Observable<MashUp_iOS.Code>", selectorType: Mockingbird.SelectorType.method, arguments: [], returnType: Swift.ObjectIdentifier((Observable<MashUp_iOS.Code>).self))) {
+  // MARK: Mocked `scanCodeWhileSessionIsOpen`()
+  public func `scanCodeWhileSessionIsOpen`() -> Observable<MashUp_iOS.Code> {
+    return self.mockingbirdContext.mocking.didInvoke(Mockingbird.SwiftInvocation(selectorName: "`scanCodeWhileSessionIsOpen`() -> Observable<MashUp_iOS.Code>", selectorType: Mockingbird.SelectorType.method, arguments: [], returnType: Swift.ObjectIdentifier((Observable<MashUp_iOS.Code>).self))) {
       self.mockingbirdContext.recordInvocation($0)
       let mkbImpl = self.mockingbirdContext.stubbing.implementation(for: $0)
       if let mkbImpl = mkbImpl as? () -> Observable<MashUp_iOS.Code> { return mkbImpl() }
@@ -118,7 +118,7 @@ public final class QRReaderServiceMock: MashUp_iOS.QRReaderService, Mockingbird.
           break
         case .object(let mkbObject):
           guard var mkbObject = mkbObject as? MockingbirdSupertype else { break }
-          let mkbValue: Observable<MashUp_iOS.Code> = mkbObject.scanCodeWhileSessionIsOpen()
+          let mkbValue: Observable<MashUp_iOS.Code> = mkbObject.`scanCodeWhileSessionIsOpen`()
           self.mockingbirdContext.proxy.updateTarget(&mkbObject, in: mkbTargetBox)
           return mkbValue
         }
@@ -128,8 +128,8 @@ public final class QRReaderServiceMock: MashUp_iOS.QRReaderService, Mockingbird.
     }
   }
 
-  public func `scanCode`() -> Mockingbird.Mockable<Mockingbird.FunctionDeclaration, () -> Observable<MashUp_iOS.Code>, Observable<MashUp_iOS.Code>> {
-    return Mockingbird.Mockable<Mockingbird.FunctionDeclaration, () -> Observable<MashUp_iOS.Code>, Observable<MashUp_iOS.Code>>(context: self.mockingbirdContext, invocation: Mockingbird.SwiftInvocation(selectorName: "`scanCode`() -> Observable<MashUp_iOS.Code>", selectorType: Mockingbird.SelectorType.method, arguments: [], returnType: Swift.ObjectIdentifier((Observable<MashUp_iOS.Code>).self)))
+  public func `scanCodeWhileSessionIsOpen`() -> Mockingbird.Mockable<Mockingbird.FunctionDeclaration, () -> Observable<MashUp_iOS.Code>, Observable<MashUp_iOS.Code>> {
+    return Mockingbird.Mockable<Mockingbird.FunctionDeclaration, () -> Observable<MashUp_iOS.Code>, Observable<MashUp_iOS.Code>>(context: self.mockingbirdContext, invocation: Mockingbird.SwiftInvocation(selectorName: "`scanCodeWhileSessionIsOpen`() -> Observable<MashUp_iOS.Code>", selectorType: Mockingbird.SelectorType.method, arguments: [], returnType: Swift.ObjectIdentifier((Observable<MashUp_iOS.Code>).self)))
   }
 }
 

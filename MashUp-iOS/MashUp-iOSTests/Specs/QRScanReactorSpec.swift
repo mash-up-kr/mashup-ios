@@ -29,7 +29,7 @@ final class QRScanReactorSpec: QuickSpec {
     }
     describe("QRScanReactor") {
       beforeEach {
-        given(qrReaderServiceMock.scanCode()).willReturn(.empty())
+        given(qrReaderServiceMock.scanCodeWhileSessionIsOpen()).willReturn(.empty())
         given(qrReaderServiceMock.captureSession).willReturn(captureSessionDummy)
         sut = QRScanReactor(qrReaderService: qrReaderServiceMock, attendanceService: attendanceServiceMock)
       }
@@ -38,7 +38,7 @@ final class QRScanReactorSpec: QuickSpec {
           sut.action.onNext(.didSetup)
         }
         it("qr reader is ready to scan code") {
-          verify(qrReaderServiceMock.scanCode()).wasCalled()
+          verify(qrReaderServiceMock.scanCodeWhileSessionIsOpen()).wasCalled()
         }
       }
       context("when capture code from session") {
@@ -46,7 +46,7 @@ final class QRScanReactorSpec: QuickSpec {
         let correctCode: String = "correct.code"
         let wrongCode: String = "wrong.code"
         beforeEach {
-          given(qrReaderServiceMock.scanCode()).willReturn(.just(stubbedCode))
+          given(qrReaderServiceMock.scanCodeWhileSessionIsOpen()).willReturn(.just(stubbedCode))
           given(attendanceServiceMock.attend(withCode: any())).willReturn(.just(false))
           given(attendanceServiceMock.attend(withCode: correctCode)).willReturn(.just(true))
         }
@@ -56,7 +56,7 @@ final class QRScanReactorSpec: QuickSpec {
         }
         context("when request attendance with correct code") {
           beforeEach {
-            given(qrReaderServiceMock.scanCode()).willReturn(.just(correctCode))
+            given(qrReaderServiceMock.scanCodeWhileSessionIsOpen()).willReturn(.just(correctCode))
           }
           it("attendance did success") {
             sut.action.onNext(.didSetup)
@@ -65,7 +65,7 @@ final class QRScanReactorSpec: QuickSpec {
         }
         context("when request attendance with wrong code") {
           beforeEach {
-            given(qrReaderServiceMock.scanCode()).willReturn(.just(wrongCode))
+            given(qrReaderServiceMock.scanCodeWhileSessionIsOpen()).willReturn(.just(wrongCode))
           }
           it("attendance did failure") {
             sut.action.onNext(.didSetup)
