@@ -140,6 +140,7 @@
 				CE3960B4278B3DBD0073AEF4 /* Source */,
 				CE3960B6278B3DC90073AEF4 /* SupportFile */,
 			);
+			indentWidth = 4;
 			path = "MashUp-iOS";
 			sourceTree = "<group>";
 		};
@@ -640,7 +641,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 8BQHKQSA4Y;
+				DEVELOPMENT_TEAM = 64JN25L784;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "MashUp-iOS/SupportFile/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -667,7 +668,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 8BQHKQSA4Y;
+				DEVELOPMENT_TEAM = 64JN25L784;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "MashUp-iOS/SupportFile/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -806,7 +807,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 8BQHKQSA4Y;
+				DEVELOPMENT_TEAM = 64JN25L784;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "MashUp-iOS/SupportFile/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;

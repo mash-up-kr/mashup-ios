@@ -19,26 +19,26 @@ final class QRScanReactorSpec: QuickSpec {
   override func spec() {
     var sut: QRScanReactor!
     var captureSessionDummy: AVCaptureSession!
-    var qrReaderMock: QRReaderServiceMock!
+    var qrReaderServiceMock: QRReaderServiceMock!
     var attendanceServiceMock: AttendanceServiceMock!
     
     beforeEach {
       captureSessionDummy = AVCaptureSession()
-      qrReaderMock = mock(QRReaderService.self)
+      qrReaderServiceMock = mock(QRReaderService.self)
       attendanceServiceMock = mock(AttendanceService.self)
     }
     describe("QRScanReactor") {
       beforeEach {
-        given(qrReaderMock.scanCode()).willReturn(.empty())
-        given(qrReaderMock.captureSession).willReturn(captureSessionDummy)
-        sut = QRScanReactor(qrReader: qrReaderMock, attendanceService: attendanceServiceMock)
+        given(qrReaderServiceMock.scanCode()).willReturn(.empty())
+        given(qrReaderServiceMock.captureSession).willReturn(captureSessionDummy)
+        sut = QRScanReactor(qrReaderService: qrReaderServiceMock, attendanceService: attendanceServiceMock)
       }
       context("when did set up") {
         beforeEach {
           sut.action.onNext(.didSetup)
         }
         it("qr reader is ready to scan code") {
-          verify(qrReaderMock.scanCode()).wasCalled()
+          verify(qrReaderServiceMock.scanCode()).wasCalled()
         }
       }
       context("when capture code from session") {
@@ -46,7 +46,7 @@ final class QRScanReactorSpec: QuickSpec {
         let correctCode: String = "correct.code"
         let wrongCode: String = "wrong.code"
         beforeEach {
-          given(qrReaderMock.scanCode()).willReturn(.just(stubbedCode))
+          given(qrReaderServiceMock.scanCode()).willReturn(.just(stubbedCode))
           given(attendanceServiceMock.attend(withCode: any())).willReturn(.just(false))
           given(attendanceServiceMock.attend(withCode: correctCode)).willReturn(.just(true))
         }
@@ -56,7 +56,7 @@ final class QRScanReactorSpec: QuickSpec {
         }
         context("when request attendance with correct code") {
           beforeEach {
-            given(qrReaderMock.scanCode()).willReturn(.just(correctCode))
+            given(qrReaderServiceMock.scanCode()).willReturn(.just(correctCode))
           }
           it("attendance did success") {
             sut.action.onNext(.didSetup)
@@ -65,7 +65,7 @@ final class QRScanReactorSpec: QuickSpec {
         }
         context("when request attendance with wrong code") {
           beforeEach {
-            given(qrReaderMock.scanCode()).willReturn(.just(wrongCode))
+            given(qrReaderServiceMock.scanCode()).willReturn(.just(wrongCode))
           }
           it("attendance did failure") {
             sut.action.onNext(.didSetup)

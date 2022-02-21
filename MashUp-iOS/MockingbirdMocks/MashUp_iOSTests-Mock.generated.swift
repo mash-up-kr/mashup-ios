@@ -107,7 +107,7 @@ public final class QRReaderServiceMock: MashUp_iOS.QRReaderService, Mockingbird.
   }
 
   // MARK: Mocked `scanCode`()
-  public func `scanCode`() -> Observable<MashUp_iOS.Code> {
+  public func scanCodeWhileSessionIsOpen() -> Observable<MashUp_iOS.Code> {
     return self.mockingbirdContext.mocking.didInvoke(Mockingbird.SwiftInvocation(selectorName: "`scanCode`() -> Observable<MashUp_iOS.Code>", selectorType: Mockingbird.SelectorType.method, arguments: [], returnType: Swift.ObjectIdentifier((Observable<MashUp_iOS.Code>).self))) {
       self.mockingbirdContext.recordInvocation($0)
       let mkbImpl = self.mockingbirdContext.stubbing.implementation(for: $0)
@@ -118,7 +118,7 @@ public final class QRReaderServiceMock: MashUp_iOS.QRReaderService, Mockingbird.
           break
         case .object(let mkbObject):
           guard var mkbObject = mkbObject as? MockingbirdSupertype else { break }
-          let mkbValue: Observable<MashUp_iOS.Code> = mkbObject.`scanCode`()
+          let mkbValue: Observable<MashUp_iOS.Code> = mkbObject.scanCodeWhileSessionIsOpen()
           self.mockingbirdContext.proxy.updateTarget(&mkbObject, in: mkbTargetBox)
           return mkbValue
         }

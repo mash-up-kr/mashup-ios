@@ -32,18 +32,18 @@ final class QRScanReactor: Reactor {
     let initialState: State
     
     init(
-        qrReader: QRReaderService = QRReaderServiceImpl(),
+        qrReaderService: QRReaderService = QRReaderServiceImpl(),
         attendanceService: AttendanceService = AttendanceServiceImpl()
     ) {
-        self.qrReader = qrReader
+        self.qrReaderService = qrReaderService
         self.attencanceService = attendanceService
-        self.initialState = State(captureSession: qrReader.captureSession, hasAttended: false)
+        self.initialState = State(captureSession: qrReaderService.captureSession, hasAttended: false)
     }
     
     func mutate(action: Action) -> Observable<Mutation> {
         switch action {
         case .didSetup:
-            return self.qrReader.scanCode().flatMap(self.updateCodeAndAttendance)
+            return self.qrReaderService.scanCodeWhileSessionIsOpen().flatMap(self.updateCodeAndAttendance)
         }
     }
     
@@ -70,7 +70,7 @@ final class QRScanReactor: Reactor {
         return attendance ? "✅ 출석을 완료하셨습니다." : "❌ 올바른 코드가 아닙니다."
     }
     
-    private let qrReader: QRReaderService
+    private let qrReaderService: QRReaderService
     private let attencanceService: AttendanceService
     
 }

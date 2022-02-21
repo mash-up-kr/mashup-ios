@@ -16,14 +16,14 @@ typealias Code = String
 protocol QRReaderService {
     var captureSession: AVCaptureSession { get }
     
-    func scanCode() -> Observable<Code>
+    func scanCodeWhileSessionIsOpen() -> Observable<Code>
 }
 
 final class QRReaderServiceImpl: NSObject, QRReaderService  {
     
     let captureSession = AVCaptureSession()
     
-    func scanCode() -> Observable<Code> {
+    func scanCodeWhileSessionIsOpen() -> Observable<Code> {
         if self.isReadyToScan == false {
             self.readVideoCapture()
             self.decodeVideoCapture()
