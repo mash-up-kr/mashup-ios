@@ -38,6 +38,15 @@
         }
       },
       {
+        "package": "Mockingbird",
+        "repositoryURL": "https://github.com/birdrides/mockingbird",
+        "state": {
+          "branch": "master",
+          "revision": "5645d27536fb07e74bcede0873eb057354c5fc46",
+          "version": null
+        }
+      },
+      {
         "package": "Moya",
         "repositoryURL": "https://github.com/Moya/Moya",
         "state": {
@@ -50,18 +59,18 @@
         "package": "Nimble",
         "repositoryURL": "https://github.com/Quick/Nimble",
         "state": {
-          "branch": null,
-          "revision": "c93f16c25af5770f0d3e6af27c9634640946b068",
-          "version": "9.2.1"
+          "branch": "main",
+          "revision": "0bf627cd68085345ac52c165ba02d1f73c584eed",
+          "version": null
         }
       },
       {
         "package": "Quick",
         "repositoryURL": "https://github.com/Quick/Quick",
         "state": {
-          "branch": null,
-          "revision": "bd86ca0141e3cfb333546de5a11ede63f0c4a0e6",
-          "version": "4.0.0"
+          "branch": "main",
+          "revision": "c81db820d66350863a9ae3647fbaef921ba5c066",
+          "version": null
         }
       },
       {
@@ -78,8 +87,17 @@
         "repositoryURL": "https://github.com/ReactorKit/ReactorKit",
         "state": {
           "branch": null,
-          "revision": "72bd20b76891566688f03594da4651d4e6771b8c",
-          "version": "3.1.0"
+          "revision": "8fa33f09c6f6621a2aa536d739956d53b84dd139",
+          "version": "3.2.0"
+        }
+      },
+      {
+        "package": "RxFlow",
+        "repositoryURL": "https://github.com/RxSwiftCommunity/RxFlow",
+        "state": {
+          "branch": null,
+          "revision": "8114d4781b9c5de693ed225cfb28ca3b695b023a",
+          "version": "2.12.4"
         }
       },
       {
@@ -101,12 +119,30 @@
         }
       },
       {
+        "package": "RxSwift",
+        "repositoryURL": "https://github.com/ReactiveX/RxSwift",
+        "state": {
+          "branch": null,
+          "revision": "b4307ba0b6425c0ba4178e138799946c3da594f8",
+          "version": "6.5.0"
+        }
+      },
+      {
         "package": "SnapKit",
         "repositoryURL": "https://github.com/SnapKit/SnapKit",
         "state": {
           "branch": null,
           "revision": "d458564516e5676af9c70b4f4b2a9178294f1bc6",
           "version": "5.0.1"
+        }
+      },
+      {
+        "package": "Swinject",
+        "repositoryURL": "https://github.com/Swinject/Swinject",
+        "state": {
+          "branch": null,
+          "revision": "f10b6e9ebff440f985c43008f7c2d097639fcb81",
+          "version": "2.8.1"
         }
       },
       {

@@ -8,15 +8,33 @@
 
 import UIKit
 
-@main
-class AppDelegate: UIResponder, UIApplicationDelegate {
+
+final class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        let window = UIWindow()
+        self.window = window
+        window.rootViewController = self.createQRScanViewController()
+        window.makeKeyAndVisible()
         return true
     }
 
+    private func createQRScanViewController() -> UIViewController {
+        let attendanceService = self.createAttendanceService()
+        let reactor = QRScanReactor(attendanceService: attendanceService)
+        let viewController = QRScanViewController()
+        viewController.reactor = reactor
+        return viewController
+    }
+    
+    private func createAttendanceService() -> AttendanceService {
+        #warning("실제 객체로 변경해야합니다.")
+        let attendanceService = FakeAttendanceService()
+        attendanceService.stubedCorrectCode = "I'm correct"
+        return attendanceService
+    }
 }
 
