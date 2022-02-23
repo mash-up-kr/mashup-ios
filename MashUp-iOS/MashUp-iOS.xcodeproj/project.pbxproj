@@ -644,6 +644,7 @@
 				DEVELOPMENT_TEAM = 64JN25L784;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "MashUp-iOS/SupportFile/Info.plist";
+				INFOPLIST_KEY_NSCameraUsageDescription = "카메라에 접근을 허용하시겠습니까?";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -653,7 +654,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "kr.mash-up.MashUp-iOS";
+				PRODUCT_BUNDLE_IDENTIFIER = "kr.mash-up.MashUp";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -671,6 +672,7 @@
 				DEVELOPMENT_TEAM = 64JN25L784;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "MashUp-iOS/SupportFile/Info.plist";
+				INFOPLIST_KEY_NSCameraUsageDescription = "카메라에 접근을 허용하시겠습니까?";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -680,7 +682,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "kr.mash-up.MashUp-iOS";
+				PRODUCT_BUNDLE_IDENTIFIER = "kr.mash-up.MashUp";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -695,7 +697,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 8BQHKQSA4Y;
+				DEVELOPMENT_TEAM = 64JN25L784;
 				ENABLE_TESTABILITY = YES;
 				ENABLE_TESTING_SEARCH_PATHS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -722,7 +724,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 8BQHKQSA4Y;
+				DEVELOPMENT_TEAM = 64JN25L784;
 				ENABLE_TESTABILITY = YES;
 				ENABLE_TESTING_SEARCH_PATHS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -810,6 +812,7 @@
 				DEVELOPMENT_TEAM = 64JN25L784;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "MashUp-iOS/SupportFile/Info.plist";
+				INFOPLIST_KEY_NSCameraUsageDescription = "카메라에 접근을 허용하시겠습니까?";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -819,7 +822,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "kr.mash-up.MashUp-iOS";
+				PRODUCT_BUNDLE_IDENTIFIER = "kr.mash-up.MashUp";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -834,7 +837,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 8BQHKQSA4Y;
+				DEVELOPMENT_TEAM = 64JN25L784;
 				ENABLE_TESTABILITY = NO;
 				ENABLE_TESTING_SEARCH_PATHS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
