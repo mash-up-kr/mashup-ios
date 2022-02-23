@@ -67,3 +67,4 @@ fastlane/test_output
 
 ### Xcode Patch ###
 **/xcshareddata/WorkspaceSettings.xcsettings
+MashUp-iOS/MashUp-iOS.xcodeproj/MockingbirdCache
