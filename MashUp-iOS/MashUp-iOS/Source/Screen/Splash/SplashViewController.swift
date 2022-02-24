@@ -13,73 +13,20 @@ import SnapKit
 import UIKit
 
 final class SplashViewController: BaseViewController, ReactorKit.View {
+    typealias Reactor = SplashReactor
+    
+    var disposeBag: DisposeBag = DisposeBag()
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        self.view.backgroundColor = .systemPink
+    }
+    
     func bind(reactor: SplashReactor) {
         
     }
     
-    typealias Reactor = SplashReactor
-    
-    var disposeBag: DisposeBag = DisposeBag()
 }
 
 
-
-protocol AuthenticationResponder: AnyObject {
-    func loadSuccess(userSession: UserSession)
-    func loadFailure()
-}
-
-final class SplashReactor: Reactor {
-    
-    enum Action {
-        case didSetup
-    }
-    
-    enum Mutation {
-        case updateUserSession(UserSession?)
-    }
-    
-    struct State {}
-    
-    let initialState: State
-    
-    init(
-        userSessionRepository: UserSessionRepository,
-        authenticationResponder: AuthenticationResponder
-    ) {
-        self.initialState = State()
-        self.userSessionRepository = userSessionRepository
-        self.authenticationResponder = authenticationResponder
-    }
-    
-    func mutate(action: Action) -> Observable<Mutation> {
-        switch action {
-        case .didSetup:
-            let splashDuration = RxTimeInterval.seconds(1)
-            return self.loadUserSession(until: splashDuration)
-                .map { .updateUserSession($0) }
-        }
-    }
-    
-    func reduce(state: State, mutation: Mutation) -> State {
-        switch mutation {
-        case .updateUserSession(let userSession):
-            if let userSession = userSession {
-                self.authenticationResponder.loadSuccess(userSession: userSession)
-            } else {
-                self.authenticationResponder.loadFailure()
-            }
-        }
-        return state
-    }
-    
-    private func loadUserSession(until timeout: RxTimeInterval) -> Observable<UserSession?> {
-        return self.userSessionRepository.load()
-            .timeout(timeout, scheduler: ConcurrentDispatchQueueScheduler(qos: .background))
-            .catchAndReturn(nil)
-    }
-    
-    private let userSessionRepository: UserSessionRepository
-    private let authenticationResponder: AuthenticationResponder
-    
-}
