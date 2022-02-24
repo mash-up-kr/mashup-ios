@@ -9,11 +9,6 @@
 import RxSwift
 import ReactorKit
 
-enum SignInStep {
-    case signUp
-    case home(UserSession)
-}
-
 final class SignInReactor: Reactor {
     
     enum Action {
