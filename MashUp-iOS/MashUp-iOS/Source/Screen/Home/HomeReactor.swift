@@ -10,14 +10,22 @@ import RxSwift
 import ReactorKit
 
 final class HomeReactor: Reactor {
-    typealias Action = Never
     
-    struct State {}
+    enum Action {
+        case didSelectTabItem(Int)
+    }
+    
+    struct State {
+        var currentTab: HomeTab
+        var tabItems: [HomeTab]
+    }
     
     let initialState: State
     
-    
     init() {
-        self.initialState = State()
+        self.initialState = State(
+            currentTab: .seminarSchedule,
+            tabItems: HomeTab.allCases
+        )
     }
 }

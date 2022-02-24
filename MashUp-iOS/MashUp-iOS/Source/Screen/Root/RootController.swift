@@ -77,7 +77,7 @@ final class RootController: BaseViewController, ReactorKit.View {
     }
     
     private func switchToHomeTabBarController(with userSession: UserSession) {
-        let homeTabBarController = HomeTabBarController()
+        let homeTabBarController = self.createHomeTabController()
         homeTabBarController.modalPresentationStyle = .fullScreen
         if let presentedViewController = self.presentedViewController {
             presentedViewController.dismiss(animated: false, completion: {
@@ -93,6 +93,12 @@ final class RootController: BaseViewController, ReactorKit.View {
         let viewController = SignInViewController()
         viewController.reactor = reactor
         return viewController
+    }
+    
+    private func createHomeTabController() -> UIViewController {
+        let homeTabBarController = HomeTabBarController()
+        homeTabBarController.reactor = HomeReactor()
+        return homeTabBarController
     }
     
 }
