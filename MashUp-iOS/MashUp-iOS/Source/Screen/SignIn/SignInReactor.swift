@@ -29,7 +29,7 @@ final class SignInReactor: Reactor {
         case updatePassword(String)
         case updateLoading(Bool)
         case occurError(Error)
-        case moveToScene(SignInStep)
+        case moveToScreen(SignInStep)
     }
     
     struct State {
@@ -59,7 +59,7 @@ final class SignInReactor: Reactor {
             
         case .didTapSignInButton:
             let startLoading = Observable.just(Mutation.updateLoading(true))
-            let enterHome = self.signIn().map { userSession in Mutation.moveToScene(.home(userSession)) }
+            let enterHome = self.signIn().map { userSession in Mutation.moveToScreen(.home(userSession)) }
             let endLoading = Observable.just(Mutation.updateLoading(false))
             return .concat(
                 startLoading,
@@ -68,7 +68,7 @@ final class SignInReactor: Reactor {
             ).catch { .just(.occurError($0)) }
             
         case .didTapSignUpButton:
-            return .just(.moveToScene(.signUp))
+            return .just(.moveToScreen(.signUp))
         }
     }
     
@@ -86,7 +86,7 @@ final class SignInReactor: Reactor {
         case .updateLoading(let isLoading):
             newState.isLoading = isLoading
             
-        case .moveToScene(let step):
+        case .moveToScreen(let step):
             newState.step = step
             
         case .occurError(let error):
