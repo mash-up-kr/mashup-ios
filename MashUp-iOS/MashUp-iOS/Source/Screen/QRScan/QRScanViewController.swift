@@ -74,8 +74,6 @@ final class QRScanViewController: BaseViewController, ReactorKit.View {
     private let capturePreviewLayer = AVCaptureVideoPreviewLayer()
     private let codeLabel = UILabel()
 }
-
-
 // MARK: Setup
 extension QRScanViewController {
     

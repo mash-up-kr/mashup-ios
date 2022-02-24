@@ -17,24 +17,18 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         let window = UIWindow()
         self.window = window
-        window.rootViewController = self.createQRScanViewController()
+        window.rootViewController = self.createSignInViewController()
         window.makeKeyAndVisible()
         return true
     }
 
-    private func createQRScanViewController() -> UIViewController {
-        let attendanceService = self.createAttendanceService()
-        let reactor = QRScanReactor(attendanceService: attendanceService)
-        let viewController = QRScanViewController()
+    private func createSignInViewController() -> UIViewController {
+        let userSessionRepository = FakeUserSessionRepository()
+        userSessionRepository.stubedUserSession = UserSession(accessToken: "fake.access.token")
+        let reactor = SignInReactor(userSessionRepository: userSessionRepository)
+        let viewController = SignInViewController()
         viewController.reactor = reactor
         return viewController
-    }
-    
-    private func createAttendanceService() -> AttendanceService {
-        #warning("실제 객체로 변경해야합니다.")
-        let attendanceService = FakeAttendanceService()
-        attendanceService.stubedCorrectCode = "I'm correct"
-        return attendanceService
     }
 }
 
