@@ -27,6 +27,8 @@
 		CE6EE82E27C7D900005BF412 /* RootReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6EE82D27C7D900005BF412 /* RootReactor.swift */; };
 		CE6EE83027C7D931005BF412 /* SignInStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6EE82F27C7D931005BF412 /* SignInStep.swift */; };
 		CE6EE83227C7D948005BF412 /* RootStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6EE83127C7D948005BF412 /* RootStep.swift */; };
+		CE6EE83827C7E2D5005BF412 /* SplashReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6EE83727C7E2D5005BF412 /* SplashReactor.swift */; };
+		CE6EE83A27C7E2DE005BF412 /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6EE83927C7E2DE005BF412 /* SplashViewController.swift */; };
 		CE9E734527C2889200922D8B /* Nimble in Frameworks */ = {isa = PBXBuildFile; productRef = CE9E734427C2889200922D8B /* Nimble */; };
 		CE9E734827C2889E00922D8B /* Quick in Frameworks */ = {isa = PBXBuildFile; productRef = CE9E734727C2889E00922D8B /* Quick */; };
 		CE9E734B27C288B700922D8B /* Mockingbird in Frameworks */ = {isa = PBXBuildFile; productRef = CE9E734A27C288B700922D8B /* Mockingbird */; };
@@ -90,6 +92,8 @@
 		CE6EE82D27C7D900005BF412 /* RootReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootReactor.swift; sourceTree = "<group>"; };
 		CE6EE82F27C7D931005BF412 /* SignInStep.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInStep.swift; sourceTree = "<group>"; };
 		CE6EE83127C7D948005BF412 /* RootStep.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootStep.swift; sourceTree = "<group>"; };
+		CE6EE83727C7E2D5005BF412 /* SplashReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashReactor.swift; sourceTree = "<group>"; };
+		CE6EE83927C7E2DE005BF412 /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
 		CE9E735C27C294E800922D8B /* QRScanReactorSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QRScanReactorSpec.swift; sourceTree = "<group>"; };
 		CE9E736627C29F4700922D8B /* MashUp_iOSTests-Mock.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MashUp_iOSTests-Mock.generated.swift"; sourceTree = "<group>"; };
 		CEB60F4227A9713B001260DB /* TestAppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestAppDelegate.swift; sourceTree = "<group>"; };
@@ -194,6 +198,7 @@
 				CEB60F4927A9759C001260DB /* QRScan */,
 				CE6EE82A27C7D8E8005BF412 /* Root */,
 				CE6EE80E27C7B27D005BF412 /* SignIn */,
+				CE6EE83627C7E2C4005BF412 /* Splash */,
 			);
 			path = Screen;
 			sourceTree = "<group>";
@@ -317,6 +322,15 @@
 				CE6EE82B27C7D8F8005BF412 /* RootController.swift */,
 			);
 			path = Root;
+			sourceTree = "<group>";
+		};
+		CE6EE83627C7E2C4005BF412 /* Splash */ = {
+			isa = PBXGroup;
+			children = (
+				CE6EE83727C7E2D5005BF412 /* SplashReactor.swift */,
+				CE6EE83927C7E2DE005BF412 /* SplashViewController.swift */,
+			);
+			path = Splash;
 			sourceTree = "<group>";
 		};
 		CE9E735B27C294E800922D8B /* Specs */ = {
@@ -553,6 +567,7 @@
 				CE6EE81227C7B293005BF412 /* SignInReactor.swift in Sources */,
 				CEB60F7F27A9C536001260DB /* AttendanceService.swift in Sources */,
 				CE4A6C07278B47A80052F7E7 /* ResponseModel.swift in Sources */,
+				CE6EE83A27C7E2DE005BF412 /* SplashViewController.swift in Sources */,
 				CEB60F4527A97163001260DB /* main.swift in Sources */,
 				CEB60F4B27A975AD001260DB /* QRScanViewController.swift in Sources */,
 				CE6EE83227C7D948005BF412 /* RootStep.swift in Sources */,
@@ -571,6 +586,7 @@
 				CE4A6C05278B47040052F7E7 /* HTTPClient.swift in Sources */,
 				CE3960E4278B45A00073AEF4 /* MashUpAPI.swift in Sources */,
 				CE6EE82327C7BF79005BF412 /* UserSession.swift in Sources */,
+				CE6EE83827C7E2D5005BF412 /* SplashReactor.swift in Sources */,
 				CE6EE82927C7D655005BF412 /* FakeUserSessionRepository.swift in Sources */,
 				CE4A6C09278B4A3C0052F7E7 /* NetworkConfig.swift in Sources */,
 				CEB60F4827A9746E001260DB /* QRReaderService.swift in Sources */,

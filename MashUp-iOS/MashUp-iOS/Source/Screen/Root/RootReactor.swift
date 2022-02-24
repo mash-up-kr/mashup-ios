@@ -45,13 +45,12 @@ final class RootReactor: Reactor {
 }
 extension RootReactor: AuthenticationResponder {
     
-    func loadUserSession(_ userSessionOrNil: UserSession?) {
-        self.action.onNext(.didLoad(userSessionOrNil))
+    func loadSuccess(userSession: UserSession) {
+        self.action.onNext(.didLoad(userSession))
+    }
+    
+    func loadFailure() {
+        self.action.onNext(.didLoad(nil))
     }
 
-}
-
-
-protocol AuthenticationResponder {
-    func loadUserSession(_ userSessionOrNil: UserSession?)
 }
