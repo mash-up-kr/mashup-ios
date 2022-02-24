@@ -14,6 +14,10 @@
 		CE4A6C05278B47040052F7E7 /* HTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4A6C04278B47040052F7E7 /* HTTPClient.swift */; };
 		CE4A6C07278B47A80052F7E7 /* ResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4A6C06278B47A80052F7E7 /* ResponseModel.swift */; };
 		CE4A6C09278B4A3C0052F7E7 /* NetworkConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4A6C08278B4A3C0052F7E7 /* NetworkConfig.swift */; };
+		CE6EE81027C7B28C005BF412 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6EE80F27C7B28C005BF412 /* SignInViewController.swift */; };
+		CE6EE81227C7B293005BF412 /* SignInReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6EE81127C7B293005BF412 /* SignInReactor.swift */; };
+		CE6EE81427C7B541005BF412 /* String+.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6EE81327C7B541005BF412 /* String+.swift */; };
+		CE6EE81D27C7BCF7005BF412 /* Team.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6EE81C27C7BCF6005BF412 /* Team.swift */; };
 		CE9E734527C2889200922D8B /* Nimble in Frameworks */ = {isa = PBXBuildFile; productRef = CE9E734427C2889200922D8B /* Nimble */; };
 		CE9E734827C2889E00922D8B /* Quick in Frameworks */ = {isa = PBXBuildFile; productRef = CE9E734727C2889E00922D8B /* Quick */; };
 		CE9E734B27C288B700922D8B /* Mockingbird in Frameworks */ = {isa = PBXBuildFile; productRef = CE9E734A27C288B700922D8B /* Mockingbird */; };
@@ -64,6 +68,10 @@
 		CE4A6C04278B47040052F7E7 /* HTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClient.swift; sourceTree = "<group>"; };
 		CE4A6C06278B47A80052F7E7 /* ResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseModel.swift; sourceTree = "<group>"; };
 		CE4A6C08278B4A3C0052F7E7 /* NetworkConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkConfig.swift; sourceTree = "<group>"; };
+		CE6EE80F27C7B28C005BF412 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
+		CE6EE81127C7B293005BF412 /* SignInReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInReactor.swift; sourceTree = "<group>"; };
+		CE6EE81327C7B541005BF412 /* String+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+.swift"; sourceTree = "<group>"; };
+		CE6EE81C27C7BCF6005BF412 /* Team.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Team.swift; sourceTree = "<group>"; };
 		CE9E735C27C294E800922D8B /* QRScanReactorSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QRScanReactorSpec.swift; sourceTree = "<group>"; };
 		CE9E736627C29F4700922D8B /* MashUp_iOSTests-Mock.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MashUp_iOSTests-Mock.generated.swift"; sourceTree = "<group>"; };
 		CEB60F4227A9713B001260DB /* TestAppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestAppDelegate.swift; sourceTree = "<group>"; };
@@ -165,6 +173,7 @@
 		CE3960B1278B3D850073AEF4 /* Screen */ = {
 			isa = PBXGroup;
 			children = (
+				CE6EE80E27C7B27D005BF412 /* SignIn */,
 				CEB60F4927A9759C001260DB /* QRScan */,
 			);
 			path = Screen;
@@ -173,6 +182,7 @@
 		CE3960B4278B3DBD0073AEF4 /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				CE6EE81A27C7BCD7005BF412 /* Data */,
 				CEB60F8027A9C5DC001260DB /* Domain */,
 				CE3960B0278B3D6A0073AEF4 /* App */,
 				CE3960E5278B45CA0073AEF4 /* Common */,
@@ -214,6 +224,7 @@
 			isa = PBXGroup;
 			children = (
 				CEB60F7727A9BF90001260DB /* Rx */,
+				CE6EE81327C7B541005BF412 /* String+.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -232,6 +243,30 @@
 				CE4A6C06278B47A80052F7E7 /* ResponseModel.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		CE6EE80E27C7B27D005BF412 /* SignIn */ = {
+			isa = PBXGroup;
+			children = (
+				CE6EE80F27C7B28C005BF412 /* SignInViewController.swift */,
+				CE6EE81127C7B293005BF412 /* SignInReactor.swift */,
+			);
+			path = SignIn;
+			sourceTree = "<group>";
+		};
+		CE6EE81A27C7BCD7005BF412 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		CE6EE81B27C7BCF0005BF412 /* Team */ = {
+			isa = PBXGroup;
+			children = (
+				CE6EE81C27C7BCF6005BF412 /* Team.swift */,
+			);
+			path = Team;
 			sourceTree = "<group>";
 		};
 		CE9E735B27C294E800922D8B /* Specs */ = {
@@ -278,6 +313,7 @@
 		CEB60F8027A9C5DC001260DB /* Domain */ = {
 			isa = PBXGroup;
 			children = (
+				CE6EE81B27C7BCF0005BF412 /* Team */,
 				CEB60F8227A9C5EA001260DB /* Attencance */,
 				CEB60F8127A9C5E1001260DB /* QR */,
 			);
@@ -463,11 +499,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE6EE81227C7B293005BF412 /* SignInReactor.swift in Sources */,
 				CEB60F7F27A9C536001260DB /* AttendanceService.swift in Sources */,
 				CE4A6C07278B47A80052F7E7 /* ResponseModel.swift in Sources */,
 				CEB60F4527A97163001260DB /* main.swift in Sources */,
 				CEB60F4B27A975AD001260DB /* QRScanViewController.swift in Sources */,
 				CEB60F7427A9BDF4001260DB /* QRScanReactor.swift in Sources */,
+				CE6EE81027C7B28C005BF412 /* SignInViewController.swift in Sources */,
+				CE6EE81D27C7BCF7005BF412 /* Team.swift in Sources */,
+				CE6EE81427C7B541005BF412 /* String+.swift in Sources */,
 				CEB60F8427A9C602001260DB /* FakeAttendanceService.swift in Sources */,
 				CEB60F7627A9BE67001260DB /* ViewContorller+Rx.swift in Sources */,
 				CE396080278B3CB40073AEF4 /* AppDelegate.swift in Sources */,
