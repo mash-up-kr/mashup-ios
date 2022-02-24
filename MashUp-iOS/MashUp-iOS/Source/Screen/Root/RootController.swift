@@ -26,7 +26,7 @@ final class RootController: BaseViewController, ReactorKit.View {
     }
     
     private func dispatch(to reactor: Reactor) {
-        self.rx.viewDidLoad.map { .didSetup }
+        self.rx.viewDidLayoutSubviews.take(1).map { _ in .didSetup }
         .bind(to: reactor.action)
         .disposed(by: self.disposeBag)
     }
@@ -42,18 +42,31 @@ final class RootController: BaseViewController, ReactorKit.View {
                 self?.switchToSignInViewController()
                 
             case .home(let userSession):
-                self?.switchToHomeViewController(with: userSession)
+                self?.switchToHomeTabBarController(with: userSession)
             }
         }).disposed(by: self.disposeBag)
     }
     
+    
+    #warning("DIContainer로 로직 이동해야합니다.")
+    let userSessionRepository = FakeUserSessionRepository()
+    
     private func presentSplashViewController() {
-        let viewController = SplashViewController()
-        self.present(viewController, animated: false, completion: nil)
+        guard let authenticationResponder = self.reactor else { return }
+        userSessionRepository.stubedUserSession = UserSession(accessToken: "fake.access.token")
+        
+        let splashViewController = SplashViewController()
+        splashViewController.reactor = SplashReactor(
+            userSessionRepository: userSessionRepository,
+            authenticationResponder: authenticationResponder
+        )
+        splashViewController.modalPresentationStyle = .fullScreen
+        self.present(splashViewController, animated: false, completion: nil)
     }
     
     private func switchToSignInViewController() {
-        let signInViewController = SignInViewController()
+        let signInViewController = self.createSignInViewController()
+        signInViewController.modalPresentationStyle = .fullScreen
         if let presentedViewController = self.presentedViewController {
             presentedViewController.dismiss(animated: false, completion: {
                 self.present(signInViewController, animated: false, completion: nil)
@@ -63,14 +76,23 @@ final class RootController: BaseViewController, ReactorKit.View {
         }
     }
     
-    private func switchToHomeViewController(with userSession: UserSession) {
-        let homeViewContorller = HomeTabBarController()
+    private func switchToHomeTabBarController(with userSession: UserSession) {
+        let homeTabBarController = HomeTabBarController()
+        homeTabBarController.modalPresentationStyle = .fullScreen
         if let presentedViewController = self.presentedViewController {
             presentedViewController.dismiss(animated: false, completion: {
-                self.present(homeViewContorller, animated: false, completion: nil)
+                self.present(homeTabBarController, animated: false, completion: nil)
             })
         } else {
-            self.present(homeViewContorller, animated: false, completion: nil)
+            self.present(homeTabBarController, animated: false, completion: nil)
         }
     }
+    
+    private func createSignInViewController() -> UIViewController {
+        let reactor = SignInReactor(userSessionRepository: self.userSessionRepository)
+        let viewController = SignInViewController()
+        viewController.reactor = reactor
+        return viewController
+    }
+    
 }

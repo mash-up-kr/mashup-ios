@@ -20,11 +20,14 @@ final class SplashViewController: BaseViewController, ReactorKit.View {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        #warning("Splash UI 구현해야합니다. - Booung")
         self.view.backgroundColor = .systemPink
     }
     
     func bind(reactor: SplashReactor) {
-        
+        self.rx.viewDidLayoutSubviews.take(1).map { .didSetup }
+        .bind(to: reactor.action)
+        .disposed(by: self.disposeBag)
     }
     
 }

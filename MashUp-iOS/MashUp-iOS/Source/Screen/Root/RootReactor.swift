@@ -23,7 +23,7 @@ final class RootReactor: Reactor {
     let initialState: State
     
     init() {
-        self.initialState = State(step: .splash)
+        self.initialState = State(step: nil)
     }
     
     func reduce(state: State, mutation: Action) -> State {

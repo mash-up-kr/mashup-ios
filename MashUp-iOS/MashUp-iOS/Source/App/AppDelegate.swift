@@ -17,18 +17,17 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         let window = UIWindow()
         self.window = window
-        window.rootViewController = self.createSignInViewController()
+        window.rootViewController = self.createRootController()
         window.makeKeyAndVisible()
         return true
     }
 
-    private func createSignInViewController() -> UIViewController {
-        let userSessionRepository = FakeUserSessionRepository()
-        userSessionRepository.stubedUserSession = UserSession(accessToken: "fake.access.token")
-        let reactor = SignInReactor(userSessionRepository: userSessionRepository)
-        let viewController = SignInViewController()
-        viewController.reactor = reactor
+    
+    private func createRootController() -> UIViewController {
+        let viewController = RootController()
+        viewController.reactor = RootReactor()
         return viewController
     }
+    
 }
 
