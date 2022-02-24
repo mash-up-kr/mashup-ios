@@ -12,7 +12,7 @@ import ReactorKit
 
 enum SignInStep {
     case signUp
-    case home
+    case home(UserSession)
 }
 
 final class SignInReactor: Reactor {
@@ -27,15 +27,84 @@ final class SignInReactor: Reactor {
     enum Mutation {
         case updateID(String)
         case updatePassword(String)
+        case updateLoading(Bool)
+        case occurError(Error)
+        case moveToScene(SignInStep)
     }
     
     struct State {
         var id: String = .empty
         var password: String = .empty
+        var isLoading: Bool = false
+        var canTrySignIn: Bool = false
         
         @Pulse var step: SignInStep?
+        @Pulse var alertMessage: String?
+        @Pulse fileprivate var occuredError: Error?
     }
     
     let initialState: State = State()
+    
+    init(userSessionRepository: UserSessionRepository) {
+        self.userSessionRepository = userSessionRepository
+    }
+    
+    func mutate(action: Action) -> Observable<Mutation> {
+        switch action {
+        case .didEditIDField(let id):
+            return .just(.updateID(id))
+            
+        case .didEditPasswordField(let password):
+            return .just(.updatePassword(password))
+            
+        case .didTapSignInButton:
+            let startLoading = Observable.just(Mutation.updateLoading(true))
+            let enterHome = self.signIn().map { userSession in Mutation.moveToScene(.home(userSession)) }
+            let endLoading = Observable.just(Mutation.updateLoading(false))
+            return .concat(
+                startLoading,
+                enterHome,
+                endLoading
+            ).catch { .just(.occurError($0)) }
+            
+        case .didTapSignUpButton:
+            return .just(.moveToScene(.signUp))
+        }
+    }
+    
+    func reduce(state: State, mutation: Mutation) -> State {
+        var newState = state
+        switch mutation {
+        case .updateID(let id):
+            newState.id = id
+            newState.canTrySignIn = self.verify(id: state.id, password: state.password)
+            
+        case .updatePassword(let password):
+            newState.password = password
+            newState.canTrySignIn = self.verify(id: state.id, password: state.password)
+            
+        case .updateLoading(let isLoading):
+            newState.isLoading = isLoading
+            
+        case .moveToScene(let step):
+            newState.step = step
+            
+        case .occurError(let error):
+            newState.occuredError = error
+        }
+        return newState
+    }
+    
+    private func signIn() -> Observable<UserSession> {
+        let id = self.currentState.id
+        let password = self.currentState.password
+        return self.userSessionRepository.signIn(id: id, password: password)
+    }
+    
+    private func verify(id: String, password: String) -> Bool {
+        return true
+    }
+    
+    private let userSessionRepository: UserSessionRepository
     
 }
