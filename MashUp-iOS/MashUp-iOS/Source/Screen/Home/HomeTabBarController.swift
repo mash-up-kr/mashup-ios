@@ -12,7 +12,7 @@ import RxCocoa
 import SnapKit
 import UIKit
 
-final class HomeTabBarController: UITabBarController, ReactorKit.View {
+final class HomeTabBarController: BaseTabBarController, ReactorKit.View {
     typealias Reactor = HomeReactor
     
     var disposeBag = DisposeBag()

@@ -32,6 +32,8 @@
 		CE6EE83D27C7EFB9005BF412 /* HomeTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6EE83C27C7EFB9005BF412 /* HomeTabBarController.swift */; };
 		CE6EE83F27C7EFF9005BF412 /* HomeReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6EE83E27C7EFF9005BF412 /* HomeReactor.swift */; };
 		CE6EE84127C7F130005BF412 /* HomeTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6EE84027C7F130005BF412 /* HomeTab.swift */; };
+		CE6EE84327C7F933005BF412 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6EE84227C7F933005BF412 /* Logger.swift */; };
+		CE6EE84527C8004F005BF412 /* BaseTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6EE84427C8004F005BF412 /* BaseTabBarController.swift */; };
 		CE9E734527C2889200922D8B /* Nimble in Frameworks */ = {isa = PBXBuildFile; productRef = CE9E734427C2889200922D8B /* Nimble */; };
 		CE9E734827C2889E00922D8B /* Quick in Frameworks */ = {isa = PBXBuildFile; productRef = CE9E734727C2889E00922D8B /* Quick */; };
 		CE9E734B27C288B700922D8B /* Mockingbird in Frameworks */ = {isa = PBXBuildFile; productRef = CE9E734A27C288B700922D8B /* Mockingbird */; };
@@ -100,6 +102,8 @@
 		CE6EE83C27C7EFB9005BF412 /* HomeTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTabBarController.swift; sourceTree = "<group>"; };
 		CE6EE83E27C7EFF9005BF412 /* HomeReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeReactor.swift; sourceTree = "<group>"; };
 		CE6EE84027C7F130005BF412 /* HomeTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTab.swift; sourceTree = "<group>"; };
+		CE6EE84227C7F933005BF412 /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
+		CE6EE84427C8004F005BF412 /* BaseTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTabBarController.swift; sourceTree = "<group>"; };
 		CE9E735C27C294E800922D8B /* QRScanReactorSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QRScanReactorSpec.swift; sourceTree = "<group>"; };
 		CE9E736627C29F4700922D8B /* MashUp_iOSTests-Mock.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MashUp_iOSTests-Mock.generated.swift"; sourceTree = "<group>"; };
 		CEB60F4227A9713B001260DB /* TestAppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestAppDelegate.swift; sourceTree = "<group>"; };
@@ -257,6 +261,7 @@
 			children = (
 				CE6EE81327C7B541005BF412 /* String+.swift */,
 				CEB60F7727A9BF90001260DB /* Rx */,
+				CE6EE84227C7F933005BF412 /* Logger.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -305,6 +310,7 @@
 		CE6EE81E27C7BEB6005BF412 /* Base */ = {
 			isa = PBXGroup;
 			children = (
+				CE6EE84427C8004F005BF412 /* BaseTabBarController.swift */,
 				CE6EE81F27C7BEC2005BF412 /* BaseViewController.swift */,
 			);
 			path = Base;
@@ -581,6 +587,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE6EE84527C8004F005BF412 /* BaseTabBarController.swift in Sources */,
+				CE6EE84327C7F933005BF412 /* Logger.swift in Sources */,
 				CE6EE81227C7B293005BF412 /* SignInReactor.swift in Sources */,
 				CEB60F7F27A9C536001260DB /* AttendanceService.swift in Sources */,
 				CE4A6C07278B47A80052F7E7 /* ResponseModel.swift in Sources */,

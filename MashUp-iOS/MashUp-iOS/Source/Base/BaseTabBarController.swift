@@ -1,14 +1,14 @@
 //
-//  BaseViewController.swift
+//  BaseTabBarController.swift
 //  MashUp-iOS
 //
-//  Created by Booung on 2022/02/24.
+//  Created by Booung on 2022/02/25.
 //  Copyright © 2022 Mash Up Corp. All rights reserved.
 //
 
 import UIKit
 
-class BaseViewController: UIViewController {
+class BaseTabBarController: UITabBarController {
     
     override init(nibName: String?, bundle: Bundle?) {
         super.init(nibName: nibName, bundle: bundle)
