@@ -18,6 +18,7 @@ import RxRelay
 import RxSwift
 import SnapKit
 import Swift
+import Then
 import UIKit
 
 private let mkbGenericStaticMockContext = Mockingbird.GenericStaticMockContext()

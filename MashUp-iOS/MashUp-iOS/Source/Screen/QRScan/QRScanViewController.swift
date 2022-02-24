@@ -13,7 +13,7 @@ import RxCocoa
 import SnapKit
 import UIKit
 
-final class QRScanViewController: UIViewController, ReactorKit.View {
+final class QRScanViewController: BaseViewController, ReactorKit.View {
     typealias Reactor = QRScanReactor
     
     var disposeBag: DisposeBag = DisposeBag()

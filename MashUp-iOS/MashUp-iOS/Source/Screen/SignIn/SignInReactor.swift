@@ -11,6 +11,7 @@ import RxRelay
 import ReactorKit
 
 enum SignInStep {
+    case signUp
     case home
 }
 
@@ -32,6 +33,7 @@ final class SignInReactor: Reactor {
         var id: String = .empty
         var password: String = .empty
         
+        @Pulse var step: SignInStep?
     }
     
     let initialState: State = State()
