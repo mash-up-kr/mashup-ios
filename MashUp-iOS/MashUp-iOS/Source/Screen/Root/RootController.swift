@@ -64,7 +64,7 @@ final class RootController: BaseViewController, ReactorKit.View {
     }
     
     private func switchToHomeViewController(with userSession: UserSession) {
-        let homeViewContorller = HomeViewContorller()
+        let homeViewContorller = HomeTabBarController()
         if let presentedViewController = self.presentedViewController {
             presentedViewController.dismiss(animated: false, completion: {
                 self.present(homeViewContorller, animated: false, completion: nil)
@@ -74,5 +74,3 @@ final class RootController: BaseViewController, ReactorKit.View {
         }
     }
 }
-
-class HomeViewContorller: UIViewController {}
