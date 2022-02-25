@@ -435,7 +435,7 @@
 			children = (
 				CE6EE82127C7BF6A005BF412 /* Auth */,
 				CE6EE81B27C7BCF0005BF412 /* Team */,
-				CEB60F8227A9C5EA001260DB /* Attencance */,
+				CEB60F8227A9C5EA001260DB /* Attendance */,
 				CEB60F8127A9C5E1001260DB /* QR */,
 			);
 			path = Domain;
@@ -449,13 +449,13 @@
 			path = QR;
 			sourceTree = "<group>";
 		};
-		CEB60F8227A9C5EA001260DB /* Attencance */ = {
+		CEB60F8227A9C5EA001260DB /* Attendance */ = {
 			isa = PBXGroup;
 			children = (
 				CEB60F7E27A9C536001260DB /* AttendanceService.swift */,
 				CEB60F8327A9C602001260DB /* FakeAttendanceService.swift */,
 			);
-			path = Attencance;
+			path = Attendance;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

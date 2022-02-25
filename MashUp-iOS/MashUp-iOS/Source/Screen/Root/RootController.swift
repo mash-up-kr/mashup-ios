@@ -48,18 +48,9 @@ final class RootController: BaseViewController, ReactorKit.View {
     }
     
     
-    #warning("DIContainer로 로직 이동해야합니다.")
-    let userSessionRepository = FakeUserSessionRepository()
     
     private func presentSplashViewController() {
-        guard let authenticationResponder = self.reactor else { return }
-        userSessionRepository.stubedUserSession = UserSession(accessToken: "fake.access.token")
-        
-        let splashViewController = SplashViewController()
-        splashViewController.reactor = SplashReactor(
-            userSessionRepository: userSessionRepository,
-            authenticationResponder: authenticationResponder
-        )
+        guard let splashViewController = self.createSplashViewController() else { return }
         splashViewController.modalPresentationStyle = .fullScreen
         self.present(splashViewController, animated: false, completion: nil)
     }
@@ -67,25 +58,38 @@ final class RootController: BaseViewController, ReactorKit.View {
     private func switchToSignInViewController() {
         let signInViewController = self.createSignInViewController()
         signInViewController.modalPresentationStyle = .fullScreen
-        if let presentedViewController = self.presentedViewController {
-            presentedViewController.dismiss(animated: false, completion: {
-                self.present(signInViewController, animated: false, completion: nil)
-            })
-        } else {
-            self.present(signInViewController, animated: false, completion: nil)
-        }
+        self.switchToViewController(signInViewController)
     }
     
     private func switchToHomeTabBarController(with userSession: UserSession) {
         let homeTabBarController = self.createHomeTabController()
         homeTabBarController.modalPresentationStyle = .fullScreen
+        self.switchToViewController(homeTabBarController)
+    }
+    
+    private func switchToViewController(_ viewController: UIViewController) {
         if let presentedViewController = self.presentedViewController {
             presentedViewController.dismiss(animated: false, completion: {
-                self.present(homeTabBarController, animated: false, completion: nil)
+                self.present(viewController, animated: false, completion: nil)
             })
         } else {
-            self.present(homeTabBarController, animated: false, completion: nil)
+            self.present(viewController, animated: false, completion: nil)
         }
+    }
+    
+    #warning("DIContainer로 로직 이동해야합니다.")
+    let userSessionRepository = FakeUserSessionRepository()
+    
+    private func createSplashViewController() -> UIViewController? {
+        guard let authenticationResponder = self.reactor else { return nil }
+        userSessionRepository.stubedUserSession = UserSession(accessToken: "fake.access.token")
+        
+        let splashViewController = SplashViewController()
+        splashViewController.reactor = SplashReactor(
+            userSessionRepository: userSessionRepository,
+            authenticationResponder: authenticationResponder
+        )
+        return splashViewController
     }
     
     private func createSignInViewController() -> UIViewController {
