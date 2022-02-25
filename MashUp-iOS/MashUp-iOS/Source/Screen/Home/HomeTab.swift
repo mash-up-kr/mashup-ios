@@ -41,9 +41,9 @@ extension HomeTab {
 extension HomeTab {
     func asTabBarItem() -> UITabBarItem {
         return UITabBarItem(
-            title: title,
-            image: icon,
-            selectedImage: activeIcon
+            title: self.title,
+            image: self.icon,
+            selectedImage: self.activeIcon
         )
     }
 }

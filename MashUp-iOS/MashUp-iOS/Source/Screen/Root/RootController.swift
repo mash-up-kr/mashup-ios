@@ -82,11 +82,12 @@ final class RootController: BaseViewController, ReactorKit.View {
     
     private func createSplashViewController() -> UIViewController? {
         guard let authenticationResponder = self.reactor else { return nil }
+        
         userSessionRepository.stubedUserSession = UserSession(accessToken: "fake.access.token")
         
         let splashViewController = SplashViewController()
         splashViewController.reactor = SplashReactor(
-            userSessionRepository: userSessionRepository,
+            userSessionRepository: self.userSessionRepository,
             authenticationResponder: authenticationResponder
         )
         return splashViewController
