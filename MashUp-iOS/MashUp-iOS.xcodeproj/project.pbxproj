@@ -229,7 +229,6 @@
 				CE3960B0278B3D6A0073AEF4 /* App */,
 				CE6EE81E27C7BEB6005BF412 /* Base */,
 				CE3960E5278B45CA0073AEF4 /* Common */,
-				CE6EE81A27C7BCD7005BF412 /* Data */,
 				CEB60F8027A9C5DC001260DB /* Domain */,
 				CE3960E0278B45360073AEF4 /* Network */,
 				CE3960B1278B3D850073AEF4 /* Screen */,
@@ -257,10 +256,10 @@
 		CE3960E0278B45360073AEF4 /* Network */ = {
 			isa = PBXGroup;
 			children = (
-				CE4A6C08278B4A3C0052F7E7 /* NetworkConfig.swift */,
-				CE4A6C03278B46DA0052F7E7 /* Model */,
-				CE3960E6278B45D50073AEF4 /* API */,
 				CE4A6C04278B47040052F7E7 /* HTTPClient.swift */,
+				CE4A6C08278B4A3C0052F7E7 /* NetworkConfig.swift */,
+				CE3960E6278B45D50073AEF4 /* API */,
+				CE4A6C03278B46DA0052F7E7 /* Model */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -268,9 +267,9 @@
 		CE3960E5278B45CA0073AEF4 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				CE6EE84227C7F933005BF412 /* Logger.swift */,
 				CE6EE81327C7B541005BF412 /* String+.swift */,
 				CEB60F7727A9BF90001260DB /* Rx */,
-				CE6EE84227C7F933005BF412 /* Logger.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -299,13 +298,6 @@
 				CE6EE80F27C7B28C005BF412 /* SignInViewController.swift */,
 			);
 			path = SignIn;
-			sourceTree = "<group>";
-		};
-		CE6EE81A27C7BCD7005BF412 /* Data */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Data;
 			sourceTree = "<group>";
 		};
 		CE6EE81B27C7BCF0005BF412 /* Team */ = {
@@ -339,9 +331,9 @@
 		CE6EE82A27C7D8E8005BF412 /* Root */ = {
 			isa = PBXGroup;
 			children = (
+				CE6EE82B27C7D8F8005BF412 /* RootController.swift */,
 				CE6EE82D27C7D900005BF412 /* RootReactor.swift */,
 				CE6EE83127C7D948005BF412 /* RootStep.swift */,
-				CE6EE82B27C7D8F8005BF412 /* RootController.swift */,
 			);
 			path = Root;
 			sourceTree = "<group>";
@@ -408,8 +400,8 @@
 		CEB60F4927A9759C001260DB /* QRScan */ = {
 			isa = PBXGroup;
 			children = (
-				CEB60F4A27A975AD001260DB /* QRScanViewController.swift */,
 				CEB60F7327A9BDF4001260DB /* QRScanReactor.swift */,
+				CEB60F4A27A975AD001260DB /* QRScanViewController.swift */,
 			);
 			path = QRScan;
 			sourceTree = "<group>";
