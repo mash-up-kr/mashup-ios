@@ -12,6 +12,6 @@ struct NewAccount {
     let id: String
     let password: String
     let name: String
-    let team: Team
+    let platform: PlatformTeam
     let phoneNumber: String
 }

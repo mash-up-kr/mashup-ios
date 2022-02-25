@@ -8,7 +8,7 @@
 
 import Foundation
 
-enum Team {
+enum PlatformTeam {
     case design
     case android
     case iOS
