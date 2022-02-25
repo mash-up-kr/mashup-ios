@@ -77,7 +77,7 @@ final class RootController: BaseViewController, ReactorKit.View {
         }
     }
     
-    #warning("DIContainer로 로직 이동해야합니다.")
+    #warning("DIContainer로 로직 이동해야합니다., 가구현체여서 실구현체로 대치되어야합니다")
     let userSessionRepository = FakeUserSessionRepository()
     
     private func createSplashViewController() -> UIViewController? {

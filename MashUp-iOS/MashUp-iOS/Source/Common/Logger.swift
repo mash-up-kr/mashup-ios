@@ -8,13 +8,7 @@
 
 import Foundation
 
-
-
 enum Logger {
-    
-    private static let dateformatter = DateFormatter().then {
-        $0.dateFormat = "HH:mm:ss"
-    }
     
     static func log<T>(
         _ object: @autoclosure () -> T,
@@ -33,6 +27,11 @@ enum Logger {
         print(option, timeStamp, thread, fileURL, "[\(line)]", describe, String(reflecting: object), separator: " ")
         #endif
     }
+    
+    private static let dateformatter = DateFormatter().then {
+        $0.dateFormat = "HH:mm:ss"
+    }
+    
 }
 extension Logger {
     enum Option {
