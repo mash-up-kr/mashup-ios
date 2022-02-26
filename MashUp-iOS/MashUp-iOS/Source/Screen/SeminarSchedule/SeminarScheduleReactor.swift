@@ -47,7 +47,7 @@ final class SeminarScheduleReactor: Reactor {
             
         case .didSelectSeminar(let index):
             guard let seminar = self.currentState.seminars[safe: index] else { return .empty() }
-            return .just(.move(.seminarDetail(id: seminar.id)))
+            return .just(.move(.seminarDetail(seminarID: seminar.id)))
         }
     }
     
