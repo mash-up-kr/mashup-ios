@@ -14,7 +14,6 @@ final class SeminarScheduleReactor: Reactor {
     
     enum Action {
         case didSetup
-        case didTapQRButton
         case didSelectSeminar(at: Int)
     }
     
@@ -41,9 +40,6 @@ final class SeminarScheduleReactor: Reactor {
         switch action {
         case .didSetup:
             return .empty()
-            
-        case .didTapQRButton:
-            return .just(.move(.qrScan))
             
         case .didSelectSeminar(let index):
             guard let seminar = self.currentState.seminars[safe: index] else { return .empty() }

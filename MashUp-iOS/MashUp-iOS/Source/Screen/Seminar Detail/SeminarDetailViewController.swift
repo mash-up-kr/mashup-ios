@@ -13,6 +13,15 @@ final class SeminarDetailViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.view.backgroundColor = .systemGreen
+        self.setupUI()
     }
+}
+
+// MARK: - Setup
+extension SeminarDetailViewController {
+    
+    private func setupUI() {
+        self.navigationController?.isNavigationBarHidden = false
+    }
+    
 }

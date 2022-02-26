@@ -31,9 +31,6 @@ final class SeminarScheduleViewController: BaseViewController, ReactorKit.View {
     }
     
     private func dispatch(to reactor: Reactor) {
-        self.qrButton.rx.tap.map { .didTapQRButton }
-        .bind(to: reactor.action)
-        .disposed(by: self.disposeBag)
     }
     
     private func render(_ reactor: Reactor) {
@@ -44,9 +41,6 @@ final class SeminarScheduleViewController: BaseViewController, ReactorKit.View {
         reactor.pulse(\.$step).compactMap { $0 }
         .subscribe(onNext: { [weak self] step in
             switch step {
-            case .qrScan:
-                self?.pushQRScanViewController()
-                
             case .seminarDetail(let seminarID):
                 self?.pushSeminarDetailViewController(seminarID: seminarID)
             }
@@ -54,7 +48,6 @@ final class SeminarScheduleViewController: BaseViewController, ReactorKit.View {
         .disposed(by: self.disposeBag)
     }
     
-    private let qrButton = UIButton()
     private let seminarsTableView = UITableView()
     
 }
@@ -63,19 +56,6 @@ extension SeminarScheduleViewController {
     
     private func setupUI() {
         self.navigationController?.isNavigationBarHidden = true
-        self.view.backgroundColor = .systemRed
-        self.view.addSubview(qrButton)
-        self.qrButton.snp.makeConstraints {
-            $0.top.equalToSuperview().inset(56)
-            $0.trailing.equalToSuperview().inset(24)
-            $0.height.width.equalTo(56)
-        }
-        self.qrButton.do {
-            $0.backgroundColor = .systemIndigo
-            $0.setImage(UIImage(systemName: "qrcode.viewfinder"), for: .normal)
-            $0.tintColor = .white
-            $0.layer.cornerRadius = 28
-        }
     }
     
 }
