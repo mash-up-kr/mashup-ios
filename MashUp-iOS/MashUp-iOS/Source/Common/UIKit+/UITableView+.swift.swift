@@ -12,11 +12,11 @@ extension UITableView {
     
     typealias ReusableCell = UITableViewCell & Reusable
     
-    func regisger<Cell: ReusableCell>(_ cellType: Cell.Type) {
+    func registerCell<Cell: ReusableCell>(_ cellType: Cell.Type) {
         self.register(cellType, forCellReuseIdentifier: cellType.reuseIdentifier)
     }
     
-    func dequeue<Cell: ReusableCell>(_ cellType: Cell.Type, for indexPath: IndexPath) -> Cell? {
+    func dequeueCell<Cell: ReusableCell>(_ cellType: Cell.Type, for indexPath: IndexPath) -> Cell? {
         return self.dequeueReusableCell(withIdentifier: cellType.reuseIdentifier, for: indexPath) as? Cell
     }
     

@@ -1,5 +1,5 @@
 //
-//  BaseCollectionViewCell.swift
+//  BaseTableViewCell.swift
 //  MashUp-iOS
 //
 //  Created by Booung on 2022/02/27.
@@ -8,10 +8,10 @@
 
 import UIKit
 
-class BaseCollectionViewCell: UICollectionViewCell, Reusable {
+class BaseTableViewCell: UITableViewCell, Reusable {
     
-    override init(frame: CGRect) {
-        super.init(frame: frame)
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
     }
     
     required init?(coder: NSCoder) {

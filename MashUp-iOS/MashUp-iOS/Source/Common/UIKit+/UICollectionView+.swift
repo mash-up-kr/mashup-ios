@@ -12,11 +12,11 @@ extension UICollectionView {
     
     typealias ReusableCell = UICollectionViewCell & Reusable
     
-    func regisger<Cell: ReusableCell>(_ cellType: Cell.Type) {
+    func registerCell<Cell: ReusableCell>(_ cellType: Cell.Type) {
         self.register(cellType, forCellWithReuseIdentifier: cellType.reuseIdentifier)
     }
     
-    func dequeue<Cell: ReusableCell>(_ cellType: Cell.Type, for indexPath: IndexPath) -> Cell? {
+    func dequeueCell<Cell: ReusableCell>(_ cellType: Cell.Type, for indexPath: IndexPath) -> Cell? {
         return self.dequeueReusableCell(withReuseIdentifier: cellType.reuseIdentifier, for: indexPath) as? Cell
     }
     
