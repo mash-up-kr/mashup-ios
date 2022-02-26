@@ -19,7 +19,7 @@ final class HomeReactorSpec: QuickSpec {
     }
     describe("home tab bar") {
       context("when is initial") {
-        it("focus on my seminar schedule screen") {
+        it("focus on seminar schedule screen") {
           expect { sut.currentState.currentTab }.to(equal(.seminarSchedule))
         }
       }
@@ -27,7 +27,7 @@ final class HomeReactorSpec: QuickSpec {
         beforeEach {
           sut.action.onNext(.didSelectTabItem(0))
         }
-        it("focus on my seminar schedule screen") {
+        it("focus on seminar schedule screen") {
           expect { sut.currentState.currentTab }.to(equal(.seminarSchedule))
         }
       }
