@@ -34,7 +34,7 @@ final class HomeTabBarController: BaseTabBarController, ReactorKit.View {
     private func dispatch(to reactor: Reactor) {
         self.rx.didSelect.distinctUntilChanged()
             .compactMap { [weak self] in self?.viewControllers?.firstIndex(of: $0) }
-            .map { .didSelectTabItem($0) }
+            .map { .didSelectTabItem(at: $0) }
             .bind(to: reactor.action)
             .disposed(by: self.disposeBag)
     }

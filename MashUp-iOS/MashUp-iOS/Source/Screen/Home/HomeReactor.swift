@@ -12,7 +12,7 @@ import ReactorKit
 final class HomeReactor: Reactor {
     
     enum Action {
-        case didSelectTabItem(Int)
+        case didSelectTabItem(at: Int)
     }
     
     struct State {

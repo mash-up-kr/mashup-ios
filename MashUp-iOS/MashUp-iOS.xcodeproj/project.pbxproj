@@ -42,6 +42,12 @@
 		CE6EE85427CA2F6B005BF412 /* Error+.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6EE85327CA2F6A005BF412 /* Error+.swift */; };
 		CE6EE85627CA38EF005BF412 /* HomeReactorSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6EE85527CA38EF005BF412 /* HomeReactorSpec.swift */; };
 		CE6EE85827CA3AC6005BF412 /* Collection+.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6EE85727CA3AC6005BF412 /* Collection+.swift */; };
+		CE6EE85A27CA40C5005BF412 /* SeminarScheduleReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6EE85927CA40C5005BF412 /* SeminarScheduleReactor.swift */; };
+		CE6EE85D27CA4136005BF412 /* Seminar.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6EE85C27CA4136005BF412 /* Seminar.swift */; };
+		CE6EE85F27CA45EF005BF412 /* SeminarScheduleSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6EE85E27CA45EF005BF412 /* SeminarScheduleSection.swift */; };
+		CE6EE86227CA4691005BF412 /* Differentiator in Frameworks */ = {isa = PBXBuildFile; productRef = CE6EE86127CA4691005BF412 /* Differentiator */; };
+		CE6EE86427CA4691005BF412 /* RxDataSources in Frameworks */ = {isa = PBXBuildFile; productRef = CE6EE86327CA4691005BF412 /* RxDataSources */; };
+		CE6EE86627CA495F005BF412 /* SeminarSchduleStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6EE86527CA495F005BF412 /* SeminarSchduleStep.swift */; };
 		CE9E734527C2889200922D8B /* Nimble in Frameworks */ = {isa = PBXBuildFile; productRef = CE9E734427C2889200922D8B /* Nimble */; };
 		CE9E734827C2889E00922D8B /* Quick in Frameworks */ = {isa = PBXBuildFile; productRef = CE9E734727C2889E00922D8B /* Quick */; };
 		CE9E734B27C288B700922D8B /* Mockingbird in Frameworks */ = {isa = PBXBuildFile; productRef = CE9E734A27C288B700922D8B /* Mockingbird */; };
@@ -120,6 +126,10 @@
 		CE6EE85327CA2F6A005BF412 /* Error+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Error+.swift"; sourceTree = "<group>"; };
 		CE6EE85527CA38EF005BF412 /* HomeReactorSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeReactorSpec.swift; sourceTree = "<group>"; };
 		CE6EE85727CA3AC6005BF412 /* Collection+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Collection+.swift"; sourceTree = "<group>"; };
+		CE6EE85927CA40C5005BF412 /* SeminarScheduleReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeminarScheduleReactor.swift; sourceTree = "<group>"; };
+		CE6EE85C27CA4136005BF412 /* Seminar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Seminar.swift; sourceTree = "<group>"; };
+		CE6EE85E27CA45EF005BF412 /* SeminarScheduleSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeminarScheduleSection.swift; sourceTree = "<group>"; };
+		CE6EE86527CA495F005BF412 /* SeminarSchduleStep.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeminarSchduleStep.swift; sourceTree = "<group>"; };
 		CE9E735C27C294E800922D8B /* QRScanReactorSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QRScanReactorSpec.swift; sourceTree = "<group>"; };
 		CE9E736627C29F4700922D8B /* MashUp_iOSTests-Mock.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MashUp_iOSTests-Mock.generated.swift"; sourceTree = "<group>"; };
 		CEB60F4227A9713B001260DB /* TestAppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestAppDelegate.swift; sourceTree = "<group>"; };
@@ -139,6 +149,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CE9E735127C28A4200922D8B /* RxFlow in Frameworks */,
+				CE6EE86227CA4691005BF412 /* Differentiator in Frameworks */,
 				CEB60F6827A9BDAE001260DB /* RxOptional in Frameworks */,
 				CEB60F6C27A9BDAE001260DB /* CombineMoya in Frameworks */,
 				CEB60F6027A9BDAE001260DB /* SnapKit in Frameworks */,
@@ -148,6 +159,7 @@
 				CEB60F6627A9BDAE001260DB /* RxGesture in Frameworks */,
 				CEB60F6E27A9BDAE001260DB /* Moya in Frameworks */,
 				CEB60F5E27A9BDAE001260DB /* Then in Frameworks */,
+				CE6EE86427CA4691005BF412 /* RxDataSources in Frameworks */,
 				CEB60F7027A9BDAE001260DB /* ReactiveMoya in Frameworks */,
 				CE9E735427C28A6100922D8B /* Swinject in Frameworks */,
 			);
@@ -380,6 +392,9 @@
 		CE6EE84727C80C6C005BF412 /* SeminarSchedule */ = {
 			isa = PBXGroup;
 			children = (
+				CE6EE86527CA495F005BF412 /* SeminarSchduleStep.swift */,
+				CE6EE85927CA40C5005BF412 /* SeminarScheduleReactor.swift */,
+				CE6EE85E27CA45EF005BF412 /* SeminarScheduleSection.swift */,
 				CE6EE84B27C80C92005BF412 /* SeminarScheduleViewController.swift */,
 			);
 			path = SeminarSchedule;
@@ -391,6 +406,14 @@
 				CE6EE84927C80C86005BF412 /* SettingViewController.swift */,
 			);
 			path = Setting;
+			sourceTree = "<group>";
+		};
+		CE6EE85B27CA4128005BF412 /* Seminar */ = {
+			isa = PBXGroup;
+			children = (
+				CE6EE85C27CA4136005BF412 /* Seminar.swift */,
+			);
+			path = Seminar;
 			sourceTree = "<group>";
 		};
 		CE9E735B27C294E800922D8B /* Specs */ = {
@@ -440,6 +463,7 @@
 		CEB60F8027A9C5DC001260DB /* Domain */ = {
 			isa = PBXGroup;
 			children = (
+				CE6EE85B27CA4128005BF412 /* Seminar */,
 				CE6EE82127C7BF6A005BF412 /* Auth */,
 				CE6EE81B27C7BCF0005BF412 /* Team */,
 				CEB60F8227A9C5EA001260DB /* Attendance */,
@@ -494,6 +518,8 @@
 				CEB60F7127A9BDAE001260DB /* RxMoya */,
 				CE9E735027C28A4200922D8B /* RxFlow */,
 				CE9E735327C28A6100922D8B /* Swinject */,
+				CE6EE86127CA4691005BF412 /* Differentiator */,
+				CE6EE86327CA4691005BF412 /* RxDataSources */,
 			);
 			productName = "MashUp-iOS";
 			productReference = CE39607C278B3CB40073AEF4 /* MashUp-iOS.app */;
@@ -569,6 +595,7 @@
 				CE9E734927C288B700922D8B /* XCRemoteSwiftPackageReference "mockingbird" */,
 				CE9E734F27C28A4200922D8B /* XCRemoteSwiftPackageReference "RxFlow" */,
 				CE9E735227C28A6100922D8B /* XCRemoteSwiftPackageReference "Swinject" */,
+				CE6EE86027CA4691005BF412 /* XCRemoteSwiftPackageReference "RxDataSources" */,
 			);
 			productRefGroup = CE39607D278B3CB40073AEF4 /* Products */;
 			projectDirPath = "";
@@ -653,14 +680,18 @@
 				CE6EE82C27C7D8F8005BF412 /* RootController.swift in Sources */,
 				CE6EE82E27C7D900005BF412 /* RootReactor.swift in Sources */,
 				CE6EE84A27C80C87005BF412 /* SettingViewController.swift in Sources */,
+				CE6EE85D27CA4136005BF412 /* Seminar.swift in Sources */,
 				CE6EE83D27C7EFB9005BF412 /* HomeTabBarController.swift in Sources */,
 				CE4A6C05278B47040052F7E7 /* HTTPClient.swift in Sources */,
 				CE3960E4278B45A00073AEF4 /* MashUpAPI.swift in Sources */,
 				CE6EE85827CA3AC6005BF412 /* Collection+.swift in Sources */,
 				CE6EE82327C7BF79005BF412 /* UserSession.swift in Sources */,
+				CE6EE85F27CA45EF005BF412 /* SeminarScheduleSection.swift in Sources */,
+				CE6EE85A27CA40C5005BF412 /* SeminarScheduleReactor.swift in Sources */,
 				CE6EE83827C7E2D5005BF412 /* SplashReactor.swift in Sources */,
 				CE6EE84E27C80C9B005BF412 /* MyPageViewController.swift in Sources */,
 				CE6EE82927C7D655005BF412 /* FakeUserSessionRepository.swift in Sources */,
+				CE6EE86627CA495F005BF412 /* SeminarSchduleStep.swift in Sources */,
 				CE4A6C09278B4A3C0052F7E7 /* NetworkConfig.swift in Sources */,
 				CEB60F4827A9746E001260DB /* QRReaderService.swift in Sources */,
 				CE6EE82527C7BF91005BF412 /* UserSessionRepository.swift in Sources */,
@@ -1149,6 +1180,14 @@
 				kind = branch;
 			};
 		};
+		CE6EE86027CA4691005BF412 /* XCRemoteSwiftPackageReference "RxDataSources" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/RxSwiftCommunity/RxDataSources";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
 		CE9E734327C2889200922D8B /* XCRemoteSwiftPackageReference "Nimble" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Quick/Nimble";
@@ -1192,6 +1231,16 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		CE6EE86127CA4691005BF412 /* Differentiator */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CE6EE86027CA4691005BF412 /* XCRemoteSwiftPackageReference "RxDataSources" */;
+			productName = Differentiator;
+		};
+		CE6EE86327CA4691005BF412 /* RxDataSources */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CE6EE86027CA4691005BF412 /* XCRemoteSwiftPackageReference "RxDataSources" */;
+			productName = RxDataSources;
+		};
 		CE9E734427C2889200922D8B /* Nimble */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = CE9E734327C2889200922D8B /* XCRemoteSwiftPackageReference "Nimble" */;
