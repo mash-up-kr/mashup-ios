@@ -75,10 +75,10 @@ extension HomeTabBarController {
             switch tab {
             case .seminarSchedule:
                 viewController = UINavigationController(rootViewController: self.createSeminarScheduleViewController())
+            case .qr:
+                viewController = self.createQRScanViewController()
             case .myPage:
                 viewController = self.createMyPageViewController()
-            case .setting:
-                viewController = self.createSettingViewController()
             }
             viewController.tabBarItem = tab.asTabBarItem()
             return viewController
@@ -96,9 +96,14 @@ extension HomeTabBarController {
         return myPageViewController
     }
     
-    private func createSettingViewController() -> UIViewController {
-        let settingViewController = SettingViewController()
-        return settingViewController
+    private func createQRScanViewController() -> UIViewController {
+        let qrReaderService = QRReaderServiceImpl()
+        let attendanceService = FakeAttendanceService()
+        attendanceService.stubedCorrectCode = "I'am correct"
+        let qrScanViewReactor = QRScanReactor(qrReaderService: qrReaderService, attendanceService: attendanceService)
+        let qrScanViewController = QRScanViewController()
+        qrScanViewController.reactor = qrScanViewReactor
+        return qrScanViewController
     }
     
 }

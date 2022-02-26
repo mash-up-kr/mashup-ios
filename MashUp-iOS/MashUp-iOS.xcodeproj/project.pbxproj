@@ -34,7 +34,6 @@
 		CE6EE84127C7F130005BF412 /* HomeTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6EE84027C7F130005BF412 /* HomeTab.swift */; };
 		CE6EE84327C7F933005BF412 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6EE84227C7F933005BF412 /* Logger.swift */; };
 		CE6EE84527C8004F005BF412 /* BaseTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6EE84427C8004F005BF412 /* BaseTabBarController.swift */; };
-		CE6EE84A27C80C87005BF412 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6EE84927C80C86005BF412 /* SettingViewController.swift */; };
 		CE6EE84C27C80C92005BF412 /* SeminarScheduleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6EE84B27C80C92005BF412 /* SeminarScheduleViewController.swift */; };
 		CE6EE84E27C80C9B005BF412 /* MyPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6EE84D27C80C9B005BF412 /* MyPageViewController.swift */; };
 		CE6EE85027CA1DBD005BF412 /* RootReactorSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6EE84F27CA1DBD005BF412 /* RootReactorSpec.swift */; };
@@ -49,6 +48,8 @@
 		CE6EE86427CA4691005BF412 /* RxDataSources in Frameworks */ = {isa = PBXBuildFile; productRef = CE6EE86327CA4691005BF412 /* RxDataSources */; };
 		CE6EE86627CA495F005BF412 /* SeminarSchduleStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6EE86527CA495F005BF412 /* SeminarSchduleStep.swift */; };
 		CE6EE86927CA5609005BF412 /* SeminarDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6EE86827CA5609005BF412 /* SeminarDetailViewController.swift */; };
+		CE6EE86B27CA60B6005BF412 /* SplashReactorSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6EE86A27CA60B6005BF412 /* SplashReactorSpec.swift */; };
+		CE6EE86E27CA6302005BF412 /* UserSession+Stub.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6EE86D27CA6302005BF412 /* UserSession+Stub.swift */; };
 		CE9E734527C2889200922D8B /* Nimble in Frameworks */ = {isa = PBXBuildFile; productRef = CE9E734427C2889200922D8B /* Nimble */; };
 		CE9E734827C2889E00922D8B /* Quick in Frameworks */ = {isa = PBXBuildFile; productRef = CE9E734727C2889E00922D8B /* Quick */; };
 		CE9E734B27C288B700922D8B /* Mockingbird in Frameworks */ = {isa = PBXBuildFile; productRef = CE9E734A27C288B700922D8B /* Mockingbird */; };
@@ -119,7 +120,6 @@
 		CE6EE84027C7F130005BF412 /* HomeTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTab.swift; sourceTree = "<group>"; };
 		CE6EE84227C7F933005BF412 /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 		CE6EE84427C8004F005BF412 /* BaseTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTabBarController.swift; sourceTree = "<group>"; };
-		CE6EE84927C80C86005BF412 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		CE6EE84B27C80C92005BF412 /* SeminarScheduleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeminarScheduleViewController.swift; sourceTree = "<group>"; };
 		CE6EE84D27C80C9B005BF412 /* MyPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageViewController.swift; sourceTree = "<group>"; };
 		CE6EE84F27CA1DBD005BF412 /* RootReactorSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootReactorSpec.swift; sourceTree = "<group>"; };
@@ -132,6 +132,8 @@
 		CE6EE85E27CA45EF005BF412 /* SeminarScheduleSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeminarScheduleSection.swift; sourceTree = "<group>"; };
 		CE6EE86527CA495F005BF412 /* SeminarSchduleStep.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeminarSchduleStep.swift; sourceTree = "<group>"; };
 		CE6EE86827CA5609005BF412 /* SeminarDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeminarDetailViewController.swift; sourceTree = "<group>"; };
+		CE6EE86A27CA60B6005BF412 /* SplashReactorSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashReactorSpec.swift; sourceTree = "<group>"; };
+		CE6EE86D27CA6302005BF412 /* UserSession+Stub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserSession+Stub.swift"; sourceTree = "<group>"; };
 		CE9E735C27C294E800922D8B /* QRScanReactorSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QRScanReactorSpec.swift; sourceTree = "<group>"; };
 		CE9E736627C29F4700922D8B /* MashUp_iOSTests-Mock.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MashUp_iOSTests-Mock.generated.swift"; sourceTree = "<group>"; };
 		CEB60F4227A9713B001260DB /* TestAppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestAppDelegate.swift; sourceTree = "<group>"; };
@@ -217,6 +219,7 @@
 		CE396095278B3CB60073AEF4 /* MashUp-iOSTests */ = {
 			isa = PBXGroup;
 			children = (
+				CE6EE86C27CA62F0005BF412 /* TestDoubles */,
 				CE9E735B27C294E800922D8B /* Specs */,
 				CEB60F4227A9713B001260DB /* TestAppDelegate.swift */,
 			);
@@ -241,7 +244,6 @@
 				CEB60F4927A9759C001260DB /* QR Scan */,
 				CE6EE82A27C7D8E8005BF412 /* Root */,
 				CE6EE84727C80C6C005BF412 /* Seminar Schedule */,
-				CE6EE84827C80C7A005BF412 /* Setting */,
 				CE6EE80E27C7B27D005BF412 /* SignIn */,
 				CE6EE83627C7E2C4005BF412 /* Splash */,
 			);
@@ -403,14 +405,6 @@
 			path = "Seminar Schedule";
 			sourceTree = "<group>";
 		};
-		CE6EE84827C80C7A005BF412 /* Setting */ = {
-			isa = PBXGroup;
-			children = (
-				CE6EE84927C80C86005BF412 /* SettingViewController.swift */,
-			);
-			path = Setting;
-			sourceTree = "<group>";
-		};
 		CE6EE85B27CA4128005BF412 /* Seminar */ = {
 			isa = PBXGroup;
 			children = (
@@ -427,6 +421,14 @@
 			path = "Seminar Detail";
 			sourceTree = "<group>";
 		};
+		CE6EE86C27CA62F0005BF412 /* TestDoubles */ = {
+			isa = PBXGroup;
+			children = (
+				CE6EE86D27CA6302005BF412 /* UserSession+Stub.swift */,
+			);
+			path = TestDoubles;
+			sourceTree = "<group>";
+		};
 		CE9E735B27C294E800922D8B /* Specs */ = {
 			isa = PBXGroup;
 			children = (
@@ -434,6 +436,7 @@
 				CE6EE84F27CA1DBD005BF412 /* RootReactorSpec.swift */,
 				CE6EE85127CA26A6005BF412 /* SignInReactorSpec.swift */,
 				CE6EE85527CA38EF005BF412 /* HomeReactorSpec.swift */,
+				CE6EE86A27CA60B6005BF412 /* SplashReactorSpec.swift */,
 			);
 			path = Specs;
 			sourceTree = "<group>";
@@ -690,7 +693,6 @@
 				CE6EE84127C7F130005BF412 /* HomeTab.swift in Sources */,
 				CE6EE82C27C7D8F8005BF412 /* RootController.swift in Sources */,
 				CE6EE82E27C7D900005BF412 /* RootReactor.swift in Sources */,
-				CE6EE84A27C80C87005BF412 /* SettingViewController.swift in Sources */,
 				CE6EE85D27CA4136005BF412 /* Seminar.swift in Sources */,
 				CE6EE83D27C7EFB9005BF412 /* HomeTabBarController.swift in Sources */,
 				CE4A6C05278B47040052F7E7 /* HTTPClient.swift in Sources */,
@@ -715,9 +717,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				CE6EE85627CA38EF005BF412 /* HomeReactorSpec.swift in Sources */,
+				CE6EE86B27CA60B6005BF412 /* SplashReactorSpec.swift in Sources */,
 				CE6EE85227CA26A6005BF412 /* SignInReactorSpec.swift in Sources */,
 				CEB60F4327A9713B001260DB /* TestAppDelegate.swift in Sources */,
 				CE9E735D27C294E800922D8B /* QRScanReactorSpec.swift in Sources */,
+				CE6EE86E27CA6302005BF412 /* UserSession+Stub.swift in Sources */,
 				CE9E736727C29F4700922D8B /* MashUp_iOSTests-Mock.generated.swift in Sources */,
 				CE6EE85027CA1DBD005BF412 /* RootReactorSpec.swift in Sources */,
 			);

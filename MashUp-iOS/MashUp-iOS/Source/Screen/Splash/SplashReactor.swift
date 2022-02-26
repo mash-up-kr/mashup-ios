@@ -9,7 +9,7 @@
 import Foundation
 import ReactorKit
 
-protocol AuthenticationResponder: AnyObject {
+protocol AuthenticationResponder {
     func loadSuccess(userSession: UserSession)
     func loadFailure()
 }

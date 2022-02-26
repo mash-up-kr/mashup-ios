@@ -35,16 +35,16 @@ final class HomeReactorSpec: QuickSpec {
         beforeEach {
           sut.action.onNext(.didSelectTabItem(at: 1))
         }
-        it("focus on my page screen") {
-          expect { sut.currentState.currentTab }.to(equal(.myPage))
+        it("focus on QR screen") {
+          expect { sut.currentState.currentTab }.to(equal(.qr))
         }
       }
       context("when tapped third tab item 3") {
         beforeEach {
           sut.action.onNext(.didSelectTabItem(at: 2))
         }
-        it("focus on setting screen") {
-          expect { sut.currentState.currentTab }.to(equal(.setting))
+        it("focus on my page screen") {
+          expect { sut.currentState.currentTab }.to(equal(.myPage))
         }
       }
     }

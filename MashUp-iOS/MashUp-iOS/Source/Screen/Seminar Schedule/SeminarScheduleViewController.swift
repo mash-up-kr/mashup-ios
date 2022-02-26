@@ -66,9 +66,9 @@ extension SeminarScheduleViewController {
         self.view.backgroundColor = .systemRed
         self.view.addSubview(qrButton)
         self.qrButton.snp.makeConstraints {
-            $0.top.trailing.equalToSuperview().inset(56)
-            $0.height.equalTo(56)
-            $0.width.equalTo(56)
+            $0.top.equalToSuperview().inset(56)
+            $0.trailing.equalToSuperview().inset(24)
+            $0.height.width.equalTo(56)
         }
         self.qrButton.do {
             $0.backgroundColor = .systemIndigo

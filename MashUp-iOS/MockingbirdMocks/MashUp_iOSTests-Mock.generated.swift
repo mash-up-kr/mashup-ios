@@ -68,6 +68,76 @@ public func mock(_ type: MashUp_iOS.AttendanceService.Protocol, file: StaticStri
   return AttendanceServiceMock(sourceLocation: Mockingbird.SourceLocation(file, line))
 }
 
+// MARK: - Mocked AuthenticationResponder
+public final class AuthenticationResponderMock: MashUp_iOS.AuthenticationResponder, Mockingbird.Mock {
+  typealias MockingbirdSupertype = MashUp_iOS.AuthenticationResponder
+  public static let mockingbirdContext = Mockingbird.Context()
+  public let mockingbirdContext = Mockingbird.Context(["generator_version": "0.20.0", "module_name": "MashUp_iOS"])
+
+  fileprivate init(sourceLocation: Mockingbird.SourceLocation) {
+    self.mockingbirdContext.sourceLocation = sourceLocation
+    AuthenticationResponderMock.mockingbirdContext.sourceLocation = sourceLocation
+  }
+
+  // MARK: Mocked `loadFailure`()
+  public func `loadFailure`() -> Void {
+    return self.mockingbirdContext.mocking.didInvoke(Mockingbird.SwiftInvocation(selectorName: "`loadFailure`() -> Void", selectorType: Mockingbird.SelectorType.method, arguments: [], returnType: Swift.ObjectIdentifier((Void).self))) {
+      self.mockingbirdContext.recordInvocation($0)
+      let mkbImpl = self.mockingbirdContext.stubbing.implementation(for: $0)
+      if let mkbImpl = mkbImpl as? () -> Void { return mkbImpl() }
+      for mkbTargetBox in self.mockingbirdContext.proxy.targets(for: $0) {
+        switch mkbTargetBox.target {
+        case .super:
+          break
+        case .object(let mkbObject):
+          guard var mkbObject = mkbObject as? MockingbirdSupertype else { break }
+          let mkbValue: Void = mkbObject.`loadFailure`()
+          self.mockingbirdContext.proxy.updateTarget(&mkbObject, in: mkbTargetBox)
+          return mkbValue
+        }
+      }
+      if let mkbValue = self.mockingbirdContext.stubbing.defaultValueProvider.value.provideValue(for: (Void).self) { return mkbValue }
+      self.mockingbirdContext.stubbing.failTest(for: $0, at: self.mockingbirdContext.sourceLocation)
+    }
+  }
+
+  public func `loadFailure`() -> Mockingbird.Mockable<Mockingbird.FunctionDeclaration, () -> Void, Void> {
+    return Mockingbird.Mockable<Mockingbird.FunctionDeclaration, () -> Void, Void>(context: self.mockingbirdContext, invocation: Mockingbird.SwiftInvocation(selectorName: "`loadFailure`() -> Void", selectorType: Mockingbird.SelectorType.method, arguments: [], returnType: Swift.ObjectIdentifier((Void).self)))
+  }
+
+  // MARK: Mocked `loadSuccess`(`userSession`: MashUp_iOS.UserSession)
+  public func `loadSuccess`(`userSession`: MashUp_iOS.UserSession) -> Void {
+    return self.mockingbirdContext.mocking.didInvoke(Mockingbird.SwiftInvocation(selectorName: "`loadSuccess`(`userSession`: MashUp_iOS.UserSession) -> Void", selectorType: Mockingbird.SelectorType.method, arguments: [Mockingbird.ArgumentMatcher(`userSession`)], returnType: Swift.ObjectIdentifier((Void).self))) {
+      self.mockingbirdContext.recordInvocation($0)
+      let mkbImpl = self.mockingbirdContext.stubbing.implementation(for: $0)
+      if let mkbImpl = mkbImpl as? (MashUp_iOS.UserSession) -> Void { return mkbImpl(`userSession`) }
+      if let mkbImpl = mkbImpl as? () -> Void { return mkbImpl() }
+      for mkbTargetBox in self.mockingbirdContext.proxy.targets(for: $0) {
+        switch mkbTargetBox.target {
+        case .super:
+          break
+        case .object(let mkbObject):
+          guard var mkbObject = mkbObject as? MockingbirdSupertype else { break }
+          let mkbValue: Void = mkbObject.`loadSuccess`(userSession: `userSession`)
+          self.mockingbirdContext.proxy.updateTarget(&mkbObject, in: mkbTargetBox)
+          return mkbValue
+        }
+      }
+      if let mkbValue = self.mockingbirdContext.stubbing.defaultValueProvider.value.provideValue(for: (Void).self) { return mkbValue }
+      self.mockingbirdContext.stubbing.failTest(for: $0, at: self.mockingbirdContext.sourceLocation)
+    }
+  }
+
+  public func `loadSuccess`(`userSession`: @autoclosure () -> MashUp_iOS.UserSession) -> Mockingbird.Mockable<Mockingbird.FunctionDeclaration, (MashUp_iOS.UserSession) -> Void, Void> {
+    return Mockingbird.Mockable<Mockingbird.FunctionDeclaration, (MashUp_iOS.UserSession) -> Void, Void>(context: self.mockingbirdContext, invocation: Mockingbird.SwiftInvocation(selectorName: "`loadSuccess`(`userSession`: MashUp_iOS.UserSession) -> Void", selectorType: Mockingbird.SelectorType.method, arguments: [Mockingbird.resolve(`userSession`)], returnType: Swift.ObjectIdentifier((Void).self)))
+  }
+}
+
+/// Returns a concrete mock of `AuthenticationResponder`.
+public func mock(_ type: MashUp_iOS.AuthenticationResponder.Protocol, file: StaticString = #file, line: UInt = #line) -> AuthenticationResponderMock {
+  return AuthenticationResponderMock(sourceLocation: Mockingbird.SourceLocation(file, line))
+}
+
 // MARK: - Mocked QRReaderService
 public final class QRReaderServiceMock: MashUp_iOS.QRReaderService, Mockingbird.Mock {
   typealias MockingbirdSupertype = MashUp_iOS.QRReaderService

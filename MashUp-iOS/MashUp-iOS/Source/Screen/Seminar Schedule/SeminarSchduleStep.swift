@@ -9,6 +9,5 @@
 import Foundation
 
 enum SeminarSchduleStep: Equatable {
-    case qrScan
     case seminarDetail(seminarID: String)
 }

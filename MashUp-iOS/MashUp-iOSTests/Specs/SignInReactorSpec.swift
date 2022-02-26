@@ -83,7 +83,7 @@ final class SignInReactorSpec: QuickSpec {
       var isLoadingObserver: TestableObserver<Bool>!
       let correctID = "correct.id"
       let correctPassword = "correct.password"
-      let stubedUserSession = UserSession(accessToken: "fake.access.token")
+      let stubedUserSession = UserSession.stub(accessToken: "fake.access.token")
       let error: Error = "sign in failure"
       beforeEach {
         testScheduler = TestScheduler(initialClock: 0)
@@ -121,7 +121,7 @@ final class SignInReactorSpec: QuickSpec {
       let correctPassword = "correct.password"
       let wrongID = "wrong.id"
       let wrongPassword = "wrong.password"
-      let stubedUserSession = UserSession(accessToken: "fake.access.token")
+      let stubedUserSession = UserSession.stub(accessToken: "fake.access.token")
       let error: Error = "sign in failure"
       beforeEach {
         given(userSessionRepositoryMock.signIn(id: any(), password: any()))
