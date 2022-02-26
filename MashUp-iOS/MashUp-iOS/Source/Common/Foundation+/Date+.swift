@@ -25,6 +25,14 @@ extension Date {
         $0.dateFormat = "yyyy-MM-dd HH:mm:ss"
         $0.timeZone = .UTC
     }
+    
+    static func + (lhs: Date, rhs: Date) -> Date {
+        return Date(timeIntervalSince1970: lhs.timeIntervalSince1970 + rhs.timeIntervalSince1970)
+    }
+    
+    static func - (lhs: Date, rhs: Date) -> Date {
+        return Date(timeIntervalSince1970: lhs.timeIntervalSince1970 - rhs.timeIntervalSince1970)
+    }
 }
 
 extension TimeZone {

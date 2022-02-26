@@ -27,7 +27,7 @@ enum AttendanceStyle: String, Equatable, Hashable, CaseIterable {
         switch self {
         case .attend: return UIColor.systemGreen
         case .absence: return UIColor.systemRed
-        case .lateness: return UIColor.systemYellow
+        case .lateness: return UIColor.systemOrange
         case .upcoming: return UIColor.systemGray
         }
     }

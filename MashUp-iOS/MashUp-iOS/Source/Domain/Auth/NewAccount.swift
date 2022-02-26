@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct NewAccount {
+struct NewAccount: Equatable {
     let id: String
     let password: String
     let name: String

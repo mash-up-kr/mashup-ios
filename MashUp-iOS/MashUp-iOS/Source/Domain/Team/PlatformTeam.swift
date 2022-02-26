@@ -8,7 +8,7 @@
 
 import Foundation
 
-enum PlatformTeam {
+enum PlatformTeam: Equatable {
     case design
     case android
     case iOS

@@ -51,10 +51,34 @@ extension SeminarCardCell {
     
     private func setupAttribute() {
         self.cardShapeView.do {
-            $0.layer.cornerRadius = 12
+            $0.layer.cornerRadius = 24
+            $0.backgroundColor = .white
+        }
+        self.titleLabel.do {
+            $0.textColor = .black
+            $0.font = .systemFont(ofSize: 18, weight: .bold)
+        }
+        self.timeLabel.do {
+            $0.textColor = .black
+            $0.font = .systemFont(ofSize: 12, weight: .medium)
+        }
+        self.ddayLabel.do {
+            $0.textColor = .lightGray
+            $0.font = .systemFont(ofSize: 14, weight: .regular)
+        }
+        self.summaryLabel.do {
+            $0.textColor = .darkGray
+            $0.font = .systemFont(ofSize: 12, weight: .semibold)
+        }
+        self.dateLabel.do {
+            $0.textColor = .black
+            $0.font = .systemFont(ofSize: 14, weight: .regular)
         }
         self.attendanceBadge.do {
             $0.textColor = .white
+            $0.font = .systemFont(ofSize: 14, weight: .regular)
+            $0.layer.cornerRadius = 13
+            $0.clipsToBounds = true
         }
     }
     
@@ -76,21 +100,25 @@ extension SeminarCardCell {
         }
         self.ddayLabel.snp.makeConstraints {
             $0.centerY.equalTo(self.titleLabel)
-            $0.trailing.equalToSuperview().inset(8)
+            $0.trailing.equalToSuperview().inset(16)
         }
         self.timeLabel.snp.makeConstraints {
             $0.top.equalTo(self.titleLabel.snp.bottom).offset(8)
             $0.leading.equalToSuperview().inset(20)
         }
         self.summaryLabel.snp.makeConstraints {
+            $0.top.equalTo(self.timeLabel.snp.bottom).offset(8)
+            $0.leading.equalToSuperview().inset(20)
             $0.height.equalTo(36)
         }
         self.dateLabel.snp.makeConstraints {
-            $0.leading.bottom.equalToSuperview().inset(20)
+            $0.bottom.equalTo(self.attendanceBadge.snp.bottom)
+            $0.leading.equalToSuperview().inset(20)
         }
         self.attendanceBadge.snp.makeConstraints {
             $0.top.equalTo(self.summaryLabel.snp.bottom)
             $0.trailing.bottom.equalToSuperview().inset(20)
+            $0.height.equalTo(26)
         }
     }
     

@@ -44,7 +44,10 @@ final class SeminarScheduleReactor: Reactor {
     func mutate(action: Action) -> Observable<Mutation> {
         switch action {
         case .didSetup:
-            return .empty()
+            let startLoading: Observable<Mutation> = .just(.updateLoading(true))
+            let fetchSeminar: Observable<Mutation> = self.seminarRepository.fetchSeminars().map { .updateSeminars($0) }
+            let endLoading: Observable<Mutation> = .just(.updateLoading(false))
+            return .concat(startLoading, fetchSeminar, endLoading)
             
         case .didSelectSeminar(let index):
             guard let seminar = self.currentState.seminars[safe: index] else { return .empty() }
@@ -89,10 +92,13 @@ extension SeminarScheduleReactor {
     }
     
     private func createSeminarItem(from seminar: Seminar) -> Section.Item {
+        let dateFormatter = DateFormatter().then {
+            $0.dateFormat = "MM월 dd일 (EEEE)"
+        }
         let cellModel = SeminarCardCellModel(title: seminar.title,
                                              summary: seminar.summary,
                                              dday: ["오늘", "D-1", "D-2"].randomElement()!,
-                                             date: "2월 21일 (월)",
+                                             date: dateFormatter.string(from: seminar.date),
                                              time: "오후 3시 30분 - 오후 4시 30분",
                                              attendance: .allCases.randomElement()!)
         return .seminar(cellModel)

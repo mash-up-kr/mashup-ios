@@ -34,10 +34,16 @@ final class SeminarScheduleViewController: BaseViewController, ReactorKit.View {
     }
     
     private func dispatch(to reactor: Reactor) {
+        self.rx.viewDidLayoutSubviews.take(1).map { .didSetup }
+        .bind(to: reactor.action)
+        .disposed(by: self.disposeBag)
     }
     
     private func render(_ reactor: Reactor) {
-        
+        reactor.state.map { $0.sections }
+        .distinctUntilChanged()
+        .subscribe(onNext: self.applySections)
+        .disposed(by: self.disposeBag)
     }
     
     private func consume(_ reactor: Reactor) {
@@ -49,6 +55,13 @@ final class SeminarScheduleViewController: BaseViewController, ReactorKit.View {
             }
         })
         .disposed(by: self.disposeBag)
+    }
+    
+    private func applySections(_ sections: [Section]) {
+        var snapshot = Snapshot()
+        snapshot.appendSections(sections)
+        sections.forEach { snapshot.appendItems($0.items, toSection: $0) }
+        self.dataSource.apply(snapshot, animatingDifferences: true)
     }
     
     private lazy var dataSource = self.dataSourceOf(self.collectionView)
@@ -73,7 +86,23 @@ extension SeminarScheduleViewController {
         self.collectionView.do {
             $0.registerCell(SeminarCardCell.self)
             $0.backgroundColor = .systemTeal
+            $0.collectionViewLayout = self.collectionViewLayout()
         }
+    }
+    
+    private func collectionViewLayout() -> UICollectionViewCompositionalLayout {
+        return UICollectionViewCompositionalLayout(sectionProvider: { (sectionIndex, layoutEnvironment) -> NSCollectionLayoutSection? in
+          let size = NSCollectionLayoutSize(
+            widthDimension: NSCollectionLayoutDimension.fractionalWidth(1),
+            heightDimension: NSCollectionLayoutDimension.estimated(162)
+          )
+          let item = NSCollectionLayoutItem(layoutSize: size)
+          let group = NSCollectionLayoutGroup.horizontal(layoutSize: size, subitem: item, count: 1)
+          let section = NSCollectionLayoutSection(group: group)
+          section.contentInsets = NSDirectionalEdgeInsets(top: 10, leading: 10, bottom: 10, trailing: 10)
+          section.interGroupSpacing = 10
+          return section
+        })
     }
     
     private func setupLayout() {

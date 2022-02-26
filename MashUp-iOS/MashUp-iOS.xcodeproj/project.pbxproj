@@ -320,11 +320,11 @@
 		CE3960E5278B45CA0073AEF4 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				CE6EE84227C7F933005BF412 /* Logger.swift */,
 				CE6EE87E27CA8E52005BF412 /* Foundation+ */,
+				CEB60F7727A9BF90001260DB /* Rx */,
 				CE6EE87B27CA8E29005BF412 /* UIKit+ */,
 				CE6EE87627CA857F005BF412 /* View */,
-				CE6EE84227C7F933005BF412 /* Logger.swift */,
-				CEB60F7727A9BF90001260DB /* Rx */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -426,11 +426,11 @@
 		CE6EE84727C80C6C005BF412 /* Seminar Schedule */ = {
 			isa = PBXGroup;
 			children = (
-				CE6EE86F27CA7350005BF412 /* View */,
 				CE6EE86527CA495F005BF412 /* SeminarSchduleStep.swift */,
 				CE6EE85927CA40C5005BF412 /* SeminarScheduleReactor.swift */,
 				CE6EE85E27CA45EF005BF412 /* SeminarScheduleSection.swift */,
 				CE6EE84B27C80C92005BF412 /* SeminarScheduleViewController.swift */,
+				CE6EE86F27CA7350005BF412 /* View */,
 			);
 			path = "Seminar Schedule";
 			sourceTree = "<group>";
@@ -492,9 +492,9 @@
 			isa = PBXGroup;
 			children = (
 				CE6EE85727CA3AC6005BF412 /* Collection+.swift */,
+				CE6EE88B27CAA3C9005BF412 /* Date+.swift */,
 				CE6EE85327CA2F6A005BF412 /* Error+.swift */,
 				CE6EE81327C7B541005BF412 /* String+.swift */,
-				CE6EE88B27CAA3C9005BF412 /* Date+.swift */,
 			);
 			path = "Foundation+";
 			sourceTree = "<group>";
