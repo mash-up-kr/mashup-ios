@@ -41,7 +41,7 @@ final class SignInReactorSpec: QuickSpec {
         beforeEach {
           sut.action.onNext(.didEditPasswordField(stubedPassword))
         }
-        it("is synchronized with updated id text") {
+        it("is synchronized with updated password text") {
           expect { sut.currentState.password }.to(equal(stubedPassword))
         }
       }
