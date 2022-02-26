@@ -11,7 +11,7 @@ import Then
 import UIKit
 
 protocol SeminarHeaderViewDelegate: AnyObject {
-    func seminarHeaderView(_ headerView: SeminarHeaderView, didTapSort: Sort)
+    func seminarHeaderView(_ headerView: SeminarHeaderView, didTapSort sort: Sort)
 }
 
 enum Sort {

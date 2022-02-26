@@ -51,7 +51,7 @@
 		CE6EE86B27CA60B6005BF412 /* SplashReactorSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6EE86A27CA60B6005BF412 /* SplashReactorSpec.swift */; };
 		CE6EE86E27CA6302005BF412 /* UserSession+Stub.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6EE86D27CA6302005BF412 /* UserSession+Stub.swift */; };
 		CE6EE87127CA73B7005BF412 /* SeminarCardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6EE87027CA73B7005BF412 /* SeminarCardCell.swift */; };
-		CE6EE87327CA7482005BF412 /* Attendance.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6EE87227CA7482005BF412 /* Attendance.swift */; };
+		CE6EE87327CA7482005BF412 /* AttendanceStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6EE87227CA7482005BF412 /* AttendanceStatus.swift */; };
 		CE6EE87527CA820B005BF412 /* BaseCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6EE87427CA820A005BF412 /* BaseCollectionViewCell.swift */; };
 		CE6EE87827CA858B005BF412 /* PaddingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6EE87727CA858B005BF412 /* PaddingLabel.swift */; };
 		CE6EE87A27CA89F3005BF412 /* SeminarCardCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6EE87927CA89F3005BF412 /* SeminarCardCellModel.swift */; };
@@ -150,7 +150,7 @@
 		CE6EE86A27CA60B6005BF412 /* SplashReactorSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashReactorSpec.swift; sourceTree = "<group>"; };
 		CE6EE86D27CA6302005BF412 /* UserSession+Stub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserSession+Stub.swift"; sourceTree = "<group>"; };
 		CE6EE87027CA73B7005BF412 /* SeminarCardCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeminarCardCell.swift; sourceTree = "<group>"; };
-		CE6EE87227CA7482005BF412 /* Attendance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Attendance.swift; sourceTree = "<group>"; };
+		CE6EE87227CA7482005BF412 /* AttendanceStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttendanceStatus.swift; sourceTree = "<group>"; };
 		CE6EE87427CA820A005BF412 /* BaseCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCollectionViewCell.swift; sourceTree = "<group>"; };
 		CE6EE87727CA858B005BF412 /* PaddingLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaddingLabel.swift; sourceTree = "<group>"; };
 		CE6EE87927CA89F3005BF412 /* SeminarCardCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeminarCardCellModel.swift; sourceTree = "<group>"; };
@@ -573,7 +573,7 @@
 		CEB60F8227A9C5EA001260DB /* Attendance */ = {
 			isa = PBXGroup;
 			children = (
-				CE6EE87227CA7482005BF412 /* Attendance.swift */,
+				CE6EE87227CA7482005BF412 /* AttendanceStatus.swift */,
 				CEB60F7E27A9C536001260DB /* AttendanceService.swift */,
 				CEB60F8327A9C602001260DB /* FakeAttendanceService.swift */,
 			);
@@ -753,7 +753,7 @@
 				CE6EE83A27C7E2DE005BF412 /* SplashViewController.swift in Sources */,
 				CEB60F4527A97163001260DB /* main.swift in Sources */,
 				CE6EE83F27C7EFF9005BF412 /* HomeReactor.swift in Sources */,
-				CE6EE87327CA7482005BF412 /* Attendance.swift in Sources */,
+				CE6EE87327CA7482005BF412 /* AttendanceStatus.swift in Sources */,
 				CE6EE88C27CAA3C9005BF412 /* Date+.swift in Sources */,
 				CEB60F4B27A975AD001260DB /* QRScanViewController.swift in Sources */,
 				CE6EE88627CA91ED005BF412 /* SeminarHeaderView.swift in Sources */,

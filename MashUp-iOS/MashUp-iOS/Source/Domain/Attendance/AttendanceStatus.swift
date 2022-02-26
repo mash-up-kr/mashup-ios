@@ -8,7 +8,7 @@
 
 import Foundation
 
-enum Attendance: Equatable {
+enum AttendanceStatus: Equatable {
     case attend
     case absence
     case lateness

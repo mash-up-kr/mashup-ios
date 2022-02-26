@@ -23,7 +23,7 @@ final class SeminarScheduleReactor: Reactor {
         case updateLoadingNextPage(Bool)
         case updateSeminars([Seminar])
         case appendSeminars([Seminar])
-        case move(SeminarSchduleStep)
+        case move(to: SeminarSchduleStep)
     }
     
     struct State {
@@ -51,7 +51,8 @@ final class SeminarScheduleReactor: Reactor {
             
         case .didSelectSeminar(let index):
             guard let seminar = self.currentState.seminars[safe: index] else { return .empty() }
-            return .just(.move(.seminarDetail(seminarID: seminar.id)))
+            let moveToSeminarDetail: Observable<Mutation> = .just(.move(to: .seminarDetail(seminarID: seminar.id)))
+            return moveToSeminarDetail
         }
     }
     
