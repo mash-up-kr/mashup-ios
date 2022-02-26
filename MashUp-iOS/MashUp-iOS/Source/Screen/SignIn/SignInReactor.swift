@@ -55,11 +55,12 @@ final class SignInReactor: Reactor {
             let startLoading = Observable.just(Mutation.updateLoading(true))
             let enterHome = self.signIn().map { userSession in Mutation.moveToScreen(.home(userSession)) }
             let endLoading = Observable.just(Mutation.updateLoading(false))
+            let handleError: (Error) -> Observable<Mutation> = { error in return .just(.occurError(error)) }
             return .concat(
                 startLoading,
                 enterHome,
                 endLoading
-            ).catch { .just(.occurError($0)) }
+            ).catch { error in .concat(handleError(error), endLoading) }
             
         case .didTapSignUpButton:
             return .just(.moveToScreen(.signUp))
@@ -71,11 +72,11 @@ final class SignInReactor: Reactor {
         switch mutation {
         case .updateID(let id):
             newState.id = id
-            newState.canTrySignIn = self.verify(id: state.id, password: state.password)
+            newState.canTrySignIn = self.verify(id: id, password: state.password)
             
         case .updatePassword(let password):
             newState.password = password
-            newState.canTrySignIn = self.verify(id: state.id, password: state.password)
+            newState.canTrySignIn = self.verify(id: state.id, password: password)
             
         case .updateLoading(let isLoading):
             newState.isLoading = isLoading
@@ -98,12 +99,14 @@ final class SignInReactor: Reactor {
     
     private func verify(id: String, password: String) -> Bool {
         #warning("ID, PW 입력상태에 따른 로그인버튼 활성화 로직 - Booung")
-        return true
+        let idIsFulfill = id.count > 4
+        let pwIsFulfill = password.count > 4
+        return idIsFulfill && pwIsFulfill
     }
     
     private func messageOf(error: Error) -> String {
         #warning("Error의 메시지 로직 - Booung")
-        return "error occured"
+        return "sign in failure"
     }
     
     private let userSessionRepository: UserSessionRepository

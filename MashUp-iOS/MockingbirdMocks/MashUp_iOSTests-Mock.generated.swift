@@ -139,3 +139,100 @@ public final class QRReaderServiceMock: MashUp_iOS.QRReaderService, Mockingbird.
 public func mock(_ type: MashUp_iOS.QRReaderService.Protocol, file: StaticString = #file, line: UInt = #line) -> QRReaderServiceMock {
   return QRReaderServiceMock(sourceLocation: Mockingbird.SourceLocation(file, line))
 }
+
+// MARK: - Mocked UserSessionRepository
+public final class UserSessionRepositoryMock: MashUp_iOS.UserSessionRepository, Mockingbird.Mock {
+  typealias MockingbirdSupertype = MashUp_iOS.UserSessionRepository
+  public static let mockingbirdContext = Mockingbird.Context()
+  public let mockingbirdContext = Mockingbird.Context(["generator_version": "0.20.0", "module_name": "MashUp_iOS"])
+
+  fileprivate init(sourceLocation: Mockingbird.SourceLocation) {
+    self.mockingbirdContext.sourceLocation = sourceLocation
+    UserSessionRepositoryMock.mockingbirdContext.sourceLocation = sourceLocation
+  }
+
+  // MARK: Mocked `signUp`(with `newAccount`: MashUp_iOS.NewAccount)
+  public func `signUp`(with `newAccount`: MashUp_iOS.NewAccount) -> Observable<MashUp_iOS.UserSession> {
+    return self.mockingbirdContext.mocking.didInvoke(Mockingbird.SwiftInvocation(selectorName: "`signUp`(with `newAccount`: MashUp_iOS.NewAccount) -> Observable<MashUp_iOS.UserSession>", selectorType: Mockingbird.SelectorType.method, arguments: [Mockingbird.ArgumentMatcher(`newAccount`)], returnType: Swift.ObjectIdentifier((Observable<MashUp_iOS.UserSession>).self))) {
+      self.mockingbirdContext.recordInvocation($0)
+      let mkbImpl = self.mockingbirdContext.stubbing.implementation(for: $0)
+      if let mkbImpl = mkbImpl as? (MashUp_iOS.NewAccount) -> Observable<MashUp_iOS.UserSession> { return mkbImpl(`newAccount`) }
+      if let mkbImpl = mkbImpl as? () -> Observable<MashUp_iOS.UserSession> { return mkbImpl() }
+      for mkbTargetBox in self.mockingbirdContext.proxy.targets(for: $0) {
+        switch mkbTargetBox.target {
+        case .super:
+          break
+        case .object(let mkbObject):
+          guard var mkbObject = mkbObject as? MockingbirdSupertype else { break }
+          let mkbValue: Observable<MashUp_iOS.UserSession> = mkbObject.`signUp`(with: `newAccount`)
+          self.mockingbirdContext.proxy.updateTarget(&mkbObject, in: mkbTargetBox)
+          return mkbValue
+        }
+      }
+      if let mkbValue = self.mockingbirdContext.stubbing.defaultValueProvider.value.provideValue(for: (Observable<MashUp_iOS.UserSession>).self) { return mkbValue }
+      self.mockingbirdContext.stubbing.failTest(for: $0, at: self.mockingbirdContext.sourceLocation)
+    }
+  }
+
+  public func `signUp`(with `newAccount`: @autoclosure () -> MashUp_iOS.NewAccount) -> Mockingbird.Mockable<Mockingbird.FunctionDeclaration, (MashUp_iOS.NewAccount) -> Observable<MashUp_iOS.UserSession>, Observable<MashUp_iOS.UserSession>> {
+    return Mockingbird.Mockable<Mockingbird.FunctionDeclaration, (MashUp_iOS.NewAccount) -> Observable<MashUp_iOS.UserSession>, Observable<MashUp_iOS.UserSession>>(context: self.mockingbirdContext, invocation: Mockingbird.SwiftInvocation(selectorName: "`signUp`(with `newAccount`: MashUp_iOS.NewAccount) -> Observable<MashUp_iOS.UserSession>", selectorType: Mockingbird.SelectorType.method, arguments: [Mockingbird.resolve(`newAccount`)], returnType: Swift.ObjectIdentifier((Observable<MashUp_iOS.UserSession>).self)))
+  }
+
+  // MARK: Mocked `signIn`(`id`: String, `password`: String)
+  public func `signIn`(`id`: String, `password`: String) -> Observable<MashUp_iOS.UserSession> {
+    return self.mockingbirdContext.mocking.didInvoke(Mockingbird.SwiftInvocation(selectorName: "`signIn`(`id`: String, `password`: String) -> Observable<MashUp_iOS.UserSession>", selectorType: Mockingbird.SelectorType.method, arguments: [Mockingbird.ArgumentMatcher(`id`), Mockingbird.ArgumentMatcher(`password`)], returnType: Swift.ObjectIdentifier((Observable<MashUp_iOS.UserSession>).self))) {
+      self.mockingbirdContext.recordInvocation($0)
+      let mkbImpl = self.mockingbirdContext.stubbing.implementation(for: $0)
+      if let mkbImpl = mkbImpl as? (String, String) -> Observable<MashUp_iOS.UserSession> { return mkbImpl(`id`, `password`) }
+      if let mkbImpl = mkbImpl as? () -> Observable<MashUp_iOS.UserSession> { return mkbImpl() }
+      for mkbTargetBox in self.mockingbirdContext.proxy.targets(for: $0) {
+        switch mkbTargetBox.target {
+        case .super:
+          break
+        case .object(let mkbObject):
+          guard var mkbObject = mkbObject as? MockingbirdSupertype else { break }
+          let mkbValue: Observable<MashUp_iOS.UserSession> = mkbObject.`signIn`(id: `id`, password: `password`)
+          self.mockingbirdContext.proxy.updateTarget(&mkbObject, in: mkbTargetBox)
+          return mkbValue
+        }
+      }
+      if let mkbValue = self.mockingbirdContext.stubbing.defaultValueProvider.value.provideValue(for: (Observable<MashUp_iOS.UserSession>).self) { return mkbValue }
+      self.mockingbirdContext.stubbing.failTest(for: $0, at: self.mockingbirdContext.sourceLocation)
+    }
+  }
+
+  public func `signIn`(`id`: @autoclosure () -> String, `password`: @autoclosure () -> String) -> Mockingbird.Mockable<Mockingbird.FunctionDeclaration, (String, String) -> Observable<MashUp_iOS.UserSession>, Observable<MashUp_iOS.UserSession>> {
+    return Mockingbird.Mockable<Mockingbird.FunctionDeclaration, (String, String) -> Observable<MashUp_iOS.UserSession>, Observable<MashUp_iOS.UserSession>>(context: self.mockingbirdContext, invocation: Mockingbird.SwiftInvocation(selectorName: "`signIn`(`id`: String, `password`: String) -> Observable<MashUp_iOS.UserSession>", selectorType: Mockingbird.SelectorType.method, arguments: [Mockingbird.resolve(`id`), Mockingbird.resolve(`password`)], returnType: Swift.ObjectIdentifier((Observable<MashUp_iOS.UserSession>).self)))
+  }
+
+  // MARK: Mocked `load`()
+  public func `load`() -> Observable<MashUp_iOS.UserSession?> {
+    return self.mockingbirdContext.mocking.didInvoke(Mockingbird.SwiftInvocation(selectorName: "`load`() -> Observable<MashUp_iOS.UserSession?>", selectorType: Mockingbird.SelectorType.method, arguments: [], returnType: Swift.ObjectIdentifier((Observable<MashUp_iOS.UserSession?>).self))) {
+      self.mockingbirdContext.recordInvocation($0)
+      let mkbImpl = self.mockingbirdContext.stubbing.implementation(for: $0)
+      if let mkbImpl = mkbImpl as? () -> Observable<MashUp_iOS.UserSession?> { return mkbImpl() }
+      for mkbTargetBox in self.mockingbirdContext.proxy.targets(for: $0) {
+        switch mkbTargetBox.target {
+        case .super:
+          break
+        case .object(let mkbObject):
+          guard var mkbObject = mkbObject as? MockingbirdSupertype else { break }
+          let mkbValue: Observable<MashUp_iOS.UserSession?> = mkbObject.`load`()
+          self.mockingbirdContext.proxy.updateTarget(&mkbObject, in: mkbTargetBox)
+          return mkbValue
+        }
+      }
+      if let mkbValue = self.mockingbirdContext.stubbing.defaultValueProvider.value.provideValue(for: (Observable<MashUp_iOS.UserSession?>).self) { return mkbValue }
+      self.mockingbirdContext.stubbing.failTest(for: $0, at: self.mockingbirdContext.sourceLocation)
+    }
+  }
+
+  public func `load`() -> Mockingbird.Mockable<Mockingbird.FunctionDeclaration, () -> Observable<MashUp_iOS.UserSession?>, Observable<MashUp_iOS.UserSession?>> {
+    return Mockingbird.Mockable<Mockingbird.FunctionDeclaration, () -> Observable<MashUp_iOS.UserSession?>, Observable<MashUp_iOS.UserSession?>>(context: self.mockingbirdContext, invocation: Mockingbird.SwiftInvocation(selectorName: "`load`() -> Observable<MashUp_iOS.UserSession?>", selectorType: Mockingbird.SelectorType.method, arguments: [], returnType: Swift.ObjectIdentifier((Observable<MashUp_iOS.UserSession?>).self)))
+  }
+}
+
+/// Returns a concrete mock of `UserSessionRepository`.
+public func mock(_ type: MashUp_iOS.UserSessionRepository.Protocol, file: StaticString = #file, line: UInt = #line) -> UserSessionRepositoryMock {
+  return UserSessionRepositoryMock(sourceLocation: Mockingbird.SourceLocation(file, line))
+}
