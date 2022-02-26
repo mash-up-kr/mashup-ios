@@ -31,10 +31,11 @@ final class HomeReactor: Reactor {
     
     func reduce(state: State, mutation: Action) -> State {
         var newState = state
-        
         switch mutation {
         case .didSelectTabItem(let index):
-            guard let tabItem = state.tabItems[safe: index]
+            guard let selectedTab = state.tabItems[safe: index] else { return state }
+            newState.currentTab = selectedTab
         }
+        return newState
     }
 }
