@@ -11,7 +11,6 @@ import RxSwift
 import RxCocoa
 import SnapKit
 import UIKit
-import ReactiveSwift
 
 final class HomeTabBarController: BaseTabBarController, ReactorKit.View {
     typealias Reactor = HomeReactor
@@ -21,8 +20,7 @@ final class HomeTabBarController: BaseTabBarController, ReactorKit.View {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.tabBar.tintColor = .black
-        self.tabBar.backgroundColor = .white
+        self.setupUI()
     }
     
     func bind(reactor: Reactor) {
@@ -56,13 +54,27 @@ final class HomeTabBarController: BaseTabBarController, ReactorKit.View {
         
     }
     
+    
+}
+// MARK: - Setup
+extension HomeTabBarController {
+    
+    private func setupUI() {
+        self.tabBar.tintColor = .black
+        self.tabBar.backgroundColor = .white
+    }
+    
+}
+// MARK: - Factory
+extension HomeTabBarController {
+    
     #warning("DIContainer로 로직 이동해야합니다.")
     private func viewControllers(of tabItems: [HomeTab]) -> [UIViewController] {
         return tabItems.map { tab in
             let viewController: UIViewController
             switch tab {
             case .seminarSchedule:
-                viewController = self.createSeminarScheduleViewController()
+                viewController = UINavigationController(rootViewController: self.createSeminarScheduleViewController())
             case .myPage:
                 viewController = self.createMyPageViewController()
             case .setting:
@@ -75,6 +87,7 @@ final class HomeTabBarController: BaseTabBarController, ReactorKit.View {
     
     private func createSeminarScheduleViewController() -> UIViewController {
         let seminarScheduleViewController = SeminarScheduleViewController()
+        seminarScheduleViewController.reactor = SeminarScheduleReactor()
         return seminarScheduleViewController
     }
     

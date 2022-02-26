@@ -47,7 +47,12 @@ final class RootController: BaseViewController, ReactorKit.View {
         }).disposed(by: self.disposeBag)
     }
     
+    #warning("DIContainer로 로직 이동해야합니다., 가구현체여서 실구현체로 대치되어야합니다")
+    let userSessionRepository = FakeUserSessionRepository()
     
+}
+// MARK: - Navigation
+extension RootController {
     
     private func presentSplashViewController() {
         guard let splashViewController = self.createSplashViewController() else { return }
@@ -77,8 +82,10 @@ final class RootController: BaseViewController, ReactorKit.View {
         }
     }
     
-    #warning("DIContainer로 로직 이동해야합니다., 가구현체여서 실구현체로 대치되어야합니다")
-    let userSessionRepository = FakeUserSessionRepository()
+}
+
+// MARK: - Factory
+extension RootController {
     
     private func createSplashViewController() -> UIViewController? {
         guard let authenticationResponder = self.reactor else { return nil }
