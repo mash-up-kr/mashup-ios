@@ -12,8 +12,12 @@ final class SeminarDetailViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         self.setupUI()
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        self.navigationController?.isNavigationBarHidden = false
     }
 }
 
@@ -21,7 +25,7 @@ final class SeminarDetailViewController: BaseViewController {
 extension SeminarDetailViewController {
     
     private func setupUI() {
-        self.navigationController?.isNavigationBarHidden = false
+        self.view.backgroundColor = .systemOrange
     }
     
 }

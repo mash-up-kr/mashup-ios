@@ -23,8 +23,12 @@ final class SeminarScheduleViewController: BaseViewController, ReactorKit.View {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         self.setupUI()
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        self.navigationController?.isNavigationBarHidden = true
     }
     
     func bind(reactor: Reactor) {
@@ -35,6 +39,10 @@ final class SeminarScheduleViewController: BaseViewController, ReactorKit.View {
     
     private func dispatch(to reactor: Reactor) {
         self.rx.viewDidLayoutSubviews.take(1).map { .didSetup }
+        .bind(to: reactor.action)
+        .disposed(by: self.disposeBag)
+        
+        self.collectionView.rx.itemSelected.map { .didSelectSeminar(at: $0.item) }
         .bind(to: reactor.action)
         .disposed(by: self.disposeBag)
     }
@@ -81,7 +89,6 @@ extension SeminarScheduleViewController {
     }
     
     private func setupAttribute() {
-        self.navigationController?.isNavigationBarHidden = true
         self.view.backgroundColor = .systemBlue
         self.collectionView.do {
             $0.backgroundColor = .systemTeal
@@ -122,13 +129,13 @@ extension SeminarScheduleViewController {
         section.orthogonalScrollingBehavior = .paging
         
         let headerSize = NSCollectionLayoutSize(
-          widthDimension: .fractionalWidth(1.0),
-          heightDimension: .absolute(52.0)
+            widthDimension: .fractionalWidth(1.0),
+            heightDimension: .absolute(52.0)
         )
         let sectionHeader = NSCollectionLayoutBoundarySupplementaryItem(
-          layoutSize: headerSize,
-          elementKind: UICollectionView.elementKindSectionHeader,
-          alignment: .top
+            layoutSize: headerSize,
+            elementKind: UICollectionView.elementKindSectionHeader,
+            alignment: .top
         )
         section.boundarySupplementaryItems = [sectionHeader]
         return section
@@ -145,13 +152,13 @@ extension SeminarScheduleViewController {
         section.contentInsets = NSDirectionalEdgeInsets(top: 10, leading: 24, bottom: 10, trailing: 24)
         section.interGroupSpacing = 14
         let headerSize = NSCollectionLayoutSize(
-          widthDimension: .fractionalWidth(1.0),
-          heightDimension: .estimated(52)
+            widthDimension: .fractionalWidth(1.0),
+            heightDimension: .estimated(52)
         )
         let sectionHeader = NSCollectionLayoutBoundarySupplementaryItem(
-          layoutSize: headerSize,
-          elementKind: UICollectionView.elementKindSectionHeader,
-          alignment: .top
+            layoutSize: headerSize,
+            elementKind: UICollectionView.elementKindSectionHeader,
+            alignment: .top
         )
         section.boundarySupplementaryItems = [sectionHeader]
         return section

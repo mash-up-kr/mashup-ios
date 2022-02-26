@@ -19,7 +19,6 @@ final class HomeTabBarController: BaseTabBarController, ReactorKit.View {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         self.setupUI()
     }
     

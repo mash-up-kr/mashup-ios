@@ -20,7 +20,6 @@ final class QRScanViewController: BaseViewController, ReactorKit.View {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         self.setupCapturePreviewLayer()
         self.setupCodeLabel()
     }
