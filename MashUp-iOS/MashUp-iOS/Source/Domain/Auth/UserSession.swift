@@ -8,6 +8,6 @@
 
 import Foundation
 
-struct UserSession {
+struct UserSession: Equatable {
     let accessToken: String
 }

@@ -8,7 +8,7 @@
 
 import Foundation
 
-enum RootStep {
+enum RootStep: Equatable {
     case splash
     case signIn
     case home(UserSession)
