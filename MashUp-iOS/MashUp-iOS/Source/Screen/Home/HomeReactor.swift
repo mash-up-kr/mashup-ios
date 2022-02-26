@@ -28,4 +28,13 @@ final class HomeReactor: Reactor {
             tabItems: HomeTab.allCases
         )
     }
+    
+    func reduce(state: State, mutation: Action) -> State {
+        var newState = state
+        
+        switch mutation {
+        case .didSelectTabItem(let index):
+            guard let tabItem = state.tabItems[safe: index]
+        }
+    }
 }
