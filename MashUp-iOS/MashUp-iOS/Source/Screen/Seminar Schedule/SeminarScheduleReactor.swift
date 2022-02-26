@@ -85,33 +85,35 @@ final class SeminarScheduleReactor: Reactor {
 extension SeminarScheduleReactor {
     
     private func createSections(from state: State) -> [Section] {
-        let upcomingItems = state.seminars.prefix(3).map { self.createSeminarItem(from: $0, meta: .upcoming) }
-        let totalItems = state.seminars.map { self.createSeminarItem(from: $0, meta: .total) }
+        let upcomingItems = state.seminars.prefix(3)
+            .map { self.createSeminarCardCellModel(from: $0) }
+            .map { SeminarSectionItem.upcoming($0) }
+        let totalItems = state.seminars
+            .map { self.createSeminarCardCellModel(from: $0) }
+            .map { SeminarSectionItem.total($0) }
         return [
             Section(type: .upcoming, items: upcomingItems),
             Section(type: .total, items: totalItems)
         ]
     }
     
-    private func createSeminarItem(
-        from seminar: Seminar,
-        meta: SeminarSectionMeta
-    ) -> Section.Item {
+    private func createSeminarCardCellModel(
+        from seminar: Seminar
+    ) -> SeminarCardCellModel {
         let dateFormatter = DateFormatter().then {
             $0.dateFormat = "M월 d일 (E)"
             $0.timeZone = .UTC
             $0.locale = .ko_KR
         }
-        let cellModel = SeminarCardCellModel(title: seminar.title,
-                                             summary: seminar.summary,
-                                             dday: ["오늘", "D-1", "D-2"].randomElement()!,
-                                             date: dateFormatter.string(from: seminar.date),
-                                             time: "오후 3시 30분 - 오후 4시 30분",
-                                             attendance: .allCases.randomElement()!)
-        switch meta {
-        case .upcoming: return .upcoming(cellModel)
-        case .total: return .total(cellModel)
-        }
+        let cellModel = SeminarCardCellModel(
+            title: seminar.title,
+            summary: seminar.summary,
+            dday: ["오늘", "D-1", "D-2"].randomElement()!,
+            date: dateFormatter.string(from: seminar.date),
+            time: "오후 3시 30분 - 오후 4시 30분",
+            attendance: .allCases.randomElement()!
+        )
+        return cellModel
     }
     
 }
