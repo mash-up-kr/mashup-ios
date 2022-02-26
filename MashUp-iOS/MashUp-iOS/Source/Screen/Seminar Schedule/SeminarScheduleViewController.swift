@@ -48,7 +48,6 @@ final class SeminarScheduleViewController: BaseViewController, ReactorKit.View {
         .disposed(by: self.disposeBag)
     }
     
-    private let seminarsTableView = UITableView()
     
 }
 // MARK: - Setup
@@ -56,16 +55,12 @@ extension SeminarScheduleViewController {
     
     private func setupUI() {
         self.navigationController?.isNavigationBarHidden = true
+        self.view.backgroundColor = .systemRed
     }
     
 }
 // MARK: - Navigation
 extension SeminarScheduleViewController {
-    
-    private func pushQRScanViewController() {
-        let qrScanViewContorller = self.createQRScanViewController()
-        self.navigationController?.pushViewController(qrScanViewContorller, animated: true)
-    }
     
     private func pushSeminarDetailViewController(seminarID: String) {
         let seminarDetailViewController = self.createSeminarDetailViewController(seminarID: seminarID)
@@ -75,16 +70,6 @@ extension SeminarScheduleViewController {
 }
 // MARK: - Factory
 extension SeminarScheduleViewController {
-    
-    private func createQRScanViewController() -> QRScanViewController {
-        let qrReaderService = QRReaderServiceImpl()
-        let attendanceService = FakeAttendanceService()
-        attendanceService.stubedCorrectCode = "I'am correct"
-        let qrScanViewReactor = QRScanReactor(qrReaderService: qrReaderService, attendanceService: attendanceService)
-        let qrScanViewController = QRScanViewController()
-        qrScanViewController.reactor = qrScanViewReactor
-        return qrScanViewController
-    }
     
     private func createSeminarDetailViewController(seminarID: String) -> SeminarDetailViewController {
         let seminarDetailViewController = SeminarDetailViewController()

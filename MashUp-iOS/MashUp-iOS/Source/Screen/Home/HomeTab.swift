@@ -25,7 +25,7 @@ extension HomeTab {
     var activeIcon: UIImage? {
         switch self {
         case .seminarSchedule: return UIImage(systemName: "list.bullet")
-        case .qr: return UIImage(systemName: "qrcode")
+        case .qr: return UIImage(systemName: "qrcode.viewfinder")
         case .myPage: return UIImage(systemName: "person")
         }
     }
@@ -33,7 +33,7 @@ extension HomeTab {
     var icon: UIImage? {
         switch self {
         case .seminarSchedule: return UIImage(systemName: "list.bullet")
-        case .qr: return UIImage(systemName: "qrcode.viewfinder")
+        case .qr: return UIImage(systemName: "qrcode")
         case .myPage: return UIImage(systemName: "person")
         }
     }

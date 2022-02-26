@@ -50,6 +50,14 @@
 		CE6EE86927CA5609005BF412 /* SeminarDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6EE86827CA5609005BF412 /* SeminarDetailViewController.swift */; };
 		CE6EE86B27CA60B6005BF412 /* SplashReactorSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6EE86A27CA60B6005BF412 /* SplashReactorSpec.swift */; };
 		CE6EE86E27CA6302005BF412 /* UserSession+Stub.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6EE86D27CA6302005BF412 /* UserSession+Stub.swift */; };
+		CE6EE87127CA73B7005BF412 /* SeminarCardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6EE87027CA73B7005BF412 /* SeminarCardCell.swift */; };
+		CE6EE87327CA7482005BF412 /* Attendance.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6EE87227CA7482005BF412 /* Attendance.swift */; };
+		CE6EE87527CA820B005BF412 /* BaseCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6EE87427CA820A005BF412 /* BaseCollectionViewCell.swift */; };
+		CE6EE87827CA858B005BF412 /* PaddingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6EE87727CA858B005BF412 /* PaddingLabel.swift */; };
+		CE6EE87A27CA89F3005BF412 /* SeminarCardCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6EE87927CA89F3005BF412 /* SeminarCardCellModel.swift */; };
+		CE6EE87D27CA8E45005BF412 /* Reusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6EE87C27CA8E45005BF412 /* Reusable.swift */; };
+		CE6EE88027CA8EFE005BF412 /* UICollectionView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6EE87F27CA8EFE005BF412 /* UICollectionView+.swift */; };
+		CE6EE88227CA8F08005BF412 /* UITableView+.swift.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6EE88127CA8F08005BF412 /* UITableView+.swift.swift */; };
 		CE9E734527C2889200922D8B /* Nimble in Frameworks */ = {isa = PBXBuildFile; productRef = CE9E734427C2889200922D8B /* Nimble */; };
 		CE9E734827C2889E00922D8B /* Quick in Frameworks */ = {isa = PBXBuildFile; productRef = CE9E734727C2889E00922D8B /* Quick */; };
 		CE9E734B27C288B700922D8B /* Mockingbird in Frameworks */ = {isa = PBXBuildFile; productRef = CE9E734A27C288B700922D8B /* Mockingbird */; };
@@ -134,6 +142,14 @@
 		CE6EE86827CA5609005BF412 /* SeminarDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeminarDetailViewController.swift; sourceTree = "<group>"; };
 		CE6EE86A27CA60B6005BF412 /* SplashReactorSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashReactorSpec.swift; sourceTree = "<group>"; };
 		CE6EE86D27CA6302005BF412 /* UserSession+Stub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserSession+Stub.swift"; sourceTree = "<group>"; };
+		CE6EE87027CA73B7005BF412 /* SeminarCardCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeminarCardCell.swift; sourceTree = "<group>"; };
+		CE6EE87227CA7482005BF412 /* Attendance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Attendance.swift; sourceTree = "<group>"; };
+		CE6EE87427CA820A005BF412 /* BaseCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCollectionViewCell.swift; sourceTree = "<group>"; };
+		CE6EE87727CA858B005BF412 /* PaddingLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaddingLabel.swift; sourceTree = "<group>"; };
+		CE6EE87927CA89F3005BF412 /* SeminarCardCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeminarCardCellModel.swift; sourceTree = "<group>"; };
+		CE6EE87C27CA8E45005BF412 /* Reusable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reusable.swift; sourceTree = "<group>"; };
+		CE6EE87F27CA8EFE005BF412 /* UICollectionView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+.swift"; sourceTree = "<group>"; };
+		CE6EE88127CA8F08005BF412 /* UITableView+.swift.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+.swift.swift"; sourceTree = "<group>"; };
 		CE9E735C27C294E800922D8B /* QRScanReactorSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QRScanReactorSpec.swift; sourceTree = "<group>"; };
 		CE9E736627C29F4700922D8B /* MashUp_iOSTests-Mock.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MashUp_iOSTests-Mock.generated.swift"; sourceTree = "<group>"; };
 		CEB60F4227A9713B001260DB /* TestAppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestAppDelegate.swift; sourceTree = "<group>"; };
@@ -294,10 +310,10 @@
 		CE3960E5278B45CA0073AEF4 /* Common */ = {
 			isa = PBXGroup;
 			children = (
-				CE6EE85727CA3AC6005BF412 /* Collection+.swift */,
-				CE6EE85327CA2F6A005BF412 /* Error+.swift */,
+				CE6EE87E27CA8E52005BF412 /* Foundation+ */,
+				CE6EE87B27CA8E29005BF412 /* UIKit+ */,
+				CE6EE87627CA857F005BF412 /* View */,
 				CE6EE84227C7F933005BF412 /* Logger.swift */,
-				CE6EE81327C7B541005BF412 /* String+.swift */,
 				CEB60F7727A9BF90001260DB /* Rx */,
 			);
 			path = Common;
@@ -340,6 +356,7 @@
 		CE6EE81E27C7BEB6005BF412 /* Base */ = {
 			isa = PBXGroup;
 			children = (
+				CE6EE87427CA820A005BF412 /* BaseCollectionViewCell.swift */,
 				CE6EE84427C8004F005BF412 /* BaseTabBarController.swift */,
 				CE6EE81F27C7BEC2005BF412 /* BaseViewController.swift */,
 			);
@@ -397,6 +414,7 @@
 		CE6EE84727C80C6C005BF412 /* Seminar Schedule */ = {
 			isa = PBXGroup;
 			children = (
+				CE6EE86F27CA7350005BF412 /* View */,
 				CE6EE86527CA495F005BF412 /* SeminarSchduleStep.swift */,
 				CE6EE85927CA40C5005BF412 /* SeminarScheduleReactor.swift */,
 				CE6EE85E27CA45EF005BF412 /* SeminarScheduleSection.swift */,
@@ -427,6 +445,43 @@
 				CE6EE86D27CA6302005BF412 /* UserSession+Stub.swift */,
 			);
 			path = TestDoubles;
+			sourceTree = "<group>";
+		};
+		CE6EE86F27CA7350005BF412 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				CE6EE87027CA73B7005BF412 /* SeminarCardCell.swift */,
+				CE6EE87927CA89F3005BF412 /* SeminarCardCellModel.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		CE6EE87627CA857F005BF412 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				CE6EE87727CA858B005BF412 /* PaddingLabel.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		CE6EE87B27CA8E29005BF412 /* UIKit+ */ = {
+			isa = PBXGroup;
+			children = (
+				CE6EE87C27CA8E45005BF412 /* Reusable.swift */,
+				CE6EE87F27CA8EFE005BF412 /* UICollectionView+.swift */,
+				CE6EE88127CA8F08005BF412 /* UITableView+.swift.swift */,
+			);
+			path = "UIKit+";
+			sourceTree = "<group>";
+		};
+		CE6EE87E27CA8E52005BF412 /* Foundation+ */ = {
+			isa = PBXGroup;
+			children = (
+				CE6EE85727CA3AC6005BF412 /* Collection+.swift */,
+				CE6EE85327CA2F6A005BF412 /* Error+.swift */,
+				CE6EE81327C7B541005BF412 /* String+.swift */,
+			);
+			path = "Foundation+";
 			sourceTree = "<group>";
 		};
 		CE9E735B27C294E800922D8B /* Specs */ = {
@@ -497,6 +552,7 @@
 		CEB60F8227A9C5EA001260DB /* Attendance */ = {
 			isa = PBXGroup;
 			children = (
+				CE6EE87227CA7482005BF412 /* Attendance.swift */,
 				CEB60F7E27A9C536001260DB /* AttendanceService.swift */,
 				CEB60F8327A9C602001260DB /* FakeAttendanceService.swift */,
 			);
@@ -676,6 +732,7 @@
 				CE6EE83A27C7E2DE005BF412 /* SplashViewController.swift in Sources */,
 				CEB60F4527A97163001260DB /* main.swift in Sources */,
 				CE6EE83F27C7EFF9005BF412 /* HomeReactor.swift in Sources */,
+				CE6EE87327CA7482005BF412 /* Attendance.swift in Sources */,
 				CEB60F4B27A975AD001260DB /* QRScanViewController.swift in Sources */,
 				CE6EE83227C7D948005BF412 /* RootStep.swift in Sources */,
 				CEB60F7427A9BDF4001260DB /* QRScanReactor.swift in Sources */,
@@ -686,23 +743,30 @@
 				CE6EE84C27C80C92005BF412 /* SeminarScheduleViewController.swift in Sources */,
 				CE6EE85427CA2F6B005BF412 /* Error+.swift in Sources */,
 				CE6EE81427C7B541005BF412 /* String+.swift in Sources */,
+				CE6EE88227CA8F08005BF412 /* UITableView+.swift.swift in Sources */,
 				CE6EE82727C7C0A1005BF412 /* NewAccount.swift in Sources */,
 				CEB60F8427A9C602001260DB /* FakeAttendanceService.swift in Sources */,
+				CE6EE87D27CA8E45005BF412 /* Reusable.swift in Sources */,
 				CEB60F7627A9BE67001260DB /* ViewContorller+Rx.swift in Sources */,
 				CE396080278B3CB40073AEF4 /* AppDelegate.swift in Sources */,
 				CE6EE84127C7F130005BF412 /* HomeTab.swift in Sources */,
 				CE6EE82C27C7D8F8005BF412 /* RootController.swift in Sources */,
 				CE6EE82E27C7D900005BF412 /* RootReactor.swift in Sources */,
 				CE6EE85D27CA4136005BF412 /* Seminar.swift in Sources */,
+				CE6EE87827CA858B005BF412 /* PaddingLabel.swift in Sources */,
 				CE6EE83D27C7EFB9005BF412 /* HomeTabBarController.swift in Sources */,
+				CE6EE87127CA73B7005BF412 /* SeminarCardCell.swift in Sources */,
 				CE4A6C05278B47040052F7E7 /* HTTPClient.swift in Sources */,
+				CE6EE87A27CA89F3005BF412 /* SeminarCardCellModel.swift in Sources */,
 				CE3960E4278B45A00073AEF4 /* MashUpAPI.swift in Sources */,
+				CE6EE88027CA8EFE005BF412 /* UICollectionView+.swift in Sources */,
 				CE6EE85827CA3AC6005BF412 /* Collection+.swift in Sources */,
 				CE6EE82327C7BF79005BF412 /* UserSession.swift in Sources */,
 				CE6EE85F27CA45EF005BF412 /* SeminarScheduleSection.swift in Sources */,
 				CE6EE85A27CA40C5005BF412 /* SeminarScheduleReactor.swift in Sources */,
 				CE6EE83827C7E2D5005BF412 /* SplashReactor.swift in Sources */,
 				CE6EE84E27C80C9B005BF412 /* MyPageViewController.swift in Sources */,
+				CE6EE87527CA820B005BF412 /* BaseCollectionViewCell.swift in Sources */,
 				CE6EE82927C7D655005BF412 /* FakeUserSessionRepository.swift in Sources */,
 				CE6EE86927CA5609005BF412 /* SeminarDetailViewController.swift in Sources */,
 				CE6EE86627CA495F005BF412 /* SeminarSchduleStep.swift in Sources */,

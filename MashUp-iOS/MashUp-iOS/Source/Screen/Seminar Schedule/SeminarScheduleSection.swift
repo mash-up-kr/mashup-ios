@@ -9,15 +9,37 @@
 import Foundation
 import RxDataSources
 
-struct SeminarScheduleSection {
-    var items: [Item]
+enum SeminarScheduleSection {
+    case upcoming(items: [Item])
+    case total(items: [Item])
 }
 extension SeminarScheduleSection: SectionModelType, Equatable {
     typealias Item = SeminarSchedulerSectionItem
     
+    var header: String {
+        switch self {
+        case .upcoming:
+            return "다가오는 일정을 체크하세요 🤓"
+        case .total:
+            return "전체 일정 리스트"
+        }
+    }
+    
+    var items: [SeminarSchedulerSectionItem] {
+        switch self {
+        case .upcoming(let items),
+                .total(let items):
+            return items
+        }
+    }
+    
     init(original: SeminarScheduleSection, items: [SeminarSchedulerSectionItem]) {
-        self = original
-        self.items = items
+        switch original {
+        case .upcoming:
+            self = .upcoming(items: items)
+        case .total:
+            self = .total(items: items)
+        }
     }
 }
 
@@ -25,6 +47,4 @@ enum SeminarSchedulerSectionItem: Equatable {
     
 }
 
-struct SeminarScheduleCellModel: Equatable {
-    
-}
+
