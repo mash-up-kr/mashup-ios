@@ -1,5 +1,5 @@
 //
-//  UITableView+.swift.swift
+//  UITableView+.swift
 //  MashUp-iOS
 //
 //  Created by Booung on 2022/02/27.

@@ -9,64 +9,26 @@
 import Foundation
 import RxDataSources
 
-struct SeminarSection: Hashable {
-    enum `Type`: Equatable {
-        case upcoming
-        case total
-    }
+enum SeminarSectionMeta: Int, Equatable, CustomStringConvertible {
+    case upcoming
+    case total
     
+    var description: String {
+        switch self {
+        case .upcoming: return "다가오는 일정을 체크하세요🤓"
+        case .total: return "전체 일정 리스트"
+        }
+    }
+}
+
+struct SeminarSection: Hashable {
     typealias Item = SeminarSectionItem
     
-    let type: Type
+    let type: SeminarSectionMeta
     let items: [SeminarSectionItem]
 }
 
 enum SeminarSectionItem: Hashable {
-    case seminar(SeminarCardCellModel)
+    case upcoming(SeminarCardCellModel)
+    case total(SeminarCardCellModel)
 }
-
-enum SeminarScheduleSection {
-    case upcoming(items: [Item])
-    case total(items: [Item])
-}
-extension SeminarScheduleSection: SectionModelType, AnimatableSectionModelType, Equatable {
-    typealias Identity = String
-    typealias Item = SeminarSchedulerSectionItem
-    
-    var identity: String { UUID().uuidString }
-    
-    var header: String {
-        switch self {
-        case .upcoming:
-            return "다가오는 일정을 체크하세요 🤓"
-        case .total:
-            return "전체 일정 리스트"
-        }
-    }
-    
-    var items: [SeminarSchedulerSectionItem] {
-        switch self {
-        case .upcoming(let items),
-                .total(let items):
-            return items
-        }
-    }
-    
-    init(original: SeminarScheduleSection, items: [SeminarSchedulerSectionItem]) {
-        switch original {
-        case .upcoming:
-            self = .upcoming(items: items)
-        case .total:
-            self = .total(items: items)
-        }
-    }
-}
-
-enum SeminarSchedulerSectionItem: IdentifiableType, Equatable {
-    typealias Identity = String
-    
-    var identity: String { UUID().uuidString }
-    
-}
-
-

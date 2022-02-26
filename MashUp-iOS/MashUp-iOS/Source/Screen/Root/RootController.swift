@@ -26,7 +26,7 @@ final class RootController: BaseViewController, ReactorKit.View {
     }
     
     private func dispatch(to reactor: Reactor) {
-        self.rx.viewDidLayoutSubviews.take(1).map { _ in .didSetup }
+        self.rx.viewDidLayoutSubviews.take(1).map { .didSetup }
         .bind(to: reactor.action)
         .disposed(by: self.disposeBag)
     }

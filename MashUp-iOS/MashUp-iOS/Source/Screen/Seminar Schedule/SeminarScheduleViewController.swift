@@ -84,25 +84,69 @@ extension SeminarScheduleViewController {
         self.navigationController?.isNavigationBarHidden = true
         self.view.backgroundColor = .systemBlue
         self.collectionView.do {
-            $0.registerCell(SeminarCardCell.self)
             $0.backgroundColor = .systemTeal
+            $0.registerCell(SeminarCardCell.self)
+            $0.registerSupplementaryView(SeminarHeaderView.self)
             $0.collectionViewLayout = self.collectionViewLayout()
         }
     }
     
     private func collectionViewLayout() -> UICollectionViewCompositionalLayout {
-        return UICollectionViewCompositionalLayout(sectionProvider: { (sectionIndex, layoutEnvironment) -> NSCollectionLayoutSection? in
-          let size = NSCollectionLayoutSize(
+        return UICollectionViewCompositionalLayout(sectionProvider: { [weak self] index, _ in
+            guard let self = self else { return nil }
+            guard let sectionType = SeminarSectionMeta(rawValue: index) else { return nil }
+            
+            switch sectionType {
+            case .upcoming: return self.createHorizontalLayout()
+            case .total: return self.createVerticalLayout()
+            }
+        })
+    }
+    
+    private func createHorizontalLayout() -> NSCollectionLayoutSection {
+        let size = NSCollectionLayoutSize(
             widthDimension: NSCollectionLayoutDimension.fractionalWidth(1),
             heightDimension: NSCollectionLayoutDimension.estimated(162)
-          )
-          let item = NSCollectionLayoutItem(layoutSize: size)
-          let group = NSCollectionLayoutGroup.horizontal(layoutSize: size, subitem: item, count: 1)
-          let section = NSCollectionLayoutSection(group: group)
-          section.contentInsets = NSDirectionalEdgeInsets(top: 10, leading: 10, bottom: 10, trailing: 10)
-          section.interGroupSpacing = 10
-          return section
-        })
+        )
+        let item = NSCollectionLayoutItem(layoutSize: size)
+        let group = NSCollectionLayoutGroup.horizontal(layoutSize: size, subitem: item, count: 6)
+        let section = NSCollectionLayoutSection(group: group)
+        section.contentInsets = NSDirectionalEdgeInsets(top: 10, leading: 10, bottom: 10, trailing: 10)
+        section.interGroupSpacing = 12
+        let headerSize = NSCollectionLayoutSize(
+          widthDimension: .fractionalWidth(1.0),
+          heightDimension: .estimated(52)
+        )
+        let sectionHeader = NSCollectionLayoutBoundarySupplementaryItem(
+          layoutSize: headerSize,
+          elementKind: UICollectionView.elementKindSectionHeader,
+          alignment: .top
+        )
+        section.boundarySupplementaryItems = [sectionHeader]
+        return section
+    }
+    
+    private func createVerticalLayout() -> NSCollectionLayoutSection {
+        let size = NSCollectionLayoutSize(
+            widthDimension: NSCollectionLayoutDimension.fractionalWidth(1),
+            heightDimension: NSCollectionLayoutDimension.estimated(162)
+        )
+        let item = NSCollectionLayoutItem(layoutSize: size)
+        let group = NSCollectionLayoutGroup.vertical(layoutSize: size, subitem: item, count: 1)
+        let section = NSCollectionLayoutSection(group: group)
+        section.contentInsets = NSDirectionalEdgeInsets(top: 10, leading: 10, bottom: 10, trailing: 10)
+        section.interGroupSpacing = 12
+        let headerSize = NSCollectionLayoutSize(
+          widthDimension: .fractionalWidth(1.0),
+          heightDimension: .estimated(52)
+        )
+        let sectionHeader = NSCollectionLayoutBoundarySupplementaryItem(
+          layoutSize: headerSize,
+          elementKind: UICollectionView.elementKindSectionHeader,
+          alignment: .top
+        )
+        section.boundarySupplementaryItems = [sectionHeader]
+        return section
     }
     
     private func setupLayout() {
@@ -122,14 +166,19 @@ extension SeminarScheduleViewController {
             collectionView: collectionView,
             cellProvider: { collectionView, indexPath, item in
                 switch item {
-                case .seminar(let model):
+                case .upcoming(let model), .total(let model):
                     let cell = collectionView.dequeueCell(SeminarCardCell.self, for: indexPath)
                     cell?.configure(with: model)
                     return cell
                 }
             },
             supplementaryViewProvider: { collectionView, elementKind, indexPath in
-                return SeminarHeaderView()
+                guard let header = collectionView.dequeueSupplementaryView(SeminarHeaderView.self, for: indexPath),
+                      let meta = SeminarSectionMeta(rawValue: indexPath.section)
+                else { return SeminarHeaderView() }
+                
+                header.configure(sectionMeta: meta)
+                return header
             }
         )
     }

@@ -84,16 +84,22 @@ final class SeminarScheduleReactor: Reactor {
 extension SeminarScheduleReactor {
     
     private func createSections(from state: State) -> [Section] {
-        let items = state.seminars.map { self.createSeminarItem(from: $0) }
+        let upcomingItems = state.seminars.map { self.createSeminarItem(from: $0, meta: .upcoming) }
+        let totalItems = state.seminars.map { self.createSeminarItem(from: $0, meta: .total) }
         return [
-            Section(type: .upcoming, items: items),
-            Section(type: .total, items: items)
+            Section(type: .upcoming, items: upcomingItems),
+            Section(type: .total, items: totalItems)
         ]
     }
     
-    private func createSeminarItem(from seminar: Seminar) -> Section.Item {
+    private func createSeminarItem(
+        from seminar: Seminar,
+        meta: SeminarSectionMeta
+    ) -> Section.Item {
         let dateFormatter = DateFormatter().then {
-            $0.dateFormat = "MM월 dd일 (EEEE)"
+            $0.dateFormat = "M월 d일 (E)"
+            $0.timeZone = .UTC
+            $0.locale = .ko_KR
         }
         let cellModel = SeminarCardCellModel(title: seminar.title,
                                              summary: seminar.summary,
@@ -101,7 +107,10 @@ extension SeminarScheduleReactor {
                                              date: dateFormatter.string(from: seminar.date),
                                              time: "오후 3시 30분 - 오후 4시 30분",
                                              attendance: .allCases.randomElement()!)
-        return .seminar(cellModel)
+        switch meta {
+        case .upcoming: return .upcoming(cellModel)
+        case .total: return .total(cellModel)
+        }
     }
     
 }

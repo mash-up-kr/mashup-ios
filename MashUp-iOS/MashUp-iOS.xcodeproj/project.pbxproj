@@ -57,12 +57,14 @@
 		CE6EE87A27CA89F3005BF412 /* SeminarCardCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6EE87927CA89F3005BF412 /* SeminarCardCellModel.swift */; };
 		CE6EE87D27CA8E45005BF412 /* Reusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6EE87C27CA8E45005BF412 /* Reusable.swift */; };
 		CE6EE88027CA8EFE005BF412 /* UICollectionView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6EE87F27CA8EFE005BF412 /* UICollectionView+.swift */; };
-		CE6EE88227CA8F08005BF412 /* UITableView+.swift.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6EE88127CA8F08005BF412 /* UITableView+.swift.swift */; };
+		CE6EE88227CA8F08005BF412 /* UITableView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6EE88127CA8F08005BF412 /* UITableView+.swift */; };
 		CE6EE88427CA9141005BF412 /* BaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6EE88327CA9141005BF412 /* BaseTableViewCell.swift */; };
 		CE6EE88627CA91ED005BF412 /* SeminarHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6EE88527CA91ED005BF412 /* SeminarHeaderView.swift */; };
 		CE6EE88827CA9225005BF412 /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6EE88727CA9225005BF412 /* BaseView.swift */; };
 		CE6EE88A27CAA288005BF412 /* SeminarRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6EE88927CAA287005BF412 /* SeminarRepository.swift */; };
 		CE6EE88C27CAA3C9005BF412 /* Date+.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6EE88B27CAA3C9005BF412 /* Date+.swift */; };
+		CE6EE89027CAD109005BF412 /* TimeZone+.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6EE88F27CAD109005BF412 /* TimeZone+.swift */; };
+		CE6EE89227CAD117005BF412 /* Locale+.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6EE89127CAD117005BF412 /* Locale+.swift */; };
 		CE9E734527C2889200922D8B /* Nimble in Frameworks */ = {isa = PBXBuildFile; productRef = CE9E734427C2889200922D8B /* Nimble */; };
 		CE9E734827C2889E00922D8B /* Quick in Frameworks */ = {isa = PBXBuildFile; productRef = CE9E734727C2889E00922D8B /* Quick */; };
 		CE9E734B27C288B700922D8B /* Mockingbird in Frameworks */ = {isa = PBXBuildFile; productRef = CE9E734A27C288B700922D8B /* Mockingbird */; };
@@ -87,7 +89,7 @@
 		CEB60F7027A9BDAE001260DB /* ReactiveMoya in Frameworks */ = {isa = PBXBuildFile; productRef = CEB60F6F27A9BDAE001260DB /* ReactiveMoya */; };
 		CEB60F7227A9BDAE001260DB /* RxMoya in Frameworks */ = {isa = PBXBuildFile; productRef = CEB60F7127A9BDAE001260DB /* RxMoya */; };
 		CEB60F7427A9BDF4001260DB /* QRScanReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB60F7327A9BDF4001260DB /* QRScanReactor.swift */; };
-		CEB60F7627A9BE67001260DB /* ViewContorller+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB60F7527A9BE67001260DB /* ViewContorller+Rx.swift */; };
+		CEB60F7627A9BE67001260DB /* UIViewContorller+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB60F7527A9BE67001260DB /* UIViewContorller+Rx.swift */; };
 		CEB60F7F27A9C536001260DB /* AttendanceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB60F7E27A9C536001260DB /* AttendanceService.swift */; };
 		CEB60F8427A9C602001260DB /* FakeAttendanceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB60F8327A9C602001260DB /* FakeAttendanceService.swift */; };
 /* End PBXBuildFile section */
@@ -154,12 +156,14 @@
 		CE6EE87927CA89F3005BF412 /* SeminarCardCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeminarCardCellModel.swift; sourceTree = "<group>"; };
 		CE6EE87C27CA8E45005BF412 /* Reusable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reusable.swift; sourceTree = "<group>"; };
 		CE6EE87F27CA8EFE005BF412 /* UICollectionView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+.swift"; sourceTree = "<group>"; };
-		CE6EE88127CA8F08005BF412 /* UITableView+.swift.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+.swift.swift"; sourceTree = "<group>"; };
+		CE6EE88127CA8F08005BF412 /* UITableView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+.swift"; sourceTree = "<group>"; };
 		CE6EE88327CA9141005BF412 /* BaseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTableViewCell.swift; sourceTree = "<group>"; };
 		CE6EE88527CA91ED005BF412 /* SeminarHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeminarHeaderView.swift; sourceTree = "<group>"; };
 		CE6EE88727CA9225005BF412 /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
 		CE6EE88927CAA287005BF412 /* SeminarRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeminarRepository.swift; sourceTree = "<group>"; };
 		CE6EE88B27CAA3C9005BF412 /* Date+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+.swift"; sourceTree = "<group>"; };
+		CE6EE88F27CAD109005BF412 /* TimeZone+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TimeZone+.swift"; sourceTree = "<group>"; };
+		CE6EE89127CAD117005BF412 /* Locale+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Locale+.swift"; sourceTree = "<group>"; };
 		CE9E735C27C294E800922D8B /* QRScanReactorSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QRScanReactorSpec.swift; sourceTree = "<group>"; };
 		CE9E736627C29F4700922D8B /* MashUp_iOSTests-Mock.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MashUp_iOSTests-Mock.generated.swift"; sourceTree = "<group>"; };
 		CEB60F4227A9713B001260DB /* TestAppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestAppDelegate.swift; sourceTree = "<group>"; };
@@ -167,7 +171,7 @@
 		CEB60F4727A9746E001260DB /* QRReaderService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRReaderService.swift; sourceTree = "<group>"; };
 		CEB60F4A27A975AD001260DB /* QRScanViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRScanViewController.swift; sourceTree = "<group>"; };
 		CEB60F7327A9BDF4001260DB /* QRScanReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRScanReactor.swift; sourceTree = "<group>"; };
-		CEB60F7527A9BE67001260DB /* ViewContorller+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewContorller+Rx.swift"; sourceTree = "<group>"; };
+		CEB60F7527A9BE67001260DB /* UIViewContorller+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewContorller+Rx.swift"; sourceTree = "<group>"; };
 		CEB60F7827A9C0C9001260DB /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Platforms/iPhoneOS.platform/Developer/Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		CEB60F7E27A9C536001260DB /* AttendanceService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttendanceService.swift; sourceTree = "<group>"; };
 		CEB60F8327A9C602001260DB /* FakeAttendanceService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeAttendanceService.swift; sourceTree = "<group>"; };
@@ -322,7 +326,7 @@
 			children = (
 				CE6EE84227C7F933005BF412 /* Logger.swift */,
 				CE6EE87E27CA8E52005BF412 /* Foundation+ */,
-				CEB60F7727A9BF90001260DB /* Rx */,
+				CEB60F7727A9BF90001260DB /* Rx+ */,
 				CE6EE87B27CA8E29005BF412 /* UIKit+ */,
 				CE6EE87627CA857F005BF412 /* View */,
 			);
@@ -369,8 +373,8 @@
 				CE6EE87427CA820A005BF412 /* BaseCollectionViewCell.swift */,
 				CE6EE84427C8004F005BF412 /* BaseTabBarController.swift */,
 				CE6EE88327CA9141005BF412 /* BaseTableViewCell.swift */,
-				CE6EE81F27C7BEC2005BF412 /* BaseViewController.swift */,
 				CE6EE88727CA9225005BF412 /* BaseView.swift */,
+				CE6EE81F27C7BEC2005BF412 /* BaseViewController.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -483,7 +487,7 @@
 			children = (
 				CE6EE87C27CA8E45005BF412 /* Reusable.swift */,
 				CE6EE87F27CA8EFE005BF412 /* UICollectionView+.swift */,
-				CE6EE88127CA8F08005BF412 /* UITableView+.swift.swift */,
+				CE6EE88127CA8F08005BF412 /* UITableView+.swift */,
 			);
 			path = "UIKit+";
 			sourceTree = "<group>";
@@ -494,7 +498,9 @@
 				CE6EE85727CA3AC6005BF412 /* Collection+.swift */,
 				CE6EE88B27CAA3C9005BF412 /* Date+.swift */,
 				CE6EE85327CA2F6A005BF412 /* Error+.swift */,
+				CE6EE89127CAD117005BF412 /* Locale+.swift */,
 				CE6EE81327C7B541005BF412 /* String+.swift */,
+				CE6EE88F27CAD109005BF412 /* TimeZone+.swift */,
 			);
 			path = "Foundation+";
 			sourceTree = "<group>";
@@ -536,12 +542,12 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		CEB60F7727A9BF90001260DB /* Rx */ = {
+		CEB60F7727A9BF90001260DB /* Rx+ */ = {
 			isa = PBXGroup;
 			children = (
-				CEB60F7527A9BE67001260DB /* ViewContorller+Rx.swift */,
+				CEB60F7527A9BE67001260DB /* UIViewContorller+Rx.swift */,
 			);
-			path = Rx;
+			path = "Rx+";
 			sourceTree = "<group>";
 		};
 		CEB60F8027A9C5DC001260DB /* Domain */ = {
@@ -754,18 +760,19 @@
 				CE6EE83227C7D948005BF412 /* RootStep.swift in Sources */,
 				CEB60F7427A9BDF4001260DB /* QRScanReactor.swift in Sources */,
 				CE6EE81027C7B28C005BF412 /* SignInViewController.swift in Sources */,
+				CE6EE89227CAD117005BF412 /* Locale+.swift in Sources */,
 				CE6EE83027C7D931005BF412 /* SignInStep.swift in Sources */,
 				CE6EE82027C7BEC2005BF412 /* BaseViewController.swift in Sources */,
 				CE6EE81D27C7BCF7005BF412 /* PlatformTeam.swift in Sources */,
 				CE6EE84C27C80C92005BF412 /* SeminarScheduleViewController.swift in Sources */,
 				CE6EE85427CA2F6B005BF412 /* Error+.swift in Sources */,
 				CE6EE81427C7B541005BF412 /* String+.swift in Sources */,
-				CE6EE88227CA8F08005BF412 /* UITableView+.swift.swift in Sources */,
+				CE6EE88227CA8F08005BF412 /* UITableView+.swift in Sources */,
 				CE6EE88A27CAA288005BF412 /* SeminarRepository.swift in Sources */,
 				CE6EE82727C7C0A1005BF412 /* NewAccount.swift in Sources */,
 				CEB60F8427A9C602001260DB /* FakeAttendanceService.swift in Sources */,
 				CE6EE87D27CA8E45005BF412 /* Reusable.swift in Sources */,
-				CEB60F7627A9BE67001260DB /* ViewContorller+Rx.swift in Sources */,
+				CEB60F7627A9BE67001260DB /* UIViewContorller+Rx.swift in Sources */,
 				CE396080278B3CB40073AEF4 /* AppDelegate.swift in Sources */,
 				CE6EE84127C7F130005BF412 /* HomeTab.swift in Sources */,
 				CE6EE88827CA9225005BF412 /* BaseView.swift in Sources */,
@@ -776,6 +783,7 @@
 				CE6EE87827CA858B005BF412 /* PaddingLabel.swift in Sources */,
 				CE6EE83D27C7EFB9005BF412 /* HomeTabBarController.swift in Sources */,
 				CE6EE87127CA73B7005BF412 /* SeminarCardCell.swift in Sources */,
+				CE6EE89027CAD109005BF412 /* TimeZone+.swift in Sources */,
 				CE4A6C05278B47040052F7E7 /* HTTPClient.swift in Sources */,
 				CE6EE87A27CA89F3005BF412 /* SeminarCardCellModel.swift in Sources */,
 				CE3960E4278B45A00073AEF4 /* MashUpAPI.swift in Sources */,

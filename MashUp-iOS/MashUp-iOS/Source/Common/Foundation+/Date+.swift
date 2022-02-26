@@ -34,7 +34,3 @@ extension Date {
         return Date(timeIntervalSince1970: lhs.timeIntervalSince1970 - rhs.timeIntervalSince1970)
     }
 }
-
-extension TimeZone {
-    static let UTC = TimeZone(identifier: "UTC")!
-}
