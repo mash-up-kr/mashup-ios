@@ -36,7 +36,7 @@ final class RootReactorSpec: QuickSpec {
           stubSession = UserSession(accessToken: "fake.access.token")
           sut.action.onNext(.didLoad(stubSession))
         }
-        it("present home screen with session") {
+        it("present home screen with bypassed user session") {
           expect { sut.currentState.step }.to(equal(.home(stubSession)))
         }
       }

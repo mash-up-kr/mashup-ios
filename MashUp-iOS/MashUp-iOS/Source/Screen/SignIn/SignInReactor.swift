@@ -85,6 +85,7 @@ final class SignInReactor: Reactor {
             
         case .occurError(let error):
             newState.occuredError = error
+            newState.alertMessage = self.messageOf(error: error)
         }
         return newState
     }
@@ -98,6 +99,11 @@ final class SignInReactor: Reactor {
     private func verify(id: String, password: String) -> Bool {
         #warning("ID, PW 입력상태에 따른 로그인버튼 활성화 로직 - Booung")
         return true
+    }
+    
+    private func messageOf(error: Error) -> String {
+        #warning("Error의 메시지 로직 - Booung")
+        return "error occured"
     }
     
     private let userSessionRepository: UserSessionRepository

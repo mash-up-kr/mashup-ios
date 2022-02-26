@@ -8,7 +8,7 @@
 
 import Foundation
 
-enum SignInStep {
+enum SignInStep: Equatable {
     case signUp
     case home(UserSession)
 }
