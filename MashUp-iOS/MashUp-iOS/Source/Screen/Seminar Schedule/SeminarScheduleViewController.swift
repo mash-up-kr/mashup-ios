@@ -7,14 +7,17 @@
 //
 
 import ReactorKit
-import RxSwift
 import RxCocoa
+import RxDataSources
+import RxSwift
 import SnapKit
 import UIKit
 
 final class SeminarScheduleViewController: BaseViewController, ReactorKit.View {
     typealias Reactor = SeminarScheduleReactor
-    typealias Section = SeminarScheduleSection
+    typealias Section = SeminarSection
+    typealias DataSource = UICollectionViewDiffableDataSource<Section, Section.Item>
+    typealias Snapshot = NSDiffableDataSourceSnapshot<Section, Section.Item>
     
     var disposeBag = DisposeBag()
     
@@ -48,14 +51,58 @@ final class SeminarScheduleViewController: BaseViewController, ReactorKit.View {
         .disposed(by: self.disposeBag)
     }
     
+    private lazy var dataSource = self.dataSourceOf(self.collectionView)
+    
+    private let collectionView = UICollectionView(
+        frame: .zero,
+        collectionViewLayout: UICollectionViewFlowLayout()
+    )
     
 }
 // MARK: - Setup
 extension SeminarScheduleViewController {
     
     private func setupUI() {
+        self.setupAttribute()
+        self.setupLayout()
+    }
+    
+    private func setupAttribute() {
         self.navigationController?.isNavigationBarHidden = true
-        self.view.backgroundColor = .systemRed
+        self.view.backgroundColor = .systemBlue
+        self.collectionView.do {
+            $0.registerCell(SeminarCardCell.self)
+            $0.backgroundColor = .systemTeal
+        }
+    }
+    
+    private func setupLayout() {
+        self.view.addSubview(self.collectionView)
+        self.collectionView.snp.makeConstraints {
+            $0.top.equalToSuperview().inset(56)
+            $0.leading.trailing.bottom.equalToSuperview()
+        }
+    }
+    
+}
+// MARK: - Data source
+extension SeminarScheduleViewController {
+    
+    private func dataSourceOf(_ collectionView: UICollectionView) -> DataSource {
+        return DataSource(
+            collectionView: collectionView,
+            cellProvider: { collectionView, indexPath, item in
+                switch item {
+                case .seminar(let model):
+                    let cell = collectionView.dequeueCell(SeminarCardCell.self, for: indexPath)
+                    cell?.configure(with: model)
+                    return cell
+                }
+            },
+            supplementaryViewProvider: { collectionView, elementKind, indexPath in
+                return SeminarHeaderView()
+            }
+        )
     }
     
 }

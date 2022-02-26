@@ -86,8 +86,10 @@ extension HomeTabBarController {
     }
     
     private func createSeminarScheduleViewController() -> UIViewController {
+        let seminarRepository = FakeSeminarRepository()
+        let seminarScheduleReactor = SeminarScheduleReactor(seminarRepository: seminarRepository)
         let seminarScheduleViewController = SeminarScheduleViewController()
-        seminarScheduleViewController.reactor = SeminarScheduleReactor()
+        seminarScheduleViewController.reactor = seminarScheduleReactor
         return seminarScheduleViewController
     }
     

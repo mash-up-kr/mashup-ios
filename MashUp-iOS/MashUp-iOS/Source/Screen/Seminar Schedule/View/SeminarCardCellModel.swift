@@ -8,7 +8,7 @@
 
 import UIKit
 
-enum AttendanceStyle: String, Equatable {
+enum AttendanceStyle: String, Equatable, Hashable, CaseIterable {
     case attend
     case absence
     case lateness
@@ -33,7 +33,7 @@ enum AttendanceStyle: String, Equatable {
     }
 }
 
-struct SeminarCardCellModel: Equatable {
+struct SeminarCardCellModel: Equatable, Hashable {
     let title: String
     let summary: String
     let dday: String

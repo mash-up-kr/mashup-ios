@@ -9,8 +9,9 @@
 import Foundation
 import ReactorKit
 
+
 final class SeminarScheduleReactor: Reactor {
-    typealias Section = SeminarScheduleSection
+    typealias Section = SeminarSection
     
     enum Action {
         case didSetup
@@ -35,6 +36,10 @@ final class SeminarScheduleReactor: Reactor {
     }
     
     let initialState = State()
+    
+    init(seminarRepository: SeminarRepository) {
+        self.seminarRepository = seminarRepository
+    }
     
     func mutate(action: Action) -> Observable<Mutation> {
         switch action {
@@ -70,7 +75,27 @@ final class SeminarScheduleReactor: Reactor {
         return newState
     }
     
+    private let seminarRepository: SeminarRepository
+}
+
+extension SeminarScheduleReactor {
+    
     private func createSections(from state: State) -> [Section] {
-        return []
+        let items = state.seminars.map { self.createSeminarItem(from: $0) }
+        return [
+            Section(type: .upcoming, items: items),
+            Section(type: .total, items: items)
+        ]
     }
+    
+    private func createSeminarItem(from seminar: Seminar) -> Section.Item {
+        let cellModel = SeminarCardCellModel(title: seminar.title,
+                                             summary: seminar.summary,
+                                             dday: ["오늘", "D-1", "D-2"].randomElement()!,
+                                             date: "2월 21일 (월)",
+                                             time: "오후 3시 30분 - 오후 4시 30분",
+                                             attendance: .allCases.randomElement()!)
+        return .seminar(cellModel)
+    }
+    
 }

@@ -21,3 +21,10 @@ extension UICollectionView {
     }
     
 }
+
+extension UICollectionViewDiffableDataSource {
+    convenience init(collectionView: UICollectionView, cellProvider: @escaping CellProvider, supplementaryViewProvider: @escaping SupplementaryViewProvider) {
+        self.init(collectionView: collectionView, cellProvider: cellProvider)
+        self.supplementaryViewProvider = supplementaryViewProvider
+    }
+}

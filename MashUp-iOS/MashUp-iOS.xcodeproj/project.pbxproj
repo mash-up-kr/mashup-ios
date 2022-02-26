@@ -59,6 +59,10 @@
 		CE6EE88027CA8EFE005BF412 /* UICollectionView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6EE87F27CA8EFE005BF412 /* UICollectionView+.swift */; };
 		CE6EE88227CA8F08005BF412 /* UITableView+.swift.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6EE88127CA8F08005BF412 /* UITableView+.swift.swift */; };
 		CE6EE88427CA9141005BF412 /* BaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6EE88327CA9141005BF412 /* BaseTableViewCell.swift */; };
+		CE6EE88627CA91ED005BF412 /* SeminarHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6EE88527CA91ED005BF412 /* SeminarHeaderView.swift */; };
+		CE6EE88827CA9225005BF412 /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6EE88727CA9225005BF412 /* BaseView.swift */; };
+		CE6EE88A27CAA288005BF412 /* SeminarRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6EE88927CAA287005BF412 /* SeminarRepository.swift */; };
+		CE6EE88C27CAA3C9005BF412 /* Date+.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6EE88B27CAA3C9005BF412 /* Date+.swift */; };
 		CE9E734527C2889200922D8B /* Nimble in Frameworks */ = {isa = PBXBuildFile; productRef = CE9E734427C2889200922D8B /* Nimble */; };
 		CE9E734827C2889E00922D8B /* Quick in Frameworks */ = {isa = PBXBuildFile; productRef = CE9E734727C2889E00922D8B /* Quick */; };
 		CE9E734B27C288B700922D8B /* Mockingbird in Frameworks */ = {isa = PBXBuildFile; productRef = CE9E734A27C288B700922D8B /* Mockingbird */; };
@@ -152,6 +156,10 @@
 		CE6EE87F27CA8EFE005BF412 /* UICollectionView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+.swift"; sourceTree = "<group>"; };
 		CE6EE88127CA8F08005BF412 /* UITableView+.swift.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+.swift.swift"; sourceTree = "<group>"; };
 		CE6EE88327CA9141005BF412 /* BaseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTableViewCell.swift; sourceTree = "<group>"; };
+		CE6EE88527CA91ED005BF412 /* SeminarHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeminarHeaderView.swift; sourceTree = "<group>"; };
+		CE6EE88727CA9225005BF412 /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
+		CE6EE88927CAA287005BF412 /* SeminarRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeminarRepository.swift; sourceTree = "<group>"; };
+		CE6EE88B27CAA3C9005BF412 /* Date+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+.swift"; sourceTree = "<group>"; };
 		CE9E735C27C294E800922D8B /* QRScanReactorSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QRScanReactorSpec.swift; sourceTree = "<group>"; };
 		CE9E736627C29F4700922D8B /* MashUp_iOSTests-Mock.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MashUp_iOSTests-Mock.generated.swift"; sourceTree = "<group>"; };
 		CEB60F4227A9713B001260DB /* TestAppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestAppDelegate.swift; sourceTree = "<group>"; };
@@ -362,6 +370,7 @@
 				CE6EE84427C8004F005BF412 /* BaseTabBarController.swift */,
 				CE6EE88327CA9141005BF412 /* BaseTableViewCell.swift */,
 				CE6EE81F27C7BEC2005BF412 /* BaseViewController.swift */,
+				CE6EE88727CA9225005BF412 /* BaseView.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -430,6 +439,7 @@
 			isa = PBXGroup;
 			children = (
 				CE6EE85C27CA4136005BF412 /* Seminar.swift */,
+				CE6EE88927CAA287005BF412 /* SeminarRepository.swift */,
 			);
 			path = Seminar;
 			sourceTree = "<group>";
@@ -455,6 +465,7 @@
 			children = (
 				CE6EE87027CA73B7005BF412 /* SeminarCardCell.swift */,
 				CE6EE87927CA89F3005BF412 /* SeminarCardCellModel.swift */,
+				CE6EE88527CA91ED005BF412 /* SeminarHeaderView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -483,6 +494,7 @@
 				CE6EE85727CA3AC6005BF412 /* Collection+.swift */,
 				CE6EE85327CA2F6A005BF412 /* Error+.swift */,
 				CE6EE81327C7B541005BF412 /* String+.swift */,
+				CE6EE88B27CAA3C9005BF412 /* Date+.swift */,
 			);
 			path = "Foundation+";
 			sourceTree = "<group>";
@@ -736,7 +748,9 @@
 				CEB60F4527A97163001260DB /* main.swift in Sources */,
 				CE6EE83F27C7EFF9005BF412 /* HomeReactor.swift in Sources */,
 				CE6EE87327CA7482005BF412 /* Attendance.swift in Sources */,
+				CE6EE88C27CAA3C9005BF412 /* Date+.swift in Sources */,
 				CEB60F4B27A975AD001260DB /* QRScanViewController.swift in Sources */,
+				CE6EE88627CA91ED005BF412 /* SeminarHeaderView.swift in Sources */,
 				CE6EE83227C7D948005BF412 /* RootStep.swift in Sources */,
 				CEB60F7427A9BDF4001260DB /* QRScanReactor.swift in Sources */,
 				CE6EE81027C7B28C005BF412 /* SignInViewController.swift in Sources */,
@@ -747,12 +761,14 @@
 				CE6EE85427CA2F6B005BF412 /* Error+.swift in Sources */,
 				CE6EE81427C7B541005BF412 /* String+.swift in Sources */,
 				CE6EE88227CA8F08005BF412 /* UITableView+.swift.swift in Sources */,
+				CE6EE88A27CAA288005BF412 /* SeminarRepository.swift in Sources */,
 				CE6EE82727C7C0A1005BF412 /* NewAccount.swift in Sources */,
 				CEB60F8427A9C602001260DB /* FakeAttendanceService.swift in Sources */,
 				CE6EE87D27CA8E45005BF412 /* Reusable.swift in Sources */,
 				CEB60F7627A9BE67001260DB /* ViewContorller+Rx.swift in Sources */,
 				CE396080278B3CB40073AEF4 /* AppDelegate.swift in Sources */,
 				CE6EE84127C7F130005BF412 /* HomeTab.swift in Sources */,
+				CE6EE88827CA9225005BF412 /* BaseView.swift in Sources */,
 				CE6EE82C27C7D8F8005BF412 /* RootController.swift in Sources */,
 				CE6EE82E27C7D900005BF412 /* RootReactor.swift in Sources */,
 				CE6EE88427CA9141005BF412 /* BaseTableViewCell.swift in Sources */,
