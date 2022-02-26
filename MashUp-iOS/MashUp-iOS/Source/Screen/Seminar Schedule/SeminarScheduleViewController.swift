@@ -104,18 +104,26 @@ extension SeminarScheduleViewController {
     }
     
     private func createHorizontalLayout() -> NSCollectionLayoutSection {
-        let size = NSCollectionLayoutSize(
-            widthDimension: NSCollectionLayoutDimension.fractionalWidth(1),
-            heightDimension: NSCollectionLayoutDimension.estimated(162)
+        let itemSize = NSCollectionLayoutSize(
+            widthDimension: .fractionalWidth(312.0/375.0),
+            heightDimension: .absolute(162.0)
         )
-        let item = NSCollectionLayoutItem(layoutSize: size)
-        let group = NSCollectionLayoutGroup.horizontal(layoutSize: size, subitem: item, count: 6)
+        let item = NSCollectionLayoutItem(layoutSize: itemSize)
+        
+        let groupSize = NSCollectionLayoutSize(
+            widthDimension: .fractionalWidth(((312.0 * 3) + (13.0 * 2) + (24.0 * 2)) / 375.0),
+            heightDimension: .absolute(162.0)
+        )
+        let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitem: item, count: 3)
+        group.interItemSpacing = .fixed(13)
+        
         let section = NSCollectionLayoutSection(group: group)
-        section.contentInsets = NSDirectionalEdgeInsets(top: 10, leading: 10, bottom: 10, trailing: 10)
-        section.interGroupSpacing = 12
+        section.contentInsets = NSDirectionalEdgeInsets(top: 10, leading: 24, bottom: 10, trailing: 24)
+        section.orthogonalScrollingBehavior = .paging
+        
         let headerSize = NSCollectionLayoutSize(
           widthDimension: .fractionalWidth(1.0),
-          heightDimension: .estimated(52)
+          heightDimension: .absolute(52.0)
         )
         let sectionHeader = NSCollectionLayoutBoundarySupplementaryItem(
           layoutSize: headerSize,
@@ -127,15 +135,15 @@ extension SeminarScheduleViewController {
     }
     
     private func createVerticalLayout() -> NSCollectionLayoutSection {
-        let size = NSCollectionLayoutSize(
+        let itemSize = NSCollectionLayoutSize(
             widthDimension: NSCollectionLayoutDimension.fractionalWidth(1),
             heightDimension: NSCollectionLayoutDimension.estimated(162)
         )
-        let item = NSCollectionLayoutItem(layoutSize: size)
-        let group = NSCollectionLayoutGroup.vertical(layoutSize: size, subitem: item, count: 1)
+        let item = NSCollectionLayoutItem(layoutSize: itemSize)
+        let group = NSCollectionLayoutGroup.vertical(layoutSize: itemSize, subitem: item, count: 1)
         let section = NSCollectionLayoutSection(group: group)
-        section.contentInsets = NSDirectionalEdgeInsets(top: 10, leading: 10, bottom: 10, trailing: 10)
-        section.interGroupSpacing = 12
+        section.contentInsets = NSDirectionalEdgeInsets(top: 10, leading: 24, bottom: 10, trailing: 24)
+        section.interGroupSpacing = 14
         let headerSize = NSCollectionLayoutSize(
           widthDimension: .fractionalWidth(1.0),
           heightDimension: .estimated(52)

@@ -85,7 +85,7 @@ final class SeminarScheduleReactor: Reactor {
 extension SeminarScheduleReactor {
     
     private func createSections(from state: State) -> [Section] {
-        let upcomingItems = state.seminars.map { self.createSeminarItem(from: $0, meta: .upcoming) }
+        let upcomingItems = state.seminars.prefix(3).map { self.createSeminarItem(from: $0, meta: .upcoming) }
         let totalItems = state.seminars.map { self.createSeminarItem(from: $0, meta: .total) }
         return [
             Section(type: .upcoming, items: upcomingItems),
