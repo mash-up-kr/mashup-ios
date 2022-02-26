@@ -24,4 +24,8 @@ class BaseTabBarController: UITabBarController {
         Logger.log("\(type(of:self)) deinit", .custom("💀"), "", "", "")
     }
     
+    override var shouldAutorotate: Bool {
+        return false
+    }
+    
 }
