@@ -60,7 +60,7 @@ final class QRScanReactorSpec: QuickSpec {
           }
           it("attendance did success") {
             sut.action.onNext(.didSetup)
-            expect { sut.currentState.alertMessage }.to(equal("✅ 출석을 완료하셨습니다."))
+            expect { sut.currentState.toastMessage }.to(equal("✅ 출석을 완료하셨습니다."))
           }
         }
         context("when request attendance with wrong code") {
@@ -69,7 +69,7 @@ final class QRScanReactorSpec: QuickSpec {
           }
           it("attendance did failure") {
             sut.action.onNext(.didSetup)
-            expect { sut.currentState.alertMessage }.to(equal("❌ 올바른 코드가 아닙니다."))
+            expect { sut.currentState.toastMessage }.to(equal("❌ 올바른 코드가 아닙니다."))
           }
         }
       }

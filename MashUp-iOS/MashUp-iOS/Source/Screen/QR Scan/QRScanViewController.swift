@@ -57,11 +57,11 @@ final class QRScanViewController: BaseViewController, ReactorKit.View {
     }
     
     private func consume(_ reactor: Reactor) {
-        reactor.pulse(\.$alertMessage).compactMap { $0 }
+        reactor.pulse(\.$toastMessage).compactMap { $0 }
         .throttle(.seconds(2), scheduler: MainScheduler.asyncInstance)
         .observe(on: MainScheduler.instance)
         .subscribe(onNext: { [weak self] message in
-            self?.showAlert(message: message)
+            self?.showToast(message: message)
         })
         .disposed(by: self.disposeBag)
     }
@@ -70,7 +70,7 @@ final class QRScanViewController: BaseViewController, ReactorKit.View {
         self.capturePreviewLayer.session = session
     }
     
-    private func showAlert(message: String) {
+    private func showToast(message: String) {
         self.toastView.alpha = 0
         self.toastView.text = message
         UIView.animate(withDuration: 0.2) {
@@ -88,7 +88,6 @@ final class QRScanViewController: BaseViewController, ReactorKit.View {
     private let codeLabel = UILabel()
     private let toastView = PaddingLabel()
     private let qrCodeFinderView = QRCodeFinderView()
-    private var qrCodeFinderWidthConstraint: Constraint?
 }
 // MARK: Setup
 extension QRScanViewController {
@@ -126,7 +125,7 @@ extension QRScanViewController {
             $0.centerY.equalToSuperview().offset(-120)
             $0.centerX.equalToSuperview()
             $0.height.equalTo(self.qrCodeFinderView.snp.width)
-            self.qrCodeFinderWidthConstraint = $0.width.equalToSuperview().inset(32).constraint
+            $0.width.equalToSuperview().inset(32)
         }
         self.toastView.snp.makeConstraints {
             $0.center.equalToSuperview()

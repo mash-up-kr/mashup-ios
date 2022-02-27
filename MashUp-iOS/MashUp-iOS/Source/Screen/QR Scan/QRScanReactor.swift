@@ -25,7 +25,7 @@ final class QRScanReactor: Reactor {
         let captureSession: AVCaptureSession
         var code: Code?
         var upcomingSeminar: Seminar?
-        @Pulse var alertMessage: String?
+        @Pulse var toastMessage: String?
         
         fileprivate var hasAttended: Bool
     }
@@ -59,7 +59,7 @@ final class QRScanReactor: Reactor {
             
         case .updateAttendance(let attendance):
             newState.hasAttended = attendance
-            newState.alertMessage = messageOf(attendance: attendance)
+            newState.toastMessage = messageOf(attendance: attendance)
         }
         return newState
     }
