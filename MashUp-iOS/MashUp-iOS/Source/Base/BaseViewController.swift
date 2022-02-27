@@ -6,9 +6,15 @@
 //  Copyright © 2022 Mash Up Corp. All rights reserved.
 //
 
+import Then
 import UIKit
 
 class BaseViewController: UIViewController {
+    
+    enum TabBarTheme {
+        case dark
+        case light
+    }
     
     override init(nibName: String?, bundle: Bundle?) {
         super.init(nibName: nibName, bundle: bundle)
@@ -28,4 +34,18 @@ class BaseViewController: UIViewController {
         return false
     }
     
+    func setupTabBarTheme(_ theme: TabBarTheme) {
+        switch theme {
+        case .dark:
+            self.tabBarController?.tabBar.do {
+                $0.barTintColor = .black
+                $0.tintColor = .white
+            }
+        case .light:
+            self.tabBarController?.tabBar.do {
+                $0.barTintColor = .white
+                $0.tintColor = .black
+            }
+        }
+    }
 }

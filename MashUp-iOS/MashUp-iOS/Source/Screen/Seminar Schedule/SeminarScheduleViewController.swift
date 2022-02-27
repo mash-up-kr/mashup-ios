@@ -31,6 +31,11 @@ final class SeminarScheduleViewController: BaseViewController, ReactorKit.View {
         self.navigationController?.isNavigationBarHidden = true
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        self.setupTabBarTheme(.light)
+    }
+    
     func bind(reactor: Reactor) {
         self.dispatch(to: reactor)
         self.render(reactor)
@@ -98,6 +103,14 @@ extension SeminarScheduleViewController {
         }
     }
     
+    private func setupLayout() {
+        self.view.addSubview(self.collectionView)
+        self.collectionView.snp.makeConstraints {
+            $0.top.equalToSuperview().inset(56)
+            $0.leading.trailing.bottom.equalToSuperview()
+        }
+    }
+    
     private func collectionViewLayout() -> UICollectionViewCompositionalLayout {
         return UICollectionViewCompositionalLayout(sectionProvider: { [weak self] index, _ in
             guard let self = self else { return nil }
@@ -162,14 +175,6 @@ extension SeminarScheduleViewController {
         )
         section.boundarySupplementaryItems = [sectionHeader]
         return section
-    }
-    
-    private func setupLayout() {
-        self.view.addSubview(self.collectionView)
-        self.collectionView.snp.makeConstraints {
-            $0.top.equalToSuperview().inset(56)
-            $0.leading.trailing.bottom.equalToSuperview()
-        }
     }
     
 }

@@ -86,34 +86,15 @@ extension SeminarScheduleReactor {
     
     private func createSections(from state: State) -> [Section] {
         let upcomingItems = state.seminars.prefix(3)
-            .map { self.createSeminarCardCellModel(from: $0) }
+            .map(SeminarCardCellModel.init(from:))
             .map { SeminarSectionItem.upcoming($0) }
         let totalItems = state.seminars
-            .map { self.createSeminarCardCellModel(from: $0) }
+            .map(SeminarCardCellModel.init(from:))
             .map { SeminarSectionItem.total($0) }
         return [
             Section(type: .upcoming, items: upcomingItems),
             Section(type: .total, items: totalItems)
         ]
-    }
-    
-    private func createSeminarCardCellModel(
-        from seminar: Seminar
-    ) -> SeminarCardCellModel {
-        let dateFormatter = DateFormatter().then {
-            $0.dateFormat = "M월 d일 (E)"
-            $0.timeZone = .UTC
-            $0.locale = .ko_KR
-        }
-        let cellModel = SeminarCardCellModel(
-            title: seminar.title,
-            summary: seminar.summary,
-            dday: ["오늘", "D-1", "D-2"].randomElement()!,
-            date: dateFormatter.string(from: seminar.date),
-            time: "오후 3시 30분 - 오후 4시 30분",
-            attendance: .allCases.randomElement()!
-        )
-        return cellModel
     }
     
 }

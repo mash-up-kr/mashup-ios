@@ -24,6 +24,7 @@ final class QRScanReactor: Reactor {
     struct State {
         let captureSession: AVCaptureSession
         var code: Code?
+        var upcomingSeminar: Seminar?
         @Pulse var alertMessage: String?
         
         fileprivate var hasAttended: Bool
@@ -33,6 +34,7 @@ final class QRScanReactor: Reactor {
     
     init(
         qrReaderService: QRReaderService = QRReaderServiceImpl(),
+        seminarRepository: SeminarRepository = SeminarRepositoryImpl(),
         attendanceService: AttendanceService = AttendanceServiceImpl()
     ) {
         self.qrReaderService = qrReaderService
@@ -43,8 +45,9 @@ final class QRScanReactor: Reactor {
     func mutate(action: Action) -> Observable<Mutation> {
         switch action {
         case .didSetup:
-            return self.qrReaderService.scanCodeWhileSessionIsOpen()
+            let readyToQRScan: Observable<Mutation> = self.qrReaderService.scanCodeWhileSessionIsOpen()
                 .flatMap(self.updateCodeAndAttendance)
+            return readyToQRScan
         }
     }
     

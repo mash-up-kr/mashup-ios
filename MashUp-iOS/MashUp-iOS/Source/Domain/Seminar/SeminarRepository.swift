@@ -13,6 +13,14 @@ protocol SeminarRepository {
     func fetchSeminars() -> Observable<[Seminar]>
 }
 
+final class SeminarRepositoryImpl: SeminarRepository {
+    var stubedSeminars: [Seminar] = []
+    
+    func fetchSeminars() -> Observable<[Seminar]> {
+        return .just(stubedSeminars)
+    }
+}
+
 final class FakeSeminarRepository: SeminarRepository {
     var stubedSeminars: [Seminar] = []
     

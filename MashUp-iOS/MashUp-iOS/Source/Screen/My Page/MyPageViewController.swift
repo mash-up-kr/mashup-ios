@@ -14,4 +14,9 @@ final class MyPageViewController: BaseViewController {
         super.viewDidLoad()
         self.view.backgroundColor = .systemGreen
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        self.setupTabBarTheme(.light)
+    }
 }
