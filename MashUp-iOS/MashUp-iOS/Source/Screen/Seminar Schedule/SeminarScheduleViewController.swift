@@ -89,9 +89,9 @@ extension SeminarScheduleViewController {
     }
     
     private func setupAttribute() {
-        self.view.backgroundColor = .systemBlue
+        self.view.backgroundColor = .white
         self.collectionView.do {
-            $0.backgroundColor = .systemTeal
+            $0.backgroundColor = .white
             $0.registerCell(SeminarCardCell.self)
             $0.registerSupplementaryView(SeminarHeaderView.self)
             $0.collectionViewLayout = self.collectionViewLayout()

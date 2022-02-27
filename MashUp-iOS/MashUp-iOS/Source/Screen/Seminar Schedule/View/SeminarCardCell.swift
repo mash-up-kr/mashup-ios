@@ -52,7 +52,7 @@ extension SeminarCardCell {
     private func setupAttribute() {
         self.cardShapeView.do {
             $0.layer.cornerRadius = 24
-            $0.backgroundColor = .white
+            $0.backgroundColor = .systemGray4
         }
         self.titleLabel.do {
             $0.textColor = .black

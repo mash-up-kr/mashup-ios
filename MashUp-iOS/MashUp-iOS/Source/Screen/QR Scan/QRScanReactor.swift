@@ -43,7 +43,8 @@ final class QRScanReactor: Reactor {
     func mutate(action: Action) -> Observable<Mutation> {
         switch action {
         case .didSetup:
-            return self.qrReaderService.scanCodeWhileSessionIsOpen().flatMap(self.updateCodeAndAttendance)
+            return self.qrReaderService.scanCodeWhileSessionIsOpen()
+                .flatMap(self.updateCodeAndAttendance)
         }
     }
     
@@ -61,6 +62,8 @@ final class QRScanReactor: Reactor {
     }
     
     private func updateCodeAndAttendance(code: Code) -> Observable<Mutation> {
+        guard self.currentState.hasAttended == false else { return .empty() }
+        
         let updateCode = Observable.just(Mutation.updateCode(code))
         let updateAttendance = self.attencanceService.attend(withCode: code).map { Mutation.updateAttendance($0) }
         return .concat(updateCode, updateAttendance)

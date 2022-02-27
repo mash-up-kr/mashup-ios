@@ -65,6 +65,7 @@
 		CE6EE88C27CAA3C9005BF412 /* Date+.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6EE88B27CAA3C9005BF412 /* Date+.swift */; };
 		CE6EE89027CAD109005BF412 /* TimeZone+.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6EE88F27CAD109005BF412 /* TimeZone+.swift */; };
 		CE6EE89227CAD117005BF412 /* Locale+.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6EE89127CAD117005BF412 /* Locale+.swift */; };
+		CE6EE89527CB049C005BF412 /* QRCodeFinderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6EE89427CB049C005BF412 /* QRCodeFinderView.swift */; };
 		CE9E734527C2889200922D8B /* Nimble in Frameworks */ = {isa = PBXBuildFile; productRef = CE9E734427C2889200922D8B /* Nimble */; };
 		CE9E734827C2889E00922D8B /* Quick in Frameworks */ = {isa = PBXBuildFile; productRef = CE9E734727C2889E00922D8B /* Quick */; };
 		CE9E734B27C288B700922D8B /* Mockingbird in Frameworks */ = {isa = PBXBuildFile; productRef = CE9E734A27C288B700922D8B /* Mockingbird */; };
@@ -164,6 +165,7 @@
 		CE6EE88B27CAA3C9005BF412 /* Date+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+.swift"; sourceTree = "<group>"; };
 		CE6EE88F27CAD109005BF412 /* TimeZone+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TimeZone+.swift"; sourceTree = "<group>"; };
 		CE6EE89127CAD117005BF412 /* Locale+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Locale+.swift"; sourceTree = "<group>"; };
+		CE6EE89427CB049C005BF412 /* QRCodeFinderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRCodeFinderView.swift; sourceTree = "<group>"; };
 		CE9E735C27C294E800922D8B /* QRScanReactorSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QRScanReactorSpec.swift; sourceTree = "<group>"; };
 		CE9E736627C29F4700922D8B /* MashUp_iOSTests-Mock.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MashUp_iOSTests-Mock.generated.swift"; sourceTree = "<group>"; };
 		CEB60F4227A9713B001260DB /* TestAppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestAppDelegate.swift; sourceTree = "<group>"; };
@@ -505,6 +507,14 @@
 			path = "Foundation+";
 			sourceTree = "<group>";
 		};
+		CE6EE89327CB0483005BF412 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				CE6EE89427CB049C005BF412 /* QRCodeFinderView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		CE9E735B27C294E800922D8B /* Specs */ = {
 			isa = PBXGroup;
 			children = (
@@ -530,6 +540,7 @@
 			children = (
 				CEB60F7327A9BDF4001260DB /* QRScanReactor.swift */,
 				CEB60F4A27A975AD001260DB /* QRScanViewController.swift */,
+				CE6EE89327CB0483005BF412 /* View */,
 			);
 			path = "QR Scan";
 			sourceTree = "<group>";
@@ -774,6 +785,7 @@
 				CE6EE87D27CA8E45005BF412 /* Reusable.swift in Sources */,
 				CEB60F7627A9BE67001260DB /* UIViewContorller+Rx.swift in Sources */,
 				CE396080278B3CB40073AEF4 /* AppDelegate.swift in Sources */,
+				CE6EE89527CB049C005BF412 /* QRCodeFinderView.swift in Sources */,
 				CE6EE84127C7F130005BF412 /* HomeTab.swift in Sources */,
 				CE6EE88827CA9225005BF412 /* BaseView.swift in Sources */,
 				CE6EE82C27C7D8F8005BF412 /* RootController.swift in Sources */,

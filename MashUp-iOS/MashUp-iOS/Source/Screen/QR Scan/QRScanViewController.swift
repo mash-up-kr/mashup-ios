@@ -20,8 +20,7 @@ final class QRScanViewController: BaseViewController, ReactorKit.View {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.setupCapturePreviewLayer()
-        self.setupCodeLabel()
+        self.setupUI()
     }
     
     func bind(reactor: QRScanReactor) {
@@ -52,6 +51,7 @@ final class QRScanViewController: BaseViewController, ReactorKit.View {
     
     private func consume(_ reactor: Reactor) {
         reactor.pulse(\.$alertMessage).compactMap { $0 }
+        .throttle(.seconds(2), scheduler: MainScheduler.asyncInstance)
         .observe(on: MainScheduler.instance)
         .subscribe(onNext: { [weak self] message in
             self?.showAlert(message: message)
@@ -64,18 +64,32 @@ final class QRScanViewController: BaseViewController, ReactorKit.View {
     }
     
     private func showAlert(message: String) {
-        let alertController = UIAlertController(title: nil, message: message, preferredStyle: .alert)
-        let ok = UIAlertAction(title: "확인", style: .default)
-        alertController.addAction(ok)
-        self.present(alertController, animated: true, completion: nil)
+        self.toastView.alpha = 0
+        self.toastView.text = message
+        UIView.animate(withDuration: 0.2) {
+            self.toastView.alpha = 1
+        } completion: { _ in
+            DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+                UIView.animate(withDuration: 0.2) {
+                    self.toastView.alpha = 0
+                }
+            }
+        }
     }
     
     private let capturePreviewLayer = AVCaptureVideoPreviewLayer()
     private let codeLabel = UILabel()
-    
+    private let toastView = PaddingLabel()
+    private let qrCodeFinderView = QRCodeFinderView()
 }
 // MARK: Setup
 extension QRScanViewController {
+    
+    private func setupUI() {
+        self.setupCapturePreviewLayer()
+        self.setupAttribute()
+        self.setupLayout()
+    }
     
     private func setupCapturePreviewLayer() {
         self.capturePreviewLayer.frame = self.view.layer.bounds
@@ -84,12 +98,30 @@ extension QRScanViewController {
         self.view.layer.addSublayer(self.capturePreviewLayer)
     }
     
-    private func setupCodeLabel() {
-        self.view.addSubview(self.codeLabel)
-        self.codeLabel.snp.makeConstraints {
-            $0.centerX.equalToSuperview()
-            $0.bottom.equalToSuperview().inset(24)
+    private func setupAttribute() {
+        self.toastView.do {
+            $0.alpha = 0
+            $0.contentInsets = UIEdgeInsets(top: 12, left: 20, bottom: 12, right: 20)
+            $0.backgroundColor = .systemGreen
+            $0.textColor = .white
+            $0.clipsToBounds = true
+            $0.layer.cornerRadius = 8
         }
     }
     
+    private func setupLayout() {
+        self.view.do {
+            $0.addSubview(self.qrCodeFinderView)
+            $0.addSubview(self.toastView)
+        }
+        self.qrCodeFinderView.snp.makeConstraints {
+            $0.top.equalToSuperview().inset(90)
+            $0.centerX.equalToSuperview()
+            $0.width.equalToSuperview().inset(32)
+            $0.height.equalTo(self.qrCodeFinderView.snp.width)
+        }
+        self.toastView.snp.makeConstraints {
+            $0.center.equalToSuperview()
+        }
+    }
 }

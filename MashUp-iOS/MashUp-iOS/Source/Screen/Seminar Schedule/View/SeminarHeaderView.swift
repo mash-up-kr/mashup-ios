@@ -49,7 +49,6 @@ extension SeminarHeaderView {
     }
     
     private func setupAttribute() {
-        self.backgroundColor = .systemOrange
         self.titleLabel.do {
             $0.textColor = .black
             $0.font = .systemFont(ofSize: 24, weight: .bold)
