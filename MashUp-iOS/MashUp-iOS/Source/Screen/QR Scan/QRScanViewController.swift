@@ -47,11 +47,13 @@ final class QRScanViewController: BaseViewController, ReactorKit.View {
     private func render(_ reactor: Reactor) {
         reactor.state.map { $0.captureSession }
         .distinctUntilChanged()
+        .onMain()
         .subscribe(onNext: self.updateCaptureSession)
         .disposed(by: self.disposeBag)
         
         reactor.state.map { $0.code }
         .distinctUntilChanged()
+        .onMain()
         .bind(to: self.codeLabel.rx.text)
         .disposed(by: self.disposeBag)
     }
@@ -59,7 +61,7 @@ final class QRScanViewController: BaseViewController, ReactorKit.View {
     private func consume(_ reactor: Reactor) {
         reactor.pulse(\.$toastMessage).compactMap { $0 }
         .throttle(.seconds(2), scheduler: MainScheduler.asyncInstance)
-        .observe(on: MainScheduler.instance)
+        .onMain()
         .subscribe(onNext: { [weak self] message in
             self?.showToast(message: message)
         })
@@ -71,8 +73,8 @@ final class QRScanViewController: BaseViewController, ReactorKit.View {
     }
     
     private func showToast(message: String) {
-        self.toastView.alpha = 0
         self.toastView.text = message
+        self.toastView.alpha = 0
         UIView.animate(withDuration: 0.2) {
             self.toastView.alpha = 1
         } completion: { _ in

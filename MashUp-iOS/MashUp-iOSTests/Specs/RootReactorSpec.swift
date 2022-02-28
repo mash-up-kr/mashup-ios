@@ -29,21 +29,20 @@ final class RootReactorSpec: QuickSpec {
         }
       }
     }
-    describe("action.didLoad") {
-      var stubSession: UserSession!
-      context("when occurs with user session") {
+    describe("authentication responder (root reactor)") {
+      var userSessionStub: UserSession!
+      context("when load success user session by splash reactor") {
         beforeEach {
-          stubSession = .stub(accessToken: "fake.access.token")
-          sut.action.onNext(.didLoad(stubSession))
+          userSessionStub = .stub(accessToken: "fake.access.token")
+          sut.loadSuccess(userSession: userSessionStub)
         }
         it("present home screen with loaded user session") {
-          expect { sut.currentState.step }.to(equal(.home(stubSession)))
+          expect { sut.currentState.step }.to(equal(.home(userSessionStub)))
         }
       }
-      context("when occurs with nil session") {
+      context("when load failure user session by splash reactor") {
         beforeEach {
-          stubSession = nil
-          sut.action.onNext(.didLoad(stubSession))
+          sut.loadFailure()
         }
         it("present sign in screen") {
           expect { sut.currentState.step }.to(equal(.signIn))

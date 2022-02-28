@@ -17,6 +17,7 @@ final class SplashReactorSpec: QuickSpec {
     var sut: SplashReactor!
     var userSessionRepositoryMock: UserSessionRepositoryMock!
     var rootReactorMock: AuthenticationResponderMock!
+    var userSessionStub: UserSession!
     
     beforeEach {
       userSessionRepositoryMock = mock(UserSessionRepository.self)
@@ -24,28 +25,26 @@ final class SplashReactorSpec: QuickSpec {
       sut = SplashReactor(userSessionRepository: userSessionRepositoryMock,
                           authenticationResponder: rootReactorMock)
     }
-    describe("") {
-      var stubedUserSession: UserSession!
-      context("when user session load success") {
-        beforeEach {
-          stubedUserSession = .stub(accessToken: "fake.user.session")
-          given(userSessionRepositoryMock.load()).willReturn(.just(stubedUserSession))
-          sut.action.onNext(.didSetup)
-        }
-        it("tell the root reactor that successful load with loaded session") {
-          verify(rootReactorMock.loadSuccess(userSession: stubedUserSession)).wasCalled()
-        }
+    context("when user session load success") {
+      beforeEach {
+        userSessionStub = .stub(accessToken: "fake.user.session")
+        given(userSessionRepositoryMock.load()).willReturn(.just(userSessionStub))
+        sut.action.onNext(.didSetup)
       }
-      context("when user session load failure") {
-        beforeEach {
-          stubedUserSession = nil
-          given(userSessionRepositoryMock.load()).willReturn(.just(nil))
-          sut.action.onNext(.didSetup)
-        }
-        it("tell root reactor that load failed ") {
-          verify(rootReactorMock.loadFailure()).wasCalled()
-        }
+      it("tell the root reactor that successful load with loaded session") {
+        verify(rootReactorMock.loadSuccess(userSession: userSessionStub)).wasCalled()
+      }
+    }
+    context("when user session load failure") {
+      beforeEach {
+        userSessionStub = nil
+        given(userSessionRepositoryMock.load()).willReturn(.just(userSessionStub))
+        sut.action.onNext(.didSetup)
+      }
+      it("tell root reactor that load failed ") {
+        verify(rootReactorMock.loadFailure()).wasCalled()
       }
     }
   }
+  
 }

@@ -31,9 +31,9 @@ final class SeminarHeaderView: UICollectionReusableView, Reusable {
         self.setupUI()
     }
     
-    func configure(sectionMeta: SeminarSectionMeta) {
-        self.titleLabel.text = sectionMeta.description
-        self.sortButton.isHidden = sectionMeta == .upcoming
+    func configure(sectionType: SeminarSectionType) {
+        self.titleLabel.text = sectionType.header
+        self.sortButton.isHidden = sectionType == .upcoming
     }
     
     private let sortButton = UIButton()

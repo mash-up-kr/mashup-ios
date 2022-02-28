@@ -15,8 +15,8 @@ final class SeminarDetailViewController: BaseViewController {
         self.setupUI()
     }
     
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         self.navigationController?.isNavigationBarHidden = false
     }
 }

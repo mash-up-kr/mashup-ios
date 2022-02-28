@@ -9,22 +9,23 @@
 import Foundation
 import RxDataSources
 
-enum SeminarSectionMeta: Int, Equatable, CustomStringConvertible {
+enum SeminarSectionType: Int, Equatable {
     case upcoming
     case total
     
-    var description: String {
+    var header: String {
         switch self {
         case .upcoming: return "다가오는 일정을 체크하세요🤓"
         case .total: return "전체 일정 리스트"
         }
     }
+    
 }
 
 struct SeminarSection: Hashable {
     typealias Item = SeminarSectionItem
     
-    let type: SeminarSectionMeta
+    let type: SeminarSectionType
     let items: [SeminarSectionItem]
 }
 

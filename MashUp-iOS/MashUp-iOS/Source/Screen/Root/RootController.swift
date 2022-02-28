@@ -32,6 +32,7 @@ final class RootController: BaseViewController, ReactorKit.View {
     
     private func consume(_ reactor: Reactor) {
         reactor.pulse(\.$step).compactMap { $0 }
+        .onMain()
         .subscribe(onNext: { [weak self] step in
             switch step {
             case .splash:
@@ -60,7 +61,7 @@ extension RootController {
     }
     
     private func switchToSignInViewController() {
-        let signInViewController = self.createSignInViewController()
+        guard let signInViewController = self.createSignInViewController() else { return }
         signInViewController.modalPresentationStyle = .fullScreen
         self.switchToViewController(signInViewController)
     }
@@ -92,10 +93,10 @@ extension RootController {
         #warning("둘 중 하나만 주석을 푸시면 케이스 테스트 가능합니다.")
         
         // ✅ 자동 로그인 케이스 테스트
-        self.userSessionRepository.stubedUserSession = UserSession(accessToken: "fake.access.token")
+        // self.userSessionRepository.stubedUserSession = UserSession(accessToken: "fake.access.token")
         
         // ❌ 자동 로그인 아닌 케이스 테스트
-        // self.userSessionRepository.stubedUserSession = nil
+        self.userSessionRepository.stubedUserSession = nil
         
         let splashViewController = SplashViewController()
         splashViewController.reactor = SplashReactor(
@@ -105,8 +106,13 @@ extension RootController {
         return splashViewController
     }
     
-    private func createSignInViewController() -> UIViewController {
-        let reactor = SignInReactor(userSessionRepository: self.userSessionRepository)
+    private func createSignInViewController() -> UIViewController? {
+        guard let authenticationResponder = self.reactor else { return nil }
+        
+        let reactor = SignInReactor(
+            userSessionRepository: self.userSessionRepository,
+            authenticationResponder: authenticationResponder
+        )
         let viewController = SignInViewController()
         viewController.reactor = reactor
         return viewController

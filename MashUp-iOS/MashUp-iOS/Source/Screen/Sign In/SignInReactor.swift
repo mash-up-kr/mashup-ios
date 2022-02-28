@@ -22,6 +22,7 @@ final class SignInReactor: Reactor {
         case updateID(String)
         case updatePassword(String)
         case updateLoading(Bool)
+        case updateUserSession(UserSession)
         case occurError(Error)
         case move(to: SignInStep)
     }
@@ -30,7 +31,7 @@ final class SignInReactor: Reactor {
         var id: String = .empty
         var password: String = .empty
         var isLoading: Bool = false
-        var canTrySignIn: Bool = false
+        var canTryToSignIn: Bool = false
         
         @Pulse var step: SignInStep?
         @Pulse var alertMessage: String?
@@ -39,8 +40,12 @@ final class SignInReactor: Reactor {
     
     let initialState: State = State()
     
-    init(userSessionRepository: UserSessionRepository) {
+    init(
+        userSessionRepository: UserSessionRepository,
+        authenticationResponder: AuthenticationResponder
+    ) {
         self.userSessionRepository = userSessionRepository
+        self.authenticationResponder = authenticationResponder
     }
     
     func mutate(action: Action) -> Observable<Mutation> {
@@ -53,7 +58,7 @@ final class SignInReactor: Reactor {
             
         case .didTapSignInButton:
             let startLoading: Observable<Mutation> = .just(Mutation.updateLoading(true))
-            let enterHome: Observable<Mutation> = self.signIn().map { userSession in .move(to: .home(userSession)) }
+            let enterHome: Observable<Mutation> = self.signIn().map { .updateUserSession($0) }
             let endLoading: Observable<Mutation> = .just(Mutation.updateLoading(false))
             let handleError: (Error) -> Observable<Mutation> = { error in return .just(.occurError(error)) }
             return .concat(
@@ -73,14 +78,17 @@ final class SignInReactor: Reactor {
         switch mutation {
         case .updateID(let id):
             newState.id = id
-            newState.canTrySignIn = self.verify(id: id, password: state.password)
+            newState.canTryToSignIn = self.verify(id: newState.id, password: state.password)
             
         case .updatePassword(let password):
             newState.password = password
-            newState.canTrySignIn = self.verify(id: state.id, password: password)
+            newState.canTryToSignIn = self.verify(id: state.id, password: newState.password)
             
         case .updateLoading(let isLoading):
             newState.isLoading = isLoading
+            
+        case .updateUserSession(let userSession):
+            self.authenticationResponder.loadSuccess(userSession: userSession)
             
         case .move(let step):
             newState.step = step
@@ -111,5 +119,5 @@ final class SignInReactor: Reactor {
     }
     
     private let userSessionRepository: UserSessionRepository
-    
+    private let authenticationResponder: AuthenticationResponder
 }

@@ -17,14 +17,20 @@ class FakeUserSessionRepository: UserSessionRepository  {
     }
     
     func signIn(id: String, password: String) -> Observable<UserSession> {
-        guard let userSession = self.stubedUserSession else { return .empty() }
+        let isCorrectID = id.lowercased().contains("test")
+        let isCorrectPW = password.lowercased().contains("test")
         
-        return .just(userSession)
+        guard isCorrectID, isCorrectPW else { return .error("sign in failure") }
+        let fakeSession = UserSession(accessToken: "\(id).\(password)")
+        return .just(fakeSession)
     }
     
     func signUp(with newAccount: NewAccount) -> Observable<UserSession> {
-        guard let userSession = self.stubedUserSession else { return .empty() }
+        let isCorrectID = newAccount.id.lowercased().contains("test")
+        let isCorrectPW = newAccount.password.lowercased().contains("test")
         
-        return .just(userSession)
+        guard isCorrectID, isCorrectPW else { return .error("sign in failure") }
+        let fakeSession = UserSession(accessToken: "\(newAccount.id).\(newAccount.password)")
+        return .just(fakeSession)
     }
 }

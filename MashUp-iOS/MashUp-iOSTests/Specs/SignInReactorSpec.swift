@@ -18,11 +18,16 @@ final class SignInReactorSpec: QuickSpec {
   override func spec() {
     var sut: SignInReactor!
     var userSessionRepositoryMock: UserSessionRepositoryMock!
+    var authenticationResponserMock: AuthenticationResponderMock!
     var disposeBag: DisposeBag!
     beforeEach {
       disposeBag = DisposeBag()
       userSessionRepositoryMock = mock(UserSessionRepository.self)
-      sut = SignInReactor(userSessionRepository: userSessionRepositoryMock)
+      authenticationResponserMock = mock(AuthenticationResponder.self)
+      sut = SignInReactor(
+        userSessionRepository: userSessionRepositoryMock,
+        authenticationResponder: authenticationResponserMock
+      )
     }
     describe("state.id") {
       context("when update id field's text") {
@@ -53,7 +58,7 @@ final class SignInReactorSpec: QuickSpec {
           sut.action.onNext(.didEditIDField(idShorterThan4))
         }
         it("is false") {
-          expect { sut.currentState.canTrySignIn }.to(beFalse())
+          expect { sut.currentState.canTryToSignIn }.to(beFalse())
         }
       }
       context("when password are shorter than 4 chacters") {
@@ -62,7 +67,7 @@ final class SignInReactorSpec: QuickSpec {
           sut.action.onNext(.didEditPasswordField(passwordShorterThan4))
         }
         it("is false") {
-          expect { sut.currentState.canTrySignIn }.to(beFalse())
+          expect { sut.currentState.canTryToSignIn }.to(beFalse())
         }
       }
       context("when id & password are longer than 4 chacters") {
@@ -73,7 +78,7 @@ final class SignInReactorSpec: QuickSpec {
           sut.action.onNext(.didEditPasswordField(passwordLongerThan4))
         }
         it("is true") {
-          expect { sut.currentState.canTrySignIn }.to(beTrue())
+          expect { sut.currentState.canTryToSignIn }.to(beTrue())
         }
       }
     }
@@ -121,13 +126,13 @@ final class SignInReactorSpec: QuickSpec {
       let correctPassword = "correct.password"
       let wrongID = "wrong.id"
       let wrongPassword = "wrong.password"
-      let stubedUserSession = UserSession.stub(accessToken: "fake.access.token")
+      let userSessionStub = UserSession.stub(accessToken: "fake.access.token")
       let error: Error = "sign in failure"
       beforeEach {
         given(userSessionRepositoryMock.signIn(id: any(), password: any()))
           .willReturn(.error(error))
         given(userSessionRepositoryMock.signIn(id: correctID, password: correctPassword))
-          .willReturn(.just(stubedUserSession))
+          .willReturn(.just(userSessionStub))
       }
       context("when sign in success") {
         beforeEach {
@@ -136,7 +141,7 @@ final class SignInReactorSpec: QuickSpec {
           sut.action.onNext(.didTapSignInButton)
         }
         it("present home with user session") {
-          expect { sut.currentState.step }.to(equal(.home(stubedUserSession)))
+          verify(authenticationResponserMock.loadSuccess(userSession: userSessionStub)).wasCalled()
         }
       }
       context("when sign in failure") {
@@ -147,6 +152,14 @@ final class SignInReactorSpec: QuickSpec {
         }
         it("show alert error message") {
           expect { sut.currentState.alertMessage }.to(equal(error.localizedDescription))
+        }
+      }
+      context("when sign up button did tap") {
+        beforeEach {
+          sut.action.onNext(.didTapSignUpButton)
+        }
+        it("present sign up screen") {
+          expect { sut.currentState.step }.to(equal(.signUp))
         }
       }
     }

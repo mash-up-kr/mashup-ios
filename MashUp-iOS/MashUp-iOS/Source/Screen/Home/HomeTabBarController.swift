@@ -39,12 +39,14 @@ final class HomeTabBarController: BaseTabBarController, ReactorKit.View {
     private func render(_ reactor: Reactor) {
         reactor.state.map { $0.tabItems }
         .distinctUntilChanged()
+        .onMain()
         .map(self.viewControllers(of:))
         .bind(to: self.rx.viewControllers)
         .disposed(by: self.disposeBag)
         
         reactor.state.map { $0.currentTab.rawValue }
         .distinctUntilChanged()
+        .onMain()
         .bind(to: self.rx.selectedIndex)
         .disposed(by: self.disposeBag)
     }

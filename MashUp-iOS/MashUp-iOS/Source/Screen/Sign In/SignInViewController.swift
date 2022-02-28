@@ -39,26 +39,40 @@ final class SignInViewController: BaseViewController, ReactorKit.View {
             .map { .didEditPasswordField($0) }
             .bind(to: reactor.action)
             .disposed(by: self.disposeBag)
+        
+        self.signInButton.rx.tap
+            .map { .didTapSignInButton }
+            .bind(to: reactor.action)
+            .disposed(by: self.disposeBag)
+        
+        self.signUpButton.rx.tap
+            .map { .didTapSignUpButton }
+            .bind(to: reactor.action)
+            .disposed(by: self.disposeBag)
     }
     
     private func render(_ reactor: Reactor) {
         reactor.state.map { $0.id }
         .distinctUntilChanged()
+        .onMain()
         .bind(to: self.idField.rx.text)
         .disposed(by: self.disposeBag)
         
         reactor.state.map { $0.password }
         .distinctUntilChanged()
+        .onMain()
         .bind(to: self.passwordField.rx.text)
         .disposed(by: self.disposeBag)
         
         reactor.state.map { $0.isLoading }
         .distinctUntilChanged()
+        .onMain()
         .bind(to: self.loadingIndicator.rx.isAnimating)
         .disposed(by: self.disposeBag)
         
-        reactor.state.map { $0.canTrySignIn }
+        reactor.state.map { $0.canTryToSignIn }
         .distinctUntilChanged()
+        .onMain()
         .bind(to: self.signInButton.rx.isEnabled)
         .disposed(by: self.disposeBag)
     }
@@ -82,6 +96,7 @@ extension SignInViewController {
     }
     
     private func setupAttribute() {
+        self.view.backgroundColor = .white
         self.idField.do {
             $0.keyboardType = .default
             $0.placeholder = "아이디를 입력해주세요"
@@ -100,6 +115,11 @@ extension SignInViewController {
             $0.setTitle("회원가입", for: .normal)
             $0.setTitleColor(.black, for: .normal)
             $0.backgroundColor = .white
+        }
+        self.loadingIndicator.do {
+            $0.hidesWhenStopped = true
+            $0.style = .medium
+            $0.tintColor = .white
         }
     }
     

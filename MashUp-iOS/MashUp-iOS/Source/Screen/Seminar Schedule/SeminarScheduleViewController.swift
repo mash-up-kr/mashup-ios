@@ -28,12 +28,12 @@ final class SeminarScheduleViewController: BaseViewController, ReactorKit.View {
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        self.navigationController?.isNavigationBarHidden = true
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         self.setupTabBarTheme(.light)
+        self.navigationController?.isNavigationBarHidden = true
     }
     
     func bind(reactor: Reactor) {
@@ -55,12 +55,14 @@ final class SeminarScheduleViewController: BaseViewController, ReactorKit.View {
     private func render(_ reactor: Reactor) {
         reactor.state.map { $0.sections }
         .distinctUntilChanged()
+        .onMain()
         .subscribe(onNext: self.applySections)
         .disposed(by: self.disposeBag)
     }
     
     private func consume(_ reactor: Reactor) {
         reactor.pulse(\.$step).compactMap { $0 }
+        .onMain()
         .subscribe(onNext: { [weak self] step in
             switch step {
             case .seminarDetail(let seminarID):
@@ -112,69 +114,13 @@ extension SeminarScheduleViewController {
     }
     
     private func collectionViewLayout() -> UICollectionViewCompositionalLayout {
-        return UICollectionViewCompositionalLayout(sectionProvider: { [weak self] index, _ in
-            guard let self = self else { return nil }
-            guard let sectionType = SeminarSectionMeta(rawValue: index) else { return nil }
-            
+        return UICollectionViewCompositionalLayout(sectionProvider: { index, _ in
+            guard let sectionType = SeminarSectionType(rawValue: index) else { return nil }
             switch sectionType {
-            case .upcoming: return self.createHorizontalLayout()
-            case .total: return self.createVerticalLayout()
+            case .upcoming: return .horizontalCardLayoutSection
+            case .total: return .verticalCardLayoutSection
             }
         })
-    }
-    
-    private func createHorizontalLayout() -> NSCollectionLayoutSection {
-        let itemSize = NSCollectionLayoutSize(
-            widthDimension: .fractionalWidth(312.0/375.0),
-            heightDimension: .absolute(162.0)
-        )
-        let item = NSCollectionLayoutItem(layoutSize: itemSize)
-        
-        let groupSize = NSCollectionLayoutSize(
-            widthDimension: .fractionalWidth(((312.0 * 3) + (13.0 * 2) + (24.0 * 2)) / 375.0),
-            heightDimension: .absolute(162.0)
-        )
-        let group = NSCollectionLayoutGroup.horizontal(layoutSize: groupSize, subitem: item, count: 3)
-        group.interItemSpacing = .fixed(13)
-        
-        let section = NSCollectionLayoutSection(group: group)
-        section.contentInsets = NSDirectionalEdgeInsets(top: 10, leading: 24, bottom: 10, trailing: 24)
-        section.orthogonalScrollingBehavior = .paging
-        
-        let headerSize = NSCollectionLayoutSize(
-            widthDimension: .fractionalWidth(1.0),
-            heightDimension: .absolute(52.0)
-        )
-        let sectionHeader = NSCollectionLayoutBoundarySupplementaryItem(
-            layoutSize: headerSize,
-            elementKind: UICollectionView.elementKindSectionHeader,
-            alignment: .top
-        )
-        section.boundarySupplementaryItems = [sectionHeader]
-        return section
-    }
-    
-    private func createVerticalLayout() -> NSCollectionLayoutSection {
-        let itemSize = NSCollectionLayoutSize(
-            widthDimension: NSCollectionLayoutDimension.fractionalWidth(1),
-            heightDimension: NSCollectionLayoutDimension.estimated(162)
-        )
-        let item = NSCollectionLayoutItem(layoutSize: itemSize)
-        let group = NSCollectionLayoutGroup.vertical(layoutSize: itemSize, subitem: item, count: 1)
-        let section = NSCollectionLayoutSection(group: group)
-        section.contentInsets = NSDirectionalEdgeInsets(top: 10, leading: 24, bottom: 10, trailing: 24)
-        section.interGroupSpacing = 14
-        let headerSize = NSCollectionLayoutSize(
-            widthDimension: .fractionalWidth(1.0),
-            heightDimension: .estimated(52)
-        )
-        let sectionHeader = NSCollectionLayoutBoundarySupplementaryItem(
-            layoutSize: headerSize,
-            elementKind: UICollectionView.elementKindSectionHeader,
-            alignment: .top
-        )
-        section.boundarySupplementaryItems = [sectionHeader]
-        return section
     }
     
 }
@@ -193,11 +139,9 @@ extension SeminarScheduleViewController {
                 }
             },
             supplementaryViewProvider: { collectionView, elementKind, indexPath in
-                guard let header = collectionView.dequeueSupplementaryView(SeminarHeaderView.self, for: indexPath),
-                      let meta = SeminarSectionMeta(rawValue: indexPath.section)
-                else { return SeminarHeaderView() }
-                
-                header.configure(sectionMeta: meta)
+                guard let sectionType = SeminarSectionType(rawValue: indexPath.section) else { return nil }
+                let header = collectionView.dequeueSupplementaryView(SeminarHeaderView.self, for: indexPath)
+                header?.configure(sectionType: sectionType)
                 return header
             }
         )

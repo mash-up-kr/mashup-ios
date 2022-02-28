@@ -45,9 +45,9 @@ final class SeminarScheduleReactor: Reactor {
         switch action {
         case .didSetup:
             let startLoading: Observable<Mutation> = .just(.updateLoading(true))
-            let fetchSeminar: Observable<Mutation> = self.seminarRepository.fetchSeminars().map { .updateSeminars($0) }
+            let fetchSeminars: Observable<Mutation> = self.seminarRepository.fetchSeminars().map { .updateSeminars($0) }
             let endLoading: Observable<Mutation> = .just(.updateLoading(false))
-            return .concat(startLoading, fetchSeminar, endLoading)
+            return .concat(startLoading, fetchSeminars, endLoading)
             
         case .didSelectSeminar(let index):
             guard let seminar = self.currentState.seminars[safe: index] else { return .empty() }
@@ -86,10 +86,10 @@ extension SeminarScheduleReactor {
     
     private func createSections(from state: State) -> [Section] {
         let upcomingItems = state.seminars.prefix(3)
-            .map(SeminarCardCellModel.init(from:))
+            .map { SeminarCardCellModel(from: $0) }
             .map { SeminarSectionItem.upcoming($0) }
         let totalItems = state.seminars
-            .map(SeminarCardCellModel.init(from:))
+            .map { SeminarCardCellModel(from: $0) }
             .map { SeminarSectionItem.total($0) }
         return [
             Section(type: .upcoming, items: upcomingItems),
