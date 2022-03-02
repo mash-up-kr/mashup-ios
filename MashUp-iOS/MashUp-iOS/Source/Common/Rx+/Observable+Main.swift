@@ -10,6 +10,6 @@ import RxSwift
 
 extension Observable {
     func onMain() -> Observable<Element> {
-        return self.observe(on: MainScheduler.asyncInstance)
+        return self.observe(on: MainScheduler.instance)
     }
 }

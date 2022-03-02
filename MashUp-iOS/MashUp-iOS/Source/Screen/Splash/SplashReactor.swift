@@ -61,7 +61,6 @@ final class SplashReactor: Reactor {
     private func loadUserSession(until timeout: RxTimeInterval) -> Observable<UserSession?> {
         return self.userSessionRepository.load()
             .timeout(timeout, scheduler: ConcurrentDispatchQueueScheduler(qos: .background))
-            .delay(timeout, scheduler: ConcurrentDispatchQueueScheduler(qos: .background))
             .catchAndReturn(nil)
     }
     
