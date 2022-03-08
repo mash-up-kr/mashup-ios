@@ -22,8 +22,9 @@ final class HTTPClient: Network {
         
         return self.provider.rx.request(erasedAPI)
             .asObservable()
-            .compactMap { [weak self] in
-                try self?.decoder.decode(ResponseModel<API.Response>.self, from: $0.data).data
+            .withUnretained(self)
+            .compactMap { owner, response in
+                try owner.decoder.decode(ResponseModel<API.Response>.self, from: response.data).data
             }
     }
     

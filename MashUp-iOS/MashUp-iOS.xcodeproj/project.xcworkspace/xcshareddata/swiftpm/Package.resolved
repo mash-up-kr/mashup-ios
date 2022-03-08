@@ -29,6 +29,15 @@
         }
       },
       {
+        "package": "Hammer",
+        "repositoryURL": "https://github.com/lyft/Hammer.git",
+        "state": {
+          "branch": null,
+          "revision": "f61b74c42534e7d294e71ee57655fde3e07da7f0",
+          "version": "0.14.0"
+        }
+      },
+      {
         "package": "Kingfisher",
         "repositoryURL": "https://github.com/onevcat/Kingfisher",
         "state": {
@@ -89,6 +98,15 @@
           "branch": null,
           "revision": "72bd20b76891566688f03594da4651d4e6771b8c",
           "version": "3.1.0"
+        }
+      },
+      {
+        "package": "RxDataSources",
+        "repositoryURL": "https://github.com/RxSwiftCommunity/RxDataSources",
+        "state": {
+          "branch": null,
+          "revision": "90c29b48b628479097fe775ed1966d75ac374518",
+          "version": "5.0.2"
         }
       },
       {
