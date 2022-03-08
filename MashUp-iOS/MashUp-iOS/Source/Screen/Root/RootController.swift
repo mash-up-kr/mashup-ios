@@ -32,19 +32,10 @@ final class RootController: BaseViewController, ReactorKit.View {
     
     private func consume(_ reactor: Reactor) {
         reactor.pulse(\.$step).compactMap { $0 }
+        .withUnretained(self)
         .onMain()
-        .subscribe(onNext: { [weak self] step in
-            switch step {
-            case .splash:
-                self?.presentSplashViewController()
-                
-            case .signIn:
-                self?.switchToSignInViewController()
-                
-            case .home(let userSession):
-                self?.switchToHomeTabBarController(with: userSession)
-            }
-        }).disposed(by: self.disposeBag)
+        .subscribe(onNext: { $0.move(to: $1) })
+        .disposed(by: self.disposeBag)
     }
     
     #warning("DIContainer로 로직 이동해야합니다., 가구현체여서 실구현체로 대치되어야합니다")
@@ -53,6 +44,19 @@ final class RootController: BaseViewController, ReactorKit.View {
 }
 // MARK: - Navigation
 extension RootController {
+    
+    private func move(to step: RootStep) {
+        switch step {
+        case .splash:
+            self.presentSplashViewController()
+            
+        case .signIn:
+            self.switchToSignInViewController()
+            
+        case .home(let userSession):
+            self.switchToHomeTabBarController(with: userSession)
+        }
+    }
     
     private func presentSplashViewController() {
         guard let splashViewController = self.createSplashViewController() else { return }

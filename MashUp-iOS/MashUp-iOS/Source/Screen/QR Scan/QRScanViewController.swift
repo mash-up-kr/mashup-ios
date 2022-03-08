@@ -48,7 +48,8 @@ final class QRScanViewController: BaseViewController, ReactorKit.View {
         reactor.state.map { $0.captureSession }
         .distinctUntilChanged()
         .onMain()
-        .subscribe(onNext: self.updateCaptureSession)
+        .withUnretained(self)
+        .subscribe(onNext: { $0.updateCaptureSession($1) })
         .disposed(by: self.disposeBag)
         
         reactor.state.map { $0.code }
@@ -62,9 +63,8 @@ final class QRScanViewController: BaseViewController, ReactorKit.View {
         reactor.pulse(\.$toastMessage).compactMap { $0 }
         .throttle(.seconds(2), scheduler: MainScheduler.asyncInstance)
         .onMain()
-        .subscribe(onNext: { [weak self] message in
-            self?.showToast(message: message)
-        })
+        .withUnretained(self)
+        .subscribe(onNext: { $0.showToast(message: $1) })
         .disposed(by: self.disposeBag)
     }
     

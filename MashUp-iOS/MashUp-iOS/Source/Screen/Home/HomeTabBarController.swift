@@ -30,7 +30,8 @@ final class HomeTabBarController: BaseTabBarController, ReactorKit.View {
     
     private func dispatch(to reactor: Reactor) {
         self.rx.didSelect.distinctUntilChanged()
-            .compactMap { [weak self] in self?.viewControllers?.firstIndex(of: $0) }
+            .withUnretained(self)
+            .compactMap { $0.viewControllers?.firstIndex(of: $1) }
             .map { .didSelectTabItem(at: $0) }
             .bind(to: reactor.action)
             .disposed(by: self.disposeBag)
@@ -39,8 +40,9 @@ final class HomeTabBarController: BaseTabBarController, ReactorKit.View {
     private func render(_ reactor: Reactor) {
         reactor.state.map { $0.tabItems }
         .distinctUntilChanged()
+        .withUnretained(self)
+        .map { $0.viewControllers(of: $1) }
         .onMain()
-        .map(self.viewControllers(of:))
         .bind(to: self.rx.viewControllers)
         .disposed(by: self.disposeBag)
         

@@ -55,20 +55,17 @@ final class SeminarScheduleViewController: BaseViewController, ReactorKit.View {
     private func render(_ reactor: Reactor) {
         reactor.state.map { $0.sections }
         .distinctUntilChanged()
+        .withUnretained(self)
         .onMain()
-        .subscribe(onNext: self.applySections)
+        .subscribe(onNext: { $0.applySections($1) })
         .disposed(by: self.disposeBag)
     }
     
     private func consume(_ reactor: Reactor) {
         reactor.pulse(\.$step).compactMap { $0 }
+        .withUnretained(self)
         .onMain()
-        .subscribe(onNext: { [weak self] step in
-            switch step {
-            case .seminarDetail(let seminarID):
-                self?.pushSeminarDetailViewController(seminarID: seminarID)
-            }
-        })
+        .subscribe(onNext: { $0.move(to: $1) })
         .disposed(by: self.disposeBag)
     }
     
@@ -150,6 +147,13 @@ extension SeminarScheduleViewController {
 }
 // MARK: - Navigation
 extension SeminarScheduleViewController {
+    
+    private func move(to step: SeminarSchduleStep) {
+        switch step {
+        case .seminarDetail(let seminarID):
+            self.pushSeminarDetailViewController(seminarID: seminarID)
+        }
+    }
     
     private func pushSeminarDetailViewController(seminarID: String) {
         let seminarDetailViewController = self.createSeminarDetailViewController(seminarID: seminarID)
