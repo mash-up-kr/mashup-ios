@@ -18,6 +18,7 @@
 		CE4A6C05278B47040052F7E7 /* HTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4A6C04278B47040052F7E7 /* HTTPClient.swift */; };
 		CE4A6C07278B47A80052F7E7 /* ResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4A6C06278B47A80052F7E7 /* ResponseModel.swift */; };
 		CE4A6C09278B4A3C0052F7E7 /* NetworkConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4A6C08278B4A3C0052F7E7 /* NetworkConfig.swift */; };
+		CE63DD8227D72F420037F7F8 /* Optional+.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE63DD8127D72F420037F7F8 /* Optional+.swift */; };
 		CE6EE81027C7B28C005BF412 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6EE80F27C7B28C005BF412 /* SignInViewController.swift */; };
 		CE6EE81227C7B293005BF412 /* SignInReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6EE81127C7B293005BF412 /* SignInReactor.swift */; };
 		CE6EE81427C7B541005BF412 /* String+.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6EE81327C7B541005BF412 /* String+.swift */; };
@@ -123,6 +124,7 @@
 		CE4A6C04278B47040052F7E7 /* HTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClient.swift; sourceTree = "<group>"; };
 		CE4A6C06278B47A80052F7E7 /* ResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseModel.swift; sourceTree = "<group>"; };
 		CE4A6C08278B4A3C0052F7E7 /* NetworkConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkConfig.swift; sourceTree = "<group>"; };
+		CE63DD8127D72F420037F7F8 /* Optional+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Optional+.swift"; sourceTree = "<group>"; };
 		CE6EE80F27C7B28C005BF412 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		CE6EE81127C7B293005BF412 /* SignInReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInReactor.swift; sourceTree = "<group>"; };
 		CE6EE81327C7B541005BF412 /* String+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+.swift"; sourceTree = "<group>"; };
@@ -511,6 +513,7 @@
 				CE6EE88B27CAA3C9005BF412 /* Date+.swift */,
 				CE6EE85327CA2F6A005BF412 /* Error+.swift */,
 				CE6EE89127CAD117005BF412 /* Locale+.swift */,
+				CE63DD8127D72F420037F7F8 /* Optional+.swift */,
 				CE6EE81327C7B541005BF412 /* String+.swift */,
 				CE6EE88F27CAD109005BF412 /* TimeZone+.swift */,
 			);
@@ -775,6 +778,7 @@
 				CEB60F7F27A9C536001260DB /* AttendanceService.swift in Sources */,
 				CE4A6C07278B47A80052F7E7 /* ResponseModel.swift in Sources */,
 				CE6EE83A27C7E2DE005BF412 /* SplashViewController.swift in Sources */,
+				CE63DD8227D72F420037F7F8 /* Optional+.swift in Sources */,
 				CEB60F4527A97163001260DB /* main.swift in Sources */,
 				CE6EE83F27C7EFF9005BF412 /* HomeReactor.swift in Sources */,
 				CE6EE87327CA7482005BF412 /* AttendanceStatus.swift in Sources */,
