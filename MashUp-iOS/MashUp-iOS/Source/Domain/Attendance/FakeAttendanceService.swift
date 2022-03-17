@@ -19,4 +19,7 @@ final class FakeAttendanceService: AttendanceService {
         return .just(isCorrectCode)
     }
     
+    func attendanceMember(platform: PlatformTeam?) -> Observable<[AttendanceMember]> {
+        return .just(AttendanceMember.dummy)
+    }
 }
