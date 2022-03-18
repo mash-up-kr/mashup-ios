@@ -78,7 +78,16 @@ final class SignInViewController: BaseViewController, ReactorKit.View {
     }
     
     private func consume(_ reactor: Reactor) {
-        
+        reactor.pulse(\.$alertMessage).compactMap { $0 }
+            .onMain()
+            .withUnretained(self)
+            .subscribe(onNext: { owner, message in
+                let alertController = UIAlertController(title: message, message: nil, preferredStyle: .alert)
+                let ok = UIAlertAction(title: "확인", style: .default)
+                alertController.addAction(ok)
+                owner.present(alertController, animated: true)
+            })
+            .disposed(by: self.disposeBag)
     }
     
     private let idField = UITextField()

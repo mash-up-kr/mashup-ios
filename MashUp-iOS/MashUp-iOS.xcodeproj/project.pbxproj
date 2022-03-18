@@ -308,8 +308,8 @@
 		CE3960B5278B3DC30073AEF4 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
-				CE39608A278B3CB60073AEF4 /* LaunchScreen.storyboard */,
 				CE396088278B3CB60073AEF4 /* Assets.xcassets */,
+				CE39608A278B3CB60073AEF4 /* LaunchScreen.storyboard */,
 			);
 			path = Resource;
 			sourceTree = "<group>";
@@ -578,11 +578,11 @@
 		CEB60F8027A9C5DC001260DB /* Domain */ = {
 			isa = PBXGroup;
 			children = (
-				CE6EE85B27CA4128005BF412 /* Seminar */,
-				CE6EE82127C7BF6A005BF412 /* Auth */,
-				CE6EE81B27C7BCF0005BF412 /* Team */,
 				CEB60F8227A9C5EA001260DB /* Attendance */,
+				CE6EE82127C7BF6A005BF412 /* Auth */,
 				CEB60F8127A9C5E1001260DB /* QR */,
+				CE6EE85B27CA4128005BF412 /* Seminar */,
+				CE6EE81B27C7BCF0005BF412 /* Team */,
 			);
 			path = Domain;
 			sourceTree = "<group>";
