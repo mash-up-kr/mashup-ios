@@ -10,17 +10,6 @@ import SnapKit
 import Then
 import UIKit
 
-struct PhaseAttendanceViewModel: Equatable {
-    let phase: SeminarPhase
-    let timeStamp: String?
-    let style: AttendanceStyle
-}
-extension PhaseAttendanceViewModel {
-    static func unloaded(_ phase: SeminarPhase) -> PhaseAttendanceViewModel {
-        PhaseAttendanceViewModel(phase: phase, timeStamp: nil, style: .upcoming)
-    }
-}
-
 final class PhaseAttendanceView: BaseView {
     
     override init(frame: CGRect) {

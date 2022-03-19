@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CE12DA5427E629AE00F08629 /* AttendanceTimelineViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE12DA5327E629AE00F08629 /* AttendanceTimelineViewModel.swift */; };
+		CE12DA5627E629D700F08629 /* PhaseAttendanceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE12DA5527E629D700F08629 /* PhaseAttendanceViewModel.swift */; };
+		CE12DA5827E629FE00F08629 /* QRSeminarCardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE12DA5727E629FE00F08629 /* QRSeminarCardViewModel.swift */; };
 		CE14D26B27CC8A4400685CFF /* NSCollectionLayoutSectionFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE14D26A27CC8A4400685CFF /* NSCollectionLayoutSectionFactory.swift */; };
 		CE14D26D27CCBF1500685CFF /* Observable+Main.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE14D26C27CCBF1500685CFF /* Observable+Main.swift */; };
 		CE14D27C27CD970500685CFF /* Hammer in Frameworks */ = {isa = PBXBuildFile; productRef = CE14D27B27CD970500685CFF /* Hammer */; };
@@ -124,6 +127,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		CE12DA5327E629AE00F08629 /* AttendanceTimelineViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttendanceTimelineViewModel.swift; sourceTree = "<group>"; };
+		CE12DA5527E629D700F08629 /* PhaseAttendanceViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhaseAttendanceViewModel.swift; sourceTree = "<group>"; };
+		CE12DA5727E629FE00F08629 /* QRSeminarCardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRSeminarCardViewModel.swift; sourceTree = "<group>"; };
 		CE14D26A27CC8A4400685CFF /* NSCollectionLayoutSectionFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSCollectionLayoutSectionFactory.swift; sourceTree = "<group>"; };
 		CE14D26C27CCBF1500685CFF /* Observable+Main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Observable+Main.swift"; sourceTree = "<group>"; };
 		CE14D2CA27CFBB1100685CFF /* FakeSeminarRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeSeminarRepository.swift; sourceTree = "<group>"; };
@@ -554,9 +560,12 @@
 			isa = PBXGroup;
 			children = (
 				CE729A8427E5C1F9001D33D1 /* AttendanceTimelineView.swift */,
+				CE12DA5327E629AE00F08629 /* AttendanceTimelineViewModel.swift */,
 				CE729A8E27E61766001D33D1 /* PhaseAttendanceView.swift */,
+				CE12DA5527E629D700F08629 /* PhaseAttendanceViewModel.swift */,
 				CE6EE89427CB049C005BF412 /* QRCodeFinderView.swift */,
 				CE88D32727E5522B00865C02 /* QRSeminarCardView.swift */,
+				CE12DA5727E629FE00F08629 /* QRSeminarCardViewModel.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -828,6 +837,7 @@
 				CE6EE83A27C7E2DE005BF412 /* SplashViewController.swift in Sources */,
 				CE63DD8227D72F420037F7F8 /* Optional+.swift in Sources */,
 				CEB60F4527A97163001260DB /* main.swift in Sources */,
+				CE12DA5627E629D700F08629 /* PhaseAttendanceViewModel.swift in Sources */,
 				CE6EE83F27C7EFF9005BF412 /* HomeReactor.swift in Sources */,
 				CE6EE87327CA7482005BF412 /* AttendanceStatus.swift in Sources */,
 				CE6EE88C27CAA3C9005BF412 /* Date+.swift in Sources */,
@@ -856,6 +866,7 @@
 				CE729A8927E5C7F1001D33D1 /* SeminarPhase.swift in Sources */,
 				CEB60F8427A9C602001260DB /* FakeAttendanceService.swift in Sources */,
 				CE6EE87D27CA8E45005BF412 /* Reusable.swift in Sources */,
+				CE12DA5427E629AE00F08629 /* AttendanceTimelineViewModel.swift in Sources */,
 				CEB60F7627A9BE67001260DB /* UIViewContorller+Rx.swift in Sources */,
 				CE396080278B3CB40073AEF4 /* AppDelegate.swift in Sources */,
 				CE6EE89527CB049C005BF412 /* QRCodeFinderView.swift in Sources */,
@@ -867,6 +878,7 @@
 				CE6EE82E27C7D900005BF412 /* RootReactor.swift in Sources */,
 				CE6EE88427CA9141005BF412 /* BaseTableViewCell.swift in Sources */,
 				CE6EE85D27CA4136005BF412 /* Seminar.swift in Sources */,
+				CE12DA5827E629FE00F08629 /* QRSeminarCardViewModel.swift in Sources */,
 				CE6EE87827CA858B005BF412 /* PaddingLabel.swift in Sources */,
 				CE6EE83D27C7EFB9005BF412 /* HomeTabBarController.swift in Sources */,
 				CE6EE87127CA73B7005BF412 /* SeminarCardCell.swift in Sources */,

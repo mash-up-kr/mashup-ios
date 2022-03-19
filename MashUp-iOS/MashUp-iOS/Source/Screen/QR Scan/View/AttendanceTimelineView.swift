@@ -10,17 +10,6 @@ import SnapKit
 import Then
 import UIKit
 
-struct AttendanceTimelineViewModel: Equatable {
-    let phase1: PhaseAttendanceViewModel
-    let phase2: PhaseAttendanceViewModel
-    let total: PhaseAttendanceViewModel
-}
-extension AttendanceTimelineViewModel {
-    static let unloaded = AttendanceTimelineViewModel(phase1: .unloaded(.phase1),
-                                                      phase2: .unloaded(.phase2),
-                                                      total: .unloaded(.total))
-}
-
 final class AttendanceTimelineView: BaseView {
     
     override init(frame: CGRect) {
@@ -32,8 +21,6 @@ final class AttendanceTimelineView: BaseView {
         super.init(coder: coder)
         self.setupUI()
     }
-    
-    
     
     func configure(with model: AttendanceTimelineViewModel) {
         self.phaseAttendanceView1.configure(with: model.phase1)

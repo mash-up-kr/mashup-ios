@@ -10,14 +10,6 @@ import SnapKit
 import Then
 import UIKit
 
-struct QRSeminarCardViewModel: Equatable {
-    let title: String
-    let dday: String
-    let date: String
-    let time: String
-    let timeline: AttendanceTimelineViewModel?
-}
-
 final class QRSeminarCardView: BaseView {
     
     override init(frame: CGRect) {
