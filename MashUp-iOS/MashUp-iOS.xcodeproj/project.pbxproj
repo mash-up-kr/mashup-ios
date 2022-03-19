@@ -629,12 +629,12 @@
 		CEB60F8027A9C5DC001260DB /* Domain */ = {
 			isa = PBXGroup;
 			children = (
-				CE729A7B27E577AB001D33D1 /* Timer */,
 				CEB60F8227A9C5EA001260DB /* Attendance */,
 				CE6EE82127C7BF6A005BF412 /* Auth */,
 				CEB60F8127A9C5E1001260DB /* QR */,
 				CE6EE85B27CA4128005BF412 /* Seminar */,
 				CE6EE81B27C7BCF0005BF412 /* Team */,
+				CE729A7B27E577AB001D33D1 /* Timer */,
 			);
 			path = Domain;
 			sourceTree = "<group>";
