@@ -258,6 +258,31 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CE12DA5927E62A7100F08629 /* Fake(deprecated) */ = {
+			isa = PBXGroup;
+			children = (
+				CEB60F8327A9C602001260DB /* FakeAttendanceService.swift */,
+				CE729A8227E57FCD001D33D1 /* FakeAttendanceTimelineRepository.swift */,
+			);
+			path = "Fake(deprecated)";
+			sourceTree = "<group>";
+		};
+		CE12DA5A27E62A8100F08629 /* Fake(deprecated) */ = {
+			isa = PBXGroup;
+			children = (
+				CE14D2CA27CFBB1100685CFF /* FakeSeminarRepository.swift */,
+			);
+			path = "Fake(deprecated)";
+			sourceTree = "<group>";
+		};
+		CE12DA5B27E62A8900F08629 /* Fake(deprecated) */ = {
+			isa = PBXGroup;
+			children = (
+				CE6EE82827C7D655005BF412 /* FakeUserSessionRepository.swift */,
+			);
+			path = "Fake(deprecated)";
+			sourceTree = "<group>";
+		};
 		CE396073278B3CB40073AEF4 = {
 			isa = PBXGroup;
 			children = (
@@ -426,10 +451,10 @@
 		CE6EE82127C7BF6A005BF412 /* Auth */ = {
 			isa = PBXGroup;
 			children = (
-				CE6EE82827C7D655005BF412 /* FakeUserSessionRepository.swift */,
 				CE6EE82627C7C0A1005BF412 /* NewAccount.swift */,
 				CE6EE82227C7BF79005BF412 /* UserSession.swift */,
 				CE6EE82427C7BF91005BF412 /* UserSessionRepository.swift */,
+				CE12DA5B27E62A8900F08629 /* Fake(deprecated) */,
 			);
 			path = Auth;
 			sourceTree = "<group>";
@@ -487,10 +512,10 @@
 		CE6EE85B27CA4128005BF412 /* Seminar */ = {
 			isa = PBXGroup;
 			children = (
-				CE14D2CA27CFBB1100685CFF /* FakeSeminarRepository.swift */,
 				CE6EE85C27CA4136005BF412 /* Seminar.swift */,
 				CE729A8827E5C7F1001D33D1 /* SeminarPhase.swift */,
 				CE6EE88927CAA287005BF412 /* SeminarRepository.swift */,
+				CE12DA5A27E62A8100F08629 /* Fake(deprecated) */,
 			);
 			path = Seminar;
 			sourceTree = "<group>";
@@ -650,13 +675,12 @@
 		CEB60F8227A9C5EA001260DB /* Attendance */ = {
 			isa = PBXGroup;
 			children = (
+				CE729A8627E5C31A001D33D1 /* Attendance.swift */,
 				CEB60F7E27A9C536001260DB /* AttendanceService.swift */,
 				CE6EE87227CA7482005BF412 /* AttendanceStatus.swift */,
 				CE729A8027E57EC1001D33D1 /* AttendanceTimeline.swift */,
 				CE729A7E27E57D0D001D33D1 /* AttendanceTimelineRepository.swift */,
-				CE729A8227E57FCD001D33D1 /* FakeAttendanceTimelineRepository.swift */,
-				CEB60F8327A9C602001260DB /* FakeAttendanceService.swift */,
-				CE729A8627E5C31A001D33D1 /* Attendance.swift */,
+				CE12DA5927E62A7100F08629 /* Fake(deprecated) */,
 			);
 			path = Attendance;
 			sourceTree = "<group>";
