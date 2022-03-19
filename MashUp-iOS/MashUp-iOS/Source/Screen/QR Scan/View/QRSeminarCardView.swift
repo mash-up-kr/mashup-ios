@@ -10,18 +10,6 @@ import SnapKit
 import Then
 import UIKit
 
-struct PhaseAttendanceViewModel: Equatable {
-    let phase: SeminarPhase
-    let timeStamp: String?
-    let style: AttendanceStyle
-}
-
-struct AttendanceTimelineViewModel: Equatable {
-    let phase1: PhaseAttendanceViewModel
-    let phase2: PhaseAttendanceViewModel
-    var total: PhaseAttendanceViewModel
-}
-
 struct QRSeminarCardViewModel: Equatable {
     let title: String
     let dday: String
@@ -47,15 +35,14 @@ final class QRSeminarCardView: BaseView {
         self.ddayLabel.text = model.dday
         self.dateLabel.text = model.date
         self.timeLabel.text = model.time
-        
-        self.d.text = "\(model.timeline?.phase1.style.title ?? .empty)-\(model.timeline?.phase2.style.title ?? .empty)-\(model.timeline?.total.style.title ?? .empty)"
+        self.timelineView.configure(with: model.timeline ?? .unloaded)
     }
     
     private let titleLabel = UILabel()
     private let ddayLabel = UILabel()
     private let timeLabel = UILabel()
     private let dateLabel = UILabel()
-    private let d = UILabel()
+    private let timelineView = AttendanceTimelineView()
 }
 
 // MARK: - Setup
@@ -95,7 +82,7 @@ extension QRSeminarCardView {
             $0.addSubview(self.timeLabel)
             $0.addSubview(self.ddayLabel)
             $0.addSubview(self.dateLabel)
-            $0.addSubview(self.d)
+            $0.addSubview(self.timelineView)
         }
         self.titleLabel.snp.makeConstraints {
             $0.top.leading.equalToSuperview().inset(20)
@@ -112,8 +99,11 @@ extension QRSeminarCardView {
             $0.top.equalTo(self.timeLabel.snp.bottom).offset(12)
             $0.leading.equalTo(self.timeLabel)
         }
-        self.d.snp.makeConstraints {
-            $0.leading.trailing.bottom.equalToSuperview().inset(20)
+        self.timelineView.snp.makeConstraints {
+            $0.top.equalTo(self.dateLabel.snp.bottom).offset(11)
+            $0.leading.trailing.equalToSuperview().inset(26)
+            $0.height.equalTo(37)
+            $0.bottom.equalToSuperview().inset(20)
         }
     }
     

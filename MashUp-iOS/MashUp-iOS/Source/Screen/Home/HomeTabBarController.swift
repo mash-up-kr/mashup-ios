@@ -138,7 +138,7 @@ extension HomeTabBarController {
                                      status: .lateness,
                                      timeStamp: Date(year: 2022, month: 4, day: 1,
                                                      hour: 3, minute: 16, second: 24))
-        let attendance2 = Attendance(phase: .phase1,
+        let attendance2 = Attendance(phase: .phase2,
                                      status: .attend,
                                      timeStamp: Date(year: 2022, month: 4, day: 1,
                                                      hour: 4, minute: 0, second: 24))
