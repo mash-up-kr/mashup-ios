@@ -89,7 +89,6 @@ extension HomeTabBarController {
     }
     
     private func createSeminarScheduleViewController() -> UIViewController {
-        #warning("SeminarRepository 실구현체로 대체해야합니다.")
         let seminarRepository = self.createSeminarRepository()
         let seminarScheduleReactor = SeminarScheduleReactor(seminarRepository: seminarRepository)
         let seminarScheduleViewController = SeminarScheduleViewController()
@@ -105,20 +104,48 @@ extension HomeTabBarController {
     private func createQRScanViewController() -> UIViewController {
         let seminarRepository = self.createSeminarRepository()
         let qrReaderService = QRReaderServiceImpl()
-        let attendanceService = FakeAttendanceService()
-        attendanceService.stubedCorrectCode = "I'm correct"
-        let qrScanViewReactor = QRScanReactor(qrReaderService: qrReaderService,
-                                              seminarRepository: seminarRepository,
-                                              attendanceService: attendanceService)
+        let attendanceService = self.createAttendanceService()
+        let attendanceTimelineRepository = self.createAttendanceTimelineRepository()
+        let qrScanViewReactor = QRScanReactor(
+            qrReaderService: qrReaderService,
+            seminarRepository: seminarRepository,
+            attendanceService: attendanceService,
+            attendanceTimelineRepository: attendanceTimelineRepository
+        )
         let qrScanViewController = QRScanViewController()
         qrScanViewController.reactor = qrScanViewReactor
         return qrScanViewController
     }
     
     private func createSeminarRepository() -> SeminarRepository {
+        #warning("SeminarRepository 실구현체로 대체해야합니다.")
         let seminarRepository = FakeSeminarRepository()
         seminarRepository.stubedSeminars = Seminar.dummy
         return seminarRepository
+    }
+    
+    private func createAttendanceService() -> AttendanceService {
+        #warning("AttendanceService 실구현체로 대체해야합니다.")
+        let attendanceService = FakeAttendanceService()
+        attendanceService.stubedCorrectCode = "I'm correct"
+        return attendanceService
+    }
+    
+    private func createAttendanceTimelineRepository() -> AttendanceTimelineRepository {
+        #warning("AttendanceTimelineRepository 실구현체로 대체해야합니다.")
+        let attendanceTimelineRepository = FakeAttendanceTimelineRepository()
+        let attendance1 = Attendance(phase: .phase1,
+                                     status: .lateness,
+                                     timeStamp: Date(year: 2022, month: 4, day: 1,
+                                                     hour: 3, minute: 16, second: 24))
+        let attendance2 = Attendance(phase: .phase1,
+                                     status: .attend,
+                                     timeStamp: Date(year: 2022, month: 4, day: 1,
+                                                     hour: 4, minute: 0, second: 24))
+        
+        attendanceTimelineRepository.stubbedTimeline =  AttendanceTimeline(phase1: attendance1,
+                                                                           phase2: attendance2)
+        return attendanceTimelineRepository
     }
     
 }

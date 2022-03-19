@@ -37,8 +37,12 @@ final class SeminarScheduleReactor: Reactor {
     
     let initialState = State()
     
-    init(seminarRepository: SeminarRepository) {
+    init(
+        seminarRepository: SeminarRepository,
+        seminarSchedulerFormatter: SeminarSchedulerFormatter = SeminarSchedulerFormatterImpl()
+    ) {
         self.seminarRepository = seminarRepository
+        self.formatter = seminarSchedulerFormatter
     }
     
     func mutate(action: Action) -> Observable<Mutation> {
@@ -67,11 +71,11 @@ final class SeminarScheduleReactor: Reactor {
             
         case .updateSeminars(let seminars):
             newState.seminars = seminars
-            newState.sections = self.createSections(from: newState)
+            newState.sections = self.formatter.formatSection(from: seminars, onLoadingPage: false)
             
         case .appendSeminars(let seminars):
             newState.seminars += seminars
-            newState.sections = self.createSections(from: newState)
+            newState.sections = self.formatter.formatSection(from: newState.seminars, onLoadingPage: false)
             
         case .move(let step):
             newState.step = step
@@ -80,21 +84,5 @@ final class SeminarScheduleReactor: Reactor {
     }
     
     private let seminarRepository: SeminarRepository
-}
-
-extension SeminarScheduleReactor {
-    
-    private func createSections(from state: State) -> [Section] {
-        let upcomingItems = state.seminars.prefix(3)
-            .map { SeminarCardCellModel(from: $0) }
-            .map { SeminarSectionItem.upcoming($0) }
-        let totalItems = state.seminars
-            .map { SeminarCardCellModel(from: $0) }
-            .map { SeminarSectionItem.total($0) }
-        return [
-            Section(type: .upcoming, items: upcomingItems),
-            Section(type: .total, items: totalItems)
-        ]
-    }
-    
+    private let formatter: SeminarSchedulerFormatter
 }

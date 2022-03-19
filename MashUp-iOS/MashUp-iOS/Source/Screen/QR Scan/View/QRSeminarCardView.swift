@@ -10,20 +10,27 @@ import SnapKit
 import Then
 import UIKit
 
-struct AttendancePhaseStyle {
-    let step1: AttendanceStyle
-    let step2: AttendanceStyle
-    let final: AttendanceStyle
+struct PhaseAttendanceViewModel: Equatable {
+    let phase: SeminarPhase
+    let timeStamp: String?
+    let style: AttendanceStyle
 }
 
-struct SeminarAttendancePhaseCardViewModel: Equatable {
+struct AttendanceTimelineViewModel: Equatable {
+    let phase1: PhaseAttendanceViewModel
+    let phase2: PhaseAttendanceViewModel
+    var total: PhaseAttendanceViewModel
+}
+
+struct QRSeminarCardViewModel: Equatable {
     let title: String
     let dday: String
     let date: String
     let time: String
+    let timeline: AttendanceTimelineViewModel?
 }
 
-final class SeminarAttendancePhaseCardView: BaseView {
+final class QRSeminarCardView: BaseView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -35,21 +42,24 @@ final class SeminarAttendancePhaseCardView: BaseView {
         self.setupUI()
     }
     
-    func configure(with model: SeminarAttendancePhaseCardViewModel) {
+    func configure(with model: QRSeminarCardViewModel) {
         self.titleLabel.text = model.title
         self.ddayLabel.text = model.dday
         self.dateLabel.text = model.date
         self.timeLabel.text = model.time
+        
+        self.d.text = "\(model.timeline?.phase1.style.title ?? .empty)-\(model.timeline?.phase2.style.title ?? .empty)-\(model.timeline?.total.style.title ?? .empty)"
     }
     
     private let titleLabel = UILabel()
     private let ddayLabel = UILabel()
     private let timeLabel = UILabel()
     private let dateLabel = UILabel()
+    private let d = UILabel()
 }
 
 // MARK: - Setup
-extension SeminarAttendancePhaseCardView {
+extension QRSeminarCardView {
     
     private func setupUI() {
         self.setupAttribute()
@@ -85,6 +95,7 @@ extension SeminarAttendancePhaseCardView {
             $0.addSubview(self.timeLabel)
             $0.addSubview(self.ddayLabel)
             $0.addSubview(self.dateLabel)
+            $0.addSubview(self.d)
         }
         self.titleLabel.snp.makeConstraints {
             $0.top.leading.equalToSuperview().inset(20)
@@ -100,6 +111,9 @@ extension SeminarAttendancePhaseCardView {
         self.dateLabel.snp.makeConstraints {
             $0.top.equalTo(self.timeLabel.snp.bottom).offset(12)
             $0.leading.equalTo(self.timeLabel)
+        }
+        self.d.snp.makeConstraints {
+            $0.leading.trailing.bottom.equalToSuperview().inset(20)
         }
     }
     

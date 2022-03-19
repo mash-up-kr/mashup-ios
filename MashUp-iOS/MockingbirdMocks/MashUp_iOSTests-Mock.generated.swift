@@ -68,6 +68,50 @@ public func mock(_ type: MashUp_iOS.AttendanceService.Protocol, file: StaticStri
   return AttendanceServiceMock(sourceLocation: Mockingbird.SourceLocation(file, line))
 }
 
+// MARK: - Mocked AttendanceTimelineRepository
+public final class AttendanceTimelineRepositoryMock: MashUp_iOS.AttendanceTimelineRepository, Mockingbird.Mock {
+  typealias MockingbirdSupertype = MashUp_iOS.AttendanceTimelineRepository
+  public static let mockingbirdContext = Mockingbird.Context()
+  public let mockingbirdContext = Mockingbird.Context(["generator_version": "0.20.0", "module_name": "MashUp_iOS"])
+
+  fileprivate init(sourceLocation: Mockingbird.SourceLocation) {
+    self.mockingbirdContext.sourceLocation = sourceLocation
+    AttendanceTimelineRepositoryMock.mockingbirdContext.sourceLocation = sourceLocation
+  }
+
+  // MARK: Mocked `attendanceTimeline`(ofUserID `userID`: MashUp_iOS.UserSession.ID, `seminarID`: MashUp_iOS.Seminar.ID)
+  public func `attendanceTimeline`(ofUserID `userID`: MashUp_iOS.UserSession.ID, `seminarID`: MashUp_iOS.Seminar.ID) -> Observable<MashUp_iOS.AttendanceTimeline> {
+    return self.mockingbirdContext.mocking.didInvoke(Mockingbird.SwiftInvocation(selectorName: "`attendanceTimeline`(ofUserID `userID`: MashUp_iOS.UserSession.ID, `seminarID`: MashUp_iOS.Seminar.ID) -> Observable<MashUp_iOS.AttendanceTimeline>", selectorType: Mockingbird.SelectorType.method, arguments: [Mockingbird.ArgumentMatcher(`userID`), Mockingbird.ArgumentMatcher(`seminarID`)], returnType: Swift.ObjectIdentifier((Observable<MashUp_iOS.AttendanceTimeline>).self))) {
+      self.mockingbirdContext.recordInvocation($0)
+      let mkbImpl = self.mockingbirdContext.stubbing.implementation(for: $0)
+      if let mkbImpl = mkbImpl as? (MashUp_iOS.UserSession.ID, MashUp_iOS.Seminar.ID) -> Observable<MashUp_iOS.AttendanceTimeline> { return mkbImpl(`userID`, `seminarID`) }
+      if let mkbImpl = mkbImpl as? () -> Observable<MashUp_iOS.AttendanceTimeline> { return mkbImpl() }
+      for mkbTargetBox in self.mockingbirdContext.proxy.targets(for: $0) {
+        switch mkbTargetBox.target {
+        case .super:
+          break
+        case .object(let mkbObject):
+          guard var mkbObject = mkbObject as? MockingbirdSupertype else { break }
+          let mkbValue: Observable<MashUp_iOS.AttendanceTimeline> = mkbObject.`attendanceTimeline`(ofUserID: `userID`, seminarID: `seminarID`)
+          self.mockingbirdContext.proxy.updateTarget(&mkbObject, in: mkbTargetBox)
+          return mkbValue
+        }
+      }
+      if let mkbValue = self.mockingbirdContext.stubbing.defaultValueProvider.value.provideValue(for: (Observable<MashUp_iOS.AttendanceTimeline>).self) { return mkbValue }
+      self.mockingbirdContext.stubbing.failTest(for: $0, at: self.mockingbirdContext.sourceLocation)
+    }
+  }
+
+  public func `attendanceTimeline`(ofUserID `userID`: @autoclosure () -> MashUp_iOS.UserSession.ID, `seminarID`: @autoclosure () -> MashUp_iOS.Seminar.ID) -> Mockingbird.Mockable<Mockingbird.FunctionDeclaration, (MashUp_iOS.UserSession.ID, MashUp_iOS.Seminar.ID) -> Observable<MashUp_iOS.AttendanceTimeline>, Observable<MashUp_iOS.AttendanceTimeline>> {
+    return Mockingbird.Mockable<Mockingbird.FunctionDeclaration, (MashUp_iOS.UserSession.ID, MashUp_iOS.Seminar.ID) -> Observable<MashUp_iOS.AttendanceTimeline>, Observable<MashUp_iOS.AttendanceTimeline>>(context: self.mockingbirdContext, invocation: Mockingbird.SwiftInvocation(selectorName: "`attendanceTimeline`(ofUserID `userID`: MashUp_iOS.UserSession.ID, `seminarID`: MashUp_iOS.Seminar.ID) -> Observable<MashUp_iOS.AttendanceTimeline>", selectorType: Mockingbird.SelectorType.method, arguments: [Mockingbird.resolve(`userID`), Mockingbird.resolve(`seminarID`)], returnType: Swift.ObjectIdentifier((Observable<MashUp_iOS.AttendanceTimeline>).self)))
+  }
+}
+
+/// Returns a concrete mock of `AttendanceTimelineRepository`.
+public func mock(_ type: MashUp_iOS.AttendanceTimelineRepository.Protocol, file: StaticString = #file, line: UInt = #line) -> AttendanceTimelineRepositoryMock {
+  return AttendanceTimelineRepositoryMock(sourceLocation: Mockingbird.SourceLocation(file, line))
+}
+
 // MARK: - Mocked AuthenticationResponder
 public final class AuthenticationResponderMock: MashUp_iOS.AuthenticationResponder, Mockingbird.Mock {
   typealias MockingbirdSupertype = MashUp_iOS.AuthenticationResponder

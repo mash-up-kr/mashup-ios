@@ -21,7 +21,7 @@ class FakeUserSessionRepository: UserSessionRepository  {
         let isCorrectPW = password.lowercased().contains("test")
         
         guard isCorrectID, isCorrectPW else { return .error("sign in failure") }
-        let fakeSession = UserSession(accessToken: "\(id).\(password)")
+        let fakeSession = UserSession(id: "fake.user.id", accessToken: "\(id).\(password)")
         return .just(fakeSession)
     }
     
@@ -30,7 +30,7 @@ class FakeUserSessionRepository: UserSessionRepository  {
         let isCorrectPW = newAccount.password.lowercased().contains("test")
         
         guard isCorrectID, isCorrectPW else { return .error("sign in failure") }
-        let fakeSession = UserSession(accessToken: "\(newAccount.id).\(newAccount.password)")
+        let fakeSession = UserSession(id: "fake.user.id", accessToken: "\(newAccount.id).\(newAccount.password)")
         return .just(fakeSession)
     }
 }

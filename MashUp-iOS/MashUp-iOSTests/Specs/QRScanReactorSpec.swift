@@ -21,17 +21,21 @@ final class QRScanReactorSpec: QuickSpec {
     var captureSessionDummy: AVCaptureSession!
     var qrReaderServiceMock: QRReaderServiceMock!
     var attendanceServiceMock: AttendanceServiceMock!
+    var attendanceTimelineRepositoryMock: AttendanceTimelineRepositoryMock!
     
     beforeEach {
       captureSessionDummy = AVCaptureSession()
       qrReaderServiceMock = mock(QRReaderService.self)
       attendanceServiceMock = mock(AttendanceService.self)
+      attendanceTimelineRepositoryMock = mock(AttendanceTimelineRepository.self)
     }
     describe("QRScanReactor") {
       beforeEach {
         given(qrReaderServiceMock.scanCodeWhileSessionIsOpen()).willReturn(.empty())
         given(qrReaderServiceMock.captureSession).willReturn(captureSessionDummy)
-        sut = QRScanReactor(qrReaderService: qrReaderServiceMock, attendanceService: attendanceServiceMock)
+        sut = QRScanReactor(qrReaderService: qrReaderServiceMock,
+                            attendanceService: attendanceServiceMock,
+                            attendanceTimelineRepository: attendanceTimelineRepositoryMock)
       }
       context("when did set up") {
         beforeEach {

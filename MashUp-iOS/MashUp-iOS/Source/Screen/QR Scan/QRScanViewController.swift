@@ -76,11 +76,11 @@ final class QRScanViewController: BaseViewController, ReactorKit.View {
         .subscribe(onNext: { $0.updateTimer($1) })
         .disposed(by: self.disposeBag)
         
-        reactor.state.compactMap { $0.seminarAttendancePhase }
+        reactor.state.compactMap { $0.seminarCardViewModel }
         .distinctUntilChanged()
         .onMain()
         .withUnretained(self)
-        .subscribe(onNext: { $0.updateSeminarAttendancePhaseCard($1) })
+        .subscribe(onNext: { $0.updateQRSeminarCard($1) })
         .disposed(by: self.disposeBag)
     }
     
@@ -97,8 +97,8 @@ final class QRScanViewController: BaseViewController, ReactorKit.View {
         self.capturePreviewLayer.session = session
     }
     
-    private func updateSeminarAttendancePhaseCard(_ attendancePhaseCardViewModel: SeminarAttendancePhaseCardViewModel) {
-        self.attendancePhaseCardView.configure(with: attendancePhaseCardViewModel)
+    private func updateQRSeminarCard(_ viewModel: QRSeminarCardViewModel) {
+        self.seminarCardView.configure(with: viewModel)
     }
     
     private func updateTimer(_ timerStyle: TimerStyle) {
@@ -130,7 +130,7 @@ final class QRScanViewController: BaseViewController, ReactorKit.View {
     private let timerView = PaddingLabel()
     private let adminTimerButton = UIButton()
     private let qrCodeFinderView = QRCodeFinderView()
-    private let attendancePhaseCardView = SeminarAttendancePhaseCardView()
+    private let seminarCardView = QRSeminarCardView()
 }
 
 // MARK: Setup
@@ -187,7 +187,7 @@ extension QRScanViewController {
             $0.addSubview(self.timerView)
             $0.addSubview(self.adminTimerButton)
             $0.addSubview(self.qrGuideLabel)
-            $0.addSubview(self.attendancePhaseCardView)
+            $0.addSubview(self.seminarCardView)
         }
         self.qrCodeFinderView.snp.makeConstraints {
             $0.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(90)
@@ -212,7 +212,7 @@ extension QRScanViewController {
             $0.height.equalTo(48)
             $0.leading.trailing.equalToSuperview().inset(24)
         }
-        self.attendancePhaseCardView.snp.makeConstraints {
+        self.seminarCardView.snp.makeConstraints {
             $0.top.equalTo(self.timerView.snp.bottom).offset(12)
             $0.leading.trailing.equalToSuperview().inset(24)
             $0.bottom.equalTo(self.view.safeAreaLayoutGuide.snp.bottom).inset(54)
