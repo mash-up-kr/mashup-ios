@@ -12,11 +12,11 @@ struct AttendanceTimeline {
     let phase1: Attendance?
     let phase2: Attendance?
     var total: Attendance {
-        let totalStatus = self.evaulate(self.phase1?.status, status2: self.phase2?.status)
+        let totalStatus = self.evaluate(self.phase1?.status, status2: self.phase2?.status)
         return Attendance(phase: .total, status: totalStatus, timeStamp: nil)
     }
     
-    private func evaulate(_ status1: AttendanceStatus?, status2: AttendanceStatus?) -> AttendanceStatus? {
+    private func evaluate(_ status1: AttendanceStatus?, status2: AttendanceStatus?) -> AttendanceStatus? {
         guard let status1 = status1, let status2 = status2 else { return nil }
 
         if status1 == .attend && status2 == .attend {
