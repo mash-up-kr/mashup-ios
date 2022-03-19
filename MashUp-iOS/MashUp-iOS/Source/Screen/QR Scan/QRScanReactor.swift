@@ -21,6 +21,7 @@ final class QRScanReactor: Reactor {
         case updateCode(Code)
         case updateAttendance(Bool)
         case updateRemainTime(TimeInterval)
+        case updateSeminar(Seminar)
     }
     
     struct State {
@@ -32,28 +33,26 @@ final class QRScanReactor: Reactor {
         
         fileprivate var isAdmin: Bool
         fileprivate var hasAttended: Bool
+        fileprivate var seminar: Seminar?
     }
     
     let initialState: State
     
     init(
         qrReaderService: QRReaderService = QRReaderServiceImpl(),
-        seminarRepository: SeminarRepository = SeminarRepositoryImpl(),
-        attendanceService: AttendanceService = AttendanceServiceImpl()
+        seminarRepository: SeminarRepository = FakeSeminarRepository(),
+        attendanceService: AttendanceService = AttendanceServiceImpl(),
+        timerService: TimerService = TimerServiceImpl()
     ) {
         self.qrReaderService = qrReaderService
         self.attencanceService = attendanceService
+        self.seminarRepository = seminarRepository
+        self.timerService = timerService
         
-        let cardViewModel = SeminarAttendancePhaseCardViewModel(
-            title: "3차 정기 매쉬업 세미나",
-            dday: "오늘",
-            date: "2월 21일(월)",
-            time: "15:00 ~ 16:30"
-        )
         self.initialState = State(
             captureSession: qrReaderService.captureSession,
             timer: TimerStyle(isAdmin: true, remainTime: nil),
-            seminarAttendancePhase: cardViewModel,
+            seminarAttendancePhase: nil,
             isAdmin: true,
             hasAttended: false
         )
@@ -64,11 +63,13 @@ final class QRScanReactor: Reactor {
         case .didSetup:
             let readyToQRScan: Observable<Mutation> = self.qrReaderService.scanCodeWhileSessionIsOpen()
                 .flatMap(self.updateCodeAndAttendance)
-            return readyToQRScan
+            let updateSeminar: Observable<Mutation> = self.seminarRepository.nearestSeminar()
+                .map { .updateSeminar($0) }
+            return .merge(readyToQRScan, updateSeminar)
             
         case .didTapTimerButton:
-            let timeLimit: TimeInterval = 15 * seconds
-            return self.remainTime(timeLimit).map { .updateRemainTime($0) }
+            let timeLimit: TimeInterval = 15 * minutes
+            return self.timerService.start(timeLimit).map { .updateRemainTime($0) }
         }
     }
     
@@ -83,8 +84,12 @@ final class QRScanReactor: Reactor {
             newState.toastMessage = self.messageOf(attendance: attendance)
             
         case .updateRemainTime(let remainTime):
-            let remainTimeText = self.formatTime(remainTime)
+            let remainTimeText = self.formatTime(from: remainTime)
             newState.timer = TimerStyle(isAdmin: currentState.isAdmin, remainTime: remainTimeText)
+            
+        case .updateSeminar(let seminar):
+            newState.seminar = seminar
+            newState.seminarAttendancePhase = self.formatSeminar(from: seminar)
         }
         return newState
     }
@@ -101,14 +106,16 @@ final class QRScanReactor: Reactor {
         return attendance ? "✅ 출석을 완료하셨습니다." : "❌ 올바른 코드가 아닙니다."
     }
     
-    private func remainTime(_ timeLimit: TimeInterval) -> Observable<TimeInterval> {
-        return Observable<Int>.interval(.seconds(1), scheduler: MainScheduler.instance)
-            .map { TimeInterval($0) }
-            .map { timeLimit - $0 }
-            .take(while: { $0 >= 0 })
+    private func formatSeminar(from seminar: Seminar) -> SeminarAttendancePhaseCardViewModel {
+        return SeminarAttendancePhaseCardViewModel(
+            title: seminar.title,
+            dday: "오늘",
+            date: self.formatDate(from: seminar.date),
+            time: "15:00 ~ 16:30"
+        )
     }
     
-    private func formatTime(_ seconds: TimeInterval) -> String? {
+    private func formatTime(from seconds: TimeInterval) -> String? {
         let formatter = DateComponentsFormatter().then {
             $0.unitsStyle = .full
             $0.allowedUnits = [.minute, .second]
@@ -121,7 +128,18 @@ final class QRScanReactor: Reactor {
         return remainTimeText
     }
     
+    private func formatDate(from date: Date) -> String {
+        let dateFormatter = DateFormatter().then {
+            $0.dateFormat = "M월 d일 (E)"
+            $0.timeZone = .UTC
+            $0.locale = .ko_KR
+        }
+        return dateFormatter.string(from: date)
+    }
+    
     private let qrReaderService: QRReaderService
     private let attencanceService: AttendanceService
+    private let seminarRepository: SeminarRepository
+    private let timerService: TimerService
     
 }

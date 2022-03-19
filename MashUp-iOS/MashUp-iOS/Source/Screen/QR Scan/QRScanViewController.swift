@@ -106,7 +106,7 @@ final class QRScanViewController: BaseViewController, ReactorKit.View {
         self.adminTimerButton.isHidden = timerStyle.isAdmin != true
         self.timerView.text = timerStyle.remainTime
         self.adminTimerButton.isEnabled = timerStyle.remainTime == nil
-        self.adminTimerButton.setTitle("타이머 동작중 | \(timerStyle.remainTime ?? .empty)", for: .disabled)
+        self.adminTimerButton.setTitle("타이머 동작중  |  \(timerStyle.remainTime ?? .empty)", for: .disabled)
     }
     
     private func showToast(message: String) {

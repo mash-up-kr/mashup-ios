@@ -90,8 +90,7 @@ extension HomeTabBarController {
     
     private func createSeminarScheduleViewController() -> UIViewController {
         #warning("SeminarRepository 실구현체로 대체해야합니다.")
-        let seminarRepository = FakeSeminarRepository()
-        seminarRepository.stubedSeminars = Seminar.dummy
+        let seminarRepository = self.createSeminarRepository()
         let seminarScheduleReactor = SeminarScheduleReactor(seminarRepository: seminarRepository)
         let seminarScheduleViewController = SeminarScheduleViewController()
         seminarScheduleViewController.reactor = seminarScheduleReactor
@@ -104,13 +103,22 @@ extension HomeTabBarController {
     }
     
     private func createQRScanViewController() -> UIViewController {
+        let seminarRepository = self.createSeminarRepository()
         let qrReaderService = QRReaderServiceImpl()
         let attendanceService = FakeAttendanceService()
         attendanceService.stubedCorrectCode = "I'm correct"
-        let qrScanViewReactor = QRScanReactor(qrReaderService: qrReaderService, attendanceService: attendanceService)
+        let qrScanViewReactor = QRScanReactor(qrReaderService: qrReaderService,
+                                              seminarRepository: seminarRepository,
+                                              attendanceService: attendanceService)
         let qrScanViewController = QRScanViewController()
         qrScanViewController.reactor = qrScanViewReactor
         return qrScanViewController
+    }
+    
+    private func createSeminarRepository() -> SeminarRepository {
+        let seminarRepository = FakeSeminarRepository()
+        seminarRepository.stubedSeminars = Seminar.dummy
+        return seminarRepository
     }
     
 }
