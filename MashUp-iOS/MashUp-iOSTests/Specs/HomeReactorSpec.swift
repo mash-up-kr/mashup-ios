@@ -19,8 +19,8 @@ final class HomeReactorSpec: QuickSpec {
     }
     describe("home tab bar") {
       context("when is initial") {
-        it("focus on seminar schedule screen") {
-          expect { sut.currentState.currentTab }.to(equal(.seminarSchedule))
+        it("focus on qr screen") {
+          expect { sut.currentState.currentTab }.to(equal(.qr))
         }
       }
       context("when tapped first tab item 1") {

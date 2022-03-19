@@ -24,7 +24,8 @@ final class QRScanReactor: Reactor {
     struct State {
         let captureSession: AVCaptureSession
         var code: Code?
-        var upcomingSeminar: Seminar?
+        var timer: TimerStyle?
+        var seminarAttendancePhase: SeminarAttendancePhaseCardViewModel?
         @Pulse var toastMessage: String?
         
         fileprivate var hasAttended: Bool
@@ -39,7 +40,17 @@ final class QRScanReactor: Reactor {
     ) {
         self.qrReaderService = qrReaderService
         self.attencanceService = attendanceService
-        self.initialState = State(captureSession: qrReaderService.captureSession, hasAttended: false)
+        
+        let cardViewModel = SeminarAttendancePhaseCardViewModel(
+            title: "3차 정기 매쉬업 세미나",
+            dday: "오늘",
+            date: "2월 21일(월)",
+            time: "15:00 ~ 16:30"
+        )
+        self.initialState = State(captureSession: qrReaderService.captureSession,
+                                  timer: TimerStyle(isAdmin: true, remainTime: "07:31"),
+                                  seminarAttendancePhase: cardViewModel,
+                                  hasAttended: false)
     }
     
     func mutate(action: Action) -> Observable<Mutation> {
@@ -59,7 +70,7 @@ final class QRScanReactor: Reactor {
             
         case .updateAttendance(let attendance):
             newState.hasAttended = attendance
-            newState.toastMessage = messageOf(attendance: attendance)
+            newState.toastMessage = self.messageOf(attendance: attendance)
         }
         return newState
     }
