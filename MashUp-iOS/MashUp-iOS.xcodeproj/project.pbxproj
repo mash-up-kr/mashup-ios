@@ -71,6 +71,7 @@
 		CE6EE89027CAD109005BF412 /* TimeZone+.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6EE88F27CAD109005BF412 /* TimeZone+.swift */; };
 		CE6EE89227CAD117005BF412 /* Locale+.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6EE89127CAD117005BF412 /* Locale+.swift */; };
 		CE6EE89527CB049C005BF412 /* QRCodeFinderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6EE89427CB049C005BF412 /* QRCodeFinderView.swift */; };
+		CE729A7A27E56B7F001D33D1 /* TimeInterval+.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE729A7927E56B7F001D33D1 /* TimeInterval+.swift */; };
 		CE88D32827E5522B00865C02 /* SeminarAttendancePhaseCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE88D32727E5522B00865C02 /* SeminarAttendancePhaseCardView.swift */; };
 		CE88D32A27E565C400865C02 /* UIButton+.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE88D32927E565C400865C02 /* UIButton+.swift */; };
 		CE9E734527C2889200922D8B /* Nimble in Frameworks */ = {isa = PBXBuildFile; productRef = CE9E734427C2889200922D8B /* Nimble */; };
@@ -177,6 +178,7 @@
 		CE6EE88F27CAD109005BF412 /* TimeZone+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TimeZone+.swift"; sourceTree = "<group>"; };
 		CE6EE89127CAD117005BF412 /* Locale+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Locale+.swift"; sourceTree = "<group>"; };
 		CE6EE89427CB049C005BF412 /* QRCodeFinderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRCodeFinderView.swift; sourceTree = "<group>"; };
+		CE729A7927E56B7F001D33D1 /* TimeInterval+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TimeInterval+.swift"; sourceTree = "<group>"; };
 		CE88D32727E5522B00865C02 /* SeminarAttendancePhaseCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeminarAttendancePhaseCardView.swift; sourceTree = "<group>"; };
 		CE88D32927E565C400865C02 /* UIButton+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+.swift"; sourceTree = "<group>"; };
 		CE9E735C27C294E800922D8B /* QRScanReactorSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QRScanReactorSpec.swift; sourceTree = "<group>"; };
@@ -520,6 +522,7 @@
 				CE6EE89127CAD117005BF412 /* Locale+.swift */,
 				CE63DD8127D72F420037F7F8 /* Optional+.swift */,
 				CE6EE81327C7B541005BF412 /* String+.swift */,
+				CE729A7927E56B7F001D33D1 /* TimeInterval+.swift */,
 				CE6EE88F27CAD109005BF412 /* TimeZone+.swift */,
 			);
 			path = "Foundation+";
@@ -823,6 +826,7 @@
 				CE6EE87827CA858B005BF412 /* PaddingLabel.swift in Sources */,
 				CE6EE83D27C7EFB9005BF412 /* HomeTabBarController.swift in Sources */,
 				CE6EE87127CA73B7005BF412 /* SeminarCardCell.swift in Sources */,
+				CE729A7A27E56B7F001D33D1 /* TimeInterval+.swift in Sources */,
 				CE6EE89027CAD109005BF412 /* TimeZone+.swift in Sources */,
 				CE4A6C05278B47040052F7E7 /* HTTPClient.swift in Sources */,
 				CE6EE87A27CA89F3005BF412 /* SeminarCardCellModel.swift in Sources */,

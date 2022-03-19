@@ -49,6 +49,10 @@ final class QRScanViewController: BaseViewController, ReactorKit.View {
         self.rx.viewDidLoad.map { .didSetup }
         .bind(to: reactor.action)
         .disposed(by: self.disposeBag)
+        
+        self.adminTimerButton.rx.tap.map { .didTapTimerButton }
+        .bind(to: reactor.action)
+        .disposed(by: self.disposeBag)
     }
     
     private func render(_ reactor: Reactor) {
