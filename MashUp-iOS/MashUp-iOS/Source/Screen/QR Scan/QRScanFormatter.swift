@@ -35,10 +35,13 @@ final class QRScanFormatterImpl: QRScanFormatter {
     }
     
     func formatTimeline(from timeline: AttendanceTimeline) -> AttendanceTimelineViewModel {
+        let partialAttendanceViewModel1 = self.formatPartialAttendanceViewModel(from: timeline.partialAttendance1 ?? .unloaded(.phase1))
+        let partialAttendanceViewModel2 = self.formatPartialAttendanceViewModel(from: timeline.partialAttendance2 ?? .unloaded(.phase2))
+        let totalAttendanceViewModel = self.formatPartialAttendanceViewModel(from: timeline.totalAttendance)
         return AttendanceTimelineViewModel(
-            partialAttendance1: self.formatPartialAttendanceViewModel(from: timeline.partialAttendance1 ?? .unloaded(.phase1)),
-            partialAttendance2: self.formatPartialAttendanceViewModel(from: timeline.partialAttendance2 ?? .unloaded(.phase2)),
-            totalAttendance: self.formatPartialAttendanceViewModel(from: timeline.totalAttendance)
+            partialAttendance1: partialAttendanceViewModel1,
+            partialAttendance2: partialAttendanceViewModel2,
+            totalAttendance: totalAttendanceViewModel
         )
     }
     
@@ -55,11 +58,7 @@ final class QRScanFormatterImpl: QRScanFormatter {
     
     private func formatTimestamp(from timestamp: Date?) -> String? {
         guard let timestamp = timestamp else { return nil }
-        let dateFormatter = DateFormatter().then {
-            $0.timeZone = .UTC
-            $0.dateFormat = "hh:mm:ss"
-        }
-        return dateFormatter.string(from: timestamp)
+        return self.timeStampFormatter.string(from: timestamp)
     }
     
     private func formatAttandanceStatus(from attandanceStatusOrNil: AttendanceStatus?) -> AttendanceStyle {
@@ -75,6 +74,15 @@ final class QRScanFormatterImpl: QRScanFormatter {
         return self.dateFormatter.string(from: date)
     }
     
+    private let dateFormatter = DateFormatter().then {
+        $0.dateFormat = "M월 d일 (E)"
+        $0.timeZone = .UTC
+        $0.locale = .ko_KR
+    }
+    private let timeStampFormatter = DateFormatter().then {
+        $0.timeZone = .UTC
+        $0.dateFormat = "hh:mm:ss"
+    }
     private let dateComponentFormatter = DateComponentsFormatter().then {
         $0.unitsStyle = .full
         $0.allowedUnits = [.minute, .second]
@@ -82,10 +90,4 @@ final class QRScanFormatterImpl: QRScanFormatter {
         $0.zeroFormattingBehavior = .pad
         $0.maximumUnitCount = 2
     }
-    private let dateFormatter = DateFormatter().then {
-        $0.dateFormat = "M월 d일 (E)"
-        $0.timeZone = .UTC
-        $0.locale = .ko_KR
-    }
-    
 }
