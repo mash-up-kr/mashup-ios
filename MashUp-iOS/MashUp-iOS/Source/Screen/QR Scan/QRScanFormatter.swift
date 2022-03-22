@@ -36,30 +36,30 @@ final class QRScanFormatterImpl: QRScanFormatter {
     
     func formatTimeline(from timeline: AttendanceTimeline) -> AttendanceTimelineViewModel {
         return AttendanceTimelineViewModel(
-            phase1: self.formatPhaseAttendanceViewModel(from: timeline.phase1 ?? .unloaded(.phase1)),
-            phase2: self.formatPhaseAttendanceViewModel(from: timeline.phase2 ?? .unloaded(.phase2)),
-            total: self.formatPhaseAttendanceViewModel(from: timeline.total)
+            partialAttendance1: self.formatPartialAttendanceViewModel(from: timeline.partialAttendance1 ?? .unloaded(.phase1)),
+            partialAttendance2: self.formatPartialAttendanceViewModel(from: timeline.partialAttendance2 ?? .unloaded(.phase2)),
+            totalAttendance: self.formatPartialAttendanceViewModel(from: timeline.totalAttendance)
         )
     }
     
-    private func formatPhaseAttendanceViewModel(from attendance: Attendance) -> PhaseAttendanceViewModel {
+    private func formatPartialAttendanceViewModel(from attendance: PartialAttendance) -> PartialAttendanceViewModel {
         let phase = attendance.phase
-        let timeStamp = self.formatTimeStamp(from: attendance.timeStamp)
+        let timestamp = self.formatTimestamp(from: attendance.timestamp)
         let style = self.formatAttandanceStatus(from: attendance.status)
-        return PhaseAttendanceViewModel(
+        return PartialAttendanceViewModel(
             phase: phase,
-            timeStamp: timeStamp,
+            timestamp: timestamp,
             style: style
         )
     }
     
-    private func formatTimeStamp(from timeStamp: Date?) -> String? {
-        guard let timeStamp = timeStamp else { return nil }
+    private func formatTimestamp(from timestamp: Date?) -> String? {
+        guard let timestamp = timestamp else { return nil }
         let dateFormatter = DateFormatter().then {
             $0.timeZone = .UTC
             $0.dateFormat = "hh:mm:ss"
         }
-        return dateFormatter.string(from: timeStamp)
+        return dateFormatter.string(from: timestamp)
     }
     
     private func formatAttandanceStatus(from attandanceStatusOrNil: AttendanceStatus?) -> AttendanceStyle {

@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		CE12DA5427E629AE00F08629 /* AttendanceTimelineViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE12DA5327E629AE00F08629 /* AttendanceTimelineViewModel.swift */; };
-		CE12DA5627E629D700F08629 /* PhaseAttendanceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE12DA5527E629D700F08629 /* PhaseAttendanceViewModel.swift */; };
+		CE12DA5627E629D700F08629 /* PartialAttendanceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE12DA5527E629D700F08629 /* PartialAttendanceViewModel.swift */; };
 		CE12DA5827E629FE00F08629 /* QRSeminarCardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE12DA5727E629FE00F08629 /* QRSeminarCardViewModel.swift */; };
 		CE14D26B27CC8A4400685CFF /* NSCollectionLayoutSectionFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE14D26A27CC8A4400685CFF /* NSCollectionLayoutSectionFactory.swift */; };
 		CE14D26D27CCBF1500685CFF /* Observable+Main.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE14D26C27CCBF1500685CFF /* Observable+Main.swift */; };
@@ -80,11 +80,11 @@
 		CE729A8127E57EC1001D33D1 /* AttendanceTimeline.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE729A8027E57EC1001D33D1 /* AttendanceTimeline.swift */; };
 		CE729A8327E57FCD001D33D1 /* FakeAttendanceTimelineRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE729A8227E57FCD001D33D1 /* FakeAttendanceTimelineRepository.swift */; };
 		CE729A8527E5C1F9001D33D1 /* AttendanceTimelineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE729A8427E5C1F9001D33D1 /* AttendanceTimelineView.swift */; };
-		CE729A8727E5C31A001D33D1 /* Attendance.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE729A8627E5C31A001D33D1 /* Attendance.swift */; };
+		CE729A8727E5C31A001D33D1 /* PartialAttendance.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE729A8627E5C31A001D33D1 /* PartialAttendance.swift */; };
 		CE729A8927E5C7F1001D33D1 /* SeminarPhase.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE729A8827E5C7F1001D33D1 /* SeminarPhase.swift */; };
 		CE729A8B27E60D49001D33D1 /* SeminarSchedulerFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE729A8A27E60D49001D33D1 /* SeminarSchedulerFormatter.swift */; };
 		CE729A8D27E60FD2001D33D1 /* QRScanFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE729A8C27E60FD2001D33D1 /* QRScanFormatter.swift */; };
-		CE729A8F27E61766001D33D1 /* PhaseAttendanceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE729A8E27E61766001D33D1 /* PhaseAttendanceView.swift */; };
+		CE729A8F27E61766001D33D1 /* PartialAttendanceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE729A8E27E61766001D33D1 /* PartialAttendanceView.swift */; };
 		CE88D32827E5522B00865C02 /* QRSeminarCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE88D32727E5522B00865C02 /* QRSeminarCardView.swift */; };
 		CE88D32A27E565C400865C02 /* UIButton+.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE88D32927E565C400865C02 /* UIButton+.swift */; };
 		CE9E734527C2889200922D8B /* Nimble in Frameworks */ = {isa = PBXBuildFile; productRef = CE9E734427C2889200922D8B /* Nimble */; };
@@ -128,7 +128,7 @@
 
 /* Begin PBXFileReference section */
 		CE12DA5327E629AE00F08629 /* AttendanceTimelineViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttendanceTimelineViewModel.swift; sourceTree = "<group>"; };
-		CE12DA5527E629D700F08629 /* PhaseAttendanceViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhaseAttendanceViewModel.swift; sourceTree = "<group>"; };
+		CE12DA5527E629D700F08629 /* PartialAttendanceViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartialAttendanceViewModel.swift; sourceTree = "<group>"; };
 		CE12DA5727E629FE00F08629 /* QRSeminarCardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRSeminarCardViewModel.swift; sourceTree = "<group>"; };
 		CE14D26A27CC8A4400685CFF /* NSCollectionLayoutSectionFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSCollectionLayoutSectionFactory.swift; sourceTree = "<group>"; };
 		CE14D26C27CCBF1500685CFF /* Observable+Main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Observable+Main.swift"; sourceTree = "<group>"; };
@@ -200,11 +200,11 @@
 		CE729A8027E57EC1001D33D1 /* AttendanceTimeline.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttendanceTimeline.swift; sourceTree = "<group>"; };
 		CE729A8227E57FCD001D33D1 /* FakeAttendanceTimelineRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeAttendanceTimelineRepository.swift; sourceTree = "<group>"; };
 		CE729A8427E5C1F9001D33D1 /* AttendanceTimelineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttendanceTimelineView.swift; sourceTree = "<group>"; };
-		CE729A8627E5C31A001D33D1 /* Attendance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Attendance.swift; sourceTree = "<group>"; };
+		CE729A8627E5C31A001D33D1 /* PartialAttendance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartialAttendance.swift; sourceTree = "<group>"; };
 		CE729A8827E5C7F1001D33D1 /* SeminarPhase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeminarPhase.swift; sourceTree = "<group>"; };
 		CE729A8A27E60D49001D33D1 /* SeminarSchedulerFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeminarSchedulerFormatter.swift; sourceTree = "<group>"; };
 		CE729A8C27E60FD2001D33D1 /* QRScanFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRScanFormatter.swift; sourceTree = "<group>"; };
-		CE729A8E27E61766001D33D1 /* PhaseAttendanceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhaseAttendanceView.swift; sourceTree = "<group>"; };
+		CE729A8E27E61766001D33D1 /* PartialAttendanceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartialAttendanceView.swift; sourceTree = "<group>"; };
 		CE88D32727E5522B00865C02 /* QRSeminarCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRSeminarCardView.swift; sourceTree = "<group>"; };
 		CE88D32927E565C400865C02 /* UIButton+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+.swift"; sourceTree = "<group>"; };
 		CE9E735C27C294E800922D8B /* QRScanReactorSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QRScanReactorSpec.swift; sourceTree = "<group>"; };
@@ -586,8 +586,8 @@
 			children = (
 				CE729A8427E5C1F9001D33D1 /* AttendanceTimelineView.swift */,
 				CE12DA5327E629AE00F08629 /* AttendanceTimelineViewModel.swift */,
-				CE729A8E27E61766001D33D1 /* PhaseAttendanceView.swift */,
-				CE12DA5527E629D700F08629 /* PhaseAttendanceViewModel.swift */,
+				CE729A8E27E61766001D33D1 /* PartialAttendanceView.swift */,
+				CE12DA5527E629D700F08629 /* PartialAttendanceViewModel.swift */,
 				CE6EE89427CB049C005BF412 /* QRCodeFinderView.swift */,
 				CE88D32727E5522B00865C02 /* QRSeminarCardView.swift */,
 				CE12DA5727E629FE00F08629 /* QRSeminarCardViewModel.swift */,
@@ -675,7 +675,7 @@
 		CEB60F8227A9C5EA001260DB /* Attendance */ = {
 			isa = PBXGroup;
 			children = (
-				CE729A8627E5C31A001D33D1 /* Attendance.swift */,
+				CE729A8627E5C31A001D33D1 /* PartialAttendance.swift */,
 				CEB60F7E27A9C536001260DB /* AttendanceService.swift */,
 				CE6EE87227CA7482005BF412 /* AttendanceStatus.swift */,
 				CE729A8027E57EC1001D33D1 /* AttendanceTimeline.swift */,
@@ -861,7 +861,7 @@
 				CE6EE83A27C7E2DE005BF412 /* SplashViewController.swift in Sources */,
 				CE63DD8227D72F420037F7F8 /* Optional+.swift in Sources */,
 				CEB60F4527A97163001260DB /* main.swift in Sources */,
-				CE12DA5627E629D700F08629 /* PhaseAttendanceViewModel.swift in Sources */,
+				CE12DA5627E629D700F08629 /* PartialAttendanceViewModel.swift in Sources */,
 				CE6EE83F27C7EFF9005BF412 /* HomeReactor.swift in Sources */,
 				CE6EE87327CA7482005BF412 /* AttendanceStatus.swift in Sources */,
 				CE6EE88C27CAA3C9005BF412 /* Date+.swift in Sources */,
@@ -878,7 +878,7 @@
 				CE729A8527E5C1F9001D33D1 /* AttendanceTimelineView.swift in Sources */,
 				CE6EE81D27C7BCF7005BF412 /* PlatformTeam.swift in Sources */,
 				CE729A7F27E57D0D001D33D1 /* AttendanceTimelineRepository.swift in Sources */,
-				CE729A8727E5C31A001D33D1 /* Attendance.swift in Sources */,
+				CE729A8727E5C31A001D33D1 /* PartialAttendance.swift in Sources */,
 				CE6EE84C27C80C92005BF412 /* SeminarScheduleViewController.swift in Sources */,
 				CE88D32A27E565C400865C02 /* UIButton+.swift in Sources */,
 				CE6EE85427CA2F6B005BF412 /* Error+.swift in Sources */,
@@ -916,7 +916,7 @@
 				CE6EE85827CA3AC6005BF412 /* Collection+.swift in Sources */,
 				CE6EE82327C7BF79005BF412 /* UserSession.swift in Sources */,
 				CE6EE85F27CA45EF005BF412 /* SeminarScheduleSection.swift in Sources */,
-				CE729A8F27E61766001D33D1 /* PhaseAttendanceView.swift in Sources */,
+				CE729A8F27E61766001D33D1 /* PartialAttendanceView.swift in Sources */,
 				CE6EE85A27CA40C5005BF412 /* SeminarScheduleReactor.swift in Sources */,
 				CE6EE83827C7E2D5005BF412 /* SplashReactor.swift in Sources */,
 				CE6EE84E27C80C9B005BF412 /* MyPageViewController.swift in Sources */,

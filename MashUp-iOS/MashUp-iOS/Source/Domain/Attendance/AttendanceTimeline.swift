@@ -9,11 +9,11 @@
 import Foundation
 
 struct AttendanceTimeline {
-    let phase1: Attendance?
-    let phase2: Attendance?
-    var total: Attendance {
-        let totalStatus = self.evaluate(self.phase1?.status, status2: self.phase2?.status)
-        return Attendance(phase: .total, status: totalStatus, timeStamp: nil)
+    let partialAttendance1: PartialAttendance?
+    let partialAttendance2: PartialAttendance?
+    var totalAttendance: PartialAttendance {
+        let totalStatus = self.evaluate(self.partialAttendance1?.status, status2: self.partialAttendance2?.status)
+        return PartialAttendance(phase: .total, status: totalStatus, timestamp: nil)
     }
     
     private func evaluate(_ status1: AttendanceStatus?, status2: AttendanceStatus?) -> AttendanceStatus? {
@@ -30,7 +30,7 @@ struct AttendanceTimeline {
 }
 
 extension AttendanceTimeline {
-    static let unloaded = AttendanceTimeline(phase1: .unloaded(.phase1),
-                                             phase2: .unloaded(.phase2))
+    static let unloaded = AttendanceTimeline(partialAttendance1: .unloaded(.phase1),
+                                             partialAttendance2: .unloaded(.phase2))
     
 }

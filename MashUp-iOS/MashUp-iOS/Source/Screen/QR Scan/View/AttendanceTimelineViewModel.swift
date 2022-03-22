@@ -9,14 +9,14 @@
 import Foundation
 
 struct AttendanceTimelineViewModel: Equatable {
-    let phase1: PhaseAttendanceViewModel
-    let phase2: PhaseAttendanceViewModel
-    let total: PhaseAttendanceViewModel
+    let partialAttendance1: PartialAttendanceViewModel
+    let partialAttendance2: PartialAttendanceViewModel
+    let totalAttendance: PartialAttendanceViewModel
 }
 extension AttendanceTimelineViewModel {
     static let unloaded = AttendanceTimelineViewModel(
-        phase1: .unloaded(.phase1),
-        phase2: .unloaded(.phase2),
-        total: .unloaded(.total)
+        partialAttendance1: .unloaded(.phase1),
+        partialAttendance2: .unloaded(.phase2),
+        totalAttendance: .unloaded(.total)
     )
 }

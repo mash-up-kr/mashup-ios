@@ -134,17 +134,19 @@ extension HomeTabBarController {
     private func createAttendanceTimelineRepository() -> AttendanceTimelineRepository {
         #warning("AttendanceTimelineRepository 실구현체로 대체해야합니다.")
         let attendanceTimelineRepository = FakeAttendanceTimelineRepository()
-        let attendance1 = Attendance(phase: .phase1,
-                                     status: .lateness,
-                                     timeStamp: Date(year: 2022, month: 4, day: 1,
-                                                     hour: 3, minute: 16, second: 24))
-        let attendance2 = Attendance(phase: .phase2,
-                                     status: .attend,
-                                     timeStamp: Date(year: 2022, month: 4, day: 1,
-                                                     hour: 4, minute: 0, second: 24))
+        let partialAttendance1 = PartialAttendance(
+            phase: .phase1,
+            status: .lateness,
+            timestamp: Date(year: 2022, month: 4, day: 1, hour: 3, minute: 16, second: 24)
+        )
+        let partialAttendance2 = PartialAttendance(
+            phase: .phase2,
+            status: .attend,
+            timestamp: Date(year: 2022, month: 4, day: 1, hour: 4, minute: 0, second: 24)
+        )
         
-        attendanceTimelineRepository.stubbedTimeline =  AttendanceTimeline(phase1: attendance1,
-                                                                           phase2: attendance2)
+        attendanceTimelineRepository.stubbedTimeline = AttendanceTimeline(partialAttendance1: partialAttendance1,
+                                                                          partialAttendance2: partialAttendance2)
         return attendanceTimelineRepository
     }
     

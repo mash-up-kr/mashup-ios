@@ -1,5 +1,5 @@
 //
-//  PhaseAttendanceView.swift
+//  PartialAttendanceView.swift
 //  MashUp-iOS
 //
 //  Created by Booung on 2022/03/19.
@@ -10,7 +10,7 @@ import SnapKit
 import Then
 import UIKit
 
-final class PhaseAttendanceView: BaseView {
+final class PartialAttendanceView: BaseView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -27,7 +27,7 @@ final class PhaseAttendanceView: BaseView {
         self.circularizeStatusView()
     }
     
-    func configure(with model: PhaseAttendanceViewModel) {
+    func configure(with model: PartialAttendanceViewModel) {
         switch model.style {
         case .attend:
             self.statusView.backgroundColor = .systemGreen
@@ -40,8 +40,8 @@ final class PhaseAttendanceView: BaseView {
         }
         
         let phase = model.phase.rawValue
-        if let timeStamp = model.timeStamp {
-            self.describeLabel.text = "\(phase) | \(timeStamp)"
+        if let timestamp = model.timestamp {
+            self.describeLabel.text = "\(phase) | \(timestamp)"
         } else if model.phase == .total {
             self.describeLabel.text = model.style.title
         } else {
@@ -53,7 +53,7 @@ final class PhaseAttendanceView: BaseView {
     private let describeLabel = UILabel()
 }
 // MARK: - Setup
-extension PhaseAttendanceView {
+extension PartialAttendanceView {
     
     private func setupUI() {
         self.setupAttribute()
