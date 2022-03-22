@@ -17,13 +17,13 @@ final class SeminarDetailReactor: Reactor {
     enum Mutation {
         case updateLoading(Bool)
         case updateMembers([AttendanceMember])
-        case updateSelectedPlatform(Int)
+        case updateSelectedPlatformIndex(Int)
         case occurError(Error)
     }
     
     struct State {
         var isLoading: Bool = false
-        var selectedPlatform: Int = 0
+        var selectedPlatformIndex: Int = 0
         var members: [AttendanceMember] = []
         var platforms: [PlatformCellModel] = PlatformCellModel.models
         @Pulse var error: Error?
@@ -42,11 +42,11 @@ final class SeminarDetailReactor: Reactor {
         switch action {
         case .didSelectedPlatform(let index):
             let startLoading: Observable<Mutation> = .just(.updateLoading(true))
-            let selectedPlatform: Observable<Mutation> = .just(.updateSelectedPlatform(index))
+            let selectedPlatform: Observable<Mutation> = .just(.updateSelectedPlatformIndex(index))
             let platform = platform(index: index)
             let loadMember: Observable<Mutation> = attendanceService.attendanceMember(platform: platform)
                 .map { .updateMembers($0) }
-            let endLoading: Observable<Mutation> = .just(.updateLoading(true))
+            let endLoading: Observable<Mutation> = .just(.updateLoading(false))
             
             return .concat(startLoading, selectedPlatform, loadMember, endLoading)
                 .catch { error in .concat(.just(.occurError(error)), endLoading) }
@@ -66,8 +66,8 @@ final class SeminarDetailReactor: Reactor {
             newState.isLoading = isLoading
         case .updateMembers(let members):
             newState.members = members
-        case .updateSelectedPlatform(let index):
-            newState.selectedPlatform = index
+        case .updateSelectedPlatformIndex(let index):
+            newState.selectedPlatformIndex = index
         case .occurError(let error):
             newState.error = error
         }
