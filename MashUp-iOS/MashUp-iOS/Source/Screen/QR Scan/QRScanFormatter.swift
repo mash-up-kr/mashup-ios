@@ -18,8 +18,8 @@ protocol QRScanFormatter {
 final class QRScanFormatterImpl: QRScanFormatter {
     
     func formatTime(from seconds: TimeInterval) -> String? {
-        let remainTimeOrZero = self.dateComponentFormatter.string(from: seconds) ?? "00:00"
-        let remainTimeText = (remainTimeOrZero) == "00:00" ? nil : remainTimeOrZero
+        guard let remainTimeText = self.dateComponentFormatter.string(from: seconds) else { return nil }
+        guard remainTimeText == "00:00" else { return nil }
         return remainTimeText
     }
     
@@ -90,4 +90,5 @@ final class QRScanFormatterImpl: QRScanFormatter {
         $0.zeroFormattingBehavior = .pad
         $0.maximumUnitCount = 2
     }
+    
 }
