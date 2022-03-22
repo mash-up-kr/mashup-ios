@@ -15,27 +15,38 @@ import RxBlocking
 @testable import MashUp_iOS
 
 final class QRScanReactorSpec: QuickSpec {
-   
+  
   override func spec() {
     var sut: QRScanReactor!
     var captureSessionDummy: AVCaptureSession!
     var qrReaderServiceMock: QRReaderServiceMock!
+    var seminarRepositoryMock: SeminarRepositoryMock!
     var attendanceServiceMock: AttendanceServiceMock!
+    var timerServiceMock: TimerServiceMock!
     var attendanceTimelineRepositoryMock: AttendanceTimelineRepositoryMock!
+    var formatterMock: QRScanFormatterMock!
     
     beforeEach {
       captureSessionDummy = AVCaptureSession()
       qrReaderServiceMock = mock(QRReaderService.self)
+      seminarRepositoryMock = mock(SeminarRepository.self)
       attendanceServiceMock = mock(AttendanceService.self)
+      timerServiceMock = mock(TimerService.self)
       attendanceTimelineRepositoryMock = mock(AttendanceTimelineRepository.self)
+      formatterMock = mock(QRScanFormatter.self)
     }
     describe("QRScanReactor") {
       beforeEach {
         given(qrReaderServiceMock.scanCodeWhileSessionIsOpen()).willReturn(.empty())
         given(qrReaderServiceMock.captureSession).willReturn(captureSessionDummy)
-        sut = QRScanReactor(qrReaderService: qrReaderServiceMock,
-                            attendanceService: attendanceServiceMock,
-                            attendanceTimelineRepository: attendanceTimelineRepositoryMock)
+        sut = QRScanReactor(
+          qrReaderService: qrReaderServiceMock,
+          seminarRepository: seminarRepositoryMock,
+          attendanceService: attendanceServiceMock,
+          timerService: timerServiceMock,
+          attendanceTimelineRepository: attendanceTimelineRepositoryMock,
+          formatter: formatterMock
+        )
       }
       context("when did set up") {
         beforeEach {

@@ -12,7 +12,8 @@ protocol SeminarSchedulerFormatter {
     func formatSection(from seminars: [Seminar], onLoadingPage: Bool) -> [SeminarSection]
 }
 
-class SeminarSchedulerFormatterImpl: SeminarSchedulerFormatter {
+final class SeminarSchedulerFormatterImpl: SeminarSchedulerFormatter {
+    
     func formatSection(
         from seminars: [Seminar],
         onLoadingPage: Bool
@@ -28,4 +29,5 @@ class SeminarSchedulerFormatterImpl: SeminarSchedulerFormatter {
             SeminarSection(type: .total, items: totalItems)
         ]
     }
+    
 }

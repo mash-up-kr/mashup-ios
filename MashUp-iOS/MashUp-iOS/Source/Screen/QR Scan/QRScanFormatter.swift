@@ -23,17 +23,6 @@ final class QRScanFormatterImpl: QRScanFormatter {
         return remainTimeText
     }
     
-    func formatSeminarAttendance(from seminar: Seminar, timeline: AttendanceTimeline) -> QRSeminarCardViewModel {
-        let timeline = self.formatTimeline(from: timeline)
-        return QRSeminarCardViewModel(
-            title: seminar.title,
-            dday: "오늘",
-            date: self.formatDate(from: seminar.date),
-            time: "15:00 ~ 16:30",
-            timeline: timeline
-        )
-    }
-    
     func formatTimeline(from timeline: AttendanceTimeline) -> AttendanceTimelineViewModel {
         let partialAttendanceViewModel1 = self.formatPartialAttendanceViewModel(from: timeline.partialAttendance1 ?? .unloaded(.phase1))
         let partialAttendanceViewModel2 = self.formatPartialAttendanceViewModel(from: timeline.partialAttendance2 ?? .unloaded(.phase2))
@@ -42,6 +31,17 @@ final class QRScanFormatterImpl: QRScanFormatter {
             partialAttendance1: partialAttendanceViewModel1,
             partialAttendance2: partialAttendanceViewModel2,
             totalAttendance: totalAttendanceViewModel
+        )
+    }
+    
+    func formatSeminarAttendance(from seminar: Seminar, timeline: AttendanceTimeline) -> QRSeminarCardViewModel {
+        let timeline = self.formatTimeline(from: timeline)
+        return QRSeminarCardViewModel(
+            title: seminar.title,
+            dday: "오늘",
+            date: self.formatDate(from: seminar.date),
+            time: "15:00 ~ 16:30",
+            timeline: timeline
         )
     }
     

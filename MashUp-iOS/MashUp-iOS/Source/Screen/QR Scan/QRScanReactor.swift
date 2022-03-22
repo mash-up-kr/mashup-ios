@@ -41,12 +41,12 @@ final class QRScanReactor: Reactor {
     let initialState: State
     
     init(
-        qrReaderService: QRReaderService = QRReaderServiceImpl(),
-        seminarRepository: SeminarRepository = FakeSeminarRepository(),
-        attendanceService: AttendanceService = AttendanceServiceImpl(),
-        timerService: TimerService = TimerServiceImpl(),
+        qrReaderService: QRReaderService,
+        seminarRepository: SeminarRepository,
+        attendanceService: AttendanceService,
+        timerService: TimerService,
         attendanceTimelineRepository: AttendanceTimelineRepository,
-        formatter: QRScanFormatter = QRScanFormatterImpl()
+        formatter: QRScanFormatter
     ) {
         self.qrReaderService = qrReaderService
         self.attencanceService = attendanceService

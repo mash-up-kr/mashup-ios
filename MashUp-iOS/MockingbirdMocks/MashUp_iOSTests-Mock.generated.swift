@@ -254,6 +254,217 @@ public func mock(_ type: MashUp_iOS.QRReaderService.Protocol, file: StaticString
   return QRReaderServiceMock(sourceLocation: Mockingbird.SourceLocation(file, line))
 }
 
+// MARK: - Mocked QRScanFormatter
+public final class QRScanFormatterMock: MashUp_iOS.QRScanFormatter, Mockingbird.Mock {
+  typealias MockingbirdSupertype = MashUp_iOS.QRScanFormatter
+  public static let mockingbirdContext = Mockingbird.Context()
+  public let mockingbirdContext = Mockingbird.Context(["generator_version": "0.20.0", "module_name": "MashUp_iOS"])
+
+  fileprivate init(sourceLocation: Mockingbird.SourceLocation) {
+    self.mockingbirdContext.sourceLocation = sourceLocation
+    QRScanFormatterMock.mockingbirdContext.sourceLocation = sourceLocation
+  }
+
+  // MARK: Mocked `formatTimeline`(from `timeline`: MashUp_iOS.AttendanceTimeline)
+  public func `formatTimeline`(from `timeline`: MashUp_iOS.AttendanceTimeline) -> MashUp_iOS.AttendanceTimelineViewModel {
+    return self.mockingbirdContext.mocking.didInvoke(Mockingbird.SwiftInvocation(selectorName: "`formatTimeline`(from `timeline`: MashUp_iOS.AttendanceTimeline) -> MashUp_iOS.AttendanceTimelineViewModel", selectorType: Mockingbird.SelectorType.method, arguments: [Mockingbird.ArgumentMatcher(`timeline`)], returnType: Swift.ObjectIdentifier((MashUp_iOS.AttendanceTimelineViewModel).self))) {
+      self.mockingbirdContext.recordInvocation($0)
+      let mkbImpl = self.mockingbirdContext.stubbing.implementation(for: $0)
+      if let mkbImpl = mkbImpl as? (MashUp_iOS.AttendanceTimeline) -> MashUp_iOS.AttendanceTimelineViewModel { return mkbImpl(`timeline`) }
+      if let mkbImpl = mkbImpl as? () -> MashUp_iOS.AttendanceTimelineViewModel { return mkbImpl() }
+      for mkbTargetBox in self.mockingbirdContext.proxy.targets(for: $0) {
+        switch mkbTargetBox.target {
+        case .super:
+          break
+        case .object(let mkbObject):
+          guard var mkbObject = mkbObject as? MockingbirdSupertype else { break }
+          let mkbValue: MashUp_iOS.AttendanceTimelineViewModel = mkbObject.`formatTimeline`(from: `timeline`)
+          self.mockingbirdContext.proxy.updateTarget(&mkbObject, in: mkbTargetBox)
+          return mkbValue
+        }
+      }
+      if let mkbValue = self.mockingbirdContext.stubbing.defaultValueProvider.value.provideValue(for: (MashUp_iOS.AttendanceTimelineViewModel).self) { return mkbValue }
+      self.mockingbirdContext.stubbing.failTest(for: $0, at: self.mockingbirdContext.sourceLocation)
+    }
+  }
+
+  public func `formatTimeline`(from `timeline`: @autoclosure () -> MashUp_iOS.AttendanceTimeline) -> Mockingbird.Mockable<Mockingbird.FunctionDeclaration, (MashUp_iOS.AttendanceTimeline) -> MashUp_iOS.AttendanceTimelineViewModel, MashUp_iOS.AttendanceTimelineViewModel> {
+    return Mockingbird.Mockable<Mockingbird.FunctionDeclaration, (MashUp_iOS.AttendanceTimeline) -> MashUp_iOS.AttendanceTimelineViewModel, MashUp_iOS.AttendanceTimelineViewModel>(context: self.mockingbirdContext, invocation: Mockingbird.SwiftInvocation(selectorName: "`formatTimeline`(from `timeline`: MashUp_iOS.AttendanceTimeline) -> MashUp_iOS.AttendanceTimelineViewModel", selectorType: Mockingbird.SelectorType.method, arguments: [Mockingbird.resolve(`timeline`)], returnType: Swift.ObjectIdentifier((MashUp_iOS.AttendanceTimelineViewModel).self)))
+  }
+
+  // MARK: Mocked `formatSeminarAttendance`(from `seminar`: MashUp_iOS.Seminar, `timeline`: MashUp_iOS.AttendanceTimeline)
+  public func `formatSeminarAttendance`(from `seminar`: MashUp_iOS.Seminar, `timeline`: MashUp_iOS.AttendanceTimeline) -> MashUp_iOS.QRSeminarCardViewModel {
+    return self.mockingbirdContext.mocking.didInvoke(Mockingbird.SwiftInvocation(selectorName: "`formatSeminarAttendance`(from `seminar`: MashUp_iOS.Seminar, `timeline`: MashUp_iOS.AttendanceTimeline) -> MashUp_iOS.QRSeminarCardViewModel", selectorType: Mockingbird.SelectorType.method, arguments: [Mockingbird.ArgumentMatcher(`seminar`), Mockingbird.ArgumentMatcher(`timeline`)], returnType: Swift.ObjectIdentifier((MashUp_iOS.QRSeminarCardViewModel).self))) {
+      self.mockingbirdContext.recordInvocation($0)
+      let mkbImpl = self.mockingbirdContext.stubbing.implementation(for: $0)
+      if let mkbImpl = mkbImpl as? (MashUp_iOS.Seminar, MashUp_iOS.AttendanceTimeline) -> MashUp_iOS.QRSeminarCardViewModel { return mkbImpl(`seminar`, `timeline`) }
+      if let mkbImpl = mkbImpl as? () -> MashUp_iOS.QRSeminarCardViewModel { return mkbImpl() }
+      for mkbTargetBox in self.mockingbirdContext.proxy.targets(for: $0) {
+        switch mkbTargetBox.target {
+        case .super:
+          break
+        case .object(let mkbObject):
+          guard var mkbObject = mkbObject as? MockingbirdSupertype else { break }
+          let mkbValue: MashUp_iOS.QRSeminarCardViewModel = mkbObject.`formatSeminarAttendance`(from: `seminar`, timeline: `timeline`)
+          self.mockingbirdContext.proxy.updateTarget(&mkbObject, in: mkbTargetBox)
+          return mkbValue
+        }
+      }
+      if let mkbValue = self.mockingbirdContext.stubbing.defaultValueProvider.value.provideValue(for: (MashUp_iOS.QRSeminarCardViewModel).self) { return mkbValue }
+      self.mockingbirdContext.stubbing.failTest(for: $0, at: self.mockingbirdContext.sourceLocation)
+    }
+  }
+
+  public func `formatSeminarAttendance`(from `seminar`: @autoclosure () -> MashUp_iOS.Seminar, `timeline`: @autoclosure () -> MashUp_iOS.AttendanceTimeline) -> Mockingbird.Mockable<Mockingbird.FunctionDeclaration, (MashUp_iOS.Seminar, MashUp_iOS.AttendanceTimeline) -> MashUp_iOS.QRSeminarCardViewModel, MashUp_iOS.QRSeminarCardViewModel> {
+    return Mockingbird.Mockable<Mockingbird.FunctionDeclaration, (MashUp_iOS.Seminar, MashUp_iOS.AttendanceTimeline) -> MashUp_iOS.QRSeminarCardViewModel, MashUp_iOS.QRSeminarCardViewModel>(context: self.mockingbirdContext, invocation: Mockingbird.SwiftInvocation(selectorName: "`formatSeminarAttendance`(from `seminar`: MashUp_iOS.Seminar, `timeline`: MashUp_iOS.AttendanceTimeline) -> MashUp_iOS.QRSeminarCardViewModel", selectorType: Mockingbird.SelectorType.method, arguments: [Mockingbird.resolve(`seminar`), Mockingbird.resolve(`timeline`)], returnType: Swift.ObjectIdentifier((MashUp_iOS.QRSeminarCardViewModel).self)))
+  }
+
+  // MARK: Mocked `formatTime`(from `seconds`: TimeInterval)
+  public func `formatTime`(from `seconds`: TimeInterval) -> String? {
+    return self.mockingbirdContext.mocking.didInvoke(Mockingbird.SwiftInvocation(selectorName: "`formatTime`(from `seconds`: TimeInterval) -> String?", selectorType: Mockingbird.SelectorType.method, arguments: [Mockingbird.ArgumentMatcher(`seconds`)], returnType: Swift.ObjectIdentifier((String?).self))) {
+      self.mockingbirdContext.recordInvocation($0)
+      let mkbImpl = self.mockingbirdContext.stubbing.implementation(for: $0)
+      if let mkbImpl = mkbImpl as? (TimeInterval) -> String? { return mkbImpl(`seconds`) }
+      if let mkbImpl = mkbImpl as? () -> String? { return mkbImpl() }
+      for mkbTargetBox in self.mockingbirdContext.proxy.targets(for: $0) {
+        switch mkbTargetBox.target {
+        case .super:
+          break
+        case .object(let mkbObject):
+          guard var mkbObject = mkbObject as? MockingbirdSupertype else { break }
+          let mkbValue: String? = mkbObject.`formatTime`(from: `seconds`)
+          self.mockingbirdContext.proxy.updateTarget(&mkbObject, in: mkbTargetBox)
+          return mkbValue
+        }
+      }
+      if let mkbValue = self.mockingbirdContext.stubbing.defaultValueProvider.value.provideValue(for: (String?).self) { return mkbValue }
+      self.mockingbirdContext.stubbing.failTest(for: $0, at: self.mockingbirdContext.sourceLocation)
+    }
+  }
+
+  public func `formatTime`(from `seconds`: @autoclosure () -> TimeInterval) -> Mockingbird.Mockable<Mockingbird.FunctionDeclaration, (TimeInterval) -> String?, String?> {
+    return Mockingbird.Mockable<Mockingbird.FunctionDeclaration, (TimeInterval) -> String?, String?>(context: self.mockingbirdContext, invocation: Mockingbird.SwiftInvocation(selectorName: "`formatTime`(from `seconds`: TimeInterval) -> String?", selectorType: Mockingbird.SelectorType.method, arguments: [Mockingbird.resolve(`seconds`)], returnType: Swift.ObjectIdentifier((String?).self)))
+  }
+}
+
+/// Returns a concrete mock of `QRScanFormatter`.
+public func mock(_ type: MashUp_iOS.QRScanFormatter.Protocol, file: StaticString = #file, line: UInt = #line) -> QRScanFormatterMock {
+  return QRScanFormatterMock(sourceLocation: Mockingbird.SourceLocation(file, line))
+}
+
+// MARK: - Mocked SeminarRepository
+public final class SeminarRepositoryMock: MashUp_iOS.SeminarRepository, Mockingbird.Mock {
+  typealias MockingbirdSupertype = MashUp_iOS.SeminarRepository
+  public static let mockingbirdContext = Mockingbird.Context()
+  public let mockingbirdContext = Mockingbird.Context(["generator_version": "0.20.0", "module_name": "MashUp_iOS"])
+
+  fileprivate init(sourceLocation: Mockingbird.SourceLocation) {
+    self.mockingbirdContext.sourceLocation = sourceLocation
+    SeminarRepositoryMock.mockingbirdContext.sourceLocation = sourceLocation
+  }
+
+  // MARK: Mocked `nearestSeminar`()
+  public func `nearestSeminar`() -> Observable<MashUp_iOS.Seminar> {
+    return self.mockingbirdContext.mocking.didInvoke(Mockingbird.SwiftInvocation(selectorName: "`nearestSeminar`() -> Observable<MashUp_iOS.Seminar>", selectorType: Mockingbird.SelectorType.method, arguments: [], returnType: Swift.ObjectIdentifier((Observable<MashUp_iOS.Seminar>).self))) {
+      self.mockingbirdContext.recordInvocation($0)
+      let mkbImpl = self.mockingbirdContext.stubbing.implementation(for: $0)
+      if let mkbImpl = mkbImpl as? () -> Observable<MashUp_iOS.Seminar> { return mkbImpl() }
+      for mkbTargetBox in self.mockingbirdContext.proxy.targets(for: $0) {
+        switch mkbTargetBox.target {
+        case .super:
+          break
+        case .object(let mkbObject):
+          guard var mkbObject = mkbObject as? MockingbirdSupertype else { break }
+          let mkbValue: Observable<MashUp_iOS.Seminar> = mkbObject.`nearestSeminar`()
+          self.mockingbirdContext.proxy.updateTarget(&mkbObject, in: mkbTargetBox)
+          return mkbValue
+        }
+      }
+      if let mkbValue = self.mockingbirdContext.stubbing.defaultValueProvider.value.provideValue(for: (Observable<MashUp_iOS.Seminar>).self) { return mkbValue }
+      self.mockingbirdContext.stubbing.failTest(for: $0, at: self.mockingbirdContext.sourceLocation)
+    }
+  }
+
+  public func `nearestSeminar`() -> Mockingbird.Mockable<Mockingbird.FunctionDeclaration, () -> Observable<MashUp_iOS.Seminar>, Observable<MashUp_iOS.Seminar>> {
+    return Mockingbird.Mockable<Mockingbird.FunctionDeclaration, () -> Observable<MashUp_iOS.Seminar>, Observable<MashUp_iOS.Seminar>>(context: self.mockingbirdContext, invocation: Mockingbird.SwiftInvocation(selectorName: "`nearestSeminar`() -> Observable<MashUp_iOS.Seminar>", selectorType: Mockingbird.SelectorType.method, arguments: [], returnType: Swift.ObjectIdentifier((Observable<MashUp_iOS.Seminar>).self)))
+  }
+
+  // MARK: Mocked `fetchSeminars`()
+  public func `fetchSeminars`() -> Observable<[MashUp_iOS.Seminar]> {
+    return self.mockingbirdContext.mocking.didInvoke(Mockingbird.SwiftInvocation(selectorName: "`fetchSeminars`() -> Observable<[MashUp_iOS.Seminar]>", selectorType: Mockingbird.SelectorType.method, arguments: [], returnType: Swift.ObjectIdentifier((Observable<[MashUp_iOS.Seminar]>).self))) {
+      self.mockingbirdContext.recordInvocation($0)
+      let mkbImpl = self.mockingbirdContext.stubbing.implementation(for: $0)
+      if let mkbImpl = mkbImpl as? () -> Observable<[MashUp_iOS.Seminar]> { return mkbImpl() }
+      for mkbTargetBox in self.mockingbirdContext.proxy.targets(for: $0) {
+        switch mkbTargetBox.target {
+        case .super:
+          break
+        case .object(let mkbObject):
+          guard var mkbObject = mkbObject as? MockingbirdSupertype else { break }
+          let mkbValue: Observable<[MashUp_iOS.Seminar]> = mkbObject.`fetchSeminars`()
+          self.mockingbirdContext.proxy.updateTarget(&mkbObject, in: mkbTargetBox)
+          return mkbValue
+        }
+      }
+      if let mkbValue = self.mockingbirdContext.stubbing.defaultValueProvider.value.provideValue(for: (Observable<[MashUp_iOS.Seminar]>).self) { return mkbValue }
+      self.mockingbirdContext.stubbing.failTest(for: $0, at: self.mockingbirdContext.sourceLocation)
+    }
+  }
+
+  public func `fetchSeminars`() -> Mockingbird.Mockable<Mockingbird.FunctionDeclaration, () -> Observable<[MashUp_iOS.Seminar]>, Observable<[MashUp_iOS.Seminar]>> {
+    return Mockingbird.Mockable<Mockingbird.FunctionDeclaration, () -> Observable<[MashUp_iOS.Seminar]>, Observable<[MashUp_iOS.Seminar]>>(context: self.mockingbirdContext, invocation: Mockingbird.SwiftInvocation(selectorName: "`fetchSeminars`() -> Observable<[MashUp_iOS.Seminar]>", selectorType: Mockingbird.SelectorType.method, arguments: [], returnType: Swift.ObjectIdentifier((Observable<[MashUp_iOS.Seminar]>).self)))
+  }
+}
+
+/// Returns a concrete mock of `SeminarRepository`.
+public func mock(_ type: MashUp_iOS.SeminarRepository.Protocol, file: StaticString = #file, line: UInt = #line) -> SeminarRepositoryMock {
+  return SeminarRepositoryMock(sourceLocation: Mockingbird.SourceLocation(file, line))
+}
+
+// MARK: - Mocked TimerService
+public final class TimerServiceMock: MashUp_iOS.TimerService, Mockingbird.Mock {
+  typealias MockingbirdSupertype = MashUp_iOS.TimerService
+  public static let mockingbirdContext = Mockingbird.Context()
+  public let mockingbirdContext = Mockingbird.Context(["generator_version": "0.20.0", "module_name": "MashUp_iOS"])
+
+  fileprivate init(sourceLocation: Mockingbird.SourceLocation) {
+    self.mockingbirdContext.sourceLocation = sourceLocation
+    TimerServiceMock.mockingbirdContext.sourceLocation = sourceLocation
+  }
+
+  // MARK: Mocked `start`(_ `seconds`: TimeInterval)
+  public func `start`(_ `seconds`: TimeInterval) -> Observable<TimeInterval> {
+    return self.mockingbirdContext.mocking.didInvoke(Mockingbird.SwiftInvocation(selectorName: "`start`(_ `seconds`: TimeInterval) -> Observable<TimeInterval>", selectorType: Mockingbird.SelectorType.method, arguments: [Mockingbird.ArgumentMatcher(`seconds`)], returnType: Swift.ObjectIdentifier((Observable<TimeInterval>).self))) {
+      self.mockingbirdContext.recordInvocation($0)
+      let mkbImpl = self.mockingbirdContext.stubbing.implementation(for: $0)
+      if let mkbImpl = mkbImpl as? (TimeInterval) -> Observable<TimeInterval> { return mkbImpl(`seconds`) }
+      if let mkbImpl = mkbImpl as? () -> Observable<TimeInterval> { return mkbImpl() }
+      for mkbTargetBox in self.mockingbirdContext.proxy.targets(for: $0) {
+        switch mkbTargetBox.target {
+        case .super:
+          break
+        case .object(let mkbObject):
+          guard var mkbObject = mkbObject as? MockingbirdSupertype else { break }
+          let mkbValue: Observable<TimeInterval> = mkbObject.`start`(`seconds`)
+          self.mockingbirdContext.proxy.updateTarget(&mkbObject, in: mkbTargetBox)
+          return mkbValue
+        }
+      }
+      if let mkbValue = self.mockingbirdContext.stubbing.defaultValueProvider.value.provideValue(for: (Observable<TimeInterval>).self) { return mkbValue }
+      self.mockingbirdContext.stubbing.failTest(for: $0, at: self.mockingbirdContext.sourceLocation)
+    }
+  }
+
+  public func `start`(_ `seconds`: @autoclosure () -> TimeInterval) -> Mockingbird.Mockable<Mockingbird.FunctionDeclaration, (TimeInterval) -> Observable<TimeInterval>, Observable<TimeInterval>> {
+    return Mockingbird.Mockable<Mockingbird.FunctionDeclaration, (TimeInterval) -> Observable<TimeInterval>, Observable<TimeInterval>>(context: self.mockingbirdContext, invocation: Mockingbird.SwiftInvocation(selectorName: "`start`(_ `seconds`: TimeInterval) -> Observable<TimeInterval>", selectorType: Mockingbird.SelectorType.method, arguments: [Mockingbird.resolve(`seconds`)], returnType: Swift.ObjectIdentifier((Observable<TimeInterval>).self)))
+  }
+}
+
+/// Returns a concrete mock of `TimerService`.
+public func mock(_ type: MashUp_iOS.TimerService.Protocol, file: StaticString = #file, line: UInt = #line) -> TimerServiceMock {
+  return TimerServiceMock(sourceLocation: Mockingbird.SourceLocation(file, line))
+}
+
 // MARK: - Mocked UserSessionRepository
 public final class UserSessionRepositoryMock: MashUp_iOS.UserSessionRepository, Mockingbird.Mock {
   typealias MockingbirdSupertype = MashUp_iOS.UserSessionRepository

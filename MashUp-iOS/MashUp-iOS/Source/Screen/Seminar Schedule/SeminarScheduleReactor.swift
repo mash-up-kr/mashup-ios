@@ -39,7 +39,7 @@ final class SeminarScheduleReactor: Reactor {
     
     init(
         seminarRepository: SeminarRepository,
-        seminarSchedulerFormatter: SeminarSchedulerFormatter = SeminarSchedulerFormatterImpl()
+        seminarSchedulerFormatter: SeminarSchedulerFormatter
     ) {
         self.seminarRepository = seminarRepository
         self.formatter = seminarSchedulerFormatter

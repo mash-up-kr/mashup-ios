@@ -11,6 +11,7 @@ import Nimble
 import Quick
 import RxBlocking
 import RxSwift
+import RxTest
 @testable import MashUp_iOS
 import Foundation
 
@@ -101,17 +102,21 @@ final class SignInReactorSpec: QuickSpec {
       context("when tapped sign in button") {
         let idLongerThan4 = "12345"
         let passwordLongerThan4 = "12345"
-        var isLoading: Observable<Bool>!
         beforeEach {
-          isLoading = sut.state.map { $0.isLoading }
-          .distinctUntilChanged().recorded()
+          sut.state.map { $0.isLoading }
+          .distinctUntilChanged()
+          .observe(on: testScheduler)
+          .subscribe(isLoadingObserver)
+          .disposed(by: disposeBag)
           
           sut.action.onNext(.didEditIDField(idLongerThan4))
           sut.action.onNext(.didEditPasswordField(passwordLongerThan4))
           sut.action.onNext(.didTapSignInButton)
+          
+          testScheduler.start()
         }
         it("loading indicator appear and disappear") {
-          let loadings = try isLoading.toBlocking(timeout: 3).toArray()
+          let isLoadings = isLoadingObserver.events.compactMap { $0.value.element }
           expect { isLoadings }.to(equal([false, true, false]))
         }
       }
@@ -160,16 +165,4 @@ final class SignInReactorSpec: QuickSpec {
       }
     }
   }
-}
-
-extension ObservableType {
-    /// Converts an `Observable` that records last `N` events
-    ///
-    /// - parameter bufferSize: Number of recent recordable events
-    /// - returns: `Observable<Element>` version of `self`
-    func recorded(_ bufferSize: Int = 10) -> Observable<Element> {
-        let replaySubject = ReplaySubject<Element>.create(bufferSize: bufferSize)
-        _ = self.subscribe(replaySubject)
-        return replaySubject.asObservable()
-    }
 }

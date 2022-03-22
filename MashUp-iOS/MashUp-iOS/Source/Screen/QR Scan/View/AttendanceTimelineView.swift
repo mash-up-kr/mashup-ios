@@ -23,11 +23,11 @@ final class AttendanceTimelineView: BaseView {
     }
     
     func configure(with model: AttendanceTimelineViewModel) {
-        self.partialAttendanceView1.configure(with: model.phase1)
-        self.partialAttendanceView2.configure(with: model.phase2)
-        self.totalAttendanceView.configure(with: model.total)
-        self.configureStyle(model.phase1.style, for: self.lineView1)
-        self.configureStyle(model.phase2.style, for: self.lineView2)
+        self.partialAttendanceView1.configure(with: model.partialAttendance1)
+        self.partialAttendanceView2.configure(with: model.partialAttendance2)
+        self.totalAttendanceView.configure(with: model.totalAttendance)
+        self.configureStyle(model.partialAttendance1.style, for: self.lineView1)
+        self.configureStyle(model.partialAttendance2.style, for: self.lineView2)
     }
     
     private func configureStyle(_ style: AttendanceStyle, for view: UIView) {
@@ -44,6 +44,7 @@ final class AttendanceTimelineView: BaseView {
     private let totalAttendanceView = PartialAttendanceView()
     private let lineView1 = UIView()
     private let lineView2 = UIView()
+    
 }
 // MARK: - Setup
 extension AttendanceTimelineView {

@@ -90,7 +90,11 @@ extension HomeTabBarController {
     
     private func createSeminarScheduleViewController() -> UIViewController {
         let seminarRepository = self.createSeminarRepository()
-        let seminarScheduleReactor = SeminarScheduleReactor(seminarRepository: seminarRepository)
+        let seminarSchedulerFormatter = SeminarSchedulerFormatterImpl()
+        let seminarScheduleReactor = SeminarScheduleReactor(
+            seminarRepository: seminarRepository,
+            seminarSchedulerFormatter: seminarSchedulerFormatter
+        )
         let seminarScheduleViewController = SeminarScheduleViewController()
         seminarScheduleViewController.reactor = seminarScheduleReactor
         return seminarScheduleViewController
@@ -105,12 +109,16 @@ extension HomeTabBarController {
         let seminarRepository = self.createSeminarRepository()
         let qrReaderService = QRReaderServiceImpl()
         let attendanceService = self.createAttendanceService()
+        let timerService = TimerServiceImpl()
         let attendanceTimelineRepository = self.createAttendanceTimelineRepository()
+        let formatter = QRScanFormatterImpl()
         let qrScanViewReactor = QRScanReactor(
             qrReaderService: qrReaderService,
             seminarRepository: seminarRepository,
             attendanceService: attendanceService,
-            attendanceTimelineRepository: attendanceTimelineRepository
+            timerService: timerService,
+            attendanceTimelineRepository: attendanceTimelineRepository,
+            formatter: formatter
         )
         let qrScanViewController = QRScanViewController()
         qrScanViewController.reactor = qrScanViewReactor
