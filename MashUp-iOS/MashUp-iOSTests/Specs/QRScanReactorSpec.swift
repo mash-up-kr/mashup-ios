@@ -62,18 +62,18 @@ final class QRScanReactorSpec: QuickSpec {
           formatter: formatterMock
         )
       }
-      context("when did set up") {
+      context("화면이 준비가 되면") {
         beforeEach {
           sut.action.onNext(.didSetup)
         }
-        it("qr reader is ready to scan code") {
+        it("QR코드를 인식할 준비를 합니다.") {
           verify(qrReaderServiceMock.scanCodeWhileSessionIsOpen()).wasCalled()
         }
-        it("load nearest seminar info") {
+        it("가장 가까운 세미나의 정보를 가져옵니다.") {
           verify(seminarRepositoryMock.nearestSeminar()).wasCalled()
         }
       }
-      context("when capture code from session") {
+      context("QR코드를 인식하면") {
         let stubbedCode = "stubbed.code"
         let correctCode: String = "correct.code"
         let wrongCode: String = "wrong.code"
@@ -82,30 +82,29 @@ final class QRScanReactorSpec: QuickSpec {
           given(attendanceServiceMock.attend(withCode: any())).willReturn(.just(false))
           given(attendanceServiceMock.attend(withCode: correctCode)).willReturn(.just(true))
         }
-        it("request attendence with captured code") {
+        it("디코딩된 코드로 출석체크 요청을 합니다.") {
           sut.action.onNext(.didSetup)
           verify(attendanceServiceMock.attend(withCode: stubbedCode)).wasCalled()
         }
-        context("when request attendance with correct code") {
+        context("코드가 올바르다면") {
           beforeEach {
             given(qrReaderServiceMock.scanCodeWhileSessionIsOpen()).willReturn(.just(correctCode))
           }
-          it("attendance did success") {
+          it("출석체크 성공 토스트가 표시됩니다") {
             sut.action.onNext(.didSetup)
             expect { sut.currentState.toastMessage }.to(equal("✅ 출석을 완료하셨습니다."))
           }
         }
-        context("when request attendance with wrong code") {
+        context("코드가 올바르지 않다면") {
           beforeEach {
             given(qrReaderServiceMock.scanCodeWhileSessionIsOpen()).willReturn(.just(wrongCode))
           }
-          it("attendance did failure") {
+          it("출석체크 실패 토스트가 표시됩니다") {
             sut.action.onNext(.didSetup)
             expect { sut.currentState.toastMessage }.to(equal("❌ 올바른 코드가 아닙니다."))
           }
         }
       }
-      
       context("타이머 시작 버튼을 탭하면") {
         beforeEach {
           sut.action.onNext(.didTapTimerButton)

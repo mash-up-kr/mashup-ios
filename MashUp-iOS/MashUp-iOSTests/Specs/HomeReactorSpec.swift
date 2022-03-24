@@ -18,32 +18,32 @@ final class HomeReactorSpec: QuickSpec {
       sut = HomeReactor()
     }
     describe("home tab bar") {
-      context("when is initial") {
-        it("focus on qr screen") {
+      context("초기 진입시") {
+        it("QR화면을 표시합니다.") {
           expect { sut.currentState.currentTab }.to(equal(.qr))
         }
       }
-      context("when tapped first tab item 1") {
+      context("1번 탭을 누르면") {
         beforeEach {
           sut.action.onNext(.didSelectTabItem(at: 0))
         }
-        it("focus on seminar schedule screen") {
+        it("세미나 스케쥴 화면을 표시합니다.") {
           expect { sut.currentState.currentTab }.to(equal(.seminarSchedule))
         }
       }
-      context("when tapped second tab item 2") {
+      context("2번 탭을 누르면") {
         beforeEach {
           sut.action.onNext(.didSelectTabItem(at: 1))
         }
-        it("focus on QR screen") {
+        it("QR 화면을 표시합니다.") {
           expect { sut.currentState.currentTab }.to(equal(.qr))
         }
       }
-      context("when tapped third tab item 3") {
+      context("3번 탭을 누르면") {
         beforeEach {
           sut.action.onNext(.didSelectTabItem(at: 2))
         }
-        it("focus on my page screen") {
+        it("마이페이지 화면을 표시합니다.") {
           expect { sut.currentState.currentTab }.to(equal(.myPage))
         }
       }
