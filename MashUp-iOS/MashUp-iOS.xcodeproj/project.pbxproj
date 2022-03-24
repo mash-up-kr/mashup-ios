@@ -28,6 +28,7 @@
 		CE58818527EC98540068D4E0 /* AttendanceTimelineViewModel+Stub.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE58818427EC98540068D4E0 /* AttendanceTimelineViewModel+Stub.swift */; };
 		CE58818727EC98670068D4E0 /* PartialAttendanceViewModel+Stub.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE58818627EC98670068D4E0 /* PartialAttendanceViewModel+Stub.swift */; };
 		CE58818927EC9BAC0068D4E0 /* QRScanFormatterSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE58818827EC9BAC0068D4E0 /* QRScanFormatterSpec.swift */; };
+		CE58818B27ECB2E60068D4E0 /* AttendanceTimelineSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE58818A27ECB2E60068D4E0 /* AttendanceTimelineSpec.swift */; };
 		CE63DD8227D72F420037F7F8 /* Optional+.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE63DD8127D72F420037F7F8 /* Optional+.swift */; };
 		CE6EE81027C7B28C005BF412 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6EE80F27C7B28C005BF412 /* SignInViewController.swift */; };
 		CE6EE81227C7B293005BF412 /* SignInReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6EE81127C7B293005BF412 /* SignInReactor.swift */; };
@@ -157,6 +158,7 @@
 		CE58818427EC98540068D4E0 /* AttendanceTimelineViewModel+Stub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AttendanceTimelineViewModel+Stub.swift"; sourceTree = "<group>"; };
 		CE58818627EC98670068D4E0 /* PartialAttendanceViewModel+Stub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PartialAttendanceViewModel+Stub.swift"; sourceTree = "<group>"; };
 		CE58818827EC9BAC0068D4E0 /* QRScanFormatterSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRScanFormatterSpec.swift; sourceTree = "<group>"; };
+		CE58818A27ECB2E60068D4E0 /* AttendanceTimelineSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttendanceTimelineSpec.swift; sourceTree = "<group>"; };
 		CE63DD8127D72F420037F7F8 /* Optional+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Optional+.swift"; sourceTree = "<group>"; };
 		CE6EE80F27C7B28C005BF412 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		CE6EE81127C7B293005BF412 /* SignInReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInReactor.swift; sourceTree = "<group>"; };
@@ -626,12 +628,13 @@
 		CE9E735B27C294E800922D8B /* Specs */ = {
 			isa = PBXGroup;
 			children = (
+				CE58818A27ECB2E60068D4E0 /* AttendanceTimelineSpec.swift */,
 				CE6EE85527CA38EF005BF412 /* HomeReactorSpec.swift */,
+				CE58818827EC9BAC0068D4E0 /* QRScanFormatterSpec.swift */,
 				CE9E735C27C294E800922D8B /* QRScanReactorSpec.swift */,
 				CE6EE84F27CA1DBD005BF412 /* RootReactorSpec.swift */,
 				CE6EE85127CA26A6005BF412 /* SignInReactorSpec.swift */,
 				CE6EE86A27CA60B6005BF412 /* SplashReactorSpec.swift */,
-				CE58818827EC9BAC0068D4E0 /* QRScanFormatterSpec.swift */,
 			);
 			path = Specs;
 			sourceTree = "<group>";
@@ -966,6 +969,7 @@
 				CE6EE86E27CA6302005BF412 /* UserSession+Stub.swift in Sources */,
 				CE58818927EC9BAC0068D4E0 /* QRScanFormatterSpec.swift in Sources */,
 				CE58817F27EC85A00068D4E0 /* PartialAttendance+Stub.swift in Sources */,
+				CE58818B27ECB2E60068D4E0 /* AttendanceTimelineSpec.swift in Sources */,
 				CE58818527EC98540068D4E0 /* AttendanceTimelineViewModel+Stub.swift in Sources */,
 				CE9E736727C29F4700922D8B /* MashUp_iOSTests-Mock.generated.swift in Sources */,
 				CE6EE85027CA1DBD005BF412 /* RootReactorSpec.swift in Sources */,
