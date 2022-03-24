@@ -11,8 +11,8 @@ import Foundation
 
 extension UserSession {
   static func stub(
-    id: String = "fake.id.\(Date())",
-    accessToken: String = "fake.accessToken.\(Date())"
+    id: String = "fake.id.\(Date.now())",
+    accessToken: String = "fake.accessToken.\(Date.now())"
   ) -> Self {
     return UserSession(id: id, accessToken: accessToken)
   }

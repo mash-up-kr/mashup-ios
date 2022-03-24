@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct PartialAttendance {
+struct PartialAttendance: Equatable {
     let phase: SeminarPhase
     let status: AttendanceStatus?
     let timestamp: Date?

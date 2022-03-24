@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct AttendanceTimeline {
+struct AttendanceTimeline: Equatable {
     let partialAttendance1: PartialAttendance?
     let partialAttendance2: PartialAttendance?
     var totalAttendance: PartialAttendance {

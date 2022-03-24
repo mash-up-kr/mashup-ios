@@ -81,7 +81,7 @@ final class QRScanReactor: Reactor {
                 .flatMap { self.attendanceTimelineRepository.attendanceTimeline(ofUserID: $0, seminarID: $1) }
                 .map { .updateAttendanceTimeline($0) }
             
-            return .merge(
+            return .concat(
                 readyToQRScan,
                 updateSeminar,
                 updateAttendanceTimeline

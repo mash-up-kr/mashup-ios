@@ -8,7 +8,7 @@
 
 import Foundation
 
-enum SeminarPhase: String, Equatable {
+enum SeminarPhase: String, Equatable, CaseIterable {
     case phase1 = "1부"
     case phase2 = "2부"
     case total = ""

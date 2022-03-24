@@ -11,6 +11,7 @@ import AVFoundation
 import Mockingbird
 import Nimble
 import Quick
+import RxSwift
 import RxBlocking
 @testable import MashUp_iOS
 
@@ -36,9 +37,21 @@ final class QRScanReactorSpec: QuickSpec {
       formatterMock = mock(QRScanFormatter.self)
     }
     describe("QRScanReactor") {
+      let dummyTimeline = AttendanceTimeline.stub()
+      let nearestSeminarStub = Seminar.stub()
+      let seminarCardViewModelStub = QRSeminarCardViewModel.stub()
       beforeEach {
         given(qrReaderServiceMock.scanCodeWhileSessionIsOpen()).willReturn(.empty())
         given(qrReaderServiceMock.captureSession).willReturn(captureSessionDummy)
+        given(seminarRepositoryMock.nearestSeminar()).willReturn(.just(nearestSeminarStub))
+        given(attendanceTimelineRepositoryMock.attendanceTimeline(
+          ofUserID: any(),
+          seminarID: any()
+        )).willReturn(.just(dummyTimeline))
+        given(formatterMock.formatSeminarAttendance(
+          from: any(),
+          timeline: any()
+        )).willReturn(seminarCardViewModelStub)
         sut = QRScanReactor(
           qrReaderService: qrReaderServiceMock,
           seminarRepository: seminarRepositoryMock,
@@ -54,6 +67,9 @@ final class QRScanReactorSpec: QuickSpec {
         }
         it("qr reader is ready to scan code") {
           verify(qrReaderServiceMock.scanCodeWhileSessionIsOpen()).wasCalled()
+        }
+        it("load nearest seminar info") {
+          verify(seminarRepositoryMock.nearestSeminar()).wasCalled()
         }
       }
       context("when capture code from session") {
