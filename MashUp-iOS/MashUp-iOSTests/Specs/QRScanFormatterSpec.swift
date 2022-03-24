@@ -77,6 +77,26 @@ final class QRScanFormatterSpec: QuickSpec {
         }
       }
     }
+    
+    describe("QRScanFormatter.formatSeminarAttendance(from:, timeline:)")  {
+      context("card을 포맷팅할 때") {
+        it("날짜를 '월 일 (요일)' 형태로 표시합니다 1") {
+          let march24th = Date(year: 2022, month: 3, day: 24)
+          let seminar = Seminar.stub(date: march24th)
+          let card = sut.formatSeminarCard(from: seminar, timeline: .stub())
+          expect { card.date }.to(equal("3월 24일 (목)"))
+        }
+        it("날짜를 '월 일 (요일)' 형태로 표시합니다 2") {
+          let december25th = Date(year: 2022, month: 12, day: 25)
+          let seminar = Seminar.stub(date: december25th)
+          let card = sut.formatSeminarCard(from: seminar, timeline: .stub())
+          expect { card.date }.to(equal("12월 25일 (일)"))
+        }
+      }
+    }
+    
+  }
+  
 }
 
 
