@@ -12,7 +12,7 @@ import Foundation
 protocol QRScanFormatter {
     func formatTime(from seconds: TimeInterval) -> String?
     func formatTimeline(from timeline: AttendanceTimeline) -> AttendanceTimelineViewModel
-    func formatSeminarAttendance(from seminar: Seminar, timeline: AttendanceTimeline) -> QRSeminarCardViewModel
+    func formatSeminarCard(from seminar: Seminar, timeline: AttendanceTimeline) -> QRSeminarCardViewModel
 }
 
 final class QRScanFormatterImpl: QRScanFormatter {
@@ -35,7 +35,7 @@ final class QRScanFormatterImpl: QRScanFormatter {
         )
     }
     
-    func formatSeminarAttendance(from seminar: Seminar, timeline: AttendanceTimeline) -> QRSeminarCardViewModel {
+    func formatSeminarCard(from seminar: Seminar, timeline: AttendanceTimeline) -> QRSeminarCardViewModel {
         let timeline = self.formatTimeline(from: timeline)
         return QRSeminarCardViewModel(
             title: seminar.title,

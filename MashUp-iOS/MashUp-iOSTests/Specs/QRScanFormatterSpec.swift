@@ -21,7 +21,7 @@ final class QRScanFormatterSpec: QuickSpec {
     beforeEach {
       sut = QRScanFormatterImpl()
     }
-    describe("QRScanFormatter.formatTime(from:TimeInterval)") {
+    describe("QRScanFormatter.formatTime(from:)") {
       context("0이하 초(TimeInterval)를") {
         it("nil로 표시합니다1") {
           let timeString = sut.formatTime(from: 0)
@@ -54,6 +54,29 @@ final class QRScanFormatterSpec: QuickSpec {
       }
     }
     
+    describe("QRScanFormatter.formatTimeline(from:)") {
+      let timeStampStub1 = Date(hour: 15, minute: 10, second: 10)
+      let timeStampStub2 = Date(hour: 16, minute: 20, second: 10)
+      let partialAttendanceStub1 = PartialAttendance.stub(timestamp: timeStampStub1)
+      let partialAttendanceStub2 = PartialAttendance.stub(timestamp: timeStampStub2)
+      let timelineStub = AttendanceTimeline(partialAttendance1: partialAttendanceStub1,
+                                            partialAttendance2: partialAttendanceStub2)
+      context("timeline을 포맷팅할 때") {
+        var timeline: AttendanceTimelineViewModel!
+        beforeEach {
+          timeline = sut.formatTimeline(from: timelineStub)
+        }
+        it("1부 부분 출석의 timestamp를 hh:mm:ss 형태로 표시합니다") {
+          expect { timeline.partialAttendance1.timestamp }.to(equal("03:10:10"))
+        }
+        it("2부 부분 출석의 timestamp를 hh:mm:ss 형태로 표시합니다") {
+          expect { timeline.partialAttendance2.timestamp }.to(equal("04:20:10"))
+        }
+        it("최종 출석의 timestamp는 표시하지 않습니다") {
+          expect { timeline.totalAttendance.timestamp }.to(beNil())
+        }
+      }
+    }
 }
 
 

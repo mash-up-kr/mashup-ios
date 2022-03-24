@@ -48,7 +48,7 @@ final class QRScanReactorSpec: QuickSpec {
           ofUserID: any(),
           seminarID: any()
         )).willReturn(.just(dummyTimeline))
-        given(formatterMock.formatSeminarAttendance(
+        given(formatterMock.formatSeminarCard(
           from: any(),
           timeline: any()
         )).willReturn(seminarCardViewModelStub)

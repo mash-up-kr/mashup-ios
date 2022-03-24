@@ -109,12 +109,12 @@ final class QRScanReactor: Reactor {
             
         case .updateSeminar(let seminar):
             newState.seminar = seminar
-            newState.seminarCardViewModel = self.formatter.formatSeminarAttendance(from: seminar, timeline: .unloaded)
+            newState.seminarCardViewModel = self.formatter.formatSeminarCard(from: seminar, timeline: .unloaded)
             
         case .updateAttendanceTimeline(let attendanceTimeline):
             guard let seminar = currentState.seminar else { return newState }
             newState.attendanceTimeline = attendanceTimeline
-            newState.seminarCardViewModel = self.formatter.formatSeminarAttendance(from: seminar, timeline: attendanceTimeline)
+            newState.seminarCardViewModel = self.formatter.formatSeminarCard(from: seminar, timeline: attendanceTimeline)
         }
         return newState
     }

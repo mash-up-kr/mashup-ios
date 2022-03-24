@@ -292,9 +292,9 @@ public final class QRScanFormatterMock: MashUp_iOS.QRScanFormatter, Mockingbird.
     return Mockingbird.Mockable<Mockingbird.FunctionDeclaration, (MashUp_iOS.AttendanceTimeline) -> MashUp_iOS.AttendanceTimelineViewModel, MashUp_iOS.AttendanceTimelineViewModel>(context: self.mockingbirdContext, invocation: Mockingbird.SwiftInvocation(selectorName: "`formatTimeline`(from `timeline`: MashUp_iOS.AttendanceTimeline) -> MashUp_iOS.AttendanceTimelineViewModel", selectorType: Mockingbird.SelectorType.method, arguments: [Mockingbird.resolve(`timeline`)], returnType: Swift.ObjectIdentifier((MashUp_iOS.AttendanceTimelineViewModel).self)))
   }
 
-  // MARK: Mocked `formatSeminarAttendance`(from `seminar`: MashUp_iOS.Seminar, `timeline`: MashUp_iOS.AttendanceTimeline)
-  public func `formatSeminarAttendance`(from `seminar`: MashUp_iOS.Seminar, `timeline`: MashUp_iOS.AttendanceTimeline) -> MashUp_iOS.QRSeminarCardViewModel {
-    return self.mockingbirdContext.mocking.didInvoke(Mockingbird.SwiftInvocation(selectorName: "`formatSeminarAttendance`(from `seminar`: MashUp_iOS.Seminar, `timeline`: MashUp_iOS.AttendanceTimeline) -> MashUp_iOS.QRSeminarCardViewModel", selectorType: Mockingbird.SelectorType.method, arguments: [Mockingbird.ArgumentMatcher(`seminar`), Mockingbird.ArgumentMatcher(`timeline`)], returnType: Swift.ObjectIdentifier((MashUp_iOS.QRSeminarCardViewModel).self))) {
+  // MARK: Mocked `formatSeminarCard`(from `seminar`: MashUp_iOS.Seminar, `timeline`: MashUp_iOS.AttendanceTimeline)
+  public func `formatSeminarCard`(from `seminar`: MashUp_iOS.Seminar, `timeline`: MashUp_iOS.AttendanceTimeline) -> MashUp_iOS.QRSeminarCardViewModel {
+    return self.mockingbirdContext.mocking.didInvoke(Mockingbird.SwiftInvocation(selectorName: "`formatSeminarCard`(from `seminar`: MashUp_iOS.Seminar, `timeline`: MashUp_iOS.AttendanceTimeline) -> MashUp_iOS.QRSeminarCardViewModel", selectorType: Mockingbird.SelectorType.method, arguments: [Mockingbird.ArgumentMatcher(`seminar`), Mockingbird.ArgumentMatcher(`timeline`)], returnType: Swift.ObjectIdentifier((MashUp_iOS.QRSeminarCardViewModel).self))) {
       self.mockingbirdContext.recordInvocation($0)
       let mkbImpl = self.mockingbirdContext.stubbing.implementation(for: $0)
       if let mkbImpl = mkbImpl as? (MashUp_iOS.Seminar, MashUp_iOS.AttendanceTimeline) -> MashUp_iOS.QRSeminarCardViewModel { return mkbImpl(`seminar`, `timeline`) }
@@ -305,7 +305,7 @@ public final class QRScanFormatterMock: MashUp_iOS.QRScanFormatter, Mockingbird.
           break
         case .object(let mkbObject):
           guard var mkbObject = mkbObject as? MockingbirdSupertype else { break }
-          let mkbValue: MashUp_iOS.QRSeminarCardViewModel = mkbObject.`formatSeminarAttendance`(from: `seminar`, timeline: `timeline`)
+          let mkbValue: MashUp_iOS.QRSeminarCardViewModel = mkbObject.`formatSeminarCard`(from: `seminar`, timeline: `timeline`)
           self.mockingbirdContext.proxy.updateTarget(&mkbObject, in: mkbTargetBox)
           return mkbValue
         }
@@ -315,8 +315,8 @@ public final class QRScanFormatterMock: MashUp_iOS.QRScanFormatter, Mockingbird.
     }
   }
 
-  public func `formatSeminarAttendance`(from `seminar`: @autoclosure () -> MashUp_iOS.Seminar, `timeline`: @autoclosure () -> MashUp_iOS.AttendanceTimeline) -> Mockingbird.Mockable<Mockingbird.FunctionDeclaration, (MashUp_iOS.Seminar, MashUp_iOS.AttendanceTimeline) -> MashUp_iOS.QRSeminarCardViewModel, MashUp_iOS.QRSeminarCardViewModel> {
-    return Mockingbird.Mockable<Mockingbird.FunctionDeclaration, (MashUp_iOS.Seminar, MashUp_iOS.AttendanceTimeline) -> MashUp_iOS.QRSeminarCardViewModel, MashUp_iOS.QRSeminarCardViewModel>(context: self.mockingbirdContext, invocation: Mockingbird.SwiftInvocation(selectorName: "`formatSeminarAttendance`(from `seminar`: MashUp_iOS.Seminar, `timeline`: MashUp_iOS.AttendanceTimeline) -> MashUp_iOS.QRSeminarCardViewModel", selectorType: Mockingbird.SelectorType.method, arguments: [Mockingbird.resolve(`seminar`), Mockingbird.resolve(`timeline`)], returnType: Swift.ObjectIdentifier((MashUp_iOS.QRSeminarCardViewModel).self)))
+  public func `formatSeminarCard`(from `seminar`: @autoclosure () -> MashUp_iOS.Seminar, `timeline`: @autoclosure () -> MashUp_iOS.AttendanceTimeline) -> Mockingbird.Mockable<Mockingbird.FunctionDeclaration, (MashUp_iOS.Seminar, MashUp_iOS.AttendanceTimeline) -> MashUp_iOS.QRSeminarCardViewModel, MashUp_iOS.QRSeminarCardViewModel> {
+    return Mockingbird.Mockable<Mockingbird.FunctionDeclaration, (MashUp_iOS.Seminar, MashUp_iOS.AttendanceTimeline) -> MashUp_iOS.QRSeminarCardViewModel, MashUp_iOS.QRSeminarCardViewModel>(context: self.mockingbirdContext, invocation: Mockingbird.SwiftInvocation(selectorName: "`formatSeminarCard`(from `seminar`: MashUp_iOS.Seminar, `timeline`: MashUp_iOS.AttendanceTimeline) -> MashUp_iOS.QRSeminarCardViewModel", selectorType: Mockingbird.SelectorType.method, arguments: [Mockingbird.resolve(`seminar`), Mockingbird.resolve(`timeline`)], returnType: Swift.ObjectIdentifier((MashUp_iOS.QRSeminarCardViewModel).self)))
   }
 
   // MARK: Mocked `formatTime`(from `seconds`: TimeInterval)
