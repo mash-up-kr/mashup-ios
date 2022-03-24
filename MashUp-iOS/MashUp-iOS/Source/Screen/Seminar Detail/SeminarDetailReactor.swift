@@ -11,7 +11,7 @@ import ReactorKit
 
 final class SeminarDetailReactor: Reactor {
     enum Action {
-        case didSelectedPlatform(at: Int)
+        case didSelectPlatform(at: Int)
     }
     
     enum Mutation {
@@ -40,7 +40,7 @@ final class SeminarDetailReactor: Reactor {
     
     func mutate(action: Action) -> Observable<Mutation> {
         switch action {
-        case .didSelectedPlatform(let index):
+        case .didSelectPlatform(let index):
             let startLoading: Observable<Mutation> = .just(.updateLoading(true))
             let selectedPlatform: Observable<Mutation> = .just(.updateSelectedPlatformIndex(index))
             let platform = platform(index: index)

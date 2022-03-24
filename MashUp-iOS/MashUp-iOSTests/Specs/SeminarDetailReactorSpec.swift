@@ -30,7 +30,7 @@ final class SeminarDetailReactorSpec: QuickSpec {
       }
       context("when 플랫폼 라디오버튼 선택") {
         beforeEach {
-          sut.action.onNext(.didSelectedPlatform(at: 1))
+          sut.action.onNext(.didSelectPlatform(at: 1))
         }
         
         it("로딩 인디케이터 true 후 false") {
