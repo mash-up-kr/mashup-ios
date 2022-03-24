@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct AttendanceMember {
+struct AttendanceMember: Equatable {
     let name: String
     let platform: PlatformTeam
     let firstSeminarAttendance: AttendanceStyle

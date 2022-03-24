@@ -44,7 +44,7 @@ final class SeminarDetailReactor: Reactor {
             let startLoading: Observable<Mutation> = .just(.updateLoading(true))
             let selectedPlatform: Observable<Mutation> = .just(.updateSelectedPlatformIndex(index))
             let platform = platform(index: index)
-            let loadMember: Observable<Mutation> = attendanceService.attendanceMember(platform: platform)
+            let loadMember: Observable<Mutation> = attendanceService.attendanceMembers(platform: platform)
                 .map { .updateMembers($0) }
             let endLoading: Observable<Mutation> = .just(.updateLoading(false))
             
