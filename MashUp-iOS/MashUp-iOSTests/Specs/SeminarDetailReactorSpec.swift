@@ -26,10 +26,12 @@ final class SeminarDetailReactorSpec: QuickSpec {
       var recorded: Observable<Bool>!
       beforeEach {
         recorded = sut.state.map { $0.isLoading }.distinctUntilChanged().take(3).recorded()
-        given(attendanceService.attendanceMember(platform: any())).willReturn(.just(AttendanceMember.dummy))
+        given(attendanceService.attendanceMembers(platform: any())).willReturn(.just(AttendanceMember.dummy))
       }
       context("when 플랫폼 라디오버튼 선택") {
         beforeEach {
+          let androidMemberDummy = SeminarDetailReactorSpec.androidMemberDummy
+          given(attendanceService.attendanceMembers(platform: .android)).willReturn(.just(androidMemberDummy))
           sut.action.onNext(.didSelectPlatform(at: 1))
         }
         
@@ -39,7 +41,7 @@ final class SeminarDetailReactorSpec: QuickSpec {
         }
         
         it("멤버 교체") {
-          expect { sut.currentState.members }.toNot(beEmpty())
+          expect { sut.currentState.members }.to(equal(SeminarDetailReactorSpec.androidMemberDummy))
         }
         
         it("선택된 인덱스 변경") {
@@ -47,10 +49,31 @@ final class SeminarDetailReactorSpec: QuickSpec {
         }
         
         it("플랫폼에 해당하는 멤버 호출") {
-          verify(attendanceService.attendanceMember(platform: .android)).wasCalled()
+          verify(attendanceService.attendanceMembers(platform: .android)).wasCalled()
         }
       }
     }
   }
 }
  
+extension SeminarDetailReactorSpec {
+  fileprivate static let androidMemberDummy: [AttendanceMember]
+  = [AttendanceMember(name: "김남수",
+                      platform: .android,
+                      firstSeminarAttendance: .attend,
+                      firstSeminarAttendanceTime: Date(),
+                      secondSeminarAttendance: .attend,
+                      secondSeminarAttendanceTime: Date()),
+     AttendanceMember(name: "김남수1",
+                      platform: .android,
+                      firstSeminarAttendance: .attend,
+                      firstSeminarAttendanceTime: Date(),
+                      secondSeminarAttendance: .attend,
+                      secondSeminarAttendanceTime: Date()),
+     AttendanceMember(name: "김남수2",
+                      platform: .android,
+                      firstSeminarAttendance: .attend,
+                      firstSeminarAttendanceTime: Date(),
+                      secondSeminarAttendance: .attend,
+                      secondSeminarAttendanceTime: Date())]
+}
