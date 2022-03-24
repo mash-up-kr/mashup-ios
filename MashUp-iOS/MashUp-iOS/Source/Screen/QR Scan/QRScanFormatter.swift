@@ -18,8 +18,9 @@ protocol QRScanFormatter {
 final class QRScanFormatterImpl: QRScanFormatter {
     
     func formatTime(from seconds: TimeInterval) -> String? {
+        guard seconds.isLess(than: 0) == false else { return nil }
         guard let remainTimeText = self.dateComponentFormatter.string(from: seconds) else { return nil }
-        guard remainTimeText == "00:00" else { return nil }
+        guard remainTimeText != "00:00" else { return nil }
         return remainTimeText
     }
     

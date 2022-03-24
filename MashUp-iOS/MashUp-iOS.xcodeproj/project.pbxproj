@@ -27,6 +27,7 @@
 		CE58818327EC97140068D4E0 /* QRSeminarCardViewModel+Stub.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE58818227EC97140068D4E0 /* QRSeminarCardViewModel+Stub.swift */; };
 		CE58818527EC98540068D4E0 /* AttendanceTimelineViewModel+Stub.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE58818427EC98540068D4E0 /* AttendanceTimelineViewModel+Stub.swift */; };
 		CE58818727EC98670068D4E0 /* PartialAttendanceViewModel+Stub.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE58818627EC98670068D4E0 /* PartialAttendanceViewModel+Stub.swift */; };
+		CE58818927EC9BAC0068D4E0 /* QRScanFormatterSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE58818827EC9BAC0068D4E0 /* QRScanFormatterSpec.swift */; };
 		CE63DD8227D72F420037F7F8 /* Optional+.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE63DD8127D72F420037F7F8 /* Optional+.swift */; };
 		CE6EE81027C7B28C005BF412 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6EE80F27C7B28C005BF412 /* SignInViewController.swift */; };
 		CE6EE81227C7B293005BF412 /* SignInReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6EE81127C7B293005BF412 /* SignInReactor.swift */; };
@@ -155,6 +156,7 @@
 		CE58818227EC97140068D4E0 /* QRSeminarCardViewModel+Stub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "QRSeminarCardViewModel+Stub.swift"; sourceTree = "<group>"; };
 		CE58818427EC98540068D4E0 /* AttendanceTimelineViewModel+Stub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AttendanceTimelineViewModel+Stub.swift"; sourceTree = "<group>"; };
 		CE58818627EC98670068D4E0 /* PartialAttendanceViewModel+Stub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PartialAttendanceViewModel+Stub.swift"; sourceTree = "<group>"; };
+		CE58818827EC9BAC0068D4E0 /* QRScanFormatterSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRScanFormatterSpec.swift; sourceTree = "<group>"; };
 		CE63DD8127D72F420037F7F8 /* Optional+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Optional+.swift"; sourceTree = "<group>"; };
 		CE6EE80F27C7B28C005BF412 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		CE6EE81127C7B293005BF412 /* SignInReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInReactor.swift; sourceTree = "<group>"; };
@@ -544,12 +546,12 @@
 			isa = PBXGroup;
 			children = (
 				CE58817C27EC856D0068D4E0 /* AttendanceTimeline+Stub.swift */,
-				CE58817E27EC85A00068D4E0 /* PartialAttendance+Stub.swift */,
-				CE6EE86D27CA6302005BF412 /* UserSession+Stub.swift */,
-				CE58818027EC94120068D4E0 /* Seminar+Stub.swift */,
-				CE58818227EC97140068D4E0 /* QRSeminarCardViewModel+Stub.swift */,
 				CE58818427EC98540068D4E0 /* AttendanceTimelineViewModel+Stub.swift */,
+				CE58817E27EC85A00068D4E0 /* PartialAttendance+Stub.swift */,
 				CE58818627EC98670068D4E0 /* PartialAttendanceViewModel+Stub.swift */,
+				CE58818227EC97140068D4E0 /* QRSeminarCardViewModel+Stub.swift */,
+				CE58818027EC94120068D4E0 /* Seminar+Stub.swift */,
+				CE6EE86D27CA6302005BF412 /* UserSession+Stub.swift */,
 			);
 			path = TestDoubles;
 			sourceTree = "<group>";
@@ -629,6 +631,7 @@
 				CE6EE84F27CA1DBD005BF412 /* RootReactorSpec.swift */,
 				CE6EE85127CA26A6005BF412 /* SignInReactorSpec.swift */,
 				CE6EE86A27CA60B6005BF412 /* SplashReactorSpec.swift */,
+				CE58818827EC9BAC0068D4E0 /* QRScanFormatterSpec.swift */,
 			);
 			path = Specs;
 			sourceTree = "<group>";
@@ -961,6 +964,7 @@
 				CEB60F4327A9713B001260DB /* TestAppDelegate.swift in Sources */,
 				CE9E735D27C294E800922D8B /* QRScanReactorSpec.swift in Sources */,
 				CE6EE86E27CA6302005BF412 /* UserSession+Stub.swift in Sources */,
+				CE58818927EC9BAC0068D4E0 /* QRScanFormatterSpec.swift in Sources */,
 				CE58817F27EC85A00068D4E0 /* PartialAttendance+Stub.swift in Sources */,
 				CE58818527EC98540068D4E0 /* AttendanceTimelineViewModel+Stub.swift in Sources */,
 				CE9E736727C29F4700922D8B /* MashUp_iOSTests-Mock.generated.swift in Sources */,
