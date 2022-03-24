@@ -48,6 +48,7 @@ final class QRScanReactorSpec: QuickSpec {
           ofUserID: any(),
           seminarID: any()
         )).willReturn(.just(dummyTimeline))
+        given(timerServiceMock.start(any())).willReturn(.empty())
         given(formatterMock.formatSeminarCard(
           from: any(),
           timeline: any()
@@ -102,6 +103,15 @@ final class QRScanReactorSpec: QuickSpec {
             sut.action.onNext(.didSetup)
             expect { sut.currentState.toastMessage }.to(equal("❌ 올바른 코드가 아닙니다."))
           }
+        }
+      }
+      
+      context("타이머 시작 버튼을 탭하면") {
+        beforeEach {
+          sut.action.onNext(.didTapTimerButton)
+        }
+        it("15분 타이머가 시작됩니다.") {
+          verify(timerServiceMock.start(15 * minutes)).wasCalled()
         }
       }
     }
