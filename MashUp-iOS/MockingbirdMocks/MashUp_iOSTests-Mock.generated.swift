@@ -61,6 +61,33 @@ public final class AttendanceServiceMock: MashUp_iOS.AttendanceService, Mockingb
   public func `attend`(withCode `code`: @autoclosure () -> MashUp_iOS.Code) -> Mockingbird.Mockable<Mockingbird.FunctionDeclaration, (MashUp_iOS.Code) -> Observable<Bool>, Observable<Bool>> {
     return Mockingbird.Mockable<Mockingbird.FunctionDeclaration, (MashUp_iOS.Code) -> Observable<Bool>, Observable<Bool>>(context: self.mockingbirdContext, invocation: Mockingbird.SwiftInvocation(selectorName: "`attend`(withCode `code`: MashUp_iOS.Code) -> Observable<Bool>", selectorType: Mockingbird.SelectorType.method, arguments: [Mockingbird.resolve(`code`)], returnType: Swift.ObjectIdentifier((Observable<Bool>).self)))
   }
+
+  // MARK: Mocked `attendanceMembers`(`platform`: MashUp_iOS.PlatformTeam?)
+  public func `attendanceMembers`(`platform`: MashUp_iOS.PlatformTeam?) -> Observable<[MashUp_iOS.AttendanceMember]> {
+    return self.mockingbirdContext.mocking.didInvoke(Mockingbird.SwiftInvocation(selectorName: "`attendanceMembers`(`platform`: MashUp_iOS.PlatformTeam?) -> Observable<[MashUp_iOS.AttendanceMember]>", selectorType: Mockingbird.SelectorType.method, arguments: [Mockingbird.ArgumentMatcher(`platform`)], returnType: Swift.ObjectIdentifier((Observable<[MashUp_iOS.AttendanceMember]>).self))) {
+      self.mockingbirdContext.recordInvocation($0)
+      let mkbImpl = self.mockingbirdContext.stubbing.implementation(for: $0)
+      if let mkbImpl = mkbImpl as? (MashUp_iOS.PlatformTeam?) -> Observable<[MashUp_iOS.AttendanceMember]> { return mkbImpl(`platform`) }
+      if let mkbImpl = mkbImpl as? () -> Observable<[MashUp_iOS.AttendanceMember]> { return mkbImpl() }
+      for mkbTargetBox in self.mockingbirdContext.proxy.targets(for: $0) {
+        switch mkbTargetBox.target {
+        case .super:
+          break
+        case .object(let mkbObject):
+          guard var mkbObject = mkbObject as? MockingbirdSupertype else { break }
+          let mkbValue: Observable<[MashUp_iOS.AttendanceMember]> = mkbObject.`attendanceMembers`(platform: `platform`)
+          self.mockingbirdContext.proxy.updateTarget(&mkbObject, in: mkbTargetBox)
+          return mkbValue
+        }
+      }
+      if let mkbValue = self.mockingbirdContext.stubbing.defaultValueProvider.value.provideValue(for: (Observable<[MashUp_iOS.AttendanceMember]>).self) { return mkbValue }
+      self.mockingbirdContext.stubbing.failTest(for: $0, at: self.mockingbirdContext.sourceLocation)
+    }
+  }
+
+  public func `attendanceMembers`(`platform`: @autoclosure () -> MashUp_iOS.PlatformTeam?) -> Mockingbird.Mockable<Mockingbird.FunctionDeclaration, (MashUp_iOS.PlatformTeam?) -> Observable<[MashUp_iOS.AttendanceMember]>, Observable<[MashUp_iOS.AttendanceMember]>> {
+    return Mockingbird.Mockable<Mockingbird.FunctionDeclaration, (MashUp_iOS.PlatformTeam?) -> Observable<[MashUp_iOS.AttendanceMember]>, Observable<[MashUp_iOS.AttendanceMember]>>(context: self.mockingbirdContext, invocation: Mockingbird.SwiftInvocation(selectorName: "`attendanceMembers`(`platform`: MashUp_iOS.PlatformTeam?) -> Observable<[MashUp_iOS.AttendanceMember]>", selectorType: Mockingbird.SelectorType.method, arguments: [Mockingbird.resolve(`platform`)], returnType: Swift.ObjectIdentifier((Observable<[MashUp_iOS.AttendanceMember]>).self)))
+  }
 }
 
 /// Returns a concrete mock of `AttendanceService`.
