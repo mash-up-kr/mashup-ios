@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0618444227E1D2DD004980CC /* SeminarDetailReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0618444127E1D2DD004980CC /* SeminarDetailReactor.swift */; };
+		0618444427E30259004980CC /* AttendanceMember.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0618444327E30259004980CC /* AttendanceMember.swift */; };
+		0618444627E30642004980CC /* PlatformCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0618444527E30642004980CC /* PlatformCellModel.swift */; };
+		062A960727E99BE400E8E715 /* SeminarDetailReactorSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 062A960627E99BE300E8E715 /* SeminarDetailReactorSpec.swift */; };
+		062A960A27E9CDB300E8E715 /* RxBlocking+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 062A960927E9CDB300E8E715 /* RxBlocking+.swift */; };
 		CE14D26B27CC8A4400685CFF /* NSCollectionLayoutSectionFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE14D26A27CC8A4400685CFF /* NSCollectionLayoutSectionFactory.swift */; };
 		CE14D26D27CCBF1500685CFF /* Observable+Main.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE14D26C27CCBF1500685CFF /* Observable+Main.swift */; };
 		CE14D27C27CD970500685CFF /* Hammer in Frameworks */ = {isa = PBXBuildFile; productRef = CE14D27B27CD970500685CFF /* Hammer */; };
@@ -111,6 +116,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0618444127E1D2DD004980CC /* SeminarDetailReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeminarDetailReactor.swift; sourceTree = "<group>"; };
+		0618444327E30259004980CC /* AttendanceMember.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttendanceMember.swift; sourceTree = "<group>"; };
+		0618444527E30642004980CC /* PlatformCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlatformCellModel.swift; sourceTree = "<group>"; };
+		062A960627E99BE300E8E715 /* SeminarDetailReactorSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeminarDetailReactorSpec.swift; sourceTree = "<group>"; };
+		062A960927E9CDB300E8E715 /* RxBlocking+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RxBlocking+.swift"; sourceTree = "<group>"; };
 		CE14D26A27CC8A4400685CFF /* NSCollectionLayoutSectionFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSCollectionLayoutSectionFactory.swift; sourceTree = "<group>"; };
 		CE14D26C27CCBF1500685CFF /* Observable+Main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Observable+Main.swift"; sourceTree = "<group>"; };
 		CE14D2CA27CFBB1100685CFF /* FakeSeminarRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeSeminarRepository.swift; sourceTree = "<group>"; };
@@ -226,6 +236,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0618444727E30646004980CC /* View */ = {
+			isa = PBXGroup;
+			children = (
+				0618444527E30642004980CC /* PlatformCellModel.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		062A960827E9CDA600E8E715 /* TestHelper */ = {
+			isa = PBXGroup;
+			children = (
+				062A960927E9CDB300E8E715 /* RxBlocking+.swift */,
+			);
+			path = TestHelper;
+			sourceTree = "<group>";
+		};
 		CE396073278B3CB40073AEF4 = {
 			isa = PBXGroup;
 			children = (
@@ -261,6 +287,7 @@
 		CE396095278B3CB60073AEF4 /* MashUp-iOSTests */ = {
 			isa = PBXGroup;
 			children = (
+				062A960827E9CDA600E8E715 /* TestHelper */,
 				CE6EE86C27CA62F0005BF412 /* TestDoubles */,
 				CE9E735B27C294E800922D8B /* Specs */,
 				CEB60F4227A9713B001260DB /* TestAppDelegate.swift */,
@@ -464,7 +491,9 @@
 		CE6EE86727CA55FB005BF412 /* Seminar Detail */ = {
 			isa = PBXGroup;
 			children = (
+				0618444127E1D2DD004980CC /* SeminarDetailReactor.swift */,
 				CE6EE86827CA5609005BF412 /* SeminarDetailViewController.swift */,
+				0618444727E30646004980CC /* View */,
 			);
 			path = "Seminar Detail";
 			sourceTree = "<group>";
@@ -536,6 +565,7 @@
 				CE6EE84F27CA1DBD005BF412 /* RootReactorSpec.swift */,
 				CE6EE85127CA26A6005BF412 /* SignInReactorSpec.swift */,
 				CE6EE86A27CA60B6005BF412 /* SplashReactorSpec.swift */,
+				062A960627E99BE300E8E715 /* SeminarDetailReactorSpec.swift */,
 			);
 			path = Specs;
 			sourceTree = "<group>";
@@ -598,8 +628,9 @@
 		CEB60F8227A9C5EA001260DB /* Attendance */ = {
 			isa = PBXGroup;
 			children = (
-				CE6EE87227CA7482005BF412 /* AttendanceStatus.swift */,
+				0618444327E30259004980CC /* AttendanceMember.swift */,
 				CEB60F7E27A9C536001260DB /* AttendanceService.swift */,
+				CE6EE87227CA7482005BF412 /* AttendanceStatus.swift */,
 				CEB60F8327A9C602001260DB /* FakeAttendanceService.swift */,
 			);
 			path = Attendance;
@@ -795,6 +826,7 @@
 				CE6EE81D27C7BCF7005BF412 /* PlatformTeam.swift in Sources */,
 				CE6EE84C27C80C92005BF412 /* SeminarScheduleViewController.swift in Sources */,
 				CE6EE85427CA2F6B005BF412 /* Error+.swift in Sources */,
+				0618444427E30259004980CC /* AttendanceMember.swift in Sources */,
 				CE6EE81427C7B541005BF412 /* String+.swift in Sources */,
 				CE14D26D27CCBF1500685CFF /* Observable+Main.swift in Sources */,
 				CE6EE88227CA8F08005BF412 /* UITableView+.swift in Sources */,
@@ -809,7 +841,9 @@
 				CE6EE84127C7F130005BF412 /* HomeTab.swift in Sources */,
 				CE6EE88827CA9225005BF412 /* BaseView.swift in Sources */,
 				CE6EE82C27C7D8F8005BF412 /* RootController.swift in Sources */,
+				0618444227E1D2DD004980CC /* SeminarDetailReactor.swift in Sources */,
 				CE6EE82E27C7D900005BF412 /* RootReactor.swift in Sources */,
+				0618444627E30642004980CC /* PlatformCellModel.swift in Sources */,
 				CE6EE88427CA9141005BF412 /* BaseTableViewCell.swift in Sources */,
 				CE6EE85D27CA4136005BF412 /* Seminar.swift in Sources */,
 				CE6EE87827CA858B005BF412 /* PaddingLabel.swift in Sources */,
@@ -840,12 +874,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				062A960A27E9CDB300E8E715 /* RxBlocking+.swift in Sources */,
 				CE6EE85627CA38EF005BF412 /* HomeReactorSpec.swift in Sources */,
 				CE6EE86B27CA60B6005BF412 /* SplashReactorSpec.swift in Sources */,
 				CE6EE85227CA26A6005BF412 /* SignInReactorSpec.swift in Sources */,
 				CEB60F4327A9713B001260DB /* TestAppDelegate.swift in Sources */,
 				CE9E735D27C294E800922D8B /* QRScanReactorSpec.swift in Sources */,
 				CE6EE86E27CA6302005BF412 /* UserSession+Stub.swift in Sources */,
+				062A960727E99BE400E8E715 /* SeminarDetailReactorSpec.swift in Sources */,
 				CE9E736727C29F4700922D8B /* MashUp_iOSTests-Mock.generated.swift in Sources */,
 				CE6EE85027CA1DBD005BF412 /* RootReactorSpec.swift in Sources */,
 			);
