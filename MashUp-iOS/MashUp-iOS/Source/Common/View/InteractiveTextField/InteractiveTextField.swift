@@ -21,16 +21,14 @@ final class InteractiveTextField: UIView {
     let textField: UITextField = UITextField()
     fileprivate let tailImageView: UIImageView = UIImageView()
     private let assistiveLabel: UILabel = UILabel()
-    private var disposeBag: DisposeBag = DisposeBag()
-    private lazy var exclamationMarkIcon: UIImage? = UIImage(systemName: "exclamationmark")
-    private lazy var checkMarkIcon: UIImage? = UIImage(systemName: "checkmark")
+    
     fileprivate let themeObservable: BehaviorRelay<Theme> = BehaviorRelay(value: .normal)
     private var animation: UIViewPropertyAnimator?
+    private var disposeBag: DisposeBag = DisposeBag()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupUI()
-        setupLayout()
         bind()
         setupAnimation()
     }
@@ -47,6 +45,11 @@ final class InteractiveTextField: UIView {
     }
     
     private func setupUI() {
+        setupAttribute()
+        setupLayout()
+    }
+    
+    private func setupAttribute() {
         inputAreaView.layer.borderWidth = 1
         inputAreaView.backgroundColor = .white
         inputAreaView.layer.cornerRadius = 12
@@ -169,28 +172,4 @@ extension InteractiveTextField {
             view.tailImageView.image = image
         }
     }
-}
-
-protocol InteractiveTextFieldTheme {
-    var borderColor: UIColor { get }
-    var assistiveTextColor: UIColor { get }
-    var placeholderColor: UIColor { get }
-}
-
-struct ErrorTextFieldTheme: InteractiveTextFieldTheme {
-    let borderColor: UIColor = .red
-    let assistiveTextColor: UIColor = .red
-    let placeholderColor: UIColor = .red
-}
-
-struct FocusTextFieldTheme: InteractiveTextFieldTheme {
-    let borderColor: UIColor = .purple
-    let assistiveTextColor: UIColor = .gray
-    let placeholderColor: UIColor = .black
-}
-
-struct DefaultTextFieldTheme: InteractiveTextFieldTheme {
-    let borderColor: UIColor = .gray
-    let assistiveTextColor: UIColor = .gray
-    let placeholderColor: UIColor = .black
 }
