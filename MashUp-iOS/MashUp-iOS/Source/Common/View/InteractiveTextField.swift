@@ -18,14 +18,13 @@ final class InteractiveTextField: UIView {
     
     private let inputAreaView: UIView = UIView()
     private let placeholderLabel: UILabel = UILabel()
-    private let textField: UITextField = UITextField()
-    private let tailImageView: UIImageView = UIImageView()
+    let textField: UITextField = UITextField()
+    fileprivate let tailImageView: UIImageView = UIImageView()
     private let assistiveLabel: UILabel = UILabel()
-    var validation: ((String?) -> Bool)?
     private var disposeBag: DisposeBag = DisposeBag()
     private lazy var exclamationMarkIcon: UIImage? = UIImage(systemName: "exclamationmark")
     private lazy var checkMarkIcon: UIImage? = UIImage(systemName: "checkmark")
-    private let themeObservable: BehaviorRelay<Theme> = BehaviorRelay(value: .normal)
+    fileprivate let themeObservable: BehaviorRelay<Theme> = BehaviorRelay(value: .normal)
     private var animation: UIViewPropertyAnimator?
     
     override init(frame: CGRect) {
@@ -40,16 +39,20 @@ final class InteractiveTextField: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    convenience init(placeholder: String? = nil, assistText: String? = nil, validation: ((String?) -> Bool)? = nil) {
+    convenience init(placeholder: String? = nil,
+                     assistText: String? = nil) {
         self.init(frame: .zero)
         self.placeholderLabel.text = placeholder
         self.assistiveLabel.text = assistText
-        self.validation = validation
     }
     
     private func setupUI() {
         inputAreaView.layer.borderWidth = 1
         inputAreaView.backgroundColor = .white
+        inputAreaView.layer.cornerRadius = 12
+        placeholderLabel.font = .systemFont(ofSize: 20, weight: .medium)
+        textField.font = .systemFont(ofSize: 20, weight: .medium)
+        assistiveLabel.font = .systemFont(ofSize: 12)
     }
     
     private func setupLayout() {
@@ -93,26 +96,13 @@ final class InteractiveTextField: UIView {
             .withUnretained(self)
             .subscribe(onNext: { owner, _ in
                 owner.placeholderAnimation(isReversed: false)
-                owner.themeObservable.accept(.focus)
             })
             .disposed(by: disposeBag)
         
-        textField.rx.controlEvent(.editingDidEnd)
+        textField.rx.controlEvent(.editingDidEndOnExit)
             .withUnretained(self)
             .subscribe(onNext: { owner, _ in
                 owner.placeholderAnimation(isReversed: true)
-                owner.themeObservable.accept(.normal)
-            })
-            .disposed(by: disposeBag)
-        
-        textField.rx.text
-            .withUnretained(self)
-            .compactMap { owner, text in
-                return owner.validation?(text)
-            }
-            .withUnretained(self)
-            .subscribe(onNext: { owner, validation in
-                owner.changeViewFromValidation(validation)
             })
             .disposed(by: disposeBag)
         
@@ -126,26 +116,22 @@ final class InteractiveTextField: UIView {
     }
     
     private func setupAnimation() {
-        animation = UIViewPropertyAnimator(duration: 0.3, curve: .linear) {
-            self.placeholderLabel.transform = .init(scaleX: 20/32, y: 20/32)
-            self.placeholderLabel.frame.origin.x = 20
-            self.placeholderLabel.frame.origin.y = 16
-            self.inputAreaView.layoutIfNeeded()
+        animation = UIViewPropertyAnimator(duration: 0.2, curve: .linear) { [weak self] in
+            let scale: CGFloat = 20/32
+            self?.placeholderLabel.transform = .init(scaleX: scale, y: scale)
+            self?.placeholderLabel.frame.origin.x = 20
+            self?.placeholderLabel.frame.origin.y = 16
+            self?.inputAreaView.layoutIfNeeded()
         }
         animation?.pausesOnCompletion = true
     }
+    
     private func placeholderAnimation(isReversed: Bool) {
+        if textField.hasText {
+            return
+        }
         animation?.isReversed = isReversed
         animation?.startAnimation()
-    }
-    
-    private func changeViewFromValidation(_ isValidation: Bool) {
-        if isValidation {
-            tailImageView.image = checkMarkIcon
-        } else {
-            tailImageView.image = exclamationMarkIcon
-            themeObservable.accept(.error)
-        }
     }
     
     private func makeTheme(_ theme: Theme) -> InteractiveTextFieldTheme {
@@ -160,6 +146,28 @@ final class InteractiveTextField: UIView {
         inputAreaView.layer.borderColor = theme.borderColor.cgColor
         assistiveLabel.textColor = theme.assistiveTextColor
         placeholderLabel.textColor = theme.placeholderColor
+    }
+    
+    func setTailImage(_ image: UIImage) {
+        tailImageView.image = image
+    }
+    
+    func setTheme(_ theme: Theme) {
+        themeObservable.accept(theme)
+    }
+}
+
+extension InteractiveTextField {
+    var theme: Binder<Theme> {
+        Binder(self) { view, theme in
+            view.themeObservable.accept(theme)
+        }
+    }
+
+    var tailImage: Binder<UIImage> {
+        Binder(self) { view, image in
+            view.tailImageView.image = image
+        }
     }
 }
 
