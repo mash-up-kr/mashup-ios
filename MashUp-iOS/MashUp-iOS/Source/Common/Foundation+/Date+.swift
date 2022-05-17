@@ -26,4 +26,7 @@ extension Date {
         $0.timeZone = .UTC
     }
     
+    static func now() -> Date {
+        Date()
+    }
 }

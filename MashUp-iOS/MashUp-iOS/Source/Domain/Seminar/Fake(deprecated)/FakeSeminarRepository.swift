@@ -12,7 +12,13 @@ import RxSwift
 final class FakeSeminarRepository: SeminarRepository {
     var stubedSeminars: [Seminar] = []
     
+    func nearestSeminar() -> Observable<Seminar> {
+        guard let seminar = stubedSeminars.first else { return .empty() }
+        return .just(seminar)
+    }
+    
     func fetchSeminars() -> Observable<[Seminar]> {
         return .just(stubedSeminars)
     }
+    
 }

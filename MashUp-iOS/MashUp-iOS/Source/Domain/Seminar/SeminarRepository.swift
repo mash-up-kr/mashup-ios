@@ -10,10 +10,16 @@ import Foundation
 import RxSwift
 
 protocol SeminarRepository {
+    func nearestSeminar() -> Observable<Seminar>
     func fetchSeminars() -> Observable<[Seminar]>
 }
 
 final class SeminarRepositoryImpl: SeminarRepository {
+    
+    func nearestSeminar() -> Observable<Seminar> {
+        .empty()
+    }
+    
     func fetchSeminars() -> Observable<[Seminar]> {
         return .empty()
     }

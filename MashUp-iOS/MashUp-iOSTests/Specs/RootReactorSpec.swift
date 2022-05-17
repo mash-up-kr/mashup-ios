@@ -19,32 +19,28 @@ final class RootReactorSpec: QuickSpec {
     beforeEach {
       sut = RootReactor()
     }
-    describe("action.didSetup") {
-      context("when occurs") {
-        beforeEach {
-          sut.action.onNext(.didSetup)
-        }
-        it("present splash screen") {
-          expect { sut.currentState.step }.to(equal(.splash))
-        }
+    context("앱 초기 진입시") {
+      it("스플래시 화면을 표시합니다.") {
+        sut.action.onNext(.didSetup)
+        expect { sut.currentState.step }.to(equal(.splash))
       }
     }
     describe("authentication responder (root reactor)") {
       var userSessionStub: UserSession!
-      context("when load success user session by splash reactor") {
+      context("스플래시 화면에서 자동 로그인에 성공하면") {
         beforeEach {
           userSessionStub = .stub(accessToken: "fake.access.token")
           sut.loadSuccess(userSession: userSessionStub)
         }
-        it("present home screen with loaded user session") {
+        it("홈 화면으로 이동합니다") {
           expect { sut.currentState.step }.to(equal(.home(userSessionStub)))
         }
       }
-      context("when load failure user session by splash reactor") {
+      context("스플래시 화면에서 자동로그인을 실패하면") {
         beforeEach {
           sut.loadFailure()
         }
-        it("present sign in screen") {
+        it("로그인 화면으로 이동합니다") {
           expect { sut.currentState.step }.to(equal(.signIn))
         }
       }
