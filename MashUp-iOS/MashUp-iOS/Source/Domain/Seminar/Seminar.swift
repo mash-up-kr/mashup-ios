@@ -9,7 +9,9 @@
 import Foundation
 
 struct Seminar {
-    let id: String
+    typealias ID = String
+    
+    let id: ID
     let speaker: String
     let title: String
     let summary: String

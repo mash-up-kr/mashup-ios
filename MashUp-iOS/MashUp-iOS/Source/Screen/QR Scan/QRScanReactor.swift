@@ -14,32 +14,54 @@ final class QRScanReactor: Reactor {
     
     enum Action {
         case didSetup
+        case didTapTimerButton
     }
     
     enum Mutation {
         case updateCode(Code)
         case updateAttendance(Bool)
+        case updateRemainTime(TimeInterval)
+        case updateSeminar(Seminar)
+        case updateAttendanceTimeline(AttendanceTimeline)
     }
     
     struct State {
         let captureSession: AVCaptureSession
         var code: Code?
-        var upcomingSeminar: Seminar?
+        var timer: TimerStyle?
+        var seminarCardViewModel: QRSeminarCardViewModel?
         @Pulse var toastMessage: String?
         
+        fileprivate var isAdmin: Bool
         fileprivate var hasAttended: Bool
+        fileprivate var seminar: Seminar?
+        fileprivate var attendanceTimeline: AttendanceTimeline?
     }
     
     let initialState: State
     
     init(
-        qrReaderService: QRReaderService = QRReaderServiceImpl(),
-        seminarRepository: SeminarRepository = SeminarRepositoryImpl(),
-        attendanceService: AttendanceService = AttendanceServiceImpl()
+        qrReaderService: QRReaderService,
+        seminarRepository: SeminarRepository,
+        attendanceService: AttendanceService,
+        timerService: TimerService,
+        attendanceTimelineRepository: AttendanceTimelineRepository,
+        formatter: QRScanFormatter
     ) {
         self.qrReaderService = qrReaderService
         self.attencanceService = attendanceService
-        self.initialState = State(captureSession: qrReaderService.captureSession, hasAttended: false)
+        self.seminarRepository = seminarRepository
+        self.timerService = timerService
+        self.attendanceTimelineRepository = attendanceTimelineRepository
+        self.formatter = formatter
+        
+        self.initialState = State(
+            captureSession: qrReaderService.captureSession,
+            timer: TimerStyle(isAdmin: true, remainTime: nil),
+            seminarCardViewModel: nil,
+            isAdmin: true,
+            hasAttended: false
+        )
     }
     
     func mutate(action: Action) -> Observable<Mutation> {
@@ -47,7 +69,27 @@ final class QRScanReactor: Reactor {
         case .didSetup:
             let readyToQRScan: Observable<Mutation> = self.qrReaderService.scanCodeWhileSessionIsOpen()
                 .flatMap(self.updateCodeAndAttendance)
-            return readyToQRScan
+            
+            let seminar = self.seminarRepository.nearestSeminar().share()
+            let updateSeminar: Observable<Mutation> = seminar.map { .updateSeminar($0) }
+            
+            #warning("dummy 프로토타이핑")
+            let userID = Observable.just("fake.user.id")
+            let seminarID = seminar.map { $0.id }
+            
+            let updateAttendanceTimeline: Observable<Mutation> = Observable.combineLatest(userID, seminarID)
+                .flatMap { self.attendanceTimelineRepository.attendanceTimeline(ofUserID: $0, seminarID: $1) }
+                .map { .updateAttendanceTimeline($0) }
+            
+            return .merge(
+                readyToQRScan,
+                updateSeminar,
+                updateAttendanceTimeline
+            )
+            
+        case .didTapTimerButton:
+            let timeLimit: TimeInterval = 15 * minutes
+            return self.timerService.start(timeLimit).map { .updateRemainTime($0) }
         }
     }
     
@@ -59,7 +101,20 @@ final class QRScanReactor: Reactor {
             
         case .updateAttendance(let attendance):
             newState.hasAttended = attendance
-            newState.toastMessage = messageOf(attendance: attendance)
+            newState.toastMessage = self.messageOf(attendance: attendance)
+            
+        case .updateRemainTime(let remainTime):
+            let remainTimeText = self.formatter.formatTime(from: remainTime)
+            newState.timer = TimerStyle(isAdmin: currentState.isAdmin, remainTime: remainTimeText)
+            
+        case .updateSeminar(let seminar):
+            newState.seminar = seminar
+            newState.seminarCardViewModel = self.formatter.formatSeminarCard(from: seminar, timeline: .unloaded)
+            
+        case .updateAttendanceTimeline(let attendanceTimeline):
+            guard let seminar = currentState.seminar else { return newState }
+            newState.attendanceTimeline = attendanceTimeline
+            newState.seminarCardViewModel = self.formatter.formatSeminarCard(from: seminar, timeline: attendanceTimeline)
         }
         return newState
     }
@@ -78,5 +133,9 @@ final class QRScanReactor: Reactor {
     
     private let qrReaderService: QRReaderService
     private let attencanceService: AttendanceService
+    private let attendanceTimelineRepository: AttendanceTimelineRepository
+    private let seminarRepository: SeminarRepository
+    private let formatter: QRScanFormatter
+    private let timerService: TimerService
     
 }

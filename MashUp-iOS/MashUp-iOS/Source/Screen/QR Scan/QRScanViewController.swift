@@ -13,6 +13,13 @@ import RxCocoa
 import SnapKit
 import UIKit
 
+
+struct TimerStyle: Equatable {
+    let isAdmin: Bool
+    let remainTime: String?
+}
+
+
 final class QRScanViewController: BaseViewController, ReactorKit.View {
     typealias Reactor = QRScanReactor
     
@@ -42,6 +49,10 @@ final class QRScanViewController: BaseViewController, ReactorKit.View {
         self.rx.viewDidLoad.map { .didSetup }
         .bind(to: reactor.action)
         .disposed(by: self.disposeBag)
+        
+        self.adminTimerButton.rx.tap.map { .didTapTimerButton }
+        .bind(to: reactor.action)
+        .disposed(by: self.disposeBag)
     }
     
     private func render(_ reactor: Reactor) {
@@ -57,6 +68,20 @@ final class QRScanViewController: BaseViewController, ReactorKit.View {
         .onMain()
         .bind(to: self.codeLabel.rx.text)
         .disposed(by: self.disposeBag)
+        
+        reactor.state.compactMap { $0.timer }
+        .distinctUntilChanged()
+        .onMain()
+        .withUnretained(self)
+        .subscribe(onNext: { $0.updateTimer($1) })
+        .disposed(by: self.disposeBag)
+        
+        reactor.state.compactMap { $0.seminarCardViewModel }
+        .distinctUntilChanged()
+        .onMain()
+        .withUnretained(self)
+        .subscribe(onNext: { $0.updateQRSeminarCard($1) })
+        .disposed(by: self.disposeBag)
     }
     
     private func consume(_ reactor: Reactor) {
@@ -70,6 +95,18 @@ final class QRScanViewController: BaseViewController, ReactorKit.View {
     
     private func updateCaptureSession(_ session: AVCaptureSession) {
         self.capturePreviewLayer.session = session
+    }
+    
+    private func updateQRSeminarCard(_ viewModel: QRSeminarCardViewModel) {
+        self.seminarCardView.configure(with: viewModel)
+    }
+    
+    private func updateTimer(_ timerStyle: TimerStyle) {
+        self.timerView.isHidden = timerStyle.isAdmin == true
+        self.adminTimerButton.isHidden = timerStyle.isAdmin != true
+        self.timerView.text = timerStyle.remainTime
+        self.adminTimerButton.isEnabled = timerStyle.remainTime == nil
+        self.adminTimerButton.setTitle("타이머 동작중  |  \(timerStyle.remainTime ?? .empty)", for: .disabled)
     }
     
     private func showToast(message: String) {
@@ -89,8 +126,13 @@ final class QRScanViewController: BaseViewController, ReactorKit.View {
     private let capturePreviewLayer = AVCaptureVideoPreviewLayer()
     private let codeLabel = UILabel()
     private let toastView = PaddingLabel()
+    private let qrGuideLabel = UILabel()
+    private let timerView = PaddingLabel()
+    private let adminTimerButton = UIButton()
     private let qrCodeFinderView = QRCodeFinderView()
+    private let seminarCardView = QRSeminarCardView()
 }
+
 // MARK: Setup
 extension QRScanViewController {
     
@@ -116,21 +158,65 @@ extension QRScanViewController {
             $0.clipsToBounds = true
             $0.layer.cornerRadius = 8
         }
+        self.qrGuideLabel.do {
+            $0.text = "QR 코드를 스캔하세요"
+            $0.font = .systemFont(ofSize: 20, weight: .bold)
+            $0.textColor = .white
+        }
+        self.timerView.do {
+            $0.font = .systemFont(ofSize: 15, weight: .bold)
+            $0.textColor = .white
+            $0.backgroundColor = .systemIndigo
+            $0.layer.cornerRadius = 16.5
+            $0.clipsToBounds = true
+        }
+        self.adminTimerButton.do {
+            $0.setTitle("타이머 시작", for: .normal)
+            $0.setBackgroundColor(.systemBlue, for: .normal)
+            $0.setBackgroundColor(.systemIndigo, for: .disabled)
+            $0.layer.cornerRadius = 12
+            $0.clipsToBounds = true
+            $0.titleLabel?.font = .systemFont(ofSize: 16, weight: .medium)
+        }
     }
     
     private func setupLayout() {
         self.view.do {
             $0.addSubview(self.qrCodeFinderView)
             $0.addSubview(self.toastView)
+            $0.addSubview(self.timerView)
+            $0.addSubview(self.adminTimerButton)
+            $0.addSubview(self.qrGuideLabel)
+            $0.addSubview(self.seminarCardView)
         }
         self.qrCodeFinderView.snp.makeConstraints {
-            $0.centerY.equalToSuperview().offset(-120)
+            $0.top.equalTo(self.view.safeAreaLayoutGuide.snp.top).inset(90)
             $0.centerX.equalToSuperview()
             $0.height.equalTo(self.qrCodeFinderView.snp.width)
-            $0.width.equalToSuperview().inset(32)
         }
         self.toastView.snp.makeConstraints {
             $0.center.equalToSuperview()
+        }
+        self.qrGuideLabel.snp.makeConstraints {
+            $0.top.equalTo(self.qrCodeFinderView.snp.bottom).offset(14)
+            $0.centerX.equalToSuperview()
+        }
+        self.timerView.snp.makeConstraints {
+            $0.top.equalTo(self.qrGuideLabel.snp.bottom).offset(14)
+            $0.centerX.equalToSuperview()
+            $0.height.equalTo(33)
+        }
+        self.adminTimerButton.snp.makeConstraints {
+            $0.top.equalTo(self.qrGuideLabel.snp.bottom).offset(5)
+            $0.centerX.equalToSuperview()
+            $0.height.equalTo(48)
+            $0.leading.trailing.equalToSuperview().inset(24)
+        }
+        self.seminarCardView.snp.makeConstraints {
+            $0.top.equalTo(self.timerView.snp.bottom).offset(12)
+            $0.leading.trailing.equalToSuperview().inset(24)
+            $0.bottom.equalTo(self.view.safeAreaLayoutGuide.snp.bottom).inset(54)
+            $0.height.equalTo(162)
         }
     }
 }

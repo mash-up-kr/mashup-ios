@@ -22,9 +22,9 @@ enum Logger {
         let object: T = object()
         let fileURL: String = NSURL(string: file)?.lastPathComponent ?? .empty
         let thread = Thread.isMainThread ? "<UI>" : "<BG>"
-        let timeStamp = self.dateformatter.string(from: Date())
+        let timestamp = self.dateformatter.string(from: Date())
         
-        print(option, timeStamp, thread, fileURL, "[\(line)]", describe, String(reflecting: object), separator: " ")
+        print(option, timestamp, thread, fileURL, "[\(line)]", describe, String(reflecting: object), separator: " ")
         #endif
     }
     

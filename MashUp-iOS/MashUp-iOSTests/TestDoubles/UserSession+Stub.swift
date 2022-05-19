@@ -10,7 +10,10 @@ import Foundation
 @testable import MashUp_iOS
 
 extension UserSession {
-  static func stub(accessToken: String) -> Self {
-    return UserSession(accessToken: accessToken)
+  static func stub(
+    id: String = "fake.id.\(Date.now())",
+    accessToken: String = "fake.accessToken.\(Date.now())"
+  ) -> Self {
+    return UserSession(id: id, accessToken: accessToken)
   }
 }
