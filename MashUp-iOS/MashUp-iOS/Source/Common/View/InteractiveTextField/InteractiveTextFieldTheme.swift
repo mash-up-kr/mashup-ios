@@ -8,26 +8,8 @@
 
 import UIKit
 
-protocol InteractiveTextFieldTheme {
-    var borderColor: UIColor { get }
-    var assistiveTextColor: UIColor { get }
-    var placeholderColor: UIColor { get }
-}
-
-struct ErrorTextFieldTheme: InteractiveTextFieldTheme {
-    let borderColor: UIColor = .red
-    let assistiveTextColor: UIColor = .red
-    let placeholderColor: UIColor = .red
-}
-
-struct FocusTextFieldTheme: InteractiveTextFieldTheme {
-    let borderColor: UIColor = .purple
-    let assistiveTextColor: UIColor = .gray
-    let placeholderColor: UIColor = .black
-}
-
-struct DefaultTextFieldTheme: InteractiveTextFieldTheme {
-    let borderColor: UIColor = .gray
-    let assistiveTextColor: UIColor = .gray
-    let placeholderColor: UIColor = .black
+struct InteractiveTextFieldTheme {
+    let borderColor: UIColor
+    let assistiveTextColor: UIColor
+    let placeholderColor: UIColor
 }

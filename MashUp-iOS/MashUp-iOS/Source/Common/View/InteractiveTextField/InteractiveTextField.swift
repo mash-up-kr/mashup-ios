@@ -139,9 +139,12 @@ final class InteractiveTextField: UIView {
     
     private func makeTheme(_ theme: Theme) -> InteractiveTextFieldTheme {
         switch theme {
-        case .normal: return DefaultTextFieldTheme()
-        case .focus: return FocusTextFieldTheme()
-        case .error: return ErrorTextFieldTheme()
+        case .normal:
+            return InteractiveTextFieldTheme(borderColor: .gray, assistiveTextColor: .gray, placeholderColor: .black)
+        case .focus:
+            return InteractiveTextFieldTheme(borderColor: .purple, assistiveTextColor: .gray, placeholderColor: .black)
+        case .error:
+            return InteractiveTextFieldTheme(borderColor: .red, assistiveTextColor: .red, placeholderColor: .black)
         }
     }
     
