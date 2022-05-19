@@ -89,10 +89,12 @@ extension HomeTabBarController {
     }
     
     private func createSeminarScheduleViewController() -> UIViewController {
-        #warning("SeminarRepository 실구현체로 대체해야합니다.")
-        let seminarRepository = FakeSeminarRepository()
-        seminarRepository.stubedSeminars = Seminar.dummy
-        let seminarScheduleReactor = SeminarScheduleReactor(seminarRepository: seminarRepository)
+        let seminarRepository = self.createSeminarRepository()
+        let seminarSchedulerFormatter = SeminarSchedulerFormatterImpl()
+        let seminarScheduleReactor = SeminarScheduleReactor(
+            seminarRepository: seminarRepository,
+            seminarSchedulerFormatter: seminarSchedulerFormatter
+        )
         let seminarScheduleViewController = SeminarScheduleViewController()
         seminarScheduleViewController.reactor = seminarScheduleReactor
         return seminarScheduleViewController
@@ -104,13 +106,56 @@ extension HomeTabBarController {
     }
     
     private func createQRScanViewController() -> UIViewController {
+        let seminarRepository = self.createSeminarRepository()
         let qrReaderService = QRReaderServiceImpl()
-        let attendanceService = FakeAttendanceService()
-        attendanceService.stubedCorrectCode = "I'm correct"
-        let qrScanViewReactor = QRScanReactor(qrReaderService: qrReaderService, attendanceService: attendanceService)
+        let attendanceService = self.createAttendanceService()
+        let timerService = TimerServiceImpl()
+        let attendanceTimelineRepository = self.createAttendanceTimelineRepository()
+        let formatter = QRScanFormatterImpl()
+        let qrScanViewReactor = QRScanReactor(
+            qrReaderService: qrReaderService,
+            seminarRepository: seminarRepository,
+            attendanceService: attendanceService,
+            timerService: timerService,
+            attendanceTimelineRepository: attendanceTimelineRepository,
+            formatter: formatter
+        )
         let qrScanViewController = QRScanViewController()
         qrScanViewController.reactor = qrScanViewReactor
         return qrScanViewController
+    }
+    
+    private func createSeminarRepository() -> SeminarRepository {
+        #warning("SeminarRepository 실구현체로 대체해야합니다.")
+        let seminarRepository = FakeSeminarRepository()
+        seminarRepository.stubedSeminars = Seminar.dummy
+        return seminarRepository
+    }
+    
+    private func createAttendanceService() -> AttendanceService {
+        #warning("AttendanceService 실구현체로 대체해야합니다.")
+        let attendanceService = FakeAttendanceService()
+        attendanceService.stubedCorrectCode = "I'm correct"
+        return attendanceService
+    }
+    
+    private func createAttendanceTimelineRepository() -> AttendanceTimelineRepository {
+        #warning("AttendanceTimelineRepository 실구현체로 대체해야합니다.")
+        let attendanceTimelineRepository = FakeAttendanceTimelineRepository()
+        let partialAttendance1 = PartialAttendance(
+            phase: .phase1,
+            status: .lateness,
+            timestamp: Date(year: 2022, month: 4, day: 1, hour: 3, minute: 16, second: 24)
+        )
+        let partialAttendance2 = PartialAttendance(
+            phase: .phase2,
+            status: .attend,
+            timestamp: Date(year: 2022, month: 4, day: 1, hour: 4, minute: 0, second: 24)
+        )
+        
+        attendanceTimelineRepository.stubbedTimeline = AttendanceTimeline(partialAttendance1: partialAttendance1,
+                                                                          partialAttendance2: partialAttendance2)
+        return attendanceTimelineRepository
     }
     
 }

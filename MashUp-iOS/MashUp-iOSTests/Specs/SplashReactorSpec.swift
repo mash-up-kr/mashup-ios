@@ -25,23 +25,23 @@ final class SplashReactorSpec: QuickSpec {
       sut = SplashReactor(userSessionRepository: userSessionRepositoryMock,
                           authenticationResponder: rootReactorMock)
     }
-    context("when user session load success") {
+    context("저장소에서 유저 세션을 성공적으로 로드한다면") {
       beforeEach {
         userSessionStub = .stub(accessToken: "fake.user.session")
         given(userSessionRepositoryMock.load()).willReturn(.just(userSessionStub))
         sut.action.onNext(.didSetup)
       }
-      it("tell the root reactor that successful load with loaded session") {
+      it("성공을 알림과 함께 로드한 유저 세션을 RootReactor에게 전달합니다.") {
         verify(rootReactorMock.loadSuccess(userSession: userSessionStub)).wasCalled()
       }
     }
-    context("when user session load failure") {
+    context("저장소에서 유저 세션을 로드를 실패한다면") {
       beforeEach {
         userSessionStub = nil
         given(userSessionRepositoryMock.load()).willReturn(.just(userSessionStub))
         sut.action.onNext(.didSetup)
       }
-      it("tell root reactor that load failed ") {
+      it("실패를 RootReactor에게 알립니다.") {
         verify(rootReactorMock.loadFailure()).wasCalled()
       }
     }

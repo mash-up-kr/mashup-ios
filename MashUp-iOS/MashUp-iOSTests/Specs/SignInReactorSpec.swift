@@ -13,6 +13,7 @@ import RxBlocking
 import RxSwift
 import RxTest
 @testable import MashUp_iOS
+import Foundation
 
 final class SignInReactorSpec: QuickSpec {
   override func spec() {
@@ -30,54 +31,54 @@ final class SignInReactorSpec: QuickSpec {
       )
     }
     describe("state.id") {
-      context("when update id field's text") {
+      context("ID 텍스트 필드가 업데이트 되면") {
         let stubedID = "stubed.id"
         beforeEach {
           sut.action.onNext(.didEditIDField(stubedID))
         }
-        it("is synchronized with updated id text") {
+        it("화면의 ID 상태도 업데이트됩니다.") {
           expect { sut.currentState.id }.to(equal(stubedID))
         }
       }
     }
     describe("state.password") {
-      context("when update password field's text") {
+      context("PW 텍스트 필드가 업데이트 되면") {
         let stubedPassword = "stubed.password"
         beforeEach {
           sut.action.onNext(.didEditPasswordField(stubedPassword))
         }
-        it("is synchronized with updated password text") {
+        it("화면의 PW 상태도 업데이트됩니다.") {
           expect { sut.currentState.password }.to(equal(stubedPassword))
         }
       }
     }
     describe("state.canTrySignIn") {
-      context("when id are shorter than 4 chacters") {
+      context("ID 텍스트 필드에 4글자보다 짧은 글자가 입력되어있다면") {
         beforeEach {
           let idShorterThan4 = "123"
           sut.action.onNext(.didEditIDField(idShorterThan4))
         }
-        it("is false") {
+        it("로그인 버튼이 비활성화 됩니다") {
           expect { sut.currentState.canTryToSignIn }.to(beFalse())
         }
       }
-      context("when password are shorter than 4 chacters") {
+      context("PW 텍스트 필드에 4글자보다 짧은 글자가 입력되어있다면") {
         beforeEach {
           let passwordShorterThan4 = "123"
           sut.action.onNext(.didEditPasswordField(passwordShorterThan4))
         }
-        it("is false") {
+        it("로그인 버튼이 비활성화 됩니다") {
           expect { sut.currentState.canTryToSignIn }.to(beFalse())
         }
       }
-      context("when id & password are longer than 4 chacters") {
+      context("ID와 PW가 둘다 4글자가 넘으면") {
         beforeEach {
           let idLongerThan4 = "12345"
           let passwordLongerThan4 = "12345"
           sut.action.onNext(.didEditIDField(idLongerThan4))
           sut.action.onNext(.didEditPasswordField(passwordLongerThan4))
         }
-        it("is true") {
+        it("로그인 버튼이 활성화 됩니다") {
           expect { sut.currentState.canTryToSignIn }.to(beTrue())
         }
       }
@@ -98,7 +99,7 @@ final class SignInReactorSpec: QuickSpec {
         given(userSessionRepositoryMock.signIn(id: correctID, password: correctPassword))
           .willReturn(.just(stubedUserSession))
       }
-      context("when tapped sign in button") {
+      context("로그인 버튼을 탭하면") {
         let idLongerThan4 = "12345"
         let passwordLongerThan4 = "12345"
         beforeEach {
@@ -114,7 +115,7 @@ final class SignInReactorSpec: QuickSpec {
           
           testScheduler.start()
         }
-        it("loading indicator appear and disappear") {
+        it("로딩 인디케이터가 표시되었다가 사라집니다.") {
           let isLoadings = isLoadingObserver.events.compactMap { $0.value.element }
           expect { isLoadings }.to(equal([false, true, false]))
         }
@@ -134,31 +135,31 @@ final class SignInReactorSpec: QuickSpec {
         given(userSessionRepositoryMock.signIn(id: correctID, password: correctPassword))
           .willReturn(.just(userSessionStub))
       }
-      context("when sign in success") {
+      context("로그인을 성공하면") {
         beforeEach {
           sut.action.onNext(.didEditIDField(correctID))
           sut.action.onNext(.didEditPasswordField(correctPassword))
           sut.action.onNext(.didTapSignInButton)
         }
-        it("present home with user session") {
+        it("홈화면으로 이동합니다") {
           verify(authenticationResponserMock.loadSuccess(userSession: userSessionStub)).wasCalled()
         }
       }
-      context("when sign in failure") {
+      context("로그인을 실패하면") {
         beforeEach {
           sut.action.onNext(.didEditIDField(wrongID))
           sut.action.onNext(.didEditPasswordField(wrongPassword))
           sut.action.onNext(.didTapSignInButton)
         }
-        it("show alert error message") {
+        it("에러 메시지를 표시합니다.") {
           expect { sut.currentState.alertMessage }.to(equal(error.localizedDescription))
         }
       }
-      context("when sign up button did tap") {
+      context("회원가입 버튼을 탭하면") {
         beforeEach {
           sut.action.onNext(.didTapSignUpButton)
         }
-        it("present sign up screen") {
+        it("회원가입 화면으로 이동합니다") {
           expect { sut.currentState.step }.to(equal(.signUp))
         }
       }

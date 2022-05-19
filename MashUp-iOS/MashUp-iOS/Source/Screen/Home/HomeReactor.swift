@@ -24,7 +24,7 @@ final class HomeReactor: Reactor {
     
     init() {
         self.initialState = State(
-            currentTab: .seminarSchedule,
+            currentTab: .qr,
             tabItems: HomeTab.allCases
         )
     }

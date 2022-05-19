@@ -14,6 +14,9 @@
 		062A960A27E9CDB300E8E715 /* RxBlocking+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 062A960927E9CDB300E8E715 /* RxBlocking+.swift */; };
 		06839F0128325A0C00D88426 /* InteractiveTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06839F0028325A0C00D88426 /* InteractiveTextField.swift */; };
 		06839F062833E62E00D88426 /* InteractiveTextFieldTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06839F052833E62E00D88426 /* InteractiveTextFieldTheme.swift */; };
+		CE12DA5427E629AE00F08629 /* AttendanceTimelineViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE12DA5327E629AE00F08629 /* AttendanceTimelineViewModel.swift */; };
+		CE12DA5627E629D700F08629 /* PartialAttendanceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE12DA5527E629D700F08629 /* PartialAttendanceViewModel.swift */; };
+		CE12DA5827E629FE00F08629 /* QRSeminarCardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE12DA5727E629FE00F08629 /* QRSeminarCardViewModel.swift */; };
 		CE14D26B27CC8A4400685CFF /* NSCollectionLayoutSectionFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE14D26A27CC8A4400685CFF /* NSCollectionLayoutSectionFactory.swift */; };
 		CE14D26D27CCBF1500685CFF /* Observable+Main.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE14D26C27CCBF1500685CFF /* Observable+Main.swift */; };
 		CE14D27C27CD970500685CFF /* Hammer in Frameworks */ = {isa = PBXBuildFile; productRef = CE14D27B27CD970500685CFF /* Hammer */; };
@@ -25,6 +28,14 @@
 		CE4A6C05278B47040052F7E7 /* HTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4A6C04278B47040052F7E7 /* HTTPClient.swift */; };
 		CE4A6C07278B47A80052F7E7 /* ResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4A6C06278B47A80052F7E7 /* ResponseModel.swift */; };
 		CE4A6C09278B4A3C0052F7E7 /* NetworkConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4A6C08278B4A3C0052F7E7 /* NetworkConfig.swift */; };
+		CE58817D27EC856D0068D4E0 /* AttendanceTimeline+Stub.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE58817C27EC856D0068D4E0 /* AttendanceTimeline+Stub.swift */; };
+		CE58817F27EC85A00068D4E0 /* PartialAttendance+Stub.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE58817E27EC85A00068D4E0 /* PartialAttendance+Stub.swift */; };
+		CE58818127EC94120068D4E0 /* Seminar+Stub.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE58818027EC94120068D4E0 /* Seminar+Stub.swift */; };
+		CE58818327EC97140068D4E0 /* QRSeminarCardViewModel+Stub.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE58818227EC97140068D4E0 /* QRSeminarCardViewModel+Stub.swift */; };
+		CE58818527EC98540068D4E0 /* AttendanceTimelineViewModel+Stub.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE58818427EC98540068D4E0 /* AttendanceTimelineViewModel+Stub.swift */; };
+		CE58818727EC98670068D4E0 /* PartialAttendanceViewModel+Stub.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE58818627EC98670068D4E0 /* PartialAttendanceViewModel+Stub.swift */; };
+		CE58818927EC9BAC0068D4E0 /* QRScanFormatterSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE58818827EC9BAC0068D4E0 /* QRScanFormatterSpec.swift */; };
+		CE58818B27ECB2E60068D4E0 /* AttendanceTimelineSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE58818A27ECB2E60068D4E0 /* AttendanceTimelineSpec.swift */; };
 		CE63DD8227D72F420037F7F8 /* Optional+.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE63DD8127D72F420037F7F8 /* Optional+.swift */; };
 		CE6EE81027C7B28C005BF412 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6EE80F27C7B28C005BF412 /* SignInViewController.swift */; };
 		CE6EE81227C7B293005BF412 /* SignInReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6EE81127C7B293005BF412 /* SignInReactor.swift */; };
@@ -78,6 +89,19 @@
 		CE6EE89027CAD109005BF412 /* TimeZone+.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6EE88F27CAD109005BF412 /* TimeZone+.swift */; };
 		CE6EE89227CAD117005BF412 /* Locale+.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6EE89127CAD117005BF412 /* Locale+.swift */; };
 		CE6EE89527CB049C005BF412 /* QRCodeFinderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6EE89427CB049C005BF412 /* QRCodeFinderView.swift */; };
+		CE729A7A27E56B7F001D33D1 /* TimeInterval+.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE729A7927E56B7F001D33D1 /* TimeInterval+.swift */; };
+		CE729A7D27E577B7001D33D1 /* TimerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE729A7C27E577B7001D33D1 /* TimerService.swift */; };
+		CE729A7F27E57D0D001D33D1 /* AttendanceTimelineRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE729A7E27E57D0D001D33D1 /* AttendanceTimelineRepository.swift */; };
+		CE729A8127E57EC1001D33D1 /* AttendanceTimeline.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE729A8027E57EC1001D33D1 /* AttendanceTimeline.swift */; };
+		CE729A8327E57FCD001D33D1 /* FakeAttendanceTimelineRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE729A8227E57FCD001D33D1 /* FakeAttendanceTimelineRepository.swift */; };
+		CE729A8527E5C1F9001D33D1 /* AttendanceTimelineView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE729A8427E5C1F9001D33D1 /* AttendanceTimelineView.swift */; };
+		CE729A8727E5C31A001D33D1 /* PartialAttendance.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE729A8627E5C31A001D33D1 /* PartialAttendance.swift */; };
+		CE729A8927E5C7F1001D33D1 /* SeminarPhase.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE729A8827E5C7F1001D33D1 /* SeminarPhase.swift */; };
+		CE729A8B27E60D49001D33D1 /* SeminarSchedulerFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE729A8A27E60D49001D33D1 /* SeminarSchedulerFormatter.swift */; };
+		CE729A8D27E60FD2001D33D1 /* QRScanFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE729A8C27E60FD2001D33D1 /* QRScanFormatter.swift */; };
+		CE729A8F27E61766001D33D1 /* PartialAttendanceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE729A8E27E61766001D33D1 /* PartialAttendanceView.swift */; };
+		CE88D32827E5522B00865C02 /* QRSeminarCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE88D32727E5522B00865C02 /* QRSeminarCardView.swift */; };
+		CE88D32A27E565C400865C02 /* UIButton+.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE88D32927E565C400865C02 /* UIButton+.swift */; };
 		CE9E734527C2889200922D8B /* Nimble in Frameworks */ = {isa = PBXBuildFile; productRef = CE9E734427C2889200922D8B /* Nimble */; };
 		CE9E734827C2889E00922D8B /* Quick in Frameworks */ = {isa = PBXBuildFile; productRef = CE9E734727C2889E00922D8B /* Quick */; };
 		CE9E734B27C288B700922D8B /* Mockingbird in Frameworks */ = {isa = PBXBuildFile; productRef = CE9E734A27C288B700922D8B /* Mockingbird */; };
@@ -124,7 +148,13 @@
 		062A960627E99BE300E8E715 /* SeminarDetailReactorSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeminarDetailReactorSpec.swift; sourceTree = "<group>"; };
 		062A960927E9CDB300E8E715 /* RxBlocking+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RxBlocking+.swift"; sourceTree = "<group>"; };
 		06839F0028325A0C00D88426 /* InteractiveTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InteractiveTextField.swift; sourceTree = "<group>"; };
+<<<<<<< HEAD
 		06839F052833E62E00D88426 /* InteractiveTextFieldTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InteractiveTextFieldTheme.swift; sourceTree = "<group>"; };
+=======
+		CE12DA5327E629AE00F08629 /* AttendanceTimelineViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttendanceTimelineViewModel.swift; sourceTree = "<group>"; };
+		CE12DA5527E629D700F08629 /* PartialAttendanceViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartialAttendanceViewModel.swift; sourceTree = "<group>"; };
+		CE12DA5727E629FE00F08629 /* QRSeminarCardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRSeminarCardViewModel.swift; sourceTree = "<group>"; };
+>>>>>>> 38e3826da738bcafc20830f202a6d5798e86cbd8
 		CE14D26A27CC8A4400685CFF /* NSCollectionLayoutSectionFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NSCollectionLayoutSectionFactory.swift; sourceTree = "<group>"; };
 		CE14D26C27CCBF1500685CFF /* Observable+Main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Observable+Main.swift"; sourceTree = "<group>"; };
 		CE14D2CA27CFBB1100685CFF /* FakeSeminarRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeSeminarRepository.swift; sourceTree = "<group>"; };
@@ -138,6 +168,14 @@
 		CE4A6C04278B47040052F7E7 /* HTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClient.swift; sourceTree = "<group>"; };
 		CE4A6C06278B47A80052F7E7 /* ResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseModel.swift; sourceTree = "<group>"; };
 		CE4A6C08278B4A3C0052F7E7 /* NetworkConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkConfig.swift; sourceTree = "<group>"; };
+		CE58817C27EC856D0068D4E0 /* AttendanceTimeline+Stub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AttendanceTimeline+Stub.swift"; sourceTree = "<group>"; };
+		CE58817E27EC85A00068D4E0 /* PartialAttendance+Stub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PartialAttendance+Stub.swift"; sourceTree = "<group>"; };
+		CE58818027EC94120068D4E0 /* Seminar+Stub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Seminar+Stub.swift"; sourceTree = "<group>"; };
+		CE58818227EC97140068D4E0 /* QRSeminarCardViewModel+Stub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "QRSeminarCardViewModel+Stub.swift"; sourceTree = "<group>"; };
+		CE58818427EC98540068D4E0 /* AttendanceTimelineViewModel+Stub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AttendanceTimelineViewModel+Stub.swift"; sourceTree = "<group>"; };
+		CE58818627EC98670068D4E0 /* PartialAttendanceViewModel+Stub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PartialAttendanceViewModel+Stub.swift"; sourceTree = "<group>"; };
+		CE58818827EC9BAC0068D4E0 /* QRScanFormatterSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRScanFormatterSpec.swift; sourceTree = "<group>"; };
+		CE58818A27ECB2E60068D4E0 /* AttendanceTimelineSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttendanceTimelineSpec.swift; sourceTree = "<group>"; };
 		CE63DD8127D72F420037F7F8 /* Optional+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Optional+.swift"; sourceTree = "<group>"; };
 		CE6EE80F27C7B28C005BF412 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		CE6EE81127C7B293005BF412 /* SignInReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInReactor.swift; sourceTree = "<group>"; };
@@ -189,6 +227,19 @@
 		CE6EE88F27CAD109005BF412 /* TimeZone+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TimeZone+.swift"; sourceTree = "<group>"; };
 		CE6EE89127CAD117005BF412 /* Locale+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Locale+.swift"; sourceTree = "<group>"; };
 		CE6EE89427CB049C005BF412 /* QRCodeFinderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRCodeFinderView.swift; sourceTree = "<group>"; };
+		CE729A7927E56B7F001D33D1 /* TimeInterval+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TimeInterval+.swift"; sourceTree = "<group>"; };
+		CE729A7C27E577B7001D33D1 /* TimerService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimerService.swift; sourceTree = "<group>"; };
+		CE729A7E27E57D0D001D33D1 /* AttendanceTimelineRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttendanceTimelineRepository.swift; sourceTree = "<group>"; };
+		CE729A8027E57EC1001D33D1 /* AttendanceTimeline.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttendanceTimeline.swift; sourceTree = "<group>"; };
+		CE729A8227E57FCD001D33D1 /* FakeAttendanceTimelineRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeAttendanceTimelineRepository.swift; sourceTree = "<group>"; };
+		CE729A8427E5C1F9001D33D1 /* AttendanceTimelineView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttendanceTimelineView.swift; sourceTree = "<group>"; };
+		CE729A8627E5C31A001D33D1 /* PartialAttendance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartialAttendance.swift; sourceTree = "<group>"; };
+		CE729A8827E5C7F1001D33D1 /* SeminarPhase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeminarPhase.swift; sourceTree = "<group>"; };
+		CE729A8A27E60D49001D33D1 /* SeminarSchedulerFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeminarSchedulerFormatter.swift; sourceTree = "<group>"; };
+		CE729A8C27E60FD2001D33D1 /* QRScanFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRScanFormatter.swift; sourceTree = "<group>"; };
+		CE729A8E27E61766001D33D1 /* PartialAttendanceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartialAttendanceView.swift; sourceTree = "<group>"; };
+		CE88D32727E5522B00865C02 /* QRSeminarCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRSeminarCardView.swift; sourceTree = "<group>"; };
+		CE88D32927E565C400865C02 /* UIButton+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+.swift"; sourceTree = "<group>"; };
 		CE9E735C27C294E800922D8B /* QRScanReactorSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QRScanReactorSpec.swift; sourceTree = "<group>"; };
 		CE9E736627C29F4700922D8B /* MashUp_iOSTests-Mock.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MashUp_iOSTests-Mock.generated.swift"; sourceTree = "<group>"; };
 		CEB60F4227A9713B001260DB /* TestAppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestAppDelegate.swift; sourceTree = "<group>"; };
@@ -254,6 +305,31 @@
 				062A960927E9CDB300E8E715 /* RxBlocking+.swift */,
 			);
 			path = TestHelper;
+        sourceTree = "<group>";
+		};
+		CE12DA5927E62A7100F08629 /* Fake(deprecated) */ = {
+			isa = PBXGroup;
+			children = (
+				CEB60F8327A9C602001260DB /* FakeAttendanceService.swift */,
+				CE729A8227E57FCD001D33D1 /* FakeAttendanceTimelineRepository.swift */,
+			);
+			path = "Fake(deprecated)";
+			sourceTree = "<group>";
+		};
+		CE12DA5A27E62A8100F08629 /* Fake(deprecated) */ = {
+			isa = PBXGroup;
+			children = (
+				CE14D2CA27CFBB1100685CFF /* FakeSeminarRepository.swift */,
+			);
+			path = "Fake(deprecated)";
+			sourceTree = "<group>";
+		};
+		CE12DA5B27E62A8900F08629 /* Fake(deprecated) */ = {
+			isa = PBXGroup;
+			children = (
+				CE6EE82827C7D655005BF412 /* FakeUserSessionRepository.swift */,
+			);
+			path = "Fake(deprecated)";
 			sourceTree = "<group>";
 		};
 		06839F042833E60800D88426 /* InteractiveTextField */ = {
@@ -348,8 +424,8 @@
 		CE3960B5278B3DC30073AEF4 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
-				CE39608A278B3CB60073AEF4 /* LaunchScreen.storyboard */,
 				CE396088278B3CB60073AEF4 /* Assets.xcassets */,
+				CE39608A278B3CB60073AEF4 /* LaunchScreen.storyboard */,
 			);
 			path = Resource;
 			sourceTree = "<group>";
@@ -434,10 +510,10 @@
 		CE6EE82127C7BF6A005BF412 /* Auth */ = {
 			isa = PBXGroup;
 			children = (
-				CE6EE82827C7D655005BF412 /* FakeUserSessionRepository.swift */,
 				CE6EE82627C7C0A1005BF412 /* NewAccount.swift */,
 				CE6EE82227C7BF79005BF412 /* UserSession.swift */,
 				CE6EE82427C7BF91005BF412 /* UserSessionRepository.swift */,
+				CE12DA5B27E62A8900F08629 /* Fake(deprecated) */,
 			);
 			path = Auth;
 			sourceTree = "<group>";
@@ -484,6 +560,7 @@
 			children = (
 				CE6EE86527CA495F005BF412 /* SeminarSchduleStep.swift */,
 				CE6EE85927CA40C5005BF412 /* SeminarScheduleReactor.swift */,
+				CE729A8A27E60D49001D33D1 /* SeminarSchedulerFormatter.swift */,
 				CE6EE85E27CA45EF005BF412 /* SeminarScheduleSection.swift */,
 				CE6EE84B27C80C92005BF412 /* SeminarScheduleViewController.swift */,
 				CE6EE86F27CA7350005BF412 /* View */,
@@ -494,9 +571,10 @@
 		CE6EE85B27CA4128005BF412 /* Seminar */ = {
 			isa = PBXGroup;
 			children = (
-				CE14D2CA27CFBB1100685CFF /* FakeSeminarRepository.swift */,
 				CE6EE85C27CA4136005BF412 /* Seminar.swift */,
+				CE729A8827E5C7F1001D33D1 /* SeminarPhase.swift */,
 				CE6EE88927CAA287005BF412 /* SeminarRepository.swift */,
+				CE12DA5A27E62A8100F08629 /* Fake(deprecated) */,
 			);
 			path = Seminar;
 			sourceTree = "<group>";
@@ -514,6 +592,12 @@
 		CE6EE86C27CA62F0005BF412 /* TestDoubles */ = {
 			isa = PBXGroup;
 			children = (
+				CE58817C27EC856D0068D4E0 /* AttendanceTimeline+Stub.swift */,
+				CE58818427EC98540068D4E0 /* AttendanceTimelineViewModel+Stub.swift */,
+				CE58817E27EC85A00068D4E0 /* PartialAttendance+Stub.swift */,
+				CE58818627EC98670068D4E0 /* PartialAttendanceViewModel+Stub.swift */,
+				CE58818227EC97140068D4E0 /* QRSeminarCardViewModel+Stub.swift */,
+				CE58818027EC94120068D4E0 /* Seminar+Stub.swift */,
 				CE6EE86D27CA6302005BF412 /* UserSession+Stub.swift */,
 			);
 			path = TestDoubles;
@@ -541,10 +625,11 @@
 		CE6EE87B27CA8E29005BF412 /* UIKit+ */ = {
 			isa = PBXGroup;
 			children = (
+				CE14D26A27CC8A4400685CFF /* NSCollectionLayoutSectionFactory.swift */,
 				CE6EE87C27CA8E45005BF412 /* Reusable.swift */,
+				CE88D32927E565C400865C02 /* UIButton+.swift */,
 				CE6EE87F27CA8EFE005BF412 /* UICollectionView+.swift */,
 				CE6EE88127CA8F08005BF412 /* UITableView+.swift */,
-				CE14D26A27CC8A4400685CFF /* NSCollectionLayoutSectionFactory.swift */,
 			);
 			path = "UIKit+";
 			sourceTree = "<group>";
@@ -558,6 +643,7 @@
 				CE6EE89127CAD117005BF412 /* Locale+.swift */,
 				CE63DD8127D72F420037F7F8 /* Optional+.swift */,
 				CE6EE81327C7B541005BF412 /* String+.swift */,
+				CE729A7927E56B7F001D33D1 /* TimeInterval+.swift */,
 				CE6EE88F27CAD109005BF412 /* TimeZone+.swift */,
 			);
 			path = "Foundation+";
@@ -566,15 +652,31 @@
 		CE6EE89327CB0483005BF412 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				CE729A8427E5C1F9001D33D1 /* AttendanceTimelineView.swift */,
+				CE12DA5327E629AE00F08629 /* AttendanceTimelineViewModel.swift */,
+				CE729A8E27E61766001D33D1 /* PartialAttendanceView.swift */,
+				CE12DA5527E629D700F08629 /* PartialAttendanceViewModel.swift */,
 				CE6EE89427CB049C005BF412 /* QRCodeFinderView.swift */,
+				CE88D32727E5522B00865C02 /* QRSeminarCardView.swift */,
+				CE12DA5727E629FE00F08629 /* QRSeminarCardViewModel.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		CE729A7B27E577AB001D33D1 /* Timer */ = {
+			isa = PBXGroup;
+			children = (
+				CE729A7C27E577B7001D33D1 /* TimerService.swift */,
+			);
+			path = Timer;
 			sourceTree = "<group>";
 		};
 		CE9E735B27C294E800922D8B /* Specs */ = {
 			isa = PBXGroup;
 			children = (
+				CE58818A27ECB2E60068D4E0 /* AttendanceTimelineSpec.swift */,
 				CE6EE85527CA38EF005BF412 /* HomeReactorSpec.swift */,
+				CE58818827EC9BAC0068D4E0 /* QRScanFormatterSpec.swift */,
 				CE9E735C27C294E800922D8B /* QRScanReactorSpec.swift */,
 				CE6EE84F27CA1DBD005BF412 /* RootReactorSpec.swift */,
 				CE6EE85127CA26A6005BF412 /* SignInReactorSpec.swift */,
@@ -595,6 +697,7 @@
 		CEB60F4927A9759C001260DB /* QR Scan */ = {
 			isa = PBXGroup;
 			children = (
+				CE729A8C27E60FD2001D33D1 /* QRScanFormatter.swift */,
 				CEB60F7327A9BDF4001260DB /* QRScanReactor.swift */,
 				CEB60F4A27A975AD001260DB /* QRScanViewController.swift */,
 				CE6EE89327CB0483005BF412 /* View */,
@@ -622,11 +725,12 @@
 		CEB60F8027A9C5DC001260DB /* Domain */ = {
 			isa = PBXGroup;
 			children = (
-				CE6EE85B27CA4128005BF412 /* Seminar */,
-				CE6EE82127C7BF6A005BF412 /* Auth */,
-				CE6EE81B27C7BCF0005BF412 /* Team */,
 				CEB60F8227A9C5EA001260DB /* Attendance */,
+				CE6EE82127C7BF6A005BF412 /* Auth */,
 				CEB60F8127A9C5E1001260DB /* QR */,
+				CE6EE85B27CA4128005BF412 /* Seminar */,
+				CE6EE81B27C7BCF0005BF412 /* Team */,
+				CE729A7B27E577AB001D33D1 /* Timer */,
 			);
 			path = Domain;
 			sourceTree = "<group>";
@@ -643,9 +747,12 @@
 			isa = PBXGroup;
 			children = (
 				0618444327E30259004980CC /* AttendanceMember.swift */,
+				CE729A8627E5C31A001D33D1 /* PartialAttendance.swift */,
 				CEB60F7E27A9C536001260DB /* AttendanceService.swift */,
 				CE6EE87227CA7482005BF412 /* AttendanceStatus.swift */,
-				CEB60F8327A9C602001260DB /* FakeAttendanceService.swift */,
+				CE729A8027E57EC1001D33D1 /* AttendanceTimeline.swift */,
+				CE729A7E27E57D0D001D33D1 /* AttendanceTimelineRepository.swift */,
+				CE12DA5927E62A7100F08629 /* Fake(deprecated) */,
 			);
 			path = Attendance;
 			sourceTree = "<group>";
@@ -821,13 +928,16 @@
 				CE6EE84327C7F933005BF412 /* Logger.swift in Sources */,
 				CE6EE81227C7B293005BF412 /* SignInReactor.swift in Sources */,
 				CEB60F7F27A9C536001260DB /* AttendanceService.swift in Sources */,
+				CE729A7D27E577B7001D33D1 /* TimerService.swift in Sources */,
 				CE4A6C07278B47A80052F7E7 /* ResponseModel.swift in Sources */,
 				CE6EE83A27C7E2DE005BF412 /* SplashViewController.swift in Sources */,
 				CE63DD8227D72F420037F7F8 /* Optional+.swift in Sources */,
 				CEB60F4527A97163001260DB /* main.swift in Sources */,
+				CE12DA5627E629D700F08629 /* PartialAttendanceViewModel.swift in Sources */,
 				CE6EE83F27C7EFF9005BF412 /* HomeReactor.swift in Sources */,
 				CE6EE87327CA7482005BF412 /* AttendanceStatus.swift in Sources */,
 				CE6EE88C27CAA3C9005BF412 /* Date+.swift in Sources */,
+				CE729A8B27E60D49001D33D1 /* SeminarSchedulerFormatter.swift in Sources */,
 				CEB60F4B27A975AD001260DB /* QRScanViewController.swift in Sources */,
 				CE6EE88627CA91ED005BF412 /* SeminarHeaderView.swift in Sources */,
 				CE6EE83227C7D948005BF412 /* RootStep.swift in Sources */,
@@ -838,8 +948,12 @@
 				06839F0128325A0C00D88426 /* InteractiveTextField.swift in Sources */,
 				CE6EE83027C7D931005BF412 /* SignInStep.swift in Sources */,
 				CE6EE82027C7BEC2005BF412 /* BaseViewController.swift in Sources */,
+				CE729A8527E5C1F9001D33D1 /* AttendanceTimelineView.swift in Sources */,
 				CE6EE81D27C7BCF7005BF412 /* PlatformTeam.swift in Sources */,
+				CE729A7F27E57D0D001D33D1 /* AttendanceTimelineRepository.swift in Sources */,
+				CE729A8727E5C31A001D33D1 /* PartialAttendance.swift in Sources */,
 				CE6EE84C27C80C92005BF412 /* SeminarScheduleViewController.swift in Sources */,
+				CE88D32A27E565C400865C02 /* UIButton+.swift in Sources */,
 				CE6EE85427CA2F6B005BF412 /* Error+.swift in Sources */,
 				0618444427E30259004980CC /* AttendanceMember.swift in Sources */,
 				CE6EE81427C7B541005BF412 /* String+.swift in Sources */,
@@ -847,12 +961,18 @@
 				CE6EE88227CA8F08005BF412 /* UITableView+.swift in Sources */,
 				CE6EE88A27CAA288005BF412 /* SeminarRepository.swift in Sources */,
 				CE6EE82727C7C0A1005BF412 /* NewAccount.swift in Sources */,
+				CE729A8927E5C7F1001D33D1 /* SeminarPhase.swift in Sources */,
 				CEB60F8427A9C602001260DB /* FakeAttendanceService.swift in Sources */,
 				CE6EE87D27CA8E45005BF412 /* Reusable.swift in Sources */,
+<<<<<<< HEAD
 				06839F062833E62E00D88426 /* InteractiveTextFieldTheme.swift in Sources */,
+=======
+				CE12DA5427E629AE00F08629 /* AttendanceTimelineViewModel.swift in Sources */,
+>>>>>>> 38e3826da738bcafc20830f202a6d5798e86cbd8
 				CEB60F7627A9BE67001260DB /* UIViewContorller+Rx.swift in Sources */,
 				CE396080278B3CB40073AEF4 /* AppDelegate.swift in Sources */,
 				CE6EE89527CB049C005BF412 /* QRCodeFinderView.swift in Sources */,
+				CE88D32827E5522B00865C02 /* QRSeminarCardView.swift in Sources */,
 				CE14D2CB27CFBB1200685CFF /* FakeSeminarRepository.swift in Sources */,
 				CE6EE84127C7F130005BF412 /* HomeTab.swift in Sources */,
 				CE6EE88827CA9225005BF412 /* BaseView.swift in Sources */,
@@ -862,26 +982,32 @@
 				0618444627E30642004980CC /* PlatformCellModel.swift in Sources */,
 				CE6EE88427CA9141005BF412 /* BaseTableViewCell.swift in Sources */,
 				CE6EE85D27CA4136005BF412 /* Seminar.swift in Sources */,
+				CE12DA5827E629FE00F08629 /* QRSeminarCardViewModel.swift in Sources */,
 				CE6EE87827CA858B005BF412 /* PaddingLabel.swift in Sources */,
 				CE6EE83D27C7EFB9005BF412 /* HomeTabBarController.swift in Sources */,
 				CE6EE87127CA73B7005BF412 /* SeminarCardCell.swift in Sources */,
+				CE729A7A27E56B7F001D33D1 /* TimeInterval+.swift in Sources */,
 				CE6EE89027CAD109005BF412 /* TimeZone+.swift in Sources */,
 				CE4A6C05278B47040052F7E7 /* HTTPClient.swift in Sources */,
 				CE6EE87A27CA89F3005BF412 /* SeminarCardCellModel.swift in Sources */,
 				CE3960E4278B45A00073AEF4 /* MashUpAPI.swift in Sources */,
 				CE6EE88027CA8EFE005BF412 /* UICollectionView+.swift in Sources */,
+				CE729A8327E57FCD001D33D1 /* FakeAttendanceTimelineRepository.swift in Sources */,
 				CE6EE85827CA3AC6005BF412 /* Collection+.swift in Sources */,
 				CE6EE82327C7BF79005BF412 /* UserSession.swift in Sources */,
 				CE6EE85F27CA45EF005BF412 /* SeminarScheduleSection.swift in Sources */,
+				CE729A8F27E61766001D33D1 /* PartialAttendanceView.swift in Sources */,
 				CE6EE85A27CA40C5005BF412 /* SeminarScheduleReactor.swift in Sources */,
 				CE6EE83827C7E2D5005BF412 /* SplashReactor.swift in Sources */,
 				CE6EE84E27C80C9B005BF412 /* MyPageViewController.swift in Sources */,
 				CE6EE87527CA820B005BF412 /* BaseCollectionViewCell.swift in Sources */,
 				CE6EE82927C7D655005BF412 /* FakeUserSessionRepository.swift in Sources */,
 				CE6EE86927CA5609005BF412 /* SeminarDetailViewController.swift in Sources */,
+				CE729A8127E57EC1001D33D1 /* AttendanceTimeline.swift in Sources */,
 				CE6EE86627CA495F005BF412 /* SeminarSchduleStep.swift in Sources */,
 				CE4A6C09278B4A3C0052F7E7 /* NetworkConfig.swift in Sources */,
 				CEB60F4827A9746E001260DB /* QRReaderService.swift in Sources */,
+				CE729A8D27E60FD2001D33D1 /* QRScanFormatter.swift in Sources */,
 				CE6EE82527C7BF91005BF412 /* UserSessionRepository.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -894,12 +1020,20 @@
 				CE6EE85627CA38EF005BF412 /* HomeReactorSpec.swift in Sources */,
 				CE6EE86B27CA60B6005BF412 /* SplashReactorSpec.swift in Sources */,
 				CE6EE85227CA26A6005BF412 /* SignInReactorSpec.swift in Sources */,
+				CE58818327EC97140068D4E0 /* QRSeminarCardViewModel+Stub.swift in Sources */,
 				CEB60F4327A9713B001260DB /* TestAppDelegate.swift in Sources */,
 				CE9E735D27C294E800922D8B /* QRScanReactorSpec.swift in Sources */,
 				CE6EE86E27CA6302005BF412 /* UserSession+Stub.swift in Sources */,
+				CE58818927EC9BAC0068D4E0 /* QRScanFormatterSpec.swift in Sources */,
+				CE58817F27EC85A00068D4E0 /* PartialAttendance+Stub.swift in Sources */,
+				CE58818B27ECB2E60068D4E0 /* AttendanceTimelineSpec.swift in Sources */,
+				CE58818527EC98540068D4E0 /* AttendanceTimelineViewModel+Stub.swift in Sources */,
 				062A960727E99BE400E8E715 /* SeminarDetailReactorSpec.swift in Sources */,
 				CE9E736727C29F4700922D8B /* MashUp_iOSTests-Mock.generated.swift in Sources */,
 				CE6EE85027CA1DBD005BF412 /* RootReactorSpec.swift in Sources */,
+				CE58817D27EC856D0068D4E0 /* AttendanceTimeline+Stub.swift in Sources */,
+				CE58818127EC94120068D4E0 /* Seminar+Stub.swift in Sources */,
+				CE58818727EC98670068D4E0 /* PartialAttendanceViewModel+Stub.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
