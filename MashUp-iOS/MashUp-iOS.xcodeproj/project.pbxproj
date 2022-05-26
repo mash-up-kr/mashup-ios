@@ -411,9 +411,9 @@
 		CE3960B1278B3D850073AEF4 /* Screen */ = {
 			isa = PBXGroup;
 			children = (
-				06531C16283F58F100E225EB /* PlatformAttendanceStatus */,
 				CE6EE83B27C7EFA6005BF412 /* Home */,
 				CE6EE84627C80C66005BF412 /* My Page */,
+				06531C16283F58F100E225EB /* PlatformAttendanceStatus */,
 				CEB60F4927A9759C001260DB /* QR Scan */,
 				CE6EE82A27C7D8E8005BF412 /* Root */,
 				CE6EE86727CA55FB005BF412 /* Seminar Detail */,
