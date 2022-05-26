@@ -26,7 +26,7 @@ final class PlatformAttendanceStatusReactor: Reactor {
     }
     
     let initialState: State
-    let platformService: PlatformService
+    private let platformService: any PlatformService
     
     init(platformService: PlatformService) {
         initialState = State()

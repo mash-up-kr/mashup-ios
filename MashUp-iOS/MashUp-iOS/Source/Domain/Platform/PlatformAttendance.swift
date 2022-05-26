@@ -8,9 +8,9 @@
 
 import Foundation
 
-struct PlatformAttendance {
+struct PlatformAttendance: Equatable {
     let platform: PlatformTeam
-    let attendNumber: Int
-    let latenessNumber: Int
-    let absenceNumber: Int
+    let numberOfAttend: Int
+    let numberOfLateness: Int
+    let numberOfAbsence: Int
 }

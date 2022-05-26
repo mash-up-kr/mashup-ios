@@ -49,7 +49,7 @@ final class PlatformAttendanceStatusReactorSpec: QuickSpec {
           verify(platformService.attendanceStatus()).wasCalled()
         }
         it("플랫폼 리스트 가져옴") {
-          expect { sut.currentState.platformsAttendance.count }.toNot(equal(0))
+          expect { sut.currentState.platformsAttendance }.to(equal(PlatformAttendanceStatusReactorSpec.platformDummy))
         }
       }
     }
