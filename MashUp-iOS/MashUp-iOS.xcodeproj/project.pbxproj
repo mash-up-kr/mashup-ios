@@ -12,6 +12,8 @@
 		0618444627E30642004980CC /* PlatformCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0618444527E30642004980CC /* PlatformCellModel.swift */; };
 		062A960727E99BE400E8E715 /* SeminarDetailReactorSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 062A960627E99BE300E8E715 /* SeminarDetailReactorSpec.swift */; };
 		062A960A27E9CDB300E8E715 /* RxBlocking+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 062A960927E9CDB300E8E715 /* RxBlocking+.swift */; };
+		06531C18283F59FF00E225EB /* PlatformAttendanceStatusReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06531C17283F59FF00E225EB /* PlatformAttendanceStatusReactor.swift */; };
+		06531C1A283F5D5E00E225EB /* PlatformAttendance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06531C19283F5D5E00E225EB /* PlatformAttendance.swift */; };
 		06839F0128325A0C00D88426 /* InteractiveTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06839F0028325A0C00D88426 /* InteractiveTextField.swift */; };
 		06839F062833E62E00D88426 /* InteractiveTextFieldTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06839F052833E62E00D88426 /* InteractiveTextFieldTheme.swift */; };
 		CE12DA5427E629AE00F08629 /* AttendanceTimelineViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE12DA5327E629AE00F08629 /* AttendanceTimelineViewModel.swift */; };
@@ -147,6 +149,8 @@
 		0618444527E30642004980CC /* PlatformCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlatformCellModel.swift; sourceTree = "<group>"; };
 		062A960627E99BE300E8E715 /* SeminarDetailReactorSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeminarDetailReactorSpec.swift; sourceTree = "<group>"; };
 		062A960927E9CDB300E8E715 /* RxBlocking+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RxBlocking+.swift"; sourceTree = "<group>"; };
+		06531C17283F59FF00E225EB /* PlatformAttendanceStatusReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlatformAttendanceStatusReactor.swift; sourceTree = "<group>"; };
+		06531C19283F5D5E00E225EB /* PlatformAttendance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlatformAttendance.swift; sourceTree = "<group>"; };
 		06839F0028325A0C00D88426 /* InteractiveTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InteractiveTextField.swift; sourceTree = "<group>"; };
 		06839F052833E62E00D88426 /* InteractiveTextFieldTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InteractiveTextFieldTheme.swift; sourceTree = "<group>"; };
 		CE12DA5327E629AE00F08629 /* AttendanceTimelineViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttendanceTimelineViewModel.swift; sourceTree = "<group>"; };
@@ -302,7 +306,24 @@
 				062A960927E9CDB300E8E715 /* RxBlocking+.swift */,
 			);
 			path = TestHelper;
-        sourceTree = "<group>";
+			sourceTree = "<group>";
+		};
+		06531C16283F58F100E225EB /* PlatformAttendanceStatus */ = {
+			isa = PBXGroup;
+			children = (
+				06531C17283F59FF00E225EB /* PlatformAttendanceStatusReactor.swift */,
+			);
+			path = PlatformAttendanceStatus;
+			sourceTree = "<group>";
+		};
+		06839F042833E60800D88426 /* InteractiveTextField */ = {
+			isa = PBXGroup;
+			children = (
+				06839F0028325A0C00D88426 /* InteractiveTextField.swift */,
+				06839F052833E62E00D88426 /* InteractiveTextFieldTheme.swift */,
+			);
+			path = InteractiveTextField;
+			sourceTree = "<group>";
 		};
 		CE12DA5927E62A7100F08629 /* Fake(deprecated) */ = {
 			isa = PBXGroup;
@@ -327,15 +348,6 @@
 				CE6EE82827C7D655005BF412 /* FakeUserSessionRepository.swift */,
 			);
 			path = "Fake(deprecated)";
-			sourceTree = "<group>";
-		};
-		06839F042833E60800D88426 /* InteractiveTextField */ = {
-			isa = PBXGroup;
-			children = (
-				06839F0028325A0C00D88426 /* InteractiveTextField.swift */,
-				06839F052833E62E00D88426 /* InteractiveTextFieldTheme.swift */,
-			);
-			path = InteractiveTextField;
 			sourceTree = "<group>";
 		};
 		CE396073278B3CB40073AEF4 = {
@@ -393,6 +405,7 @@
 		CE3960B1278B3D850073AEF4 /* Screen */ = {
 			isa = PBXGroup;
 			children = (
+				06531C16283F58F100E225EB /* PlatformAttendanceStatus */,
 				CE6EE83B27C7EFA6005BF412 /* Home */,
 				CE6EE84627C80C66005BF412 /* My Page */,
 				CEB60F4927A9759C001260DB /* QR Scan */,
@@ -484,12 +497,13 @@
 			path = "Sign In";
 			sourceTree = "<group>";
 		};
-		CE6EE81B27C7BCF0005BF412 /* Team */ = {
+		CE6EE81B27C7BCF0005BF412 /* Platform */ = {
 			isa = PBXGroup;
 			children = (
 				CE6EE81C27C7BCF6005BF412 /* PlatformTeam.swift */,
+				06531C19283F5D5E00E225EB /* PlatformAttendance.swift */,
 			);
-			path = Team;
+			path = Platform;
 			sourceTree = "<group>";
 		};
 		CE6EE81E27C7BEB6005BF412 /* Base */ = {
@@ -726,7 +740,7 @@
 				CE6EE82127C7BF6A005BF412 /* Auth */,
 				CEB60F8127A9C5E1001260DB /* QR */,
 				CE6EE85B27CA4128005BF412 /* Seminar */,
-				CE6EE81B27C7BCF0005BF412 /* Team */,
+				CE6EE81B27C7BCF0005BF412 /* Platform */,
 				CE729A7B27E577AB001D33D1 /* Timer */,
 			);
 			path = Domain;
@@ -932,6 +946,7 @@
 				CEB60F4527A97163001260DB /* main.swift in Sources */,
 				CE12DA5627E629D700F08629 /* PartialAttendanceViewModel.swift in Sources */,
 				CE6EE83F27C7EFF9005BF412 /* HomeReactor.swift in Sources */,
+				06531C1A283F5D5E00E225EB /* PlatformAttendance.swift in Sources */,
 				CE6EE87327CA7482005BF412 /* AttendanceStatus.swift in Sources */,
 				CE6EE88C27CAA3C9005BF412 /* Date+.swift in Sources */,
 				CE729A8B27E60D49001D33D1 /* SeminarSchedulerFormatter.swift in Sources */,
@@ -956,6 +971,7 @@
 				CE6EE81427C7B541005BF412 /* String+.swift in Sources */,
 				CE14D26D27CCBF1500685CFF /* Observable+Main.swift in Sources */,
 				CE6EE88227CA8F08005BF412 /* UITableView+.swift in Sources */,
+				06531C18283F59FF00E225EB /* PlatformAttendanceStatusReactor.swift in Sources */,
 				CE6EE88A27CAA288005BF412 /* SeminarRepository.swift in Sources */,
 				CE6EE82727C7C0A1005BF412 /* NewAccount.swift in Sources */,
 				CE729A8927E5C7F1001D33D1 /* SeminarPhase.swift in Sources */,
