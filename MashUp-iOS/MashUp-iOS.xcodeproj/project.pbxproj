@@ -17,6 +17,11 @@
 		06531C1C283F5E2200E225EB /* PlatformAttendanceStatusReactorSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06531C1B283F5E2200E225EB /* PlatformAttendanceStatusReactorSpec.swift */; };
 		06531C1E283F6B1600E225EB /* PlatformRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06531C1D283F6B1600E225EB /* PlatformRepository.swift */; };
 		06531C20283F737100E225EB /* PlatformService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06531C1F283F737100E225EB /* PlatformService.swift */; };
+		06531C302840C39600E225EB /* Pretendard-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 06531C2C2840C39500E225EB /* Pretendard-Medium.otf */; };
+		06531C312840C39600E225EB /* Pretendard-SemiBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 06531C2D2840C39600E225EB /* Pretendard-SemiBold.otf */; };
+		06531C322840C39600E225EB /* Pretendard-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 06531C2E2840C39600E225EB /* Pretendard-Regular.otf */; };
+		06531C332840C39600E225EB /* Pretendard-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 06531C2F2840C39600E225EB /* Pretendard-Bold.otf */; };
+		06531C362840C43700E225EB /* UIFont+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06531C352840C43700E225EB /* UIFont+.swift */; };
 		06839F0128325A0C00D88426 /* InteractiveTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06839F0028325A0C00D88426 /* InteractiveTextField.swift */; };
 		06839F062833E62E00D88426 /* InteractiveTextFieldTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06839F052833E62E00D88426 /* InteractiveTextFieldTheme.swift */; };
 		CE12DA5427E629AE00F08629 /* AttendanceTimelineViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE12DA5327E629AE00F08629 /* AttendanceTimelineViewModel.swift */; };
@@ -157,6 +162,11 @@
 		06531C1B283F5E2200E225EB /* PlatformAttendanceStatusReactorSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlatformAttendanceStatusReactorSpec.swift; sourceTree = "<group>"; };
 		06531C1D283F6B1600E225EB /* PlatformRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlatformRepository.swift; sourceTree = "<group>"; };
 		06531C1F283F737100E225EB /* PlatformService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlatformService.swift; sourceTree = "<group>"; };
+		06531C2C2840C39500E225EB /* Pretendard-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Medium.otf"; sourceTree = "<group>"; };
+		06531C2D2840C39600E225EB /* Pretendard-SemiBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-SemiBold.otf"; sourceTree = "<group>"; };
+		06531C2E2840C39600E225EB /* Pretendard-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Regular.otf"; sourceTree = "<group>"; };
+		06531C2F2840C39600E225EB /* Pretendard-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Bold.otf"; sourceTree = "<group>"; };
+		06531C352840C43700E225EB /* UIFont+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+.swift"; sourceTree = "<group>"; };
 		06839F0028325A0C00D88426 /* InteractiveTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InteractiveTextField.swift; sourceTree = "<group>"; };
 		06839F052833E62E00D88426 /* InteractiveTextFieldTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InteractiveTextFieldTheme.swift; sourceTree = "<group>"; };
 		CE12DA5327E629AE00F08629 /* AttendanceTimelineViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttendanceTimelineViewModel.swift; sourceTree = "<group>"; };
@@ -322,6 +332,17 @@
 			path = PlatformAttendanceStatus;
 			sourceTree = "<group>";
 		};
+		06531C342840C39800E225EB /* Font */ = {
+			isa = PBXGroup;
+			children = (
+				06531C2F2840C39600E225EB /* Pretendard-Bold.otf */,
+				06531C2C2840C39500E225EB /* Pretendard-Medium.otf */,
+				06531C2E2840C39600E225EB /* Pretendard-Regular.otf */,
+				06531C2D2840C39600E225EB /* Pretendard-SemiBold.otf */,
+			);
+			path = Font;
+			sourceTree = "<group>";
+		};
 		06839F042833E60800D88426 /* InteractiveTextField */ = {
 			isa = PBXGroup;
 			children = (
@@ -441,6 +462,7 @@
 			isa = PBXGroup;
 			children = (
 				CE396088278B3CB60073AEF4 /* Assets.xcassets */,
+				06531C342840C39800E225EB /* Font */,
 				CE39608A278B3CB60073AEF4 /* LaunchScreen.storyboard */,
 			);
 			path = Resource;
@@ -649,6 +671,7 @@
 				CE88D32927E565C400865C02 /* UIButton+.swift */,
 				CE6EE87F27CA8EFE005BF412 /* UICollectionView+.swift */,
 				CE6EE88127CA8F08005BF412 /* UITableView+.swift */,
+				06531C352840C43700E225EB /* UIFont+.swift */,
 			);
 			path = "UIKit+";
 			sourceTree = "<group>";
@@ -903,7 +926,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				CE39608C278B3CB60073AEF4 /* LaunchScreen.storyboard in Resources */,
+				06531C332840C39600E225EB /* Pretendard-Bold.otf in Resources */,
 				CE396089278B3CB60073AEF4 /* Assets.xcassets in Resources */,
+				06531C322840C39600E225EB /* Pretendard-Regular.otf in Resources */,
+				06531C302840C39600E225EB /* Pretendard-Medium.otf in Resources */,
+				06531C312840C39600E225EB /* Pretendard-SemiBold.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -990,6 +1017,7 @@
 				CE6EE87D27CA8E45005BF412 /* Reusable.swift in Sources */,
 				06839F062833E62E00D88426 /* InteractiveTextFieldTheme.swift in Sources */,
 				CE12DA5427E629AE00F08629 /* AttendanceTimelineViewModel.swift in Sources */,
+				06531C362840C43700E225EB /* UIFont+.swift in Sources */,
 				CEB60F7627A9BE67001260DB /* UIViewContorller+Rx.swift in Sources */,
 				CE396080278B3CB40073AEF4 /* AppDelegate.swift in Sources */,
 				CE6EE89527CB049C005BF412 /* QRCodeFinderView.swift in Sources */,
