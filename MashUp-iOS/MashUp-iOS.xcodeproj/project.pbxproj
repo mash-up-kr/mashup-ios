@@ -22,6 +22,8 @@
 		06531C322840C39600E225EB /* Pretendard-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 06531C2E2840C39600E225EB /* Pretendard-Regular.otf */; };
 		06531C332840C39600E225EB /* Pretendard-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 06531C2F2840C39600E225EB /* Pretendard-Bold.otf */; };
 		06531C362840C43700E225EB /* UIFont+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06531C352840C43700E225EB /* UIFont+.swift */; };
+		06531C382840C7C500E225EB /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 06531C372840C7C500E225EB /* Colors.xcassets */; };
+		06531C3A2840C96000E225EB /* UIColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06531C392840C96000E225EB /* UIColor+.swift */; };
 		06839F0128325A0C00D88426 /* InteractiveTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06839F0028325A0C00D88426 /* InteractiveTextField.swift */; };
 		06839F062833E62E00D88426 /* InteractiveTextFieldTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06839F052833E62E00D88426 /* InteractiveTextFieldTheme.swift */; };
 		CE12DA5427E629AE00F08629 /* AttendanceTimelineViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE12DA5327E629AE00F08629 /* AttendanceTimelineViewModel.swift */; };
@@ -167,6 +169,8 @@
 		06531C2E2840C39600E225EB /* Pretendard-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Regular.otf"; sourceTree = "<group>"; };
 		06531C2F2840C39600E225EB /* Pretendard-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Bold.otf"; sourceTree = "<group>"; };
 		06531C352840C43700E225EB /* UIFont+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+.swift"; sourceTree = "<group>"; };
+		06531C372840C7C500E225EB /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
+		06531C392840C96000E225EB /* UIColor+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+.swift"; sourceTree = "<group>"; };
 		06839F0028325A0C00D88426 /* InteractiveTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InteractiveTextField.swift; sourceTree = "<group>"; };
 		06839F052833E62E00D88426 /* InteractiveTextFieldTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InteractiveTextFieldTheme.swift; sourceTree = "<group>"; };
 		CE12DA5327E629AE00F08629 /* AttendanceTimelineViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttendanceTimelineViewModel.swift; sourceTree = "<group>"; };
@@ -462,6 +466,7 @@
 			isa = PBXGroup;
 			children = (
 				CE396088278B3CB60073AEF4 /* Assets.xcassets */,
+				06531C372840C7C500E225EB /* Colors.xcassets */,
 				06531C342840C39800E225EB /* Font */,
 				CE39608A278B3CB60073AEF4 /* LaunchScreen.storyboard */,
 			);
@@ -672,6 +677,7 @@
 				CE6EE87F27CA8EFE005BF412 /* UICollectionView+.swift */,
 				CE6EE88127CA8F08005BF412 /* UITableView+.swift */,
 				06531C352840C43700E225EB /* UIFont+.swift */,
+				06531C392840C96000E225EB /* UIColor+.swift */,
 			);
 			path = "UIKit+";
 			sourceTree = "<group>";
@@ -931,6 +937,7 @@
 				06531C322840C39600E225EB /* Pretendard-Regular.otf in Resources */,
 				06531C302840C39600E225EB /* Pretendard-Medium.otf in Resources */,
 				06531C312840C39600E225EB /* Pretendard-SemiBold.otf in Resources */,
+				06531C382840C7C500E225EB /* Colors.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1052,6 +1059,7 @@
 				CE6EE87527CA820B005BF412 /* BaseCollectionViewCell.swift in Sources */,
 				CE6EE82927C7D655005BF412 /* FakeUserSessionRepository.swift in Sources */,
 				CE6EE86927CA5609005BF412 /* SeminarDetailViewController.swift in Sources */,
+				06531C3A2840C96000E225EB /* UIColor+.swift in Sources */,
 				CE729A8127E57EC1001D33D1 /* AttendanceTimeline.swift in Sources */,
 				CE6EE86627CA495F005BF412 /* SeminarSchduleStep.swift in Sources */,
 				CE4A6C09278B4A3C0052F7E7 /* NetworkConfig.swift in Sources */,
