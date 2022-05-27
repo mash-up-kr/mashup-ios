@@ -59,7 +59,7 @@ final class PlatformAttendanceStatusReactorSpec: QuickSpec {
 extension PlatformAttendanceStatusReactorSpec {
   fileprivate static let platformDummy: [PlatformAttendance]
   = [PlatformAttendance(platform: .iOS,
-                        attendNumber: 10,
-                        latenessNumber: 0,
-                        absenceNumber: 1)]
+                        numberOfAttend: 10,
+                        numberOfLateness: 0,
+                        numberOfAbsence: 1)]
 }
