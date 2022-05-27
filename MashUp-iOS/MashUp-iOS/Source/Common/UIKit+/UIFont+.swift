@@ -13,7 +13,7 @@ enum PretendardFontWeight {
 }
 
 extension UIFont {
-    func pretendardBold(weight: PretendardFontWeight, size: CGFloat) -> UIFont {
+    static func pretendardFont(weight: PretendardFontWeight, size: CGFloat) -> UIFont {
         switch weight {
         case .regular: return UIFont(name: "Pretendard-Regular", size: size)!
         case .medium: return UIFont(name: "Pretendard-Medium", size: size)!
