@@ -17,6 +17,10 @@
 		06531C1C283F5E2200E225EB /* PlatformAttendanceStatusReactorSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06531C1B283F5E2200E225EB /* PlatformAttendanceStatusReactorSpec.swift */; };
 		06531C1E283F6B1600E225EB /* PlatformRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06531C1D283F6B1600E225EB /* PlatformRepository.swift */; };
 		06531C20283F737100E225EB /* PlatformService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06531C1F283F737100E225EB /* PlatformService.swift */; };
+		06531C232840A02C00E225EB /* PlatformAttendanceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06531C222840A02C00E225EB /* PlatformAttendanceCell.swift */; };
+		06531C272840B4CF00E225EB /* PlatformStatusViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06531C262840B4CE00E225EB /* PlatformStatusViewController.swift */; };
+		06531C292840BF9800E225EB /* AttendanceStatusRectangleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06531C282840BF9800E225EB /* AttendanceStatusRectangleView.swift */; };
+		06531C2B2840BFAA00E225EB /* AttendanceStatusRectangleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06531C2A2840BFAA00E225EB /* AttendanceStatusRectangleViewModel.swift */; };
 		06839F0128325A0C00D88426 /* InteractiveTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06839F0028325A0C00D88426 /* InteractiveTextField.swift */; };
 		06839F062833E62E00D88426 /* InteractiveTextFieldTheme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06839F052833E62E00D88426 /* InteractiveTextFieldTheme.swift */; };
 		CE12DA5427E629AE00F08629 /* AttendanceTimelineViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE12DA5327E629AE00F08629 /* AttendanceTimelineViewModel.swift */; };
@@ -157,6 +161,10 @@
 		06531C1B283F5E2200E225EB /* PlatformAttendanceStatusReactorSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlatformAttendanceStatusReactorSpec.swift; sourceTree = "<group>"; };
 		06531C1D283F6B1600E225EB /* PlatformRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlatformRepository.swift; sourceTree = "<group>"; };
 		06531C1F283F737100E225EB /* PlatformService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlatformService.swift; sourceTree = "<group>"; };
+		06531C222840A02C00E225EB /* PlatformAttendanceCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlatformAttendanceCell.swift; sourceTree = "<group>"; };
+		06531C262840B4CE00E225EB /* PlatformStatusViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlatformStatusViewController.swift; sourceTree = "<group>"; };
+		06531C282840BF9800E225EB /* AttendanceStatusRectangleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttendanceStatusRectangleView.swift; sourceTree = "<group>"; };
+		06531C2A2840BFAA00E225EB /* AttendanceStatusRectangleViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttendanceStatusRectangleViewModel.swift; sourceTree = "<group>"; };
 		06839F0028325A0C00D88426 /* InteractiveTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InteractiveTextField.swift; sourceTree = "<group>"; };
 		06839F052833E62E00D88426 /* InteractiveTextFieldTheme.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InteractiveTextFieldTheme.swift; sourceTree = "<group>"; };
 		CE12DA5327E629AE00F08629 /* AttendanceTimelineViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttendanceTimelineViewModel.swift; sourceTree = "<group>"; };
@@ -318,8 +326,20 @@
 			isa = PBXGroup;
 			children = (
 				06531C17283F59FF00E225EB /* PlatformAttendanceStatusReactor.swift */,
+				06531C262840B4CE00E225EB /* PlatformStatusViewController.swift */,
+				06531C2128409F5F00E225EB /* View */,
 			);
 			path = PlatformAttendanceStatus;
+			sourceTree = "<group>";
+		};
+		06531C2128409F5F00E225EB /* View */ = {
+			isa = PBXGroup;
+			children = (
+				06531C282840BF9800E225EB /* AttendanceStatusRectangleView.swift */,
+				06531C2A2840BFAA00E225EB /* AttendanceStatusRectangleViewModel.swift */,
+				06531C222840A02C00E225EB /* PlatformAttendanceCell.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		06839F042833E60800D88426 /* InteractiveTextField */ = {
@@ -961,6 +981,7 @@
 				CE6EE88C27CAA3C9005BF412 /* Date+.swift in Sources */,
 				CE729A8B27E60D49001D33D1 /* SeminarSchedulerFormatter.swift in Sources */,
 				CEB60F4B27A975AD001260DB /* QRScanViewController.swift in Sources */,
+				06531C272840B4CF00E225EB /* PlatformStatusViewController.swift in Sources */,
 				CE6EE88627CA91ED005BF412 /* SeminarHeaderView.swift in Sources */,
 				CE6EE83227C7D948005BF412 /* RootStep.swift in Sources */,
 				CEB60F7427A9BDF4001260DB /* QRScanReactor.swift in Sources */,
@@ -991,6 +1012,7 @@
 				06839F062833E62E00D88426 /* InteractiveTextFieldTheme.swift in Sources */,
 				CE12DA5427E629AE00F08629 /* AttendanceTimelineViewModel.swift in Sources */,
 				CEB60F7627A9BE67001260DB /* UIViewContorller+Rx.swift in Sources */,
+				06531C232840A02C00E225EB /* PlatformAttendanceCell.swift in Sources */,
 				CE396080278B3CB40073AEF4 /* AppDelegate.swift in Sources */,
 				CE6EE89527CB049C005BF412 /* QRCodeFinderView.swift in Sources */,
 				CE88D32827E5522B00865C02 /* QRSeminarCardView.swift in Sources */,
@@ -1005,7 +1027,9 @@
 				CE6EE85D27CA4136005BF412 /* Seminar.swift in Sources */,
 				CE12DA5827E629FE00F08629 /* QRSeminarCardViewModel.swift in Sources */,
 				CE6EE87827CA858B005BF412 /* PaddingLabel.swift in Sources */,
+				06531C2B2840BFAA00E225EB /* AttendanceStatusRectangleViewModel.swift in Sources */,
 				CE6EE83D27C7EFB9005BF412 /* HomeTabBarController.swift in Sources */,
+				06531C292840BF9800E225EB /* AttendanceStatusRectangleView.swift in Sources */,
 				CE6EE87127CA73B7005BF412 /* SeminarCardCell.swift in Sources */,
 				CE729A7A27E56B7F001D33D1 /* TimeInterval+.swift in Sources */,
 				CE6EE89027CAD109005BF412 /* TimeZone+.swift in Sources */,
