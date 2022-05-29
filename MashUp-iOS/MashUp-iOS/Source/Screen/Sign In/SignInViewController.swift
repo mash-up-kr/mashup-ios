@@ -90,8 +90,8 @@ final class SignInViewController: BaseViewController, ReactorKit.View {
             .disposed(by: self.disposeBag)
     }
     
-    private let idField = InteractiveTextField(placeholder: "아이디", assistText: "아이디1")
-    private let passwordField = InteractiveTextField(placeholder: "비밀번호", assistText: "비밀번호1")
+    private let idField = MUTextField()
+    private let passwordField = MUTextField()
     private let signInButton = MUButton()
     private let signUpButton = MUButton(style: .default)
     private let loadingIndicator = UIActivityIndicatorView()
@@ -107,11 +107,14 @@ extension SignInViewController {
     private func setupAttribute() {
         self.view.backgroundColor = .white
         self.idField.do {
-            $0.textField.keyboardType = .default
+            $0.placeholder = "아이디"
+            $0.keyboardType = .default
         }
         self.passwordField.do {
-            $0.textField.keyboardType = .default
-            $0.textField.isSecureTextEntry = true
+            $0.placeholder = "비밀번호"
+            $0.keyboardType = .default
+            $0.isSecureTextEntry = true
+            $0.assistiveDescription = "hello world"
         }
         self.signInButton.do {
             $0.setTitle("로그인", for: .normal)
@@ -129,11 +132,9 @@ extension SignInViewController {
     private func setupLayout() {
         self.signInButton.snp.makeConstraints {
             $0.height.equalTo(56)
-            $0.width.equalTo(250)
         }
         self.signUpButton.snp.makeConstraints {
             $0.height.equalTo(56)
-            $0.width.equalTo(250)
         }
         
         let stackView = UIStackView().then {

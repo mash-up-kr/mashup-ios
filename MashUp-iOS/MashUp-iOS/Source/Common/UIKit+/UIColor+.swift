@@ -21,4 +21,6 @@ extension UIColor {
     static let gray900 = UIColor(named: "gray900")!
     
     static let primary = UIColor(named: "primary")!
+    
+    static let red700 = UIColor(named: "red700")!
 }
