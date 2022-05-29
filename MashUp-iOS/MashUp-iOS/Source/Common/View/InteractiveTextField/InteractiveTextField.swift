@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import SnapKit
 import RxCocoa
 import RxSwift
 import RxOptional
@@ -44,6 +45,12 @@ final class InteractiveTextField: UIView {
         self.assistiveLabel.text = assistText
     }
     
+    override var intrinsicContentSize: CGSize {
+        let hasAssitiveLabel = self.assistiveLabel.text?.isNotEmpty == true
+        let height = hasAssitiveLabel ? 84 + self.assistiveLabel.intrinsicContentSize.height + 8 : 84
+        return CGSize(width: 320, height: height)
+    }
+    
     private func setupUI() {
         setupAttribute()
         setupLayout()
@@ -54,6 +61,7 @@ final class InteractiveTextField: UIView {
         inputAreaView.backgroundColor = .white
         inputAreaView.layer.cornerRadius = 12
         placeholderLabel.font = .systemFont(ofSize: 20, weight: .medium)
+        placeholderLabel.textColor = .red
         textField.font = .systemFont(ofSize: 20, weight: .medium)
         assistiveLabel.font = .systemFont(ofSize: 12)
     }
@@ -122,6 +130,7 @@ final class InteractiveTextField: UIView {
             self?.placeholderLabel.transform = .init(scaleX: scale, y: scale)
             self?.placeholderLabel.frame.origin.x = 20
             self?.placeholderLabel.frame.origin.y = 16
+            self?.placeholderLabel.textColor = .black
             self?.inputAreaView.layoutIfNeeded()
         }
         animation?.pausesOnCompletion = true
@@ -141,10 +150,14 @@ final class InteractiveTextField: UIView {
             return InteractiveTextFieldAttribute(
                 borderColor: .gray,
                 assistiveTextColor: .gray,
-                placeholderColor: .black
+                placeholderColor: .gray600
             )
         case .focus:
-            return InteractiveTextFieldAttribute(borderColor: .purple, assistiveTextColor: .gray, placeholderColor: .black)
+            return InteractiveTextFieldAttribute(
+                borderColor: .purple,
+                assistiveTextColor: .gray,
+                placeholderColor: .black
+            )
         case .vaild:
             return InteractiveTextFieldAttribute(
                 borderColor: .purple,

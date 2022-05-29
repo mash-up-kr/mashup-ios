@@ -90,10 +90,12 @@ final class SignInViewController: BaseViewController, ReactorKit.View {
             .disposed(by: self.disposeBag)
     }
     
-    private let idField = UITextField()
-    private let passwordField = UITextField()
-    private let signInButton = UIButton()
-    private let signUpButton = UIButton()
+    private let idField = InteractiveTextField(placeholder: "아이디",
+                                               assistText: "아이디1")
+    private let passwordField = InteractiveTextField(placeholder: "비밀번호",
+                                                     assistText: "비밀번호1")
+    private let signInButton = MUButton()
+    private let signUpButton = MUButton()
     private let loadingIndicator = UIActivityIndicatorView()
 }
 // MARK: Setup
@@ -107,23 +109,17 @@ extension SignInViewController {
     private func setupAttribute() {
         self.view.backgroundColor = .white
         self.idField.do {
-            $0.keyboardType = .default
-            $0.placeholder = "아이디를 입력해주세요"
+            $0.textField.keyboardType = .default
         }
         self.passwordField.do {
-            $0.keyboardType = .default
-            $0.placeholder = "비밀번호를 입력해주세요"
-            $0.isSecureTextEntry = true
+            $0.textField.keyboardType = .default
+            $0.textField.isSecureTextEntry = true
         }
         self.signInButton.do {
             $0.setTitle("로그인", for: .normal)
-            $0.setTitleColor(.white, for: .normal)
-            $0.backgroundColor = .systemIndigo
         }
         self.signUpButton.do {
-            $0.setTitle("회원가입", for: .normal)
-            $0.setTitleColor(.black, for: .normal)
-            $0.backgroundColor = .white
+            $0.setTitle("회원가입 하러가기", for: .normal)
         }
         self.loadingIndicator.do {
             $0.hidesWhenStopped = true
@@ -155,7 +151,8 @@ extension SignInViewController {
         }
         self.view.addSubview(stackView)
         stackView.snp.makeConstraints {
-            $0.center.equalToSuperview()
+            $0.top.equalToSuperview().inset(40)
+            $0.leading.trailing.equalToSuperview().inset(20)
         }
         self.view.addSubview(self.loadingIndicator)
         self.loadingIndicator.snp.makeConstraints {
