@@ -31,3 +31,15 @@ extension Optional where Wrapped: Collection {
     }
     
 }
+
+extension Optional where Wrapped == String {
+    
+    var isEmptyOrNil: Bool {
+        self == nil || self?.isEmpty == true
+    }
+    
+    var isNotEmptyOrNil: Bool {
+        self == nil || self?.isNotEmpty == true
+    }
+    
+}

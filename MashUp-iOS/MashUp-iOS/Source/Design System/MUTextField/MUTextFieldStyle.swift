@@ -15,6 +15,7 @@ struct MUTextFieldStyle: Equatable {
     let placeholderColor: UIColor
     let placeholderFont: UIFont
     let assistiveTextColor: UIColor
+    let assistiveFont: UIFont
     let trailingIconImage: UIImage?
 }
 
@@ -29,6 +30,7 @@ extension MUTextFieldStyle {
             self.placeholderColor = .gray400
             self.placeholderFont = .pretendardFont(weight: .medium, size: 20)
             self.assistiveTextColor = .gray800
+            self.assistiveFont = .pretendardFont(weight: .regular, size: 12)
             self.trailingIconImage = nil
         case .active:
             self.borderColor = .gray300
@@ -37,6 +39,7 @@ extension MUTextFieldStyle {
             self.placeholderColor = .gray600
             self.placeholderFont = .pretendardFont(weight: .medium, size: 13)
             self.assistiveTextColor = .gray800
+            self.assistiveFont = .pretendardFont(weight: .regular, size: 12)
             self.trailingIconImage = nil
         case .focus:
             self.borderColor = .primary
@@ -45,6 +48,7 @@ extension MUTextFieldStyle {
             self.placeholderColor = .gray600
             self.placeholderFont = .pretendardFont(weight: .medium, size: 13)
             self.assistiveTextColor = .gray800
+            self.assistiveFont = .pretendardFont(weight: .regular, size: 12)
             self.trailingIconImage = nil
         case .vaild:
             self.borderColor = .gray300
@@ -53,6 +57,7 @@ extension MUTextFieldStyle {
             self.placeholderColor = .gray600
             self.placeholderFont = .pretendardFont(weight: .medium, size: 13)
             self.assistiveTextColor = .gray800
+            self.assistiveFont = .pretendardFont(weight: .regular, size: 12)
             self.trailingIconImage = UIImage(systemName: "checkmark")
         case .invaild:
             self.borderColor = .red700
@@ -61,6 +66,7 @@ extension MUTextFieldStyle {
             self.placeholderColor = .red700
             self.placeholderFont = .pretendardFont(weight: .medium, size: 13)
             self.assistiveTextColor = .red700
+            self.assistiveFont = .pretendardFont(weight: .regular, size: 12)
             self.trailingIconImage = UIImage(systemName: "exclamationmark.circle")
         case .disable:
             self.borderColor = .gray300.withAlphaComponent(0.3)
@@ -69,6 +75,7 @@ extension MUTextFieldStyle {
             self.placeholderColor = .gray600.withAlphaComponent(0.3)
             self.placeholderFont = .pretendardFont(weight: .medium, size: 13)
             self.assistiveTextColor = .gray800
+            self.assistiveFont = .pretendardFont(weight: .regular, size: 12)
             self.trailingIconImage = nil
         case .custom(let style):
             self = style

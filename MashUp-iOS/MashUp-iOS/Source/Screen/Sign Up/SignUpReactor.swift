@@ -10,9 +10,14 @@ import Foundation
 import ReactorKit
 
 final class SignUpReactor: Reactor {
-    typealias Action = NoAction
     
-    struct State {}
+    enum Action {
+        
+    }
+    
+    struct State {
+        
+    }
     
     let initialState: State = State()
     

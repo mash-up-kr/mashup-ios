@@ -43,7 +43,10 @@ class MUTextField: UIControl {
     
     var assistiveDescription: String? {
         get { self.assistiveLabel.text }
-        set { self.assistiveLabel.text = newValue }
+        set {
+            self.assistiveLabel.text = newValue
+            self.assistiveView.isHidden = newValue.isEmptyOrNil == true
+        }
     }
     
     var isSecureTextEntry: Bool {
@@ -110,6 +113,7 @@ class MUTextField: UIControl {
         self.textField.font = style.textFont
         self.placeholderLabel.textColor = style.placeholderColor
         self.assistiveLabel.textColor = style.assistiveTextColor
+        self.assistiveLabel.font = style.assistiveFont
         self.trailingIconImageView.image = style.trailingIconImage
     }
     
@@ -121,7 +125,6 @@ class MUTextField: UIControl {
         }
         self.containerView.do {
             $0.axis = .vertical
-            $0.spacing = 8
         }
         let style = MUTextFieldStyle(status: self.status)
         self.applyStyle(style)
@@ -158,7 +161,13 @@ class MUTextField: UIControl {
             $0.width.height.trailing.equalTo(20)
         }
         
-        self.containerView.addArrangedSubview(self.assistiveLabel)
+        self.containerView.addArrangedSubview(self.assistiveView)
+        self.assistiveView.addSubview(self.assistiveLabel)
+        self.assistiveLabel.snp.makeConstraints {
+            $0.top.equalToSuperview().inset(8)
+            $0.leading.equalToSuperview().inset(4)
+            $0.bottom.equalToSuperview()
+        }
     }
     
     private func setupStream() {
@@ -182,6 +191,7 @@ class MUTextField: UIControl {
     private let containerView = UIStackView()
     private let textAreaView = UIView()
     private let placeholderLabel = UILabel()
+    private let assistiveView = UIView()
     private let assistiveLabel = UILabel()
     private let trailingIconImageView = UIImageView()
     

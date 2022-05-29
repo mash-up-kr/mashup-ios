@@ -24,23 +24,26 @@ class MUNavigationBar: UIView {
         get { self.titleLabel.text }
         set { self.titleLabel.text = newValue }
     }
+    
     var leftIcon: UIImage? {
         get { self.leftButton.image(for: .normal) }
         set { self.leftButton.setBackgroundImage(newValue, for: .normal) }
     }
+    
     var rightIcon: UIImage? {
         get { self.rightButton.image(for: .normal) }
         set { self.rightButton.setBackgroundImage(newValue, for: .normal) }
     }
     
-    init(frame: CGRect = .zero, style: MUNavigationBarStyle? = nil) {
-        self.style = style
+    override init(frame: CGRect = .zero) {
         super.init(frame: frame)
+        self.setupAttribute()
         self.setupLayout()
     }
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
+        self.setupAttribute()
         self.setupLayout()
     }
     
@@ -53,6 +56,10 @@ class MUNavigationBar: UIView {
         self.leftButton.setBackgroundImage(self.style?.leftIconImage, for: .normal)
         self.rightButton.setBackgroundImage(self.style?.rightIconImage, for: .normal)
         self.titleLabel.textColor = .gray900
+    }
+    
+    private func setupAttribute() {
+        self.titleLabel.font = .pretendardFont(weight: .semiBold, size: 16)
     }
     
     private func setupLayout() {
