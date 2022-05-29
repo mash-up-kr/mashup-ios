@@ -38,10 +38,7 @@ class MUTextField: UIControl {
     
     var placeholder: String? {
         get { self.placeholderLabel.text }
-        set {
-            self.placeholderLabel.text = newValue
-            self.textField.placeholder = newValue
-        }
+        set { self.placeholderLabel.text = newValue }
     }
     
     var assistiveDescription: String? {
@@ -76,13 +73,35 @@ class MUTextField: UIControl {
         self.setupStream()
     }
     
-    private func needsAnimate(from oldStatus: Status, to newStatus: Status) -> Bool {
-        return true
+    enum AnimationDirection {
+        case forward
+        case reverse
     }
     
     private func didUpdateStatus(to status: Status, from oldStatus: Status) {
         let style = MUTextFieldStyle(status: status)
+        
+        if let animationDirection = self.animationDirection(from: status, to: oldStatus) {
+            switch animationDirection {
+            case .forward:
+                animator.isReversed = false
+                animator.startAnimation()
+            case .reverse:
+                animator.isReversed = true
+                animator.startAnimation()
+            }
+            animator.pausesOnCompletion = true
+        }
+        
         self.applyStyle(style)
+    }
+    
+    private func animationDirection(from oldStatus: Status, to newStatus: Status) -> AnimationDirection? {
+        switch (oldStatus, newStatus) {
+        case (.inactive, _): return .reverse
+        case (_, .inactive): return .forward
+        default: return nil
+        }
     }
     
     private func applyStyle(_ style: MUTextFieldStyle) {
@@ -90,7 +109,6 @@ class MUTextField: UIControl {
         self.textField.textColor = style.textColor
         self.textField.font = style.textFont
         self.placeholderLabel.textColor = style.placeholderColor
-        self.placeholderLabel.font = style.placeholderFont
         self.assistiveLabel.textColor = style.assistiveTextColor
         self.trailingIconImageView.image = style.trailingIconImage
     }
@@ -123,8 +141,8 @@ class MUTextField: UIControl {
         self.textAreaView.addSubview(self.textField)
         self.textField.snp.makeConstraints {
             $0.leading.trailing.equalToSuperview().inset(20)
-            $0.centerY.equalToSuperview()
             $0.height.equalTo(32)
+            $0.bottom.equalToSuperview().inset(16)
         }
         
         self.textAreaView.addSubview(self.placeholderLabel)
@@ -145,11 +163,11 @@ class MUTextField: UIControl {
     
     private func setupStream() {
         let inactive = self.textField.rx.controlEvent(.editingDidEnd)
-            .filter { [text] in text?.isEmpty == true }
+            .filter { [textField] in textField.text?.isEmpty == true }
             .map { Status.inactive }
         
         let active = self.textField.rx.controlEvent(.editingDidEnd)
-            .filter { [text] in text?.isNotEmpty == true }
+            .filter { [textField] in textField.text?.isNotEmpty == true }
             .map { Status.active }
         
         let focus = self.textField.rx.controlEvent(.editingDidBegin)
@@ -168,5 +186,13 @@ class MUTextField: UIControl {
     private let trailingIconImageView = UIImageView()
     
     private let disposeBag = DisposeBag()
+    
+    private lazy var animator = UIViewPropertyAnimator(duration: 0.2, curve: .linear) { [weak self] in
+        let scale: CGFloat = 20/32
+        self?.placeholderLabel.transform = CGAffineTransform(scaleX: scale, y: scale)
+        self?.placeholderLabel.frame.origin.x = 20
+        self?.placeholderLabel.frame.origin.y = 16
+        self?.textAreaView.layoutIfNeeded()
+    }
     
 }
