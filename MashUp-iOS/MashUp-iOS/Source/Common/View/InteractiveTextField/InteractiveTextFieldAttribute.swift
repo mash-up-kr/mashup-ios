@@ -8,7 +8,7 @@
 
 import UIKit
 
-struct InteractiveTextFieldTheme {
+struct InteractiveTextFieldAttribute {
     let borderColor: UIColor
     let assistiveTextColor: UIColor
     let placeholderColor: UIColor

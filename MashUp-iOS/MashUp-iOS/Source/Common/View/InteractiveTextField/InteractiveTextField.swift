@@ -13,7 +13,7 @@ import RxOptional
 
 final class InteractiveTextField: UIView {
     enum Theme {
-        case normal, focus, error
+        case vaild, normal, focus, error
     }
     
     private let inputAreaView: UIView = UIView()
@@ -111,10 +111,8 @@ final class InteractiveTextField: UIView {
         
         themeObservable
             .withUnretained(self)
-            .subscribe(onNext: { owner, theme in
-                let themeEntity = owner.makeTheme(theme)
-                owner.setTheme(themeEntity)
-            })
+            .map { owner, theme in owner.makeAttribute(theme) }
+            .subscribe(onNext: { [weak self] in self?.updateAttribute($0) })
             .disposed(by: disposeBag)
     }
     
@@ -137,21 +135,35 @@ final class InteractiveTextField: UIView {
         animation?.startAnimation()
     }
     
-    private func makeTheme(_ theme: Theme) -> InteractiveTextFieldTheme {
+    private func makeAttribute(_ theme: Theme) -> InteractiveTextFieldAttribute {
         switch theme {
         case .normal:
-            return InteractiveTextFieldTheme(borderColor: .gray, assistiveTextColor: .gray, placeholderColor: .black)
+            return InteractiveTextFieldAttribute(
+                borderColor: .gray,
+                assistiveTextColor: .gray,
+                placeholderColor: .black
+            )
         case .focus:
-            return InteractiveTextFieldTheme(borderColor: .purple, assistiveTextColor: .gray, placeholderColor: .black)
+            return InteractiveTextFieldAttribute(borderColor: .purple, assistiveTextColor: .gray, placeholderColor: .black)
+        case .vaild:
+            return InteractiveTextFieldAttribute(
+                borderColor: .purple,
+                assistiveTextColor: .gray,
+                placeholderColor: .black
+            )
         case .error:
-            return InteractiveTextFieldTheme(borderColor: .red, assistiveTextColor: .red, placeholderColor: .black)
+            return InteractiveTextFieldAttribute(
+                borderColor: .red,
+                assistiveTextColor: .red,
+                placeholderColor: .black
+            )
         }
     }
     
-    private func setTheme(_ theme: InteractiveTextFieldTheme) {
-        inputAreaView.layer.borderColor = theme.borderColor.cgColor
-        assistiveLabel.textColor = theme.assistiveTextColor
-        placeholderLabel.textColor = theme.placeholderColor
+    private func updateAttribute(_ attribute: InteractiveTextFieldAttribute) {
+        inputAreaView.layer.borderColor = attribute.borderColor.cgColor
+        assistiveLabel.textColor = attribute.assistiveTextColor
+        placeholderLabel.textColor = attribute.placeholderColor
     }
     
     func setTailImage(_ image: UIImage) {
@@ -163,16 +175,20 @@ final class InteractiveTextField: UIView {
     }
 }
 
-extension InteractiveTextField {
-    var theme: Binder<Theme> {
-        Binder(self) { view, theme in
-            view.themeObservable.accept(theme)
+extension Reactive where Base: InteractiveTextField {
+    var text: ControlProperty<String?> {
+        return self.base.textField.rx.text
+    }
+    
+    var theme: Binder<InteractiveTextField.Theme> {
+        Binder(self.base) { base, theme in
+            base.themeObservable.accept(theme)
         }
     }
 
     var tailImage: Binder<UIImage> {
-        Binder(self) { view, image in
-            view.tailImageView.image = image
+        Binder(self.base) { base, image in
+            base.tailImageView.image = image
         }
     }
 }
