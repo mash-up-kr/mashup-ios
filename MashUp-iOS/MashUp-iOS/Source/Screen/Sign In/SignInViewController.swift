@@ -62,28 +62,28 @@ final class SignInViewController: BaseViewController, ReactorKit.View {
     
     private func render(_ reactor: Reactor) {
         reactor.state.map { $0.id }
-        .distinctUntilChanged()
-        .onMain()
-        .bind(to: self.idField.rx.text)
-        .disposed(by: self.disposeBag)
+            .distinctUntilChanged()
+            .onMain()
+            .bind(to: self.idField.rx.text)
+            .disposed(by: self.disposeBag)
         
         reactor.state.map { $0.password }
-        .distinctUntilChanged()
-        .onMain()
-        .bind(to: self.passwordField.rx.text)
-        .disposed(by: self.disposeBag)
+            .distinctUntilChanged()
+            .onMain()
+            .bind(to: self.passwordField.rx.text)
+            .disposed(by: self.disposeBag)
         
         reactor.state.map { $0.isLoading }
-        .distinctUntilChanged()
-        .onMain()
-        .bind(to: self.loadingIndicator.rx.isAnimating)
-        .disposed(by: self.disposeBag)
+            .distinctUntilChanged()
+            .onMain()
+            .bind(to: self.loadingIndicator.rx.isAnimating)
+            .disposed(by: self.disposeBag)
         
         reactor.state.map { $0.canTryToSignIn }
-        .distinctUntilChanged()
-        .onMain()
-        .bind(to: self.signInButton.rx.isEnabled)
-        .disposed(by: self.disposeBag)
+            .distinctUntilChanged()
+            .onMain()
+            .bind(to: self.signInButton.rx.isEnabled)
+            .disposed(by: self.disposeBag)
     }
     
     private func consume(_ reactor: Reactor) {

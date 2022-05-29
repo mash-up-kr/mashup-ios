@@ -20,10 +20,6 @@ final class SignUpViewController: BaseViewController, ReactorKit.View {
     
     var disposeBag: DisposeBag = DisposeBag()
     
-    func bind(reactor: SignUpReactor) {
-        
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -35,6 +31,63 @@ final class SignUpViewController: BaseViewController, ReactorKit.View {
         super.touchesEnded(touches, with: event)
         self.view.endEditing(true)
     }
+    
+    func bind(reactor: Reactor) {
+        self.dispatch(to: reactor)
+        self.render(reactor)
+        self.consume(reactor)
+    }
+    
+    private func dispatch(to reactor: Reactor) {
+        self.idField.rx.text.orEmpty
+            .map { .didEditIDField($0) }
+            .bind(to: reactor.action)
+            .disposed(by: self.disposeBag)
+        
+        self.passwordField.rx.text.orEmpty
+            .map { .didEditPasswordField($0) }
+            .bind(to: reactor.action)
+            .disposed(by: self.disposeBag)
+        
+        self.nameField.rx.text.orEmpty
+            .map { .didEditNameField($0) }
+            .bind(to: reactor.action)
+            .disposed(by: self.disposeBag)
+        
+        self.doneButton.rx.tap
+            .map { .didTapDoneButton }
+            .bind(to: reactor.action)
+            .disposed(by: self.disposeBag)
+    }
+    
+    private func render(_ reactor: Reactor) {
+        reactor.state.map { $0.canDone }
+            .distinctUntilChanged()
+            .onMain()
+            .bind(to: self.doneButton.rx.isEnabled)
+            .disposed(by: self.disposeBag)
+        
+        reactor.state.map { $0.id }
+            .distinctUntilChanged()
+            .onMain()
+            .bind(to: self.idField.rx.text)
+            .disposed(by: self.disposeBag)
+        
+        reactor.state.map { $0.password }
+            .distinctUntilChanged()
+            .onMain()
+            .bind(to: self.passwordField.rx.text)
+            .disposed(by: self.disposeBag)
+        
+        reactor.state.map { $0.name }
+            .distinctUntilChanged()
+            .onMain()
+            .bind(to: self.nameField.rx.text)
+            .disposed(by: self.disposeBag)
+    }
+    
+    private func consume(_ reactor: Reactor) {}
+    
     
     private func setupAttribute() {
         self.view.backgroundColor = .white
@@ -72,11 +125,7 @@ final class SignUpViewController: BaseViewController, ReactorKit.View {
         self.doneButton.do {
             $0.setTitle("다음", for: .normal)
         }
-        self.scrollView.rx.didScroll
-            .subscribe(onNext: { [weak self] in
-                self?.view.endEditing(true)
-            })
-            .disposed(by: self.disposeBag)
+        
     }
     
     private func setupLayout() {
