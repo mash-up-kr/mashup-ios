@@ -29,6 +29,11 @@ final class SignInViewController: BaseViewController, ReactorKit.View {
         self.consume(reactor)
     }
     
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesEnded(touches, with: event)
+        self.view.endEditing(true)
+    }
+    
     private func dispatch(to reactor: Reactor) {
         self.idField.rx.text.orEmpty
             .map { .didEditIDField($0) }
@@ -114,7 +119,6 @@ extension SignInViewController {
             $0.placeholder = "비밀번호"
             $0.keyboardType = .default
             $0.isSecureTextEntry = true
-            $0.assistiveDescription = "hello world"
         }
         self.signInButton.do {
             $0.setTitle("로그인", for: .normal)
@@ -150,7 +154,7 @@ extension SignInViewController {
         }
         self.view.addSubview(stackView)
         stackView.snp.makeConstraints {
-            $0.top.equalToSuperview().inset(40)
+            $0.top.equalTo(self.view.safeAreaLayoutGuide).inset(40)
             $0.leading.trailing.equalToSuperview().inset(20)
         }
         self.view.addSubview(self.loadingIndicator)
