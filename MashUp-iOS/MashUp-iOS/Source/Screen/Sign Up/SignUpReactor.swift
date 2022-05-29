@@ -27,14 +27,17 @@ final class SignUpReactor: Reactor {
     }
     
     struct State {
-        var canDone: Bool = false
         var id: String = .empty
         var password: String = .empty
         var name: String = .empty
-        var platform: PlatformTeam? = .iOS
+        var platform: PlatformTeam? = nil
         
+        var canDone: Bool = false
         var hasVaildatedID: Bool? = nil
         var hasVaildatedPassword: Bool? = nil
+        var hasAgreedTerms: Bool = false
+        
+        @Pulse var shouldSelectPlatform: Bool? = nil
         @Pulse var shouldAgreeTerms: Bool? = nil
     }
     
@@ -69,12 +72,10 @@ final class SignUpReactor: Reactor {
         case .updateID(let id):
             newState.id = id
             newState.hasVaildatedID = self.verificationService.verify(id: id)
-            print("🐛 updateID \(id)")
             
         case .updatePassword(let password):
             newState.password = password
             newState.hasVaildatedPassword = self.verificationService.verify(password: password)
-            print("🐛 updatePassword \(password)")
             
         case .updateName(let name):
             newState.name = name

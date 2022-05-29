@@ -400,8 +400,8 @@
 		CE0F283C2843B80200C206EA /* Sign Up */ = {
 			isa = PBXGroup;
 			children = (
-				CE0F283D2843B81300C206EA /* SignUpViewController.swift */,
 				CE0F283F2843B85400C206EA /* SignUpReactor.swift */,
+				CE0F283D2843B81300C206EA /* SignUpViewController.swift */,
 			);
 			path = "Sign Up";
 			sourceTree = "<group>";
