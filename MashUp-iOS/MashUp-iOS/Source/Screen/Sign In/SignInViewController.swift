@@ -90,12 +90,10 @@ final class SignInViewController: BaseViewController, ReactorKit.View {
             .disposed(by: self.disposeBag)
     }
     
-    private let idField = InteractiveTextField(placeholder: "아이디",
-                                               assistText: "아이디1")
-    private let passwordField = InteractiveTextField(placeholder: "비밀번호",
-                                                     assistText: "비밀번호1")
+    private let idField = InteractiveTextField(placeholder: "아이디", assistText: "아이디1")
+    private let passwordField = InteractiveTextField(placeholder: "비밀번호", assistText: "비밀번호1")
     private let signInButton = MUButton()
-    private let signUpButton = MUButton()
+    private let signUpButton = MUButton(style: .default)
     private let loadingIndicator = UIActivityIndicatorView()
 }
 // MARK: Setup

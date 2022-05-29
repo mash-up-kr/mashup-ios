@@ -7,16 +7,20 @@
 //
 import UIKit
 
+
 class MUButton: UIButton {
     
-    override init(frame: CGRect) {
+    let style: MUButtonStyle
+    
+    init(frame: CGRect = .zero, style: MUButtonStyle = .primary) {
+        self.style = style
         super.init(frame: frame)
         self.setupUI()
     }
     
     required init?(coder: NSCoder) {
+        self.style = .default
         super.init(coder: coder)
-        self.setupUI()
     }
     
     override func layoutSubviews() {
@@ -25,10 +29,12 @@ class MUButton: UIButton {
     }
     
     private func setupUI() {
-        self.setBackgroundColor(.primary, for: .normal)
-        self.setBackgroundColor(.primary.withAlphaComponent(0.3), for: .disabled)
-        self.setTitleColor(.white, for: .normal)
-        self.setTitleColor(.white, for: .disabled)
+        let attribute = MUButtonAttribute(from: self.style)
+        self.setTitleColor(attribute.titleColor, for: .normal)
+        self.setTitleColor(attribute.titleColor, for: .disabled)
+        self.titleLabel?.font = attribute.titleFont
+        self.setBackgroundColor(attribute.backgroundColor, for: .normal)
+        self.setBackgroundColor(attribute.backgroundColor.withAlphaComponent(0.3), for: .disabled)
     }
     
     private func round() {

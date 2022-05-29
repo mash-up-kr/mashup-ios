@@ -27,6 +27,8 @@
 		06839F0128325A0C00D88426 /* InteractiveTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06839F0028325A0C00D88426 /* InteractiveTextField.swift */; };
 		06839F062833E62E00D88426 /* InteractiveTextFieldAttribute.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06839F052833E62E00D88426 /* InteractiveTextFieldAttribute.swift */; };
 		CE0F282B28436A9B00C206EA /* MUButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0F282A28436A9B00C206EA /* MUButton.swift */; };
+		CE0F2830284377B900C206EA /* MUButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0F282F284377B900C206EA /* MUButtonStyle.swift */; };
+		CE0F2832284377C300C206EA /* MUButtonAttribute.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0F2831284377C300C206EA /* MUButtonAttribute.swift */; };
 		CE12DA5427E629AE00F08629 /* AttendanceTimelineViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE12DA5327E629AE00F08629 /* AttendanceTimelineViewModel.swift */; };
 		CE12DA5627E629D700F08629 /* PartialAttendanceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE12DA5527E629D700F08629 /* PartialAttendanceViewModel.swift */; };
 		CE12DA5827E629FE00F08629 /* QRSeminarCardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE12DA5727E629FE00F08629 /* QRSeminarCardViewModel.swift */; };
@@ -175,6 +177,8 @@
 		06839F0028325A0C00D88426 /* InteractiveTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InteractiveTextField.swift; sourceTree = "<group>"; };
 		06839F052833E62E00D88426 /* InteractiveTextFieldAttribute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InteractiveTextFieldAttribute.swift; sourceTree = "<group>"; };
 		CE0F282A28436A9B00C206EA /* MUButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MUButton.swift; sourceTree = "<group>"; };
+		CE0F282F284377B900C206EA /* MUButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MUButtonStyle.swift; sourceTree = "<group>"; };
+		CE0F2831284377C300C206EA /* MUButtonAttribute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MUButtonAttribute.swift; sourceTree = "<group>"; };
 		CE12DA5327E629AE00F08629 /* AttendanceTimelineViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttendanceTimelineViewModel.swift; sourceTree = "<group>"; };
 		CE12DA5527E629D700F08629 /* PartialAttendanceViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartialAttendanceViewModel.swift; sourceTree = "<group>"; };
 		CE12DA5727E629FE00F08629 /* QRSeminarCardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRSeminarCardViewModel.swift; sourceTree = "<group>"; };
@@ -356,6 +360,16 @@
 				06839F052833E62E00D88426 /* InteractiveTextFieldAttribute.swift */,
 			);
 			path = InteractiveTextField;
+			sourceTree = "<group>";
+		};
+		CE0F282E2843777B00C206EA /* MUButton */ = {
+			isa = PBXGroup;
+			children = (
+				CE0F282A28436A9B00C206EA /* MUButton.swift */,
+				CE0F2831284377C300C206EA /* MUButtonAttribute.swift */,
+				CE0F282F284377B900C206EA /* MUButtonStyle.swift */,
+			);
+			path = MUButton;
 			sourceTree = "<group>";
 		};
 		CE12DA5927E62A7100F08629 /* Fake(deprecated) */ = {
@@ -664,7 +678,7 @@
 		CE6EE87627CA857F005BF412 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				CE0F282A28436A9B00C206EA /* MUButton.swift */,
+				CE0F282E2843777B00C206EA /* MUButton */,
 				CE6EE87727CA858B005BF412 /* PaddingLabel.swift */,
 				06839F042833E60800D88426 /* InteractiveTextField */,
 			);
@@ -1048,6 +1062,8 @@
 				CE6EE87127CA73B7005BF412 /* SeminarCardCell.swift in Sources */,
 				CE729A7A27E56B7F001D33D1 /* TimeInterval+.swift in Sources */,
 				CE6EE89027CAD109005BF412 /* TimeZone+.swift in Sources */,
+				CE0F2830284377B900C206EA /* MUButtonStyle.swift in Sources */,
+				CE0F2832284377C300C206EA /* MUButtonAttribute.swift in Sources */,
 				CE4A6C05278B47040052F7E7 /* HTTPClient.swift in Sources */,
 				CE6EE87A27CA89F3005BF412 /* SeminarCardCellModel.swift in Sources */,
 				CE3960E4278B45A00073AEF4 /* MashUpAPI.swift in Sources */,
