@@ -46,6 +46,7 @@ final class SignInReactor: Reactor {
         authenticationResponder: AuthenticationResponder
     ) {
         self.userSessionRepository = userSessionRepository
+        self.verificationService = verificationService
         self.authenticationResponder = authenticationResponder
     }
     

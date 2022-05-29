@@ -119,6 +119,7 @@ extension RootController {
         
         let reactor = SignInReactor(
             userSessionRepository: self.userSessionRepository,
+            verificationService: VerificationServiceImpl(),
             authenticationResponder: authenticationResponder
         )
         let viewController = SignInViewController()

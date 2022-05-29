@@ -185,7 +185,7 @@ extension SignInViewController {
     }
     
     private func pushSignUpViewController() {
-        let reactor = SignUpReactor()
+        let reactor = SignUpReactor(verificationService: VerificationServiceImpl())
         let viewController = SignUpViewController()
         viewController.reactor = reactor
         self.navigationController?.pushViewController(viewController, animated: true)
