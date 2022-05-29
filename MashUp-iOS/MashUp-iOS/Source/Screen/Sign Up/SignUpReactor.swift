@@ -40,7 +40,7 @@ final class SignUpReactor: Reactor {
     
     let initialState: State = State()
     
-    init(verificationService: VerificationService = VerificationServiceImpl()) {
+    init(verificationService: VerificationService) {
         self.verificationService = verificationService
     }
     
@@ -69,10 +69,12 @@ final class SignUpReactor: Reactor {
         case .updateID(let id):
             newState.id = id
             newState.hasVaildatedID = self.verificationService.verify(id: id)
+            print("🐛 updateID \(id)")
             
         case .updatePassword(let password):
             newState.password = password
-            newState.hasVaildatedID = self.verificationService.verify(password: password)
+            newState.hasVaildatedPassword = self.verificationService.verify(password: password)
+            print("🐛 updatePassword \(password)")
             
         case .updateName(let name):
             newState.name = name

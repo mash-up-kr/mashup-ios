@@ -197,12 +197,12 @@ class MUTextField: UIControl {
     
     private let disposeBag = DisposeBag()
     
-    private lazy var animator = UIViewPropertyAnimator(duration: 0.2, curve: .linear) { [weak self] in
+    private lazy var animator = UIViewPropertyAnimator(duration: 0.2, curve: .linear) { [placeholderLabel, textAreaView] in
         let scale: CGFloat = 20/32
-        self?.placeholderLabel.transform = CGAffineTransform(scaleX: scale, y: scale)
-        self?.placeholderLabel.frame.origin.x = 20
-        self?.placeholderLabel.frame.origin.y = 16
-        self?.textAreaView.layoutIfNeeded()
+        placeholderLabel.transform = CGAffineTransform(scaleX: scale, y: scale)
+        placeholderLabel.frame.origin.x = 20
+        placeholderLabel.frame.origin.y = 16
+        textAreaView.layoutIfNeeded()
     }
     
 }

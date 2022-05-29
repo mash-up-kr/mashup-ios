@@ -42,6 +42,7 @@ final class SignInReactor: Reactor {
     
     init(
         userSessionRepository: UserSessionRepository,
+        verificationService: VerificationService,
         authenticationResponder: AuthenticationResponder
     ) {
         self.userSessionRepository = userSessionRepository
@@ -107,10 +108,8 @@ final class SignInReactor: Reactor {
     }
     
     private func verify(id: String, password: String) -> Bool {
-        #warning("ID, PW 입력상태에 따른 로그인버튼 활성화 로직 - Booung")
-        let idIsFulfill = id.count > 4
-        let pwIsFulfill = password.count > 4
-        return idIsFulfill && pwIsFulfill
+        return self.verificationService.verify(id: id)
+        && self.verificationService.verify(password: password)
     }
     
     private func messageOf(error: Error) -> String {
@@ -119,5 +118,6 @@ final class SignInReactor: Reactor {
     }
     
     private let userSessionRepository: UserSessionRepository
+    private let verificationService: VerificationService
     private let authenticationResponder: AuthenticationResponder
 }

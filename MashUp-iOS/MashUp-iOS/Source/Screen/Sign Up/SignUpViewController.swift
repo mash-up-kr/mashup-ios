@@ -40,11 +40,13 @@ final class SignUpViewController: BaseViewController, ReactorKit.View {
     
     private func dispatch(to reactor: Reactor) {
         self.idField.rx.text.orEmpty
+            .skip(1)
             .map { .didEditIDField($0) }
             .bind(to: reactor.action)
             .disposed(by: self.disposeBag)
         
         self.passwordField.rx.text.orEmpty
+            .skip(1)
             .map { .didEditPasswordField($0) }
             .bind(to: reactor.action)
             .disposed(by: self.disposeBag)
@@ -73,10 +75,24 @@ final class SignUpViewController: BaseViewController, ReactorKit.View {
             .bind(to: self.idField.rx.text)
             .disposed(by: self.disposeBag)
         
+        reactor.state.compactMap { $0.hasVaildatedID }
+            .distinctUntilChanged()
+            .map { $0 ? .vaild : .invaild }
+            .onMain()
+            .bind(to: self.idField.rx.status)
+            .disposed(by: self.disposeBag)
+        
         reactor.state.map { $0.password }
             .distinctUntilChanged()
             .onMain()
             .bind(to: self.passwordField.rx.text)
+            .disposed(by: self.disposeBag)
+        
+        reactor.state.compactMap { $0.hasVaildatedPassword }
+            .distinctUntilChanged()
+            .map { $0 ? .vaild : .invaild }
+            .onMain()
+            .bind(to: self.passwordField.rx.status)
             .disposed(by: self.disposeBag)
         
         reactor.state.map { $0.name }
@@ -125,7 +141,6 @@ final class SignUpViewController: BaseViewController, ReactorKit.View {
         self.doneButton.do {
             $0.setTitle("다음", for: .normal)
         }
-        
     }
     
     private func setupLayout() {
