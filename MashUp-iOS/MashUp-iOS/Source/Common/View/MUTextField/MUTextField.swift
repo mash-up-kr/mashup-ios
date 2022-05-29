@@ -8,8 +8,17 @@
 
 import UIKit
 
-struct MUTextFieldAttribute {
-    let trailingIconImageSource: ImageSource
+struct MUTextFieldStyle {
+    let borderColor: UIColor
+    let textColor: UIColor
+    let placeholderColor: UIColor
+    let assistiveTextColor: UIColor
+    let trailingIconImageSource: ImageSource?
+}
+
+enum MUTextFieldStyle {
+    case normal
+    case forcus
 }
 
 class MUTextField: UIView {

@@ -7,7 +7,6 @@
 //
 import UIKit
 
-
 class MUButton: UIButton {
     
     let style: MUButtonStyle
@@ -29,12 +28,11 @@ class MUButton: UIButton {
     }
     
     private func setupUI() {
-        let attribute = MUButtonAttribute(from: self.style)
-        self.setTitleColor(attribute.titleColor, for: .normal)
-        self.setTitleColor(attribute.titleColor, for: .disabled)
-        self.titleLabel?.font = attribute.titleFont
-        self.setBackgroundColor(attribute.backgroundColor, for: .normal)
-        self.setBackgroundColor(attribute.backgroundColor.withAlphaComponent(0.3), for: .disabled)
+        self.setTitleColor(self.style.titleColor, for: .normal)
+        self.setTitleColor(self.style.titleColor, for: .disabled)
+        self.titleLabel?.font = self.style.titleFont
+        self.setBackgroundColor(self.style.backgroundColor, for: .normal)
+        self.setBackgroundColor(self.style.backgroundColor.withAlphaComponent(0.3), for: .disabled)
     }
     
     private func round() {
