@@ -93,6 +93,12 @@ final class SignInViewController: BaseViewController, ReactorKit.View {
                 owner.present(alertController, animated: true)
             })
             .disposed(by: self.disposeBag)
+        
+        reactor.pulse(\.$step).compactMap { $0 }
+            .onMain()
+            .subscribe(onNext: { [weak self] in self?.move(to: $0) })
+            .disposed(by: self.disposeBag)
+        
     }
     
     private let idField = MUTextField()
@@ -161,6 +167,25 @@ extension SignInViewController {
         self.loadingIndicator.snp.makeConstraints {
             $0.center.equalToSuperview()
         }
+    }
+    
+}
+
+// MARK: Navigation
+extension SignInViewController {
+    
+    private func move(to step: SignInStep) {
+        switch step {
+        case .signUp: self.presentSignUpViewController()
+        }
+    }
+    
+    private func presentSignUpViewController() {
+        let reactor = SignUpReactor()
+        let viewController = SignUpViewController()
+        viewController.reactor = reactor
+        
+        self.present(viewController, animated: true)
     }
     
 }
