@@ -31,6 +31,7 @@
 		CE0F283528437A1700C206EA /* MUTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0F283428437A1700C206EA /* MUTextField.swift */; };
 		CE0F283728437B6A00C206EA /* ImageSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0F283628437B6A00C206EA /* ImageSource.swift */; };
 		CE0F2839284387A600C206EA /* MUTextFieldStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0F2838284387A600C206EA /* MUTextFieldStyle.swift */; };
+		CE0F283B2843A50500C206EA /* MUTextField+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0F283A2843A50400C206EA /* MUTextField+Rx.swift */; };
 		CE12DA5427E629AE00F08629 /* AttendanceTimelineViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE12DA5327E629AE00F08629 /* AttendanceTimelineViewModel.swift */; };
 		CE12DA5627E629D700F08629 /* PartialAttendanceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE12DA5527E629D700F08629 /* PartialAttendanceViewModel.swift */; };
 		CE12DA5827E629FE00F08629 /* QRSeminarCardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE12DA5727E629FE00F08629 /* QRSeminarCardViewModel.swift */; };
@@ -183,6 +184,7 @@
 		CE0F283428437A1700C206EA /* MUTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MUTextField.swift; sourceTree = "<group>"; };
 		CE0F283628437B6A00C206EA /* ImageSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageSource.swift; sourceTree = "<group>"; };
 		CE0F2838284387A600C206EA /* MUTextFieldStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MUTextFieldStyle.swift; sourceTree = "<group>"; };
+		CE0F283A2843A50400C206EA /* MUTextField+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MUTextField+Rx.swift"; sourceTree = "<group>"; };
 		CE12DA5327E629AE00F08629 /* AttendanceTimelineViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttendanceTimelineViewModel.swift; sourceTree = "<group>"; };
 		CE12DA5527E629D700F08629 /* PartialAttendanceViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartialAttendanceViewModel.swift; sourceTree = "<group>"; };
 		CE12DA5727E629FE00F08629 /* QRSeminarCardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRSeminarCardViewModel.swift; sourceTree = "<group>"; };
@@ -379,6 +381,7 @@
 			isa = PBXGroup;
 			children = (
 				CE0F283428437A1700C206EA /* MUTextField.swift */,
+				CE0F283A2843A50400C206EA /* MUTextField+Rx.swift */,
 				CE0F2838284387A600C206EA /* MUTextFieldStyle.swift */,
 			);
 			path = MUTextField;
@@ -1024,6 +1027,7 @@
 				CE6EE83F27C7EFF9005BF412 /* HomeReactor.swift in Sources */,
 				06531C1A283F5D5E00E225EB /* PlatformAttendance.swift in Sources */,
 				CE6EE87327CA7482005BF412 /* AttendanceStatus.swift in Sources */,
+				CE0F283B2843A50500C206EA /* MUTextField+Rx.swift in Sources */,
 				CE6EE88C27CAA3C9005BF412 /* Date+.swift in Sources */,
 				CE729A8B27E60D49001D33D1 /* SeminarSchedulerFormatter.swift in Sources */,
 				CEB60F4B27A975AD001260DB /* QRScanViewController.swift in Sources */,

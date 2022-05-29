@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
 import SnapKit
 import Then
 
@@ -53,7 +55,7 @@ class MUTextField: UIControl {
     }
     
     var status: MUTextField.Status {
-        didSet { self.updateStatus(to: self.status, from: oldValue) }
+        didSet { self.didUpdateStatus(to: self.status, from: oldValue) }
     }
     
     init(frame: CGRect = .zero, status: MUTextField.Status = .inactive) {
@@ -78,7 +80,7 @@ class MUTextField: UIControl {
         return true
     }
     
-    private func updateStatus(to status: Status, from oldStatus: Status) {
+    private func didUpdateStatus(to status: Status, from oldStatus: Status) {
         let style = MUTextFieldStyle(status: status)
         self.applyStyle(style)
     }
@@ -128,6 +130,8 @@ class MUTextField: UIControl {
         self.textAreaView.addSubview(self.placeholderLabel)
         self.placeholderLabel.snp.makeConstraints {
             $0.leading.trailing.equalToSuperview().inset(20)
+            $0.top.equalToSuperview().offset(26)
+            $0.height.equalTo(32)
         }
         
         self.textAreaView.addSubview(self.trailingIconImageView)
@@ -141,11 +145,11 @@ class MUTextField: UIControl {
     
     private func setupStream() {
         let inactive = self.textField.rx.controlEvent(.editingDidEnd)
-            .filter { self.text?.isEmpty == true }
+            .filter { [text] in text?.isEmpty == true }
             .map { Status.inactive }
         
         let active = self.textField.rx.controlEvent(.editingDidEnd)
-            .filter { self.text?.isNotEmpty == true }
+            .filter { [text] in text?.isNotEmpty == true }
             .map { Status.active }
         
         let focus = self.textField.rx.controlEvent(.editingDidBegin)
@@ -165,19 +169,4 @@ class MUTextField: UIControl {
     
     private let disposeBag = DisposeBag()
     
-}
-
-import RxSwift
-import RxCocoa
-
-extension Reactive where Base: MUTextField {
-    var text: ControlProperty<String?> {
-        self.base.textField.rx.text
-    }
-    
-    var status: Binder<MUTextField.Status> {
-        Binder(self.base) { base, status in
-            base.status = status
-        }
-    }
 }
