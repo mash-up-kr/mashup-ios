@@ -34,6 +34,8 @@
 		CE0F283B2843A50500C206EA /* MUTextField+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0F283A2843A50400C206EA /* MUTextField+Rx.swift */; };
 		CE0F283E2843B81300C206EA /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0F283D2843B81300C206EA /* SignUpViewController.swift */; };
 		CE0F28402843B85400C206EA /* SignUpReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0F283F2843B85400C206EA /* SignUpReactor.swift */; };
+		CE0F28432843C53100C206EA /* MUNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0F28422843C53100C206EA /* MUNavigationBar.swift */; };
+		CE0F28452843CC3A00C206EA /* MUNavigationBarStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0F28442843CC3A00C206EA /* MUNavigationBarStyle.swift */; };
 		CE12DA5427E629AE00F08629 /* AttendanceTimelineViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE12DA5327E629AE00F08629 /* AttendanceTimelineViewModel.swift */; };
 		CE12DA5627E629D700F08629 /* PartialAttendanceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE12DA5527E629D700F08629 /* PartialAttendanceViewModel.swift */; };
 		CE12DA5827E629FE00F08629 /* QRSeminarCardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE12DA5727E629FE00F08629 /* QRSeminarCardViewModel.swift */; };
@@ -189,6 +191,8 @@
 		CE0F283A2843A50400C206EA /* MUTextField+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MUTextField+Rx.swift"; sourceTree = "<group>"; };
 		CE0F283D2843B81300C206EA /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		CE0F283F2843B85400C206EA /* SignUpReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpReactor.swift; sourceTree = "<group>"; };
+		CE0F28422843C53100C206EA /* MUNavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MUNavigationBar.swift; sourceTree = "<group>"; };
+		CE0F28442843CC3A00C206EA /* MUNavigationBarStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MUNavigationBarStyle.swift; sourceTree = "<group>"; };
 		CE12DA5327E629AE00F08629 /* AttendanceTimelineViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttendanceTimelineViewModel.swift; sourceTree = "<group>"; };
 		CE12DA5527E629D700F08629 /* PartialAttendanceViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartialAttendanceViewModel.swift; sourceTree = "<group>"; };
 		CE12DA5727E629FE00F08629 /* QRSeminarCardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRSeminarCardViewModel.swift; sourceTree = "<group>"; };
@@ -400,6 +404,25 @@
 			path = "Sign Up";
 			sourceTree = "<group>";
 		};
+		CE0F28412843C51E00C206EA /* Design System */ = {
+			isa = PBXGroup;
+			children = (
+				CE0F282E2843777B00C206EA /* MUButton */,
+				CE0F28462843CC3E00C206EA /* MUNavigationBar */,
+				CE0F283328437A0700C206EA /* MUTextField */,
+			);
+			path = "Design System";
+			sourceTree = "<group>";
+		};
+		CE0F28462843CC3E00C206EA /* MUNavigationBar */ = {
+			isa = PBXGroup;
+			children = (
+				CE0F28422843C53100C206EA /* MUNavigationBar.swift */,
+				CE0F28442843CC3A00C206EA /* MUNavigationBarStyle.swift */,
+			);
+			path = MUNavigationBar;
+			sourceTree = "<group>";
+		};
 		CE12DA5927E62A7100F08629 /* Fake(deprecated) */ = {
 			isa = PBXGroup;
 			children = (
@@ -497,6 +520,7 @@
 		CE3960B4278B3DBD0073AEF4 /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				CE0F28412843C51E00C206EA /* Design System */,
 				CE3960B0278B3D6A0073AEF4 /* App */,
 				CE6EE81E27C7BEB6005BF412 /* Base */,
 				CE3960E5278B45CA0073AEF4 /* Common */,
@@ -708,8 +732,6 @@
 		CE6EE87627CA857F005BF412 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				CE0F283328437A0700C206EA /* MUTextField */,
-				CE0F282E2843777B00C206EA /* MUButton */,
 				CE6EE87727CA858B005BF412 /* PaddingLabel.swift */,
 				06839F042833E60800D88426 /* InteractiveTextField */,
 			);
@@ -1027,6 +1049,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CE6EE84527C8004F005BF412 /* BaseTabBarController.swift in Sources */,
+				CE0F28452843CC3A00C206EA /* MUNavigationBarStyle.swift in Sources */,
 				CE6EE84327C7F933005BF412 /* Logger.swift in Sources */,
 				CE6EE81227C7B293005BF412 /* SignInReactor.swift in Sources */,
 				CEB60F7F27A9C536001260DB /* AttendanceService.swift in Sources */,
@@ -1063,6 +1086,7 @@
 				CE88D32A27E565C400865C02 /* UIButton+.swift in Sources */,
 				CE6EE85427CA2F6B005BF412 /* Error+.swift in Sources */,
 				0618444427E30259004980CC /* AttendanceMember.swift in Sources */,
+				CE0F28432843C53100C206EA /* MUNavigationBar.swift in Sources */,
 				CE6EE81427C7B541005BF412 /* String+.swift in Sources */,
 				CE14D26D27CCBF1500685CFF /* Observable+Main.swift in Sources */,
 				CE6EE88227CA8F08005BF412 /* UITableView+.swift in Sources */,

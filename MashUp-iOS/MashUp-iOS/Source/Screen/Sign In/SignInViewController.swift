@@ -23,6 +23,10 @@ final class SignInViewController: BaseViewController, ReactorKit.View {
         self.setupUI()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+    }
+    
     func bind(reactor: Reactor) {
         self.dispatch(to: reactor)
         self.render(reactor)
@@ -176,16 +180,15 @@ extension SignInViewController {
     
     private func move(to step: SignInStep) {
         switch step {
-        case .signUp: self.presentSignUpViewController()
+        case .signUp: self.pushSignUpViewController()
         }
     }
     
-    private func presentSignUpViewController() {
+    private func pushSignUpViewController() {
         let reactor = SignUpReactor()
         let viewController = SignUpViewController()
         viewController.reactor = reactor
-        
-        self.present(viewController, animated: true)
+        self.navigationController?.pushViewController(viewController, animated: true)
     }
     
 }

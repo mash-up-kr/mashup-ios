@@ -24,4 +24,28 @@ final class SignUpViewController: BaseViewController, ReactorKit.View {
         
     }
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        self.setupAttribute()
+        self.setupLayout()
+    }
+    
+    private func setupAttribute() {
+        self.view.backgroundColor = .white
+        
+        self.navigationBar.do {
+            $0.title = "회원가입"
+            $0.leftIcon = UIImage(systemName: "chevron.backward")
+        }
+    }
+    
+    private func setupLayout() {
+        self.view.addSubview(self.navigationBar)
+        self.navigationBar.snp.makeConstraints {
+            $0.top.leading.trailing.equalTo(self.view.safeAreaLayoutGuide)
+        }
+    }
+    
+    private let navigationBar = MUNavigationBar()
+    private let scrollView = UIScrollView()
 }

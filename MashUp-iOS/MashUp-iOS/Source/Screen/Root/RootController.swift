@@ -66,8 +66,10 @@ extension RootController {
     
     private func switchToSignInViewController() {
         guard let signInViewController = self.createSignInViewController() else { return }
-        signInViewController.modalPresentationStyle = .fullScreen
-        self.switchToViewController(signInViewController)
+        let naviController = UINavigationController(rootViewController: signInViewController)
+        naviController.modalPresentationStyle = .fullScreen
+        naviController.navigationBar.isHidden = true
+        self.switchToViewController(naviController)
     }
     
     private func switchToHomeTabBarController(with userSession: UserSession) {
