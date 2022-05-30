@@ -37,6 +37,7 @@
 		CE0F28432843C53100C206EA /* MUNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0F28422843C53100C206EA /* MUNavigationBar.swift */; };
 		CE0F28452843CC3A00C206EA /* MUNavigationBarStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0F28442843CC3A00C206EA /* MUNavigationBarStyle.swift */; };
 		CE0F28492843EBA500C206EA /* VerificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0F28482843EBA500C206EA /* VerificationService.swift */; };
+		CE0F284E28444A7000C206EA /* VerificationServiceSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0F284D28444A7000C206EA /* VerificationServiceSpec.swift */; };
 		CE12DA5427E629AE00F08629 /* AttendanceTimelineViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE12DA5327E629AE00F08629 /* AttendanceTimelineViewModel.swift */; };
 		CE12DA5627E629D700F08629 /* PartialAttendanceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE12DA5527E629D700F08629 /* PartialAttendanceViewModel.swift */; };
 		CE12DA5827E629FE00F08629 /* QRSeminarCardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE12DA5727E629FE00F08629 /* QRSeminarCardViewModel.swift */; };
@@ -195,6 +196,7 @@
 		CE0F28422843C53100C206EA /* MUNavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MUNavigationBar.swift; sourceTree = "<group>"; };
 		CE0F28442843CC3A00C206EA /* MUNavigationBarStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MUNavigationBarStyle.swift; sourceTree = "<group>"; };
 		CE0F28482843EBA500C206EA /* VerificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerificationService.swift; sourceTree = "<group>"; };
+		CE0F284D28444A7000C206EA /* VerificationServiceSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerificationServiceSpec.swift; sourceTree = "<group>"; };
 		CE12DA5327E629AE00F08629 /* AttendanceTimelineViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttendanceTimelineViewModel.swift; sourceTree = "<group>"; };
 		CE12DA5527E629D700F08629 /* PartialAttendanceViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartialAttendanceViewModel.swift; sourceTree = "<group>"; };
 		CE12DA5727E629FE00F08629 /* QRSeminarCardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRSeminarCardViewModel.swift; sourceTree = "<group>"; };
@@ -804,13 +806,14 @@
 			children = (
 				CE58818A27ECB2E60068D4E0 /* AttendanceTimelineSpec.swift */,
 				CE6EE85527CA38EF005BF412 /* HomeReactorSpec.swift */,
+				06531C1B283F5E2200E225EB /* PlatformAttendanceStatusReactorSpec.swift */,
 				CE58818827EC9BAC0068D4E0 /* QRScanFormatterSpec.swift */,
 				CE9E735C27C294E800922D8B /* QRScanReactorSpec.swift */,
 				CE6EE84F27CA1DBD005BF412 /* RootReactorSpec.swift */,
+				062A960627E99BE300E8E715 /* SeminarDetailReactorSpec.swift */,
 				CE6EE85127CA26A6005BF412 /* SignInReactorSpec.swift */,
 				CE6EE86A27CA60B6005BF412 /* SplashReactorSpec.swift */,
-				062A960627E99BE300E8E715 /* SeminarDetailReactorSpec.swift */,
-				06531C1B283F5E2200E225EB /* PlatformAttendanceStatusReactorSpec.swift */,
+				CE0F284D28444A7000C206EA /* VerificationServiceSpec.swift */,
 			);
 			path = Specs;
 			sourceTree = "<group>";
@@ -1168,6 +1171,7 @@
 				062A960A27E9CDB300E8E715 /* RxBlocking+.swift in Sources */,
 				CE6EE85627CA38EF005BF412 /* HomeReactorSpec.swift in Sources */,
 				CE6EE86B27CA60B6005BF412 /* SplashReactorSpec.swift in Sources */,
+				CE0F284E28444A7000C206EA /* VerificationServiceSpec.swift in Sources */,
 				06531C1C283F5E2200E225EB /* PlatformAttendanceStatusReactorSpec.swift in Sources */,
 				CE6EE85227CA26A6005BF412 /* SignInReactorSpec.swift in Sources */,
 				CE58818327EC97140068D4E0 /* QRSeminarCardViewModel+Stub.swift in Sources */,
