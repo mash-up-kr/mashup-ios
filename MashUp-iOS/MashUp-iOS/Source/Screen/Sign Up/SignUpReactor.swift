@@ -97,6 +97,6 @@ final class SignUpReactor: Reactor {
         && platform != nil
     }
     
-    private let verificationService: VerificationService
+    private let verificationService: any VerificationService
     
 }

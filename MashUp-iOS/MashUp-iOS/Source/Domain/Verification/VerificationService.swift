@@ -14,7 +14,7 @@ protocol VerificationService {
     func verify(name: String) -> Bool
 }
 
-class VerificationServiceImpl: VerificationService {
+final class VerificationServiceImpl: VerificationService {
     
     func verify(id: String) -> Bool {
         return id.count <= 15 && id.allSatisfy { $0.isLetter }
