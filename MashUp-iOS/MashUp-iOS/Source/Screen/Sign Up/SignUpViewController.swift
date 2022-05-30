@@ -52,6 +52,7 @@ final class SignUpViewController: BaseViewController, ReactorKit.View {
             .disposed(by: self.disposeBag)
         
         self.nameField.rx.text.orEmpty
+            .skip(1)
             .map { .didEditNameField($0) }
             .bind(to: reactor.action)
             .disposed(by: self.disposeBag)
@@ -71,6 +72,7 @@ final class SignUpViewController: BaseViewController, ReactorKit.View {
         
         reactor.state.map { $0.id }
             .distinctUntilChanged()
+            .filter { [idField] in idField.text != $0 }
             .onMain()
             .bind(to: self.idField.rx.text)
             .disposed(by: self.disposeBag)
@@ -84,6 +86,7 @@ final class SignUpViewController: BaseViewController, ReactorKit.View {
         
         reactor.state.map { $0.password }
             .distinctUntilChanged()
+            .filter { [passwordField] in passwordField.text != $0 }
             .onMain()
             .bind(to: self.passwordField.rx.text)
             .disposed(by: self.disposeBag)
@@ -97,6 +100,7 @@ final class SignUpViewController: BaseViewController, ReactorKit.View {
         
         reactor.state.map { $0.name }
             .distinctUntilChanged()
+            .filter { [nameField] in nameField.text != $0 }
             .onMain()
             .bind(to: self.nameField.rx.text)
             .disposed(by: self.disposeBag)
