@@ -158,7 +158,8 @@ class MUTextField: UIControl {
         self.textAreaView.addSubview(self.trailingIconImageView)
         self.trailingIconImageView.snp.makeConstraints {
             $0.centerY.equalTo(self.textField)
-            $0.width.height.trailing.equalTo(20)
+            $0.width.height.equalTo(20)
+            $0.trailing.equalToSuperview().inset(20)
         }
         
         self.containerView.addArrangedSubview(self.assistiveView)

@@ -40,19 +40,25 @@ final class SignUpViewController: BaseViewController, ReactorKit.View {
     
     private func dispatch(to reactor: Reactor) {
         self.idField.rx.text.orEmpty
+            .distinctUntilChanged()
             .skip(1)
+            .debug("🐛 id")
             .map { .didEditIDField($0) }
             .bind(to: reactor.action)
             .disposed(by: self.disposeBag)
         
         self.passwordField.rx.text.orEmpty
+            .distinctUntilChanged()
             .skip(1)
+            .debug("🐛 password")
             .map { .didEditPasswordField($0) }
             .bind(to: reactor.action)
             .disposed(by: self.disposeBag)
         
         self.nameField.rx.text.orEmpty
+            .distinctUntilChanged()
             .skip(1)
+            .debug("🐛 name")
             .map { .didEditNameField($0) }
             .bind(to: reactor.action)
             .disposed(by: self.disposeBag)
@@ -113,11 +119,12 @@ final class SignUpViewController: BaseViewController, ReactorKit.View {
         self.view.backgroundColor = .white
         self.navigationBar.do {
             $0.title = "회원가입"
-            $0.leftIcon = UIImage(systemName: "chevron.backward")
+            $0.leftIcon = UIImage(systemName: "chevron.backward")?.withTintColor(.gray900)
         }
         self.scrollView.do {
-            $0.contentInset = UIEdgeInsets(top: 12, left: 0, bottom: 0, right: 0)
             $0.isScrollEnabled = true
+            $0.showsVerticalScrollIndicator = false
+            $0.contentInset = UIEdgeInsets(top: 12, left: 0, bottom: 0, right: 0)
         }
         self.containterView.do {
             $0.backgroundColor = .white
@@ -140,7 +147,7 @@ final class SignUpViewController: BaseViewController, ReactorKit.View {
         }
         self.platformField.do {
             $0.placeholder = "플랫폼"
-            $0.text = "iOS"
+            $0.textField.isUserInteractionEnabled = false
         }
         self.doneButton.do {
             $0.setTitle("다음", for: .normal)
@@ -162,6 +169,9 @@ final class SignUpViewController: BaseViewController, ReactorKit.View {
             $0.top.bottom.equalTo(self.scrollView.contentLayoutGuide)
             $0.width.equalToSuperview()
         }
+        self.bottomView.snp.makeConstraints {
+            $0.height.equalTo(300)
+        }
         self.containterView.do {
             $0.spacing = 12
             $0.addArrangedSubview(self.titleLabel)
@@ -170,6 +180,7 @@ final class SignUpViewController: BaseViewController, ReactorKit.View {
             $0.addArrangedSubview(self.passwordField)
             $0.addArrangedSubview(self.nameField)
             $0.addArrangedSubview(self.platformField)
+            $0.addArrangedSubview(self.bottomView)
         }
         self.view.addSubview(self.doneButton)
         self.doneButton.snp.makeConstraints {
@@ -188,6 +199,7 @@ final class SignUpViewController: BaseViewController, ReactorKit.View {
     private let passwordField = MUTextField()
     private let nameField = MUTextField()
     private let platformField = MUTextField()
+    private let bottomView = UIView()
     private let doneButton = MUButton()
     
 }

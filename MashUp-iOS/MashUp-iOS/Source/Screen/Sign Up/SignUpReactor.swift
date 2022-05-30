@@ -43,7 +43,7 @@ final class SignUpReactor: Reactor {
     
     let initialState: State = State()
     
-    init(verificationService: VerificationService) {
+    init(verificationService: any VerificationService) {
         self.verificationService = verificationService
     }
     
