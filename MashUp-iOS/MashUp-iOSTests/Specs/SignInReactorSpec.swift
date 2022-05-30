@@ -19,16 +19,16 @@ final class SignInReactorSpec: QuickSpec {
   
   override func spec() {
     var sut: SignInReactor!
-    var userSessionRepositoryMock: UserSessionRepositoryMock!
+    var userAuthServiceMock: UserAuthServiceMock!
     var verificationServiceMock: VerificationServiceMock!
     var authenticationResponserMock: AuthenticationResponderMock!
     
     beforeEach {
-      userSessionRepositoryMock = mock(UserSessionRepository.self)
+      userAuthServiceMock = mock(UserAuthService.self)
       verificationServiceMock = mock(VerificationService.self)
       authenticationResponserMock = mock(AuthenticationResponder.self)
       sut = SignInReactor(
-        userSessionRepository: userSessionRepositoryMock,
+        userAuthService: userAuthServiceMock,
         verificationService: verificationServiceMock,
         authenticationResponder: authenticationResponserMock
       )
@@ -76,9 +76,9 @@ final class SignInReactorSpec: QuickSpec {
       let stubedUserSession = UserSession.stub(accessToken: "fake.access.token")
       let error: Error = "sign in failure"
       beforeEach {
-        given(userSessionRepositoryMock.signIn(id: any(), password: any()))
+        given(userAuthServiceMock.signIn(id: any(), password: any()))
           .willReturn(.error(error))
-        given(userSessionRepositoryMock.signIn(id: correctID, password: correctPassword))
+        given(userAuthServiceMock.signIn(id: correctID, password: correctPassword))
           .willReturn(.just(stubedUserSession))
       }
       context("로그인 버튼을 탭하면") {
@@ -106,9 +106,9 @@ final class SignInReactorSpec: QuickSpec {
       let userSessionStub = UserSession.stub(accessToken: "fake.access.token")
       let error: Error = "sign in failure"
       beforeEach {
-        given(userSessionRepositoryMock.signIn(id: any(), password: any()))
+        given(userAuthServiceMock.signIn(id: any(), password: any()))
           .willReturn(.error(error))
-        given(userSessionRepositoryMock.signIn(id: correctID, password: correctPassword))
+        given(userAuthServiceMock.signIn(id: correctID, password: correctPassword))
           .willReturn(.just(userSessionStub))
       }
       context("로그인을 성공하면") {

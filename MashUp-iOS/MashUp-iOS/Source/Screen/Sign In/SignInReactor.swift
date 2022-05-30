@@ -41,11 +41,11 @@ final class SignInReactor: Reactor {
     let initialState: State = State()
     
     init(
-        userSessionRepository: UserSessionRepository,
-        verificationService: VerificationService,
-        authenticationResponder: AuthenticationResponder
+        userAuthService: any UserAuthService,
+        verificationService: any VerificationService,
+        authenticationResponder: any AuthenticationResponder
     ) {
-        self.userSessionRepository = userSessionRepository
+        self.userAuthService = userAuthService
         self.verificationService = verificationService
         self.authenticationResponder = authenticationResponder
     }
@@ -105,7 +105,7 @@ final class SignInReactor: Reactor {
     private func signIn() -> Observable<UserSession> {
         let id = self.currentState.id
         let password = self.currentState.password
-        return self.userSessionRepository.signIn(id: id, password: password)
+        return self.userAuthService.signIn(id: id, password: password)
     }
     
     private func verify(id: String, password: String) -> Bool {
@@ -118,7 +118,7 @@ final class SignInReactor: Reactor {
         return "sign in failure"
     }
     
-    private let userSessionRepository: UserSessionRepository
-    private let verificationService: VerificationService
-    private let authenticationResponder: AuthenticationResponder
+    private let userAuthService: any UserAuthService
+    private let verificationService: any VerificationService
+    private let authenticationResponder: any AuthenticationResponder
 }

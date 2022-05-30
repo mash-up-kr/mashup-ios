@@ -67,9 +67,9 @@
 		CE6EE81D27C7BCF7005BF412 /* PlatformTeam.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6EE81C27C7BCF6005BF412 /* PlatformTeam.swift */; };
 		CE6EE82027C7BEC2005BF412 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6EE81F27C7BEC2005BF412 /* BaseViewController.swift */; };
 		CE6EE82327C7BF79005BF412 /* UserSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6EE82227C7BF79005BF412 /* UserSession.swift */; };
-		CE6EE82527C7BF91005BF412 /* UserSessionRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6EE82427C7BF91005BF412 /* UserSessionRepository.swift */; };
+		CE6EE82527C7BF91005BF412 /* UserAuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6EE82427C7BF91005BF412 /* UserAuthService.swift */; };
 		CE6EE82727C7C0A1005BF412 /* NewAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6EE82627C7C0A1005BF412 /* NewAccount.swift */; };
-		CE6EE82927C7D655005BF412 /* FakeUserSessionRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6EE82827C7D655005BF412 /* FakeUserSessionRepository.swift */; };
+		CE6EE82927C7D655005BF412 /* FakeUserAuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6EE82827C7D655005BF412 /* FakeUserAuthService.swift */; };
 		CE6EE82C27C7D8F8005BF412 /* RootController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6EE82B27C7D8F8005BF412 /* RootController.swift */; };
 		CE6EE82E27C7D900005BF412 /* RootReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6EE82D27C7D900005BF412 /* RootReactor.swift */; };
 		CE6EE83027C7D931005BF412 /* SignInStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6EE82F27C7D931005BF412 /* SignInStep.swift */; };
@@ -228,9 +228,9 @@
 		CE6EE81C27C7BCF6005BF412 /* PlatformTeam.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlatformTeam.swift; sourceTree = "<group>"; };
 		CE6EE81F27C7BEC2005BF412 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		CE6EE82227C7BF79005BF412 /* UserSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSession.swift; sourceTree = "<group>"; };
-		CE6EE82427C7BF91005BF412 /* UserSessionRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSessionRepository.swift; sourceTree = "<group>"; };
+		CE6EE82427C7BF91005BF412 /* UserAuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAuthService.swift; sourceTree = "<group>"; };
 		CE6EE82627C7C0A1005BF412 /* NewAccount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewAccount.swift; sourceTree = "<group>"; };
-		CE6EE82827C7D655005BF412 /* FakeUserSessionRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeUserSessionRepository.swift; sourceTree = "<group>"; };
+		CE6EE82827C7D655005BF412 /* FakeUserAuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeUserAuthService.swift; sourceTree = "<group>"; };
 		CE6EE82B27C7D8F8005BF412 /* RootController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootController.swift; sourceTree = "<group>"; };
 		CE6EE82D27C7D900005BF412 /* RootReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootReactor.swift; sourceTree = "<group>"; };
 		CE6EE82F27C7D931005BF412 /* SignInStep.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInStep.swift; sourceTree = "<group>"; };
@@ -455,7 +455,7 @@
 		CE12DA5B27E62A8900F08629 /* Fake(deprecated) */ = {
 			isa = PBXGroup;
 			children = (
-				CE6EE82827C7D655005BF412 /* FakeUserSessionRepository.swift */,
+				CE6EE82827C7D655005BF412 /* FakeUserAuthService.swift */,
 			);
 			path = "Fake(deprecated)";
 			sourceTree = "<group>";
@@ -639,8 +639,8 @@
 			isa = PBXGroup;
 			children = (
 				CE6EE82627C7C0A1005BF412 /* NewAccount.swift */,
+				CE6EE82427C7BF91005BF412 /* UserAuthService.swift */,
 				CE6EE82227C7BF79005BF412 /* UserSession.swift */,
-				CE6EE82427C7BF91005BF412 /* UserSessionRepository.swift */,
 				CE12DA5B27E62A8900F08629 /* Fake(deprecated) */,
 			);
 			path = Auth;
@@ -1150,7 +1150,7 @@
 				CE6EE83827C7E2D5005BF412 /* SplashReactor.swift in Sources */,
 				CE6EE84E27C80C9B005BF412 /* MyPageViewController.swift in Sources */,
 				CE6EE87527CA820B005BF412 /* BaseCollectionViewCell.swift in Sources */,
-				CE6EE82927C7D655005BF412 /* FakeUserSessionRepository.swift in Sources */,
+				CE6EE82927C7D655005BF412 /* FakeUserAuthService.swift in Sources */,
 				CE0F283528437A1700C206EA /* MUTextField.swift in Sources */,
 				CE6EE86927CA5609005BF412 /* SeminarDetailViewController.swift in Sources */,
 				06531C3A2840C96000E225EB /* UIColor+.swift in Sources */,
@@ -1160,7 +1160,7 @@
 				CE4A6C09278B4A3C0052F7E7 /* NetworkConfig.swift in Sources */,
 				CEB60F4827A9746E001260DB /* QRReaderService.swift in Sources */,
 				CE729A8D27E60FD2001D33D1 /* QRScanFormatter.swift in Sources */,
-				CE6EE82527C7BF91005BF412 /* UserSessionRepository.swift in Sources */,
+				CE6EE82527C7BF91005BF412 /* UserAuthService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
