@@ -10,6 +10,7 @@ import Foundation
 import ReactorKit
 import RxSwift
 import RxCocoa
+import RxGesture
 import UIKit
 import SnapKit
 import Then
@@ -60,6 +61,12 @@ final class SignUpViewController: BaseViewController, ReactorKit.View {
             .skip(1)
             .debug("🐛 name")
             .map { .didEditNameField($0) }
+            .bind(to: reactor.action)
+            .disposed(by: self.disposeBag)
+        
+        self.platformField.rx.tapGesture()
+            .when(.recognized)
+            .map { _ in .didTapPlatformSelectBox }
             .bind(to: reactor.action)
             .disposed(by: self.disposeBag)
         
@@ -148,6 +155,16 @@ final class SignUpViewController: BaseViewController, ReactorKit.View {
         self.platformField.do {
             $0.placeholder = "플랫폼"
             $0.textField.isUserInteractionEnabled = false
+            $0.status = .custom(MUTextFieldStyle(
+                borderColor: .gray300,
+                textColor: .gray800,
+                textFont: .pretendardFont(weight: .medium, size: 20),
+                placeholderColor: .gray400,
+                placeholderFont: .pretendardFont(weight: .medium, size: 20),
+                assistiveTextColor: nil,
+                assistiveFont: nil,
+                trailingIconImage: UIImage(systemName: "chevron.down"))
+            )
         }
         self.doneButton.do {
             $0.setTitle("다음", for: .normal)

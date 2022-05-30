@@ -14,8 +14,8 @@ struct MUTextFieldStyle: Equatable {
     let textFont: UIFont
     let placeholderColor: UIColor
     let placeholderFont: UIFont
-    let assistiveTextColor: UIColor
-    let assistiveFont: UIFont
+    let assistiveTextColor: UIColor?
+    let assistiveFont: UIFont?
     let trailingIconImage: UIImage?
 }
 

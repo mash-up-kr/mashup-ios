@@ -38,6 +38,7 @@
 		CE0F28452843CC3A00C206EA /* MUNavigationBarStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0F28442843CC3A00C206EA /* MUNavigationBarStyle.swift */; };
 		CE0F28492843EBA500C206EA /* VerificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0F28482843EBA500C206EA /* VerificationService.swift */; };
 		CE0F284E28444A7000C206EA /* VerificationServiceSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0F284D28444A7000C206EA /* VerificationServiceSpec.swift */; };
+		CE0F28512844603C00C206EA /* RxGesture in Frameworks */ = {isa = PBXBuildFile; productRef = CE0F28502844603C00C206EA /* RxGesture */; };
 		CE12DA5427E629AE00F08629 /* AttendanceTimelineViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE12DA5327E629AE00F08629 /* AttendanceTimelineViewModel.swift */; };
 		CE12DA5627E629D700F08629 /* PartialAttendanceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE12DA5527E629D700F08629 /* PartialAttendanceViewModel.swift */; };
 		CE12DA5827E629FE00F08629 /* QRSeminarCardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE12DA5727E629FE00F08629 /* QRSeminarCardViewModel.swift */; };
@@ -310,6 +311,7 @@
 				CEB60F6027A9BDAE001260DB /* SnapKit in Frameworks */,
 				CEB60F5C27A9BDAE001260DB /* ReactorKit in Frameworks */,
 				CEB60F6A27A9BDAE001260DB /* Kingfisher in Frameworks */,
+				CE0F28512844603C00C206EA /* RxGesture in Frameworks */,
 				CEB60F7227A9BDAE001260DB /* RxMoya in Frameworks */,
 				CEB60F6627A9BDAE001260DB /* RxGesture in Frameworks */,
 				CEB60F6E27A9BDAE001260DB /* Moya in Frameworks */,
@@ -921,6 +923,7 @@
 				CE9E735327C28A6100922D8B /* Swinject */,
 				CE6EE86127CA4691005BF412 /* Differentiator */,
 				CE6EE86327CA4691005BF412 /* RxDataSources */,
+				CE0F28502844603C00C206EA /* RxGesture */,
 			);
 			productName = "MashUp-iOS";
 			productReference = CE39607C278B3CB40073AEF4 /* MashUp-iOS.app */;
@@ -999,6 +1002,7 @@
 				CE9E735227C28A6100922D8B /* XCRemoteSwiftPackageReference "Swinject" */,
 				CE6EE86027CA4691005BF412 /* XCRemoteSwiftPackageReference "RxDataSources" */,
 				CE14D27827CD96DE00685CFF /* XCRemoteSwiftPackageReference "Hammer" */,
+				CE0F284F2844603C00C206EA /* XCRemoteSwiftPackageReference "RxGesture" */,
 			);
 			productRefGroup = CE39607D278B3CB40073AEF4 /* Products */;
 			projectDirPath = "";
@@ -1602,6 +1606,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		CE0F284F2844603C00C206EA /* XCRemoteSwiftPackageReference "RxGesture" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/RxSwiftCommunity/RxGesture";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
 		CE14D27827CD96DE00685CFF /* XCRemoteSwiftPackageReference "Hammer" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/lyft/Hammer.git";
@@ -1725,6 +1737,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		CE0F28502844603C00C206EA /* RxGesture */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CE0F284F2844603C00C206EA /* XCRemoteSwiftPackageReference "RxGesture" */;
+			productName = RxGesture;
+		};
 		CE14D27B27CD970500685CFF /* Hammer */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = CE14D27827CD96DE00685CFF /* XCRemoteSwiftPackageReference "Hammer" */;

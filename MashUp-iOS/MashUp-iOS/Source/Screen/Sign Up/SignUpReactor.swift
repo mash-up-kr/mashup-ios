@@ -15,6 +15,7 @@ final class SignUpReactor: Reactor {
         case didEditIDField(String)
         case didEditPasswordField(String)
         case didEditNameField(String)
+        case didTapPlatformSelectBox
         case didSelectPlatform(PlatformTeam)
         case didTapDoneButton
     }
@@ -60,6 +61,9 @@ final class SignUpReactor: Reactor {
             
         case .didSelectPlatform(let platform):
             return .just(.updatePlatform(platform))
+            
+        case .didTapPlatformSelectBox:
+            return .empty()
             
         case .didTapDoneButton:
             return .empty()

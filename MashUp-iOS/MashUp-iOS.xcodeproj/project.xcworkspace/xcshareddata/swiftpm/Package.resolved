@@ -122,8 +122,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/RxSwiftCommunity/RxGesture",
       "state" : {
-        "revision" : "1b137c576b4aaaab949235752278956697c9e4a0",
-        "version" : "4.0.4"
+        "branch" : "main",
+        "revision" : "e9f94dfd39efe5b2914ac9463d4193b9e340779c"
       }
     },
     {
