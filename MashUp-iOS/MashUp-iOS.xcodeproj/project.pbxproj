@@ -44,7 +44,6 @@
 		CE12DA5827E629FE00F08629 /* QRSeminarCardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE12DA5727E629FE00F08629 /* QRSeminarCardViewModel.swift */; };
 		CE14D26B27CC8A4400685CFF /* NSCollectionLayoutSectionFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE14D26A27CC8A4400685CFF /* NSCollectionLayoutSectionFactory.swift */; };
 		CE14D26D27CCBF1500685CFF /* Observable+Main.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE14D26C27CCBF1500685CFF /* Observable+Main.swift */; };
-		CE14D27C27CD970500685CFF /* Hammer in Frameworks */ = {isa = PBXBuildFile; productRef = CE14D27B27CD970500685CFF /* Hammer */; };
 		CE14D2CB27CFBB1200685CFF /* FakeSeminarRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE14D2CA27CFBB1100685CFF /* FakeSeminarRepository.swift */; };
 		CE396080278B3CB40073AEF4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE39607F278B3CB40073AEF4 /* AppDelegate.swift */; };
 		CE396089278B3CB60073AEF4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE396088278B3CB60073AEF4 /* Assets.xcassets */; };
@@ -142,7 +141,6 @@
 		CE9E734827C2889E00922D8B /* Quick in Frameworks */ = {isa = PBXBuildFile; productRef = CE9E734727C2889E00922D8B /* Quick */; };
 		CE9E734B27C288B700922D8B /* Mockingbird in Frameworks */ = {isa = PBXBuildFile; productRef = CE9E734A27C288B700922D8B /* Mockingbird */; };
 		CE9E735127C28A4200922D8B /* RxFlow in Frameworks */ = {isa = PBXBuildFile; productRef = CE9E735027C28A4200922D8B /* RxFlow */; };
-		CE9E735427C28A6100922D8B /* Swinject in Frameworks */ = {isa = PBXBuildFile; productRef = CE9E735327C28A6100922D8B /* Swinject */; };
 		CE9E735627C28B2200922D8B /* RxBlocking in Frameworks */ = {isa = PBXBuildFile; productRef = CE9E735527C28B2200922D8B /* RxBlocking */; };
 		CE9E735827C28B2200922D8B /* RxTest in Frameworks */ = {isa = PBXBuildFile; productRef = CE9E735727C28B2200922D8B /* RxTest */; };
 		CE9E735D27C294E800922D8B /* QRScanReactorSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9E735C27C294E800922D8B /* QRScanReactorSpec.swift */; };
@@ -342,7 +340,6 @@
 				CEB60F5E27A9BDAE001260DB /* Then in Frameworks */,
 				CE6EE86427CA4691005BF412 /* RxDataSources in Frameworks */,
 				CEB60F7027A9BDAE001260DB /* ReactiveMoya in Frameworks */,
-				CE9E735427C28A6100922D8B /* Swinject in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -354,7 +351,6 @@
 				CE9E734827C2889E00922D8B /* Quick in Frameworks */,
 				CE9E735627C28B2200922D8B /* RxBlocking in Frameworks */,
 				CE9E734527C2889200922D8B /* Nimble in Frameworks */,
-				CE14D27C27CD970500685CFF /* Hammer in Frameworks */,
 				CE9E734B27C288B700922D8B /* Mockingbird in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -445,9 +441,9 @@
 		CE0F28412843C51E00C206EA /* Design System */ = {
 			isa = PBXGroup;
 			children = (
-				CE900B7028460EB900FF9C4F /* MUSelectControl */,
 				CE0F282E2843777B00C206EA /* MUButton */,
 				CE0F28462843CC3E00C206EA /* MUNavigationBar */,
+				CE900B7028460EB900FF9C4F /* MUSelectControl */,
 				CE0F283328437A0700C206EA /* MUTextField */,
 			);
 			path = "Design System";
@@ -613,12 +609,12 @@
 		CE3960E5278B45CA0073AEF4 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				CE0F283628437B6A00C206EA /* ImageSource.swift */,
 				CE6EE84227C7F933005BF412 /* Logger.swift */,
 				CE6EE87E27CA8E52005BF412 /* Foundation+ */,
 				CEB60F7727A9BF90001260DB /* Rx+ */,
 				CE6EE87B27CA8E29005BF412 /* UIKit+ */,
 				CE6EE87627CA857F005BF412 /* View */,
-				CE0F283628437B6A00C206EA /* ImageSource.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -988,7 +984,6 @@
 				CEB60F6F27A9BDAE001260DB /* ReactiveMoya */,
 				CEB60F7127A9BDAE001260DB /* RxMoya */,
 				CE9E735027C28A4200922D8B /* RxFlow */,
-				CE9E735327C28A6100922D8B /* Swinject */,
 				CE6EE86127CA4691005BF412 /* Differentiator */,
 				CE6EE86327CA4691005BF412 /* RxDataSources */,
 				CE0F28502844603C00C206EA /* RxGesture */,
@@ -1019,7 +1014,6 @@
 				CE9E734A27C288B700922D8B /* Mockingbird */,
 				CE9E735527C28B2200922D8B /* RxBlocking */,
 				CE9E735727C28B2200922D8B /* RxTest */,
-				CE14D27B27CD970500685CFF /* Hammer */,
 			);
 			productName = "MashUp-iOSTests";
 			productReference = CE396092278B3CB60073AEF4 /* MashUp-iOSTests.xctest */;
@@ -1087,9 +1081,7 @@
 				CE9E734627C2889E00922D8B /* XCRemoteSwiftPackageReference "Quick" */,
 				CE9E734927C288B700922D8B /* XCRemoteSwiftPackageReference "mockingbird" */,
 				CE9E734F27C28A4200922D8B /* XCRemoteSwiftPackageReference "RxFlow" */,
-				CE9E735227C28A6100922D8B /* XCRemoteSwiftPackageReference "Swinject" */,
 				CE6EE86027CA4691005BF412 /* XCRemoteSwiftPackageReference "RxDataSources" */,
-				CE14D27827CD96DE00685CFF /* XCRemoteSwiftPackageReference "Hammer" */,
 				CE0F284F2844603C00C206EA /* XCRemoteSwiftPackageReference "RxGesture" */,
 			);
 			productRefGroup = CE39607D278B3CB40073AEF4 /* Products */;
@@ -1845,14 +1837,6 @@
 				kind = branch;
 			};
 		};
-		CE14D27827CD96DE00685CFF /* XCRemoteSwiftPackageReference "Hammer" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/lyft/Hammer.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 0.9.0;
-			};
-		};
 		CE3960B7278B3F270073AEF4 /* XCRemoteSwiftPackageReference "RxSwift" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/ReactiveX/RxSwift";
@@ -1957,14 +1941,6 @@
 				minimumVersion = 2.0.0;
 			};
 		};
-		CE9E735227C28A6100922D8B /* XCRemoteSwiftPackageReference "Swinject" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/Swinject/Swinject";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 2.0.0;
-			};
-		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -1972,11 +1948,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = CE0F284F2844603C00C206EA /* XCRemoteSwiftPackageReference "RxGesture" */;
 			productName = RxGesture;
-		};
-		CE14D27B27CD970500685CFF /* Hammer */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = CE14D27827CD96DE00685CFF /* XCRemoteSwiftPackageReference "Hammer" */;
-			productName = Hammer;
 		};
 		CE6EE86127CA4691005BF412 /* Differentiator */ = {
 			isa = XCSwiftPackageProductDependency;
@@ -2007,11 +1978,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = CE9E734F27C28A4200922D8B /* XCRemoteSwiftPackageReference "RxFlow" */;
 			productName = RxFlow;
-		};
-		CE9E735327C28A6100922D8B /* Swinject */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = CE9E735227C28A6100922D8B /* XCRemoteSwiftPackageReference "Swinject" */;
-			productName = Swinject;
 		};
 		CE9E735527C28B2200922D8B /* RxBlocking */ = {
 			isa = XCSwiftPackageProductDependency;
