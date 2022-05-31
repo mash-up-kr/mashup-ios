@@ -132,6 +132,12 @@
 		CE900B77284634F000FF9C4F /* MUMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE900B76284634F000FF9C4F /* MUMenu.swift */; };
 		CE900B792846497200FF9C4F /* MUSelectControl+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE900B782846497200FF9C4F /* MUSelectControl+Rx.swift */; };
 		CE900B7B2846542B00FF9C4F /* SignUpReactorSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE900B7A2846542B00FF9C4F /* SignUpReactorSpec.swift */; };
+		CE900BBC28466EF300FF9C4F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE900BBB28466EF300FF9C4F /* AppDelegate.swift */; };
+		CE900BBE28466EF300FF9C4F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE900BBD28466EF300FF9C4F /* SceneDelegate.swift */; };
+		CE900BC028466EF300FF9C4F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE900BBF28466EF300FF9C4F /* ViewController.swift */; };
+		CE900BC328466EF300FF9C4F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE900BC128466EF300FF9C4F /* Main.storyboard */; };
+		CE900BC528466EF600FF9C4F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE900BC428466EF600FF9C4F /* Assets.xcassets */; };
+		CE900BC828466EF600FF9C4F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE900BC628466EF600FF9C4F /* LaunchScreen.storyboard */; };
 		CE9E734527C2889200922D8B /* Nimble in Frameworks */ = {isa = PBXBuildFile; productRef = CE9E734427C2889200922D8B /* Nimble */; };
 		CE9E734827C2889E00922D8B /* Quick in Frameworks */ = {isa = PBXBuildFile; productRef = CE9E734727C2889E00922D8B /* Quick */; };
 		CE9E734B27C288B700922D8B /* Mockingbird in Frameworks */ = {isa = PBXBuildFile; productRef = CE9E734A27C288B700922D8B /* Mockingbird */; };
@@ -296,6 +302,14 @@
 		CE900B76284634F000FF9C4F /* MUMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MUMenu.swift; sourceTree = "<group>"; };
 		CE900B782846497200FF9C4F /* MUSelectControl+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MUSelectControl+Rx.swift"; sourceTree = "<group>"; };
 		CE900B7A2846542B00FF9C4F /* SignUpReactorSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpReactorSpec.swift; sourceTree = "<group>"; };
+		CE900BB928466EF300FF9C4F /* MashUp-UICanvas.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "MashUp-UICanvas.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		CE900BBB28466EF300FF9C4F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		CE900BBD28466EF300FF9C4F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		CE900BBF28466EF300FF9C4F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		CE900BC228466EF300FF9C4F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		CE900BC428466EF600FF9C4F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		CE900BC728466EF600FF9C4F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		CE900BC928466EF600FF9C4F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CE9E735C27C294E800922D8B /* QRScanReactorSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QRScanReactorSpec.swift; sourceTree = "<group>"; };
 		CE9E736627C29F4700922D8B /* MashUp_iOSTests-Mock.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MashUp_iOSTests-Mock.generated.swift"; sourceTree = "<group>"; };
 		CEB60F4227A9713B001260DB /* TestAppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestAppDelegate.swift; sourceTree = "<group>"; };
@@ -342,6 +356,13 @@
 				CE9E734527C2889200922D8B /* Nimble in Frameworks */,
 				CE14D27C27CD970500685CFF /* Hammer in Frameworks */,
 				CE9E734B27C288B700922D8B /* Mockingbird in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CE900BB628466EF300FF9C4F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -477,11 +498,12 @@
 		CE396073278B3CB40073AEF4 = {
 			isa = PBXGroup;
 			children = (
-				CE9E735E27C295D300922D8B /* MockingbirdMocks */,
+				CEB60F5A27A9BDAE001260DB /* Frameworks */,
 				CE39607E278B3CB40073AEF4 /* MashUp-iOS */,
 				CE396095278B3CB60073AEF4 /* MashUp-iOSTests */,
+				CE900BBA28466EF300FF9C4F /* MashUp-UICanvas */,
+				CE9E735E27C295D300922D8B /* MockingbirdMocks */,
 				CE39607D278B3CB40073AEF4 /* Products */,
-				CEB60F5A27A9BDAE001260DB /* Frameworks */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -491,6 +513,7 @@
 			children = (
 				CE39607C278B3CB40073AEF4 /* MashUp-iOS.app */,
 				CE396092278B3CB60073AEF4 /* MashUp-iOSTests.xctest */,
+				CE900BB928466EF300FF9C4F /* MashUp-UICanvas.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -546,10 +569,10 @@
 		CE3960B4278B3DBD0073AEF4 /* Source */ = {
 			isa = PBXGroup;
 			children = (
-				CE0F28412843C51E00C206EA /* Design System */,
 				CE3960B0278B3D6A0073AEF4 /* App */,
 				CE6EE81E27C7BEB6005BF412 /* Base */,
 				CE3960E5278B45CA0073AEF4 /* Common */,
+				CE0F28412843C51E00C206EA /* Design System */,
 				CEB60F8027A9C5DC001260DB /* Domain */,
 				CE3960E0278B45360073AEF4 /* Network */,
 				CE3960B1278B3D850073AEF4 /* Screen */,
@@ -833,6 +856,20 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		CE900BBA28466EF300FF9C4F /* MashUp-UICanvas */ = {
+			isa = PBXGroup;
+			children = (
+				CE900BBB28466EF300FF9C4F /* AppDelegate.swift */,
+				CE900BBD28466EF300FF9C4F /* SceneDelegate.swift */,
+				CE900BBF28466EF300FF9C4F /* ViewController.swift */,
+				CE900BC128466EF300FF9C4F /* Main.storyboard */,
+				CE900BC428466EF600FF9C4F /* Assets.xcassets */,
+				CE900BC628466EF600FF9C4F /* LaunchScreen.storyboard */,
+				CE900BC928466EF600FF9C4F /* Info.plist */,
+			);
+			path = "MashUp-UICanvas";
+			sourceTree = "<group>";
+		};
 		CE9E735B27C294E800922D8B /* Specs */ = {
 			isa = PBXGroup;
 			children = (
@@ -988,6 +1025,23 @@
 			productReference = CE396092278B3CB60073AEF4 /* MashUp-iOSTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		CE900BB828466EF300FF9C4F /* MashUp-UICanvas */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CE900BCA28466EF600FF9C4F /* Build configuration list for PBXNativeTarget "MashUp-UICanvas" */;
+			buildPhases = (
+				CE900BB528466EF300FF9C4F /* Sources */,
+				CE900BB628466EF300FF9C4F /* Frameworks */,
+				CE900BB728466EF300FF9C4F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "MashUp-UICanvas";
+			productName = "MashUp-UICanvas";
+			productReference = CE900BB928466EF300FF9C4F /* MashUp-UICanvas.app */;
+			productType = "com.apple.product-type.application";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -995,7 +1049,7 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
-				LastSwiftUpdateCheck = 1310;
+				LastSwiftUpdateCheck = 1330;
 				LastUpgradeCheck = 1310;
 				ORGANIZATIONNAME = "Mash Up Corp.";
 				TargetAttributes = {
@@ -1005,6 +1059,9 @@
 					CE396091278B3CB60073AEF4 = {
 						CreatedOnToolsVersion = 13.1;
 						TestTargetID = CE39607B278B3CB40073AEF4;
+					};
+					CE900BB828466EF300FF9C4F = {
+						CreatedOnToolsVersion = 13.3;
 					};
 				};
 			};
@@ -1040,6 +1097,7 @@
 			projectRoot = "";
 			targets = (
 				CE39607B278B3CB40073AEF4 /* MashUp-iOS */,
+				CE900BB828466EF300FF9C4F /* MashUp-UICanvas */,
 				CE396091278B3CB60073AEF4 /* MashUp-iOSTests */,
 			);
 		};
@@ -1064,6 +1122,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CE900BB728466EF300FF9C4F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CE900BC828466EF600FF9C4F /* LaunchScreen.storyboard in Resources */,
+				CE900BC528466EF600FF9C4F /* Assets.xcassets in Resources */,
+				CE900BC328466EF300FF9C4F /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1231,6 +1299,16 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		CE900BB528466EF300FF9C4F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CE900BC028466EF300FF9C4F /* ViewController.swift in Sources */,
+				CE900BBC28466EF300FF9C4F /* AppDelegate.swift in Sources */,
+				CE900BBE28466EF300FF9C4F /* SceneDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -1250,6 +1328,22 @@
 			isa = PBXVariantGroup;
 			children = (
 				CE39608B278B3CB60073AEF4 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		CE900BC128466EF300FF9C4F /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CE900BC228466EF300FF9C4F /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		CE900BC628466EF600FF9C4F /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CE900BC728466EF600FF9C4F /* Base */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -1606,6 +1700,97 @@
 			};
 			name = Release;
 		};
+		CE900BCB28466EF600FF9C4F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 64JN25L784;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "MashUp-UICanvas/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "매쉬업 테스트앱";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.mashup.MashUp-UICanvas";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		CE900BCC28466EF600FF9C4F /* Inhouse */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 64JN25L784;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "MashUp-UICanvas/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "매쉬업 테스트앱";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.mashup.MashUp-UICanvas";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Inhouse;
+		};
+		CE900BCD28466EF600FF9C4F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 64JN25L784;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "MashUp-UICanvas/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "매쉬업 테스트앱";
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.mashup.MashUp-UICanvas";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -1635,6 +1820,16 @@
 				CE3960AA278B3CB60073AEF4 /* Debug */,
 				CE3960AB278B3CB60073AEF4 /* Inhouse */,
 				CE4A6C0F278B503B0052F7E7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CE900BCA28466EF600FF9C4F /* Build configuration list for PBXNativeTarget "MashUp-UICanvas" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CE900BCB28466EF600FF9C4F /* Debug */,
+				CE900BCC28466EF600FF9C4F /* Inhouse */,
+				CE900BCD28466EF600FF9C4F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
