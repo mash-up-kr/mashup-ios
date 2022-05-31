@@ -45,3 +45,19 @@ extension PlatformTeamMenuViewModel {
     }
     
 }
+
+extension PlatformTeamMenuViewModel {
+    
+    func asModel() -> PlatformTeam {
+        switch self {
+        case .design: return .design
+        case .android: return .android
+        case .iOS: return .iOS
+        case .web: return .web
+        case .node: return .node
+        case .spring: return .spring
+        }
+    }
+    
+}
+

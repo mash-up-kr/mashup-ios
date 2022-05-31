@@ -113,21 +113,42 @@ final class SignUpViewController: BaseViewController, ReactorKit.View {
             .onMain()
             .bind(to: self.nameField.rx.text)
             .disposed(by: self.disposeBag)
+        
+        reactor.state.compactMap { $0.selectedPlatform }
+            .distinctUntilChanged()
+            .map { PlatformTeamMenuViewModel(model: $0) }
+            .onMain()
+            .bind(to: self.platformSelectControl.rx.selectedMenu)
+            .disposed(by: self.disposeBag)
     }
     
     private func consume(_ reactor: Reactor) {
         reactor.pulse(\.$shouldSelectPlatform)
-            .debug("$shouldSelectPlatform")
             .compactMap { $0 }
             .onMain()
-            .subscribe(onNext: { [weak self] in
-                self?.presentPopup()
+            .subscribe(onNext: { [weak self] allPlatform in
+                self?.presentPopup(platformTeams: allPlatform)
             })
             .disposed(by: self.disposeBag)
     }
     
-    private func presentPopup() {
-        let actionSheet = UIAlertController(title: "플랫폼", message: "iOS", preferredStyle: .actionSheet)
+    private func presentPopup(platformTeams: [PlatformTeam]) {
+        #warning("프로토 타이핑 디자인 확인 후 추가 작업 필요 - Booung")
+        let actionSheet = UIAlertController(
+            title: "플랫폼",
+            message: .empty,
+            preferredStyle: .actionSheet
+        )
+        platformTeams.map { PlatformTeamMenuViewModel(model: $0) }
+            .enumerated()
+            .map { index, menu in
+                UIAlertAction(title: menu.description, style: .default) { [reactor] _ in
+                    reactor?.action.onNext(.didSelectPlatform(at: index))
+                }
+            }
+            .forEach { actionSheet.addAction($0) }
+        actionSheet.addAction(UIAlertAction(title: "취소", style: .cancel))
+        
         self.present(actionSheet, animated: true)
     }
     

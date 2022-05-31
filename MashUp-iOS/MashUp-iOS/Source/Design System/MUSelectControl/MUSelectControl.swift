@@ -58,9 +58,8 @@ class MUSelectControl<Menu: MUMenu>: UIControl {
     }
     
     private func updateUI() {
-        self.iconImageView.isHidden = self.hasIcon == false
         if let selectedMenu = self.selectedMenu {
-            self.menuTitleLabel.isHidden = true
+            self.menuTitleLabel.isHidden = false
             self.selectedMenuLabel.text = selectedMenu.description
             self.selectedMenuLabel.textColor = .gray800
         } else {
@@ -68,6 +67,8 @@ class MUSelectControl<Menu: MUMenu>: UIControl {
             self.selectedMenuLabel.text = self.menuTitle
             self.selectedMenuLabel.textColor = .gray400
         }
+        self.menuTitleLabel.text = self.menuTitle
+        self.iconImageView.isHidden = self.hasIcon == false
     }
     
     private let containerView = UIStackView()

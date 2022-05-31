@@ -16,7 +16,7 @@ final class SignUpReactor: Reactor {
         case didEditPasswordField(String)
         case didEditNameField(String)
         case didTapPlatformSelectControl
-        case didSelectPlatform(PlatformTeam)
+        case didSelectPlatform(at: Int)
         case didTapDoneButton
     }
     
@@ -32,14 +32,14 @@ final class SignUpReactor: Reactor {
         var id: String = .empty
         var password: String = .empty
         var name: String = .empty
-        var platform: PlatformTeam? = nil
+        var selectedPlatform: PlatformTeam? = nil
         
         var canDone: Bool = false
         var hasVaildatedID: Bool? = nil
         var hasVaildatedPassword: Bool? = nil
         var hasAgreedTerms: Bool = false
         
-        @Pulse var shouldSelectPlatform: Void?
+        @Pulse var shouldSelectPlatform: [PlatformTeam]?
         @Pulse var shouldAgreeTerms: Void?
     }
     
@@ -63,7 +63,8 @@ final class SignUpReactor: Reactor {
         case .didTapPlatformSelectControl:
             return .just(.updateShouldSelectPlatform)
             
-        case .didSelectPlatform(let platform):
+        case .didSelectPlatform(let index):
+            guard let platform = self.currentState.shouldSelectPlatform?[safe: index] else { return .empty() }
             return .just(.updatePlatform(platform))
             
         case .didTapDoneButton:
@@ -86,15 +87,16 @@ final class SignUpReactor: Reactor {
             newState.name = name
             
         case .updatePlatform(let platform):
-            newState.platform = platform
+            newState.selectedPlatform = platform
             
         case .updateShouldSelectPlatform:
-            newState.shouldSelectPlatform = Void()
+            #warning("PlatformTeam 레퍼지토리 로드로 변경 - Booung")
+            newState.shouldSelectPlatform = PlatformTeam.allCases
         }
         newState.canDone = self.verify(id: newState.id,
                                        password: newState.password,
                                        name: newState.name,
-                                       platform: newState.platform)
+                                       platform: newState.selectedPlatform)
         return newState
     }
     
