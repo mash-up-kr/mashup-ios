@@ -13,30 +13,22 @@ import SnapKit
 class MUSelectControl<Menu: MUMenu>: UIControl {
     
     var menuTitle: String? {
-        get { self.menuTitleLabel.text }
-        set {
-            self.menuTitleLabel.text = newValue
-            self.updateUI()
-        }
+        didSet { self.updateUI() }
     }
     
     var selectedMenu: Menu? {
         didSet { self.updateUI() }
     }
     
-    var hasIcon: Bool
+    var hasIcon: Bool = true {
+        didSet { self.updateUI() }
+    }
     
-    init(
-        frame: CGRect = .zero,
-        menuTitle: String? = nil,
-        hasIcon: Bool = true
-    ) {
-        self.hasIcon = hasIcon
+    override init(frame: CGRect = .zero) {
         super.init(frame: frame)
         
         self.setupLayout()
         self.setupAttribute()
-        self.menuTitle = menuTitle
         self.updateUI()
     }
     
@@ -78,6 +70,7 @@ class MUSelectControl<Menu: MUMenu>: UIControl {
         }
     }
     
+    private let containerView = UIStackView()
     private let menuTitleLabel = UILabel()
     private let selectedMenuLabel = UILabel()
     private let iconImageView = UIImageView()
@@ -86,6 +79,10 @@ class MUSelectControl<Menu: MUMenu>: UIControl {
 extension MUSelectControl {
     
     private func setupAttribute() {
+        self.containerView.do {
+            $0.axis = .vertical
+            $0.isUserInteractionEnabled = false
+        }
         self.menuTitleLabel.do {
             $0.textColor = .gray600
             $0.font = .pretendardFont(weight: .medium, size: 13)
@@ -104,25 +101,21 @@ extension MUSelectControl {
             $0.width.equalTo(320).priority(.low)
             $0.height.equalTo(84).priority(.low)
         }
-        let containerView = UIStackView().then {
-            $0.axis = .vertical
-            $0.isUserInteractionEnabled = false
-        }
-        self.addSubview(containerView)
-        containerView.snp.makeConstraints {
+        self.addSubview(self.containerView)
+        self.containerView.snp.makeConstraints {
             $0.center.equalToSuperview()
         }
-        containerView.addArrangedSubview(self.menuTitleLabel)
+        self.containerView.addArrangedSubview(self.menuTitleLabel)
         self.menuTitleLabel.snp.makeConstraints {
             $0.width.equalTo(280)
             $0.height.equalTo(20)
         }
-        containerView.addArrangedSubview(self.selectedMenuLabel)
+        self.containerView.addArrangedSubview(self.selectedMenuLabel)
         self.selectedMenuLabel.snp.makeConstraints {
             $0.width.equalTo(280)
             $0.height.equalTo(32)
         }
-        containerView.addSubview(self.iconImageView)
+        self.containerView.addSubview(self.iconImageView)
         self.iconImageView.snp.makeConstraints {
             $0.width.height.equalTo(20)
             $0.centerY.trailing.equalTo(self.selectedMenuLabel)
