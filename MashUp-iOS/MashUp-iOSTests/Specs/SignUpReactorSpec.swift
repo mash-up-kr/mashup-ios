@@ -99,7 +99,7 @@ final class SignUpReactorSpec: QuickSpec {
                 sut.action.onNext(.didTapDoneButton)
               }
               it("약관 동의 여부를 표시합니다.") {
-                expect { sut.currentState.shouldShowPolicyAgreementStatus }.to(notNil())
+                expect { sut.currentState.shouldShowPolicyAgreementStatus }.toNot(beNil())
               }
             }
           }
