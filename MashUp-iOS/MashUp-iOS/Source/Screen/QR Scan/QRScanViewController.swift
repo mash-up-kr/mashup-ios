@@ -12,6 +12,7 @@ import RxSwift
 import RxCocoa
 import SnapKit
 import UIKit
+import MashUp_Core
 
 
 struct TimerStyle: Equatable {

@@ -8,6 +8,7 @@
 
 import Foundation
 import ReactorKit
+import MashUp_Core
 
 final class SignUpReactor: Reactor {
     

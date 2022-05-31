@@ -9,6 +9,7 @@
 import Foundation
 import ReactorKit
 import AVFoundation
+import MashUp_Core
 
 final class QRScanReactor: Reactor {
     

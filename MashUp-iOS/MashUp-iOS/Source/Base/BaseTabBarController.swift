@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MashUp_Core
 
 class BaseTabBarController: UITabBarController {
     

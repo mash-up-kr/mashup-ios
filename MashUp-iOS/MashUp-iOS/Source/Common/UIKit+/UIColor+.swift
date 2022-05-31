@@ -9,21 +9,21 @@
 import UIKit
 
 extension UIColor {
-    static let gray50 = UIColor(named: "gray50")!
-    static let gray100 = UIColor(named: "gray100")!
-    static let gray200 = UIColor(named: "gray200")!
-    static let gray300 = UIColor(named: "gray300")!
-    static let gray400 = UIColor(named: "gray400")!
-    static let gray500 = UIColor(named: "gray500")!
-    static let gray600 = UIColor(named: "gray600")!
-    static let gray700 = UIColor(named: "gray700")!
-    static let gray800 = UIColor(named: "gray800")!
-    static let gray900 = UIColor(named: "gray900")!
+    public static let gray50 = UIColor(named: "gray50")!
+    public static let gray100 = UIColor(named: "gray100")!
+    public static let gray200 = UIColor(named: "gray200")!
+    public static let gray300 = UIColor(named: "gray300")!
+    public static let gray400 = UIColor(named: "gray400")!
+    public static let gray500 = UIColor(named: "gray500")!
+    public static let gray600 = UIColor(named: "gray600")!
+    public static let gray700 = UIColor(named: "gray700")!
+    public static let gray800 = UIColor(named: "gray800")!
+    public static let gray900 = UIColor(named: "gray900")!
     
-    static let primary = UIColor(named: "primary")!
+    public static let primary = UIColor(named: "primary")!
     
     #warning("Color 정의되면 수정해야합니다. - Booung")
-    static let red700 = UIColor(named: "red700")!
+    public static let red700 = UIColor(named: "red700")!
     
-    static let green700 = UIColor(named: "green700")!
+    public static let green700 = UIColor(named: "green700")!
 }

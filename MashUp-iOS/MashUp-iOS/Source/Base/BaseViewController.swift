@@ -8,6 +8,7 @@
 
 import Then
 import UIKit
+import MashUp_Core
 
 class BaseViewController: UIViewController {
     

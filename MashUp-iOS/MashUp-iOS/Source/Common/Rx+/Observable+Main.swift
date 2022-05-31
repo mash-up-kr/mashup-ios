@@ -9,7 +9,7 @@
 import RxSwift
 
 extension Observable {
-    func onMain() -> Observable<Element> {
+    public func onMain() -> Observable<Element> {
         return self.observe(on: MainScheduler.instance)
     }
 }

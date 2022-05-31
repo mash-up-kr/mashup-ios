@@ -8,10 +8,10 @@
 
 import Foundation
 
-let seconds: TimeInterval = 1
-let minutes: TimeInterval = 60 * seconds
-let hours: TimeInterval = 60 * minutes
-let days: TimeInterval = 24 * hours
+public let seconds: TimeInterval = 1
+public let minutes: TimeInterval = 60 * seconds
+public let hours: TimeInterval = 60 * minutes
+public let days: TimeInterval = 24 * hours
 
 extension TimeInterval {
 }

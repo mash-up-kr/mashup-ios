@@ -8,12 +8,12 @@
 
 import UIKit
 
-enum PretendardFontWeight {
+public enum PretendardFontWeight {
     case regular, medium, semiBold, bold
 }
 
 extension UIFont {
-    static func pretendardFont(weight: PretendardFontWeight, size: CGFloat) -> UIFont {
+    public static func pretendardFont(weight: PretendardFontWeight, size: CGFloat) -> UIFont {
         switch weight {
         case .regular: return UIFont(name: "Pretendard-Regular", size: size)!
         case .medium: return UIFont(name: "Pretendard-Medium", size: size)!
