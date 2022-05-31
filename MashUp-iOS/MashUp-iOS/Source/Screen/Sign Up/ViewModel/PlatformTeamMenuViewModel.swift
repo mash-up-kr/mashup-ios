@@ -43,4 +43,5 @@ extension PlatformTeamMenuViewModel {
         case .spring: self = .spring
         }
     }
+    
 }

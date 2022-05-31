@@ -10,8 +10,6 @@ import UIKit
 import Then
 import SnapKit
 
-protocol MUMenu: CaseIterable, CustomStringConvertible {}
-
 class MUSelectControl<Menu: MUMenu>: UIControl {
     
     var menuTitle: String? {
@@ -26,11 +24,14 @@ class MUSelectControl<Menu: MUMenu>: UIControl {
         didSet { self.updateUI() }
     }
     
+    var hasIcon: Bool
+    
     init(
         frame: CGRect = .zero,
         menuTitle: String? = nil,
         hasIcon: Bool = true
     ) {
+        self.hasIcon = hasIcon
         super.init(frame: frame)
         
         self.setupLayout()
@@ -65,6 +66,7 @@ class MUSelectControl<Menu: MUMenu>: UIControl {
     }
     
     private func updateUI() {
+        self.iconImageView.isHidden = self.hasIcon == false
         if let selectedMenu = self.selectedMenu {
             self.menuTitleLabel.isHidden = true
             self.selectedMenuLabel.text = selectedMenu.description
