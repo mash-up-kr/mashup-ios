@@ -12,7 +12,7 @@ import RxSwift
 protocol AttendanceService {
     func attend(withCode code: Code) -> Observable<Bool>
     
-    func attendanceMembers(platform: PlatformTeam?) -> Observable<[AttendanceMember]>
+    func attendanceMembers(platform: PlatformTeam) -> Observable<[AttendanceMember]>
 }
 
 final class AttendanceServiceImpl: AttendanceService {
@@ -21,7 +21,7 @@ final class AttendanceServiceImpl: AttendanceService {
         return .empty()
     }
     
-    func attendanceMembers(platform: PlatformTeam?) -> Observable<[AttendanceMember]> {
+    func attendanceMembers(platform: PlatformTeam) -> Observable<[AttendanceMember]> {
         return .empty()
     }
 }

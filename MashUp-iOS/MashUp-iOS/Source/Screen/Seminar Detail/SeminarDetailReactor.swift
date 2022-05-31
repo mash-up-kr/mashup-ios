@@ -11,28 +11,27 @@ import ReactorKit
 
 final class SeminarDetailReactor: Reactor {
     enum Action {
-        case didSelectPlatform(at: Int)
+        case didSetup
     }
     
     enum Mutation {
         case updateLoading(Bool)
         case updateMembers([AttendanceMember])
-        case updateSelectedPlatformIndex(Int)
         case occurError(Error)
     }
     
     struct State {
         var isLoading: Bool = false
-        var selectedPlatformIndex: Int = 0
         var members: [AttendanceMember] = []
-        var platforms: [PlatformCellModel] = PlatformCellModel.models
+        var platform: PlatformTeam
         @Pulse var error: Error?
     }
     
-    let initialState: State = State()
+    let initialState: State
     private let attendanceService: AttendanceService
     
-    init(attendanceService: AttendanceService) {
+    init(attendanceService: AttendanceService, platform: PlatformTeam) {
+        self.initialState = State(platform: platform)
         self.attendanceService = attendanceService
     }
     
@@ -40,21 +39,15 @@ final class SeminarDetailReactor: Reactor {
     
     func mutate(action: Action) -> Observable<Mutation> {
         switch action {
-        case .didSelectPlatform(let index):
+        case .didSetup:
             let startLoading: Observable<Mutation> = .just(.updateLoading(true))
-            let selectedPlatform: Observable<Mutation> = .just(.updateSelectedPlatformIndex(index))
-            let platform = platform(index: index)
-            let loadMember: Observable<Mutation> = attendanceService.attendanceMembers(platform: platform)
+            let loadMember: Observable<Mutation> = attendanceService.attendanceMembers(platform: currentState.platform)
                 .map { .updateMembers($0) }
             let endLoading: Observable<Mutation> = .just(.updateLoading(false))
             
-            return .concat(startLoading, selectedPlatform, loadMember, endLoading)
+            return .concat(startLoading, loadMember, endLoading)
                 .catch { error in .concat(.just(.occurError(error)), endLoading) }
         }
-    }
-    
-    private func platform(index: Int) -> PlatformTeam? {
-        currentState.platforms[safe: index]?.platform
     }
     
     // MARK: - Reduce
@@ -66,8 +59,6 @@ final class SeminarDetailReactor: Reactor {
             newState.isLoading = isLoading
         case .updateMembers(let members):
             newState.members = members
-        case .updateSelectedPlatformIndex(let index):
-            newState.selectedPlatformIndex = index
         case .occurError(let error):
             newState.error = error
         }

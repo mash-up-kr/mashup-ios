@@ -19,37 +19,36 @@ final class SeminarDetailReactorSpec: QuickSpec {
     
     beforeEach {
       attendanceService = mock(AttendanceService.self)
-      sut = SeminarDetailReactor(attendanceService: attendanceService)
     }
-    
-    describe("SeminarDetailReactor 멤버 로직") {
-      var recorded: Observable<Bool>!
+    describe("SeminarDetailReactor로직") {
       beforeEach {
-        recorded = sut.state.map { $0.isLoading }.distinctUntilChanged().take(3).recorded()
         given(attendanceService.attendanceMembers(platform: any())).willReturn(.just(AttendanceMember.dummy))
+        given(attendanceService.attendanceMembers(platform: .android)).willReturn(.just(SeminarDetailReactorSpec.androidMemberDummy))
+        given(attendanceService.attendanceMembers(platform: .iOS)).willReturn(.just(SeminarDetailReactorSpec.iOSMemberDummy))
       }
-      context("when 플랫폼 라디오버튼 선택") {
+      
+      context("아오스 팀원리스트") {
+        var recorded: Observable<Bool>!
         beforeEach {
-          let androidMemberDummy = SeminarDetailReactorSpec.androidMemberDummy
-          given(attendanceService.attendanceMembers(platform: .android)).willReturn(.just(androidMemberDummy))
-          sut.action.onNext(.didSelectPlatform(at: 1))
+          sut = SeminarDetailReactor(attendanceService: attendanceService, platform: .iOS)
+          recorded = sut.state.map { $0.isLoading }.distinctUntilChanged().recorded().take(3)
+          sut.action.onNext(.didSetup)
         }
-        
         it("로딩 인디케이터 true 후 false") {
           let event = try recorded.toBlocking(timeout: 1).toArray()
           expect { event }.to(equal([false, true, false]))
         }
-        
-        it("멤버 교체") {
+        it("아오스 팀원만 나와야함") {
+          expect { sut.currentState.members }.to(equal(SeminarDetailReactorSpec.iOSMemberDummy))
+        }
+      }
+      context("안드 팀원리스트") {
+        beforeEach {
+          sut = SeminarDetailReactor(attendanceService: attendanceService, platform: .android)
+          sut.action.onNext(.didSetup)
+        }
+        it("아오스 팀원만 나와야함") {
           expect { sut.currentState.members }.to(equal(SeminarDetailReactorSpec.androidMemberDummy))
-        }
-        
-        it("선택된 인덱스 변경") {
-          expect { sut.currentState.selectedPlatformIndex }.toNot(equal(0))
-        }
-        
-        it("플랫폼에 해당하는 멤버 호출") {
-          verify(attendanceService.attendanceMembers(platform: .android)).wasCalled()
         }
       }
     }
@@ -69,9 +68,16 @@ extension SeminarDetailReactorSpec {
                       firstSeminarAttendance: .attend,
                       firstSeminarAttendanceTime: Date(),
                       secondSeminarAttendance: .attend,
+                      secondSeminarAttendanceTime: Date())]
+  fileprivate static let iOSMemberDummy: [AttendanceMember]
+  = [AttendanceMember(name: "김남수",
+                      platform: .iOS,
+                      firstSeminarAttendance: .attend,
+                      firstSeminarAttendanceTime: Date(),
+                      secondSeminarAttendance: .attend,
                       secondSeminarAttendanceTime: Date()),
-     AttendanceMember(name: "김남수2",
-                      platform: .android,
+     AttendanceMember(name: "김남수1",
+                      platform: .iOS,
                       firstSeminarAttendance: .attend,
                       firstSeminarAttendanceTime: Date(),
                       secondSeminarAttendance: .attend,
