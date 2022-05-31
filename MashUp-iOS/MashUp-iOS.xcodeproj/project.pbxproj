@@ -608,10 +608,10 @@
 		CE396095278B3CB60073AEF4 /* MashUp-iOSTests */ = {
 			isa = PBXGroup;
 			children = (
-				062A960827E9CDA600E8E715 /* TestHelper */,
-				CE6EE86C27CA62F0005BF412 /* TestDoubles */,
-				CE9E735B27C294E800922D8B /* Specs */,
 				CEB60F4227A9713B001260DB /* TestAppDelegate.swift */,
+				CE9E735B27C294E800922D8B /* Specs */,
+				CE6EE86C27CA62F0005BF412 /* TestDoubles */,
+				062A960827E9CDA600E8E715 /* TestHelper */,
 			);
 			path = "MashUp-iOSTests";
 			sourceTree = "<group>";
