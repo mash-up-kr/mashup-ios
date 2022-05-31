@@ -10,21 +10,21 @@ import UIKit
 import Then
 import SnapKit
 
-class MUSelectControl<Menu: MUMenu>: UIControl {
+public class MUSelectControl<Menu: MUMenu>: UIControl {
     
-    var menuTitle: String? {
+    public var menuTitle: String? {
         didSet { self.updateUI() }
     }
     
-    var selectedMenu: Menu? {
+    public var selectedMenu: Menu? {
         didSet { self.updateUI() }
     }
     
-    var hasIcon: Bool = true {
+    public var hasIcon: Bool = true {
         didSet { self.updateUI() }
     }
     
-    override init(frame: CGRect = .zero) {
+    public override init(frame: CGRect = .zero) {
         super.init(frame: frame)
         
         self.setupLayout()
@@ -32,15 +32,15 @@ class MUSelectControl<Menu: MUMenu>: UIControl {
         self.updateUI()
     }
     
-    required init?(coder: NSCoder) {
+    public required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    override var intrinsicContentSize: CGSize {
+    public override var intrinsicContentSize: CGSize {
         CGSize(width: 320, height: 84)
     }
     
-    override func layoutSubviews() {
+    public override func layoutSubviews() {
         super.layoutSubviews()
         
         self.roundCorner()

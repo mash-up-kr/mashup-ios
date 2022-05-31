@@ -10,44 +10,44 @@ import UIKit
 import SnapKit
 import Then
 
-class MUNavigationBar: UIView {
+public class MUNavigationBar: UIView {
     
-    let leftButton = UIButton()
-    let titleLabel = UILabel()
-    let rightButton = UIButton()
+    public let leftButton = UIButton()
+    public let titleLabel = UILabel()
+    public let rightButton = UIButton()
     
-    var style: MUNavigationBarStyle? {
+    public var style: MUNavigationBarStyle? {
         didSet { self.setupStyle() }
     }
     
-    var title: String? {
+    public var title: String? {
         get { self.titleLabel.text }
         set { self.titleLabel.text = newValue }
     }
     
-    var leftIcon: UIImage? {
+    public var leftIcon: UIImage? {
         get { self.leftButton.image(for: .normal) }
         set { self.leftButton.setBackgroundImage(newValue, for: .normal) }
     }
     
-    var rightIcon: UIImage? {
+    public var rightIcon: UIImage? {
         get { self.rightButton.image(for: .normal) }
         set { self.rightButton.setBackgroundImage(newValue, for: .normal) }
     }
     
-    override init(frame: CGRect = .zero) {
+    public override init(frame: CGRect = .zero) {
         super.init(frame: frame)
         self.setupAttribute()
         self.setupLayout()
     }
     
-    required init?(coder: NSCoder) {
+    public required init?(coder: NSCoder) {
         super.init(coder: coder)
         self.setupAttribute()
         self.setupLayout()
     }
     
-    override var intrinsicContentSize: CGSize {
+    public override var intrinsicContentSize: CGSize {
         CGSize(width: UIScreen.main.bounds.width, height: 56)
     }
     

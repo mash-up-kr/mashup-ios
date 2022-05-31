@@ -8,4 +8,4 @@
 
 import Foundation
 
-protocol MUMenu: CaseIterable, CustomStringConvertible {}
+public protocol MUMenu: CaseIterable, CustomStringConvertible {}

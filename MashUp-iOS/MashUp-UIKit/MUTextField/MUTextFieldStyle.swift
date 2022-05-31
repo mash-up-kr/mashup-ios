@@ -8,7 +8,7 @@
 
 import UIKit
 
-struct MUTextFieldStyle: Equatable {
+public struct MUTextFieldStyle: Equatable {
     let borderColor: UIColor
     let textColor: UIColor
     let textFont: UIFont
@@ -21,7 +21,7 @@ struct MUTextFieldStyle: Equatable {
 
 extension MUTextFieldStyle {
     
-    init(status: MUTextField.Status) {
+    public init(status: MUTextField.Status) {
         switch status {
         case .inactive:
             self.borderColor = .gray300

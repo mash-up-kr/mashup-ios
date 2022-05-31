@@ -7,7 +7,7 @@
 //
 
 import Foundation
-
+import MashUp_UIKit
 
 enum PlatformTeamMenuViewModel: CaseIterable, MUMenu {
     

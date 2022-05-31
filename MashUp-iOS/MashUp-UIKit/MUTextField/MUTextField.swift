@@ -13,9 +13,9 @@ import SnapKit
 import Then
 import MashUp_Core
 
-class MUTextField: UIControl {
+public class MUTextField: UIControl {
     
-    enum Status: Equatable {
+    public enum Status: Equatable {
         case inactive
         case active
         case focus
@@ -25,24 +25,24 @@ class MUTextField: UIControl {
         case custom(MUTextFieldStyle)
     }
     
-    let textField = UITextField()
+    public let textField = UITextField()
     
-    var text: String? {
+    public var text: String? {
         get { self.textField.text }
         set { self.textField.text = newValue }
     }
     
-    var keyboardType: UIKeyboardType {
+    public var keyboardType: UIKeyboardType {
         get { self.textField.keyboardType }
         set { self.textField.keyboardType = newValue }
     }
     
-    var placeholder: String? {
+    public var placeholder: String? {
         get { self.placeholderLabel.text }
         set { self.placeholderLabel.text = newValue }
     }
     
-    var assistiveDescription: String? {
+    public var assistiveDescription: String? {
         get { self.assistiveLabel.text }
         set {
             self.assistiveLabel.text = newValue
@@ -50,16 +50,16 @@ class MUTextField: UIControl {
         }
     }
     
-    var isSecureTextEntry: Bool {
+    public var isSecureTextEntry: Bool {
         get { self.textField.isSecureTextEntry }
         set { self.textField.isSecureTextEntry = newValue }
     }
     
-    var status: MUTextField.Status {
+    public var status: MUTextField.Status {
         didSet { self.didUpdateStatus(to: self.status, from: oldValue) }
     }
     
-    init(frame: CGRect = .zero, status: MUTextField.Status = .inactive) {
+    public init(frame: CGRect = .zero, status: MUTextField.Status = .inactive) {
         self.status = status
         super.init(frame: frame)
         let style = MUTextFieldStyle(status: self.status)
@@ -69,7 +69,7 @@ class MUTextField: UIControl {
         self.applyStyle(style)
     }
     
-    required init?(coder: NSCoder) {
+    public required init?(coder: NSCoder) {
         self.status = .inactive
         super.init(coder: coder)
         self.setupAttribute()

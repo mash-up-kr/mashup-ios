@@ -10,11 +10,11 @@ import RxSwift
 import RxCocoa
 
 extension Reactive where Base: MUTextField {
-    var text: ControlProperty<String?> {
+    public var text: ControlProperty<String?> {
         self.base.textField.rx.text
     }
     
-    var status: Binder<MUTextField.Status> {
+    public var status: Binder<MUTextField.Status> {
         Binder(self.base) { base, status in
             base.status = status
         }

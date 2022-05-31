@@ -8,7 +8,7 @@
 
 import UIKit
 
-struct MUNavigationBarStyle {
+public struct MUNavigationBarStyle {
     let leftIconImage: UIImage?
     let rightIconImage: UIImage?
     let titleFont: UIFont?

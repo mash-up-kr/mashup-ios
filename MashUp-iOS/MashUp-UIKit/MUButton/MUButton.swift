@@ -7,22 +7,22 @@
 //
 import UIKit
 
-class MUButton: UIButton {
+public class MUButton: UIButton {
     
-    let style: MUButtonStyle
+    public let style: MUButtonStyle
     
-    init(frame: CGRect = .zero, style: MUButtonStyle = .primary) {
+    public init(frame: CGRect = .zero, style: MUButtonStyle = .primary) {
         self.style = style
         super.init(frame: frame)
         self.setupUI()
     }
     
-    required init?(coder: NSCoder) {
+    public required init?(coder: NSCoder) {
         self.style = .default
         super.init(coder: coder)
     }
     
-    override func layoutSubviews() {
+    public override func layoutSubviews() {
         super.layoutSubviews()
         self.round()
     }
