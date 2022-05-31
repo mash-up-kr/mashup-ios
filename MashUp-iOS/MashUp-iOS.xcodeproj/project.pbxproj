@@ -131,6 +131,7 @@
 		CE900B7528462C5400FF9C4F /* PlatformTeamMenuViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE900B7428462C5400FF9C4F /* PlatformTeamMenuViewModel.swift */; };
 		CE900B77284634F000FF9C4F /* MUMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE900B76284634F000FF9C4F /* MUMenu.swift */; };
 		CE900B792846497200FF9C4F /* MUSelectControl+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE900B782846497200FF9C4F /* MUSelectControl+Rx.swift */; };
+		CE900B7B2846542B00FF9C4F /* SignUpReactorSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE900B7A2846542B00FF9C4F /* SignUpReactorSpec.swift */; };
 		CE9E734527C2889200922D8B /* Nimble in Frameworks */ = {isa = PBXBuildFile; productRef = CE9E734427C2889200922D8B /* Nimble */; };
 		CE9E734827C2889E00922D8B /* Quick in Frameworks */ = {isa = PBXBuildFile; productRef = CE9E734727C2889E00922D8B /* Quick */; };
 		CE9E734B27C288B700922D8B /* Mockingbird in Frameworks */ = {isa = PBXBuildFile; productRef = CE9E734A27C288B700922D8B /* Mockingbird */; };
@@ -294,6 +295,7 @@
 		CE900B7428462C5400FF9C4F /* PlatformTeamMenuViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlatformTeamMenuViewModel.swift; sourceTree = "<group>"; };
 		CE900B76284634F000FF9C4F /* MUMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MUMenu.swift; sourceTree = "<group>"; };
 		CE900B782846497200FF9C4F /* MUSelectControl+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MUSelectControl+Rx.swift"; sourceTree = "<group>"; };
+		CE900B7A2846542B00FF9C4F /* SignUpReactorSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpReactorSpec.swift; sourceTree = "<group>"; };
 		CE9E735C27C294E800922D8B /* QRScanReactorSpec.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QRScanReactorSpec.swift; sourceTree = "<group>"; };
 		CE9E736627C29F4700922D8B /* MashUp_iOSTests-Mock.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MashUp_iOSTests-Mock.generated.swift"; sourceTree = "<group>"; };
 		CEB60F4227A9713B001260DB /* TestAppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestAppDelegate.swift; sourceTree = "<group>"; };
@@ -842,6 +844,7 @@
 				CE6EE84F27CA1DBD005BF412 /* RootReactorSpec.swift */,
 				062A960627E99BE300E8E715 /* SeminarDetailReactorSpec.swift */,
 				CE6EE85127CA26A6005BF412 /* SignInReactorSpec.swift */,
+				CE900B7A2846542B00FF9C4F /* SignUpReactorSpec.swift */,
 				CE6EE86A27CA60B6005BF412 /* SplashReactorSpec.swift */,
 				CE0F284D28444A7000C206EA /* VerificationServiceSpec.swift */,
 			);
@@ -1209,6 +1212,7 @@
 				CE6EE86B27CA60B6005BF412 /* SplashReactorSpec.swift in Sources */,
 				CE0F284E28444A7000C206EA /* VerificationServiceSpec.swift in Sources */,
 				06531C1C283F5E2200E225EB /* PlatformAttendanceStatusReactorSpec.swift in Sources */,
+				CE900B7B2846542B00FF9C4F /* SignUpReactorSpec.swift in Sources */,
 				CE6EE85227CA26A6005BF412 /* SignInReactorSpec.swift in Sources */,
 				CE58818327EC97140068D4E0 /* QRSeminarCardViewModel+Stub.swift in Sources */,
 				CEB60F4327A9713B001260DB /* TestAppDelegate.swift in Sources */,

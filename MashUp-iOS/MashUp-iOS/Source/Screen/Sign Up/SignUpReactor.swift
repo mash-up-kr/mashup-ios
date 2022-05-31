@@ -45,7 +45,11 @@ final class SignUpReactor: Reactor {
     
     let initialState: State = State()
     
-    init(verificationService: any VerificationService) {
+    init(
+        platformService: any PlatformService,
+        verificationService: any VerificationService
+    ) {
+        self.platformService = platformService
         self.verificationService = verificationService
     }
     
@@ -64,8 +68,11 @@ final class SignUpReactor: Reactor {
             return .just(.updateShouldSelectPlatform)
             
         case .didSelectPlatform(let index):
-            guard let platform = self.currentState.shouldSelectPlatform?[safe: index] else { return .empty() }
-            return .just(.updatePlatform(platform))
+            let updateSelectedPlatform = self.platformService.allPlatformTeams()
+                .compactMap { $0[safe: index] }
+                .map { Mutation.updatePlatform($0) }
+                .catch { _ in .empty() }
+            return updateSelectedPlatform
             
         case .didTapDoneButton:
             return .empty()
@@ -107,6 +114,7 @@ final class SignUpReactor: Reactor {
         && platform != nil
     }
     
+    private let platformService: any PlatformService
     private let verificationService: any VerificationService
     
 }
