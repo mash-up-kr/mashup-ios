@@ -41,7 +41,7 @@ extension UICollectionView {
 }
 
 extension UICollectionViewDiffableDataSource {
-    convenience init(
+    public convenience init(
         collectionView: UICollectionView,
         cellProvider: @escaping CellProvider,
         supplementaryViewProvider: @escaping SupplementaryViewProvider

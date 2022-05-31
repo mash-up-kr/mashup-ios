@@ -8,7 +8,7 @@
 
 import UIKit
 
-enum ImageSource {
+public enum ImageSource {
     case urlPath(String)
     case url(URL)
     case data(Data)

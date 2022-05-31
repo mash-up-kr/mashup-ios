@@ -135,6 +135,12 @@ extension SeminarScheduleViewController {
                     cell?.configure(with: model)
                     return cell
                 }
+            },
+            supplementaryViewProvider: { collectionView, elementKind, indexPath in
+                guard let sectionType = SeminarSectionType(rawValue: indexPath.section) else { return nil }
+                let header = collectionView.dequeueSupplementaryView(SeminarHeaderView.self, for: indexPath)
+                header?.configure(sectionType: sectionType)
+                return header
             }
         )
     }
