@@ -58,6 +58,8 @@ extension MUTextFieldStyle {
             self.placeholderFont = .pretendardFont(weight: .medium, size: 13)
             self.assistiveTextColor = .gray800
             self.assistiveFont = .pretendardFont(weight: .regular, size: 12)
+            
+            #warning("Image 정의되면 수정해야합니다. - Booung")
             self.trailingIconImage = UIImage(systemName: "checkmark")?.withTintColor(.green700)
         case .invaild:
             self.borderColor = .red700
@@ -67,6 +69,7 @@ extension MUTextFieldStyle {
             self.placeholderFont = .pretendardFont(weight: .medium, size: 13)
             self.assistiveTextColor = .red700
             self.assistiveFont = .pretendardFont(weight: .regular, size: 12)
+#warning("Image 정의되면 수정해야합니다. - Booung")
             self.trailingIconImage = UIImage(systemName: "exclamationmark.circle")?.withTintColor(.red700)
         case .disable:
             self.borderColor = .gray300.withAlphaComponent(0.3)

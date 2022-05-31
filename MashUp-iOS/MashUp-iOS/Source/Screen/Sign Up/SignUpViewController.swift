@@ -171,6 +171,7 @@ extension SignUpViewController {
         self.view.backgroundColor = .white
         self.navigationBar.do {
             $0.title = "회원가입"
+            #warning("Image 정의되면 수정해야합니다. - Booung")
             $0.leftIcon = UIImage(systemName: "chevron.backward")?.withTintColor(.gray900)
         }
         self.scrollView.do {

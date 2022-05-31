@@ -22,6 +22,7 @@ extension UIColor {
     
     static let primary = UIColor(named: "primary")!
     
+    #warning("Color 정의되면 수정해야합니다. - Booung")
     static let red700 = UIColor(named: "red700")!
     
     static let green700 = UIColor(named: "green700")!
