@@ -64,12 +64,6 @@ final class SignUpViewController: BaseViewController, ReactorKit.View {
             .bind(to: reactor.action)
             .disposed(by: self.disposeBag)
         
-        self.platformField.rx.tapGesture()
-            .when(.recognized)
-            .map { _ in .didTapPlatformSelectBox }
-            .bind(to: reactor.action)
-            .disposed(by: self.disposeBag)
-        
         self.doneButton.rx.tap
             .map { .didTapDoneButton }
             .bind(to: reactor.action)
@@ -152,20 +146,7 @@ final class SignUpViewController: BaseViewController, ReactorKit.View {
         self.nameField.do {
             $0.placeholder = "이름"
         }
-        self.platformField.do {
-            $0.placeholder = "플랫폼"
-            $0.textField.isUserInteractionEnabled = false
-            $0.status = .custom(MUTextFieldStyle(
-                borderColor: .gray300,
-                textColor: .gray800,
-                textFont: .pretendardFont(weight: .medium, size: 20),
-                placeholderColor: .gray400,
-                placeholderFont: .pretendardFont(weight: .medium, size: 20),
-                assistiveTextColor: nil,
-                assistiveFont: nil,
-                trailingIconImage: UIImage(systemName: "chevron.down"))
-            )
-        }
+        
         self.doneButton.do {
             $0.setTitle("다음", for: .normal)
         }
@@ -196,7 +177,7 @@ final class SignUpViewController: BaseViewController, ReactorKit.View {
             $0.addArrangedSubview(self.idField)
             $0.addArrangedSubview(self.passwordField)
             $0.addArrangedSubview(self.nameField)
-            $0.addArrangedSubview(self.platformField)
+            $0.addArrangedSubview(self.platformSelectMenuControl)
             $0.addArrangedSubview(self.bottomView)
         }
         self.view.addSubview(self.doneButton)
@@ -215,8 +196,21 @@ final class SignUpViewController: BaseViewController, ReactorKit.View {
     private let idField = MUTextField()
     private let passwordField = MUTextField()
     private let nameField = MUTextField()
-    private let platformField = MUTextField()
+    private let platformSelectMenuControl = MUSelectMenuControl<PlatformTeam>(menuTitle: "플랫폼")
     private let bottomView = UIView()
     private let doneButton = MUButton()
     
+}
+
+extension PlatformTeam: MUMenu {
+    var description: String {
+        switch self {
+        case .design: return "Product Design"
+        case .android: return "Android"
+        case .iOS: return "iOS"
+        case .web: return "Web"
+        case .node: return "Node"
+        case .spring: return "Spring"
+        }
+    }
 }

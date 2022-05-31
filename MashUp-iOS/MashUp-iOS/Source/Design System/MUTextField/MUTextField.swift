@@ -112,6 +112,7 @@ class MUTextField: UIControl {
         self.textField.textColor = style.textColor
         self.textField.font = style.textFont
         self.placeholderLabel.textColor = style.placeholderColor
+        self.placeholderLabel.font = style.placeholderFont
         self.assistiveLabel.textColor = style.assistiveTextColor
         self.assistiveLabel.font = style.assistiveFont
         self.trailingIconImageView.image = style.trailingIconImage
