@@ -63,11 +63,7 @@ final class SignInReactor: Reactor {
             let enterHome: Observable<Mutation> = self.signIn().map { .updateUserSession($0) }
             let endLoading: Observable<Mutation> = .just(Mutation.updateLoading(false))
             let handleError: (Error) -> Observable<Mutation> = { error in return .just(.occurError(error)) }
-            return .concat(
-                startLoading,
-                enterHome,
-                endLoading
-            ).catch { error in .concat(handleError(error), endLoading) }
+            return .concat(startLoading, enterHome, endLoading).catch { error in .concat(handleError(error), endLoading) }
             
         case .didTapSignUpButton:
             let moveToSignUp: Observable<Mutation> = .just(.move(to: .signUp))
