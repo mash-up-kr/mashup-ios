@@ -196,21 +196,8 @@ final class SignUpViewController: BaseViewController, ReactorKit.View {
     private let idField = MUTextField()
     private let passwordField = MUTextField()
     private let nameField = MUTextField()
-    private let platformSelectMenuControl = MUSelectMenuControl<PlatformTeam>(menuTitle: "플랫폼")
+    private let platformSelectMenuControl = MUSelectMenuControl<PlatformTeamMenuViewModel>(menuTitle: "플랫폼")
     private let bottomView = UIView()
     private let doneButton = MUButton()
     
-}
-
-extension PlatformTeam: MUMenu {
-    var description: String {
-        switch self {
-        case .design: return "Product Design"
-        case .android: return "Android"
-        case .iOS: return "iOS"
-        case .web: return "Web"
-        case .node: return "Node"
-        case .spring: return "Spring"
-        }
-    }
 }
