@@ -16,17 +16,19 @@ class MUSelectControl<Menu: MUMenu>: UIControl {
     
     var menuTitle: String? {
         get { self.menuTitleLabel.text }
-        set { self.menuTitleLabel.text = newValue }
+        set {
+            self.menuTitleLabel.text = newValue
+            self.updateUI()
+        }
     }
     
     var selectedMenu: Menu? {
         didSet { self.updateUI() }
     }
     
-    
     init(
         frame: CGRect = .zero,
-        menuTitle: String?,
+        menuTitle: String? = nil,
         hasIcon: Bool = true
     ) {
         super.init(frame: frame)

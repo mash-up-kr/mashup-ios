@@ -25,6 +25,7 @@ final class SignUpReactor: Reactor {
         case updatePassword(String)
         case updateName(String)
         case updatePlatform(PlatformTeam)
+        case updateShouldSelectPlatform
     }
     
     struct State {
@@ -38,8 +39,8 @@ final class SignUpReactor: Reactor {
         var hasVaildatedPassword: Bool? = nil
         var hasAgreedTerms: Bool = false
         
-        @Pulse var shouldSelectPlatform: Bool? = nil
-        @Pulse var shouldAgreeTerms: Bool? = nil
+        @Pulse var shouldSelectPlatform: Void?
+        @Pulse var shouldAgreeTerms: Void?
     }
     
     let initialState: State = State()
@@ -59,11 +60,11 @@ final class SignUpReactor: Reactor {
         case .didEditNameField(let name):
             return .just(.updateName(name))
             
+        case .didTapPlatformSelectControl:
+            return .just(.updateShouldSelectPlatform)
+            
         case .didSelectPlatform(let platform):
             return .just(.updatePlatform(platform))
-            
-        case .didTapPlatformSelectControl:
-            return .empty()
             
         case .didTapDoneButton:
             return .empty()
@@ -86,6 +87,9 @@ final class SignUpReactor: Reactor {
             
         case .updatePlatform(let platform):
             newState.platform = platform
+            
+        case .updateShouldSelectPlatform:
+            newState.shouldSelectPlatform = Void()
         }
         newState.canDone = self.verify(id: newState.id,
                                        password: newState.password,

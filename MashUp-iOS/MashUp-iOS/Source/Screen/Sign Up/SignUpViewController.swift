@@ -115,8 +115,36 @@ final class SignUpViewController: BaseViewController, ReactorKit.View {
             .disposed(by: self.disposeBag)
     }
     
-    private func consume(_ reactor: Reactor) {}
+    private func consume(_ reactor: Reactor) {
+        reactor.pulse(\.$shouldSelectPlatform)
+            .debug("$shouldSelectPlatform")
+            .compactMap { $0 }
+            .onMain()
+            .subscribe(onNext: { [weak self] in
+                self?.presentPopup()
+            })
+            .disposed(by: self.disposeBag)
+    }
     
+    private func presentPopup() {
+        let actionSheet = UIAlertController(title: "플랫폼", message: "iOS", preferredStyle: .actionSheet)
+        self.present(actionSheet, animated: true)
+    }
+    
+    private let navigationBar = MUNavigationBar()
+    private let scrollView = UIScrollView()
+    private let containterView = UIStackView()
+    
+    private let titleLabel = UILabel()
+    private let idField = MUTextField()
+    private let passwordField = MUTextField()
+    private let nameField = MUTextField()
+    private let platformSelectControl = MUSelectControl<PlatformTeamMenuViewModel>()
+    private let bottomView = UIView()
+    private let doneButton = MUButton()
+}
+
+extension SignUpViewController {
     
     private func setupAttribute() {
         self.view.backgroundColor = .white
@@ -148,7 +176,9 @@ final class SignUpViewController: BaseViewController, ReactorKit.View {
         self.nameField.do {
             $0.placeholder = "이름"
         }
-        
+        self.platformSelectControl.do {
+            $0.menuTitle = "플랫폼"
+        }
         self.doneButton.do {
             $0.setTitle("다음", for: .normal)
         }
@@ -189,17 +219,5 @@ final class SignUpViewController: BaseViewController, ReactorKit.View {
             $0.bottom.equalTo(self.view.safeAreaLayoutGuide)
         }
     }
-    
-    private let navigationBar = MUNavigationBar()
-    private let scrollView = UIScrollView()
-    private let containterView = UIStackView()
-    
-    private let titleLabel = UILabel()
-    private let idField = MUTextField()
-    private let passwordField = MUTextField()
-    private let nameField = MUTextField()
-    private let platformSelectControl = MUSelectControl<PlatformTeamMenuViewModel>(menuTitle: "플랫폼")
-    private let bottomView = UIView()
-    private let doneButton = MUButton()
     
 }
