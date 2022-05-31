@@ -123,7 +123,7 @@ final class SignUpViewController: BaseViewController, ReactorKit.View {
     }
     
     private func consume(_ reactor: Reactor) {
-        reactor.pulse(\.$shouldSelectPlatform)
+        reactor.pulse(\.$shouldShowOnBottomSheet)
             .compactMap { $0 }
             .onMain()
             .subscribe(onNext: { [weak self] allPlatform in

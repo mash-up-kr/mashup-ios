@@ -25,22 +25,23 @@ final class SignUpReactor: Reactor {
         case updatePassword(String)
         case updateName(String)
         case updatePlatform(PlatformTeam)
-        case updateShouldSelectPlatform
+        case showOnBottomSheet([PlatformTeam])
+        case showPolicyAgreementStatus(Bool)
     }
     
     struct State {
         var id: String = .empty
         var password: String = .empty
         var name: String = .empty
-        var selectedPlatform: PlatformTeam? = nil
+        var selectedPlatform: PlatformTeam?
         
         var canDone: Bool = false
-        var hasVaildatedID: Bool? = nil
-        var hasVaildatedPassword: Bool? = nil
-        var hasAgreedTerms: Bool = false
+        var hasVaildatedID: Bool?
+        var hasVaildatedPassword: Bool?
+        var hasAgreedPolicy: Bool = false
         
-        @Pulse var shouldSelectPlatform: [PlatformTeam]?
-        @Pulse var shouldAgreeTerms: Void?
+        @Pulse var shouldShowOnBottomSheet: [PlatformTeam]?
+        @Pulse var shouldShowPolicyAgreementStatus: Bool?
     }
     
     let initialState: State = State()
@@ -65,17 +66,19 @@ final class SignUpReactor: Reactor {
             return .just(.updateName(name))
             
         case .didTapPlatformSelectControl:
-            return .just(.updateShouldSelectPlatform)
+            let showOnBottomSheet = self.platformService.allPlatformTeams()
+                .map { Mutation.showOnBottomSheet($0) }
+                .catch { _ in .empty() }
+            #warning("구체 에러 핸들링 정의 - booung")
+            return showOnBottomSheet
             
         case .didSelectPlatform(let index):
-            let updateSelectedPlatform = self.platformService.allPlatformTeams()
-                .compactMap { $0[safe: index] }
-                .map { Mutation.updatePlatform($0) }
-                .catch { _ in .empty() }
-            return updateSelectedPlatform
+            guard let selectedPlatform = self.currentState.shouldShowOnBottomSheet?[safe: index] else { return .empty() }
+            return .just(.updatePlatform(selectedPlatform))
             
         case .didTapDoneButton:
-            return .empty()
+            let policyAgreementStatus = self.currentState.hasAgreedPolicy
+            return .just(.showPolicyAgreementStatus(policyAgreementStatus))
         }
     }
     
@@ -96,9 +99,11 @@ final class SignUpReactor: Reactor {
         case .updatePlatform(let platform):
             newState.selectedPlatform = platform
             
-        case .updateShouldSelectPlatform:
-            #warning("PlatformTeam 레퍼지토리 로드로 변경 - Booung")
-            newState.shouldSelectPlatform = PlatformTeam.allCases
+        case .showOnBottomSheet(let platformTeams):
+            newState.shouldShowOnBottomSheet = platformTeams
+            
+        case .showPolicyAgreementStatus(let agree):
+            newState.shouldShowPolicyAgreementStatus = agree
         }
         newState.canDone = self.verify(id: newState.id,
                                        password: newState.password,
