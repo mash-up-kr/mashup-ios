@@ -1,5 +1,5 @@
 //
-//  MUSelectMenuView.swift
+//  MUSelectControl.swift
 //  MashUp-iOS
 //
 //  Created by Booung on 2022/05/31.
@@ -12,7 +12,7 @@ import SnapKit
 
 protocol MUMenu: CaseIterable, CustomStringConvertible {}
 
-class MUSelectMenuControl<Menu: MUMenu>: UIControl {
+class MUSelectControl<Menu: MUMenu>: UIControl {
     
     var menuTitle: String? {
         get { self.menuTitleLabel.text }
@@ -79,7 +79,7 @@ class MUSelectMenuControl<Menu: MUMenu>: UIControl {
     private let iconImageView = UIImageView()
     
 }
-extension MUSelectMenuControl {
+extension MUSelectControl {
     
     private func setupAttribute() {
         self.menuTitleLabel.do {
@@ -102,6 +102,7 @@ extension MUSelectMenuControl {
         }
         let containerView = UIStackView().then {
             $0.axis = .vertical
+            $0.isUserInteractionEnabled = false
         }
         self.addSubview(containerView)
         containerView.snp.makeConstraints {

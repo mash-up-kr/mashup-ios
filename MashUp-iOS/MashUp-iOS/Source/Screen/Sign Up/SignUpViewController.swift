@@ -43,7 +43,6 @@ final class SignUpViewController: BaseViewController, ReactorKit.View {
         self.idField.rx.text.orEmpty
             .distinctUntilChanged()
             .skip(1)
-            .debug("🐛 id")
             .map { .didEditIDField($0) }
             .bind(to: reactor.action)
             .disposed(by: self.disposeBag)
@@ -51,7 +50,6 @@ final class SignUpViewController: BaseViewController, ReactorKit.View {
         self.passwordField.rx.text.orEmpty
             .distinctUntilChanged()
             .skip(1)
-            .debug("🐛 password")
             .map { .didEditPasswordField($0) }
             .bind(to: reactor.action)
             .disposed(by: self.disposeBag)
@@ -59,8 +57,12 @@ final class SignUpViewController: BaseViewController, ReactorKit.View {
         self.nameField.rx.text.orEmpty
             .distinctUntilChanged()
             .skip(1)
-            .debug("🐛 name")
             .map { .didEditNameField($0) }
+            .bind(to: reactor.action)
+            .disposed(by: self.disposeBag)
+        
+        self.platformSelectControl.rx.controlEvent(.touchUpInside)
+            .map { .didTapPlatformSelectControl }
             .bind(to: reactor.action)
             .disposed(by: self.disposeBag)
         
@@ -177,7 +179,7 @@ final class SignUpViewController: BaseViewController, ReactorKit.View {
             $0.addArrangedSubview(self.idField)
             $0.addArrangedSubview(self.passwordField)
             $0.addArrangedSubview(self.nameField)
-            $0.addArrangedSubview(self.platformSelectMenuControl)
+            $0.addArrangedSubview(self.platformSelectControl)
             $0.addArrangedSubview(self.bottomView)
         }
         self.view.addSubview(self.doneButton)
@@ -196,7 +198,7 @@ final class SignUpViewController: BaseViewController, ReactorKit.View {
     private let idField = MUTextField()
     private let passwordField = MUTextField()
     private let nameField = MUTextField()
-    private let platformSelectMenuControl = MUSelectMenuControl<PlatformTeamMenuViewModel>(menuTitle: "플랫폼")
+    private let platformSelectControl = MUSelectControl<PlatformTeamMenuViewModel>(menuTitle: "플랫폼")
     private let bottomView = UIView()
     private let doneButton = MUButton()
     
