@@ -21,6 +21,11 @@ final class PlatformStatusViewController: BaseViewController, ReactorKit.View {
     }()
     var disposeBag: DisposeBag = DisposeBag()
     
+    override func loadView() {
+        view = UIView()
+        view.backgroundColor = .lightGray
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
@@ -49,11 +54,14 @@ final class PlatformStatusViewController: BaseViewController, ReactorKit.View {
     private func setupLayout() {
         view.addSubview(platformCollectionView)
         platformCollectionView.snp.makeConstraints {
-            $0.edges.equalToSuperview()
+            $0.horizontalEdges.equalToSuperview()
+            $0.top.equalTo(view.safeAreaLayoutGuide.snp.top)
+            $0.bottom.equalToSuperview()
         }
     }
     
     private func setupAttribute() {
         platformCollectionView.registerCell(PlatformAttendanceCell.self)
+        platformCollectionView.backgroundColor = .clear
     }
 }
