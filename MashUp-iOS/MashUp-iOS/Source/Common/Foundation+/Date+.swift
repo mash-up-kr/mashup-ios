@@ -7,9 +7,10 @@
 //
 
 import Foundation
+import Then
 
 extension Date {
-    init(
+    public init(
         year: Int = 1970,
         month: Int = 1,
         day: Int = 1,
@@ -26,7 +27,7 @@ extension Date {
         $0.timeZone = .UTC
     }
     
-    static func now() -> Date {
+    public static func now() -> Date {
         Date()
     }
 }

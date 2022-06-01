@@ -10,11 +10,11 @@ import Foundation
 
 extension Optional where Wrapped == Bool {
     
-    var isFalseOrNil: Bool {
+    public var isFalseOrNil: Bool {
         self == nil || self == false
     }
     
-    var isTrueOrNil: Bool {
+    public var isTrueOrNil: Bool {
         self == nil || self == true
     }
     
@@ -22,11 +22,23 @@ extension Optional where Wrapped == Bool {
 
 extension Optional where Wrapped: Collection {
     
-    var isEmptyOrNil: Bool {
+    public var isEmptyOrNil: Bool {
         self == nil || self?.isEmpty == true
     }
     
-    var isNotEmptyOrNil: Bool {
+    public var isNotEmptyOrNil: Bool {
+        self == nil || self?.isNotEmpty == true
+    }
+    
+}
+
+extension Optional where Wrapped == String {
+    
+    public var isEmptyOrNil: Bool {
+        self == nil || self?.isEmpty == true
+    }
+    
+    public var isNotEmptyOrNil: Bool {
         self == nil || self?.isNotEmpty == true
     }
     

@@ -8,9 +8,9 @@
 
 import Foundation
 
-enum Logger {
+public enum Logger {
     
-    static func log<T>(
+    public static func log<T>(
         _ object: @autoclosure () -> T,
         _ option: Option = .info,
         _ describe: String = .empty,
@@ -34,7 +34,7 @@ enum Logger {
     
 }
 extension Logger {
-    enum Option {
+    public enum Option {
         case info
         case debug
         case warning
@@ -63,7 +63,7 @@ extension Logger.Option {
 }
 
 extension Logger.Option: CustomStringConvertible {
-    var description: String {
+    public var description: String {
         switch self {
         case .info:
             return "📝"

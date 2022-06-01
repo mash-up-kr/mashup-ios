@@ -9,5 +9,5 @@
 import Foundation
 
 extension TimeZone {
-    static let UTC = TimeZone(identifier: "UTC")!
+    public static let UTC = TimeZone(identifier: "UTC")!
 }

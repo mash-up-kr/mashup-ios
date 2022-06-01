@@ -10,11 +10,18 @@ import Foundation
 import RxSwift
 
 protocol PlatformRepository {
+    func allPlatformTeams() -> Observable<[PlatformTeam]>
     func attendanceStatus() -> Observable<[PlatformAttendance]>
 }
 
 final class PlatformRepositoryImpl: PlatformRepository {
+    
+    func allPlatformTeams() -> Observable<[PlatformTeam]> {
+        return .just(PlatformTeam.allCases)
+    }
+    
     func attendanceStatus() -> Observable<[PlatformAttendance]> {
         return .empty()
     }
+    
 }

@@ -9,12 +9,12 @@
 import Foundation
 
 extension Array {
-    subscript (safe index: Index) -> Element? {
+    public subscript (safe index: Index) -> Element? {
         guard self.indices.contains(index) else { return nil }
         return self[index]
     }
 }
 
 extension Collection {
-    var isNotEmpty: Bool { !self.isEmpty }
+    public var isNotEmpty: Bool { !self.isEmpty }
 }

@@ -8,15 +8,15 @@
 
 import UIKit
 
-class PaddingLabel: UILabel {
+public class PaddingLabel: UILabel {
     
-    var contentInsets: UIEdgeInsets = UIEdgeInsets(top: 4, left: 10, bottom: 4, right: 10)
+    public var contentInsets: UIEdgeInsets = UIEdgeInsets(top: 4, left: 10, bottom: 4, right: 10)
     
-    override func drawText(in rect: CGRect) {
+    public override func drawText(in rect: CGRect) {
         super.drawText(in: rect.inset(by: self.contentInsets))
     }
     
-    override var intrinsicContentSize: CGSize {
+    public override var intrinsicContentSize: CGSize {
         let contentSize = super.intrinsicContentSize
         let width = contentSize.width + self.contentInsets.left + self.contentInsets.right
         let height = contentSize.height + self.contentInsets.top + self.contentInsets.bottom

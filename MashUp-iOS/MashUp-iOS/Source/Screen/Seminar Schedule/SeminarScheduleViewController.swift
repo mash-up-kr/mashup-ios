@@ -12,6 +12,7 @@ import RxDataSources
 import RxSwift
 import SnapKit
 import UIKit
+import MashUp_Core
 
 final class SeminarScheduleViewController: BaseViewController, ReactorKit.View {
     typealias Reactor = SeminarScheduleReactor
