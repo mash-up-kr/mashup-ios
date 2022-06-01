@@ -8,7 +8,7 @@
 
 import UIKit
 
-enum PlatformTeam: Equatable {
+enum PlatformTeam: Equatable, CaseIterable {
     case design
     case android
     case iOS

@@ -1,5 +1,5 @@
 //
-//  UserSessionRepository.swift
+//  UserAuthService.swift
 //  MashUp-iOS
 //
 //  Created by Booung on 2022/02/24.
@@ -9,8 +9,8 @@
 import Foundation
 import RxSwift
 
-protocol UserSessionRepository {
-    func load() -> Observable<UserSession?>
+protocol UserAuthService {
+    func autoSignIn() -> Observable<UserSession?>
     func signIn(id: String, password: String) -> Observable<UserSession>
     func signUp(with newAccount: NewAccount) -> Observable<UserSession>
 }

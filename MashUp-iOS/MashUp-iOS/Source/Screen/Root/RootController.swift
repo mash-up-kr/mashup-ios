@@ -39,7 +39,7 @@ final class RootController: BaseViewController, ReactorKit.View {
     }
     
     #warning("DIContainer로 로직 이동해야합니다., 가구현체여서 실구현체로 대치되어야합니다")
-    let userSessionRepository = FakeUserSessionRepository()
+    let userAuthService = FakeUserAuthService()
     
 }
 // MARK: - Navigation
@@ -66,8 +66,10 @@ extension RootController {
     
     private func switchToSignInViewController() {
         guard let signInViewController = self.createSignInViewController() else { return }
-        signInViewController.modalPresentationStyle = .fullScreen
-        self.switchToViewController(signInViewController)
+        let naviController = UINavigationController(rootViewController: signInViewController)
+        naviController.modalPresentationStyle = .fullScreen
+        naviController.navigationBar.isHidden = true
+        self.switchToViewController(naviController)
     }
     
     private func switchToHomeTabBarController(with userSession: UserSession) {
@@ -97,15 +99,16 @@ extension RootController {
         #warning("둘 중 하나만 주석을 푸시면 케이스 테스트 가능합니다.")
         
         // ✅ 자동 로그인 케이스 테스트
-        self.userSessionRepository.stubedUserSession = UserSession(id: "fake.user.id",
+        /* self.userAuthService.stubedUserSession = UserSession(id: "fake.user.id",
                                                                    accessToken: "fake.access.token")
+         */
         
         // ❌ 자동 로그인 아닌 케이스 테스트
-//        self.userSessionRepository.stubedUserSession = nil
+        self.userAuthService.stubedUserSession = nil
         
         let splashViewController = SplashViewController()
         splashViewController.reactor = SplashReactor(
-            userSessionRepository: self.userSessionRepository,
+            userAuthService: self.userAuthService,
             authenticationResponder: authenticationResponder
         )
         return splashViewController
@@ -115,7 +118,8 @@ extension RootController {
         guard let authenticationResponder = self.reactor else { return nil }
         
         let reactor = SignInReactor(
-            userSessionRepository: self.userSessionRepository,
+            userAuthService: self.userAuthService,
+            verificationService: VerificationServiceImpl(),
             authenticationResponder: authenticationResponder
         )
         let viewController = SignInViewController()
