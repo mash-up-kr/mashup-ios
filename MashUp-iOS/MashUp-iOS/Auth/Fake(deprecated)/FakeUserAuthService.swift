@@ -8,6 +8,7 @@
 
 import Foundation
 import RxSwift
+import MashUp_Network
 
 class FakeUserAuthService: UserAuthService {
     var stubedUserSession: UserSession?
@@ -22,6 +23,7 @@ class FakeUserAuthService: UserAuthService {
         
         guard isCorrectID, isCorrectPW else { return .error("sign in failure") }
         let fakeSession = UserSession(id: "fake.user.id", accessToken: "\(id).\(password)")
+        
         return .just(fakeSession)
     }
     

@@ -9,9 +9,24 @@
 import Foundation
 import Moya
 
-protocol MashUpAPI: TargetType {
+public protocol MashUpAPI: TargetType {
     associatedtype Response: Decodable
 }
-extension MashUpAPI {
+public extension MashUpAPI {
     var baseURL: URL { URL(string: NetworkConfig.mashupHost)! }
+}
+
+public enum MAPI : MashUpAPI {
+  public var path: String {  "" }
+  
+  public var method: Moya.Method { .get }
+  
+  public var task: Task { .requestPlain }
+  
+  public var headers: [String : String]? { [:] }
+  
+    case normal
+}
+extension MAPI {
+  public typealias Response = Int
 }
