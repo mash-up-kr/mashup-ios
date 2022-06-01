@@ -8,6 +8,7 @@
 
 import ReactorKit
 import UIKit
+import MashUp_Core
 
 final class RootController: BaseViewController, ReactorKit.View {
     typealias Reactor = RootReactor

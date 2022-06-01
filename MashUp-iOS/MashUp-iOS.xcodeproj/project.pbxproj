@@ -54,7 +54,6 @@
 		CE6EE81027C7B28C005BF412 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6EE80F27C7B28C005BF412 /* SignInViewController.swift */; };
 		CE6EE81227C7B293005BF412 /* SignInReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6EE81127C7B293005BF412 /* SignInReactor.swift */; };
 		CE6EE81D27C7BCF7005BF412 /* PlatformTeam.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6EE81C27C7BCF6005BF412 /* PlatformTeam.swift */; };
-		CE6EE82027C7BEC2005BF412 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6EE81F27C7BEC2005BF412 /* BaseViewController.swift */; };
 		CE6EE82327C7BF79005BF412 /* UserSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6EE82227C7BF79005BF412 /* UserSession.swift */; };
 		CE6EE82527C7BF91005BF412 /* UserAuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6EE82427C7BF91005BF412 /* UserAuthService.swift */; };
 		CE6EE82727C7C0A1005BF412 /* NewAccount.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6EE82627C7C0A1005BF412 /* NewAccount.swift */; };
@@ -68,7 +67,6 @@
 		CE6EE83D27C7EFB9005BF412 /* HomeTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6EE83C27C7EFB9005BF412 /* HomeTabBarController.swift */; };
 		CE6EE83F27C7EFF9005BF412 /* HomeReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6EE83E27C7EFF9005BF412 /* HomeReactor.swift */; };
 		CE6EE84127C7F130005BF412 /* HomeTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6EE84027C7F130005BF412 /* HomeTab.swift */; };
-		CE6EE84527C8004F005BF412 /* BaseTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6EE84427C8004F005BF412 /* BaseTabBarController.swift */; };
 		CE6EE84C27C80C92005BF412 /* SeminarScheduleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6EE84B27C80C92005BF412 /* SeminarScheduleViewController.swift */; };
 		CE6EE84E27C80C9B005BF412 /* MyPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6EE84D27C80C9B005BF412 /* MyPageViewController.swift */; };
 		CE6EE85027CA1DBD005BF412 /* RootReactorSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6EE84F27CA1DBD005BF412 /* RootReactorSpec.swift */; };
@@ -85,11 +83,8 @@
 		CE6EE86E27CA6302005BF412 /* UserSession+Stub.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6EE86D27CA6302005BF412 /* UserSession+Stub.swift */; };
 		CE6EE87127CA73B7005BF412 /* SeminarCardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6EE87027CA73B7005BF412 /* SeminarCardCell.swift */; };
 		CE6EE87327CA7482005BF412 /* AttendanceStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6EE87227CA7482005BF412 /* AttendanceStatus.swift */; };
-		CE6EE87527CA820B005BF412 /* BaseCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6EE87427CA820A005BF412 /* BaseCollectionViewCell.swift */; };
 		CE6EE87A27CA89F3005BF412 /* SeminarCardCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6EE87927CA89F3005BF412 /* SeminarCardCellModel.swift */; };
-		CE6EE88427CA9141005BF412 /* BaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6EE88327CA9141005BF412 /* BaseTableViewCell.swift */; };
 		CE6EE88627CA91ED005BF412 /* SeminarHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6EE88527CA91ED005BF412 /* SeminarHeaderView.swift */; };
-		CE6EE88827CA9225005BF412 /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6EE88727CA9225005BF412 /* BaseView.swift */; };
 		CE6EE88A27CAA288005BF412 /* SeminarRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6EE88927CAA287005BF412 /* SeminarRepository.swift */; };
 		CE6EE89527CB049C005BF412 /* QRCodeFinderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6EE89427CB049C005BF412 /* QRCodeFinderView.swift */; };
 		CE729A7D27E577B7001D33D1 /* TimerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE729A7C27E577B7001D33D1 /* TimerService.swift */; };
@@ -187,6 +182,13 @@
 		CEB60F7F27A9C536001260DB /* AttendanceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB60F7E27A9C536001260DB /* AttendanceService.swift */; };
 		CEB60F8427A9C602001260DB /* FakeAttendanceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB60F8327A9C602001260DB /* FakeAttendanceService.swift */; };
 		CEBAC6CE28469EE700ABCC36 /* MUCanvasMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBAC6CD28469EE700ABCC36 /* MUCanvasMenu.swift */; };
+		CEBAC7562847638100ABCC36 /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6EE88727CA9225005BF412 /* BaseView.swift */; };
+		CEBAC7572847638100ABCC36 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6EE81F27C7BEC2005BF412 /* BaseViewController.swift */; };
+		CEBAC7582847638100ABCC36 /* BaseCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6EE87427CA820A005BF412 /* BaseCollectionViewCell.swift */; };
+		CEBAC7592847638100ABCC36 /* BaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6EE88327CA9141005BF412 /* BaseTableViewCell.swift */; };
+		CEBAC75A2847638100ABCC36 /* BaseTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6EE84427C8004F005BF412 /* BaseTabBarController.swift */; };
+		CEBAC75B2847657300ABCC36 /* MashUp_Core.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE9C1D9428467E500020FBCE /* MashUp_Core.framework */; platformFilter = ios; };
+		CEBAC75C2847657300ABCC36 /* MashUp_Core.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = CE9C1D9428467E500020FBCE /* MashUp_Core.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -246,6 +248,13 @@
 			remoteGlobalIDString = CE39607B278B3CB40073AEF4;
 			remoteInfo = "MashUp-iOS";
 		};
+		CEBAC75D2847657300ABCC36 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CE396074278B3CB40073AEF4 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CE9C1D9328467E500020FBCE;
+			remoteInfo = "MashUp-Core";
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -289,6 +298,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				CEBAC75C2847657300ABCC36 /* MashUp_Core.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -354,7 +364,7 @@
 		CE6EE81127C7B293005BF412 /* SignInReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInReactor.swift; sourceTree = "<group>"; };
 		CE6EE81327C7B541005BF412 /* String+.swift */ = {isa = PBXFileReference; indentWidth = 4; lastKnownFileType = sourcecode.swift; path = "String+.swift"; sourceTree = "<group>"; };
 		CE6EE81C27C7BCF6005BF412 /* PlatformTeam.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlatformTeam.swift; sourceTree = "<group>"; };
-		CE6EE81F27C7BEC2005BF412 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		CE6EE81F27C7BEC2005BF412 /* BaseViewController.swift */ = {isa = PBXFileReference; indentWidth = 4; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		CE6EE82227C7BF79005BF412 /* UserSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSession.swift; sourceTree = "<group>"; };
 		CE6EE82427C7BF91005BF412 /* UserAuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAuthService.swift; sourceTree = "<group>"; };
 		CE6EE82627C7C0A1005BF412 /* NewAccount.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewAccount.swift; sourceTree = "<group>"; };
@@ -369,7 +379,7 @@
 		CE6EE83E27C7EFF9005BF412 /* HomeReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeReactor.swift; sourceTree = "<group>"; };
 		CE6EE84027C7F130005BF412 /* HomeTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTab.swift; sourceTree = "<group>"; };
 		CE6EE84227C7F933005BF412 /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
-		CE6EE84427C8004F005BF412 /* BaseTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTabBarController.swift; sourceTree = "<group>"; };
+		CE6EE84427C8004F005BF412 /* BaseTabBarController.swift */ = {isa = PBXFileReference; indentWidth = 4; lastKnownFileType = sourcecode.swift; path = BaseTabBarController.swift; sourceTree = "<group>"; };
 		CE6EE84B27C80C92005BF412 /* SeminarScheduleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeminarScheduleViewController.swift; sourceTree = "<group>"; };
 		CE6EE84D27C80C9B005BF412 /* MyPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageViewController.swift; sourceTree = "<group>"; };
 		CE6EE84F27CA1DBD005BF412 /* RootReactorSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootReactorSpec.swift; sourceTree = "<group>"; };
@@ -386,13 +396,13 @@
 		CE6EE86D27CA6302005BF412 /* UserSession+Stub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserSession+Stub.swift"; sourceTree = "<group>"; };
 		CE6EE87027CA73B7005BF412 /* SeminarCardCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeminarCardCell.swift; sourceTree = "<group>"; };
 		CE6EE87227CA7482005BF412 /* AttendanceStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttendanceStatus.swift; sourceTree = "<group>"; };
-		CE6EE87427CA820A005BF412 /* BaseCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCollectionViewCell.swift; sourceTree = "<group>"; };
+		CE6EE87427CA820A005BF412 /* BaseCollectionViewCell.swift */ = {isa = PBXFileReference; indentWidth = 4; lastKnownFileType = sourcecode.swift; path = BaseCollectionViewCell.swift; sourceTree = "<group>"; };
 		CE6EE87727CA858B005BF412 /* PaddingLabel.swift */ = {isa = PBXFileReference; indentWidth = 4; lastKnownFileType = sourcecode.swift; path = PaddingLabel.swift; sourceTree = "<group>"; };
 		CE6EE87927CA89F3005BF412 /* SeminarCardCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeminarCardCellModel.swift; sourceTree = "<group>"; };
 		CE6EE87C27CA8E45005BF412 /* Reusable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Reusable.swift; sourceTree = "<group>"; };
 		CE6EE87F27CA8EFE005BF412 /* UICollectionView+.swift */ = {isa = PBXFileReference; indentWidth = 4; lastKnownFileType = sourcecode.swift; path = "UICollectionView+.swift"; sourceTree = "<group>"; };
 		CE6EE88127CA8F08005BF412 /* UITableView+.swift */ = {isa = PBXFileReference; indentWidth = 4; lastKnownFileType = sourcecode.swift; path = "UITableView+.swift"; sourceTree = "<group>"; };
-		CE6EE88327CA9141005BF412 /* BaseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTableViewCell.swift; sourceTree = "<group>"; };
+		CE6EE88327CA9141005BF412 /* BaseTableViewCell.swift */ = {isa = PBXFileReference; indentWidth = 4; lastKnownFileType = sourcecode.swift; path = BaseTableViewCell.swift; sourceTree = "<group>"; };
 		CE6EE88527CA91ED005BF412 /* SeminarHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeminarHeaderView.swift; sourceTree = "<group>"; };
 		CE6EE88727CA9225005BF412 /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
 		CE6EE88927CAA287005BF412 /* SeminarRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeminarRepository.swift; sourceTree = "<group>"; };
@@ -514,6 +524,7 @@
 				CE9C1DE5284684E20020FBCE /* RxCocoa in Frameworks */,
 				CE9C1DE3284684D60020FBCE /* RxSwift in Frameworks */,
 				CE9C1DE92846850B0020FBCE /* Then in Frameworks */,
+				CEBAC75B2847657300ABCC36 /* MashUp_Core.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -582,13 +593,6 @@
 				CE900B7328462C3300FF9C4F /* ViewModel */,
 			);
 			path = "Sign Up";
-			sourceTree = "<group>";
-		};
-		CE0F28412843C51E00C206EA /* Design System */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = "Design System";
 			sourceTree = "<group>";
 		};
 		CE0F28462843CC3E00C206EA /* MUNavigationBar */ = {
@@ -712,9 +716,7 @@
 			isa = PBXGroup;
 			children = (
 				CE3960B0278B3D6A0073AEF4 /* App */,
-				CE6EE81E27C7BEB6005BF412 /* Base */,
 				CE3960E5278B45CA0073AEF4 /* Common */,
-				CE0F28412843C51E00C206EA /* Design System */,
 				CEB60F8027A9C5DC001260DB /* Domain */,
 				CE3960E0278B45360073AEF4 /* Network */,
 				CE3960B1278B3D850073AEF4 /* Screen */,
@@ -803,7 +805,8 @@
 				CE6EE88727CA9225005BF412 /* BaseView.swift */,
 				CE6EE81F27C7BEC2005BF412 /* BaseViewController.swift */,
 			);
-			path = Base;
+			name = Base;
+			path = "../MashUp-iOS/Source/Base";
 			sourceTree = "<group>";
 		};
 		CE6EE82127C7BF6A005BF412 /* Auth */ = {
@@ -1003,14 +1006,15 @@
 		CE9C1D9528467E500020FBCE /* MashUp-Core */ = {
 			isa = PBXGroup;
 			children = (
+				CE9C1D9728467E500020FBCE /* MashUp_Core.docc */,
+				CE9C1D9628467E500020FBCE /* MashUp_Core.h */,
 				CE0F283628437B6A00C206EA /* ImageSource.swift */,
 				CE6EE84227C7F933005BF412 /* Logger.swift */,
+				CE6EE81E27C7BEB6005BF412 /* Base */,
 				CE6EE87E27CA8E52005BF412 /* Foundation+ */,
 				CEB60F7727A9BF90001260DB /* Rx+ */,
 				CE6EE87B27CA8E29005BF412 /* UIKit+ */,
 				CE6EE87627CA857F005BF412 /* View */,
-				CE9C1D9628467E500020FBCE /* MashUp_Core.h */,
-				CE9C1D9728467E500020FBCE /* MashUp_Core.docc */,
 			);
 			path = "MashUp-Core";
 			sourceTree = "<group>";
@@ -1304,6 +1308,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				CEBAC75E2847657300ABCC36 /* PBXTargetDependency */,
 			);
 			name = "MashUp-UIKit";
 			packageProductDependencies = (
@@ -1460,7 +1465,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CE6EE84527C8004F005BF412 /* BaseTabBarController.swift in Sources */,
 				CE6EE81227C7B293005BF412 /* SignInReactor.swift in Sources */,
 				CEB60F7F27A9C536001260DB /* AttendanceService.swift in Sources */,
 				CE729A7D27E577B7001D33D1 /* TimerService.swift in Sources */,
@@ -1480,7 +1484,6 @@
 				CEB60F7427A9BDF4001260DB /* QRScanReactor.swift in Sources */,
 				CE6EE81027C7B28C005BF412 /* SignInViewController.swift in Sources */,
 				CE6EE83027C7D931005BF412 /* SignInStep.swift in Sources */,
-				CE6EE82027C7BEC2005BF412 /* BaseViewController.swift in Sources */,
 				CE729A8527E5C1F9001D33D1 /* AttendanceTimelineView.swift in Sources */,
 				CE6EE81D27C7BCF7005BF412 /* PlatformTeam.swift in Sources */,
 				CE729A7F27E57D0D001D33D1 /* AttendanceTimelineRepository.swift in Sources */,
@@ -1500,12 +1503,10 @@
 				CE88D32827E5522B00865C02 /* QRSeminarCardView.swift in Sources */,
 				CE14D2CB27CFBB1200685CFF /* FakeSeminarRepository.swift in Sources */,
 				CE6EE84127C7F130005BF412 /* HomeTab.swift in Sources */,
-				CE6EE88827CA9225005BF412 /* BaseView.swift in Sources */,
 				CE6EE82C27C7D8F8005BF412 /* RootController.swift in Sources */,
 				0618444227E1D2DD004980CC /* SeminarDetailReactor.swift in Sources */,
 				CE6EE82E27C7D900005BF412 /* RootReactor.swift in Sources */,
 				0618444627E30642004980CC /* PlatformCellModel.swift in Sources */,
-				CE6EE88427CA9141005BF412 /* BaseTableViewCell.swift in Sources */,
 				CE6EE85D27CA4136005BF412 /* Seminar.swift in Sources */,
 				CE12DA5827E629FE00F08629 /* QRSeminarCardViewModel.swift in Sources */,
 				CE0F283E2843B81300C206EA /* SignUpViewController.swift in Sources */,
@@ -1521,7 +1522,6 @@
 				CE6EE85A27CA40C5005BF412 /* SeminarScheduleReactor.swift in Sources */,
 				CE6EE83827C7E2D5005BF412 /* SplashReactor.swift in Sources */,
 				CE6EE84E27C80C9B005BF412 /* MyPageViewController.swift in Sources */,
-				CE6EE87527CA820B005BF412 /* BaseCollectionViewCell.swift in Sources */,
 				CE6EE82927C7D655005BF412 /* FakeUserAuthService.swift in Sources */,
 				CE6EE86927CA5609005BF412 /* SeminarDetailViewController.swift in Sources */,
 				CE0F28492843EBA500C206EA /* VerificationService.swift in Sources */,
@@ -1582,18 +1582,23 @@
 				CE9C1DAB28467E7B0020FBCE /* String+.swift in Sources */,
 				CE9C1DB428467EA50020FBCE /* UITableView+.swift in Sources */,
 				CE9C1DB028467E920020FBCE /* NSCollectionLayoutSectionFactory.swift in Sources */,
+				CEBAC7572847638100ABCC36 /* BaseViewController.swift in Sources */,
 				CE9C1DA928467E740020FBCE /* Locale+.swift in Sources */,
 				CE9C1DA428467E5E0020FBCE /* Logger.swift in Sources */,
+				CEBAC75A2847638100ABCC36 /* BaseTabBarController.swift in Sources */,
+				CEBAC7562847638100ABCC36 /* BaseView.swift in Sources */,
 				CE9C1DAD28467E840020FBCE /* TimeZone+.swift in Sources */,
 				CE9C1DAE28467E8A0020FBCE /* UIViewContorller+Rx.swift in Sources */,
 				CE9C1DAF28467E8D0020FBCE /* Observable+Main.swift in Sources */,
 				CE9C1DB328467EA10020FBCE /* UICollectionView+.swift in Sources */,
 				CE9C1DB128467E970020FBCE /* Reusable.swift in Sources */,
 				CE9C1DAA28467E790020FBCE /* Optional+.swift in Sources */,
+				CEBAC7582847638100ABCC36 /* BaseCollectionViewCell.swift in Sources */,
 				CE9C1DB728467EAF0020FBCE /* PaddingLabel.swift in Sources */,
 				CE9C1DA728467E6D0020FBCE /* Date+.swift in Sources */,
 				CE9C1D9828467E500020FBCE /* MashUp_Core.docc in Sources */,
 				CE9C1DA828467E710020FBCE /* Error+.swift in Sources */,
+				CEBAC7592847638100ABCC36 /* BaseTableViewCell.swift in Sources */,
 				CE9C1DA628467E6A0020FBCE /* Collection+.swift in Sources */,
 				CE9C1DB228467E9D0020FBCE /* UIButton+.swift in Sources */,
 			);
@@ -1667,6 +1672,12 @@
 		CE9E736327C29A3A00922D8B /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			productRef = CE9E736227C29A3A00922D8B /* Mockingbird */;
+		};
+		CEBAC75E2847657300ABCC36 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			platformFilter = ios;
+			target = CE9C1D9328467E500020FBCE /* MashUp-Core */;
+			targetProxy = CEBAC75D2847657300ABCC36 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 

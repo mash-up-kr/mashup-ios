@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MashUp_Core
 
 class QRCodeFinderView: BaseView {
     
