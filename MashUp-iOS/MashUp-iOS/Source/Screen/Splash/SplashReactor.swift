@@ -29,11 +29,11 @@ final class SplashReactor: Reactor {
     let initialState: State
     
     init(
-        userSessionRepository: UserSessionRepository,
-        authenticationResponder: AuthenticationResponder
+        userAuthService: any UserAuthService,
+        authenticationResponder: any AuthenticationResponder
     ) {
         self.initialState = State()
-        self.userSessionRepository = userSessionRepository
+        self.userAuthService = userAuthService
         self.authenticationResponder = authenticationResponder
     }
     
@@ -59,12 +59,12 @@ final class SplashReactor: Reactor {
     }
     
     private func loadUserSession(until timeout: RxTimeInterval) -> Observable<UserSession?> {
-        return self.userSessionRepository.load()
+        return self.userAuthService.autoSignIn()
             .timeout(timeout, scheduler: ConcurrentDispatchQueueScheduler(qos: .background))
             .catchAndReturn(nil)
     }
     
-    private let userSessionRepository: UserSessionRepository
-    private let authenticationResponder: AuthenticationResponder
+    private let userAuthService: any UserAuthService
+    private let authenticationResponder: any AuthenticationResponder
     
 }

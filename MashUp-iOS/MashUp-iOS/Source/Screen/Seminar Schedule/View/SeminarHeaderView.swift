@@ -9,6 +9,7 @@
 import SnapKit
 import Then
 import UIKit
+import MashUp_Core
 
 protocol SeminarHeaderViewDelegate: AnyObject {
     func seminarHeaderView(_ headerView: SeminarHeaderView, didTapSort sort: Sort)

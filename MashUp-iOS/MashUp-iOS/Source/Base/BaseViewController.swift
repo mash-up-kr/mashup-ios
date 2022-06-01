@@ -8,6 +8,7 @@
 
 import Then
 import UIKit
+import MashUp_Core
 
 class BaseViewController: UIViewController {
     
@@ -16,12 +17,12 @@ class BaseViewController: UIViewController {
         case light
     }
     
-    override init(nibName: String?, bundle: Bundle?) {
+    public override init(nibName: String?, bundle: Bundle?) {
         super.init(nibName: nibName, bundle: bundle)
         Logger.log("\(type(of:self)) init", .custom("🐥"), "", "", "")
     }
     
-    required init?(coder: NSCoder) {
+    public required init?(coder: NSCoder) {
         super.init(coder: coder)
         Logger.log("\(type(of:self)) init", .custom("🐥"), "", "", "")
     }

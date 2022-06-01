@@ -13,6 +13,7 @@ import Nimble
 import Quick
 import RxSwift
 import RxBlocking
+import MashUp_Core
 @testable import MashUp_iOS
 
 final class QRScanReactorSpec: QuickSpec {

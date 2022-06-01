@@ -10,7 +10,7 @@ import UIKit
 
 extension NSCollectionLayoutSection {
     
-    static var horizontalCardLayoutSection: NSCollectionLayoutSection {
+    public static var horizontalCardLayoutSection: NSCollectionLayoutSection {
         let itemSize = NSCollectionLayoutSize(
             widthDimension: .fractionalWidth(1),
             heightDimension: .absolute(162.0)
@@ -41,7 +41,7 @@ extension NSCollectionLayoutSection {
         return section
     }
     
-    static var verticalCardLayoutSection: NSCollectionLayoutSection {
+    public static var verticalCardLayoutSection: NSCollectionLayoutSection {
         let itemSize = NSCollectionLayoutSize(
             widthDimension: NSCollectionLayoutDimension.fractionalWidth(1),
             heightDimension: NSCollectionLayoutDimension.estimated(162)

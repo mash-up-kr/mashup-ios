@@ -12,6 +12,7 @@ import RxSwift
 import SnapKit
 import Then
 import UIKit
+import MashUp_UIKit
 
 final class SignInViewController: BaseViewController, ReactorKit.View {
     typealias Reactor = SignInReactor
@@ -23,10 +24,19 @@ final class SignInViewController: BaseViewController, ReactorKit.View {
         self.setupUI()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+    }
+    
     func bind(reactor: Reactor) {
         self.dispatch(to: reactor)
         self.render(reactor)
         self.consume(reactor)
+    }
+    
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesEnded(touches, with: event)
+        self.view.endEditing(true)
     }
     
     private func dispatch(to reactor: Reactor) {
@@ -53,28 +63,28 @@ final class SignInViewController: BaseViewController, ReactorKit.View {
     
     private func render(_ reactor: Reactor) {
         reactor.state.map { $0.id }
-        .distinctUntilChanged()
-        .onMain()
-        .bind(to: self.idField.rx.text)
-        .disposed(by: self.disposeBag)
+            .distinctUntilChanged()
+            .onMain()
+            .bind(to: self.idField.rx.text)
+            .disposed(by: self.disposeBag)
         
         reactor.state.map { $0.password }
-        .distinctUntilChanged()
-        .onMain()
-        .bind(to: self.passwordField.rx.text)
-        .disposed(by: self.disposeBag)
+            .distinctUntilChanged()
+            .onMain()
+            .bind(to: self.passwordField.rx.text)
+            .disposed(by: self.disposeBag)
         
         reactor.state.map { $0.isLoading }
-        .distinctUntilChanged()
-        .onMain()
-        .bind(to: self.loadingIndicator.rx.isAnimating)
-        .disposed(by: self.disposeBag)
+            .distinctUntilChanged()
+            .onMain()
+            .bind(to: self.loadingIndicator.rx.isAnimating)
+            .disposed(by: self.disposeBag)
         
         reactor.state.map { $0.canTryToSignIn }
-        .distinctUntilChanged()
-        .onMain()
-        .bind(to: self.signInButton.rx.isEnabled)
-        .disposed(by: self.disposeBag)
+            .distinctUntilChanged()
+            .onMain()
+            .bind(to: self.signInButton.rx.isEnabled)
+            .disposed(by: self.disposeBag)
     }
     
     private func consume(_ reactor: Reactor) {
@@ -88,12 +98,18 @@ final class SignInViewController: BaseViewController, ReactorKit.View {
                 owner.present(alertController, animated: true)
             })
             .disposed(by: self.disposeBag)
+        
+        reactor.pulse(\.$step).compactMap { $0 }
+            .onMain()
+            .subscribe(onNext: { [weak self] in self?.move(to: $0) })
+            .disposed(by: self.disposeBag)
+        
     }
     
-    private let idField = UITextField()
-    private let passwordField = UITextField()
-    private let signInButton = UIButton()
-    private let signUpButton = UIButton()
+    private let idField = MUTextField()
+    private let passwordField = MUTextField()
+    private let signInButton = MUButton()
+    private let signUpButton = MUButton(style: .default)
     private let loadingIndicator = UIActivityIndicatorView()
 }
 // MARK: Setup
@@ -107,23 +123,19 @@ extension SignInViewController {
     private func setupAttribute() {
         self.view.backgroundColor = .white
         self.idField.do {
+            $0.placeholder = "아이디"
             $0.keyboardType = .default
-            $0.placeholder = "아이디를 입력해주세요"
         }
         self.passwordField.do {
+            $0.placeholder = "비밀번호"
             $0.keyboardType = .default
-            $0.placeholder = "비밀번호를 입력해주세요"
             $0.isSecureTextEntry = true
         }
         self.signInButton.do {
             $0.setTitle("로그인", for: .normal)
-            $0.setTitleColor(.white, for: .normal)
-            $0.backgroundColor = .systemIndigo
         }
         self.signUpButton.do {
-            $0.setTitle("회원가입", for: .normal)
-            $0.setTitleColor(.black, for: .normal)
-            $0.backgroundColor = .white
+            $0.setTitle("회원가입 하러가기", for: .normal)
         }
         self.loadingIndicator.do {
             $0.hidesWhenStopped = true
@@ -135,11 +147,9 @@ extension SignInViewController {
     private func setupLayout() {
         self.signInButton.snp.makeConstraints {
             $0.height.equalTo(56)
-            $0.width.equalTo(250)
         }
         self.signUpButton.snp.makeConstraints {
             $0.height.equalTo(56)
-            $0.width.equalTo(250)
         }
         
         let stackView = UIStackView().then {
@@ -155,12 +165,41 @@ extension SignInViewController {
         }
         self.view.addSubview(stackView)
         stackView.snp.makeConstraints {
-            $0.center.equalToSuperview()
+            $0.top.equalTo(self.view.safeAreaLayoutGuide).inset(40)
+            $0.leading.trailing.equalToSuperview().inset(20)
         }
         self.view.addSubview(self.loadingIndicator)
         self.loadingIndicator.snp.makeConstraints {
             $0.center.equalToSuperview()
         }
+    }
+    
+}
+
+// MARK: Navigation
+extension SignInViewController {
+    
+    private func move(to step: SignInStep) {
+        switch step {
+        case .signUp: self.pushSignUpViewController()
+        }
+    }
+    
+    private func pushSignUpViewController() {
+        let viewController = self.createSignUpViewContorller()
+        self.navigationController?.pushViewController(viewController, animated: true)
+    }
+    
+    private func createSignUpViewContorller() -> SignUpViewController {
+        let platformService = PlatformServiceImpl(repository: PlatformRepositoryImpl())
+        let verificationService = VerificationServiceImpl()
+        let reactor = SignUpReactor(
+            platformService: platformService,
+            verificationService: verificationService
+        )
+        let viewController = SignUpViewController()
+        viewController.reactor = reactor
+        return viewController
     }
     
 }

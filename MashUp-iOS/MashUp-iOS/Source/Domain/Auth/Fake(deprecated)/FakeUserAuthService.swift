@@ -1,5 +1,5 @@
 //
-//  FakeUserSessionRepository.swift
+//  FakeUserAuthService.swift
 //  MashUp-iOS
 //
 //  Created by Booung on 2022/02/25.
@@ -9,10 +9,10 @@
 import Foundation
 import RxSwift
 
-class FakeUserSessionRepository: UserSessionRepository  {
+class FakeUserAuthService: UserAuthService {
     var stubedUserSession: UserSession?
     
-    func load() -> Observable<UserSession?> {
+    func autoSignIn() -> Observable<UserSession?> {
         return .just(self.stubedUserSession)
     }
     

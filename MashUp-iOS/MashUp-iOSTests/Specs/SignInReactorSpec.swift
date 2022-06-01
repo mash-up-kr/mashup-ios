@@ -16,19 +16,24 @@ import RxTest
 import Foundation
 
 final class SignInReactorSpec: QuickSpec {
+  
   override func spec() {
     var sut: SignInReactor!
-    var userSessionRepositoryMock: UserSessionRepositoryMock!
+    var userAuthServiceMock: UserAuthServiceMock!
+    var verificationServiceMock: VerificationServiceMock!
     var authenticationResponserMock: AuthenticationResponderMock!
-    var disposeBag: DisposeBag!
+    
     beforeEach {
-      disposeBag = DisposeBag()
-      userSessionRepositoryMock = mock(UserSessionRepository.self)
+      userAuthServiceMock = mock(UserAuthService.self)
+      verificationServiceMock = mock(VerificationService.self)
       authenticationResponserMock = mock(AuthenticationResponder.self)
       sut = SignInReactor(
-        userSessionRepository: userSessionRepositoryMock,
+        userAuthService: userAuthServiceMock,
+        verificationService: verificationServiceMock,
         authenticationResponder: authenticationResponserMock
       )
+      given(verificationServiceMock.verify(id: any())).will { return $0 == "correct.id" }
+      given(verificationServiceMock.verify(password: any())).will { return $0 == "correct.password" }
     }
     describe("state.id") {
       context("ID 텍스트 필드가 업데이트 되면") {
@@ -53,30 +58,10 @@ final class SignInReactorSpec: QuickSpec {
       }
     }
     describe("state.canTrySignIn") {
-      context("ID 텍스트 필드에 4글자보다 짧은 글자가 입력되어있다면") {
+      context("ID PW가 둘다 검증되면") {
         beforeEach {
-          let idShorterThan4 = "123"
-          sut.action.onNext(.didEditIDField(idShorterThan4))
-        }
-        it("로그인 버튼이 비활성화 됩니다") {
-          expect { sut.currentState.canTryToSignIn }.to(beFalse())
-        }
-      }
-      context("PW 텍스트 필드에 4글자보다 짧은 글자가 입력되어있다면") {
-        beforeEach {
-          let passwordShorterThan4 = "123"
-          sut.action.onNext(.didEditPasswordField(passwordShorterThan4))
-        }
-        it("로그인 버튼이 비활성화 됩니다") {
-          expect { sut.currentState.canTryToSignIn }.to(beFalse())
-        }
-      }
-      context("ID와 PW가 둘다 4글자가 넘으면") {
-        beforeEach {
-          let idLongerThan4 = "12345"
-          let passwordLongerThan4 = "12345"
-          sut.action.onNext(.didEditIDField(idLongerThan4))
-          sut.action.onNext(.didEditPasswordField(passwordLongerThan4))
+          sut.action.onNext(.didEditIDField("correct.id"))
+          sut.action.onNext(.didEditPasswordField("correct.password"))
         }
         it("로그인 버튼이 활성화 됩니다") {
           expect { sut.currentState.canTryToSignIn }.to(beTrue())
@@ -85,38 +70,29 @@ final class SignInReactorSpec: QuickSpec {
     }
     
     describe("state.isLoading") {
-      var testScheduler: TestScheduler!
-      var isLoadingObserver: TestableObserver<Bool>!
+      var isLoading: Observable<Bool>!
       let correctID = "correct.id"
       let correctPassword = "correct.password"
       let stubedUserSession = UserSession.stub(accessToken: "fake.access.token")
       let error: Error = "sign in failure"
       beforeEach {
-        testScheduler = TestScheduler(initialClock: 0)
-        isLoadingObserver = testScheduler.createObserver(Bool.self)
-        given(userSessionRepositoryMock.signIn(id: any(), password: any()))
+        given(userAuthServiceMock.signIn(id: any(), password: any()))
           .willReturn(.error(error))
-        given(userSessionRepositoryMock.signIn(id: correctID, password: correctPassword))
+        given(userAuthServiceMock.signIn(id: correctID, password: correctPassword))
           .willReturn(.just(stubedUserSession))
       }
       context("로그인 버튼을 탭하면") {
         let idLongerThan4 = "12345"
         let passwordLongerThan4 = "12345"
         beforeEach {
-          sut.state.map { $0.isLoading }
-          .distinctUntilChanged()
-          .observe(on: testScheduler)
-          .subscribe(isLoadingObserver)
-          .disposed(by: disposeBag)
+          isLoading = sut.state.map { $0.isLoading }.distinctUntilChanged().take(3).recorded()
           
           sut.action.onNext(.didEditIDField(idLongerThan4))
           sut.action.onNext(.didEditPasswordField(passwordLongerThan4))
           sut.action.onNext(.didTapSignInButton)
-          
-          testScheduler.start()
         }
         it("로딩 인디케이터가 표시되었다가 사라집니다.") {
-          let isLoadings = isLoadingObserver.events.compactMap { $0.value.element }
+          let isLoadings = try isLoading.toBlocking().toArray()
           expect { isLoadings }.to(equal([false, true, false]))
         }
       }
@@ -130,9 +106,9 @@ final class SignInReactorSpec: QuickSpec {
       let userSessionStub = UserSession.stub(accessToken: "fake.access.token")
       let error: Error = "sign in failure"
       beforeEach {
-        given(userSessionRepositoryMock.signIn(id: any(), password: any()))
+        given(userAuthServiceMock.signIn(id: any(), password: any()))
           .willReturn(.error(error))
-        given(userSessionRepositoryMock.signIn(id: correctID, password: correctPassword))
+        given(userAuthServiceMock.signIn(id: correctID, password: correctPassword))
           .willReturn(.just(userSessionStub))
       }
       context("로그인을 성공하면") {

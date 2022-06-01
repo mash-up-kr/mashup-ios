@@ -41,10 +41,12 @@ final class SignInReactor: Reactor {
     let initialState: State = State()
     
     init(
-        userSessionRepository: UserSessionRepository,
-        authenticationResponder: AuthenticationResponder
+        userAuthService: any UserAuthService,
+        verificationService: any VerificationService,
+        authenticationResponder: any AuthenticationResponder
     ) {
-        self.userSessionRepository = userSessionRepository
+        self.userAuthService = userAuthService
+        self.verificationService = verificationService
         self.authenticationResponder = authenticationResponder
     }
     
@@ -61,11 +63,7 @@ final class SignInReactor: Reactor {
             let enterHome: Observable<Mutation> = self.signIn().map { .updateUserSession($0) }
             let endLoading: Observable<Mutation> = .just(Mutation.updateLoading(false))
             let handleError: (Error) -> Observable<Mutation> = { error in return .just(.occurError(error)) }
-            return .concat(
-                startLoading,
-                enterHome,
-                endLoading
-            ).catch { error in .concat(handleError(error), endLoading) }
+            return .concat(startLoading, enterHome, endLoading).catch { error in .concat(handleError(error), endLoading) }
             
         case .didTapSignUpButton:
             let moveToSignUp: Observable<Mutation> = .just(.move(to: .signUp))
@@ -103,14 +101,12 @@ final class SignInReactor: Reactor {
     private func signIn() -> Observable<UserSession> {
         let id = self.currentState.id
         let password = self.currentState.password
-        return self.userSessionRepository.signIn(id: id, password: password)
+        return self.userAuthService.signIn(id: id, password: password)
     }
     
     private func verify(id: String, password: String) -> Bool {
-        #warning("ID, PW 입력상태에 따른 로그인버튼 활성화 로직 - Booung")
-        let idIsFulfill = id.count > 4
-        let pwIsFulfill = password.count > 4
-        return idIsFulfill && pwIsFulfill
+        return self.verificationService.verify(id: id)
+        && self.verificationService.verify(password: password)
     }
     
     private func messageOf(error: Error) -> String {
@@ -118,6 +114,7 @@ final class SignInReactor: Reactor {
         return "sign in failure"
     }
     
-    private let userSessionRepository: UserSessionRepository
-    private let authenticationResponder: AuthenticationResponder
+    private let userAuthService: any UserAuthService
+    private let verificationService: any VerificationService
+    private let authenticationResponder: any AuthenticationResponder
 }
