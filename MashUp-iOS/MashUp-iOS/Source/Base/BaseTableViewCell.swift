@@ -7,15 +7,14 @@
 //
 
 import UIKit
-import MashUp_Core
 
-class BaseTableViewCell: UITableViewCell, Reusable {
+open class BaseTableViewCell: UITableViewCell, Reusable {
     
-    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+    public override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
     }
     
-    required init?(coder: NSCoder) {
+    required public init?(coder: NSCoder) {
         super.init(coder: coder)
     }
     
