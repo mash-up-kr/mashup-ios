@@ -15,20 +15,20 @@ import RxBlocking
 final class SplashReactorSpec: QuickSpec {
   override func spec() {
     var sut: SplashReactor!
-    var userSessionRepositoryMock: UserSessionRepositoryMock!
+    var userAuthServiceMock: UserAuthServiceMock!
     var rootReactorMock: AuthenticationResponderMock!
     var userSessionStub: UserSession!
     
     beforeEach {
-      userSessionRepositoryMock = mock(UserSessionRepository.self)
+      userAuthServiceMock = mock(UserAuthService.self)
       rootReactorMock = mock(AuthenticationResponder.self)
-      sut = SplashReactor(userSessionRepository: userSessionRepositoryMock,
+      sut = SplashReactor(userAuthService: userAuthServiceMock,
                           authenticationResponder: rootReactorMock)
     }
     context("저장소에서 유저 세션을 성공적으로 로드한다면") {
       beforeEach {
         userSessionStub = .stub(accessToken: "fake.user.session")
-        given(userSessionRepositoryMock.load()).willReturn(.just(userSessionStub))
+        given(userAuthServiceMock.autoSignIn()).willReturn(.just(userSessionStub))
         sut.action.onNext(.didSetup)
       }
       it("성공을 알림과 함께 로드한 유저 세션을 RootReactor에게 전달합니다.") {
@@ -38,7 +38,7 @@ final class SplashReactorSpec: QuickSpec {
     context("저장소에서 유저 세션을 로드를 실패한다면") {
       beforeEach {
         userSessionStub = nil
-        given(userSessionRepositoryMock.load()).willReturn(.just(userSessionStub))
+        given(userAuthServiceMock.autoSignIn()).willReturn(.just(userSessionStub))
         sut.action.onNext(.didSetup)
       }
       it("실패를 RootReactor에게 알립니다.") {

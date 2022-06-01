@@ -9,5 +9,5 @@
 import Foundation
 
 extension Locale {
-    static let ko_KR = Locale(identifier: "ko_KR")
+    public static let ko_KR = Locale(identifier: "ko_KR")
 }
