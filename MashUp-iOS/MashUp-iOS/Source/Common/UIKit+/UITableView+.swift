@@ -10,13 +10,13 @@ import UIKit
 
 extension UITableView {
     
-    typealias ReusableCell = UITableViewCell & Reusable
+    public typealias ReusableCell = UITableViewCell & Reusable
     
-    func registerCell<Cell: ReusableCell>(_ cellType: Cell.Type) {
+    public func registerCell<Cell: ReusableCell>(_ cellType: Cell.Type) {
         self.register(cellType, forCellReuseIdentifier: cellType.reuseIdentifier)
     }
     
-    func dequeueCell<Cell: ReusableCell>(_ cellType: Cell.Type, for indexPath: IndexPath) -> Cell? {
+    public func dequeueCell<Cell: ReusableCell>(_ cellType: Cell.Type, for indexPath: IndexPath) -> Cell? {
         return self.dequeueReusableCell(withIdentifier: cellType.reuseIdentifier, for: indexPath) as? Cell
     }
     

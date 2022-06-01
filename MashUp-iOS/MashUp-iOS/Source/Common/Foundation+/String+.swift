@@ -9,7 +9,6 @@
 import Foundation
 
 extension String {
-    static let empty = ""
-    
-    var isNotEmpty: Bool { !isEmpty }
+    public static let empty = ""
+    public var isNotEmpty: Bool { !isEmpty }
 }

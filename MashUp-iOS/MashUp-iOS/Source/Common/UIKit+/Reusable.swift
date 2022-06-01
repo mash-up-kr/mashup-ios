@@ -8,9 +8,9 @@
 
 import Foundation
 
-protocol Reusable {
+public protocol Reusable {
     static var reuseIdentifier: String { get }
 }
 extension Reusable {
-    static var reuseIdentifier: String { "\(type(of: self))" }
+    public static var reuseIdentifier: String { "\(type(of: self))" }
 }
