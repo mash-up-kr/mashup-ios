@@ -29,7 +29,7 @@ final class SignUpCodeReactorSpec: QuickSpec {
         authenticationResponder = mock(AuthenticationResponder.self)
         
         sut = SignUpCodeReactor(
-          userInProgress: NewAccount(
+          userInProgressOfSigningUp: NewAccount(
             id: "fake.id",
             password: "fake.password",
             name: "fake.name",

@@ -22,7 +22,7 @@ final public class SignUpCodeReactor: Reactor {
         case updateLoading(Bool)
         case updateSignUpCode(String)
         case signedUp(UserSession)
-        case occurCodeError(SignUpCodeError)
+        case occurSignUpCodeError(SignUpCodeError)
         case occurSignUpError(SignUpError)
     }
     
@@ -31,18 +31,18 @@ final public class SignUpCodeReactor: Reactor {
         var signUpCode: String = .empty
         var canDone: Bool = false
         
-        fileprivate let userInProgress: NewAccount
+        fileprivate let userInProgressOfSigningUp: NewAccount
     }
     
     public let initialState: State
     
     public init(
-        userInProgress: NewAccount,
+        userInProgressOfSigningUp: NewAccount,
         signUpCodeVerificationService: any SignUpCodeVerificationService,
         userAuthService: any UserAuthService,
         authenticationResponder: any AuthenticationResponder
     ) {
-        self.initialState = State(userInProgress: userInProgress)
+        self.initialState = State(userInProgressOfSigningUp: userInProgressOfSigningUp)
         self.signUpCodeVerificationService = signUpCodeVerificationService
         self.userAuthService = userAuthService
         self.authenticationResponder = authenticationResponder
@@ -72,7 +72,7 @@ final public class SignUpCodeReactor: Reactor {
             newState.canDone = self.satisfy(signUpCode: signUpCode)
         case .signedUp(let userSession):
             self.authenticationResponder.loadSuccess(userSession: userSession)
-        case .occurCodeError(let error):
+        case .occurSignUpCodeError(let error):
             #warning("에러 핸들링 스펙 정의 필요 - Booung")
         case .occurSignUpError(let error):
             #warning("에러 핸들링 스펙 정의 필요 - Booung")
@@ -86,13 +86,13 @@ final public class SignUpCodeReactor: Reactor {
     
     private func signUp() -> Observable<Mutation> {
         let signUpCode = self.currentState.signUpCode
-        let userInProgress = self.currentState.userInProgress
+        let userAccount = self.currentState.userInProgressOfSigningUp
         
         return AsyncStream { [signUpCodeVerificationService, userAuthService] in
             let signUpCodeVerification = await signUpCodeVerificationService.verify(signUpCode: signUpCode)
-            if case .failure(let codeError) = signUpCodeVerification { return Mutation.occurCodeError(codeError) }
+            if case .failure(let codeError) = signUpCodeVerification { return Mutation.occurSignUpCodeError(codeError) }
             
-            let signUp = await userAuthService.signUp(with: userInProgress)
+            let signUp = await userAuthService.signUp(with: userAccount)
             switch signUp {
             case .success(let userSession):
                 return Mutation.signedUp(userSession)
