@@ -9,6 +9,7 @@
 import Foundation
 import ReactorKit
 import MashUp_Core
+import MashUp_PlatformTeam
 
 final class SignUpReactor: Reactor {
     

@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import MashUp_PlatformTeam
 
 struct AttendanceMember: Equatable {
     let name: String

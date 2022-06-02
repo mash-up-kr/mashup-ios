@@ -9,8 +9,15 @@
 import Foundation
 
 public struct UserSession: Equatable {
+    
     public typealias ID = String
     
     public let id: String
     public let accessToken: String
+    
+    public init(id: String, accessToken: String) {
+        self.id = id
+        self.accessToken = accessToken
+    }
+    
 }

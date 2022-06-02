@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import MashUp_User
 import RxSwift
 
 public protocol UserAuthService {

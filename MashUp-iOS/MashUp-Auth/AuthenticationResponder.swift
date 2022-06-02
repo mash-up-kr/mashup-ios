@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import MashUp_User
 
 public protocol AuthenticationResponder {
     func loadSuccess(userSession: UserSession)

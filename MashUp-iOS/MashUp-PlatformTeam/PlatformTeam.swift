@@ -1,5 +1,5 @@
 //
-//  NewAccount.swift
+//  Team.swift
 //  MashUp-iOS
 //
 //  Created by Booung on 2022/02/24.
@@ -15,12 +15,4 @@ public enum PlatformTeam: Equatable, CaseIterable {
     case web
     case node
     case spring
-}
-
-public struct NewAccount: Equatable {
-    public let id: String
-    public let password: String
-    public let name: String
-    public let platform: PlatformTeam
-    public let phoneNumber: String
 }

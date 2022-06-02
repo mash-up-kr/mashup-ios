@@ -10,6 +10,7 @@ import Mockingbird
 import Nimble
 import Quick
 import RxSwift
+import MashUp_PlatformTeam
 @testable import MashUp_iOS
 
 final class PlatformAttendanceStatusReactorSpec: QuickSpec {

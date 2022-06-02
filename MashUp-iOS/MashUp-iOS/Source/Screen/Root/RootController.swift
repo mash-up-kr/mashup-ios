@@ -10,6 +10,7 @@ import ReactorKit
 import UIKit
 import MashUp_Core
 import MashUp_Auth
+import MashUp_User
 
 final class RootController: BaseViewController, ReactorKit.View {
     typealias Reactor = RootReactor

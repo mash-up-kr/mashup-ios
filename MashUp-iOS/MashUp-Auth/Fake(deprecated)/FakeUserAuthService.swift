@@ -9,6 +9,7 @@
 import Foundation
 import RxSwift
 import MashUp_Core
+import MashUp_User
 
 public final class FakeUserAuthService: UserAuthService {
     

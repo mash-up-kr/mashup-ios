@@ -7,8 +7,9 @@
 //
 
 import Foundation
-import MashUp_Auth
 import ReactorKit
+import MashUp_Auth
+import MashUp_User
 
 final class RootReactor: Reactor {
     

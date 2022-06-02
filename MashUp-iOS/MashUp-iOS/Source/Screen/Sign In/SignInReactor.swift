@@ -9,6 +9,7 @@
 import RxSwift
 import ReactorKit
 import MashUp_Auth
+import MashUp_User
 
 final class SignInReactor: Reactor {
     

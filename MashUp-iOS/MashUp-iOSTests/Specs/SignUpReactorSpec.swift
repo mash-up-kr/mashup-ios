@@ -13,6 +13,7 @@ import Quick
 import RxBlocking
 import RxSwift
 @testable import MashUp_iOS
+import MashUp_PlatformTeam
 import Foundation
 
 final class SignUpReactorSpec: QuickSpec {

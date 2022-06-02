@@ -9,22 +9,22 @@
 import Foundation
 import RxSwift
 
-protocol PlatformService {
+public protocol PlatformService {
     func allPlatformTeams() -> Observable<[PlatformTeam]>
     func attendanceStatus() -> Observable<[PlatformAttendance]>
 }
 
-final class PlatformServiceImpl: PlatformService {
+final public class PlatformServiceImpl: PlatformService {
     
-    init(repository: PlatformRepository) {
+    public init(repository: PlatformRepository) {
         self.repository = repository
     }
     
-    func allPlatformTeams() -> Observable<[PlatformTeam]> {
+    public func allPlatformTeams() -> Observable<[PlatformTeam]> {
         return repository.allPlatformTeams()
     }
     
-    func attendanceStatus() -> Observable<[PlatformAttendance]> {
+    public func attendanceStatus() -> Observable<[PlatformAttendance]> {
         return repository.attendanceStatus()
     }
     
