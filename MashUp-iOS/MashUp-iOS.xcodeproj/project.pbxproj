@@ -130,6 +130,8 @@
 		CE9BE0C12848E7F1006691F0 /* UITableView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9BE0BC2848E7F1006691F0 /* UITableView+.swift */; };
 		CE9BE0C42848E7FD006691F0 /* Observable+Main.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9BE0C22848E7FD006691F0 /* Observable+Main.swift */; };
 		CE9BE0C52848E7FD006691F0 /* UIViewContorller+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9BE0C32848E7FD006691F0 /* UIViewContorller+Rx.swift */; };
+		CE9BE0FF2848E8A7006691F0 /* MashUpAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9BE0FE2848E8A7006691F0 /* MashUpAPI.swift */; };
+		CE9BE1012848E8BA006691F0 /* ResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9BE1002848E8BA006691F0 /* ResponseModel.swift */; };
 		CE9C1D9828467E500020FBCE /* MashUp_Core.docc in Sources */ = {isa = PBXBuildFile; fileRef = CE9C1D9728467E500020FBCE /* MashUp_Core.docc */; };
 		CE9C1D9928467E500020FBCE /* MashUp_Core.h in Headers */ = {isa = PBXBuildFile; fileRef = CE9C1D9628467E500020FBCE /* MashUp_Core.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		CE9C1D9C28467E500020FBCE /* MashUp_Core.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE9C1D9428467E500020FBCE /* MashUp_Core.framework */; };
@@ -190,8 +192,6 @@
 		CEBAC75C2847657300ABCC36 /* MashUp_Core.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = CE9C1D9428467E500020FBCE /* MashUp_Core.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		CEBAC7682847670400ABCC36 /* MashUp_Network.docc in Sources */ = {isa = PBXBuildFile; fileRef = CEBAC7672847670400ABCC36 /* MashUp_Network.docc */; };
 		CEBAC7692847670400ABCC36 /* MashUp_Network.h in Headers */ = {isa = PBXBuildFile; fileRef = CEBAC7662847670400ABCC36 /* MashUp_Network.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		CEBAC7722847674900ABCC36 /* MashUpAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE3960E3278B45A00073AEF4 /* MashUpAPI.swift */; };
-		CEBAC7732847674B00ABCC36 /* ResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4A6C06278B47A80052F7E7 /* ResponseModel.swift */; };
 		CEBAC7742847674E00ABCC36 /* HTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4A6C04278B47040052F7E7 /* HTTPClient.swift */; };
 		CEBAC7752847674E00ABCC36 /* NetworkConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4A6C08278B4A3C0052F7E7 /* NetworkConfig.swift */; };
 		CEBAC77728477DF200ABCC36 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = CEBAC77628477DF200ABCC36 /* RxSwift */; };
@@ -378,9 +378,7 @@
 		CE39608B278B3CB60073AEF4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CE39608D278B3CB60073AEF4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CE396092278B3CB60073AEF4 /* MashUp-iOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "MashUp-iOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		CE3960E3278B45A00073AEF4 /* MashUpAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MashUpAPI.swift; sourceTree = "<group>"; };
 		CE4A6C04278B47040052F7E7 /* HTTPClient.swift */ = {isa = PBXFileReference; indentWidth = 4; lastKnownFileType = sourcecode.swift; path = HTTPClient.swift; sourceTree = "<group>"; };
-		CE4A6C06278B47A80052F7E7 /* ResponseModel.swift */ = {isa = PBXFileReference; indentWidth = 4; lastKnownFileType = sourcecode.swift; path = ResponseModel.swift; sourceTree = "<group>"; };
 		CE4A6C08278B4A3C0052F7E7 /* NetworkConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkConfig.swift; sourceTree = "<group>"; };
 		CE58817C27EC856D0068D4E0 /* AttendanceTimeline+Stub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AttendanceTimeline+Stub.swift"; sourceTree = "<group>"; };
 		CE58817E27EC85A00068D4E0 /* PartialAttendance+Stub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PartialAttendance+Stub.swift"; sourceTree = "<group>"; };
@@ -472,6 +470,8 @@
 		CE9BE0BC2848E7F1006691F0 /* UITableView+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UITableView+.swift"; path = "MashUp-Core/UIKit+/UITableView+.swift"; sourceTree = SOURCE_ROOT; };
 		CE9BE0C22848E7FD006691F0 /* Observable+Main.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Observable+Main.swift"; path = "MashUp-Core/Rx+/Observable+Main.swift"; sourceTree = SOURCE_ROOT; };
 		CE9BE0C32848E7FD006691F0 /* UIViewContorller+Rx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIViewContorller+Rx.swift"; path = "MashUp-Core/Rx+/UIViewContorller+Rx.swift"; sourceTree = SOURCE_ROOT; };
+		CE9BE0FE2848E8A7006691F0 /* MashUpAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MashUpAPI.swift; path = "MashUp-Network/API/MashUpAPI.swift"; sourceTree = SOURCE_ROOT; };
+		CE9BE1002848E8BA006691F0 /* ResponseModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ResponseModel.swift; path = "MashUp-Network/Model/ResponseModel.swift"; sourceTree = SOURCE_ROOT; };
 		CE9C1D9428467E500020FBCE /* MashUp_Core.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MashUp_Core.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE9C1D9628467E500020FBCE /* MashUp_Core.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MashUp_Core.h; sourceTree = "<group>"; };
 		CE9C1D9728467E500020FBCE /* MashUp_Core.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = MashUp_Core.docc; sourceTree = "<group>"; };
@@ -790,7 +790,7 @@
 		CE3960E6278B45D50073AEF4 /* API */ = {
 			isa = PBXGroup;
 			children = (
-				CE3960E3278B45A00073AEF4 /* MashUpAPI.swift */,
+				CE9BE0FE2848E8A7006691F0 /* MashUpAPI.swift */,
 			);
 			name = API;
 			path = "../MashUp-iOS/Source/Network/API";
@@ -799,7 +799,7 @@
 		CE4A6C03278B46DA0052F7E7 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				CE4A6C06278B47A80052F7E7 /* ResponseModel.swift */,
+				CE9BE1002848E8BA006691F0 /* ResponseModel.swift */,
 			);
 			name = Model;
 			path = "../MashUp-iOS/Source/Network/Model";
@@ -1718,12 +1718,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CEBAC7722847674900ABCC36 /* MashUpAPI.swift in Sources */,
 				CEBAC7752847674E00ABCC36 /* NetworkConfig.swift in Sources */,
-				CEBAC7732847674B00ABCC36 /* ResponseModel.swift in Sources */,
 				CE9BE0972848D1BC006691F0 /* NetworkError.swift in Sources */,
 				CEBAC7742847674E00ABCC36 /* HTTPClient.swift in Sources */,
 				CE9BE0992848D1DB006691F0 /* Network.swift in Sources */,
+				CE9BE1012848E8BA006691F0 /* ResponseModel.swift in Sources */,
+				CE9BE0FF2848E8A7006691F0 /* MashUpAPI.swift in Sources */,
 				CEBAC7682847670400ABCC36 /* MashUp_Network.docc in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
