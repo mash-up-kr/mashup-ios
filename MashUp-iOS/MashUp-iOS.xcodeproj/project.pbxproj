@@ -701,7 +701,6 @@
 		CE39607E278B3CB40073AEF4 /* MashUp-iOS */ = {
 			isa = PBXGroup;
 			children = (
-				CE6EE82127C7BF6A005BF412 /* Auth */,
 				CE3960B5278B3DC30073AEF4 /* Resource */,
 				CE3960B4278B3DBD0073AEF4 /* Source */,
 				CE3960B6278B3DC90073AEF4 /* SupportFile */,
@@ -753,7 +752,6 @@
 				CE3960B0278B3D6A0073AEF4 /* App */,
 				CE3960E5278B45CA0073AEF4 /* Common */,
 				CEB60F8027A9C5DC001260DB /* Domain */,
-				CE3960E0278B45360073AEF4 /* Network */,
 				CE3960B1278B3D850073AEF4 /* Screen */,
 			);
 			path = Source;
@@ -774,13 +772,6 @@
 				CE39608D278B3CB60073AEF4 /* Info.plist */,
 			);
 			path = SupportFile;
-			sourceTree = "<group>";
-		};
-		CE3960E0278B45360073AEF4 /* Network */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Network;
 			sourceTree = "<group>";
 		};
 		CE3960E5278B45CA0073AEF4 /* Common */ = {
@@ -1156,6 +1147,7 @@
 			isa = PBXGroup;
 			children = (
 				CEB60F8227A9C5EA001260DB /* Attendance */,
+				CE6EE82127C7BF6A005BF412 /* Auth */,
 				CE6EE81B27C7BCF0005BF412 /* Platform */,
 				CEB60F8127A9C5E1001260DB /* QR */,
 				CE6EE85B27CA4128005BF412 /* Seminar */,
