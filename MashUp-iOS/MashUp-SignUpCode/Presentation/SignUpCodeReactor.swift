@@ -9,37 +9,38 @@
 import Foundation
 import ReactorKit
 
-enum SignUpCodeStep {}
+public enum SignUpCodeStep {}
 
-final class SignUpCodeReactor: Reactor {
+final public class SignUpCodeReactor: Reactor {
     
-    enum Action {
+    public enum Action {
         case didEditSignUpCodeField(String)
         case didTapDone
     }
     
-    enum Mutation {
+    public enum Mutation {
         case updateSignUpCode(String)
         case move(to: SignUpCodeStep)
     }
     
-    struct State {
+    public struct State {
         var signUpCode: String = .empty
         var canDone: Bool = false
         
         @Pulse var step: SignUpCodeStep?
     }
     
-    let initialState: State = State()
+    public let initialState: State = State()
     
-    init(signUpCodeVerificationService: any SignUpCodeVerificationService) {
+    public init(signUpCodeVerificationService: any SignUpCodeVerificationService) {
         self.signUpCodeVerificationService = signUpCodeVerificationService
     }
     
-    func mutate(action: Action) -> Observable<Mutation> {
+    public func mutate(action: Action) -> Observable<Mutation> {
         switch action {
         case .didEditSignUpCodeField(let signUpCode):
-            return .just(.updateSignUpCode(signUpCode))
+            let signCode5Digits = String(signUpCode.prefix(5))
+            return .just(.updateSignUpCode(signCode5Digits))
             
         case .didTapDone:
             let verifyCode = self.signUpCodeVerificationService.verify(signUpCode: self.currentState.signUpCode)
@@ -47,13 +48,18 @@ final class SignUpCodeReactor: Reactor {
         }
     }
     
-    func reduce(state: State, mutation: Mutation) -> State {
+    public func reduce(state: State, mutation: Mutation) -> State {
         var newState = state
         switch mutation {
         case .updateSignUpCode(let signUpCode):
             newState.signUpCode = signUpCode
+            newState.canDone = self.satisfy(signUpCode: signUpCode)
         }
         return newState
+    }
+    
+    private func satisfy(signUpCode: String) -> Bool {
+        return signUpCode.count == 5
     }
     
     private let signUpCodeVerificationService: any SignUpCodeVerificationService

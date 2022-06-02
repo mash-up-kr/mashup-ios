@@ -255,6 +255,7 @@
 		CED3ABAF284923CF00621B28 /* MashUp_User.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = CED3AB952849235200621B28 /* MashUp_User.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		CED3ABB22849245E00621B28 /* UserSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6EE82227C7BF79005BF412 /* UserSession.swift */; };
 		CED3ABB428492CCB00621B28 /* ReactorKit in Frameworks */ = {isa = PBXBuildFile; productRef = CED3ABB328492CCB00621B28 /* ReactorKit */; };
+		CED3ABB628492E2500621B28 /* SignUpCodeReactorSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED3ABB528492E2500621B28 /* SignUpCodeReactorSpec.swift */; };
 		EDB9E3E1C1C0556600627702 /* MashUp_iOSTests-MashUp_CoreMocks.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1345AE365F8570B51C4B2A6E /* MashUp_iOSTests-MashUp_CoreMocks.generated.swift */; };
 /* End PBXBuildFile section */
 
@@ -685,6 +686,7 @@
 		CED3AB952849235200621B28 /* MashUp_User.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MashUp_User.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CED3AB972849235200621B28 /* MashUp_User.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MashUp_User.h; sourceTree = "<group>"; };
 		CED3AB982849235200621B28 /* MashUp_User.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = MashUp_User.docc; sourceTree = "<group>"; };
+		CED3ABB528492E2500621B28 /* SignUpCodeReactorSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpCodeReactorSpec.swift; sourceTree = "<group>"; };
 		DAD32E8AA1567DD34445CF4D /* MashUp_iOSTests-MashUp_AuthMocks.generated.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; name = "MashUp_iOSTests-MashUp_AuthMocks.generated.swift"; path = "MockingbirdMocks/MashUp_iOSTests-MashUp_AuthMocks.generated.swift"; sourceTree = "<group>"; };
 		EBA6CECD109EF7738D4B4516 /* MashUp_iOSTests-MashUp_UserMocks.generated.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; name = "MashUp_iOSTests-MashUp_UserMocks.generated.swift"; path = "MockingbirdMocks/MashUp_iOSTests-MashUp_UserMocks.generated.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -945,6 +947,7 @@
 			isa = PBXGroup;
 			children = (
 				CEB60F5A27A9BDAE001260DB /* Frameworks */,
+				1C34724CEBE3A5751405B00D /* Generated Mocks */,
 				CED3AB5A2849203100621B28 /* MashUp-Auth */,
 				CE9C1D9528467E500020FBCE /* MashUp-Core */,
 				CE39607E278B3CB40073AEF4 /* MashUp-iOS */,
@@ -956,7 +959,6 @@
 				CE900BBA28466EF300FF9C4F /* MashUp-UIPreview */,
 				CED3AB962849235200621B28 /* MashUp-User */,
 				CE39607D278B3CB40073AEF4 /* Products */,
-				1C34724CEBE3A5751405B00D /* Generated Mocks */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -1359,6 +1361,7 @@
 				CE6EE84F27CA1DBD005BF412 /* RootReactorSpec.swift */,
 				062A960627E99BE300E8E715 /* SeminarDetailReactorSpec.swift */,
 				CE6EE85127CA26A6005BF412 /* SignInReactorSpec.swift */,
+				CED3ABB528492E2500621B28 /* SignUpCodeReactorSpec.swift */,
 				CE900B7A2846542B00FF9C4F /* SignUpReactorSpec.swift */,
 				CE6EE86A27CA60B6005BF412 /* SplashReactorSpec.swift */,
 				CE0F284D28444A7000C206EA /* VerificationServiceSpec.swift */,
@@ -2142,6 +2145,7 @@
 				07900EC9117FCF2FA8E23F03 /* MashUp_iOSTests-MashUp_PlatformTeamMocks.generated.swift in Sources */,
 				8150A263D51AF35ED7C1F753 /* MashUp_iOSTests-MashUp_UIKitMocks.generated.swift in Sources */,
 				95DDF9F37D94A72B0668DA86 /* MashUp_iOSTests-MashUp_SignUpCodeMocks.generated.swift in Sources */,
+				CED3ABB628492E2500621B28 /* SignUpCodeReactorSpec.swift in Sources */,
 				A6F07A0CC0C16B5DBE0CC3C6 /* MashUp_iOSTests-MashUp_UserMocks.generated.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
