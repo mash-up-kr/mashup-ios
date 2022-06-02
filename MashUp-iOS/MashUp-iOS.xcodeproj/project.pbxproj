@@ -427,7 +427,7 @@
 		06531C2F2840C39600E225EB /* Pretendard-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Bold.otf"; sourceTree = "<group>"; };
 		06531C352840C43700E225EB /* UIFont+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+.swift"; sourceTree = "<group>"; };
 		06531C372840C7C500E225EB /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
-		06531C392840C96000E225EB /* UIColor+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+.swift"; sourceTree = "<group>"; };
+		06531C392840C96000E225EB /* UIColor+.swift */ = {isa = PBXFileReference; indentWidth = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+.swift"; sourceTree = "<group>"; };
 		CE0F282A28436A9B00C206EA /* MUButton.swift */ = {isa = PBXFileReference; indentWidth = 4; lastKnownFileType = sourcecode.swift; path = MUButton.swift; sourceTree = "<group>"; };
 		CE0F282F284377B900C206EA /* MUButtonStyle.swift */ = {isa = PBXFileReference; indentWidth = 4; lastKnownFileType = sourcecode.swift; path = MUButtonStyle.swift; sourceTree = "<group>"; };
 		CE0F283428437A1700C206EA /* MUTextField.swift */ = {isa = PBXFileReference; indentWidth = 4; lastKnownFileType = sourcecode.swift; path = MUTextField.swift; sourceTree = "<group>"; };

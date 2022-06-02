@@ -9,7 +9,7 @@
 import Foundation
 import ReactorKit
 
-class SignUpCodeReactor: Reactor {
+final class SignUpCodeReactor: Reactor {
     
     enum Action {
         
@@ -25,6 +25,9 @@ class SignUpCodeReactor: Reactor {
     
     let initialState: State = State()
     
+    init(signUpCodeVerificationService: any SignUpCodeVerificationService) {
+        self.signUpCodeVerificationService = signUpCodeVerificationService
+    }
     
     func mutate(action: Action) -> Observable<Mutation> {
         .empty()
@@ -33,4 +36,7 @@ class SignUpCodeReactor: Reactor {
     func reduce(state: State, mutation: Mutation) -> State {
         state
     }
+    
+    private let signUpCodeVerificationService: any SignUpCodeVerificationService
+    
 }
