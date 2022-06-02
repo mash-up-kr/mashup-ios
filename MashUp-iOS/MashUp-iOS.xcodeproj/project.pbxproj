@@ -233,7 +233,7 @@
 		CED3AB6D284920DD00621B28 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = CED3AB6C284920DD00621B28 /* RxSwift */; };
 		CED3AB6F2849213A00621B28 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = CED3AB6E2849213A00621B28 /* RxCocoa */; };
 		CED3AB702849214100621B28 /* MashUp_Core.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE9C1D9428467E500020FBCE /* MashUp_Core.framework */; platformFilter = ios; };
-		CED3AB712849214100621B28 /* MashUp_Core.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = CE9C1D9428467E500020FBCE /* MashUp_Core.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		CED3AB712849214100621B28 /* MashUp_Core.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = CE9C1D9428467E500020FBCE /* MashUp_Core.framework */; platformFilter = ios; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		CED3AB762849222900621B28 /* AuthenticationResponder.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED3AB752849222900621B28 /* AuthenticationResponder.swift */; };
 		CED3AB80284922D000621B28 /* MashUp_PlatformTeam.docc in Sources */ = {isa = PBXBuildFile; fileRef = CED3AB7F284922D000621B28 /* MashUp_PlatformTeam.docc */; };
 		CED3AB81284922D000621B28 /* MashUp_PlatformTeam.h in Headers */ = {isa = PBXBuildFile; fileRef = CED3AB7E284922D000621B28 /* MashUp_PlatformTeam.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -258,6 +258,12 @@
 		CED3ABB628492E2500621B28 /* SignUpCodeReactorSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED3ABB528492E2500621B28 /* SignUpCodeReactorSpec.swift */; };
 		CED3ABB728493F1A00621B28 /* MashUp_Auth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CED3AB592849203100621B28 /* MashUp_Auth.framework */; };
 		CED3ABB828493F1A00621B28 /* MashUp_User.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CED3AB952849235200621B28 /* MashUp_User.framework */; };
+		CED3ABBA2849467C00621B28 /* MashUp_Auth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CED3AB592849203100621B28 /* MashUp_Auth.framework */; };
+		CED3ABBB2849467C00621B28 /* MashUp_Auth.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = CED3AB592849203100621B28 /* MashUp_Auth.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		CED3ABBC284946A300621B28 /* MashUp_User.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CED3AB952849235200621B28 /* MashUp_User.framework */; platformFilter = ios; };
+		CED3ABBD284946A300621B28 /* MashUp_User.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = CED3AB952849235200621B28 /* MashUp_User.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		CED3ABC0284946BB00621B28 /* MashUp_PlatformTeam.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CED3AB7C284922D000621B28 /* MashUp_PlatformTeam.framework */; platformFilter = ios; };
+		CED3ABC1284946BB00621B28 /* MashUp_PlatformTeam.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = CED3AB7C284922D000621B28 /* MashUp_PlatformTeam.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		EDB9E3E1C1C0556600627702 /* MashUp_iOSTests-MashUp_CoreMocks.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1345AE365F8570B51C4B2A6E /* MashUp_iOSTests-MashUp_CoreMocks.generated.swift */; };
 /* End PBXBuildFile section */
 
@@ -409,6 +415,20 @@
 			remoteGlobalIDString = CED3AB942849235200621B28;
 			remoteInfo = "MashUp-User";
 		};
+		CED3ABBE284946A300621B28 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CE396074278B3CB40073AEF4 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CED3AB942849235200621B28;
+			remoteInfo = "MashUp-User";
+		};
+		CED3ABC2284946BB00621B28 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CE396074278B3CB40073AEF4 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CED3AB7B284922D000621B28;
+			remoteInfo = "MashUp-PlatformTeam";
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -418,6 +438,9 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				CED3ABC1284946BB00621B28 /* MashUp_PlatformTeam.framework in Embed Frameworks */,
+				CED3ABBB2849467C00621B28 /* MashUp_Auth.framework in Embed Frameworks */,
+				CED3ABBD284946A300621B28 /* MashUp_User.framework in Embed Frameworks */,
 				CE12B2FE28469B270072D5E7 /* MashUp_Core.framework in Embed Frameworks */,
 				CED3AB2E284907B200621B28 /* MashUp_SignUpCode.framework in Embed Frameworks */,
 				CE12B30228469B270072D5E7 /* MashUp_UIKit.framework in Embed Frameworks */,
@@ -734,14 +757,17 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CE9C1DFC284697D20020FBCE /* RxSwift in Frameworks */,
+				CE12B2FD28469B270072D5E7 /* MashUp_Core.framework in Frameworks */,
+				CED3ABBC284946A300621B28 /* MashUp_User.framework in Frameworks */,
+				CE12B30128469B270072D5E7 /* MashUp_UIKit.framework in Frameworks */,
+				CED3ABC0284946BB00621B28 /* MashUp_PlatformTeam.framework in Frameworks */,
 				CED3AB2D284907B200621B28 /* MashUp_SignUpCode.framework in Frameworks */,
+				CE9C1DFC284697D20020FBCE /* RxSwift in Frameworks */,
 				CED3AB522849151900621B28 /* ReactorKit in Frameworks */,
 				CE9C1E00284697D20020FBCE /* SnapKit in Frameworks */,
 				CE9C1DFE284697D20020FBCE /* Then in Frameworks */,
+				CED3ABBA2849467C00621B28 /* MashUp_Auth.framework in Frameworks */,
 				CE9C1DF3284693E10020FBCE /* RxCocoa in Frameworks */,
-				CE12B2FD28469B270072D5E7 /* MashUp_Core.framework in Frameworks */,
-				CE12B30128469B270072D5E7 /* MashUp_UIKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -800,9 +826,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CED3AB6F2849213A00621B28 /* RxCocoa in Frameworks */,
-				CED3ABAE284923CF00621B28 /* MashUp_User.framework in Frameworks */,
 				CED3AB702849214100621B28 /* MashUp_Core.framework in Frameworks */,
+				CED3ABAE284923CF00621B28 /* MashUp_User.framework in Frameworks */,
+				CED3AB6F2849213A00621B28 /* RxCocoa in Frameworks */,
 				CED3AB6D284920DD00621B28 /* RxSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1666,6 +1692,8 @@
 				CE12B30428469B270072D5E7 /* PBXTargetDependency */,
 				CE12B30628469B270072D5E7 /* PBXTargetDependency */,
 				CED3AB30284907B200621B28 /* PBXTargetDependency */,
+				CED3ABBF284946A300621B28 /* PBXTargetDependency */,
+				CED3ABC3284946BB00621B28 /* PBXTargetDependency */,
 			);
 			name = "MashUp-UIPreview";
 			packageProductDependencies = (
@@ -2395,6 +2423,18 @@
 			isa = PBXTargetDependency;
 			target = CED3AB942849235200621B28 /* MashUp-User */;
 			targetProxy = CED3ABB0284923CF00621B28 /* PBXContainerItemProxy */;
+		};
+		CED3ABBF284946A300621B28 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			platformFilter = ios;
+			target = CED3AB942849235200621B28 /* MashUp-User */;
+			targetProxy = CED3ABBE284946A300621B28 /* PBXContainerItemProxy */;
+		};
+		CED3ABC3284946BB00621B28 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			platformFilter = ios;
+			target = CED3AB7B284922D000621B28 /* MashUp-PlatformTeam */;
+			targetProxy = CED3ABC2284946BB00621B28 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 

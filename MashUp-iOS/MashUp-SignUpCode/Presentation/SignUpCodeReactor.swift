@@ -10,7 +10,6 @@ import Foundation
 import ReactorKit
 import MashUp_Auth
 import MashUp_User
-import MashUp_PlatformTeam
 
 final public class SignUpCodeReactor: Reactor {
     
