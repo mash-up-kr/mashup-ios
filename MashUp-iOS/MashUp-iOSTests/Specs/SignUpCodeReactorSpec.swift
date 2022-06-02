@@ -51,7 +51,7 @@ final class SignUpCodeReactorSpec: QuickSpec {
         }
       }
       
-      context("코드가 5글자를 입력하면") {
+      context("코드가 5글자 코드를 입력하면") {
         beforeEach {
           sut.action.onNext(.didEditSignUpCodeField("12345"))
         }

@@ -24,9 +24,8 @@ public final class SignUpCodeViewController: BaseViewController {
     private let titleLabel = UILabel()
     private let signUpCodeField = MUTextField()
     private let doneButton = MUButton()
-    private let keyboardFrameView = UIView()
+    private let keyboardFrameView = KeyboardFrameView()
     
-    private var keyboardHeightConstraint: Constraint?
 }
 extension SignUpCodeViewController {
     
@@ -74,7 +73,6 @@ extension SignUpCodeViewController {
         }
         self.keyboardFrameView.snp.makeConstraints {
             $0.leading.trailing.bottom.equalTo(self.view.safeAreaLayoutGuide)
-            self.keyboardHeightConstraint = $0.height.equalTo(0).constraint
         }
 
     }
