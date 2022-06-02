@@ -760,8 +760,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CED3AB1A284905CF00621B28 /* RxCocoa in Frameworks */,
 				CEBAC75B2847657300ABCC36 /* MashUp_Core.framework in Frameworks */,
+				CED3AB1A284905CF00621B28 /* RxCocoa in Frameworks */,
 				CED3AB1C284905CF00621B28 /* RxSwift in Frameworks */,
 				CED3AAC52849019800621B28 /* Then in Frameworks */,
 				CED3AB1E284905CF00621B28 /* SnapKit in Frameworks */,
@@ -785,14 +785,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				CED3ABB728493F1A00621B28 /* MashUp_Auth.framework in Frameworks */,
+				CED3AACB2849020900621B28 /* MashUp_Core.framework in Frameworks */,
+				CED3AB312849082600621B28 /* MashUp_UIKit.framework in Frameworks */,
 				CED3ABB828493F1A00621B28 /* MashUp_User.framework in Frameworks */,
 				CED3AB282849061D00621B28 /* RxCocoa in Frameworks */,
 				CED3AABA2849013C00621B28 /* Then in Frameworks */,
 				CED3AB502849145200621B28 /* ReactorKit in Frameworks */,
 				CED3AB2A2849061D00621B28 /* RxSwift in Frameworks */,
-				CED3AACB2849020900621B28 /* MashUp_Core.framework in Frameworks */,
 				CED3AB2C2849061D00621B28 /* SnapKit in Frameworks */,
-				CED3AB312849082600621B28 /* MashUp_UIKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1514,10 +1514,10 @@
 		CED3AB962849235200621B28 /* MashUp-User */ = {
 			isa = PBXGroup;
 			children = (
-				CE6EE82227C7BF79005BF412 /* UserSession.swift */,
-				CE6EE82627C7C0A1005BF412 /* NewAccount.swift */,
-				CED3AB972849235200621B28 /* MashUp_User.h */,
 				CED3AB982849235200621B28 /* MashUp_User.docc */,
+				CED3AB972849235200621B28 /* MashUp_User.h */,
+				CE6EE82627C7C0A1005BF412 /* NewAccount.swift */,
+				CE6EE82227C7BF79005BF412 /* UserSession.swift */,
 			);
 			path = "MashUp-User";
 			sourceTree = "<group>";
