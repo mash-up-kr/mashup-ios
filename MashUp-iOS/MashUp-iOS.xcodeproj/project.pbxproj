@@ -220,6 +220,9 @@
 		CED3AB4028490D2E00621B28 /* Pretendard-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 06531C2C2840C39500E225EB /* Pretendard-Medium.otf */; };
 		CED3AB4128490D3000621B28 /* Pretendard-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 06531C2F2840C39600E225EB /* Pretendard-Bold.otf */; };
 		CED3AB4428490DC700621B28 /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 06531C372840C7C500E225EB /* Colors.xcassets */; };
+		CED3AB472849117900621B28 /* SignUpCodeVerificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED3AB462849117900621B28 /* SignUpCodeVerificationService.swift */; };
+		CED3AB492849124F00621B28 /* SignUpCodeError.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED3AB482849124F00621B28 /* SignUpCodeError.swift */; };
+		CED3AB4C284912F900621B28 /* FakeSignUpCodeVerificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED3AB4B284912F900621B28 /* FakeSignUpCodeVerificationService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -562,6 +565,9 @@
 		CED3AAA02849004E00621B28 /* MashUp_SignUpCode.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MashUp_SignUpCode.h; sourceTree = "<group>"; };
 		CED3AAA12849004E00621B28 /* MashUp_SignUpCode.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = MashUp_SignUpCode.docc; sourceTree = "<group>"; };
 		CED3AAAC284900A800621B28 /* SignUpCodeViewController.swift */ = {isa = PBXFileReference; indentWidth = 4; lastKnownFileType = sourcecode.swift; path = SignUpCodeViewController.swift; sourceTree = "<group>"; };
+		CED3AB462849117900621B28 /* SignUpCodeVerificationService.swift */ = {isa = PBXFileReference; indentWidth = 4; lastKnownFileType = sourcecode.swift; path = SignUpCodeVerificationService.swift; sourceTree = "<group>"; };
+		CED3AB482849124F00621B28 /* SignUpCodeError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpCodeError.swift; sourceTree = "<group>"; };
+		CED3AB4B284912F900621B28 /* FakeSignUpCodeVerificationService.swift */ = {isa = PBXFileReference; indentWidth = 4; lastKnownFileType = sourcecode.swift; path = FakeSignUpCodeVerificationService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1299,6 +1305,7 @@
 			children = (
 				CED3AAA12849004E00621B28 /* MashUp_SignUpCode.docc */,
 				CED3AAA02849004E00621B28 /* MashUp_SignUpCode.h */,
+				CED3AB452849115600621B28 /* Domain */,
 				CED3AAAE284900AB00621B28 /* Presentation */,
 			);
 			path = "MashUp-SignUpCode";
@@ -1310,6 +1317,24 @@
 				CED3AAAC284900A800621B28 /* SignUpCodeViewController.swift */,
 			);
 			path = Presentation;
+			sourceTree = "<group>";
+		};
+		CED3AB452849115600621B28 /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				CED3AB4A284912DF00621B28 /* Fake */,
+				CED3AB462849117900621B28 /* SignUpCodeVerificationService.swift */,
+				CED3AB482849124F00621B28 /* SignUpCodeError.swift */,
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		CED3AB4A284912DF00621B28 /* Fake */ = {
+			isa = PBXGroup;
+			children = (
+				CED3AB4B284912F900621B28 /* FakeSignUpCodeVerificationService.swift */,
+			);
+			path = Fake;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1893,7 +1918,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				CED3AAA22849004E00621B28 /* MashUp_SignUpCode.docc in Sources */,
+				CED3AB4C284912F900621B28 /* FakeSignUpCodeVerificationService.swift in Sources */,
 				CED3AAAD284900A800621B28 /* SignUpCodeViewController.swift in Sources */,
+				CED3AB472849117900621B28 /* SignUpCodeVerificationService.swift in Sources */,
+				CED3AB492849124F00621B28 /* SignUpCodeError.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
