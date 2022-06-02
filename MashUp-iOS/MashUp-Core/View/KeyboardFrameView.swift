@@ -51,7 +51,6 @@ public class KeyboardFrameView: BaseView {
     }
     
     private let disposeBag = DisposeBag()
-    private var keyboardHeightConstraint: Constraint?
     
 }
 
