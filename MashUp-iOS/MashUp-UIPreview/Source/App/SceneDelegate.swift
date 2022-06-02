@@ -1,6 +1,6 @@
 //
 //  SceneDelegate.swift
-//  MashUp-UICanvas
+//  MashUp-UIPreview
 //
 //  Created by Booung on 2022/06/01.
 //  Copyright © 2022 Mash Up Corp. All rights reserved.
