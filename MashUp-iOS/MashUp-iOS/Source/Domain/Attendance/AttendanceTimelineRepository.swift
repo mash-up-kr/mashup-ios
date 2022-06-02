@@ -8,6 +8,7 @@
 
 import Foundation
 import RxSwift
+import MashUp_Auth
 
 protocol AttendanceTimelineRepository {
     func attendanceTimeline(ofUserID userID: UserSession.ID, seminarID: Seminar.ID) -> Observable<AttendanceTimeline>

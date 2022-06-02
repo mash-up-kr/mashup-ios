@@ -8,6 +8,7 @@
 
 import RxSwift
 import ReactorKit
+import MashUp_Auth
 
 final class SignInReactor: Reactor {
     
@@ -117,4 +118,5 @@ final class SignInReactor: Reactor {
     private let userAuthService: any UserAuthService
     private let verificationService: any VerificationService
     private let authenticationResponder: any AuthenticationResponder
+    
 }

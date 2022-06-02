@@ -9,18 +9,25 @@
 import Foundation
 import ReactorKit
 
+enum SignUpCodeStep {}
+
 final class SignUpCodeReactor: Reactor {
     
     enum Action {
-        
+        case didEditSignUpCodeField(String)
+        case didTapDone
     }
     
     enum Mutation {
-        
+        case updateSignUpCode(String)
+        case move(to: SignUpCodeStep)
     }
     
     struct State {
+        var signUpCode: String = .empty
+        var canDone: Bool = false
         
+        @Pulse var step: SignUpCodeStep?
     }
     
     let initialState: State = State()
@@ -30,11 +37,23 @@ final class SignUpCodeReactor: Reactor {
     }
     
     func mutate(action: Action) -> Observable<Mutation> {
-        .empty()
+        switch action {
+        case .didEditSignUpCodeField(let signUpCode):
+            return .just(.updateSignUpCode(signUpCode))
+            
+        case .didTapDone:
+            let verifyCode = self.signUpCodeVerificationService.verify(signUpCode: self.currentState.signUpCode)
+            return .empty()
+        }
     }
     
     func reduce(state: State, mutation: Mutation) -> State {
-        state
+        var newState = state
+        switch mutation {
+        case .updateSignUpCode(let signUpCode):
+            newState.signUpCode = signUpCode
+        }
+        return newState
     }
     
     private let signUpCodeVerificationService: any SignUpCodeVerificationService

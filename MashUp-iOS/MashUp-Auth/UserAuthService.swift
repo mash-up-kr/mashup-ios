@@ -9,7 +9,7 @@
 import Foundation
 import RxSwift
 
-protocol UserAuthService {
+public protocol UserAuthService {
     func autoSignIn() -> Observable<UserSession?>
     func signIn(id: String, password: String) -> Observable<UserSession>
     func signUp(with newAccount: NewAccount) -> Observable<UserSession>

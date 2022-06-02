@@ -7,8 +7,17 @@
 //
 
 import Foundation
+import RxSwift
 
 public protocol SignUpCodeVerificationService {
     func verify(signUpCode: String) async -> Result<Void, SignUpCodeError>
+    func verify(signUpCode: String) -> Observable<Result<Void, SignUpCodeError>>
+}
+public extension SignUpCodeVerificationService {
+    
+    func verify(signUpCode: String) -> Observable<Result<Void, SignUpCodeError>> {
+        AsyncStream { await self.verify(signUpCode: signUpCode) }.asObservable()
+    }
+    
 }
 

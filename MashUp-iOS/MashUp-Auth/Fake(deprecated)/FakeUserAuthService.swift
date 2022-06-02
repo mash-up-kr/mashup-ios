@@ -8,16 +8,19 @@
 
 import Foundation
 import RxSwift
-import MashUp_Network
+import MashUp_Core
 
-class FakeUserAuthService: UserAuthService {
-    var stubedUserSession: UserSession?
+public final class FakeUserAuthService: UserAuthService {
     
-    func autoSignIn() -> Observable<UserSession?> {
+    public var stubedUserSession: UserSession?
+    
+    public init() {}
+    
+    public func autoSignIn() -> Observable<UserSession?> {
         return .just(self.stubedUserSession)
     }
     
-    func signIn(id: String, password: String) -> Observable<UserSession> {
+    public func signIn(id: String, password: String) -> Observable<UserSession> {
         let isCorrectID = id.lowercased().contains("test")
         let isCorrectPW = password.lowercased().contains("test")
         
@@ -27,7 +30,7 @@ class FakeUserAuthService: UserAuthService {
         return .just(fakeSession)
     }
     
-    func signUp(with newAccount: NewAccount) -> Observable<UserSession> {
+    public func signUp(with newAccount: NewAccount) -> Observable<UserSession> {
         let isCorrectID = newAccount.id.lowercased().contains("test")
         let isCorrectPW = newAccount.password.lowercased().contains("test")
         
@@ -35,4 +38,5 @@ class FakeUserAuthService: UserAuthService {
         let fakeSession = UserSession(id: "fake.user.id", accessToken: "\(newAccount.id).\(newAccount.password)")
         return .just(fakeSession)
     }
+    
 }

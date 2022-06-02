@@ -8,9 +8,9 @@
 
 import Foundation
 
-struct UserSession: Equatable {
-    typealias ID = String
+public struct UserSession: Equatable {
+    public typealias ID = String
     
-    let id: String
-    let accessToken: String
+    public let id: String
+    public let accessToken: String
 }
