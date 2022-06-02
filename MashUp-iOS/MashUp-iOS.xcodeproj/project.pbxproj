@@ -223,6 +223,9 @@
 		CED3AB472849117900621B28 /* SignUpCodeVerificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED3AB462849117900621B28 /* SignUpCodeVerificationService.swift */; };
 		CED3AB492849124F00621B28 /* SignUpCodeError.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED3AB482849124F00621B28 /* SignUpCodeError.swift */; };
 		CED3AB4C284912F900621B28 /* FakeSignUpCodeVerificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED3AB4B284912F900621B28 /* FakeSignUpCodeVerificationService.swift */; };
+		CED3AB4E284913E600621B28 /* SignUpCodeReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED3AB4D284913E600621B28 /* SignUpCodeReactor.swift */; };
+		CED3AB502849145200621B28 /* ReactorKit in Frameworks */ = {isa = PBXBuildFile; productRef = CED3AB4F2849145200621B28 /* ReactorKit */; };
+		CED3AB522849151900621B28 /* ReactorKit in Frameworks */ = {isa = PBXBuildFile; productRef = CED3AB512849151900621B28 /* ReactorKit */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -568,6 +571,7 @@
 		CED3AB462849117900621B28 /* SignUpCodeVerificationService.swift */ = {isa = PBXFileReference; indentWidth = 4; lastKnownFileType = sourcecode.swift; path = SignUpCodeVerificationService.swift; sourceTree = "<group>"; };
 		CED3AB482849124F00621B28 /* SignUpCodeError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpCodeError.swift; sourceTree = "<group>"; };
 		CED3AB4B284912F900621B28 /* FakeSignUpCodeVerificationService.swift */ = {isa = PBXFileReference; indentWidth = 4; lastKnownFileType = sourcecode.swift; path = FakeSignUpCodeVerificationService.swift; sourceTree = "<group>"; };
+		CED3AB4D284913E600621B28 /* SignUpCodeReactor.swift */ = {isa = PBXFileReference; indentWidth = 4; lastKnownFileType = sourcecode.swift; path = SignUpCodeReactor.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -609,6 +613,7 @@
 			files = (
 				CE9C1DFC284697D20020FBCE /* RxSwift in Frameworks */,
 				CED3AB2D284907B200621B28 /* MashUp_SignUpCode.framework in Frameworks */,
+				CED3AB522849151900621B28 /* ReactorKit in Frameworks */,
 				CE9C1E00284697D20020FBCE /* SnapKit in Frameworks */,
 				CE9C1DFE284697D20020FBCE /* Then in Frameworks */,
 				CE9C1DF3284693E10020FBCE /* RxCocoa in Frameworks */,
@@ -658,6 +663,7 @@
 			files = (
 				CED3AB282849061D00621B28 /* RxCocoa in Frameworks */,
 				CED3AABA2849013C00621B28 /* Then in Frameworks */,
+				CED3AB502849145200621B28 /* ReactorKit in Frameworks */,
 				CED3AB2A2849061D00621B28 /* RxSwift in Frameworks */,
 				CED3AACB2849020900621B28 /* MashUp_Core.framework in Frameworks */,
 				CED3AB2C2849061D00621B28 /* SnapKit in Frameworks */,
@@ -1315,6 +1321,7 @@
 			isa = PBXGroup;
 			children = (
 				CED3AAAC284900A800621B28 /* SignUpCodeViewController.swift */,
+				CED3AB4D284913E600621B28 /* SignUpCodeReactor.swift */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";
@@ -1460,6 +1467,7 @@
 				CE9C1DFB284697D20020FBCE /* RxSwift */,
 				CE9C1DFD284697D20020FBCE /* Then */,
 				CE9C1DFF284697D20020FBCE /* SnapKit */,
+				CED3AB512849151900621B28 /* ReactorKit */,
 			);
 			productName = "MashUp-UICanvas";
 			productReference = CE900BB928466EF300FF9C4F /* MashUp-UIPreview.app */;
@@ -1564,6 +1572,7 @@
 				CED3AB272849061D00621B28 /* RxCocoa */,
 				CED3AB292849061D00621B28 /* RxSwift */,
 				CED3AB2B2849061D00621B28 /* SnapKit */,
+				CED3AB4F2849145200621B28 /* ReactorKit */,
 			);
 			productName = "MashUp-SignUpCode";
 			productReference = CED3AA9E2849004E00621B28 /* MashUp_SignUpCode.framework */;
@@ -1922,6 +1931,7 @@
 				CED3AAAD284900A800621B28 /* SignUpCodeViewController.swift in Sources */,
 				CED3AB472849117900621B28 /* SignUpCodeVerificationService.swift in Sources */,
 				CED3AB492849124F00621B28 /* SignUpCodeError.swift in Sources */,
+				CED3AB4E284913E600621B28 /* SignUpCodeReactor.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3252,6 +3262,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = CE3960CD278B3FD30073AEF4 /* XCRemoteSwiftPackageReference "SnapKit" */;
 			productName = SnapKit;
+		};
+		CED3AB4F2849145200621B28 /* ReactorKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CE3960C7278B3F8E0073AEF4 /* XCRemoteSwiftPackageReference "ReactorKit" */;
+			productName = ReactorKit;
+		};
+		CED3AB512849151900621B28 /* ReactorKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CE3960C7278B3F8E0073AEF4 /* XCRemoteSwiftPackageReference "ReactorKit" */;
+			productName = ReactorKit;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
