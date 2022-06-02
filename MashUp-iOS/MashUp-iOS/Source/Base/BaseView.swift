@@ -8,4 +8,4 @@
 
 import UIKit
 
-class BaseView: UIView {}
+open class BaseView: UIView {}

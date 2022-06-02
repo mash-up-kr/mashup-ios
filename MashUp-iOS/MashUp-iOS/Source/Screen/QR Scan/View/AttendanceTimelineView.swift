@@ -9,6 +9,7 @@
 import SnapKit
 import Then
 import UIKit
+import MashUp_Core
 
 final class AttendanceTimelineView: BaseView {
     

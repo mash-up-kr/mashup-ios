@@ -11,6 +11,7 @@ import RxSwift
 import RxCocoa
 import SnapKit
 import UIKit
+import MashUp_Core
 
 final class HomeTabBarController: BaseTabBarController, ReactorKit.View {
     typealias Reactor = HomeReactor

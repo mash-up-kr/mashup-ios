@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MashUp_Core
 
 final class SeminarDetailViewController: BaseViewController {
     

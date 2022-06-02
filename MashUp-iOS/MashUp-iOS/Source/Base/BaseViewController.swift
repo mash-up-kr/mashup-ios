@@ -8,11 +8,10 @@
 
 import Then
 import UIKit
-import MashUp_Core
 
-class BaseViewController: UIViewController {
+open class BaseViewController: UIViewController {
     
-    enum TabBarTheme {
+    public enum TabBarTheme {
         case dark
         case light
     }
@@ -31,11 +30,11 @@ class BaseViewController: UIViewController {
         Logger.log("\(type(of:self)) deinit", .custom("💀"), "", "", "")
     }
     
-    override var shouldAutorotate: Bool {
+    public override var shouldAutorotate: Bool {
         return false
     }
     
-    func setupTabBarTheme(_ theme: TabBarTheme) {
+    public func setupTabBarTheme(_ theme: TabBarTheme) {
         switch theme {
         case .dark:
             self.tabBarController?.tabBar.do {

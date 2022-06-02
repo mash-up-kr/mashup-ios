@@ -9,9 +9,9 @@
 import Foundation
 import Moya
 
-protocol MashUpAPI: TargetType {
+public protocol MashUpAPI: TargetType {
     associatedtype Response: Decodable
 }
-extension MashUpAPI {
+public extension MashUpAPI {
     var baseURL: URL { URL(string: NetworkConfig.mashupHost)! }
 }

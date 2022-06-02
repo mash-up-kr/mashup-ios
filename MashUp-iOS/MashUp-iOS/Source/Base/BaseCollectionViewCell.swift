@@ -7,15 +7,14 @@
 //
 
 import UIKit
-import MashUp_Core
 
-class BaseCollectionViewCell: UICollectionViewCell, Reusable {
+open class BaseCollectionViewCell: UICollectionViewCell, Reusable {
     
-    override init(frame: CGRect) {
+    public override init(frame: CGRect) {
         super.init(frame: frame)
     }
     
-    required init?(coder: NSCoder) {
+    required public init?(coder: NSCoder) {
         super.init(coder: coder)
     }
     

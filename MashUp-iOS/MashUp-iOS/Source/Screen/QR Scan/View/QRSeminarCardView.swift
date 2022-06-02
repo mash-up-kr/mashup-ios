@@ -9,6 +9,7 @@
 import SnapKit
 import Then
 import UIKit
+import MashUp_Core
 
 final class QRSeminarCardView: BaseView {
     
@@ -34,7 +35,7 @@ final class QRSeminarCardView: BaseView {
     private let ddayLabel = UILabel()
     private let timeLabel = UILabel()
     private let dateLabel = UILabel()
-    private let timelineView = AttendanceTimelineView()
+    private let timelineView = AttendanceTimelineView(frame: .zero)
 }
 
 // MARK: - Setup

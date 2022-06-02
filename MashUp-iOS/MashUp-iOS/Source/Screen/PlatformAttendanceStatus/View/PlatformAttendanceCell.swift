@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MashUp_Core
 
 final class PlatformAttendanceCell: BaseCollectionViewCell {
     private let platformImageView: UIImageView = UIImageView()

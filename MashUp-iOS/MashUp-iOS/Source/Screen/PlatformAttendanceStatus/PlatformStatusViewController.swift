@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MashUp_Core
 import ReactorKit
 
 final class PlatformStatusViewController: BaseViewController, ReactorKit.View {
