@@ -15,8 +15,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "CE900BB828466EF300FF9C4F"
-               BuildableName = "MashUp-UPreview.app"
-               BlueprintName = "MashUp-UPreview"
+               BuildableName = "MashUp-UIPreview.app"
+               BlueprintName = "MashUp-UIPreview"
                ReferencedContainer = "container:MashUp-iOS.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -45,8 +45,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "CE900BB828466EF300FF9C4F"
-            BuildableName = "MashUp-UPreview.app"
-            BlueprintName = "MashUp-UPreview"
+            BuildableName = "MashUp-UIPreview.app"
+            BlueprintName = "MashUp-UIPreview"
             ReferencedContainer = "container:MashUp-iOS.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
@@ -62,8 +62,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "CE900BB828466EF300FF9C4F"
-            BuildableName = "MashUp-UPreview.app"
-            BlueprintName = "MashUp-UPreview"
+            BuildableName = "MashUp-UIPreview.app"
+            BlueprintName = "MashUp-UIPreview"
             ReferencedContainer = "container:MashUp-iOS.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>

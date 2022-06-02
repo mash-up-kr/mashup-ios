@@ -12,13 +12,19 @@
         <!--Preview Menu View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="PreviewMenuViewController" customModule="MashUp_UPreview" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="PreviewMenuViewController" customModule="MashUp_UIPreview" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="🧪Preview 테스트" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j6q-2X-dGK">
+                                <rect key="frame" x="141.5" y="100" width="131.5" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="56" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="gIM-UO-9hU">
-                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
+                                <rect key="frame" x="0.0" y="133" width="414" height="729"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="PreviewMenuCell" rowHeight="56" id="Ap3-Mp-Nze">
@@ -35,10 +41,12 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="j6q-2X-dGK" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="2tZ-Qd-ecs"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="gIM-UO-9hU" secondAttribute="trailing" id="59O-sy-lbO"/>
                             <constraint firstItem="gIM-UO-9hU" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="5Vl-U9-tPB"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="gIM-UO-9hU" secondAttribute="bottom" id="6O7-r1-ph2"/>
-                            <constraint firstItem="gIM-UO-9hU" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="LrG-RX-C7R"/>
+                            <constraint firstItem="j6q-2X-dGK" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="12" id="7rp-QI-UvJ"/>
+                            <constraint firstItem="gIM-UO-9hU" firstAttribute="top" secondItem="j6q-2X-dGK" secondAttribute="bottom" constant="12" id="LrG-RX-C7R"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="nC5-iz-Xdh"/>
@@ -55,7 +63,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="965-l5-0fR" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Zbh-qg-Tc0">
+                    <navigationBar key="navigationBar" hidden="YES" contentMode="scaleToFill" id="Zbh-qg-Tc0">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
