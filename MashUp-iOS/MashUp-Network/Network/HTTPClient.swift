@@ -11,16 +11,6 @@ import RxSwift
 import Moya
 import RxMoya
 
-public enum NetworkError: Error {
-    case moyaError(MoyaError)
-    case decodeFailure(DecodingError)
-    case undefined(Error)
-}
-
-public protocol Network {
-    func request<API: MashUpAPI>(_ api: API) async -> Result<API.Response, NetworkError>
-    func request<API: MashUpAPI>(_ api: API) -> Observable<Result<API.Response, NetworkError>>
-}
 
 public final class HTTPClient: Network {
     

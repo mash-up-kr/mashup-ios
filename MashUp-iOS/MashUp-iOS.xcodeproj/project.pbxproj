@@ -110,6 +110,8 @@
 		CE9BE08E28478FCF006691F0 /* MashUp_Network.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEBAC7642847670400ABCC36 /* MashUp_Network.framework */; };
 		CE9BE08F28478FCF006691F0 /* MashUp_Network.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = CEBAC7642847670400ABCC36 /* MashUp_Network.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		CE9BE094284790D1006691F0 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = CE9BE093284790D1006691F0 /* Alamofire */; };
+		CE9BE0972848D1BC006691F0 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9BE0962848D1BC006691F0 /* NetworkError.swift */; };
+		CE9BE0992848D1DB006691F0 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9BE0982848D1DB006691F0 /* Network.swift */; };
 		CE9BE0952848CF5E006691F0 /* PlatformAttendanceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06531C222840A02C00E225EB /* PlatformAttendanceCell.swift */; };
 		CE9C1D9828467E500020FBCE /* MashUp_Core.docc in Sources */ = {isa = PBXBuildFile; fileRef = CE9C1D9728467E500020FBCE /* MashUp_Core.docc */; };
 		CE9C1D9928467E500020FBCE /* MashUp_Core.h in Headers */ = {isa = PBXBuildFile; fileRef = CE9C1D9628467E500020FBCE /* MashUp_Core.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -475,6 +477,8 @@
 		CE900BC428466EF600FF9C4F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CE900BC728466EF600FF9C4F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CE900BC928466EF600FF9C4F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CE9BE0962848D1BC006691F0 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
+		CE9BE0982848D1DB006691F0 /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
 		CE9C1D9428467E500020FBCE /* MashUp_Core.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MashUp_Core.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE9C1D9628467E500020FBCE /* MashUp_Core.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MashUp_Core.h; sourceTree = "<group>"; };
 		CE9C1D9728467E500020FBCE /* MashUp_Core.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = MashUp_Core.docc; sourceTree = "<group>"; };
@@ -1049,6 +1053,17 @@
 			path = "MashUp-UICanvas";
 			sourceTree = "<group>";
 		};
+		CE9BE09A2848D1E1006691F0 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				CE4A6C04278B47040052F7E7 /* HTTPClient.swift */,
+				CE9BE0982848D1DB006691F0 /* Network.swift */,
+				CE4A6C08278B4A3C0052F7E7 /* NetworkConfig.swift */,
+				CE9BE0962848D1BC006691F0 /* NetworkError.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
 		CE9C1D9528467E500020FBCE /* MashUp-Core */ = {
 			isa = PBXGroup;
 			children = (
@@ -1207,10 +1222,9 @@
 			children = (
 				CEBAC7672847670400ABCC36 /* MashUp_Network.docc */,
 				CEBAC7662847670400ABCC36 /* MashUp_Network.h */,
-				CE4A6C04278B47040052F7E7 /* HTTPClient.swift */,
-				CE4A6C08278B4A3C0052F7E7 /* NetworkConfig.swift */,
 				CE3960E6278B45D50073AEF4 /* API */,
 				CE4A6C03278B46DA0052F7E7 /* Model */,
+				CE9BE09A2848D1E1006691F0 /* Network */,
 			);
 			path = "MashUp-Network";
 			sourceTree = "<group>";
@@ -1731,7 +1745,9 @@
 				CEBAC7722847674900ABCC36 /* MashUpAPI.swift in Sources */,
 				CEBAC7752847674E00ABCC36 /* NetworkConfig.swift in Sources */,
 				CEBAC7732847674B00ABCC36 /* ResponseModel.swift in Sources */,
+				CE9BE0972848D1BC006691F0 /* NetworkError.swift in Sources */,
 				CEBAC7742847674E00ABCC36 /* HTTPClient.swift in Sources */,
+				CE9BE0992848D1DB006691F0 /* Network.swift in Sources */,
 				CEBAC7682847670400ABCC36 /* MashUp_Network.docc in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

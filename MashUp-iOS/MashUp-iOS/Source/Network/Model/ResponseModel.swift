@@ -8,7 +8,7 @@
 
 import Foundation
 
-public struct ResponseModel<Model: Decodable>: Decodable {
-    public let status: Int
-    public let data: Model
+struct ResponseModel<Model: Decodable>: Decodable {
+    let status: Int
+    let data: Model
 }
