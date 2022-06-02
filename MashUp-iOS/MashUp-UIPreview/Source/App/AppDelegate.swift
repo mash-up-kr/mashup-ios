@@ -1,6 +1,6 @@
 //
 //  AppDelegate.swift
-//  MashUp-UICanvas
+//  MashUp-UIPreview
 //
 //  Created by Booung on 2022/06/01.
 //  Copyright © 2022 Mash Up Corp. All rights reserved.
@@ -10,8 +10,6 @@ import UIKit
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
-
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.

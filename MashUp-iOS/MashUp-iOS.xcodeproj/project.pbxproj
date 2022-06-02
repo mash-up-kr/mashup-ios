@@ -97,7 +97,7 @@
 		CE900B7B2846542B00FF9C4F /* SignUpReactorSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE900B7A2846542B00FF9C4F /* SignUpReactorSpec.swift */; };
 		CE900BBC28466EF300FF9C4F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE900BBB28466EF300FF9C4F /* AppDelegate.swift */; };
 		CE900BBE28466EF300FF9C4F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE900BBD28466EF300FF9C4F /* SceneDelegate.swift */; };
-		CE900BC028466EF300FF9C4F /* MUCanvasMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE900BBF28466EF300FF9C4F /* MUCanvasMenuViewController.swift */; };
+		CE900BC028466EF300FF9C4F /* PreviewMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE900BBF28466EF300FF9C4F /* PreviewMenuViewController.swift */; };
 		CE900BC328466EF300FF9C4F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE900BC128466EF300FF9C4F /* Main.storyboard */; };
 		CE900BC528466EF600FF9C4F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE900BC428466EF600FF9C4F /* Assets.xcassets */; };
 		CE900BC828466EF600FF9C4F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE900BC628466EF600FF9C4F /* LaunchScreen.storyboard */; };
@@ -187,7 +187,7 @@
 		CEB60F7427A9BDF4001260DB /* QRScanReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB60F7327A9BDF4001260DB /* QRScanReactor.swift */; };
 		CEB60F7F27A9C536001260DB /* AttendanceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB60F7E27A9C536001260DB /* AttendanceService.swift */; };
 		CEB60F8427A9C602001260DB /* FakeAttendanceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB60F8327A9C602001260DB /* FakeAttendanceService.swift */; };
-		CEBAC6CE28469EE700ABCC36 /* MUCanvasMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBAC6CD28469EE700ABCC36 /* MUCanvasMenu.swift */; };
+		CEBAC6CE28469EE700ABCC36 /* PreviewMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBAC6CD28469EE700ABCC36 /* PreviewMenu.swift */; };
 		CEBAC75B2847657300ABCC36 /* MashUp_Core.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE9C1D9428467E500020FBCE /* MashUp_Core.framework */; platformFilter = ios; };
 		CEBAC75C2847657300ABCC36 /* MashUp_Core.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = CE9C1D9428467E500020FBCE /* MashUp_Core.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		CEBAC7682847670400ABCC36 /* MashUp_Network.docc in Sources */ = {isa = PBXBuildFile; fileRef = CEBAC7672847670400ABCC36 /* MashUp_Network.docc */; };
@@ -439,10 +439,10 @@
 		CE900B76284634F000FF9C4F /* MUMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MUMenu.swift; sourceTree = "<group>"; };
 		CE900B782846497200FF9C4F /* MUSelectControl+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MUSelectControl+Rx.swift"; sourceTree = "<group>"; };
 		CE900B7A2846542B00FF9C4F /* SignUpReactorSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpReactorSpec.swift; sourceTree = "<group>"; };
-		CE900BB928466EF300FF9C4F /* MashUp-UICanvas.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "MashUp-UICanvas.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		CE900BB928466EF300FF9C4F /* MashUp-UPreview.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "MashUp-UPreview.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE900BBB28466EF300FF9C4F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CE900BBD28466EF300FF9C4F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		CE900BBF28466EF300FF9C4F /* MUCanvasMenuViewController.swift */ = {isa = PBXFileReference; indentWidth = 4; lastKnownFileType = sourcecode.swift; path = MUCanvasMenuViewController.swift; sourceTree = "<group>"; };
+		CE900BBF28466EF300FF9C4F /* PreviewMenuViewController.swift */ = {isa = PBXFileReference; indentWidth = 4; lastKnownFileType = sourcecode.swift; path = PreviewMenuViewController.swift; sourceTree = "<group>"; };
 		CE900BC228466EF300FF9C4F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		CE900BC428466EF600FF9C4F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CE900BC728466EF600FF9C4F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -488,7 +488,7 @@
 		CEB60F7827A9C0C9001260DB /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Platforms/iPhoneOS.platform/Developer/Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		CEB60F7E27A9C536001260DB /* AttendanceService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttendanceService.swift; sourceTree = "<group>"; };
 		CEB60F8327A9C602001260DB /* FakeAttendanceService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeAttendanceService.swift; sourceTree = "<group>"; };
-		CEBAC6CD28469EE700ABCC36 /* MUCanvasMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MUCanvasMenu.swift; sourceTree = "<group>"; };
+		CEBAC6CD28469EE700ABCC36 /* PreviewMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewMenu.swift; sourceTree = "<group>"; };
 		CEBAC7642847670400ABCC36 /* MashUp_Network.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MashUp_Network.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEBAC7662847670400ABCC36 /* MashUp_Network.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MashUp_Network.h; sourceTree = "<group>"; };
 		CEBAC7672847670400ABCC36 /* MashUp_Network.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = MashUp_Network.docc; sourceTree = "<group>"; };
@@ -691,7 +691,7 @@
 				CE39607E278B3CB40073AEF4 /* MashUp-iOS */,
 				CE396095278B3CB60073AEF4 /* MashUp-iOSTests */,
 				CEBAC7652847670400ABCC36 /* MashUp-Network */,
-				CE900BBA28466EF300FF9C4F /* MashUp-UICanvas */,
+				CE900BBA28466EF300FF9C4F /* MashUp-UIPreview */,
 				CE9C1DCB2846846B0020FBCE /* MashUp-UIKit */,
 				CE9E735E27C295D300922D8B /* MockingbirdMocks */,
 				CE39607D278B3CB40073AEF4 /* Products */,
@@ -704,7 +704,7 @@
 			children = (
 				CE39607C278B3CB40073AEF4 /* MashUp-iOS.app */,
 				CE396092278B3CB60073AEF4 /* MashUp-iOSTests.xctest */,
-				CE900BB928466EF300FF9C4F /* MashUp-UICanvas.app */,
+				CE900BB928466EF300FF9C4F /* MashUp-UPreview.app */,
 				CE9C1D9428467E500020FBCE /* MashUp_Core.framework */,
 				CE9C1DCA2846846B0020FBCE /* MashUp_UIKit.framework */,
 				CEBAC7642847670400ABCC36 /* MashUp_Network.framework */,
@@ -1005,14 +1005,14 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
-		CE900BBA28466EF300FF9C4F /* MashUp-UICanvas */ = {
+		CE900BBA28466EF300FF9C4F /* MashUp-UIPreview */ = {
 			isa = PBXGroup;
 			children = (
 				CE9C1DF62846943F0020FBCE /* Resource */,
 				CE9C1DF52846940D0020FBCE /* Source */,
 				CE900BC928466EF600FF9C4F /* Info.plist */,
 			);
-			path = "MashUp-UICanvas";
+			path = "MashUp-UIPreview";
 			sourceTree = "<group>";
 		};
 		CE9BE09A2848D1E1006691F0 /* Network */ = {
@@ -1087,8 +1087,8 @@
 		CE9C1DF52846940D0020FBCE /* Source */ = {
 			isa = PBXGroup;
 			children = (
-				CEBAC6CD28469EE700ABCC36 /* MUCanvasMenu.swift */,
-				CE900BBF28466EF300FF9C4F /* MUCanvasMenuViewController.swift */,
+				CEBAC6CD28469EE700ABCC36 /* PreviewMenu.swift */,
+				CE900BBF28466EF300FF9C4F /* PreviewMenuViewController.swift */,
 				CE9C1DF4284694050020FBCE /* App */,
 			);
 			path = Source;
@@ -1297,9 +1297,9 @@
 			productReference = CE396092278B3CB60073AEF4 /* MashUp-iOSTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		CE900BB828466EF300FF9C4F /* MashUp-UICanvas */ = {
+		CE900BB828466EF300FF9C4F /* MashUp-UPreview */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = CE900BCA28466EF600FF9C4F /* Build configuration list for PBXNativeTarget "MashUp-UICanvas" */;
+			buildConfigurationList = CE900BCA28466EF600FF9C4F /* Build configuration list for PBXNativeTarget "MashUp-UPreview" */;
 			buildPhases = (
 				CE900BB528466EF300FF9C4F /* Sources */,
 				CE900BB628466EF300FF9C4F /* Frameworks */,
@@ -1315,7 +1315,7 @@
 				CE12B30428469B270072D5E7 /* PBXTargetDependency */,
 				CE12B30628469B270072D5E7 /* PBXTargetDependency */,
 			);
-			name = "MashUp-UICanvas";
+			name = "MashUp-UPreview";
 			packageProductDependencies = (
 				CE9C1DF2284693E10020FBCE /* RxCocoa */,
 				CE9C1DFB284697D20020FBCE /* RxSwift */,
@@ -1323,7 +1323,7 @@
 				CE9C1DFF284697D20020FBCE /* SnapKit */,
 			);
 			productName = "MashUp-UICanvas";
-			productReference = CE900BB928466EF300FF9C4F /* MashUp-UICanvas.app */;
+			productReference = CE900BB928466EF300FF9C4F /* MashUp-UPreview.app */;
 			productType = "com.apple.product-type.application";
 		};
 		CE9C1D9328467E500020FBCE /* MashUp-Core */ = {
@@ -1464,7 +1464,7 @@
 			projectRoot = "";
 			targets = (
 				CE39607B278B3CB40073AEF4 /* MashUp-iOS */,
-				CE900BB828466EF300FF9C4F /* MashUp-UICanvas */,
+				CE900BB828466EF300FF9C4F /* MashUp-UPreview */,
 				CE396091278B3CB60073AEF4 /* MashUp-iOSTests */,
 				CE9C1D9328467E500020FBCE /* MashUp-Core */,
 				CE9C1DC92846846B0020FBCE /* MashUp-UIKit */,
@@ -1654,8 +1654,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CEBAC6CE28469EE700ABCC36 /* MUCanvasMenu.swift in Sources */,
-				CE900BC028466EF300FF9C4F /* MUCanvasMenuViewController.swift in Sources */,
+				CEBAC6CE28469EE700ABCC36 /* PreviewMenu.swift in Sources */,
+				CE900BC028466EF300FF9C4F /* PreviewMenuViewController.swift in Sources */,
 				CE900BBC28466EF300FF9C4F /* AppDelegate.swift in Sources */,
 				CE900BBE28466EF300FF9C4F /* SceneDelegate.swift in Sources */,
 			);
@@ -2182,7 +2182,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 64JN25L784;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "MashUp-UICanvas/Info.plist";
+				INFOPLIST_FILE = "MashUp-UIPreview/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "매쉬업 테스트앱";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
@@ -2195,7 +2195,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.mashup.MashUp-UICanvas";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.mashup.MashUp-UIPreview";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -2213,7 +2213,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 64JN25L784;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "MashUp-UICanvas/Info.plist";
+				INFOPLIST_FILE = "MashUp-UIPreview/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "매쉬업 테스트앱";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
@@ -2226,7 +2226,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.mashup.MashUp-UICanvas";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.mashup.MashUp-UIPreview";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -2243,7 +2243,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 64JN25L784;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = "MashUp-UICanvas/Info.plist";
+				INFOPLIST_FILE = "MashUp-UIPreview/Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "매쉬업 테스트앱";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
@@ -2256,7 +2256,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.mashup.MashUp-UICanvas";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.mashup.MashUp-UIPreview";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -2591,7 +2591,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		CE900BCA28466EF600FF9C4F /* Build configuration list for PBXNativeTarget "MashUp-UICanvas" */ = {
+		CE900BCA28466EF600FF9C4F /* Build configuration list for PBXNativeTarget "MashUp-UPreview" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				CE900BCB28466EF600FF9C4F /* Debug */,

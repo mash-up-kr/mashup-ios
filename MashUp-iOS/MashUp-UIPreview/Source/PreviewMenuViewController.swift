@@ -1,6 +1,6 @@
 //
 //  ViewController.swift
-//  MashUp-UICanvas
+//  MashUp-UIPreview
 //
 //  Created by Booung on 2022/06/01.
 //  Copyright © 2022 Mash Up Corp. All rights reserved.
@@ -8,37 +8,38 @@
 
 import UIKit
 
-final class MUCanvasMenuViewController: UIViewController {
+final class PreviewMenuViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.canvasMenuTableView.dataSource = self
-        self.canvasMenuTableView.delegate = self
+        self.title = "🧪 Preview 테스트"
+        self.previewMenuTableView.dataSource = self
+        self.previewMenuTableView.delegate = self
     }
     
-    @IBOutlet private weak var canvasMenuTableView: UITableView!
+    @IBOutlet private weak var previewMenuTableView: UITableView!
     
 }
 
-extension MUCanvasMenuViewController: UITableViewDataSource {
+extension PreviewMenuViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return MUCanvasMenu.allCases.count
+        return PreviewMenu.allCases.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "MUCanvasMenuCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "PreviewMenuCell", for: indexPath)
         cell.textLabel?.text = menu(of: indexPath).description
         return cell
     }
     
-    private func menu(of indexPath: IndexPath) -> MUCanvasMenu {
-        return MUCanvasMenu.allCases[indexPath.row]
+    private func menu(of indexPath: IndexPath) -> PreviewMenu {
+        return PreviewMenu.allCases[indexPath.row]
     }
     
 }
 
-extension MUCanvasMenuViewController: UITableViewDelegate {
+extension PreviewMenuViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let menu = self.menu(of: indexPath)
@@ -46,9 +47,9 @@ extension MUCanvasMenuViewController: UITableViewDelegate {
         self.navigationController?.pushViewController(targetViewController, animated: true)
     }
     
-    private func viewController(of menu: MUCanvasMenu) -> UIViewController {
+    private func viewController(of menu: PreviewMenu) -> UIViewController {
         switch menu {
-        // 테스트 하고 싶은 MashUp-UIKit 요소 테스트
+        // Dynamic Library 에서 테스트하고 싶은 UI 추가
         case .button: return UIViewController()
         }
     }
