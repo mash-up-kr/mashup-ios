@@ -1540,8 +1540,8 @@
 		CED3ABDE28494F1000621B28 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				CED3ABDF28494F1000621B28 /* PaddingLabel.swift */,
 				CED3ABF528494F4000621B28 /* KeyboardFrameView.swift */,
+				CED3ABDF28494F1000621B28 /* PaddingLabel.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
