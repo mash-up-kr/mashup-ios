@@ -762,7 +762,6 @@
 				CE3960B0278B3D6A0073AEF4 /* App */,
 				CE3960E5278B45CA0073AEF4 /* Common */,
 				CEB60F8027A9C5DC001260DB /* Domain */,
-				CE3960E0278B45360073AEF4 /* Network */,
 				CE3960B1278B3D850073AEF4 /* Screen */,
 			);
 			path = Source;
@@ -783,13 +782,6 @@
 				CE39608D278B3CB60073AEF4 /* Info.plist */,
 			);
 			path = SupportFile;
-			sourceTree = "<group>";
-		};
-		CE3960E0278B45360073AEF4 /* Network */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Network;
 			sourceTree = "<group>";
 		};
 		CE3960E5278B45CA0073AEF4 /* Common */ = {
