@@ -14,5 +14,17 @@ public struct NewAccount: Equatable {
     public let password: String
     public let name: String
     public let platform: PlatformTeam
-    public let phoneNumber: String
+    
+    public init(
+        id: String,
+        password: String,
+        name: String,
+        platform: PlatformTeam
+    ) {
+        self.id = id
+        self.password = password
+        self.name = name
+        self.platform = platform
+    }
+    
 }

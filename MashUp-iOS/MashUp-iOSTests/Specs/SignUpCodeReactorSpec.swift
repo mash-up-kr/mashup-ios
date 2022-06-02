@@ -10,6 +10,8 @@ import XCTest
 import Quick
 import Nimble
 import Mockingbird
+import MashUp_Auth
+import MashUp_User
 @testable import MashUp_SignUpCode
 
 final class SignUpCodeReactorSpec: QuickSpec {
@@ -17,12 +19,28 @@ final class SignUpCodeReactorSpec: QuickSpec {
   override func spec() {
     var sut: SignUpCodeReactor!
     var signUpCodeVerificationService: SignUpCodeVerificationServiceMock!
+    var userAuthService: UserAuthServiceMock!
+    var authenticationResponder: AuthenticationResponderMock!
     
     describe("가입코드 입력화면에서") {
       beforeEach {
         signUpCodeVerificationService = mock(SignUpCodeVerificationService.self)
-        sut = SignUpCodeReactor(signUpCodeVerificationService: signUpCodeVerificationService)
+        userAuthService = mock(UserAuthService.self)
+        authenticationResponder = mock(AuthenticationResponder.self)
+        
+        sut = SignUpCodeReactor(
+          userInProgress: NewAccount(
+            id: "fake.id",
+            password: "fake.password",
+            name: "fake.name",
+            platform: .iOS
+          ),
+          signUpCodeVerificationService: signUpCodeVerificationService,
+          userAuthService: userAuthService,
+          authenticationResponder: authenticationResponder
+        )
       }
+      
       context("코드가 5글자보다 짧은 코드를 입력하면") {
         beforeEach { sut.action.onNext(.didEditSignUpCodeField("1234")) }
         it("코드가 입력됩니다") {
@@ -43,6 +61,7 @@ final class SignUpCodeReactorSpec: QuickSpec {
         it("'완료'버튼이 활성화 됩니다") {
           expect { sut.currentState.canDone }.to(beTrue())
         }
+        
       }
       
       context("코드가 5글자보다 긴 코드를 입력하면") {

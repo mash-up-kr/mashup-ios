@@ -31,13 +31,13 @@ public final class FakeUserAuthService: UserAuthService {
         return .just(fakeSession)
     }
     
-    public func signUp(with newAccount: NewAccount) -> Observable<UserSession> {
+    public func signUp(with newAccount: NewAccount) async -> Result<UserSession, SignUpError> {
         let isCorrectID = newAccount.id.lowercased().contains("test")
         let isCorrectPW = newAccount.password.lowercased().contains("test")
         
-        guard isCorrectID, isCorrectPW else { return .error("sign in failure") }
+        guard isCorrectID, isCorrectPW else { return .failure(.undefined("sign in failure")) }
         let fakeSession = UserSession(id: "fake.user.id", accessToken: "\(newAccount.id).\(newAccount.password)")
-        return .just(fakeSession)
+        return .success(fakeSession)
     }
     
 }

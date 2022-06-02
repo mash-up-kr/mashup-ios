@@ -256,6 +256,8 @@
 		CED3ABB22849245E00621B28 /* UserSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6EE82227C7BF79005BF412 /* UserSession.swift */; };
 		CED3ABB428492CCB00621B28 /* ReactorKit in Frameworks */ = {isa = PBXBuildFile; productRef = CED3ABB328492CCB00621B28 /* ReactorKit */; };
 		CED3ABB628492E2500621B28 /* SignUpCodeReactorSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED3ABB528492E2500621B28 /* SignUpCodeReactorSpec.swift */; };
+		CED3ABB728493F1A00621B28 /* MashUp_Auth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CED3AB592849203100621B28 /* MashUp_Auth.framework */; };
+		CED3ABB828493F1A00621B28 /* MashUp_User.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CED3AB952849235200621B28 /* MashUp_User.framework */; };
 		EDB9E3E1C1C0556600627702 /* MashUp_iOSTests-MashUp_CoreMocks.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1345AE365F8570B51C4B2A6E /* MashUp_iOSTests-MashUp_CoreMocks.generated.swift */; };
 /* End PBXBuildFile section */
 
@@ -569,7 +571,7 @@
 		CE6EE81127C7B293005BF412 /* SignInReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInReactor.swift; sourceTree = "<group>"; };
 		CE6EE81C27C7BCF6005BF412 /* PlatformTeam.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlatformTeam.swift; sourceTree = "<group>"; };
 		CE6EE82227C7BF79005BF412 /* UserSession.swift */ = {isa = PBXFileReference; indentWidth = 4; lastKnownFileType = sourcecode.swift; path = UserSession.swift; sourceTree = "<group>"; };
-		CE6EE82427C7BF91005BF412 /* UserAuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAuthService.swift; sourceTree = "<group>"; };
+		CE6EE82427C7BF91005BF412 /* UserAuthService.swift */ = {isa = PBXFileReference; indentWidth = 4; lastKnownFileType = sourcecode.swift; path = UserAuthService.swift; sourceTree = "<group>"; };
 		CE6EE82627C7C0A1005BF412 /* NewAccount.swift */ = {isa = PBXFileReference; indentWidth = 4; lastKnownFileType = sourcecode.swift; path = NewAccount.swift; sourceTree = "<group>"; };
 		CE6EE82827C7D655005BF412 /* FakeUserAuthService.swift */ = {isa = PBXFileReference; indentWidth = 4; lastKnownFileType = sourcecode.swift; path = FakeUserAuthService.swift; sourceTree = "<group>"; };
 		CE6EE82B27C7D8F8005BF412 /* RootController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootController.swift; sourceTree = "<group>"; };
@@ -782,6 +784,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CED3ABB728493F1A00621B28 /* MashUp_Auth.framework in Frameworks */,
+				CED3ABB828493F1A00621B28 /* MashUp_User.framework in Frameworks */,
 				CED3AB282849061D00621B28 /* RxCocoa in Frameworks */,
 				CED3AABA2849013C00621B28 /* Then in Frameworks */,
 				CED3AB502849145200621B28 /* ReactorKit in Frameworks */,
