@@ -68,8 +68,10 @@ fastlane/test_output
 # MockingBird
 *.generated.swift
 *.xcodeproj/MockingbirdCache
+*.xcodeproj/MockingbirdSupport
 
 ### Xcode Patch ###
 **/xcshareddata/WorkspaceSettings.xcsettings
 MashUp-iOS/MashUp-iOS.xcodeproj/MockingbirdCache
 MashUp-iOS/MockingbirdMocks/MashUp_iOSTests-Mock.generated.swift
+

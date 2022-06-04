@@ -9,6 +9,7 @@
 import UIKit
 import MashUp_Core
 import ReactorKit
+import MashUp_PlatformTeam
 
 final class PlatformStatusViewController: BaseViewController, ReactorKit.View {
     private lazy var platformCollectionView: UICollectionView = {

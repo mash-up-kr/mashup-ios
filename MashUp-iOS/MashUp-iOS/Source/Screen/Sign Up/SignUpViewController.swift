@@ -16,6 +16,7 @@ import SnapKit
 import Then
 import MashUp_Core
 import MashUp_UIKit
+import MashUp_PlatformTeam
 
 final class SignUpViewController: BaseViewController, ReactorKit.View {
     

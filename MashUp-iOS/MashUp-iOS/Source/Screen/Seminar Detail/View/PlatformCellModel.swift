@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MashUp_PlatformTeam
 
 struct PlatformCellModel {
     let title: String
