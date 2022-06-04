@@ -10,6 +10,7 @@ import UIKit
 import MashUp_Core
 
 final class AttendanceStatusRectangleView: BaseView {
+    private let attendanceStatusImageView: UIImageView = UIImageView()
     private let attendanceStatusTitleLabel: UILabel = UILabel()
     private let attendanceStatusCountLabel: UILabel = UILabel()
   
@@ -29,6 +30,7 @@ final class AttendanceStatusRectangleView: BaseView {
         attendanceStatusCountLabel.text = "\(model.count)"
         attendanceStatusCountLabel.textColor = model.titleColor
         backgroundColor = model.backgroundColor
+        attendanceStatusImageView.image = model.image
     }
     
     private func setupUI() {
@@ -37,10 +39,18 @@ final class AttendanceStatusRectangleView: BaseView {
     }
     
     private func setupLayout() {
+        addSubview(attendanceStatusImageView)
         addSubview(attendanceStatusTitleLabel)
         addSubview(attendanceStatusCountLabel)
+        
+        attendanceStatusImageView.snp.makeConstraints {
+            $0.leading.equalToSuperview().offset(8)
+            $0.centerY.equalToSuperview()
+            $0.width.height.equalTo(16)
+        }
+        
         attendanceStatusTitleLabel.snp.makeConstraints {
-            $0.leading.equalToSuperview().offset(10)
+            $0.leading.equalTo(attendanceStatusImageView.snp.trailing).offset(2)
             $0.centerY.equalToSuperview()
         }
         
@@ -53,5 +63,7 @@ final class AttendanceStatusRectangleView: BaseView {
     
     private func setupAttribute() {
         layer.cornerRadius = 5
+        attendanceStatusTitleLabel.font = .pretendardFont(weight: .medium, size: 16)
+        attendanceStatusCountLabel.font = .pretendardFont(weight: .semiBold, size: 16)
     }
 }

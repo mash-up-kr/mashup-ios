@@ -35,4 +35,8 @@ struct AttendanceStatusRectangleViewModel {
         case .lateness: return .orange.withAlphaComponent(0.5)
         }
     }
+    
+    var image: UIImage? {
+        UIImage(systemName: "heart")
+    }
 }

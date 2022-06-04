@@ -16,7 +16,7 @@ final class PlatformStatusViewController: BaseViewController, ReactorKit.View {
         let flowLayout = UICollectionViewFlowLayout()
         flowLayout.minimumInteritemSpacing = 16
         let width: CGFloat = UIScreen.main.bounds.width - 50
-        let height: CGFloat = 104
+        let height: CGFloat = 138
         flowLayout.itemSize = CGSize(width: width, height: height)
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: flowLayout)
         return collectionView

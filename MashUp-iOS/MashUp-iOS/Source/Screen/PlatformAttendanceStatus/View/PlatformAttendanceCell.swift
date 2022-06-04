@@ -9,9 +9,11 @@
 import UIKit
 import MashUp_Core
 import MashUp_PlatformTeam
+import MashUp_UIKit
 
 final class PlatformAttendanceCell: BaseCollectionViewCell {
-    private let platformImageView: UIImageView = UIImageView()
+    private let platformLeftImageView: UIImageView = UIImageView()
+    private let platformRightImageView: UIImageView = UIImageView()
     private let platformLabel: UILabel = UILabel()
     private let attendanceStatusStackView: UIStackView = UIStackView()
     
@@ -27,7 +29,9 @@ final class PlatformAttendanceCell: BaseCollectionViewCell {
     
     func configure(model: PlatformAttendance) {
         platformLabel.text = model.platform.title
-        platformImageView.image = model.platform.icon
+        let icons = model.platform.icons
+        platformLeftImageView.image = icons.0
+        platformRightImageView.image = icons.1
         
         let statusModel = [AttendanceStatusRectangleViewModel(status: .attend, count: model.numberOfAttend),
                      AttendanceStatusRectangleViewModel(status: .lateness, count: model.numberOfLateness),
@@ -45,25 +49,32 @@ final class PlatformAttendanceCell: BaseCollectionViewCell {
     }
     
     private func setupLayout() {
-        addSubview(platformImageView)
+        addSubview(platformLeftImageView)
+        addSubview(platformRightImageView)
         addSubview(platformLabel)
         addSubview(attendanceStatusStackView)
         
-        platformImageView.snp.makeConstraints {
-            $0.leading.equalToSuperview().offset(16)
-            $0.top.equalToSuperview().offset(12)
-            $0.width.height.equalTo(30)
+        platformLeftImageView.snp.makeConstraints {
+            $0.leading.equalToSuperview().offset(20)
+            $0.top.equalToSuperview().offset(22)
+            $0.width.height.equalTo(22)
+        }
+        
+        platformRightImageView.snp.makeConstraints {
+            $0.leading.equalTo(platformLeftImageView.snp.trailing)
+            $0.centerY.equalTo(platformLeftImageView)
+            $0.width.height.equalTo(22)
         }
         
         platformLabel.snp.makeConstraints {
-            $0.leading.equalTo(platformImageView.snp.trailing).offset(5)
-            $0.centerY.equalTo(platformImageView)
+            $0.leading.equalTo(platformLeftImageView)
+            $0.top.equalTo(platformLeftImageView.snp.bottom).offset(4)
         }
         
         attendanceStatusStackView.snp.makeConstraints {
-            $0.leading.equalTo(platformImageView)
-            $0.top.equalTo(platformImageView.snp.bottom).offset(12)
-            $0.bottom.equalToSuperview().inset(16)
+            $0.leading.equalTo(platformLabel)
+            $0.top.equalTo(platformLabel.snp.bottom).offset(14)
+            $0.bottom.equalToSuperview().inset(20)
         }
     }
     
@@ -72,5 +83,7 @@ final class PlatformAttendanceCell: BaseCollectionViewCell {
         attendanceStatusStackView.axis = .horizontal
         layer.cornerRadius = 10
         backgroundColor = .white
+        platformLabel.font = .pretendardFont(weight: .bold, size: 20)
+        platformLabel.textColor = .gray800
     }
 }

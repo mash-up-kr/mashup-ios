@@ -21,14 +21,16 @@ extension PlatformTeam {
         }
     }
     
-    var icon: UIImage? {
-        switch self {
-        case .design: return UIImage(systemName: "heart")
-        case .android: return UIImage(systemName: "heart")
-        case .iOS: return UIImage(systemName: "heart")
-        case .web: return UIImage(systemName: "heart")
-        case .node: return UIImage(systemName: "heart")
-        case .spring: return UIImage(systemName: "heart")
-        }
+    var icons: (UIImage?, UIImage?) {
+        (UIImage(systemName: "heart"), UIImage(systemName: "heart"))
+        // TODO: - 이미지추가후 수정해야함
+//        switch self {
+//        case .design: return
+//        case .android: return
+//        case .iOS: return
+//        case .web: return
+//        case .node: return
+//        case .spring: return
+//        }
     }
 }
