@@ -14,10 +14,11 @@ import MashUp_PlatformTeam
 final class PlatformStatusViewController: BaseViewController, ReactorKit.View {
     private lazy var platformCollectionView: UICollectionView = {
         let flowLayout = UICollectionViewFlowLayout()
-        flowLayout.minimumInteritemSpacing = 16
+        flowLayout.minimumInteritemSpacing = 12
         let width: CGFloat = UIScreen.main.bounds.width - 40
-        let height: CGFloat = 138
-        flowLayout.estimatedItemSize = CGSize(width: width, height: height)
+        flowLayout.estimatedItemSize = CGSize(width: width, height: 138)
+        flowLayout.headerReferenceSize =  CGSize(width: width, height: 48)
+        
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: flowLayout)
         return collectionView
     }()
@@ -34,17 +35,7 @@ final class PlatformStatusViewController: BaseViewController, ReactorKit.View {
     }
     
     func bind(reactor: PlatformAttendanceStatusReactor) {
-        let mockObservable = Observable<[PlatformAttendance]>.just([.init(platform: .iOS, numberOfAttend: 0, numberOfLateness: 10, numberOfAbsence: 2),
-                                                                    .init(platform: .android, numberOfAttend: 5, numberOfLateness: 10, numberOfAbsence: 2),
-                                                                    .init(platform: .design, numberOfAttend: 10, numberOfLateness: 10, numberOfAbsence: 20)])
-        //        reactor.state.map { $0.platformsAttendance }
-        mockObservable
-            .distinctUntilChanged()
-            .bind(to: platformCollectionView.rx.items(cellIdentifier: PlatformAttendanceCell.reuseIdentifier,
-                                                      cellType: PlatformAttendanceCell.self)) { item, model, cell in
-                cell.configure(model: model, isAttending: reactor.currentState.isAttending)
-            }
-            .disposed(by: disposeBag)
+        reactor.action.onNext(.didSetup)
     }
     
     private func setupUI() {
@@ -62,7 +53,36 @@ final class PlatformStatusViewController: BaseViewController, ReactorKit.View {
     }
     
     private func setupAttribute() {
+        platformCollectionView.dataSource = self
         platformCollectionView.registerCell(PlatformAttendanceCell.self)
+        platformCollectionView.registerSupplementaryView(PlatformAttendanceHeaderView.self)
         platformCollectionView.backgroundColor = .clear
+    }
+}
+
+extension PlatformStatusViewController: UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return reactor?.currentState.platformsAttendance.count ?? 0
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let cell = collectionView.dequeueCell(PlatformAttendanceCell.self, for: indexPath),
+              let reactor = reactor,
+              let model = reactor.currentState.platformsAttendance[safe: indexPath.item] else {
+            return .init(frame: .zero)
+        }
+        
+        cell.configure(model: model, isAttending: reactor.currentState.isAttending)
+        return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        guard let headerView = collectionView.dequeueSupplementaryView(PlatformAttendanceHeaderView.self, for: indexPath) else {
+            return .init()
+        }
+        // TODO: - 네트워크구현후 변경
+        headerView.setTitle("출 석 체 크 !")
+        headerView.setImage(UIImage(systemName: "heart"))
+        return headerView
     }
 }

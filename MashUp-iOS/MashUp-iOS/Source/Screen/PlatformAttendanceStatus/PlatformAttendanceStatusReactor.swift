@@ -59,7 +59,7 @@ final class PlatformAttendanceStatusReactor: Reactor {
     private func requestPlatformsAttendance() -> Observable<Mutation> {
         return platformService.attendanceStatus()
             .flatMap { status -> Observable<Mutation> in
-                let isAttending = true
+                let isAttending = false
                 return .just(.updatePlatformsAttendance(status, isAttending))
             }
     }

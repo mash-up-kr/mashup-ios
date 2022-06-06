@@ -23,7 +23,16 @@ final public class PlatformRepositoryImpl: PlatformRepository {
     }
     
     public func attendanceStatus() -> Observable<[PlatformAttendance]> {
-        return .empty()
+        // TODO: - 네트워크구현후 mock제거
+        return .just(PlatformRepositoryImpl.mockObservable)
     }
     
+}
+
+extension PlatformRepositoryImpl {
+    fileprivate static var mockObservable: [PlatformAttendance] {
+        [.init(platform: .iOS, numberOfAttend: 0, numberOfLateness: 10, numberOfAbsence: 2),
+         .init(platform: .android, numberOfAttend: 5, numberOfLateness: 10, numberOfAbsence: 2),
+         .init(platform: .design, numberOfAttend: 10, numberOfLateness: 10, numberOfAbsence: 20)]
+    }
 }

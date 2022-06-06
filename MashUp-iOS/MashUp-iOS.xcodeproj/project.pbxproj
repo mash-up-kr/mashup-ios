@@ -22,6 +22,7 @@
 		06531C322840C39600E225EB /* Pretendard-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 06531C2E2840C39600E225EB /* Pretendard-Regular.otf */; };
 		06531C382840C7C500E225EB /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 06531C372840C7C500E225EB /* Colors.xcassets */; };
 		0688CB42284B223B00338A5C /* PlatformTeam+Presentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0688CB41284B223B00338A5C /* PlatformTeam+Presentation.swift */; };
+		0688CB44284E255800338A5C /* PlatformAttendanceHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0688CB43284E255800338A5C /* PlatformAttendanceHeaderView.swift */; };
 		07900EC9117FCF2FA8E23F03 /* MashUp_iOSTests-MashUp_PlatformTeamMocks.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF06792B8FCEDBC254B599C /* MashUp_iOSTests-MashUp_PlatformTeamMocks.generated.swift */; };
 		8150A263D51AF35ED7C1F753 /* MashUp_iOSTests-MashUp_UIKitMocks.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50AEB9142054CE6C0E1FC59A /* MashUp_iOSTests-MashUp_UIKitMocks.generated.swift */; };
 		83BBB1B66AFB5F2C4E95E49C /* MashUp_iOSTests-MashUp_iOSMocks.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 093B68049842CE18EA5AAB9B /* MashUp_iOSTests-MashUp_iOSMocks.generated.swift */; };
@@ -563,6 +564,7 @@
 		06531C372840C7C500E225EB /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		06531C392840C96000E225EB /* UIColor+.swift */ = {isa = PBXFileReference; indentWidth = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+.swift"; sourceTree = "<group>"; };
 		0688CB41284B223B00338A5C /* PlatformTeam+Presentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PlatformTeam+Presentation.swift"; sourceTree = "<group>"; };
+		0688CB43284E255800338A5C /* PlatformAttendanceHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlatformAttendanceHeaderView.swift; sourceTree = "<group>"; };
 		093B68049842CE18EA5AAB9B /* MashUp_iOSTests-MashUp_iOSMocks.generated.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; name = "MashUp_iOSTests-MashUp_iOSMocks.generated.swift"; path = "MockingbirdMocks/MashUp_iOSTests-MashUp_iOSMocks.generated.swift"; sourceTree = "<group>"; };
 		0FF06792B8FCEDBC254B599C /* MashUp_iOSTests-MashUp_PlatformTeamMocks.generated.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; name = "MashUp_iOSTests-MashUp_PlatformTeamMocks.generated.swift"; path = "MockingbirdMocks/MashUp_iOSTests-MashUp_PlatformTeamMocks.generated.swift"; sourceTree = "<group>"; };
 		1345AE365F8570B51C4B2A6E /* MashUp_iOSTests-MashUp_CoreMocks.generated.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; name = "MashUp_iOSTests-MashUp_CoreMocks.generated.swift"; path = "MockingbirdMocks/MashUp_iOSTests-MashUp_CoreMocks.generated.swift"; sourceTree = "<group>"; };
@@ -897,6 +899,7 @@
 				06531C282840BF9800E225EB /* AttendanceStatusRectangleView.swift */,
 				06531C2A2840BFAA00E225EB /* AttendanceStatusRectangleViewModel.swift */,
 				06531C222840A02C00E225EB /* PlatformAttendanceCell.swift */,
+				0688CB43284E255800338A5C /* PlatformAttendanceHeaderView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -2155,6 +2158,7 @@
 				CE6EE84127C7F130005BF412 /* HomeTab.swift in Sources */,
 				CE6EE82C27C7D8F8005BF412 /* RootController.swift in Sources */,
 				0618444227E1D2DD004980CC /* SeminarDetailReactor.swift in Sources */,
+				0688CB44284E255800338A5C /* PlatformAttendanceHeaderView.swift in Sources */,
 				CE6EE82E27C7D900005BF412 /* RootReactor.swift in Sources */,
 				0618444627E30642004980CC /* PlatformCellModel.swift in Sources */,
 				CE6EE85D27CA4136005BF412 /* Seminar.swift in Sources */,
