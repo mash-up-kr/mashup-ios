@@ -15,9 +15,9 @@ final class PlatformStatusViewController: BaseViewController, ReactorKit.View {
     private lazy var platformCollectionView: UICollectionView = {
         let flowLayout = UICollectionViewFlowLayout()
         flowLayout.minimumInteritemSpacing = 16
-        let width: CGFloat = UIScreen.main.bounds.width - 50
+        let width: CGFloat = UIScreen.main.bounds.width - 40
         let height: CGFloat = 138
-        flowLayout.itemSize = CGSize(width: width, height: height)
+        flowLayout.estimatedItemSize = CGSize(width: width, height: height)
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: flowLayout)
         return collectionView
     }()
@@ -34,16 +34,15 @@ final class PlatformStatusViewController: BaseViewController, ReactorKit.View {
     }
     
     func bind(reactor: PlatformAttendanceStatusReactor) {
-        let mockObservable = Observable<[PlatformAttendance]>.just([.init(platform: .iOS, numberOfAttend: 1, numberOfLateness: 10, numberOfAbsence: 2),
-                                               .init(platform: .android, numberOfAttend: 10, numberOfLateness: 10, numberOfAbsence: 2),
-                                               .init(platform: .design, numberOfAttend: 10, numberOfLateness: 10, numberOfAbsence: 20),
-                                              ])
-//        reactor.state.map { $0.platformsAttendance }
+        let mockObservable = Observable<[PlatformAttendance]>.just([.init(platform: .iOS, numberOfAttend: 0, numberOfLateness: 10, numberOfAbsence: 2),
+                                                                    .init(platform: .android, numberOfAttend: 5, numberOfLateness: 10, numberOfAbsence: 2),
+                                                                    .init(platform: .design, numberOfAttend: 10, numberOfLateness: 10, numberOfAbsence: 20)])
+        //        reactor.state.map { $0.platformsAttendance }
         mockObservable
             .distinctUntilChanged()
             .bind(to: platformCollectionView.rx.items(cellIdentifier: PlatformAttendanceCell.reuseIdentifier,
                                                       cellType: PlatformAttendanceCell.self)) { item, model, cell in
-                cell.configure(model: model)
+                cell.configure(model: model, isAttending: reactor.currentState.isAttending)
             }
             .disposed(by: disposeBag)
     }
