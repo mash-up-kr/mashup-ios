@@ -14,7 +14,7 @@ import RxSwift
 
 final class SeminarDetailReactorSpec: QuickSpec {
   override func spec() {
-    var sut: SeminarDetailReactor!
+    var sut: PlatformAttendanceDetailReactor!
     var attendanceService: AttendanceServiceMock!
     
     beforeEach {
@@ -30,7 +30,7 @@ final class SeminarDetailReactorSpec: QuickSpec {
       context("아오스 팀원리스트") {
         var recorded: Observable<Bool>!
         beforeEach {
-          sut = SeminarDetailReactor(attendanceService: attendanceService, platform: .iOS)
+          sut = PlatformAttendanceDetailReactor(attendanceService: attendanceService, platform: .iOS)
           recorded = sut.state.map { $0.isLoading }.distinctUntilChanged().recorded().take(3)
           sut.action.onNext(.didSetup)
         }
@@ -44,7 +44,7 @@ final class SeminarDetailReactorSpec: QuickSpec {
       }
       context("안드 팀원리스트") {
         beforeEach {
-          sut = SeminarDetailReactor(attendanceService: attendanceService, platform: .android)
+          sut = PlatformAttendanceDetailReactor(attendanceService: attendanceService, platform: .android)
           sut.action.onNext(.didSetup)
         }
         it("아오스 팀원만 나와야함") {

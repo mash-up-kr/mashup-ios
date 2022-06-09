@@ -9,7 +9,7 @@
 import UIKit
 import MashUp_Core
 
-final class SeminarDetailViewController: BaseViewController {
+final class PlatformAttendanceDetailViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,7 +23,7 @@ final class SeminarDetailViewController: BaseViewController {
 }
 
 // MARK: - Setup
-extension SeminarDetailViewController {
+extension PlatformAttendanceDetailViewController {
     
     private func setupUI() {
         self.view.backgroundColor = .systemOrange

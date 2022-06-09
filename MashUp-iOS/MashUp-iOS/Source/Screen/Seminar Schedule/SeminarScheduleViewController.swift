@@ -165,8 +165,8 @@ extension SeminarScheduleViewController {
 // MARK: - Factory
 extension SeminarScheduleViewController {
     
-    private func createSeminarDetailViewController(seminarID: String) -> SeminarDetailViewController {
-        let seminarDetailViewController = SeminarDetailViewController()
+    private func createSeminarDetailViewController(seminarID: String) -> PlatformAttendanceDetailViewController {
+        let seminarDetailViewController = PlatformAttendanceDetailViewController()
         return seminarDetailViewController
     }
     

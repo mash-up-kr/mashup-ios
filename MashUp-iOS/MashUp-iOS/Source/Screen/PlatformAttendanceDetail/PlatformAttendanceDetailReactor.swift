@@ -9,7 +9,7 @@
 import Foundation
 import ReactorKit
 
-final class SeminarDetailReactor: Reactor {
+final class PlatformAttendanceDetailReactor: Reactor {
     enum Action {
         case didSetup
     }

@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0618444227E1D2DD004980CC /* SeminarDetailReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0618444127E1D2DD004980CC /* SeminarDetailReactor.swift */; };
+		0618444227E1D2DD004980CC /* PlatformAttendanceDetailReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0618444127E1D2DD004980CC /* PlatformAttendanceDetailReactor.swift */; };
 		0618444427E30259004980CC /* AttendanceMember.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0618444327E30259004980CC /* AttendanceMember.swift */; };
 		062A960727E99BE400E8E715 /* SeminarDetailReactorSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 062A960627E99BE300E8E715 /* SeminarDetailReactorSpec.swift */; };
 		062A960A27E9CDB300E8E715 /* RxBlocking+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 062A960927E9CDB300E8E715 /* RxBlocking+.swift */; };
@@ -72,7 +72,7 @@
 		CE6EE86227CA4691005BF412 /* Differentiator in Frameworks */ = {isa = PBXBuildFile; productRef = CE6EE86127CA4691005BF412 /* Differentiator */; };
 		CE6EE86427CA4691005BF412 /* RxDataSources in Frameworks */ = {isa = PBXBuildFile; productRef = CE6EE86327CA4691005BF412 /* RxDataSources */; };
 		CE6EE86627CA495F005BF412 /* SeminarSchduleStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6EE86527CA495F005BF412 /* SeminarSchduleStep.swift */; };
-		CE6EE86927CA5609005BF412 /* SeminarDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6EE86827CA5609005BF412 /* SeminarDetailViewController.swift */; };
+		CE6EE86927CA5609005BF412 /* PlatformAttendanceDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6EE86827CA5609005BF412 /* PlatformAttendanceDetailViewController.swift */; };
 		CE6EE86B27CA60B6005BF412 /* SplashReactorSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6EE86A27CA60B6005BF412 /* SplashReactorSpec.swift */; };
 		CE6EE86E27CA6302005BF412 /* UserSession+Stub.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6EE86D27CA6302005BF412 /* UserSession+Stub.swift */; };
 		CE6EE87127CA73B7005BF412 /* SeminarCardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6EE87027CA73B7005BF412 /* SeminarCardCell.swift */; };
@@ -338,7 +338,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		0618444127E1D2DD004980CC /* SeminarDetailReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeminarDetailReactor.swift; sourceTree = "<group>"; };
+		0618444127E1D2DD004980CC /* PlatformAttendanceDetailReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlatformAttendanceDetailReactor.swift; sourceTree = "<group>"; };
 		0618444327E30259004980CC /* AttendanceMember.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttendanceMember.swift; sourceTree = "<group>"; };
 		062A960627E99BE300E8E715 /* SeminarDetailReactorSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeminarDetailReactorSpec.swift; sourceTree = "<group>"; };
 		062A960927E9CDB300E8E715 /* RxBlocking+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RxBlocking+.swift"; sourceTree = "<group>"; };
@@ -412,7 +412,7 @@
 		CE6EE85C27CA4136005BF412 /* Seminar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Seminar.swift; sourceTree = "<group>"; };
 		CE6EE85E27CA45EF005BF412 /* SeminarScheduleSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeminarScheduleSection.swift; sourceTree = "<group>"; };
 		CE6EE86527CA495F005BF412 /* SeminarSchduleStep.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeminarSchduleStep.swift; sourceTree = "<group>"; };
-		CE6EE86827CA5609005BF412 /* SeminarDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeminarDetailViewController.swift; sourceTree = "<group>"; };
+		CE6EE86827CA5609005BF412 /* PlatformAttendanceDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlatformAttendanceDetailViewController.swift; sourceTree = "<group>"; };
 		CE6EE86A27CA60B6005BF412 /* SplashReactorSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashReactorSpec.swift; sourceTree = "<group>"; };
 		CE6EE86D27CA6302005BF412 /* UserSession+Stub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserSession+Stub.swift"; sourceTree = "<group>"; };
 		CE6EE87027CA73B7005BF412 /* SeminarCardCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeminarCardCell.swift; sourceTree = "<group>"; };
@@ -738,10 +738,10 @@
 			children = (
 				CE6EE83B27C7EFA6005BF412 /* Home */,
 				CE6EE84627C80C66005BF412 /* My Page */,
+				CE6EE86727CA55FB005BF412 /* PlatformAttendanceDetail */,
 				06531C16283F58F100E225EB /* PlatformAttendanceStatus */,
 				CEB60F4927A9759C001260DB /* QR Scan */,
 				CE6EE82A27C7D8E8005BF412 /* Root */,
-				CE6EE86727CA55FB005BF412 /* Seminar Detail */,
 				CE6EE84727C80C6C005BF412 /* Seminar Schedule */,
 				CE6EE80E27C7B27D005BF412 /* Sign In */,
 				CE0F283C2843B80200C206EA /* Sign Up */,
@@ -883,13 +883,13 @@
 			path = Seminar;
 			sourceTree = "<group>";
 		};
-		CE6EE86727CA55FB005BF412 /* Seminar Detail */ = {
+		CE6EE86727CA55FB005BF412 /* PlatformAttendanceDetail */ = {
 			isa = PBXGroup;
 			children = (
-				0618444127E1D2DD004980CC /* SeminarDetailReactor.swift */,
-				CE6EE86827CA5609005BF412 /* SeminarDetailViewController.swift */,
+				0618444127E1D2DD004980CC /* PlatformAttendanceDetailReactor.swift */,
+				CE6EE86827CA5609005BF412 /* PlatformAttendanceDetailViewController.swift */,
 			);
-			path = "Seminar Detail";
+			path = PlatformAttendanceDetail;
 			sourceTree = "<group>";
 		};
 		CE6EE86C27CA62F0005BF412 /* TestDoubles */ = {
@@ -1584,9 +1584,8 @@
 				CE14D2CB27CFBB1200685CFF /* FakeSeminarRepository.swift in Sources */,
 				CE6EE84127C7F130005BF412 /* HomeTab.swift in Sources */,
 				CE6EE82C27C7D8F8005BF412 /* RootController.swift in Sources */,
-				0618444227E1D2DD004980CC /* SeminarDetailReactor.swift in Sources */,
+				0618444227E1D2DD004980CC /* PlatformAttendanceDetailReactor.swift in Sources */,
 				CE6EE82E27C7D900005BF412 /* RootReactor.swift in Sources */,
-				0618444627E30642004980CC /* PlatformCellModel.swift in Sources */,
 				CE6EE85D27CA4136005BF412 /* Seminar.swift in Sources */,
 				CE12DA5827E629FE00F08629 /* QRSeminarCardViewModel.swift in Sources */,
 				CE0F283E2843B81300C206EA /* SignUpViewController.swift in Sources */,
@@ -1601,7 +1600,7 @@
 				CE6EE83827C7E2D5005BF412 /* SplashReactor.swift in Sources */,
 				CE6EE84E27C80C9B005BF412 /* MyPageViewController.swift in Sources */,
 				CE6EE82927C7D655005BF412 /* FakeUserAuthService.swift in Sources */,
-				CE6EE86927CA5609005BF412 /* SeminarDetailViewController.swift in Sources */,
+				CE6EE86927CA5609005BF412 /* PlatformAttendanceDetailViewController.swift in Sources */,
 				CE0F28492843EBA500C206EA /* VerificationService.swift in Sources */,
 				CE729A8127E57EC1001D33D1 /* AttendanceTimeline.swift in Sources */,
 				CE6EE86627CA495F005BF412 /* SeminarSchduleStep.swift in Sources */,
