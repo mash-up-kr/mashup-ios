@@ -51,7 +51,8 @@ extension PreviewMenuViewController: UITableViewDelegate {
     private func viewController(of menu: PreviewMenu) -> UIViewController {
         switch menu {
         // Dynamic Library 에서 테스트하고 싶은 UI 추가
-        case .signUpCode: return SignUpCodeViewController()
+        case .signUpCode:
+            return SignUpCodeViewController()
         }
     }
     

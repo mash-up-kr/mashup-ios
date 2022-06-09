@@ -41,35 +41,52 @@ final class SignUpCodeReactorSpec: QuickSpec {
         )
       }
       
-      context("코드가 5글자보다 짧은 코드를 입력하면") {
-        beforeEach { sut.action.onNext(.didEditSignUpCodeField("1234")) }
+      context("닫기 버튼을 누르면") {
+        beforeEach {
+          sut.action.onNext(.didTapClose)
+        }
+        it("회원가입을 중지할 지 알럿으로 재확인합니다") {
+          expect { sut.currentState.shouldReconfirmStopSigningUp }.toNot(beNil())
+        }
+        
+        context("회원가입 중지 확인을 누르면") {
+          beforeEach {
+            sut.action.onNext(.didTapStopSigningUp)
+          }
+          it("화면이 닫힙니다") {
+            expect { sut.currentState.shouldClose }.toNot(beNil())
+          }
+        }
+      }
+      
+      context("코드가 8글자보다 짧은 코드를 입력하면") {
+        beforeEach { sut.action.onNext(.didEditSignUpCodeField("1234567")) }
         it("코드가 입력됩니다") {
-          expect { sut.currentState.signUpCode }.to(equal("1234"))
+          expect { sut.currentState.signUpCode }.to(equal("1234567"))
         }
         it("'완료'버튼이 비활성화를 유지합니다") {
           expect { sut.currentState.canDone }.to(beFalse())
         }
       }
       
-      context("코드가 5글자 코드를 입력하면") {
+      context("코드가 8글자 코드를 입력하면") {
         beforeEach {
-          sut.action.onNext(.didEditSignUpCodeField("12345"))
+          sut.action.onNext(.didEditSignUpCodeField("12345678"))
         }
         it("코드가 입력됩니다") {
-          expect { sut.currentState.signUpCode }.to(equal("12345"))
+          expect { sut.currentState.signUpCode }.to(equal("12345678"))
         }
         it("'완료'버튼이 활성화 됩니다") {
           expect { sut.currentState.canDone }.to(beTrue())
         }
-        
       }
       
-      context("코드가 5글자보다 긴 코드를 입력하면") {
+      context("코드가 8글자보다 긴 코드를 입력하면") {
         beforeEach {
-          sut.action.onNext(.didEditSignUpCodeField("123456"))
+          sut.action.onNext(.didEditSignUpCodeField("123456789"))
         }
-        it("앞에 입력한 5코드만 입력됩니다") {
-          expect { sut.currentState.signUpCode }.to(equal("12345"))
+        it("앞에 입력한 8코드만 입력됩니다") {
+          expect { sut.currentState.signUpCode }.to(equal("12345678"))
         }
         it("'완료'버튼이 비활성화를 유지합니다.") {
           expect { sut.currentState.canDone }.to(beTrue())

@@ -19,14 +19,14 @@ import Foundation
 final class SignUpReactorSpec: QuickSpec {
   
   override func spec() {
-    var sut: SignUpReactor!
+    var sut: SignUpStep1Reactor!
     var platformService: PlatformServiceMock!
     var verficationService: VerificationServiceMock!
     
     beforeEach {
       platformService = mock(PlatformService.self)
       verficationService = mock(VerificationService.self)
-      sut = SignUpReactor(
+      sut = SignUpStep1Reactor(
         platformService: platformService,
         verificationService: verficationService
       )
@@ -65,7 +65,7 @@ final class SignUpReactorSpec: QuickSpec {
         beforeEach {
           sut.action.onNext(.didEditIDField("possible.id"))
           sut.action.onNext(.didEditPasswordField("possible.password"))
-          sut.action.onNext(.didEditNameField("possible.name"))
+          sut.action.onNext(.didEditPasswordCheckField("possible.name"))
         }
         
         context("플랫폼 선택 박스를 누르면") {

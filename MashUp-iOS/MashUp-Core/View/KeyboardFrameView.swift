@@ -24,7 +24,6 @@ public class KeyboardFrameView: BaseView {
     
     private func setupConstraint() {
         self.snp.makeConstraints {
-            $0.width.equalTo(0)
             $0.height.equalTo(0)
         }
     }
@@ -42,7 +41,6 @@ public class KeyboardFrameView: BaseView {
     
     private func updateFrame(_ frame: CGRect) {
         self.snp.updateConstraints {
-            $0.width.equalTo(frame.width)
             $0.height.equalTo(frame.height)
         }
         UIView.animate(withDuration: 0.3, animations: {

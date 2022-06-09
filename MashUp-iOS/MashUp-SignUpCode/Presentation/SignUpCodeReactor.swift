@@ -16,12 +16,16 @@ final public class SignUpCodeReactor: Reactor {
     public enum Action {
         case didEditSignUpCodeField(String)
         case didTapDone
+        case didTapClose
+        case didTapStopSigningUp
     }
     
     public enum Mutation {
         case updateLoading(Bool)
         case updateSignUpCode(String)
         case signedUp(UserSession)
+        case updateReconfirmStopSigningUp
+        case updateClose
         case occurSignUpCodeError(SignUpCodeError)
         case occurSignUpError(SignUpError)
     }
@@ -30,6 +34,10 @@ final public class SignUpCodeReactor: Reactor {
         var isLoading: Bool = false
         var signUpCode: String = .empty
         var canDone: Bool = false
+        var hasWrongSignUpCode: Bool = false
+        
+        @Pulse var shouldReconfirmStopSigningUp: Void?
+        @Pulse var shouldClose: Void?
         
         fileprivate let userInProgressOfSigningUp: NewAccount
     }
@@ -51,7 +59,7 @@ final public class SignUpCodeReactor: Reactor {
     public func mutate(action: Action) -> Observable<Mutation> {
         switch action {
         case .didEditSignUpCodeField(let signUpCode):
-            let trimmedSignUpCode = String(signUpCode.prefix(5))
+            let trimmedSignUpCode = String(signUpCode.prefix(8))
             return .just(.updateSignUpCode(trimmedSignUpCode))
             
         case .didTapDone:
@@ -59,6 +67,13 @@ final public class SignUpCodeReactor: Reactor {
             let signUp: Observable<Mutation> = self.signUp()
             let endLoading: Observable<Mutation> = .just(.updateLoading(true))
             return .concat(startLoading, signUp, endLoading)
+            
+        case .didTapClose:
+            return .just(.updateReconfirmStopSigningUp)
+            
+        case .didTapStopSigningUp:
+            return .just(.updateClose)
+            
         }
     }
     
@@ -67,13 +82,27 @@ final public class SignUpCodeReactor: Reactor {
         switch mutation {
         case .updateLoading(let isLoading):
             newState.isLoading = isLoading
+            
         case .updateSignUpCode(let signUpCode):
             newState.signUpCode = signUpCode
             newState.canDone = self.satisfy(signUpCode: signUpCode)
+            
         case .signedUp(let userSession):
             self.authenticationResponder.loadSuccess(userSession: userSession)
+            
+        case .updateReconfirmStopSigningUp:
+            newState.shouldReconfirmStopSigningUp = Void()
+            
+        case .updateClose:
+            newState.shouldClose = Void()
+            
         case .occurSignUpCodeError(let error):
-            #warning("에러 핸들링 스펙 정의 필요 - Booung")
+            if case .wrongCode = error {
+                newState.hasWrongSignUpCode = true
+            } else {
+                newState.hasWrongSignUpCode = false
+            }
+            
         case .occurSignUpError(let error):
             #warning("에러 핸들링 스펙 정의 필요 - Booung")
         }
@@ -81,7 +110,7 @@ final public class SignUpCodeReactor: Reactor {
     }
     
     private func satisfy(signUpCode: String) -> Bool {
-        return signUpCode.count == 5
+        return signUpCode.count == 8
     }
     
     private func signUp() -> Observable<Mutation> {
