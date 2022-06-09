@@ -41,11 +41,12 @@ final class PlatformAttendanceDetailReactor: Reactor {
         switch action {
         case .didSetup:
             let startLoading: Observable<Mutation> = .just(.updateLoading(true))
-            let loadMember: Observable<Mutation> = attendanceService.attendanceMembers(platform: currentState.platform)
-                .map { .updateMembers($0) }
+//            let loadMember: Observable<Mutation> = attendanceService.attendanceMembers(platform: currentState.platform)
+//                .map { .updateMembers($0) }
+            let mockMemeber: Observable<Mutation> = .just(.updateMembers(AttendanceMember.dummy))
             let endLoading: Observable<Mutation> = .just(.updateLoading(false))
             
-            return .concat(startLoading, loadMember, endLoading)
+            return .concat(startLoading, mockMemeber, endLoading)
                 .catch { error in .concat(.just(.occurError(error)), endLoading) }
         }
     }

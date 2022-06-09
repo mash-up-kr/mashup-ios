@@ -10,32 +10,28 @@ import Foundation
 
 struct AttendanceMember: Equatable {
     let name: String
-    let platform: PlatformTeam
-    let firstSeminarAttendance: AttendanceStyle
-    let firstSeminarAttendanceTime: Date?
-    let secondSeminarAttendance: AttendanceStyle
-    let secondSeminarAttendanceTime: Date?
+    let firstSeminarAttendance: AttendanceStatus
+    let firstSeminarAttendanceTimeStamp: String?
+    let secondSeminarAttendance: AttendanceStatus
+    let secondSeminarAttendanceTimeStamp: String?
 }
 
 extension AttendanceMember {
     static let dummy: [AttendanceMember] = [
         AttendanceMember(name: "김남수",
-                         platform: .iOS,
                          firstSeminarAttendance: .attend,
-                         firstSeminarAttendanceTime: Date(),
+                         firstSeminarAttendanceTimeStamp: "13: 00",
                          secondSeminarAttendance: .attend,
-                         secondSeminarAttendanceTime: Date()),
-        AttendanceMember(name: "김남수1",
-                         platform: .iOS,
+                         secondSeminarAttendanceTimeStamp: "13: 30"),
+        AttendanceMember(name: "김남수남",
                          firstSeminarAttendance: .lateness,
-                         firstSeminarAttendanceTime: Date().addingTimeInterval(10000),
+                         firstSeminarAttendanceTimeStamp: "13: 30",
                          secondSeminarAttendance: .attend,
-                         secondSeminarAttendanceTime: Date().addingTimeInterval(16000)),
-        AttendanceMember(name: "김남수2",
-                         platform: .android,
+                         secondSeminarAttendanceTimeStamp: "13: 50"),
+        AttendanceMember(name: "남수남수김",
                          firstSeminarAttendance: .attend,
-                         firstSeminarAttendanceTime: Date(),
+                         firstSeminarAttendanceTimeStamp: "12: 00",
                          secondSeminarAttendance: .absence,
-                         secondSeminarAttendanceTime: Date()),
+                         secondSeminarAttendanceTimeStamp: nil),
     ]
 }

@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		0618444227E1D2DD004980CC /* PlatformAttendanceDetailReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0618444127E1D2DD004980CC /* PlatformAttendanceDetailReactor.swift */; };
 		0618444427E30259004980CC /* AttendanceMember.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0618444327E30259004980CC /* AttendanceMember.swift */; };
-		062A960727E99BE400E8E715 /* SeminarDetailReactorSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 062A960627E99BE300E8E715 /* SeminarDetailReactorSpec.swift */; };
+		062A960727E99BE400E8E715 /* PlatformAttendanceDetailReactorSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 062A960627E99BE300E8E715 /* PlatformAttendanceDetailReactorSpec.swift */; };
 		062A960A27E9CDB300E8E715 /* RxBlocking+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 062A960927E9CDB300E8E715 /* RxBlocking+.swift */; };
 		0642C93D2851ED4400B9F575 /* AttendanceDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0642C93C2851ED4400B9F575 /* AttendanceDetailCell.swift */; };
 		0642C93F285223F800B9F575 /* AttendanceStatusCircleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0642C93E285223F800B9F575 /* AttendanceStatusCircleViewModel.swift */; };
@@ -344,7 +344,7 @@
 /* Begin PBXFileReference section */
 		0618444127E1D2DD004980CC /* PlatformAttendanceDetailReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlatformAttendanceDetailReactor.swift; sourceTree = "<group>"; };
 		0618444327E30259004980CC /* AttendanceMember.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttendanceMember.swift; sourceTree = "<group>"; };
-		062A960627E99BE300E8E715 /* SeminarDetailReactorSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeminarDetailReactorSpec.swift; sourceTree = "<group>"; };
+		062A960627E99BE300E8E715 /* PlatformAttendanceDetailReactorSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlatformAttendanceDetailReactorSpec.swift; sourceTree = "<group>"; };
 		062A960927E9CDB300E8E715 /* RxBlocking+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RxBlocking+.swift"; sourceTree = "<group>"; };
 		0642C93C2851ED4400B9F575 /* AttendanceDetailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttendanceDetailCell.swift; sourceTree = "<group>"; };
 		0642C93E285223F800B9F575 /* AttendanceStatusCircleViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttendanceStatusCircleViewModel.swift; sourceTree = "<group>"; };
@@ -1130,7 +1130,7 @@
 				CE58818827EC9BAC0068D4E0 /* QRScanFormatterSpec.swift */,
 				CE9E735C27C294E800922D8B /* QRScanReactorSpec.swift */,
 				CE6EE84F27CA1DBD005BF412 /* RootReactorSpec.swift */,
-				062A960627E99BE300E8E715 /* SeminarDetailReactorSpec.swift */,
+				062A960627E99BE300E8E715 /* PlatformAttendanceDetailReactorSpec.swift */,
 				CE6EE85127CA26A6005BF412 /* SignInReactorSpec.swift */,
 				CE900B7A2846542B00FF9C4F /* SignUpReactorSpec.swift */,
 				CE6EE86A27CA60B6005BF412 /* SplashReactorSpec.swift */,
@@ -1661,7 +1661,7 @@
 				CE58817F27EC85A00068D4E0 /* PartialAttendance+Stub.swift in Sources */,
 				CE58818B27ECB2E60068D4E0 /* AttendanceTimelineSpec.swift in Sources */,
 				CE58818527EC98540068D4E0 /* AttendanceTimelineViewModel+Stub.swift in Sources */,
-				062A960727E99BE400E8E715 /* SeminarDetailReactorSpec.swift in Sources */,
+				062A960727E99BE400E8E715 /* PlatformAttendanceDetailReactorSpec.swift in Sources */,
 				CE9E736727C29F4700922D8B /* MashUp_iOSTests-Mock.generated.swift in Sources */,
 				CE6EE85027CA1DBD005BF412 /* RootReactorSpec.swift in Sources */,
 				CE58817D27EC856D0068D4E0 /* AttendanceTimeline+Stub.swift in Sources */,
