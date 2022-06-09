@@ -11,6 +11,10 @@
 		0618444427E30259004980CC /* AttendanceMember.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0618444327E30259004980CC /* AttendanceMember.swift */; };
 		062A960727E99BE400E8E715 /* SeminarDetailReactorSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 062A960627E99BE300E8E715 /* SeminarDetailReactorSpec.swift */; };
 		062A960A27E9CDB300E8E715 /* RxBlocking+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 062A960927E9CDB300E8E715 /* RxBlocking+.swift */; };
+		0642C93D2851ED4400B9F575 /* AttendanceDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0642C93C2851ED4400B9F575 /* AttendanceDetailCell.swift */; };
+		0642C93F285223F800B9F575 /* AttendanceStatusCircleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0642C93E285223F800B9F575 /* AttendanceStatusCircleViewModel.swift */; };
+		0642C941285223FF00B9F575 /* AttendanceStatusCircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0642C940285223FF00B9F575 /* AttendanceStatusCircleView.swift */; };
+		0642C94428522A3700B9F575 /* AttendanceStatus+Presentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0642C94328522A3700B9F575 /* AttendanceStatus+Presentation.swift */; };
 		06531C18283F59FF00E225EB /* PlatformAttendanceStatusReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06531C17283F59FF00E225EB /* PlatformAttendanceStatusReactor.swift */; };
 		06531C1A283F5D5E00E225EB /* PlatformAttendance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06531C19283F5D5E00E225EB /* PlatformAttendance.swift */; };
 		06531C1C283F5E2200E225EB /* PlatformAttendanceStatusReactorSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06531C1B283F5E2200E225EB /* PlatformAttendanceStatusReactorSpec.swift */; };
@@ -342,6 +346,10 @@
 		0618444327E30259004980CC /* AttendanceMember.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttendanceMember.swift; sourceTree = "<group>"; };
 		062A960627E99BE300E8E715 /* SeminarDetailReactorSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeminarDetailReactorSpec.swift; sourceTree = "<group>"; };
 		062A960927E9CDB300E8E715 /* RxBlocking+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RxBlocking+.swift"; sourceTree = "<group>"; };
+		0642C93C2851ED4400B9F575 /* AttendanceDetailCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttendanceDetailCell.swift; sourceTree = "<group>"; };
+		0642C93E285223F800B9F575 /* AttendanceStatusCircleViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttendanceStatusCircleViewModel.swift; sourceTree = "<group>"; };
+		0642C940285223FF00B9F575 /* AttendanceStatusCircleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttendanceStatusCircleView.swift; sourceTree = "<group>"; };
+		0642C94328522A3700B9F575 /* AttendanceStatus+Presentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AttendanceStatus+Presentation.swift"; sourceTree = "<group>"; };
 		06531C17283F59FF00E225EB /* PlatformAttendanceStatusReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlatformAttendanceStatusReactor.swift; sourceTree = "<group>"; };
 		06531C19283F5D5E00E225EB /* PlatformAttendance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlatformAttendance.swift; sourceTree = "<group>"; };
 		06531C1B283F5E2200E225EB /* PlatformAttendanceStatusReactorSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlatformAttendanceStatusReactorSpec.swift; sourceTree = "<group>"; };
@@ -581,6 +589,24 @@
 				062A960927E9CDB300E8E715 /* RxBlocking+.swift */,
 			);
 			path = TestHelper;
+			sourceTree = "<group>";
+		};
+		0642C93B2851EC7800B9F575 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				0642C93C2851ED4400B9F575 /* AttendanceDetailCell.swift */,
+				0642C940285223FF00B9F575 /* AttendanceStatusCircleView.swift */,
+				0642C93E285223F800B9F575 /* AttendanceStatusCircleViewModel.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		0642C942285228A000B9F575 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				0642C94328522A3700B9F575 /* AttendanceStatus+Presentation.swift */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 		06531C16283F58F100E225EB /* PlatformAttendanceStatus */ = {
@@ -886,8 +912,10 @@
 		CE6EE86727CA55FB005BF412 /* PlatformAttendanceDetail */ = {
 			isa = PBXGroup;
 			children = (
+				0642C942285228A000B9F575 /* Extension */,
 				0618444127E1D2DD004980CC /* PlatformAttendanceDetailReactor.swift */,
 				CE6EE86827CA5609005BF412 /* PlatformAttendanceDetailViewController.swift */,
+				0642C93B2851EC7800B9F575 /* View */,
 			);
 			path = PlatformAttendanceDetail;
 			sourceTree = "<group>";
@@ -1552,6 +1580,7 @@
 				CE6EE83A27C7E2DE005BF412 /* SplashViewController.swift in Sources */,
 				CEB60F4527A97163001260DB /* main.swift in Sources */,
 				CE12DA5627E629D700F08629 /* PartialAttendanceViewModel.swift in Sources */,
+				0642C941285223FF00B9F575 /* AttendanceStatusCircleView.swift in Sources */,
 				06531C20283F737100E225EB /* PlatformService.swift in Sources */,
 				CE6EE83F27C7EFF9005BF412 /* HomeReactor.swift in Sources */,
 				06531C1A283F5D5E00E225EB /* PlatformAttendance.swift in Sources */,
@@ -1592,8 +1621,10 @@
 				CE6EE83D27C7EFB9005BF412 /* HomeTabBarController.swift in Sources */,
 				CE6EE87127CA73B7005BF412 /* SeminarCardCell.swift in Sources */,
 				CE6EE87A27CA89F3005BF412 /* SeminarCardCellModel.swift in Sources */,
+				0642C94428522A3700B9F575 /* AttendanceStatus+Presentation.swift in Sources */,
 				CE729A8327E57FCD001D33D1 /* FakeAttendanceTimelineRepository.swift in Sources */,
 				CE6EE82327C7BF79005BF412 /* UserSession.swift in Sources */,
+				0642C93F285223F800B9F575 /* AttendanceStatusCircleViewModel.swift in Sources */,
 				CE6EE85F27CA45EF005BF412 /* SeminarScheduleSection.swift in Sources */,
 				CE729A8F27E61766001D33D1 /* PartialAttendanceView.swift in Sources */,
 				CE6EE85A27CA40C5005BF412 /* SeminarScheduleReactor.swift in Sources */,
@@ -1607,6 +1638,7 @@
 				CEB60F4827A9746E001260DB /* QRReaderService.swift in Sources */,
 				CE729A8D27E60FD2001D33D1 /* QRScanFormatter.swift in Sources */,
 				CE6EE82527C7BF91005BF412 /* UserAuthService.swift in Sources */,
+				0642C93D2851ED4400B9F575 /* AttendanceDetailCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
