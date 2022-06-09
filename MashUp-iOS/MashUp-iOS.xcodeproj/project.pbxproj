@@ -30,8 +30,8 @@
 		9BA399D8AC75574F51FAC517 /* MashUp_iOSTests-MashUp_NetworkMocks.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26726427CAEA121D4500767F /* MashUp_iOSTests-MashUp_NetworkMocks.generated.swift */; };
 		A6F07A0CC0C16B5DBE0CC3C6 /* MashUp_iOSTests-MashUp_UserMocks.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBA6CECD109EF7738D4B4516 /* MashUp_iOSTests-MashUp_UserMocks.generated.swift */; };
 		B744438EC13403F0BDB16963 /* MashUp_iOSTests-MashUp_AuthMocks.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAD32E8AA1567DD34445CF4D /* MashUp_iOSTests-MashUp_AuthMocks.generated.swift */; };
-		CE0F283E2843B81300C206EA /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0F283D2843B81300C206EA /* SignUpViewController.swift */; };
-		CE0F28402843B85400C206EA /* SignUpReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0F283F2843B85400C206EA /* SignUpReactor.swift */; };
+		CE0F283E2843B81300C206EA /* SignUpStep1ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0F283D2843B81300C206EA /* SignUpStep1ViewController.swift */; };
+		CE0F28402843B85400C206EA /* SignUpStep1Reactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0F283F2843B85400C206EA /* SignUpStep1Reactor.swift */; };
 		CE0F28492843EBA500C206EA /* VerificationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0F28482843EBA500C206EA /* VerificationService.swift */; };
 		CE0F284E28444A7000C206EA /* VerificationServiceSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0F284D28444A7000C206EA /* VerificationServiceSpec.swift */; };
 		CE12B2FD28469B270072D5E7 /* MashUp_Core.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE9C1D9428467E500020FBCE /* MashUp_Core.framework */; platformFilter = ios; };
@@ -577,8 +577,8 @@
 		CE0F283628437B6A00C206EA /* ImageSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageSource.swift; sourceTree = "<group>"; };
 		CE0F2838284387A600C206EA /* MUTextFieldStyle.swift */ = {isa = PBXFileReference; indentWidth = 4; lastKnownFileType = sourcecode.swift; path = MUTextFieldStyle.swift; sourceTree = "<group>"; };
 		CE0F283A2843A50400C206EA /* MUTextField+Rx.swift */ = {isa = PBXFileReference; indentWidth = 4; lastKnownFileType = sourcecode.swift; path = "MUTextField+Rx.swift"; sourceTree = "<group>"; };
-		CE0F283D2843B81300C206EA /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
-		CE0F283F2843B85400C206EA /* SignUpReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpReactor.swift; sourceTree = "<group>"; };
+		CE0F283D2843B81300C206EA /* SignUpStep1ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpStep1ViewController.swift; sourceTree = "<group>"; };
+		CE0F283F2843B85400C206EA /* SignUpStep1Reactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpStep1Reactor.swift; sourceTree = "<group>"; };
 		CE0F28422843C53100C206EA /* MUNavigationBar.swift */ = {isa = PBXFileReference; indentWidth = 4; lastKnownFileType = sourcecode.swift; path = MUNavigationBar.swift; sourceTree = "<group>"; };
 		CE0F28442843CC3A00C206EA /* MUNavigationBarStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MUNavigationBarStyle.swift; sourceTree = "<group>"; };
 		CE0F28482843EBA500C206EA /* VerificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerificationService.swift; sourceTree = "<group>"; };
@@ -690,7 +690,7 @@
 		CED3AAA12849004E00621B28 /* MashUp_SignUpCode.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = MashUp_SignUpCode.docc; sourceTree = "<group>"; };
 		CED3AAAC284900A800621B28 /* SignUpCodeViewController.swift */ = {isa = PBXFileReference; indentWidth = 4; lastKnownFileType = sourcecode.swift; path = SignUpCodeViewController.swift; sourceTree = "<group>"; };
 		CED3AB462849117900621B28 /* SignUpCodeVerificationService.swift */ = {isa = PBXFileReference; indentWidth = 4; lastKnownFileType = sourcecode.swift; path = SignUpCodeVerificationService.swift; sourceTree = "<group>"; };
-		CED3AB482849124F00621B28 /* SignUpCodeError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpCodeError.swift; sourceTree = "<group>"; };
+		CED3AB482849124F00621B28 /* SignUpCodeError.swift */ = {isa = PBXFileReference; indentWidth = 4; lastKnownFileType = sourcecode.swift; path = SignUpCodeError.swift; sourceTree = "<group>"; };
 		CED3AB4B284912F900621B28 /* FakeSignUpCodeVerificationService.swift */ = {isa = PBXFileReference; indentWidth = 4; lastKnownFileType = sourcecode.swift; path = FakeSignUpCodeVerificationService.swift; sourceTree = "<group>"; };
 		CED3AB4D284913E600621B28 /* SignUpCodeReactor.swift */ = {isa = PBXFileReference; indentWidth = 4; lastKnownFileType = sourcecode.swift; path = SignUpCodeReactor.swift; sourceTree = "<group>"; };
 		CED3AB592849203100621B28 /* MashUp_Auth.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MashUp_Auth.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -960,8 +960,8 @@
 		CE0F283C2843B80200C206EA /* Sign Up */ = {
 			isa = PBXGroup;
 			children = (
-				CE0F283F2843B85400C206EA /* SignUpReactor.swift */,
-				CE0F283D2843B81300C206EA /* SignUpViewController.swift */,
+				CE0F283F2843B85400C206EA /* SignUpStep1Reactor.swift */,
+				CE0F283D2843B81300C206EA /* SignUpStep1ViewController.swift */,
 				CE900B7328462C3300FF9C4F /* ViewModel */,
 			);
 			path = "Sign Up";
@@ -1906,6 +1906,8 @@
 				CED3ABAC284923C100621B28 /* PBXTargetDependency */,
 			);
 			name = "MashUp-User";
+			packageProductDependencies = (
+			);
 			productName = "MashUp-User";
 			productReference = CED3AB952849235200621B28 /* MashUp_User.framework */;
 			productType = "com.apple.product-type.framework";
@@ -2151,7 +2153,7 @@
 				CEB60F8427A9C602001260DB /* FakeAttendanceService.swift in Sources */,
 				CE12DA5427E629AE00F08629 /* AttendanceTimelineViewModel.swift in Sources */,
 				CE396080278B3CB40073AEF4 /* AppDelegate.swift in Sources */,
-				CE0F28402843B85400C206EA /* SignUpReactor.swift in Sources */,
+				CE0F28402843B85400C206EA /* SignUpStep1Reactor.swift in Sources */,
 				CE6EE89527CB049C005BF412 /* QRCodeFinderView.swift in Sources */,
 				CE88D32827E5522B00865C02 /* QRSeminarCardView.swift in Sources */,
 				CE14D2CB27CFBB1200685CFF /* FakeSeminarRepository.swift in Sources */,
@@ -2165,6 +2167,7 @@
 				CE12DA5827E629FE00F08629 /* QRSeminarCardViewModel.swift in Sources */,
 				CE0F283E2843B81300C206EA /* SignUpViewController.swift in Sources */,
 				06531C2B2840BFAA00E225EB /* AttendanceStatusRectangleViewModel.swift in Sources */,
+				CE0F283E2843B81300C206EA /* SignUpStep1ViewController.swift in Sources */,
 				CE6EE83D27C7EFB9005BF412 /* HomeTabBarController.swift in Sources */,
 				06531C292840BF9800E225EB /* AttendanceStatusRectangleView.swift in Sources */,
 				CE6EE87127CA73B7005BF412 /* SeminarCardCell.swift in Sources */,

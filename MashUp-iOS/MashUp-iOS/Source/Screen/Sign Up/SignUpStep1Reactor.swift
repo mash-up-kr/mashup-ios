@@ -11,12 +11,12 @@ import ReactorKit
 import MashUp_Core
 import MashUp_PlatformTeam
 
-final class SignUpReactor: Reactor {
+final class SignUpStep1Reactor: Reactor {
     
     enum Action {
         case didEditIDField(String)
         case didEditPasswordField(String)
-        case didEditNameField(String)
+        case didEditPasswordCheckField(String)
         case didTapPlatformSelectControl
         case didSelectPlatform(at: Int)
         case didTapDoneButton
@@ -25,7 +25,7 @@ final class SignUpReactor: Reactor {
     enum Mutation {
         case updateID(String)
         case updatePassword(String)
-        case updateName(String)
+        case updatePasswordCheck(String)
         case updatePlatform(PlatformTeam)
         case showOnBottomSheet([PlatformTeam])
         case showPolicyAgreementStatus(Bool)
@@ -34,12 +34,13 @@ final class SignUpReactor: Reactor {
     struct State {
         var id: String = .empty
         var password: String = .empty
-        var name: String = .empty
+        var passwordCheck: String = .empty
         var selectedPlatform: PlatformTeam?
         
         var canDone: Bool = false
         var hasVaildatedID: Bool?
         var hasVaildatedPassword: Bool?
+        var hasVaildatedPasswordCheck: Bool?
         var hasAgreedPolicy: Bool = false
         
         @Pulse var shouldShowOnBottomSheet: [PlatformTeam]?
@@ -64,8 +65,8 @@ final class SignUpReactor: Reactor {
         case .didEditPasswordField(let password):
             return .just(.updatePassword(password))
             
-        case .didEditNameField(let name):
-            return .just(.updateName(name))
+        case .didEditPasswordCheckField(let name):
+            return .just(.updatePasswordCheck(name))
             
         case .didTapPlatformSelectControl:
             let showOnBottomSheet = self.platformService.allPlatformTeams()
@@ -95,30 +96,23 @@ final class SignUpReactor: Reactor {
             newState.password = password
             newState.hasVaildatedPassword = self.verificationService.verify(password: password)
             
-        case .updateName(let name):
-            newState.name = name
+        case .updatePasswordCheck(let passwordCheck):
+            newState.passwordCheck = passwordCheck
+            newState.hasVaildatedPasswordCheck = self.verificationService.verify(password: passwordCheck) && self.currentState.password == passwordCheck
             
         case .updatePlatform(let platform):
             newState.selectedPlatform = platform
-            
-        case .showOnBottomSheet(let platformTeams):
-            newState.shouldShowOnBottomSheet = platformTeams
-            
+        
         case .showPolicyAgreementStatus(let agree):
             newState.shouldShowPolicyAgreementStatus = agree
+            
+        case .showOnBottomSheet(_):
+            ()
         }
-        newState.canDone = self.verify(id: newState.id,
-                                       password: newState.password,
-                                       name: newState.name,
-                                       platform: newState.selectedPlatform)
+        newState.canDone = newState.hasVaildatedID == true
+        && newState.hasVaildatedPassword == true
+        && newState.hasVaildatedPasswordCheck == true
         return newState
-    }
-    
-    private func verify(id: String, password: String, name: String, platform: PlatformTeam?) -> Bool {
-        return self.verificationService.verify(id: id)
-        && self.verificationService.verify(password: password)
-        && self.verificationService.verify(name: name)
-        && platform != nil
     }
     
     private let platformService: any PlatformService

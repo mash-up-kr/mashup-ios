@@ -28,8 +28,7 @@ public class MUTextField: UIControl {
     public let textField = UITextField()
     
     public var text: String? {
-        get { self.textField.text }
-        set { self.textField.text = newValue }
+        didSet { self.updateAttributes() }
     }
     
     public var keyboardType: UIKeyboardType {
@@ -37,16 +36,10 @@ public class MUTextField: UIControl {
         set { self.textField.keyboardType = newValue }
     }
     
-    public var placeholder: String? {
-        get { self.placeholderLabel.text }
-        set { self.placeholderLabel.text = newValue }
-    }
-    
-    public var assistiveDescription: String? {
-        get { self.assistiveLabel.text }
-        set {
-            self.assistiveLabel.text = newValue
-            self.assistiveView.isHidden = newValue.isEmptyOrNil == true
+    public var status: MUTextField.Status {
+        didSet {
+            self.didUpdateStatus(to: self.status, from: oldValue)
+            self.updateAttributes()
         }
     }
     
@@ -55,8 +48,24 @@ public class MUTextField: UIControl {
         set { self.textField.isSecureTextEntry = newValue }
     }
     
-    public var status: MUTextField.Status {
-        didSet { self.didUpdateStatus(to: self.status, from: oldValue) }
+    public var placeholder: String? {
+        didSet { self.updateAttributes() }
+    }
+    
+    public var assistiveDescription: String? {
+        didSet { self.updateAttributes() }
+    }
+    
+    public var errorAssistiveDescription: String? {
+        didSet { self.updateAttributes() }
+    }
+    
+    public override var canBecomeFirstResponder: Bool {
+        get { self.textField.canBecomeFirstResponder }
+    }
+    
+    public override var canResignFirstResponder: Bool {
+        get { self.textField.canResignFirstResponder }
     }
     
     public init(frame: CGRect = .zero, status: MUTextField.Status = .inactive) {
@@ -82,22 +91,33 @@ public class MUTextField: UIControl {
         case reverse
     }
     
+    @discardableResult
+    public override func becomeFirstResponder() -> Bool {
+        self.textField.becomeFirstResponder()
+    }
+    
+    @discardableResult
+    public override func resignFirstResponder() -> Bool {
+        self.textField.resignFirstResponder()
+    }
+    
     private func didUpdateStatus(to status: Status, from oldStatus: Status) {
         let style = MUTextFieldStyle(status: status)
         
         if let animationDirection = self.animationDirection(from: status, to: oldStatus) {
             switch animationDirection {
             case .forward:
-                animator.isReversed = false
-                animator.startAnimation()
+                self.animator.isReversed = false
+                self.animator.startAnimation()
             case .reverse:
-                animator.isReversed = true
-                animator.startAnimation()
+                self.animator.isReversed = true
+                self.animator.startAnimation()
             }
-            animator.pausesOnCompletion = true
+            self.animator.pausesOnCompletion = true
         }
         
         self.applyStyle(style)
+        self.textField.isEnabled = status != .disable
     }
     
     private func animationDirection(from oldStatus: Status, to newStatus: Status) -> AnimationDirection? {
@@ -173,6 +193,26 @@ public class MUTextField: UIControl {
         }
     }
     
+    private func updateAttributes() {
+        self.textField.text = self.text
+        self.placeholderLabel.text = self.placeholder
+        self.updateAsstiveLabel()
+        self.assistiveLabel.text = self.text
+        self.textField.text = self.text
+    }
+    
+    private func updateAsstiveLabel() {
+        if self.status == .invaild, let errorAssistiveDescription = self.errorAssistiveDescription {
+            self.assistiveLabel.text = errorAssistiveDescription
+            self.assistiveLabel.isHidden = false
+        } else if let assitiveDescrition = self.assistiveDescription {
+            self.assistiveLabel.text = assitiveDescrition
+            self.assistiveLabel.isHidden = false
+        } else {
+            self.assistiveLabel.isHidden = true
+        }
+    }
+    
     private func setupStream() {
         let inactive = self.textField.rx.controlEvent(.editingDidEnd)
             .filter { [textField] in textField.text?.isEmpty == true }
@@ -192,6 +232,7 @@ public class MUTextField: UIControl {
     }
     
     private let containerView = UIStackView()
+    private let titleLabel = UILabel()
     private let textAreaView = UIView()
     private let placeholderLabel = UILabel()
     private let assistiveView = UIView()

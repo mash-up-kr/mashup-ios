@@ -18,9 +18,9 @@ import MashUp_Core
 import MashUp_UIKit
 import MashUp_PlatformTeam
 
-final class SignUpViewController: BaseViewController, ReactorKit.View {
+final class SignUpStep1ViewController: BaseViewController, ReactorKit.View {
     
-    typealias Reactor = SignUpReactor
+    typealias Reactor = SignUpStep1Reactor
     
     var disposeBag: DisposeBag = DisposeBag()
     
@@ -57,10 +57,10 @@ final class SignUpViewController: BaseViewController, ReactorKit.View {
             .bind(to: reactor.action)
             .disposed(by: self.disposeBag)
         
-        self.nameField.rx.text.orEmpty
+        self.passwordCheckField.rx.text.orEmpty
             .distinctUntilChanged()
             .skip(1)
-            .map { .didEditNameField($0) }
+            .map { .didEditPasswordCheckField($0) }
             .bind(to: reactor.action)
             .disposed(by: self.disposeBag)
         
@@ -110,11 +110,11 @@ final class SignUpViewController: BaseViewController, ReactorKit.View {
             .bind(to: self.passwordField.rx.status)
             .disposed(by: self.disposeBag)
         
-        reactor.state.map { $0.name }
+        reactor.state.map { $0.passwordCheck }
             .distinctUntilChanged()
-            .filter { [nameField] in nameField.text != $0 }
+            .filter { [passwordCheckField] in passwordCheckField.text != $0 }
             .onMain()
-            .bind(to: self.nameField.rx.text)
+            .bind(to: self.passwordCheckField.rx.text)
             .disposed(by: self.disposeBag)
         
         reactor.state.compactMap { $0.selectedPlatform }
@@ -162,13 +162,13 @@ final class SignUpViewController: BaseViewController, ReactorKit.View {
     private let titleLabel = UILabel()
     private let idField = MUTextField()
     private let passwordField = MUTextField()
-    private let nameField = MUTextField()
+    private let passwordCheckField = MUTextField()
     private let platformSelectControl = MUSelectControl<PlatformTeamMenuViewModel>()
-    private let bottomView = UIView()
+    private let keyboardFrameView = KeyboardFrameView()
     private let doneButton = MUButton()
 }
 
-extension SignUpViewController {
+extension SignUpStep1ViewController {
     
     private func setupAttribute() {
         self.view.backgroundColor = .white
@@ -178,12 +178,12 @@ extension SignUpViewController {
             $0.leftIcon = UIImage(systemName: "chevron.backward")?.withTintColor(.gray900)
         }
         self.scrollView.do {
-            $0.isScrollEnabled = true
+            $0.isScrollEnabled = false
             $0.showsVerticalScrollIndicator = false
             $0.contentInset = UIEdgeInsets(top: 12, left: 0, bottom: 0, right: 0)
         }
         self.containterView.do {
-            $0.backgroundColor = .white
+            $0.backgroundColor = .red50
             $0.axis = .vertical
         }
         self.titleLabel.do {
@@ -198,8 +198,8 @@ extension SignUpViewController {
             $0.placeholder = "비밀번호"
             $0.assistiveDescription = "영문, 숫자를 조합하여 8자 이상으로 입력해 주세요."
         }
-        self.nameField.do {
-            $0.placeholder = "이름"
+        self.passwordCheckField.do {
+            $0.placeholder = "비밀번호 확인"
         }
         self.platformSelectControl.do {
             $0.menuTitle = "플랫폼"
@@ -207,6 +207,17 @@ extension SignUpViewController {
         self.doneButton.do {
             $0.setTitle("다음", for: .normal)
         }
+        self.keyboardFrameView.do {
+            $0.backgroundColor = .green50
+        }
+        Observable.merge(
+            NotificationCenter.default.rx.notification(UIResponder.keyboardWillShowNotification),
+            NotificationCenter.default.rx.notification(UIResponder.keyboardWillHideNotification)
+        ).compactMap { notification in
+            notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? CGRect
+        }.subscribe(onNext:{ [scrollView] offset in
+            scrollView.contentOffset.y = offset.height
+        }).disposed(by: self.disposeBag)
     }
     
     private func setupLayout() {
@@ -217,15 +228,13 @@ extension SignUpViewController {
         self.view.addSubview(self.scrollView)
         self.scrollView.snp.makeConstraints {
             $0.top.equalTo(self.navigationBar.snp.bottom)
-            $0.leading.trailing.bottom.equalToSuperview().inset(20)
+            $0.leading.trailing.equalToSuperview().inset(20)
+            $0.height.greaterThanOrEqualTo(500)
         }
         self.scrollView.addSubview(self.containterView)
         self.containterView.snp.makeConstraints {
             $0.top.bottom.equalTo(self.scrollView.contentLayoutGuide)
             $0.width.equalToSuperview()
-        }
-        self.bottomView.snp.makeConstraints {
-            $0.height.equalTo(300)
         }
         self.containterView.do {
             $0.spacing = 12
@@ -233,16 +242,21 @@ extension SignUpViewController {
             $0.setCustomSpacing(30, after: self.titleLabel)
             $0.addArrangedSubview(self.idField)
             $0.addArrangedSubview(self.passwordField)
-            $0.addArrangedSubview(self.nameField)
+            $0.addArrangedSubview(self.passwordCheckField)
             $0.addArrangedSubview(self.platformSelectControl)
-            $0.addArrangedSubview(self.bottomView)
         }
         self.view.addSubview(self.doneButton)
         self.doneButton.snp.makeConstraints {
             $0.leading.trailing.equalToSuperview().inset(20)
             $0.height.equalTo(52)
+        }
+        self.view.addSubview(self.keyboardFrameView)
+        self.keyboardFrameView.snp.makeConstraints {
+            $0.top.equalTo(self.doneButton.snp.bottom)
+            $0.width.equalToSuperview()
             $0.bottom.equalTo(self.view.safeAreaLayoutGuide)
         }
+        
     }
     
 }
