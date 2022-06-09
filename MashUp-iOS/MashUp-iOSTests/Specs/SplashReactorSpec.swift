@@ -10,6 +10,8 @@ import Mockingbird
 import Nimble
 import Quick
 import RxBlocking
+import MashUp_Auth
+import MashUp_User
 @testable import MashUp_iOS
 
 final class SplashReactorSpec: QuickSpec {

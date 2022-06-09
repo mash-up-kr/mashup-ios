@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import MashUp_User
 @testable import MashUp_iOS
 
 extension UserSession {

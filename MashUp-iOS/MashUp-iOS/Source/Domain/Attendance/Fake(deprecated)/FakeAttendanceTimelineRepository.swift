@@ -8,6 +8,8 @@
 
 import Foundation
 import RxSwift
+import MashUp_Auth
+import MashUp_User
 
 class FakeAttendanceTimelineRepository: AttendanceTimelineRepository {
     

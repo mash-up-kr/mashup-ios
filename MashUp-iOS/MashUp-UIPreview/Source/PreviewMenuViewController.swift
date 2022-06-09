@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MashUp_SignUpCode
 
 final class PreviewMenuViewController: UIViewController {
     
@@ -50,7 +51,8 @@ extension PreviewMenuViewController: UITableViewDelegate {
     private func viewController(of menu: PreviewMenu) -> UIViewController {
         switch menu {
         // Dynamic Library 에서 테스트하고 싶은 UI 추가
-        case .button: return UIViewController()
+        case .signUpCode:
+            return SignUpCodeViewController()
         }
     }
     

@@ -8,6 +8,7 @@
 
 import Foundation
 import RxSwift
+import MashUp_PlatformTeam
 
 final class FakeAttendanceService: AttendanceService {
     
