@@ -16,8 +16,8 @@ final class SignUpStep1Reactor: Reactor {
     enum Action {
         case didEditIDField(String)
         case didEditPasswordField(String)
-        case didEditPasswordCheckField(String)
         case didFocusPasswordCheckField
+        case didEditPasswordCheckField(String)
         case didOutOfFocusPasswordCheckField
         case didTapDoneButton
     }
@@ -60,17 +60,17 @@ final class SignUpStep1Reactor: Reactor {
         case .didEditPasswordField(let password):
             return .just(.updatePassword(password))
             
-        case .didEditPasswordCheckField(let name):
-            return .just(.updatePasswordCheck(name))
-            
-        case .didTapDoneButton:
-            return .empty()
-            
         case .didFocusPasswordCheckField:
             return .of(.updateCanScroll(true), .updateFocusPasswordCheckField)
             
+        case .didEditPasswordCheckField(let name):
+            return .just(.updatePasswordCheck(name))
+            
         case .didOutOfFocusPasswordCheckField:
             return .of(.updateCanScroll(false), .updateScrollToTop)
+            
+        case .didTapDoneButton:
+            return .empty()
         }
     }
     
