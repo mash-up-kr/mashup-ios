@@ -7,10 +7,15 @@
 //
 
 import UIKit
+import ReactorKit
 import MashUp_Core
 import MashUp_UIKit
 
-final class SignUpStep2ViewController: BaseViewController {
+final class SignUpStep2ViewController: BaseViewController, View {
+    
+    typealias Reactor = SignUpStep2Reactor
+    
+    var disposeBag = DisposeBag()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,11 +24,80 @@ final class SignUpStep2ViewController: BaseViewController {
         self.setupLayout()
     }
     
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesEnded(touches, with: event)
+        self.view.endEditing(true)
+    }
+    
+    func bind(reactor: Reactor) {
+        self.dispatch(to: reactor)
+        self.render(reactor)
+        self.consume(reactor)
+    }
+    
+    private func dispatch(to reactor: Reactor) {
+        self.nameField.rx.text.orEmpty
+            .distinctUntilChanged()
+            .skip(1)
+            .map { .didEditNameField($0) }
+            .bind(to: reactor.action)
+            .disposed(by: self.disposeBag)
+        
+        self.platformSelectControl.rx.controlEvent(.touchUpInside)
+            .map { .didTapSelectControl }
+            .bind(to: reactor.action)
+            .disposed(by: self.disposeBag)
+        
+        self.doneButton.rx.tap
+            .map { .didTapDone }
+            .bind(to: reactor.action)
+            .disposed(by: self.disposeBag)
+    }
+    
+    private func render(_ reactor: Reactor) {
+        reactor.state.map { $0.canDone }
+            .distinctUntilChanged()
+            .bind(to: self.doneButton.rx.isEnabled)
+            .disposed(by: self.disposeBag)
+        
+        reactor.state.map { $0.name }
+            .distinctUntilChanged()
+            .bind(to: self.nameField.rx.text)
+            .disposed(by: self.disposeBag)
+        
+        reactor.state.map { $0.selectedPlatformTeam }
+            .distinctUntilChanged()
+            .bind(to: self.platformSelectControl.rx.selectedMenu)
+            .disposed(by: self.disposeBag)
+    }
+    
+    private func consume(_ reactor: Reactor) {
+        reactor.pulse(\.$shouldShowMenu)
+            .compactMap { $0 }
+            .onMain()
+            .subscribe(onNext: { [weak self] menu in
+                self?.showMenu(menu)
+            })
+            .disposed(by: self.disposeBag)
+    }
+    
+    private func showMenu(_ menu: [PlatformTeamMenuViewModel]) {
+        let actionSheet = UIAlertController(title: "플랫폼 선택", message: nil, preferredStyle: .actionSheet)
+        let actions = menu.enumerated().map {  index, platform in
+            UIAlertAction(title: platform.description, style: .default, handler: { [reactor] _ in
+                reactor?.action.onNext(.didSelectPlatformTeam(at: index))
+            })
+        }
+        actions.forEach { actionSheet.addAction($0) }
+        self.present(actionSheet, animated: true)
+    }
+    
     private let navigationBar = MUNavigationBar()
     private let titleLabel = UILabel()
     private let nameField = MUTextField()
     private let platformSelectControl = MUSelectControl<PlatformTeamMenuViewModel>()
-    private let doneButton = MUButton()
+    private let doneButton = MUButton(frame: .zero, style: .primary)
+    private let keyboardFrameView = KeyboardFrameView()
     
 }
 extension SignUpStep2ViewController {
@@ -69,13 +143,17 @@ extension SignUpStep2ViewController {
         }
         self.view.addSubview(self.platformSelectControl)
         self.platformSelectControl.snp.makeConstraints {
-            $0.leading.equalToSuperview().inset(20)
+            $0.leading.trailing.equalToSuperview().inset(20)
             $0.top.equalTo(self.nameField.snp.bottom).offset(24)
         }
         self.view.addSubview(self.doneButton)
         self.doneButton.snp.makeConstraints {
             $0.leading.trailing.equalToSuperview().inset(20)
             $0.height.equalTo(52)
+        }
+        self.view.addSubview(self.keyboardFrameView)
+        self.keyboardFrameView.snp.makeConstraints {
+            $0.top.equalTo(self.doneButton.snp.bottom)
             $0.bottom.equalTo(self.view.safeAreaLayoutGuide)
         }
     }

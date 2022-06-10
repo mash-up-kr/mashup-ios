@@ -49,6 +49,7 @@
 		CE58818927EC9BAC0068D4E0 /* QRScanFormatterSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE58818827EC9BAC0068D4E0 /* QRScanFormatterSpec.swift */; };
 		CE58818B27ECB2E60068D4E0 /* AttendanceTimelineSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE58818A27ECB2E60068D4E0 /* AttendanceTimelineSpec.swift */; };
 		CE6A963628538C6700F4C066 /* SignUpStep2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6A963528538C6700F4C066 /* SignUpStep2ViewController.swift */; };
+		CE6A96382853901700F4C066 /* SignUpStep2Reactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6A96372853901700F4C066 /* SignUpStep2Reactor.swift */; };
 		CE6EE81027C7B28C005BF412 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6EE80F27C7B28C005BF412 /* SignInViewController.swift */; };
 		CE6EE81227C7B293005BF412 /* SignInReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6EE81127C7B293005BF412 /* SignInReactor.swift */; };
 		CE6EE82C27C7D8F8005BF412 /* RootController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6EE82B27C7D8F8005BF412 /* RootController.swift */; };
@@ -593,6 +594,7 @@
 		CE58818827EC9BAC0068D4E0 /* QRScanFormatterSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRScanFormatterSpec.swift; sourceTree = "<group>"; };
 		CE58818A27ECB2E60068D4E0 /* AttendanceTimelineSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttendanceTimelineSpec.swift; sourceTree = "<group>"; };
 		CE6A963528538C6700F4C066 /* SignUpStep2ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpStep2ViewController.swift; sourceTree = "<group>"; };
+		CE6A96372853901700F4C066 /* SignUpStep2Reactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpStep2Reactor.swift; sourceTree = "<group>"; };
 		CE6EE80F27C7B28C005BF412 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		CE6EE81127C7B293005BF412 /* SignInReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInReactor.swift; sourceTree = "<group>"; };
 		CE6EE81C27C7BCF6005BF412 /* PlatformTeam.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlatformTeam.swift; sourceTree = "<group>"; };
@@ -1102,6 +1104,7 @@
 			isa = PBXGroup;
 			children = (
 				CE6A963528538C6700F4C066 /* SignUpStep2ViewController.swift */,
+				CE6A96372853901700F4C066 /* SignUpStep2Reactor.swift */,
 			);
 			path = Step2;
 			sourceTree = "<group>";
@@ -2131,6 +2134,7 @@
 				0618444427E30259004980CC /* AttendanceMember.swift in Sources */,
 				06531C18283F59FF00E225EB /* PlatformAttendanceStatusReactor.swift in Sources */,
 				CE6EE88A27CAA288005BF412 /* SeminarRepository.swift in Sources */,
+				CE6A96382853901700F4C066 /* SignUpStep2Reactor.swift in Sources */,
 				CE729A8927E5C7F1001D33D1 /* SeminarPhase.swift in Sources */,
 				CEB60F8427A9C602001260DB /* FakeAttendanceService.swift in Sources */,
 				CE12DA5427E629AE00F08629 /* AttendanceTimelineViewModel.swift in Sources */,

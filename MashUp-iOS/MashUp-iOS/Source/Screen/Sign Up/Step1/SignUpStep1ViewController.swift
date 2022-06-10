@@ -191,8 +191,10 @@ extension SignUpStep1ViewController {
     private func move(to step: SignUpStep1Step) {
         switch step {
         case .signUpStep2(let id, let password):
-            let signUpStep2ViewController = SignUpStep2ViewController()
-            self.navigationController?.pushViewController(signUpStep2ViewController, animated: true)
+            let reactor = SignUpStep2Reactor(id: id, password: password)
+            let viewController = SignUpStep2ViewController()
+            viewController.reactor = reactor
+            self.navigationController?.pushViewController(viewController, animated: true)
         }
     }
 }
@@ -224,15 +226,14 @@ extension SignUpStep1ViewController {
         self.passwordField.do {
             $0.placeholder = "비밀번호"
             $0.assistiveDescription = "영문, 숫자를 조합하여 8자 이상으로 입력해 주세요."
+            $0.isSecureTextEntry = true
         }
         self.passwordCheckField.do {
             $0.placeholder = "비밀번호 확인"
+            $0.isSecureTextEntry = true
         }
         self.doneButton.do {
             $0.setTitle("다음", for: .normal)
-        }
-        self.keyboardFrameView.do {
-            $0.backgroundColor = .green50
         }
         self.doneButtonContainerView.do {
             $0.backgroundColor = .white
