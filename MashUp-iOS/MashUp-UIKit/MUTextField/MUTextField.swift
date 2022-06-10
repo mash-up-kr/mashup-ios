@@ -39,7 +39,7 @@ public class MUTextField: UIControl {
     public var status: MUTextField.Status {
         didSet {
             self.didUpdateStatus(to: self.status, from: oldValue)
-            self.updateAttributes()
+            self.updateAsstiveLabel()
         }
     }
     

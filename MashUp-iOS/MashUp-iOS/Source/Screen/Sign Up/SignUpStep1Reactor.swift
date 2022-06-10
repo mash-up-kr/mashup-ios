@@ -11,7 +11,13 @@ import ReactorKit
 import MashUp_Core
 import MashUp_PlatformTeam
 
+enum SignUpStep1Step {
+    case signUpStep2(id: String, password: String)
+}
+
 final class SignUpStep1Reactor: Reactor {
+    
+    typealias Step = SignUpStep1Step
     
     enum Action {
         case didEditIDField(String)
@@ -29,6 +35,7 @@ final class SignUpStep1Reactor: Reactor {
         case updateCanScroll(Bool)
         case updateScrollToTop
         case updateFocusPasswordCheckField
+        case move(to: Step)
     }
     
     struct State {
@@ -44,6 +51,7 @@ final class SignUpStep1Reactor: Reactor {
         
         @Pulse var shouldScrollToTop: Void?
         @Pulse var shouldFocusPasswordCheckField: Void?
+        @Pulse var step: Step?
     }
     
     let initialState: State = State()
@@ -63,14 +71,19 @@ final class SignUpStep1Reactor: Reactor {
         case .didFocusPasswordCheckField:
             return .of(.updateCanScroll(true), .updateFocusPasswordCheckField)
             
-        case .didEditPasswordCheckField(let name):
-            return .just(.updatePasswordCheck(name))
+        case .didEditPasswordCheckField(let passwordCheck):
+            return .just(.updatePasswordCheck(passwordCheck))
             
         case .didOutOfFocusPasswordCheckField:
             return .of(.updateCanScroll(false), .updateScrollToTop)
             
         case .didTapDoneButton:
-            return .empty()
+            #warning("실제 id 중복 체크 와 같은 검증 작업 필요")
+            guard self.currentState.canDone else { return .empty() }
+            
+            let id = self.currentState.id
+            let password = self.currentState.password
+            return .just(.move(to: .signUpStep2(id: id, password: password)))
         }
     }
     
@@ -97,6 +110,9 @@ final class SignUpStep1Reactor: Reactor {
             
         case .updateFocusPasswordCheckField:
             newState.shouldFocusPasswordCheckField = Void()
+            
+        case .move(let step):
+            newState.step = step
         }
         newState.canDone = self.allSatisfied(newState)
         return newState

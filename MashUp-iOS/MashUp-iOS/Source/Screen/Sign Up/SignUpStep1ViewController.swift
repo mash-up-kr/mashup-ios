@@ -78,22 +78,6 @@ final class SignUpStep1ViewController: BaseViewController, ReactorKit.View {
             .map { _ in .didOutOfFocusPasswordCheckField }
             .bind(to: reactor.action)
             .disposed(by: self.disposeBag)
-//
-//        let passwordCheckFieldDidHighlight = Observable.merge(
-//            self.passwordCheckField.textField.rx.controlEvent(.editingDidEnd).map { _ in false }
-//        ).share()
-//
-//        passwordCheckFieldDidHighlight
-//            .bind(to: self.scrollView.rx.isScrollEnabled)
-//            .disposed(by: self.disposeBag)
-//
-//            .do { [scrollView, passwordCheckField] scrollEnable in
-//                guard scrollEnable else { return }
-//                self.bottomView.frame.origin
-//                scrollView.setContentOffset(passwordCheckField.frame.origin, animated: true)
-//            }
-//            .bind(to: self.scrollView.rx.isScrollEnabled)
-//            .disposed(by: self.disposeBag)
     }
     
     private func render(_ reactor: Reactor) {
@@ -166,8 +150,14 @@ final class SignUpStep1ViewController: BaseViewController, ReactorKit.View {
                 scrollView.setContentOffset(offset, animated: true)
             })
             .disposed(by: self.disposeBag)
+        
+        reactor.pulse(\.$step).compactMap { $0 }
+            .onMain()
+            .subscribe(onNext: { [weak self] step in
+                self?.move(to: step)
+            })
+            .disposed(by: self.disposeBag)
     }
-    
     
     private var topOffset: CGPoint {
         CGPoint(x: 0, y: -scrollView.contentInset.top)
@@ -196,7 +186,15 @@ final class SignUpStep1ViewController: BaseViewController, ReactorKit.View {
     private let doneButton = MUButton()
     private let bottomView = UIView()
 }
-
+extension SignUpStep1ViewController {
+    
+    private func move(to step: SignUpStep1Step) {
+        switch step {
+        case .signUpStep2(let id, let password):
+            self.navigationController?.pushViewController(UIViewController(), animated: true)
+        }
+    }
+}
 extension SignUpStep1ViewController {
     
     private func setupAttribute() {
