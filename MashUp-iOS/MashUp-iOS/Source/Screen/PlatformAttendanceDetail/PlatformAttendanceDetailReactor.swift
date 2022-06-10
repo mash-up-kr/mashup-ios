@@ -24,6 +24,7 @@ final class PlatformAttendanceDetailReactor: Reactor {
         var isLoading: Bool = false
         var members: [AttendanceMember] = []
         var platform: PlatformTeam
+        var navigationTitle: String
         @Pulse var error: Error?
     }
     
@@ -31,7 +32,8 @@ final class PlatformAttendanceDetailReactor: Reactor {
     private let attendanceService: AttendanceService
     
     init(attendanceService: AttendanceService, platform: PlatformTeam) {
-        self.initialState = State(platform: platform)
+        self.initialState = State(platform: platform,
+                                  navigationTitle: "\(platform)(0명)")
         self.attendanceService = attendanceService
     }
     
@@ -60,6 +62,7 @@ final class PlatformAttendanceDetailReactor: Reactor {
             newState.isLoading = isLoading
         case .updateMembers(let members):
             newState.members = members
+            newState.navigationTitle = "\(newState.platform)(\(members.count)명)"
         case .occurError(let error):
             newState.error = error
         }

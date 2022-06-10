@@ -92,6 +92,7 @@ final class AttendanceDetailCell: BaseCollectionViewCell {
         self.do {
             $0.backgroundColor = .white
             $0.layer.cornerRadius = 12
+            //TODO: 그림자 추가
         }
     }
     

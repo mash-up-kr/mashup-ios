@@ -10,8 +10,10 @@ import UIKit
 import MashUp_Core
 import ReactorKit
 import RxCocoa
+import MashUp_UIKit
 
 final class PlatformAttendanceDetailViewController: BaseViewController, ReactorKit.View {
+    private let navigationBar: MUNavigationBar = MUNavigationBar(frame: .zero)
     private lazy var memeberCollectionView: UICollectionView = {
         let flowLayout = UICollectionViewFlowLayout()
         let width = UIScreen.main.bounds.width - 40
@@ -39,6 +41,10 @@ final class PlatformAttendanceDetailViewController: BaseViewController, ReactorK
             }
             .disposed(by: disposeBag)
      
+        reactor.state.map { $0.navigationTitle }
+            .bind(to: navigationBar.rx.title)
+            .disposed(by: disposeBag)
+        
         reactor.action.onNext(.didSetup)
     }
 }
@@ -53,10 +59,16 @@ extension PlatformAttendanceDetailViewController {
     }
     
     private func setupLayout() {
+        view.addSubview(navigationBar)
         view.addSubview(memeberCollectionView)
+        navigationBar.snp.makeConstraints {
+            $0.top.equalTo(view.safeAreaLayoutGuide.snp.top)
+            $0.horizontalEdges.equalToSuperview()
+            $0.height.equalTo(56)
+        }
         memeberCollectionView.snp.makeConstraints {
             $0.horizontalEdges.equalToSuperview()
-            $0.top.equalToSuperview()
+            $0.top.equalTo(navigationBar.snp.bottom)
             $0.bottom.equalToSuperview()
         }
     }
