@@ -93,7 +93,7 @@ extension MUSelectControl {
             $0.font = .pretendardFont(weight: .medium, size: 20)
         }
         self.iconImageView.do {
-            $0.image = UIImage(systemName: "chevron.down")
+            $0.image = UIImage(named: "name=chevron-down, color=gray20, size=20")
         }
     }
     
