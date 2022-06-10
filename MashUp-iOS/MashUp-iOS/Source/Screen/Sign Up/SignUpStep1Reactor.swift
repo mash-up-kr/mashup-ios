@@ -17,8 +17,8 @@ final class SignUpStep1Reactor: Reactor {
         case didEditIDField(String)
         case didEditPasswordField(String)
         case didEditPasswordCheckField(String)
-        case didShowKeyboard
-        case didHideKeyboard
+        case didFocusPasswordCheckField
+        case didOutOfFocusPasswordCheckField
         case didTapDoneButton
     }
     
@@ -26,6 +26,9 @@ final class SignUpStep1Reactor: Reactor {
         case updateID(String)
         case updatePassword(String)
         case updatePasswordCheck(String)
+        case updateCanScroll(Bool)
+        case updateScrollToTop
+        case updateFocusPasswordCheckField
     }
     
     struct State {
@@ -34,9 +37,13 @@ final class SignUpStep1Reactor: Reactor {
         var passwordCheck: String = .empty
         
         var canDone: Bool = false
+        var canScroll: Bool = false
         var hasVaildatedID: Bool?
         var hasVaildatedPassword: Bool?
         var hasVaildatedPasswordCheck: Bool?
+        
+        @Pulse var shouldScrollToTop: Void?
+        @Pulse var shouldFocusPasswordCheckField: Void?
     }
     
     let initialState: State = State()
@@ -59,11 +66,11 @@ final class SignUpStep1Reactor: Reactor {
         case .didTapDoneButton:
             return .empty()
             
-        case .didShowKeyboard:
-            return .empty()
+        case .didFocusPasswordCheckField:
+            return .of(.updateCanScroll(true), .updateFocusPasswordCheckField)
             
-        case .didHideKeyboard:
-            return .empty()
+        case .didOutOfFocusPasswordCheckField:
+            return .of(.updateCanScroll(false), .updateScrollToTop)
         }
     }
     
@@ -81,6 +88,15 @@ final class SignUpStep1Reactor: Reactor {
         case .updatePasswordCheck(let passwordCheck):
             newState.passwordCheck = passwordCheck
             newState.hasVaildatedPasswordCheck = self.verificationService.verify(password: passwordCheck) && self.currentState.password == passwordCheck
+       
+        case .updateCanScroll(let canScroll):
+            newState.canScroll = canScroll
+            
+        case .updateScrollToTop:
+            newState.shouldScrollToTop = Void()
+            
+        case .updateFocusPasswordCheckField:
+            newState.shouldFocusPasswordCheckField = Void()
         }
         newState.canDone = self.allSatisfied(newState)
         return newState

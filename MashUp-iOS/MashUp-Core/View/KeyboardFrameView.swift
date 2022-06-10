@@ -41,7 +41,6 @@ public class KeyboardFrameView: BaseView {
     }
     
     private func updateFrame(_ frame: CGRect) {
-      print(frame.height)
         self.snp.updateConstraints {
             $0.height.equalTo(frame.height)
         }

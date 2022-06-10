@@ -68,6 +68,32 @@ final class SignUpStep1ViewController: BaseViewController, ReactorKit.View {
             .map { .didTapDoneButton }
             .bind(to: reactor.action)
             .disposed(by: self.disposeBag)
+        
+        self.passwordCheckField.textField.rx.controlEvent(.editingDidBegin)
+            .map { _ in .didFocusPasswordCheckField }
+            .bind(to: reactor.action)
+            .disposed(by: self.disposeBag)
+        
+        self.passwordCheckField.textField.rx.controlEvent(.editingDidEnd)
+            .map { _ in .didOutOfFocusPasswordCheckField }
+            .bind(to: reactor.action)
+            .disposed(by: self.disposeBag)
+//
+//        let passwordCheckFieldDidHighlight = Observable.merge(
+//            self.passwordCheckField.textField.rx.controlEvent(.editingDidEnd).map { _ in false }
+//        ).share()
+//
+//        passwordCheckFieldDidHighlight
+//            .bind(to: self.scrollView.rx.isScrollEnabled)
+//            .disposed(by: self.disposeBag)
+//
+//            .do { [scrollView, passwordCheckField] scrollEnable in
+//                guard scrollEnable else { return }
+//                self.bottomView.frame.origin
+//                scrollView.setContentOffset(passwordCheckField.frame.origin, animated: true)
+//            }
+//            .bind(to: self.scrollView.rx.isScrollEnabled)
+//            .disposed(by: self.disposeBag)
     }
     
     private func render(_ reactor: Reactor) {
@@ -111,11 +137,51 @@ final class SignUpStep1ViewController: BaseViewController, ReactorKit.View {
             .onMain()
             .bind(to: self.passwordCheckField.rx.text)
             .disposed(by: self.disposeBag)
+        
+        reactor.state.map { $0.canScroll }
+            .distinctUntilChanged()
+            .onMain()
+            .bind(to: self.scrollView.rx.isScrollEnabled)
+            .disposed(by: self.disposeBag)
     }
     
     private func consume(_ reactor: Reactor) {
+        reactor.pulse(\.$shouldScrollToTop)
+            .compactMap { $0 }
+            .onMain()
+            .withUnretained(self)
+            .subscribe(onNext: { [scrollView] owner, _ in
+                let offset = owner.topOffset
+                scrollView.setContentOffset(offset, animated: true)
+            })
+            .disposed(by: self.disposeBag)
+        
+        
+        reactor.pulse(\.$shouldFocusPasswordCheckField)
+            .compactMap { $0 }
+            .onMain()
+            .withUnretained(self)
+            .subscribe(onNext: { [scrollView] owner, _ in
+                let offset = owner.passwordCheckFieldHighlightedOffset
+                scrollView.setContentOffset(offset, animated: true)
+            })
+            .disposed(by: self.disposeBag)
     }
     
+    
+    private var topOffset: CGPoint {
+        CGPoint(x: 0, y: -scrollView.contentInset.top)
+    }
+    
+    private var passwordCheckFieldHighlightedOffset: CGPoint {
+        let contentHeight = self.view.frame.height - self.navigationBar.frame.height
+        let doneContainerHeight = self.doneButtonContainerView.frame.origin.y
+        let passwordCheckFieldHeight = self.doneButtonContainerView.frame.height
+        let keyboardHeight = self.keyboardFrameView.frame.height
+        
+        let y = contentHeight - passwordCheckFieldHeight - 76 - doneContainerHeight - keyboardHeight
+        return CGPoint(x: 0, y: -y)
+    }
     
     private let navigationBar = MUNavigationBar()
     private let scrollView = UIScrollView()
@@ -126,7 +192,9 @@ final class SignUpStep1ViewController: BaseViewController, ReactorKit.View {
     private let passwordField = MUTextField()
     private let passwordCheckField = MUTextField()
     private let keyboardFrameView = KeyboardFrameView()
+    private let doneButtonContainerView = UIView()
     private let doneButton = MUButton()
+    private let bottomView = UIView()
 }
 
 extension SignUpStep1ViewController {
@@ -144,7 +212,6 @@ extension SignUpStep1ViewController {
             $0.contentInset = UIEdgeInsets(top: 12, left: 0, bottom: 0, right: 0)
         }
         self.containterView.do {
-            $0.backgroundColor = .red50
             $0.axis = .vertical
         }
         self.titleLabel.do {
@@ -168,14 +235,9 @@ extension SignUpStep1ViewController {
         self.keyboardFrameView.do {
             $0.backgroundColor = .green50
         }
-        Observable.merge(
-            NotificationCenter.default.rx.notification(UIResponder.keyboardWillShowNotification),
-            NotificationCenter.default.rx.notification(UIResponder.keyboardWillHideNotification)
-        ).compactMap { notification in
-            notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? CGRect
-        }.subscribe(onNext:{ [scrollView] offset in
-            scrollView.contentOffset.y = offset.height
-        }).disposed(by: self.disposeBag)
+        self.doneButtonContainerView.do {
+            $0.backgroundColor = .white
+        }
     }
     
     private func setupLayout() {
@@ -201,15 +263,24 @@ extension SignUpStep1ViewController {
             $0.addArrangedSubview(self.idField)
             $0.addArrangedSubview(self.passwordField)
             $0.addArrangedSubview(self.passwordCheckField)
+            $0.addArrangedSubview(self.bottomView)
         }
-        self.view.addSubview(self.doneButton)
+        self.bottomView.snp.makeConstraints {
+            $0.height.equalTo(300)
+        }
+        self.view.addSubview(self.doneButtonContainerView)
+        self.doneButtonContainerView.snp.makeConstraints {
+            $0.leading.trailing.equalToSuperview()
+            $0.height.equalTo(52)
+        }
+        self.doneButtonContainerView.addSubview(self.doneButton)
         self.doneButton.snp.makeConstraints {
             $0.leading.trailing.equalToSuperview().inset(20)
-            $0.height.equalTo(52)
+            $0.height.equalToSuperview()
         }
         self.view.addSubview(self.keyboardFrameView)
         self.keyboardFrameView.snp.makeConstraints {
-            $0.top.equalTo(self.doneButton.snp.bottom)
+            $0.top.equalTo(self.doneButtonContainerView.snp.bottom)
             $0.width.equalToSuperview()
             $0.bottom.equalTo(self.view.safeAreaLayoutGuide)
         }
