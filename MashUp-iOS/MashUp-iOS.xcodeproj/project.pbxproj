@@ -50,6 +50,14 @@
 		CE58818B27ECB2E60068D4E0 /* AttendanceTimelineSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE58818A27ECB2E60068D4E0 /* AttendanceTimelineSpec.swift */; };
 		CE6A963628538C6700F4C066 /* SignUpStep2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6A963528538C6700F4C066 /* SignUpStep2ViewController.swift */; };
 		CE6A96382853901700F4C066 /* SignUpStep2Reactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6A96372853901700F4C066 /* SignUpStep2Reactor.swift */; };
+		CE6A963B28539B1B00F4C066 /* MUActionSheetController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6A963A28539B1B00F4C066 /* MUActionSheetController.swift */; };
+		CE6A963D28539CD700F4C066 /* MUActionSheetItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6A963C28539CD700F4C066 /* MUActionSheetItem.swift */; };
+		CE6A963F2853AAF900F4C066 /* MUActionSheetTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6A963E2853AAF900F4C066 /* MUActionSheetTableViewCell.swift */; };
+		CE6A96412853B22300F4C066 /* Image.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE6A96402853B22300F4C066 /* Image.xcassets */; };
+		CE6A96422853B2C000F4C066 /* Image.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE6A96402853B22300F4C066 /* Image.xcassets */; };
+		CE6A96432853B2C000F4C066 /* Image.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE6A96402853B22300F4C066 /* Image.xcassets */; };
+		CE6A96452853B91200F4C066 /* UIWindow+.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6A96442853B91200F4C066 /* UIWindow+.swift */; };
+		CE6A96472853B94F00F4C066 /* UIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6A96462853B94F00F4C066 /* UIConstants.swift */; };
 		CE6EE81027C7B28C005BF412 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6EE80F27C7B28C005BF412 /* SignInViewController.swift */; };
 		CE6EE81227C7B293005BF412 /* SignInReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6EE81127C7B293005BF412 /* SignInReactor.swift */; };
 		CE6EE82C27C7D8F8005BF412 /* RootController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6EE82B27C7D8F8005BF412 /* RootController.swift */; };
@@ -595,6 +603,12 @@
 		CE58818A27ECB2E60068D4E0 /* AttendanceTimelineSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttendanceTimelineSpec.swift; sourceTree = "<group>"; };
 		CE6A963528538C6700F4C066 /* SignUpStep2ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpStep2ViewController.swift; sourceTree = "<group>"; };
 		CE6A96372853901700F4C066 /* SignUpStep2Reactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpStep2Reactor.swift; sourceTree = "<group>"; };
+		CE6A963A28539B1B00F4C066 /* MUActionSheetController.swift */ = {isa = PBXFileReference; indentWidth = 4; lastKnownFileType = sourcecode.swift; path = MUActionSheetController.swift; sourceTree = "<group>"; };
+		CE6A963C28539CD700F4C066 /* MUActionSheetItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MUActionSheetItem.swift; sourceTree = "<group>"; };
+		CE6A963E2853AAF900F4C066 /* MUActionSheetTableViewCell.swift */ = {isa = PBXFileReference; indentWidth = 4; lastKnownFileType = sourcecode.swift; path = MUActionSheetTableViewCell.swift; sourceTree = "<group>"; };
+		CE6A96402853B22300F4C066 /* Image.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Image.xcassets; sourceTree = "<group>"; };
+		CE6A96442853B91200F4C066 /* UIWindow+.swift */ = {isa = PBXFileReference; indentWidth = 4; lastKnownFileType = sourcecode.swift; path = "UIWindow+.swift"; sourceTree = "<group>"; };
+		CE6A96462853B94F00F4C066 /* UIConstants.swift */ = {isa = PBXFileReference; indentWidth = 4; lastKnownFileType = sourcecode.swift; path = UIConstants.swift; sourceTree = "<group>"; };
 		CE6EE80F27C7B28C005BF412 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		CE6EE81127C7B293005BF412 /* SignInReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInReactor.swift; sourceTree = "<group>"; };
 		CE6EE81C27C7BCF6005BF412 /* PlatformTeam.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlatformTeam.swift; sourceTree = "<group>"; };
@@ -673,7 +687,7 @@
 		CEB60F7827A9C0C9001260DB /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Platforms/iPhoneOS.platform/Developer/Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		CEB60F7E27A9C536001260DB /* AttendanceService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttendanceService.swift; sourceTree = "<group>"; };
 		CEB60F8327A9C602001260DB /* FakeAttendanceService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeAttendanceService.swift; sourceTree = "<group>"; };
-		CEBAC6CD28469EE700ABCC36 /* PreviewMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewMenu.swift; sourceTree = "<group>"; };
+		CEBAC6CD28469EE700ABCC36 /* PreviewMenu.swift */ = {isa = PBXFileReference; indentWidth = 4; lastKnownFileType = sourcecode.swift; path = PreviewMenu.swift; sourceTree = "<group>"; };
 		CEBAC7642847670400ABCC36 /* MashUp_Network.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MashUp_Network.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEBAC7662847670400ABCC36 /* MashUp_Network.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MashUp_Network.h; sourceTree = "<group>"; };
 		CEBAC7672847670400ABCC36 /* MashUp_Network.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = MashUp_Network.docc; sourceTree = "<group>"; };
@@ -1109,6 +1123,16 @@
 			path = Step2;
 			sourceTree = "<group>";
 		};
+		CE6A963928539AFE00F4C066 /* MUActionSheetController */ = {
+			isa = PBXGroup;
+			children = (
+				CE6A963A28539B1B00F4C066 /* MUActionSheetController.swift */,
+				CE6A963C28539CD700F4C066 /* MUActionSheetItem.swift */,
+				CE6A963E2853AAF900F4C066 /* MUActionSheetTableViewCell.swift */,
+			);
+			path = MUActionSheetController;
+			sourceTree = "<group>";
+		};
 		CE6EE80E27C7B27D005BF412 /* Sign In */ = {
 			isa = PBXGroup;
 			children = (
@@ -1315,7 +1339,9 @@
 				06531C392840C96000E225EB /* UIColor+.swift */,
 				06531C352840C43700E225EB /* UIFont+.swift */,
 				06531C372840C7C500E225EB /* Colors.xcassets */,
+				CE6A96402853B22300F4C066 /* Image.xcassets */,
 				06531C342840C39800E225EB /* Font */,
+				CE6A963928539AFE00F4C066 /* MUActionSheetController */,
 				CE0F282E2843777B00C206EA /* MUButton */,
 				CE0F28462843CC3E00C206EA /* MUNavigationBar */,
 				CE900B7028460EB900FF9C4F /* MUSelectControl */,
@@ -1555,6 +1581,8 @@
 				CED3ABDB28494F1000621B28 /* UIButton+.swift */,
 				CED3ABDC28494F1000621B28 /* UICollectionView+.swift */,
 				CED3ABDD28494F1000621B28 /* UITableView+.swift */,
+				CE6A96442853B91200F4C066 /* UIWindow+.swift */,
+				CE6A96462853B94F00F4C066 /* UIConstants.swift */,
 			);
 			path = "UIKit+";
 			sourceTree = "<group>";
@@ -1997,6 +2025,7 @@
 				CED3AB3D28490D1500621B28 /* Pretendard-Bold.otf in Resources */,
 				06531C322840C39600E225EB /* Pretendard-Regular.otf in Resources */,
 				06531C302840C39600E225EB /* Pretendard-Medium.otf in Resources */,
+				CE6A96422853B2C000F4C066 /* Image.xcassets in Resources */,
 				06531C312840C39600E225EB /* Pretendard-SemiBold.otf in Resources */,
 				06531C382840C7C500E225EB /* Colors.xcassets in Resources */,
 			);
@@ -2020,6 +2049,7 @@
 				CED3AB3F28490D2C00621B28 /* Pretendard-Regular.otf in Resources */,
 				CE900BC528466EF600FF9C4F /* Assets.xcassets in Resources */,
 				CED3AB3E28490D2900621B28 /* Pretendard-SemiBold.otf in Resources */,
+				CE6A96432853B2C000F4C066 /* Image.xcassets in Resources */,
 				CE900BC328466EF300FF9C4F /* Main.storyboard in Resources */,
 				CE9C1DF7284696D50020FBCE /* MashUp-iOS.app in Resources */,
 			);
@@ -2038,6 +2068,7 @@
 			files = (
 				CED3AB3B28490CB800621B28 /* Pretendard-Regular.otf in Resources */,
 				CED3AB3C28490CBE00621B28 /* Pretendard-SemiBold.otf in Resources */,
+				CE6A96412853B22300F4C066 /* Image.xcassets in Resources */,
 				CED3AB3928490CAE00621B28 /* Pretendard-Bold.otf in Resources */,
 				CED3AB3A28490CB600621B28 /* Pretendard-Medium.otf in Resources */,
 			);
@@ -2232,6 +2263,7 @@
 				CED3ABEB28494F1000621B28 /* Optional+.swift in Sources */,
 				CED3ABF228494F1000621B28 /* UICollectionView+.swift in Sources */,
 				CED3ABE828494F1000621B28 /* String+.swift in Sources */,
+				CE6A96452853B91200F4C066 /* UIWindow+.swift in Sources */,
 				CED3ABE228494F1000621B28 /* BaseTableViewCell.swift in Sources */,
 				CE9C1DA428467E5E0020FBCE /* Logger.swift in Sources */,
 				CED3ABE528494F1000621B28 /* Locale+.swift in Sources */,
@@ -2240,6 +2272,7 @@
 				CED3ABEE28494F1000621B28 /* UIViewContorller+Rx.swift in Sources */,
 				CE9C1D9828467E500020FBCE /* MashUp_Core.docc in Sources */,
 				CED3ABE028494F1000621B28 /* BaseTabBarController.swift in Sources */,
+				CE6A96472853B94F00F4C066 /* UIConstants.swift in Sources */,
 				CED3ABED28494F1000621B28 /* Observable+Main.swift in Sources */,
 				CED3ABEC28494F1000621B28 /* Date+.swift in Sources */,
 				CED3ABF328494F1000621B28 /* UITableView+.swift in Sources */,
@@ -2263,9 +2296,12 @@
 				CE9C1DE1284684BC0020FBCE /* MUTextField+Rx.swift in Sources */,
 				CE9C1DD9284684A00020FBCE /* MUButtonStyle.swift in Sources */,
 				CE9C1DD82846849C0020FBCE /* MUButton.swift in Sources */,
+				CE6A963D28539CD700F4C066 /* MUActionSheetItem.swift in Sources */,
+				CE6A963F2853AAF900F4C066 /* MUActionSheetTableViewCell.swift in Sources */,
 				CE9C1DF1284687850020FBCE /* UIColor+.swift in Sources */,
 				CE9C1DDC284684AB0020FBCE /* MUMenu.swift in Sources */,
 				CE9C1DDA284684A30020FBCE /* MUNavigationBar.swift in Sources */,
+				CE6A963B28539B1B00F4C066 /* MUActionSheetController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

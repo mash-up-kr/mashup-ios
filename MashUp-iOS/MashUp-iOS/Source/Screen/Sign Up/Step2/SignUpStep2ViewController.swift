@@ -88,7 +88,19 @@ final class SignUpStep2ViewController: BaseViewController, View {
                 reactor?.action.onNext(.didSelectPlatformTeam(at: index))
             })
         }
+        let actions2 = menu.enumerated().map {  index, platform in
+            UIAlertAction(title: platform.description + "1", style: .default, handler: { [reactor] _ in
+                reactor?.action.onNext(.didSelectPlatformTeam(at: index))
+            })
+        }
+        let actions3 = menu.enumerated().map {  index, platform in
+            UIAlertAction(title: platform.description + "2", style: .default, handler: { [reactor] _ in
+                reactor?.action.onNext(.didSelectPlatformTeam(at: index))
+            })
+        }
         actions.forEach { actionSheet.addAction($0) }
+        actions2.forEach { actionSheet.addAction($0) }
+        actions3.forEach { actionSheet.addAction($0) }
         self.present(actionSheet, animated: true)
     }
     

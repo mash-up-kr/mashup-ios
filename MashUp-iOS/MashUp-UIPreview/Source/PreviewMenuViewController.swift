@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MashUp_UIKit
 import MashUp_SignUpCode
 
 final class PreviewMenuViewController: UIViewController {
@@ -44,15 +45,19 @@ extension PreviewMenuViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let menu = self.menu(of: indexPath)
-        let targetViewController = self.viewController(of: menu)
-        self.navigationController?.pushViewController(targetViewController, animated: true)
-    }
-    
-    private func viewController(of menu: PreviewMenu) -> UIViewController {
+        
         switch menu {
-        // Dynamic Library 에서 테스트하고 싶은 UI 추가
         case .signUpCode:
-            return SignUpCodeViewController()
+            self.navigationController?.pushViewController(SignUpCodeViewController(), animated: true)
+        case .actionSheet:
+            let actionSheet = MUActionSheetController(title: "플랫폼 선택")
+            actionSheet.addAction(.init(title: "Product Design", style: .default, handler: nil))
+            actionSheet.addAction(.init(title: "Android", style: .default, handler: nil))
+            actionSheet.addAction(.init(title: "iOS", style: .selected, handler: nil))
+            actionSheet.addAction(.init(title: "Web", style: .default, handler: nil))
+            actionSheet.addAction(.init(title: "Spring", style: .default, handler: nil))
+            actionSheet.addAction(.init(title: "Node", style: .default, handler: nil))
+            actionSheet.present(on: self)
         }
     }
     

@@ -16,10 +16,6 @@ public var screenHeight: CGFloat {
     UIScreen.main.bounds.height
 }
 
-public var statusBarHeight: CGFloat {
-    UIWindow.statusBarHeight
-}
-
 public var safeAreaTopPadding: CGFloat {
     UIWindow.current?.safeAreaInsets.top ?? 0
 }
