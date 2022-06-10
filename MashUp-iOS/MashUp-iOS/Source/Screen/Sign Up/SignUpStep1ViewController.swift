@@ -64,11 +64,6 @@ final class SignUpStep1ViewController: BaseViewController, ReactorKit.View {
             .bind(to: reactor.action)
             .disposed(by: self.disposeBag)
         
-        self.platformSelectControl.rx.controlEvent(.touchUpInside)
-            .map { .didTapPlatformSelectControl }
-            .bind(to: reactor.action)
-            .disposed(by: self.disposeBag)
-        
         self.doneButton.rx.tap
             .map { .didTapDoneButton }
             .bind(to: reactor.action)
@@ -116,44 +111,11 @@ final class SignUpStep1ViewController: BaseViewController, ReactorKit.View {
             .onMain()
             .bind(to: self.passwordCheckField.rx.text)
             .disposed(by: self.disposeBag)
-        
-        reactor.state.compactMap { $0.selectedPlatform }
-            .distinctUntilChanged()
-            .map { PlatformTeamMenuViewModel(model: $0) }
-            .onMain()
-            .bind(to: self.platformSelectControl.rx.selectedMenu)
-            .disposed(by: self.disposeBag)
     }
     
     private func consume(_ reactor: Reactor) {
-        reactor.pulse(\.$shouldShowOnBottomSheet)
-            .compactMap { $0 }
-            .onMain()
-            .subscribe(onNext: { [weak self] allPlatform in
-                self?.presentPopup(platformTeams: allPlatform)
-            })
-            .disposed(by: self.disposeBag)
     }
     
-    private func presentPopup(platformTeams: [PlatformTeam]) {
-        #warning("프로토 타이핑 디자인 확인 후 추가 작업 필요 - Booung")
-        let actionSheet = UIAlertController(
-            title: "플랫폼",
-            message: .empty,
-            preferredStyle: .actionSheet
-        )
-        platformTeams.map { PlatformTeamMenuViewModel(model: $0) }
-            .enumerated()
-            .map { index, menu in
-                UIAlertAction(title: menu.description, style: .default) { [reactor] _ in
-                    reactor?.action.onNext(.didSelectPlatform(at: index))
-                }
-            }
-            .forEach { actionSheet.addAction($0) }
-        actionSheet.addAction(UIAlertAction(title: "취소", style: .cancel))
-        
-        self.present(actionSheet, animated: true)
-    }
     
     private let navigationBar = MUNavigationBar()
     private let scrollView = UIScrollView()
@@ -163,7 +125,6 @@ final class SignUpStep1ViewController: BaseViewController, ReactorKit.View {
     private let idField = MUTextField()
     private let passwordField = MUTextField()
     private let passwordCheckField = MUTextField()
-    private let platformSelectControl = MUSelectControl<PlatformTeamMenuViewModel>()
     private let keyboardFrameView = KeyboardFrameView()
     private let doneButton = MUButton()
 }
@@ -200,9 +161,6 @@ extension SignUpStep1ViewController {
         }
         self.passwordCheckField.do {
             $0.placeholder = "비밀번호 확인"
-        }
-        self.platformSelectControl.do {
-            $0.menuTitle = "플랫폼"
         }
         self.doneButton.do {
             $0.setTitle("다음", for: .normal)
@@ -243,7 +201,6 @@ extension SignUpStep1ViewController {
             $0.addArrangedSubview(self.idField)
             $0.addArrangedSubview(self.passwordField)
             $0.addArrangedSubview(self.passwordCheckField)
-            $0.addArrangedSubview(self.platformSelectControl)
         }
         self.view.addSubview(self.doneButton)
         self.doneButton.snp.makeConstraints {

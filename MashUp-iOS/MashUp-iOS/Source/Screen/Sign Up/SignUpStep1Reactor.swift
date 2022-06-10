@@ -17,8 +17,8 @@ final class SignUpStep1Reactor: Reactor {
         case didEditIDField(String)
         case didEditPasswordField(String)
         case didEditPasswordCheckField(String)
-        case didTapPlatformSelectControl
-        case didSelectPlatform(at: Int)
+        case didShowKeyboard
+        case didHideKeyboard
         case didTapDoneButton
     }
     
@@ -26,34 +26,22 @@ final class SignUpStep1Reactor: Reactor {
         case updateID(String)
         case updatePassword(String)
         case updatePasswordCheck(String)
-        case updatePlatform(PlatformTeam)
-        case showOnBottomSheet([PlatformTeam])
-        case showPolicyAgreementStatus(Bool)
     }
     
     struct State {
         var id: String = .empty
         var password: String = .empty
         var passwordCheck: String = .empty
-        var selectedPlatform: PlatformTeam?
         
         var canDone: Bool = false
         var hasVaildatedID: Bool?
         var hasVaildatedPassword: Bool?
         var hasVaildatedPasswordCheck: Bool?
-        var hasAgreedPolicy: Bool = false
-        
-        @Pulse var shouldShowOnBottomSheet: [PlatformTeam]?
-        @Pulse var shouldShowPolicyAgreementStatus: Bool?
     }
     
     let initialState: State = State()
     
-    init(
-        platformService: any PlatformService,
-        verificationService: any VerificationService
-    ) {
-        self.platformService = platformService
+    init(verificationService: any VerificationService) {
         self.verificationService = verificationService
     }
     
@@ -68,20 +56,14 @@ final class SignUpStep1Reactor: Reactor {
         case .didEditPasswordCheckField(let name):
             return .just(.updatePasswordCheck(name))
             
-        case .didTapPlatformSelectControl:
-            let showOnBottomSheet = self.platformService.allPlatformTeams()
-                .map { Mutation.showOnBottomSheet($0) }
-                .catch { _ in .empty() }
-            #warning("구체 에러 핸들링 정의 - booung")
-            return showOnBottomSheet
-            
-        case .didSelectPlatform(let index):
-            guard let selectedPlatform = self.currentState.shouldShowOnBottomSheet?[safe: index] else { return .empty() }
-            return .just(.updatePlatform(selectedPlatform))
-            
         case .didTapDoneButton:
-            let policyAgreementStatus = self.currentState.hasAgreedPolicy
-            return .just(.showPolicyAgreementStatus(policyAgreementStatus))
+            return .empty()
+            
+        case .didShowKeyboard:
+            return .empty()
+            
+        case .didHideKeyboard:
+            return .empty()
         }
     }
     
@@ -99,23 +81,15 @@ final class SignUpStep1Reactor: Reactor {
         case .updatePasswordCheck(let passwordCheck):
             newState.passwordCheck = passwordCheck
             newState.hasVaildatedPasswordCheck = self.verificationService.verify(password: passwordCheck) && self.currentState.password == passwordCheck
-            
-        case .updatePlatform(let platform):
-            newState.selectedPlatform = platform
-        
-        case .showPolicyAgreementStatus(let agree):
-            newState.shouldShowPolicyAgreementStatus = agree
-            
-        case .showOnBottomSheet(_):
-            ()
         }
-        newState.canDone = newState.hasVaildatedID == true
-        && newState.hasVaildatedPassword == true
-        && newState.hasVaildatedPasswordCheck == true
+        newState.canDone = self.allSatisfied(newState)
         return newState
     }
     
-    private let platformService: any PlatformService
+    private func allSatisfied(_ state: State) -> Bool {
+        state.hasVaildatedID == true && state.hasVaildatedPassword == true && state.hasVaildatedPasswordCheck == true
+    }
+    
     private let verificationService: any VerificationService
     
 }

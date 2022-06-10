@@ -20,27 +20,19 @@ final class SignUpReactorSpec: QuickSpec {
   
   override func spec() {
     var sut: SignUpStep1Reactor!
-    var platformService: PlatformServiceMock!
     var verficationService: VerificationServiceMock!
     
     beforeEach {
-      platformService = mock(PlatformService.self)
       verficationService = mock(VerificationService.self)
-      sut = SignUpStep1Reactor(
-        platformService: platformService,
-        verificationService: verficationService
-      )
+      sut = SignUpStep1Reactor(verificationService: verficationService)
     }
     describe("회원가입 화면에서") {
-      let stubedPlatform: [PlatformTeam] = [.design, .iOS]
+//      let stubedPlatform: [PlatformTeam] = [.design, .iOS]
       beforeEach {
         given(verficationService.verify(id: any()))
           .will { return $0 == "possible.id" }
         given(verficationService.verify(password: any()))
           .will { return $0 == "possible.password" }
-        given(verficationService.verify(name: any()))
-          .will { return $0 == "possible.name" }
-        given(platformService.allPlatformTeams()).willReturn(.just(stubedPlatform))
       }
       
       context("id를 형식에 맞게 입력하지 않으면") {
@@ -61,50 +53,56 @@ final class SignUpReactorSpec: QuickSpec {
         }
       }
       
-      context("id / pw / name 필드를 형식에 맞게 입력하고") {
+      context("id / pw / name 필드를 형식에 맞게 입력하면") {
         beforeEach {
           sut.action.onNext(.didEditIDField("possible.id"))
           sut.action.onNext(.didEditPasswordField("possible.password"))
-          sut.action.onNext(.didEditPasswordCheckField("possible.name"))
+          sut.action.onNext(.didEditPasswordCheckField("possible.password"))
+        }
+        it("다음 버튼이 활성화 됩니다") {
+          expect { sut.currentState.canDone }.to(beTrue())
         }
         
-        context("플랫폼 선택 박스를 누르면") {
-          var shouldShowOnBottomSheetObserver: Observable<[PlatformTeam]>!
-          beforeEach {
-            shouldShowOnBottomSheetObserver = sut.state
-              .compactMap { $0.shouldShowOnBottomSheet }
-              .take(1)
-              .recorded()
-            sut.action.onNext(.didTapPlatformSelectControl)
-          }
-          it("로드해온 플랫폼 정보가 플랫폼 선택 바텀 시트가 노출됩니다.") {
-            let shouldShowOnBottomSheet = try! shouldShowOnBottomSheetObserver
-              .toBlocking(timeout: 1)
-              .first()
-            expect { shouldShowOnBottomSheet }.to(equal(stubedPlatform))
-          }
-          
-          context("플랫폼 입력을 선택하면 완료되면") {
-            beforeEach {
-              sut.action.onNext(.didSelectPlatform(at: 0))
-            }
-            it("선택한 플랫폼이 노출됩니다.") {
-              expect { sut.currentState.selectedPlatform }.to(equal(stubedPlatform[0]))
-            }
-            it("다음 버튼이 활성화됩니다") {
-              expect { sut.currentState.canDone }.to(beTrue())
-            }
-            
-            context("다음 버튼을 누르면 ") {
-              beforeEach {
-                sut.action.onNext(.didTapDoneButton)
-              }
-              it("약관 동의 여부를 표시합니다.") {
-                expect { sut.currentState.shouldShowPolicyAgreementStatus }.toNot(beNil())
-              }
-            }
-          }
+        context("다음 버튼을 누르면") {
         }
+        
+//        context("플랫폼 선택 박스를 누르면") {
+//          var shouldShowOnBottomSheetObserver: Observable<[PlatformTeam]>!
+//          beforeEach {
+//            shouldShowOnBottomSheetObserver = sut.state
+//              .compactMap { $0.shouldShowOnBottomSheet }
+//              .take(1)
+//              .recorded()
+//            sut.action.onNext(.didTapPlatformSelectControl)
+//          }
+//          it("로드해온 플랫폼 정보가 플랫폼 선택 바텀 시트가 노출됩니다.") {
+//            let shouldShowOnBottomSheet = try! shouldShowOnBottomSheetObserver
+//              .toBlocking(timeout: 1)
+//              .first()
+//            expect { shouldShowOnBottomSheet }.to(equal(stubedPlatform))
+//          }
+//
+////          context("플랫폼 입력을 선택하면 완료되면") {
+////            beforeEach {
+////              sut.action.onNext(.didSelectPlatform(at: 0))
+////            }
+////            it("선택한 플랫폼이 노출됩니다.") {
+////              expect { sut.currentState.selectedPlatform }.to(equal(stubedPlatform[0]))
+////            }
+////            it("다음 버튼이 활성화됩니다") {
+////              expect { sut.currentState.canDone }.to(beTrue())
+////            }
+////
+////            context("다음 버튼을 누르면 ") {
+////              beforeEach {
+////                sut.action.onNext(.didTapDoneButton)
+////              }
+////              it("약관 동의 여부를 표시합니다.") {
+////                expect { sut.currentState.shouldShowPolicyAgreementStatus }.toNot(beNil())
+////              }
+////            }
+////          }
+//        }
       }
       
     }
