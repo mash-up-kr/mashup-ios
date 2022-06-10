@@ -37,7 +37,7 @@ final class SignUpStep2Reactor: Reactor {
         var name: String = .empty
         var selectedPlatformTeam: PlatformTeamMenuViewModel?
         
-        @Pulse var shouldShowMenu: [PlatformTeamMenuViewModel]?
+        @Pulse var shouldShowMenu: [PlatformTeamSelectViewModel]?
         @Pulse var step: Step?
         
         fileprivate let id: String
@@ -61,7 +61,7 @@ final class SignUpStep2Reactor: Reactor {
             
         case .didSelectPlatformTeam(let index):
             guard let menu = self.currentState.shouldShowMenu else { return .empty() }
-            guard let platform = menu[safe: index]?.asModel() else { return .empty() }
+            guard let platform = menu[safe: index]?.platform else { return .empty() }
             
             return .just(.updateSelectedPlatformTeam(platform))
             
@@ -77,7 +77,8 @@ final class SignUpStep2Reactor: Reactor {
             newState.name = name
             
         case .updateShowMenu:
-            newState.shouldShowMenu = PlatformTeam.allCases.map { PlatformTeamMenuViewModel(model: $0) }
+            newState.shouldShowMenu = PlatformTeam.allCases
+                .map { PlatformTeamSelectViewModel(model: $0, isSelected: $0 == currentState.platformTeam) }
             
         case .updateSelectedPlatformTeam(let platformTeam):
             newState.platformTeam = platformTeam

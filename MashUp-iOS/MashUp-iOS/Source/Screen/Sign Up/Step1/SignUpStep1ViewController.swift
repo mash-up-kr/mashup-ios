@@ -205,7 +205,7 @@ extension SignUpStep1ViewController {
         self.navigationBar.do {
             $0.title = "회원가입"
             #warning("Image 정의되면 수정해야합니다. - Booung")
-            $0.leftIcon = UIImage(systemName: "chevron.backward")?.withTintColor(.gray900)
+            $0.leftBarItem = .back
         }
         self.scrollView.do {
             $0.isScrollEnabled = false

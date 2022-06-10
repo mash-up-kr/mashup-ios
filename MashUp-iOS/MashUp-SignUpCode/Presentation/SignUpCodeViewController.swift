@@ -115,6 +115,8 @@ extension SignUpCodeViewController {
         
         self.navigationBar.do {
             $0.title = "회원가입"
+            $0.leftBarItem = .back
+            $0.rightBarItem = .close
         }
         self.titleLabel.do {
             $0.text = "가입코드를 입력해주세요"

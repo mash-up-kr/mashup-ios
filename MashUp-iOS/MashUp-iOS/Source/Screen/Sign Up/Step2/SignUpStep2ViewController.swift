@@ -65,7 +65,7 @@ final class SignUpStep2ViewController: BaseViewController, View {
             .bind(to: self.nameField.rx.text)
             .disposed(by: self.disposeBag)
         
-        reactor.state.map { $0.selectedPlatformTeam }
+        reactor.state.compactMap { $0.selectedPlatformTeam }
             .distinctUntilChanged()
             .bind(to: self.platformSelectControl.rx.selectedMenu)
             .disposed(by: self.disposeBag)
@@ -75,18 +75,18 @@ final class SignUpStep2ViewController: BaseViewController, View {
         reactor.pulse(\.$shouldShowMenu)
             .compactMap { $0 }
             .onMain()
-            .subscribe(onNext: { [weak self] menu in
-                self?.showMenu(menu)
-            })
+            .subscribe(onNext: { [weak self] platforms in self?.showPlatformTeamList(platforms) })
             .disposed(by: self.disposeBag)
     }
     
-    private func showMenu(_ menu: [PlatformTeamMenuViewModel]) {
+    private func showPlatformTeamList(_ platforms: [PlatformTeamSelectViewModel]) {
         let actionSheet = MUActionSheetController(title: "플랫폼 선택")
-        let actions = menu.enumerated().map { index, platform in
-            MUActionSheetItem(title: platform.description, style: .default, handler: { [reactor] _ in
-                reactor?.action.onNext(.didSelectPlatformTeam(at: index))
-            })
+        let actions = platforms.enumerated().map { index, platform in
+            MUActionSheetItem(
+                title: platform.description,
+                style: platform.isSelected ? .selected : .default,
+                handler: { [reactor] _ in reactor?.action.onNext(.didSelectPlatformTeam(at: index)) }
+            )
         }
         actions.forEach { actionSheet.addAction($0) }
         actionSheet.present(on: self)
@@ -106,13 +106,14 @@ extension SignUpStep2ViewController {
         self.view.backgroundColor = .white
         self.navigationBar.do {
             $0.title = "회원가입"
-            $0.leftIcon = UIImage(systemName: "chevron.backward")?.withTintColor(.gray900)
+            $0.leftBarItem = .back
         }
         self.titleLabel.do {
             $0.text = "이름과 플랫폼을 입력해주세요"
             $0.font = .pretendardFont(weight: .bold, size: 24)
         }
         self.nameField.do {
+            $0.keyboardType = .namePhonePad
             $0.placeholder = "이름"
         }
         self.platformSelectControl.do {

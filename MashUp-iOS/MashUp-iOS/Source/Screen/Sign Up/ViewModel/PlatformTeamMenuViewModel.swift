@@ -10,6 +10,29 @@ import Foundation
 import MashUp_UIKit
 import MashUp_PlatformTeam
 
+
+struct PlatformTeamSelectViewModel {
+    
+    let platform: PlatformTeam
+    let isSelected: Bool
+    
+    init(model: PlatformTeam, isSelected: Bool) {
+        self.platform = model
+        self.isSelected = isSelected
+    }
+    
+    var description: String {
+        switch platform {
+        case .design: return "Product Design"
+        case .android: return "Android"
+        case .iOS: return "iOS"
+        case .web: return "Web"
+        case .node: return "Node"
+        case .spring: return "Spring"
+        }
+    }
+}
+
 enum PlatformTeamMenuViewModel: CaseIterable, MUMenu {
     
     case design
@@ -31,7 +54,6 @@ enum PlatformTeamMenuViewModel: CaseIterable, MUMenu {
     }
     
 }
-
 extension PlatformTeamMenuViewModel {
     
     init(model: PlatformTeam) {
@@ -46,19 +68,19 @@ extension PlatformTeamMenuViewModel {
     }
     
 }
-
-extension PlatformTeamMenuViewModel {
-    
-    func asModel() -> PlatformTeam {
-        switch self {
-        case .design: return .design
-        case .android: return .android
-        case .iOS: return .iOS
-        case .web: return .web
-        case .node: return .node
-        case .spring: return .spring
-        }
-    }
-    
-}
-
+//
+//extension PlatformTeamMenuViewModel {
+//    
+//    func asModel() -> PlatformTeam {
+//        switch self {
+//        case .design: return .design
+//        case .android: return .android
+//        case .iOS: return .iOS
+//        case .web: return .web
+//        case .node: return .node
+//        case .spring: return .spring
+//        }
+//    }
+//    
+//}
+//

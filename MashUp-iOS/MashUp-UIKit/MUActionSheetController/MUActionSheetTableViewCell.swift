@@ -44,7 +44,7 @@ extension MUActionSheetTableViewCell {
     
     private func setupAttribute() {
         self.titleLabel.font = .pretendardFont(weight: .medium, size: 16)
-        self.checkImageView.image = UIImage(named: "ic20_checkmark")
+        self.checkImageView.image = UIImage(named: "name=success, color=primary, size=20")
     }
     
     private func setupLayout() {
