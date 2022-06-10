@@ -191,7 +191,8 @@ extension SignUpStep1ViewController {
     private func move(to step: SignUpStep1Step) {
         switch step {
         case .signUpStep2(let id, let password):
-            self.navigationController?.pushViewController(UIViewController(), animated: true)
+            let signUpStep2ViewController = SignUpStep2ViewController()
+            self.navigationController?.pushViewController(signUpStep2ViewController, animated: true)
         }
     }
 }
