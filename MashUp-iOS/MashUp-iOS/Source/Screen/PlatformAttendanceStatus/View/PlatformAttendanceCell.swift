@@ -39,7 +39,7 @@ final class PlatformAttendanceCell: BaseCollectionViewCell {
         setupUI()
     }
     
-    func configure(model: PlatformAttendance, isAttending: Bool) {
+    func configure(model: PlatformAttendanceInformation, isAttending: Bool) {
         platformLabel.text = model.platform.title
         let icons = model.platform.icons
         platformLeftImageView.image = icons.0
