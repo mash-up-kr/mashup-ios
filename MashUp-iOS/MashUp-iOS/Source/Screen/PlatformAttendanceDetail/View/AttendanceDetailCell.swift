@@ -101,7 +101,10 @@ final class AttendanceDetailCell: BaseCollectionViewCell {
                                                           status: model.firstSeminarAttendance)
         let secondStatus = AttendanceStatusCircleViewModel(timestamp: model.secondSeminarAttendanceTimeStamp,
                                                           status: model.secondSeminarAttendance)
+        let finalStatus = AttendanceStatusCircleViewModel(timestamp: model.secondSeminarAttendanceTimeStamp,
+                                                          status: model.finalSeminarAttendance)
         firstHalfStatusView.configure(model: firstStatus)
         secondHalfStatusView.configure(model: secondStatus)
+        finalStatusView.configure(model: finalStatus)
     }
 }

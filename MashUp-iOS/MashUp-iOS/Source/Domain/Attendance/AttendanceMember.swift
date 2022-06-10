@@ -10,9 +10,9 @@ import Foundation
 
 struct AttendanceMember: Equatable {
     let name: String
-    let firstSeminarAttendance: AttendanceStatus
+    let firstSeminarAttendance: AttendanceStatus?
     let firstSeminarAttendanceTimeStamp: String?
-    let secondSeminarAttendance: AttendanceStatus
+    let secondSeminarAttendance: AttendanceStatus?
     let secondSeminarAttendanceTimeStamp: String?
 }
 
@@ -34,4 +34,39 @@ extension AttendanceMember {
                          secondSeminarAttendance: .absence,
                          secondSeminarAttendanceTimeStamp: nil),
     ]
+    
+    /// 출석 2개 = 출석
+    /// 불참 1개이상포함 = 불참
+    /// 지각 1개이상이면 = 지각
+    var finalSeminarAttendance: AttendanceStatus? {
+        var attendCount = 0
+        var lateCount = 0
+        var absenceCount = 0
+        guard let firstSeminarAttendance = firstSeminarAttendance,
+              let secondSeminarAttendance = secondSeminarAttendance else {
+            return nil
+        }
+        switch firstSeminarAttendance {
+        case .attend: attendCount += 1
+        case .lateness: lateCount += 1
+        case .absence: absenceCount += 1
+        }
+        
+        switch secondSeminarAttendance {
+        case .attend: attendCount += 1
+        case .lateness: lateCount += 1
+        case .absence: absenceCount += 1
+        }
+        
+        if attendCount == 2 {
+            return .attend
+        }
+        if absenceCount >= 1 {
+            return .absence
+        }
+        if lateCount >= 1 {
+            return .lateness
+        }
+        return nil
+    }
 }

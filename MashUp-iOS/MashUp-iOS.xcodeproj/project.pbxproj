@@ -15,6 +15,7 @@
 		0642C93F285223F800B9F575 /* AttendanceStatusCircleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0642C93E285223F800B9F575 /* AttendanceStatusCircleViewModel.swift */; };
 		0642C941285223FF00B9F575 /* AttendanceStatusCircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0642C940285223FF00B9F575 /* AttendanceStatusCircleView.swift */; };
 		0642C94428522A3700B9F575 /* AttendanceStatus+Presentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0642C94328522A3700B9F575 /* AttendanceStatus+Presentation.swift */; };
+		0642C946285312D600B9F575 /* AttendanceMemberSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0642C945285312D600B9F575 /* AttendanceMemberSpec.swift */; };
 		06531C18283F59FF00E225EB /* PlatformAttendanceStatusReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06531C17283F59FF00E225EB /* PlatformAttendanceStatusReactor.swift */; };
 		06531C1A283F5D5E00E225EB /* PlatformAttendance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06531C19283F5D5E00E225EB /* PlatformAttendance.swift */; };
 		06531C1C283F5E2200E225EB /* PlatformAttendanceStatusReactorSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06531C1B283F5E2200E225EB /* PlatformAttendanceStatusReactorSpec.swift */; };
@@ -350,6 +351,7 @@
 		0642C93E285223F800B9F575 /* AttendanceStatusCircleViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttendanceStatusCircleViewModel.swift; sourceTree = "<group>"; };
 		0642C940285223FF00B9F575 /* AttendanceStatusCircleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttendanceStatusCircleView.swift; sourceTree = "<group>"; };
 		0642C94328522A3700B9F575 /* AttendanceStatus+Presentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AttendanceStatus+Presentation.swift"; sourceTree = "<group>"; };
+		0642C945285312D600B9F575 /* AttendanceMemberSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttendanceMemberSpec.swift; sourceTree = "<group>"; };
 		06531C17283F59FF00E225EB /* PlatformAttendanceStatusReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlatformAttendanceStatusReactor.swift; sourceTree = "<group>"; };
 		06531C19283F5D5E00E225EB /* PlatformAttendance.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlatformAttendance.swift; sourceTree = "<group>"; };
 		06531C1B283F5E2200E225EB /* PlatformAttendanceStatusReactorSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlatformAttendanceStatusReactorSpec.swift; sourceTree = "<group>"; };
@@ -1135,6 +1137,7 @@
 				CE900B7A2846542B00FF9C4F /* SignUpReactorSpec.swift */,
 				CE6EE86A27CA60B6005BF412 /* SplashReactorSpec.swift */,
 				CE0F284D28444A7000C206EA /* VerificationServiceSpec.swift */,
+				0642C945285312D600B9F575 /* AttendanceMemberSpec.swift */,
 			);
 			path = Specs;
 			sourceTree = "<group>";
@@ -1658,6 +1661,7 @@
 				CE9E735D27C294E800922D8B /* QRScanReactorSpec.swift in Sources */,
 				CE6EE86E27CA6302005BF412 /* UserSession+Stub.swift in Sources */,
 				CE58818927EC9BAC0068D4E0 /* QRScanFormatterSpec.swift in Sources */,
+				0642C946285312D600B9F575 /* AttendanceMemberSpec.swift in Sources */,
 				CE58817F27EC85A00068D4E0 /* PartialAttendance+Stub.swift in Sources */,
 				CE58818B27ECB2E60068D4E0 /* AttendanceTimelineSpec.swift in Sources */,
 				CE58818527EC98540068D4E0 /* AttendanceTimelineViewModel+Stub.swift in Sources */,
