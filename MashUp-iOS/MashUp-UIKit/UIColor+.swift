@@ -20,13 +20,20 @@ extension UIColor {
     public static let gray800 = UIColor(named: "gray800")!
     public static let gray900 = UIColor(named: "gray900")!
     
-    public static let primary = UIColor(named: "primary")!
-    public static let primary20 = UIColor(named: "primary20")!
+    public static let primary50 = UIColor(named: "primary50")!
+    public static let primary10 = UIColor(named: "primary10")!
     
+    public static let red10 = UIColor(named: "red10")!
     public static let red50 = UIColor(named: "red50")!
+    public static let red60 = UIColor(named: "red60")!
     
+    public static let green10 = UIColor(named: "green10")!
     public static let green50 = UIColor(named: "green50")!
+    public static let green60 = UIColor(named: "green60")!
     
+    public static let yellow10 = UIColor(named: "yellow10")!
     public static let yellow50 = UIColor(named: "yellow50")!
+    public static let yellow60 = UIColor(named: "yellow60")!
     
+    public static let blue50 = UIColor(named: "blue50")!
 }

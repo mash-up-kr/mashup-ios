@@ -42,7 +42,7 @@ extension MUTextFieldStyle {
             self.assistiveFont = .pretendardFont(weight: .regular, size: 12)
             self.trailingIconImage = nil
         case .focus:
-            self.borderColor = .primary
+            self.borderColor = .primary50
             self.textColor = .gray800
             self.textFont = .pretendardFont(weight: .medium, size: 20)
             self.placeholderColor = .gray600
