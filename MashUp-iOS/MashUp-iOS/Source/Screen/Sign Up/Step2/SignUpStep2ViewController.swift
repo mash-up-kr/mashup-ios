@@ -82,26 +82,14 @@ final class SignUpStep2ViewController: BaseViewController, View {
     }
     
     private func showMenu(_ menu: [PlatformTeamMenuViewModel]) {
-        let actionSheet = UIAlertController(title: "플랫폼 선택", message: nil, preferredStyle: .actionSheet)
-        let actions = menu.enumerated().map {  index, platform in
-            UIAlertAction(title: platform.description, style: .default, handler: { [reactor] _ in
-                reactor?.action.onNext(.didSelectPlatformTeam(at: index))
-            })
-        }
-        let actions2 = menu.enumerated().map {  index, platform in
-            UIAlertAction(title: platform.description + "1", style: .default, handler: { [reactor] _ in
-                reactor?.action.onNext(.didSelectPlatformTeam(at: index))
-            })
-        }
-        let actions3 = menu.enumerated().map {  index, platform in
-            UIAlertAction(title: platform.description + "2", style: .default, handler: { [reactor] _ in
+        let actionSheet = MUActionSheetController(title: "플랫폼 선택")
+        let actions = menu.enumerated().map { index, platform in
+            MUActionSheetItem(title: platform.description, style: .default, handler: { [reactor] _ in
                 reactor?.action.onNext(.didSelectPlatformTeam(at: index))
             })
         }
         actions.forEach { actionSheet.addAction($0) }
-        actions2.forEach { actionSheet.addAction($0) }
-        actions3.forEach { actionSheet.addAction($0) }
-        self.present(actionSheet, animated: true)
+        actionSheet.present(on: self)
     }
     
     private let navigationBar = MUNavigationBar()
