@@ -52,6 +52,11 @@ final class SignUpStep2ViewController: BaseViewController, View {
             .map { .didTapDone }
             .bind(to: reactor.action)
             .disposed(by: self.disposeBag)
+        
+        self.navigationBar.leftButton.rx.tap
+            .map { .didTapBack }
+            .bind(to: reactor.action)
+            .disposed(by: self.disposeBag)
     }
     
     private func render(_ reactor: Reactor) {
@@ -76,6 +81,12 @@ final class SignUpStep2ViewController: BaseViewController, View {
             .compactMap { $0 }
             .onMain()
             .subscribe(onNext: { [weak self] platforms in self?.showPlatformTeamList(platforms) })
+            .disposed(by: self.disposeBag)
+        
+        reactor.pulse(\.$shouldGoBack)
+            .compactMap { $0 }
+            .onMain()
+            .subscribe(onNext: { [weak self] in self?.navigationController?.popViewController(animated: true) })
             .disposed(by: self.disposeBag)
     }
     

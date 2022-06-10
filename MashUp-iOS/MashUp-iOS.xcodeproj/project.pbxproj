@@ -58,6 +58,7 @@
 		CE6A96432853B2C000F4C066 /* Image.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE6A96402853B22300F4C066 /* Image.xcassets */; };
 		CE6A96452853B91200F4C066 /* UIWindow+.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6A96442853B91200F4C066 /* UIWindow+.swift */; };
 		CE6A96472853B94F00F4C066 /* UIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6A96462853B94F00F4C066 /* UIConstants.swift */; };
+		CE6A964A2853D66700F4C066 /* TermsAgreementPopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6A96492853D66700F4C066 /* TermsAgreementPopupViewController.swift */; };
 		CE6EE81027C7B28C005BF412 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6EE80F27C7B28C005BF412 /* SignInViewController.swift */; };
 		CE6EE81227C7B293005BF412 /* SignInReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6EE81127C7B293005BF412 /* SignInReactor.swift */; };
 		CE6EE82C27C7D8F8005BF412 /* RootController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6EE82B27C7D8F8005BF412 /* RootController.swift */; };
@@ -609,6 +610,7 @@
 		CE6A96402853B22300F4C066 /* Image.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Image.xcassets; sourceTree = "<group>"; };
 		CE6A96442853B91200F4C066 /* UIWindow+.swift */ = {isa = PBXFileReference; indentWidth = 4; lastKnownFileType = sourcecode.swift; path = "UIWindow+.swift"; sourceTree = "<group>"; };
 		CE6A96462853B94F00F4C066 /* UIConstants.swift */ = {isa = PBXFileReference; indentWidth = 4; lastKnownFileType = sourcecode.swift; path = UIConstants.swift; sourceTree = "<group>"; };
+		CE6A96492853D66700F4C066 /* TermsAgreementPopupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsAgreementPopupViewController.swift; sourceTree = "<group>"; };
 		CE6EE80F27C7B28C005BF412 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		CE6EE81127C7B293005BF412 /* SignInReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInReactor.swift; sourceTree = "<group>"; };
 		CE6EE81C27C7BCF6005BF412 /* PlatformTeam.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlatformTeam.swift; sourceTree = "<group>"; };
@@ -946,6 +948,7 @@
 			children = (
 				CE6A963328538C4A00F4C066 /* Step1 */,
 				CE6A963428538C5400F4C066 /* Step2 */,
+				CE6A96482853D5FA00F4C066 /* Terms Agreement Popup */,
 				CE900B7328462C3300FF9C4F /* ViewModel */,
 			);
 			path = "Sign Up";
@@ -1117,8 +1120,8 @@
 		CE6A963428538C5400F4C066 /* Step2 */ = {
 			isa = PBXGroup;
 			children = (
-				CE6A963528538C6700F4C066 /* SignUpStep2ViewController.swift */,
 				CE6A96372853901700F4C066 /* SignUpStep2Reactor.swift */,
+				CE6A963528538C6700F4C066 /* SignUpStep2ViewController.swift */,
 			);
 			path = Step2;
 			sourceTree = "<group>";
@@ -1131,6 +1134,14 @@
 				CE6A963E2853AAF900F4C066 /* MUActionSheetTableViewCell.swift */,
 			);
 			path = MUActionSheetController;
+			sourceTree = "<group>";
+		};
+		CE6A96482853D5FA00F4C066 /* Terms Agreement Popup */ = {
+			isa = PBXGroup;
+			children = (
+				CE6A96492853D66700F4C066 /* TermsAgreementPopupViewController.swift */,
+			);
+			path = "Terms Agreement Popup";
 			sourceTree = "<group>";
 		};
 		CE6EE80E27C7B27D005BF412 /* Sign In */ = {
@@ -2150,6 +2161,7 @@
 				CE12DA5627E629D700F08629 /* PartialAttendanceViewModel.swift in Sources */,
 				CE6EE83F27C7EFF9005BF412 /* HomeReactor.swift in Sources */,
 				CE900B7528462C5400FF9C4F /* PlatformTeamMenuViewModel.swift in Sources */,
+				CE6A964A2853D66700F4C066 /* TermsAgreementPopupViewController.swift in Sources */,
 				CE6EE87327CA7482005BF412 /* AttendanceStatus.swift in Sources */,
 				CE729A8B27E60D49001D33D1 /* SeminarSchedulerFormatter.swift in Sources */,
 				CEB60F4B27A975AD001260DB /* QRScanViewController.swift in Sources */,

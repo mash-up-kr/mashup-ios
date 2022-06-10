@@ -23,6 +23,7 @@ final class SignUpStep2Reactor: Reactor {
         case didTapSelectControl
         case didSelectPlatformTeam(at: Int)
         case didTapDone
+        case didTapBack
     }
     
     enum Mutation {
@@ -30,6 +31,7 @@ final class SignUpStep2Reactor: Reactor {
         case updateShowMenu
         case updateSelectedPlatformTeam(PlatformTeam)
         case move(to: Step)
+        case updateGoBack
     }
     
     struct State {
@@ -39,6 +41,8 @@ final class SignUpStep2Reactor: Reactor {
         
         @Pulse var shouldShowMenu: [PlatformTeamSelectViewModel]?
         @Pulse var step: Step?
+        @Pulse var shouldGoBack: Void?
+        
         
         fileprivate let id: String
         fileprivate let password: String
@@ -65,6 +69,9 @@ final class SignUpStep2Reactor: Reactor {
             
             return .just(.updateSelectedPlatformTeam(platform))
             
+        case .didTapBack:
+            return .just(.updateGoBack)
+            
         case .didTapDone:
             return .empty()
         }
@@ -86,6 +93,9 @@ final class SignUpStep2Reactor: Reactor {
             
         case .move(let step):
             newState.step = step
+            
+        case .updateGoBack:
+            newState.shouldGoBack = Void()
         }
         newState.canDone = newState.name.isNotEmpty && newState.selectedPlatformTeam != nil
         return newState
