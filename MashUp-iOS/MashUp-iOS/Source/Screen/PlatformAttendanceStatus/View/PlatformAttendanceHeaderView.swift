@@ -13,12 +13,7 @@ final class PlatformAttendanceHeaderView: UICollectionReusableView, Reusable {
     private let containerView: UIView = UIView()
     private let leadingImageView: UIImageView = UIImageView()
     private let titleLabel: UILabel = UILabel()
-    
-    private func setupUI() {
-        setupLayout()
-        setupAttribute()
-    }
-    
+   
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupUI()
@@ -27,6 +22,11 @@ final class PlatformAttendanceHeaderView: UICollectionReusableView, Reusable {
     required init?(coder: NSCoder) {
         super.init(coder: coder)
         setupUI()
+    }
+    
+    private func setupUI() {
+        setupLayout()
+        setupAttribute()
     }
     
     private func setupLayout() {
