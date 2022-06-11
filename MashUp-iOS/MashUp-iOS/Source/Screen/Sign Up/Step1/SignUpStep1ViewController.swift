@@ -127,6 +127,22 @@ final class SignUpStep1ViewController: BaseViewController, ReactorKit.View {
             .onMain()
             .bind(to: self.scrollView.rx.isScrollEnabled)
             .disposed(by: self.disposeBag)
+        
+        Observable.merge(
+            self.idField.textField.rx.controlEvent(.editingDidEndOnExit).map { [idField] in idField },
+            self.passwordField.textField.rx.controlEvent(.editingDidEndOnExit).map { [passwordField] in passwordField }
+        )
+        .onMain()
+        .subscribe(onNext: { [idField, passwordField, passwordCheckField] textField in
+            switch textField {
+            case idField:
+                passwordField.becomeFirstResponder()
+            case passwordField:
+                passwordCheckField.becomeFirstResponder()
+            default: ()
+            }
+        })
+        .disposed(by: self.disposeBag)
     }
     
     private func consume(_ reactor: Reactor) {
