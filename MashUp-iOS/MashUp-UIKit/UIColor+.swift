@@ -20,20 +20,21 @@ extension UIColor {
     public static let gray800 = UIColor(named: "gray800")!
     public static let gray900 = UIColor(named: "gray900")!
     
-    public static let primary50 = UIColor(named: "primary50")!
-    public static let primary10 = UIColor(named: "primary10")!
+    public static let primary100 = UIColor(named: "primary100")!
+    public static let primary500 = UIColor(named: "primary500")!
+    public static let primary600 = UIColor(named: "primary600")!
     
-    public static let red10 = UIColor(named: "red10")!
-    public static let red50 = UIColor(named: "red50")!
-    public static let red60 = UIColor(named: "red60")!
+    public static let red100 = UIColor(named: "red100")!
+    public static let red500 = UIColor(named: "red500")!
+    public static let red600 = UIColor(named: "red600")!
     
-    public static let green10 = UIColor(named: "green10")!
-    public static let green50 = UIColor(named: "green50")!
-    public static let green60 = UIColor(named: "green60")!
+    public static let green100 = UIColor(named: "green100")!
+    public static let green500 = UIColor(named: "green500")!
+    public static let green600 = UIColor(named: "green600")!
     
-    public static let yellow10 = UIColor(named: "yellow10")!
-    public static let yellow50 = UIColor(named: "yellow50")!
-    public static let yellow60 = UIColor(named: "yellow60")!
+    public static let yellow100 = UIColor(named: "yellow100")!
+    public static let yellow500 = UIColor(named: "yellow500")!
+    public static let yellow600 = UIColor(named: "yellow600")!
     
-    public static let blue50 = UIColor(named: "blue50")!
+    public static let blue500 = UIColor(named: "blue500")!
 }
