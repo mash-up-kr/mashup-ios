@@ -32,6 +32,7 @@ class MUActionSheetTableViewCell: BaseTableViewCell {
         case .selected:
             self.checkImageView.isHidden = false
             self.titleLabel.textColor = .primary
+            self.backgroundColor = .primary20
         }
     }
     
@@ -45,6 +46,10 @@ extension MUActionSheetTableViewCell {
     private func setupAttribute() {
         self.titleLabel.font = .pretendardFont(weight: .medium, size: 16)
         self.checkImageView.image = UIImage(named: "name=success, color=primary, size=20")
+        self.selectedBackgroundView = UIView().then {
+            #warning("선택 색상이 변경되어야합니다.")
+            $0.backgroundColor = .primary20
+        }
     }
     
     private func setupLayout() {
