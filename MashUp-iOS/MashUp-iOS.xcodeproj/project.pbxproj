@@ -106,6 +106,7 @@
 		CE7CCB9E2855FDEF005AA690 /* EventHookingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7CCB9D2855FDEF005AA690 /* EventHookingView.swift */; };
 		CE7CCBA02855FDF7005AA690 /* EventHookingStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7CCB9F2855FDF7005AA690 /* EventHookingStackView.swift */; };
 		CE7CCBA22855FE28005AA690 /* EventHookingDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7CCBA12855FE28005AA690 /* EventHookingDelegate.swift */; };
+		CE7CCBA42855FFA1005AA690 /* TermsAgreementReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7CCBA32855FFA1005AA690 /* TermsAgreementReactor.swift */; };
 		CE88D32827E5522B00865C02 /* QRSeminarCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE88D32727E5522B00865C02 /* QRSeminarCardView.swift */; };
 		CE900B7528462C5400FF9C4F /* PlatformTeamMenuViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE900B7428462C5400FF9C4F /* PlatformTeamMenuViewModel.swift */; };
 		CE900B7B2846542B00FF9C4F /* SignUpStep1ReactorSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE900B7A2846542B00FF9C4F /* SignUpStep1ReactorSpec.swift */; };
@@ -668,6 +669,7 @@
 		CE7CCB9D2855FDEF005AA690 /* EventHookingView.swift */ = {isa = PBXFileReference; indentWidth = 4; lastKnownFileType = sourcecode.swift; path = EventHookingView.swift; sourceTree = "<group>"; };
 		CE7CCB9F2855FDF7005AA690 /* EventHookingStackView.swift */ = {isa = PBXFileReference; indentWidth = 4; lastKnownFileType = sourcecode.swift; path = EventHookingStackView.swift; sourceTree = "<group>"; };
 		CE7CCBA12855FE28005AA690 /* EventHookingDelegate.swift */ = {isa = PBXFileReference; indentWidth = 4; lastKnownFileType = sourcecode.swift; path = EventHookingDelegate.swift; sourceTree = "<group>"; };
+		CE7CCBA32855FFA1005AA690 /* TermsAgreementReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsAgreementReactor.swift; sourceTree = "<group>"; };
 		CE88D32727E5522B00865C02 /* QRSeminarCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRSeminarCardView.swift; sourceTree = "<group>"; };
 		CE900B7128460F2800FF9C4F /* MUSelectControl.swift */ = {isa = PBXFileReference; indentWidth = 4; lastKnownFileType = sourcecode.swift; path = MUSelectControl.swift; sourceTree = "<group>"; };
 		CE900B7428462C5400FF9C4F /* PlatformTeamMenuViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlatformTeamMenuViewModel.swift; sourceTree = "<group>"; };
@@ -1153,6 +1155,7 @@
 			children = (
 				CE7CCB992855E566005AA690 /* View */,
 				CE6A96492853D66700F4C066 /* TermsAgreementPopupViewController.swift */,
+				CE7CCBA32855FFA1005AA690 /* TermsAgreementReactor.swift */,
 			);
 			path = "Terms Agreement Popup";
 			sourceTree = "<group>";
@@ -2243,6 +2246,7 @@
 				CE6EE86927CA5609005BF412 /* SeminarDetailViewController.swift in Sources */,
 				CE0F28492843EBA500C206EA /* VerificationService.swift in Sources */,
 				CE729A8127E57EC1001D33D1 /* AttendanceTimeline.swift in Sources */,
+				CE7CCBA42855FFA1005AA690 /* TermsAgreementReactor.swift in Sources */,
 				CE6EE86627CA495F005BF412 /* SeminarSchduleStep.swift in Sources */,
 				CEB60F4827A9746E001260DB /* QRReaderService.swift in Sources */,
 				CE729A8D27E60FD2001D33D1 /* QRScanFormatter.swift in Sources */,

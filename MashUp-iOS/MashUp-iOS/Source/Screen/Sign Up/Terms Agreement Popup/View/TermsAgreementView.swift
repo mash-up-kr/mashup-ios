@@ -15,8 +15,8 @@ import MashUp_Core
 import MashUp_UIKit
 
 @objc protocol TermsAgreementViewDelegate: AnyObject {
-    func termsAgreementView(_ view: TermsAgreementView, didTapContentArea currentTermsAgreement: Bool)
-    func termsAgreementView(_ view: TermsAgreementView, didTapSeeMoreButton currentTermsAgreement: Bool)
+    @objc optional func termsAgreementView(_ view: TermsAgreementView, didTapAcceptArea currentTermsAgreement: Bool)
+    @objc optional func termsAgreementView(_ view: TermsAgreementView, didTapSeeMoreButton currentTermsAgreement: Bool)
 }
 
 final class TermsAgreementView: BaseView {
@@ -105,16 +105,16 @@ extension TermsAgreementView {
     private func setupAction() {
         self.rx.tapGesture()
             .when(.recognized)
-            .withUnretained(self).debug("tapGesture")
+            .withUnretained(self)
             .subscribe(onNext: { owner, _ in
-                owner.delegate?.termsAgreementView(owner, didTapContentArea: owner.hasAgreed)
+                owner.delegate?.termsAgreementView?(owner, didTapAcceptArea: owner.hasAgreed)
             })
             .disposed(by: self.disposeBag)
         
         self.seeMoreButton.rx.tap
-            .withUnretained(self).debug("seeMoreButton")
+            .withUnretained(self)
             .subscribe(onNext: { owner, _ in
-                owner.delegate?.termsAgreementView(owner, didTapSeeMoreButton: owner.hasAgreed)
+                owner.delegate?.termsAgreementView?(owner, didTapSeeMoreButton: owner.hasAgreed)
             })
             .disposed(by: self.disposeBag)
     }

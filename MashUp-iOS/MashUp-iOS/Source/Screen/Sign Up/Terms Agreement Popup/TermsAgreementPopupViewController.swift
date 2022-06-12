@@ -8,10 +8,15 @@
 
 import UIKit
 import SnapKit
+import ReactorKit
 import MashUp_Core
 import MashUp_UIKit
 
-final class TermsAgreementPopupViewController: BaseViewController {
+final class TermsAgreementPopupViewController: BaseViewController, View {
+    
+    typealias Reactor = TermsAgreementReactor
+    
+    var disposeBag: DisposeBag = DisposeBag()
     
     override init(nibName: String?, bundle: Bundle?) {
         super.init(nibName: nil, bundle: nil)
@@ -33,6 +38,44 @@ final class TermsAgreementPopupViewController: BaseViewController {
         super.touchesBegan(touches, with: event)
         self.dismiss(animated: false)
     }
+    
+    func bind(reactor: Reactor) {
+        self.dispatch(to: reactor)
+        self.render(reactor)
+        self.consume(reactor)
+    }
+    
+    private func dispatch(to reactor: Reactor) {
+        self.termsAgreementView.rx.didTapAcceptArea
+            .map { _ in .didTapAcceptArea }
+            .bind(to: reactor.action)
+            .disposed(by: self.disposeBag)
+        
+        self.termsAgreementView.rx.didTapSeeMoreButton
+            .map { _ in .didTapSeeMore }
+            .bind(to: reactor.action)
+            .disposed(by: self.disposeBag)
+        
+        self.confirmButton.rx.tap
+            .map { .didTapConfirm }
+            .bind(to: reactor.action)
+            .disposed(by: self.disposeBag)
+    }
+    
+    private func render(_ reactor: Reactor) {
+        reactor.state.map { $0.hasAgreed }
+            .distinctUntilChanged()
+            .bind(to: self.termsAgreementView.rx.hasAgreed)
+            .disposed(by: self.disposeBag)
+        
+        reactor.state.map { $0.canDone }
+            .distinctUntilChanged()
+            .bind(to: self.confirmButton.rx.isEnabled)
+            .disposed(by: self.disposeBag)
+    }
+    
+    private func consume(_ reactor: Reactor) {}
+    
     
     func present(on viewController: UIViewController, completion: (() -> Void)? = nil)  {
         viewController.present(self, animated: false, completion: {

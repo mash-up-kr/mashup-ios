@@ -12,24 +12,33 @@ import RxCocoa
 
 extension Reactive where Base: TermsAgreementView {
     var delegate: DelegateProxy<TermsAgreementView, TermsAgreementViewDelegate> {
-        return TermsAgreementViewDelegateProxy(parentObject: self.base, delegateProxy: TermsAgreementViewDelegateProxy.self)
+        return TermsAgreementViewDelegateProxy.proxy(for: self.base)
     }
     
-    var didTapContentArea: Observable<Bool> {
-        self.delegate.methodInvoked(#selector(TermsAgreementViewDelegate.termsAgreementView(_:didTapContentArea:)))
+    var hasAgreed: Binder<Bool> {
+        return Binder(self.base, binding: { base, value in
+            base.hasAgreed = value
+        })
+    }
+    
+    var didTapAcceptArea: Observable<Bool> {
+        self.delegate.methodInvoked(#selector(TermsAgreementViewDelegate.termsAgreementView(_:didTapAcceptArea:)))
+            .debug("didTapAcceptArea")
             .compactMap { parameters in parameters[safe: 1] as? Bool }
     }
     
     var didTapSeeMoreButton: Observable<Bool> {
         self.delegate.methodInvoked(#selector(TermsAgreementViewDelegate.termsAgreementView(_:didTapSeeMoreButton:)))
+            .debug("didTapSeeMoreButton")
             .compactMap { parameters in parameters[safe: 1] as? Bool }
     }
+    
 }
 
-final class TermsAgreementViewDelegateProxy
-: DelegateProxy<TermsAgreementView, TermsAgreementViewDelegate>,
-  DelegateProxyType,
-  TermsAgreementViewDelegate
+final class TermsAgreementViewDelegateProxy:
+    DelegateProxy<TermsAgreementView, TermsAgreementViewDelegate>,
+    DelegateProxyType,
+    TermsAgreementViewDelegate
 {
     
     static func registerKnownImplementations() {
@@ -45,14 +54,6 @@ final class TermsAgreementViewDelegateProxy
     static func setCurrentDelegate(_ delegate: TermsAgreementViewDelegate?, to object: TermsAgreementView) {
         object.delegate = delegate
     }
-    
-    func termsAgreementView(_ view: TermsAgreementView, didTapContentArea currentTermsAgreement: Bool) {
-    }
-    
-    func termsAgreementView(_ view: TermsAgreementView, didTapSeeMoreButton currentTermsAgreement: Bool) {
-        
-    }
-    
     
 }
 

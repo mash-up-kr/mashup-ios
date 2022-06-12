@@ -188,13 +188,8 @@ extension SignInViewController {
     }
     
     private func pushSignUpViewController() {
-        let viewController = TermsAgreementPopupViewController()
-//        self.present(viewController, animated: false)
-        
-        viewController.present(on: self)
-        
-//        let viewController = self.createSignUpViewContorller()
-//        self.navigationController?.pushViewController(viewController, animated: true)
+        let viewController = self.createSignUpViewContorller()
+        self.navigationController?.pushViewController(viewController, animated: true)
     }
     
     private func createSignUpViewContorller() -> SignUpStep1ViewController {
