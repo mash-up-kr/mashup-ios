@@ -183,7 +183,7 @@ extension SignUpStep1ViewController {
             $0.contentInset = UIEdgeInsets(top: 12, left: 0, bottom: 0, right: 0)
         }
         self.containterView.do {
-            $0.backgroundColor = .red50
+            $0.backgroundColor = .red500
             $0.axis = .vertical
         }
         self.titleLabel.do {
@@ -208,7 +208,7 @@ extension SignUpStep1ViewController {
             $0.setTitle("다음", for: .normal)
         }
         self.keyboardFrameView.do {
-            $0.backgroundColor = .green50
+            $0.backgroundColor = .green500
         }
         Observable.merge(
             NotificationCenter.default.rx.notification(UIResponder.keyboardWillShowNotification),

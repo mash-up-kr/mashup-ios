@@ -72,7 +72,7 @@ final class PlatformAttendanceCell: BaseCollectionViewCell {
     }
     
     private func updateAttendLabel(attend: Int, total: Int) {
-        attendanceCountLabel.textColor = attend == 0 ? .gray300 : .green50
+        attendanceCountLabel.textColor = attend == 0 ? .gray300 : .green500
         attendanceCountLabel.text = "\(attend)"
         attendanceTotalCountLabel.text = "/\(total)"
     }

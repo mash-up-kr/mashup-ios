@@ -42,7 +42,7 @@ extension MUTextFieldStyle {
             self.assistiveFont = .pretendardFont(weight: .regular, size: 12)
             self.trailingIconImage = nil
         case .focus:
-            self.borderColor = .primary50
+            self.borderColor = .primary500
             self.textColor = .gray800
             self.textFont = .pretendardFont(weight: .medium, size: 20)
             self.placeholderColor = .gray600
@@ -60,17 +60,17 @@ extension MUTextFieldStyle {
             self.assistiveFont = .pretendardFont(weight: .regular, size: 12)
             
             #warning("Image 정의되면 수정해야합니다. - Booung")
-            self.trailingIconImage = UIImage(systemName: "checkmark")?.withTintColor(.green50)
+            self.trailingIconImage = UIImage(systemName: "checkmark")?.withTintColor(.green500)
         case .invaild:
-            self.borderColor = .red50
+            self.borderColor = .red500
             self.textColor = .gray800
             self.textFont = .pretendardFont(weight: .medium, size: 20)
-            self.placeholderColor = .red50
+            self.placeholderColor = .red500
             self.placeholderFont = .pretendardFont(weight: .medium, size: 13)
-            self.assistiveTextColor = .red50
+            self.assistiveTextColor = .red500
             self.assistiveFont = .pretendardFont(weight: .regular, size: 12)
 #warning("Image 정의되면 수정해야합니다. - Booung")
-            self.trailingIconImage = UIImage(systemName: "exclamationmark.circle")?.withTintColor(.red50)
+            self.trailingIconImage = UIImage(systemName: "exclamationmark.circle")?.withTintColor(.red500)
         case .disable:
             self.borderColor = .gray300.withAlphaComponent(0.3)
             self.textColor = .gray800

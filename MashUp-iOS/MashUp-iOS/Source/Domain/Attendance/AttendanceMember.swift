@@ -11,32 +11,63 @@ import MashUp_PlatformTeam
 
 struct AttendanceMember: Equatable {
     let name: String
-    let platform: PlatformTeam
-    let firstSeminarAttendance: AttendanceStyle
-    let firstSeminarAttendanceTime: Date?
-    let secondSeminarAttendance: AttendanceStyle
-    let secondSeminarAttendanceTime: Date?
+    let firstSeminarAttendance: AttendanceStatus?
+    let firstSeminarAttendanceTimeStamp: String?
+    let secondSeminarAttendance: AttendanceStatus?
+    let secondSeminarAttendanceTimeStamp: String?
 }
 
 extension AttendanceMember {
     static let dummy: [AttendanceMember] = [
         AttendanceMember(name: "김남수",
-                         platform: .iOS,
                          firstSeminarAttendance: .attend,
-                         firstSeminarAttendanceTime: Date(),
+                         firstSeminarAttendanceTimeStamp: "13: 00",
                          secondSeminarAttendance: .attend,
-                         secondSeminarAttendanceTime: Date()),
-        AttendanceMember(name: "김남수1",
-                         platform: .iOS,
+                         secondSeminarAttendanceTimeStamp: "13: 30"),
+        AttendanceMember(name: "김남수남",
                          firstSeminarAttendance: .lateness,
-                         firstSeminarAttendanceTime: Date().addingTimeInterval(10000),
+                         firstSeminarAttendanceTimeStamp: "13: 30",
                          secondSeminarAttendance: .attend,
-                         secondSeminarAttendanceTime: Date().addingTimeInterval(16000)),
-        AttendanceMember(name: "김남수2",
-                         platform: .android,
+                         secondSeminarAttendanceTimeStamp: "13: 50"),
+        AttendanceMember(name: "남수남수김",
                          firstSeminarAttendance: .attend,
-                         firstSeminarAttendanceTime: Date(),
+                         firstSeminarAttendanceTimeStamp: "12: 00",
                          secondSeminarAttendance: .absence,
-                         secondSeminarAttendanceTime: Date()),
+                         secondSeminarAttendanceTimeStamp: nil),
     ]
+    
+    /// 출석 2개 = 출석
+    /// 불참 1개이상포함 = 불참
+    /// 지각 1개이상이면 = 지각
+    var finalSeminarAttendance: AttendanceStatus? {
+        var attendCount = 0
+        var lateCount = 0
+        var absenceCount = 0
+        guard let firstSeminarAttendance = firstSeminarAttendance,
+              let secondSeminarAttendance = secondSeminarAttendance else {
+            return nil
+        }
+        switch firstSeminarAttendance {
+        case .attend: attendCount += 1
+        case .lateness: lateCount += 1
+        case .absence: absenceCount += 1
+        }
+        
+        switch secondSeminarAttendance {
+        case .attend: attendCount += 1
+        case .lateness: lateCount += 1
+        case .absence: absenceCount += 1
+        }
+        
+        if attendCount == 2 {
+            return .attend
+        }
+        if absenceCount >= 1 {
+            return .absence
+        }
+        if lateCount >= 1 {
+            return .lateness
+        }
+        return nil
+    }
 }
