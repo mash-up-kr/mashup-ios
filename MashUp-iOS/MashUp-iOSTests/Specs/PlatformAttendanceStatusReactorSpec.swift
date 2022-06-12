@@ -21,7 +21,7 @@ final class PlatformAttendanceStatusReactorSpec: QuickSpec {
     describe("PlatformAttendanceStatusReactor 로직") {
       beforeEach {
         let repository = mock(PlatformRepository.self)
-        given(repository.attendanceStatus()).willReturn(.just(PlatformAttendanceStatusReactorSpec.platformDummy))
+        given(repository.attendanceStatus()).willReturn(.just(PlatformAttendanceStatusReactorSpec.mockPlatformAttendance))
         platformService = PlatformServiceImpl(repository: repository)
         sut = PlatformAttendanceStatusReactor(platformService: platformService)
       }
@@ -50,7 +50,11 @@ final class PlatformAttendanceStatusReactorSpec: QuickSpec {
           verify(platformService.attendanceStatus()).wasCalled()
         }
         it("플랫폼 리스트 가져옴") {
-          expect { sut.currentState.platformsAttendance }.to(equal(PlatformAttendanceStatusReactorSpec.platformDummy))
+          expect { sut.currentState.platformsAttendance }.to(equal(PlatformAttendanceStatusReactorSpec.mockPlatformAttendance.platformAttendanceInformations))
+        }
+        it("출석진행중 상태가 mock과 일치한다") {
+          let isAttending = PlatformAttendanceStatusReactorSpec.mockPlatformAttendance.isAttending
+          expect { sut.currentState.isAttending == isAttending }.to(beTrue())
         }
       }
     }
@@ -58,9 +62,11 @@ final class PlatformAttendanceStatusReactorSpec: QuickSpec {
 }
 
 extension PlatformAttendanceStatusReactorSpec {
-  fileprivate static let platformDummy: [PlatformAttendance]
-  = [PlatformAttendance(platform: .iOS,
-                        numberOfAttend: 10,
-                        numberOfLateness: 0,
-                        numberOfAbsence: 1)]
+    fileprivate static var mockPlatformAttendance: PlatformAttendance {
+        let informations: [PlatformAttendanceInformation]
+        = [.init(platform: .iOS, numberOfAttend: 0, numberOfLateness: 10, numberOfAbsence: 2),
+           .init(platform: .android, numberOfAttend: 5, numberOfLateness: 10, numberOfAbsence: 2),
+           .init(platform: .design, numberOfAttend: 10, numberOfLateness: 10, numberOfAbsence: 20)]
+        return .init(platformAttendanceInformations: informations, isAttending: true)
+    }
 }
