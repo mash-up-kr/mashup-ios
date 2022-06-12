@@ -6,10 +6,10 @@
 //  Copyright © 2022 Mash Up Corp. All rights reserved.
 //
 
-import Foundation
+import UIKit
+import SnapKit
 import MashUp_Core
 import MashUp_UIKit
-import UIKit
 
 final class TermsAgreementPopupViewController: BaseViewController {
     
@@ -29,6 +29,41 @@ final class TermsAgreementPopupViewController: BaseViewController {
         self.setupLayout()
     }
     
+    public override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesBegan(touches, with: event)
+        self.dismiss(animated: false)
+    }
+    
+    func present(on viewController: UIViewController, completion: (() -> Void)? = nil)  {
+        viewController.present(self, animated: false, completion: {
+            self.slideUp(completion: completion)
+        })
+    }
+    
+    override func dismiss(animated flag: Bool, completion: (() -> Void)? = nil) {
+        self.slideDown(completion: {
+            super.dismiss(animated: flag, completion: completion)
+        })
+    }
+    
+    private func slideUp(completion: (() -> Void)? = nil) {
+        self.popupConstraint?.update(offset: 0)
+        UIView.animate(
+            withDuration: 0.3,
+            animations: { self.view.layoutIfNeeded() },
+            completion: { _ in completion?() }
+        )
+    }
+    
+    private func slideDown(completion: (() -> Void)? = nil) {
+        self.popupConstraint?.update(offset: 500)
+        UIView.animate(
+            withDuration: 0.3,
+            animations: { self.view.layoutIfNeeded() },
+            completion: { _ in completion?() }
+        )
+    }
+    
     private let popupContentView = UIStackView()
     private let topBarView = UIView()
     private let titleLabel = UILabel()
@@ -36,7 +71,7 @@ final class TermsAgreementPopupViewController: BaseViewController {
     private let separatorView = UIView()
     private let termsAgreementView = TermsAgreementView()
     private let confirmButton = MUButton()
-    
+    private var popupConstraint: Constraint?
 }
 extension TermsAgreementPopupViewController {
     
@@ -73,7 +108,8 @@ extension TermsAgreementPopupViewController {
     private func setupLayout() {
         self.view.addSubview(self.popupContentView)
         self.popupContentView.snp.makeConstraints {
-            $0.leading.trailing.bottom.equalToSuperview()
+            $0.leading.trailing.equalToSuperview()
+            self.popupConstraint = $0.bottom.equalToSuperview().offset(500).constraint
         }
         self.popupContentView.addArrangedSubview(self.topBarView)
         self.topBarView.snp.makeConstraints {
@@ -104,9 +140,10 @@ extension TermsAgreementPopupViewController {
         self.popupContentView.addArrangedSubview(confirmButtonContainerView)
         confirmButtonContainerView.addSubview(self.confirmButton)
         self.confirmButton.snp.makeConstraints {
+            $0.top.equalToSuperview().inset(36)
             $0.height.equalTo(52)
             $0.leading.trailing.equalToSuperview().inset(20)
-            $0.top.bottom.equalToSuperview()
+            $0.bottom.equalToSuperview()
         }
         let safeAreaButtomView = UIView()
         safeAreaButtomView.snp.makeConstraints {

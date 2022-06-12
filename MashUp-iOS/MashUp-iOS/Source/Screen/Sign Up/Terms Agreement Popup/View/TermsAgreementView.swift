@@ -14,7 +14,7 @@ import RxCocoa
 import MashUp_Core
 import MashUp_UIKit
 
-protocol TermsAgreementViewDelegate: AnyObject {
+@objc protocol TermsAgreementViewDelegate: AnyObject {
     func termsAgreementView(_ view: TermsAgreementView, didTapContentArea currentTermsAgreement: Bool)
     func termsAgreementView(_ view: TermsAgreementView, didTapSeeMoreButton currentTermsAgreement: Bool)
 }
@@ -47,6 +47,7 @@ final class TermsAgreementView: BaseView {
     private let checkImageView = UIImageView()
     private let checkBackgroundView = UIView()
     private let seeMoreButton = UIButton()
+    
 }
 extension TermsAgreementView {
     
