@@ -35,6 +35,7 @@ final class PlatformAttendanceDetailViewController: BaseViewController, ReactorK
     
     func bind(reactor: PlatformAttendanceDetailReactor) {
         reactor.state.map { $0.members }
+            .distinctUntilChanged()
             .bind(to: memeberCollectionView.rx.items(cellIdentifier: AttendanceDetailCell.reuseIdentifier,
                                                      cellType: AttendanceDetailCell.self)) { item, model, cell in
                 cell.configure(model: model)
@@ -42,6 +43,7 @@ final class PlatformAttendanceDetailViewController: BaseViewController, ReactorK
             .disposed(by: disposeBag)
      
         reactor.state.map { $0.navigationTitle }
+            .distinctUntilChanged()
             .bind(to: navigationBar.rx.title)
             .disposed(by: disposeBag)
         

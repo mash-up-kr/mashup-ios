@@ -31,11 +31,13 @@ final class AttendanceMemberSpec: QuickSpec {
         }
       }
       
+      var firstAttendance: AttendanceStatus!
       context("1부가 🟢출석") {
+        beforeEach { firstAttendance = .attend }
         context("2부가 🟢출석") {
           beforeEach {
             sut = AttendanceMember(name: "김남수",
-                                   firstSeminarAttendance: .attend,
+                                   firstSeminarAttendance: firstAttendance,
                                    firstSeminarAttendanceTimeStamp: "12:00",
                                    secondSeminarAttendance: .attend,
                                    secondSeminarAttendanceTimeStamp: "13:00")
@@ -48,7 +50,7 @@ final class AttendanceMemberSpec: QuickSpec {
         context("2부가 🟡지각") {
           beforeEach {
             sut = AttendanceMember(name: "김남수",
-                                   firstSeminarAttendance: .attend,
+                                   firstSeminarAttendance: firstAttendance,
                                    firstSeminarAttendanceTimeStamp: "12:00",
                                    secondSeminarAttendance: .lateness,
                                    secondSeminarAttendanceTimeStamp: "13:00")
@@ -61,7 +63,7 @@ final class AttendanceMemberSpec: QuickSpec {
         context("2부가 🔴결석") {
           beforeEach {
             sut = AttendanceMember(name: "김남수",
-                                   firstSeminarAttendance: .attend,
+                                   firstSeminarAttendance: firstAttendance,
                                    firstSeminarAttendanceTimeStamp: "12:00",
                                    secondSeminarAttendance: .absence,
                                    secondSeminarAttendanceTimeStamp: nil)
@@ -73,10 +75,11 @@ final class AttendanceMemberSpec: QuickSpec {
       }
       
       context("1부가 🟡지각") {
+        beforeEach { firstAttendance = .lateness }
         context("2부가 🟢출석") {
           beforeEach {
             sut = AttendanceMember(name: "김남수",
-                                   firstSeminarAttendance: .lateness,
+                                   firstSeminarAttendance: firstAttendance,
                                    firstSeminarAttendanceTimeStamp: "12:00",
                                    secondSeminarAttendance: .attend,
                                    secondSeminarAttendanceTimeStamp: "13:00")
@@ -89,7 +92,7 @@ final class AttendanceMemberSpec: QuickSpec {
         context("2부가 🟡지각") {
           beforeEach {
             sut = AttendanceMember(name: "김남수",
-                                   firstSeminarAttendance: .lateness,
+                                   firstSeminarAttendance: firstAttendance,
                                    firstSeminarAttendanceTimeStamp: "12:00",
                                    secondSeminarAttendance: .lateness,
                                    secondSeminarAttendanceTimeStamp: "13:00")
@@ -102,7 +105,7 @@ final class AttendanceMemberSpec: QuickSpec {
         context("2부가 🔴결석") {
           beforeEach {
             sut = AttendanceMember(name: "김남수",
-                                   firstSeminarAttendance: .lateness,
+                                   firstSeminarAttendance: firstAttendance,
                                    firstSeminarAttendanceTimeStamp: "12:00",
                                    secondSeminarAttendance: .absence,
                                    secondSeminarAttendanceTimeStamp: nil)
@@ -114,10 +117,11 @@ final class AttendanceMemberSpec: QuickSpec {
       }
       
       context("1부가 🔴결석") {
+        beforeEach { firstAttendance = .absence }
         context("2부가 🟢출석") {
           beforeEach {
             sut = AttendanceMember(name: "김남수",
-                                   firstSeminarAttendance: .absence,
+                                   firstSeminarAttendance: firstAttendance,
                                    firstSeminarAttendanceTimeStamp: nil,
                                    secondSeminarAttendance: .attend,
                                    secondSeminarAttendanceTimeStamp: "13:00")
@@ -130,7 +134,7 @@ final class AttendanceMemberSpec: QuickSpec {
         context("2부가 🟡지각") {
           beforeEach {
             sut = AttendanceMember(name: "김남수",
-                                   firstSeminarAttendance: .absence,
+                                   firstSeminarAttendance: firstAttendance,
                                    firstSeminarAttendanceTimeStamp: nil,
                                    secondSeminarAttendance: .lateness,
                                    secondSeminarAttendanceTimeStamp: "13:00")
@@ -143,7 +147,7 @@ final class AttendanceMemberSpec: QuickSpec {
         context("2부가 🔴결석") {
           beforeEach {
             sut = AttendanceMember(name: "김남수",
-                                   firstSeminarAttendance: .absence,
+                                   firstSeminarAttendance: firstAttendance,
                                    firstSeminarAttendanceTimeStamp: nil,
                                    secondSeminarAttendance: .absence,
                                    secondSeminarAttendanceTimeStamp: nil)

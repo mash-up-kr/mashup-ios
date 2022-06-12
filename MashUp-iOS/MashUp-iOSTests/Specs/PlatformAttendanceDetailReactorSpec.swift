@@ -34,7 +34,7 @@ final class PlatformAttendanceDetailReactorSpec: QuickSpec {
         it("멤버리스트가 나타난다") {
           expect { sut.currentState.members == AttendanceMember.dummy }.to(beTrue())
         }
-        it("네비게이션바타이틀 iOS(3명)이다") {
+        it("네비게이션바타이틀 iOS(N명)이다") {
           expect { sut.currentState.navigationTitle == "iOS(\(AttendanceMember.dummy.count)명)" }.to(beTrue())
         }
       }
