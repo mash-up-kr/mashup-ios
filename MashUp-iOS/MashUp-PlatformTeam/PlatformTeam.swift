@@ -6,8 +6,6 @@
 //  Copyright © 2022 Mash Up Corp. All rights reserved.
 //
 
-import Foundation
-
 public enum PlatformTeam: Equatable, CaseIterable {
     case design
     case android

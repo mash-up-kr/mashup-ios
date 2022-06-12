@@ -15,10 +15,15 @@
 		0642C94A285332F000B9F575 /* UIView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0642C949285332F000B9F575 /* UIView+.swift */; };
 		06531C18283F59FF00E225EB /* PlatformAttendanceStatusReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06531C17283F59FF00E225EB /* PlatformAttendanceStatusReactor.swift */; };
 		06531C1C283F5E2200E225EB /* PlatformAttendanceStatusReactorSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06531C1B283F5E2200E225EB /* PlatformAttendanceStatusReactorSpec.swift */; };
+		06531C272840B4CF00E225EB /* PlatformStatusViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06531C262840B4CE00E225EB /* PlatformStatusViewController.swift */; };
+		06531C292840BF9800E225EB /* AttendanceStatusRectangleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06531C282840BF9800E225EB /* AttendanceStatusRectangleView.swift */; };
+		06531C2B2840BFAA00E225EB /* AttendanceStatusRectangleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06531C2A2840BFAA00E225EB /* AttendanceStatusRectangleViewModel.swift */; };
 		06531C302840C39600E225EB /* Pretendard-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 06531C2C2840C39500E225EB /* Pretendard-Medium.otf */; };
 		06531C312840C39600E225EB /* Pretendard-SemiBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 06531C2D2840C39600E225EB /* Pretendard-SemiBold.otf */; };
 		06531C322840C39600E225EB /* Pretendard-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 06531C2E2840C39600E225EB /* Pretendard-Regular.otf */; };
 		06531C382840C7C500E225EB /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 06531C372840C7C500E225EB /* Colors.xcassets */; };
+		0688CB42284B223B00338A5C /* PlatformTeam+Presentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0688CB41284B223B00338A5C /* PlatformTeam+Presentation.swift */; };
+		0688CB44284E255800338A5C /* PlatformAttendanceHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0688CB43284E255800338A5C /* PlatformAttendanceHeaderView.swift */; };
 		07900EC9117FCF2FA8E23F03 /* MashUp_iOSTests-MashUp_PlatformTeamMocks.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF06792B8FCEDBC254B599C /* MashUp_iOSTests-MashUp_PlatformTeamMocks.generated.swift */; };
 		8150A263D51AF35ED7C1F753 /* MashUp_iOSTests-MashUp_UIKitMocks.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50AEB9142054CE6C0E1FC59A /* MashUp_iOSTests-MashUp_UIKitMocks.generated.swift */; };
 		83BBB1B66AFB5F2C4E95E49C /* MashUp_iOSTests-MashUp_iOSMocks.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 093B68049842CE18EA5AAB9B /* MashUp_iOSTests-MashUp_iOSMocks.generated.swift */; };
@@ -104,6 +109,7 @@
 		CE9BE08C28478EE8006691F0 /* MashUp_Core.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = CE9C1D9428467E500020FBCE /* MashUp_Core.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		CE9BE08E28478FCF006691F0 /* MashUp_Network.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEBAC7642847670400ABCC36 /* MashUp_Network.framework */; };
 		CE9BE08F28478FCF006691F0 /* MashUp_Network.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = CEBAC7642847670400ABCC36 /* MashUp_Network.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		CE9BE0952848CF5E006691F0 /* PlatformAttendanceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06531C222840A02C00E225EB /* PlatformAttendanceCell.swift */; };
 		CE9BE0972848D1BC006691F0 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9BE0962848D1BC006691F0 /* NetworkError.swift */; };
 		CE9BE0992848D1DB006691F0 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9BE0982848D1DB006691F0 /* Network.swift */; };
 		CE9BE1092848E9E2006691F0 /* MashUpAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE9BE1062848E9E1006691F0 /* MashUpAPI.swift */; };
@@ -548,6 +554,10 @@
 		06531C1B283F5E2200E225EB /* PlatformAttendanceStatusReactorSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlatformAttendanceStatusReactorSpec.swift; sourceTree = "<group>"; };
 		06531C1D283F6B1600E225EB /* PlatformRepository.swift */ = {isa = PBXFileReference; indentWidth = 4; lastKnownFileType = sourcecode.swift; path = PlatformRepository.swift; sourceTree = "<group>"; };
 		06531C1F283F737100E225EB /* PlatformService.swift */ = {isa = PBXFileReference; indentWidth = 4; lastKnownFileType = sourcecode.swift; path = PlatformService.swift; sourceTree = "<group>"; };
+		06531C222840A02C00E225EB /* PlatformAttendanceCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlatformAttendanceCell.swift; sourceTree = "<group>"; };
+		06531C262840B4CE00E225EB /* PlatformStatusViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlatformStatusViewController.swift; sourceTree = "<group>"; };
+		06531C282840BF9800E225EB /* AttendanceStatusRectangleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttendanceStatusRectangleView.swift; sourceTree = "<group>"; };
+		06531C2A2840BFAA00E225EB /* AttendanceStatusRectangleViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttendanceStatusRectangleViewModel.swift; sourceTree = "<group>"; };
 		06531C2C2840C39500E225EB /* Pretendard-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Medium.otf"; sourceTree = "<group>"; };
 		06531C2D2840C39600E225EB /* Pretendard-SemiBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-SemiBold.otf"; sourceTree = "<group>"; };
 		06531C2E2840C39600E225EB /* Pretendard-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Regular.otf"; sourceTree = "<group>"; };
@@ -555,6 +565,8 @@
 		06531C352840C43700E225EB /* UIFont+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+.swift"; sourceTree = "<group>"; };
 		06531C372840C7C500E225EB /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		06531C392840C96000E225EB /* UIColor+.swift */ = {isa = PBXFileReference; indentWidth = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+.swift"; sourceTree = "<group>"; };
+		0688CB41284B223B00338A5C /* PlatformTeam+Presentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PlatformTeam+Presentation.swift"; sourceTree = "<group>"; };
+		0688CB43284E255800338A5C /* PlatformAttendanceHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlatformAttendanceHeaderView.swift; sourceTree = "<group>"; };
 		093B68049842CE18EA5AAB9B /* MashUp_iOSTests-MashUp_iOSMocks.generated.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; name = "MashUp_iOSTests-MashUp_iOSMocks.generated.swift"; path = "MockingbirdMocks/MashUp_iOSTests-MashUp_iOSMocks.generated.swift"; sourceTree = "<group>"; };
 		0FF06792B8FCEDBC254B599C /* MashUp_iOSTests-MashUp_PlatformTeamMocks.generated.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; name = "MashUp_iOSTests-MashUp_PlatformTeamMocks.generated.swift"; path = "MockingbirdMocks/MashUp_iOSTests-MashUp_PlatformTeamMocks.generated.swift"; sourceTree = "<group>"; };
 		1345AE365F8570B51C4B2A6E /* MashUp_iOSTests-MashUp_CoreMocks.generated.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; name = "MashUp_iOSTests-MashUp_CoreMocks.generated.swift"; path = "MockingbirdMocks/MashUp_iOSTests-MashUp_CoreMocks.generated.swift"; sourceTree = "<group>"; };
@@ -875,9 +887,23 @@
 		06531C16283F58F100E225EB /* PlatformAttendanceStatus */ = {
 			isa = PBXGroup;
 			children = (
+				0688CB40284B221200338A5C /* Extension */,
 				06531C17283F59FF00E225EB /* PlatformAttendanceStatusReactor.swift */,
+				06531C262840B4CE00E225EB /* PlatformStatusViewController.swift */,
+				06531C2128409F5F00E225EB /* View */,
 			);
 			path = PlatformAttendanceStatus;
+			sourceTree = "<group>";
+		};
+		06531C2128409F5F00E225EB /* View */ = {
+			isa = PBXGroup;
+			children = (
+				06531C282840BF9800E225EB /* AttendanceStatusRectangleView.swift */,
+				06531C2A2840BFAA00E225EB /* AttendanceStatusRectangleViewModel.swift */,
+				06531C222840A02C00E225EB /* PlatformAttendanceCell.swift */,
+				0688CB43284E255800338A5C /* PlatformAttendanceHeaderView.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		06531C342840C39800E225EB /* Font */ = {
@@ -889,6 +915,14 @@
 				06531C2D2840C39600E225EB /* Pretendard-SemiBold.otf */,
 			);
 			path = Font;
+			sourceTree = "<group>";
+		};
+		0688CB40284B221200338A5C /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				0688CB41284B223B00338A5C /* PlatformTeam+Presentation.swift */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 		1C34724CEBE3A5751405B00D /* Generated Mocks */ = {
@@ -2097,12 +2131,15 @@
 				CE729A7D27E577B7001D33D1 /* TimerService.swift in Sources */,
 				CE6EE83A27C7E2DE005BF412 /* SplashViewController.swift in Sources */,
 				CEB60F4527A97163001260DB /* main.swift in Sources */,
+				CE9BE0952848CF5E006691F0 /* PlatformAttendanceCell.swift in Sources */,
 				CE12DA5627E629D700F08629 /* PartialAttendanceViewModel.swift in Sources */,
 				CE6EE83F27C7EFF9005BF412 /* HomeReactor.swift in Sources */,
 				CE900B7528462C5400FF9C4F /* PlatformTeamMenuViewModel.swift in Sources */,
 				CE6EE87327CA7482005BF412 /* AttendanceStatus.swift in Sources */,
 				CE729A8B27E60D49001D33D1 /* SeminarSchedulerFormatter.swift in Sources */,
 				CEB60F4B27A975AD001260DB /* QRScanViewController.swift in Sources */,
+				0688CB42284B223B00338A5C /* PlatformTeam+Presentation.swift in Sources */,
+				06531C272840B4CF00E225EB /* PlatformStatusViewController.swift in Sources */,
 				CE6EE88627CA91ED005BF412 /* SeminarHeaderView.swift in Sources */,
 				CE6EE83227C7D948005BF412 /* RootStep.swift in Sources */,
 				CEB60F7427A9BDF4001260DB /* QRScanReactor.swift in Sources */,
@@ -2126,12 +2163,16 @@
 				CE6EE84127C7F130005BF412 /* HomeTab.swift in Sources */,
 				CE6EE82C27C7D8F8005BF412 /* RootController.swift in Sources */,
 				0618444227E1D2DD004980CC /* SeminarDetailReactor.swift in Sources */,
+				0688CB44284E255800338A5C /* PlatformAttendanceHeaderView.swift in Sources */,
 				CE6EE82E27C7D900005BF412 /* RootReactor.swift in Sources */,
 				0618444627E30642004980CC /* PlatformCellModel.swift in Sources */,
 				CE6EE85D27CA4136005BF412 /* Seminar.swift in Sources */,
 				CE12DA5827E629FE00F08629 /* QRSeminarCardViewModel.swift in Sources */,
+				CE0F283E2843B81300C206EA /* SignUpViewController.swift in Sources */,
+				06531C2B2840BFAA00E225EB /* AttendanceStatusRectangleViewModel.swift in Sources */,
 				CE0F283E2843B81300C206EA /* SignUpStep1ViewController.swift in Sources */,
 				CE6EE83D27C7EFB9005BF412 /* HomeTabBarController.swift in Sources */,
+				06531C292840BF9800E225EB /* AttendanceStatusRectangleView.swift in Sources */,
 				CE6EE87127CA73B7005BF412 /* SeminarCardCell.swift in Sources */,
 				CE6EE87A27CA89F3005BF412 /* SeminarCardCellModel.swift in Sources */,
 				CE729A8327E57FCD001D33D1 /* FakeAttendanceTimelineRepository.swift in Sources */,

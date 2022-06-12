@@ -11,7 +11,7 @@ import RxSwift
 
 public protocol PlatformService {
     func allPlatformTeams() -> Observable<[PlatformTeam]>
-    func attendanceStatus() -> Observable<[PlatformAttendance]>
+    func attendanceStatus() -> Observable<PlatformAttendance>
 }
 
 final public class PlatformServiceImpl: PlatformService {
@@ -24,7 +24,7 @@ final public class PlatformServiceImpl: PlatformService {
         return repository.allPlatformTeams()
     }
     
-    public func attendanceStatus() -> Observable<[PlatformAttendance]> {
+    public func attendanceStatus() -> Observable<PlatformAttendance> {
         return repository.attendanceStatus()
     }
     
