@@ -101,6 +101,7 @@
 		CE729A8B27E60D49001D33D1 /* SeminarSchedulerFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE729A8A27E60D49001D33D1 /* SeminarSchedulerFormatter.swift */; };
 		CE729A8D27E60FD2001D33D1 /* QRScanFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE729A8C27E60FD2001D33D1 /* QRScanFormatter.swift */; };
 		CE729A8F27E61766001D33D1 /* PartialAttendanceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE729A8E27E61766001D33D1 /* PartialAttendanceView.swift */; };
+		CE7CCB982855DB82005AA690 /* TermsAgreementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7CCB972855DB82005AA690 /* TermsAgreementView.swift */; };
 		CE88D32827E5522B00865C02 /* QRSeminarCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE88D32727E5522B00865C02 /* QRSeminarCardView.swift */; };
 		CE900B7528462C5400FF9C4F /* PlatformTeamMenuViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE900B7428462C5400FF9C4F /* PlatformTeamMenuViewModel.swift */; };
 		CE900B7B2846542B00FF9C4F /* SignUpStep1ReactorSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE900B7A2846542B00FF9C4F /* SignUpStep1ReactorSpec.swift */; };
@@ -658,6 +659,7 @@
 		CE729A8A27E60D49001D33D1 /* SeminarSchedulerFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeminarSchedulerFormatter.swift; sourceTree = "<group>"; };
 		CE729A8C27E60FD2001D33D1 /* QRScanFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRScanFormatter.swift; sourceTree = "<group>"; };
 		CE729A8E27E61766001D33D1 /* PartialAttendanceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartialAttendanceView.swift; sourceTree = "<group>"; };
+		CE7CCB972855DB82005AA690 /* TermsAgreementView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsAgreementView.swift; sourceTree = "<group>"; };
 		CE88D32727E5522B00865C02 /* QRSeminarCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRSeminarCardView.swift; sourceTree = "<group>"; };
 		CE900B7128460F2800FF9C4F /* MUSelectControl.swift */ = {isa = PBXFileReference; indentWidth = 4; lastKnownFileType = sourcecode.swift; path = MUSelectControl.swift; sourceTree = "<group>"; };
 		CE900B7428462C5400FF9C4F /* PlatformTeamMenuViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlatformTeamMenuViewModel.swift; sourceTree = "<group>"; };
@@ -1142,6 +1144,7 @@
 			isa = PBXGroup;
 			children = (
 				CE6A96492853D66700F4C066 /* TermsAgreementPopupViewController.swift */,
+				CE7CCB972855DB82005AA690 /* TermsAgreementView.swift */,
 			);
 			path = "Terms Agreement Popup";
 			sourceTree = "<group>";
@@ -2197,6 +2200,7 @@
 				CE6EE85D27CA4136005BF412 /* Seminar.swift in Sources */,
 				CE12DA5827E629FE00F08629 /* QRSeminarCardViewModel.swift in Sources */,
 				CE0F283E2843B81300C206EA /* SignUpStep1ViewController.swift in Sources */,
+				CE7CCB982855DB82005AA690 /* TermsAgreementView.swift in Sources */,
 				CE6EE83D27C7EFB9005BF412 /* HomeTabBarController.swift in Sources */,
 				CE6EE87127CA73B7005BF412 /* SeminarCardCell.swift in Sources */,
 				CE6EE87A27CA89F3005BF412 /* SeminarCardCellModel.swift in Sources */,
