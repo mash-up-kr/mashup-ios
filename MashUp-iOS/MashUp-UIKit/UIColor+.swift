@@ -20,10 +20,21 @@ extension UIColor {
     public static let gray800 = UIColor(named: "gray800")!
     public static let gray900 = UIColor(named: "gray900")!
     
-    public static let primary = UIColor(named: "primary")!
+    public static let primary100 = UIColor(named: "primary100")!
+    public static let primary500 = UIColor(named: "primary500")!
+    public static let primary600 = UIColor(named: "primary600")!
     
-    #warning("Color 정의되면 수정해야합니다. - Booung")
-    public static let red700 = UIColor(named: "red700")!
+    public static let red100 = UIColor(named: "red100")!
+    public static let red500 = UIColor(named: "red500")!
+    public static let red600 = UIColor(named: "red600")!
     
-    public static let green700 = UIColor(named: "green700")!
+    public static let green100 = UIColor(named: "green100")!
+    public static let green500 = UIColor(named: "green500")!
+    public static let green600 = UIColor(named: "green600")!
+    
+    public static let yellow100 = UIColor(named: "yellow100")!
+    public static let yellow500 = UIColor(named: "yellow500")!
+    public static let yellow600 = UIColor(named: "yellow600")!
+    
+    public static let blue500 = UIColor(named: "blue500")!
 }

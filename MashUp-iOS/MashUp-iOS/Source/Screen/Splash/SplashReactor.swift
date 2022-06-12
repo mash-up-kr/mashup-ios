@@ -8,11 +8,8 @@
 
 import Foundation
 import ReactorKit
-
-protocol AuthenticationResponder {
-    func loadSuccess(userSession: UserSession)
-    func loadFailure()
-}
+import MashUp_Auth
+import MashUp_User
 
 final class SplashReactor: Reactor {
     

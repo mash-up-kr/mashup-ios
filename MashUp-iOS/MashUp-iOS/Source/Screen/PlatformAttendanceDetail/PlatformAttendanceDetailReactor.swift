@@ -8,6 +8,7 @@
 
 import Foundation
 import ReactorKit
+import MashUp_PlatformTeam
 
 final class PlatformAttendanceDetailReactor: Reactor {
     enum Action {

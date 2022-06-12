@@ -8,6 +8,7 @@
 
 import Foundation
 import RxSwift
+import MashUp_PlatformTeam
 
 protocol AttendanceService {
     func attend(withCode code: Code) -> Observable<Bool>
