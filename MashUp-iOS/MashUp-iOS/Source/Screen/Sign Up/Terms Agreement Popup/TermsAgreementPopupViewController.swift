@@ -64,7 +64,7 @@ final class TermsAgreementPopupViewController: BaseViewController {
         )
     }
     
-    private let popupContentView = UIStackView()
+    private let popupContentView = EventHookingStackView()
     private let topBarView = UIView()
     private let titleLabel = UILabel()
     private let closeButton = UIButton()
@@ -72,6 +72,7 @@ final class TermsAgreementPopupViewController: BaseViewController {
     private let termsAgreementView = TermsAgreementView()
     private let confirmButton = MUButton()
     private var popupConstraint: Constraint?
+    
 }
 extension TermsAgreementPopupViewController {
     
