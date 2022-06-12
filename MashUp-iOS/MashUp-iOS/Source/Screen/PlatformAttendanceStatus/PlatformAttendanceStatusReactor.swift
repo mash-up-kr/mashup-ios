@@ -17,13 +17,15 @@ final class PlatformAttendanceStatusReactor: Reactor {
     }
     
     enum Mutation {
-        case updatePlatformsAttendance([PlatformAttendance])
+        case updatePlatformsAttendance([PlatformAttendanceInformation])
+        case updateAttending(Bool)
         case updateSelectedPlatform(PlatformTeam)
     }
     
     struct State {
-        var platformsAttendance: [PlatformAttendance] = []
+        var platformsAttendance: [PlatformAttendanceInformation] = []
         var selectedPlatform: PlatformTeam?
+        var isAttending: Bool = false
     }
     
     let initialState: State
@@ -48,6 +50,8 @@ final class PlatformAttendanceStatusReactor: Reactor {
         switch mutation {
         case .updatePlatformsAttendance(let platformsAttendance):
             state.platformsAttendance = platformsAttendance
+        case .updateAttending(let isAttending):
+            state.isAttending = isAttending
         case .updateSelectedPlatform(let platform):
             state.selectedPlatform = platform
         }
@@ -57,7 +61,8 @@ final class PlatformAttendanceStatusReactor: Reactor {
     private func requestPlatformsAttendance() -> Observable<Mutation> {
         return platformService.attendanceStatus()
             .flatMap { status -> Observable<Mutation> in
-                    return .just(.updatePlatformsAttendance(status))
+                return .concat(.just(.updatePlatformsAttendance(status.platformAttendanceInformations)),
+                               .just(.updateAttending(status.isAttending)))
             }
     }
 }
