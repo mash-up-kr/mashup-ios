@@ -10,6 +10,7 @@ import UIKit
 import ReactorKit
 import MashUp_Core
 import MashUp_UIKit
+import MashUp_User
 
 final class SignUpStep2ViewController: BaseViewController, View {
     
@@ -87,6 +88,12 @@ final class SignUpStep2ViewController: BaseViewController, View {
             .compactMap { $0 }
             .onMain()
             .subscribe(onNext: { [weak self] in self?.navigationController?.popViewController(animated: true) })
+            .disposed(by: self.disposeBag)
+        
+        reactor.pulse(\.$step)
+            .compactMap { $0 }
+            .onMain()
+            .subscribe(onNext: { [weak self] step in self?.move(to: step) })
             .disposed(by: self.disposeBag)
     }
     
@@ -170,4 +177,20 @@ extension SignUpStep2ViewController {
         }
     }
     
+}
+
+extension SignUpStep2ViewController {
+    
+    private func move(to step: SignUpStep2Step) {
+        switch step {
+        case .termsAgreement(let newAccount):
+            self.presentTermAgreementPopup(with: newAccount)
+        }
+    }
+    
+    private func presentTermAgreementPopup(with newAccount: NewAccount) {
+        let popupViewController = TermsAgreementPopupViewController()
+        popupViewController.reactor = TermsAgreementReactor(newAccount: newAccount)
+        popupViewController.present(on: self)
+    }
 }

@@ -11,7 +11,7 @@ import MashUp_PlatformTeam
 import MashUp_User
 
 enum SignUpStep2Step {
-    case signUpCode(account: NewAccount)
+    case termsAgreement(NewAccount)
 }
 
 final class SignUpStep2Reactor: Reactor {
@@ -73,7 +73,12 @@ final class SignUpStep2Reactor: Reactor {
             return .just(.updateGoBack)
             
         case .didTapDone:
-            return .empty()
+            guard let platformTeam = self.currentState.platformTeam else { return .empty() }
+            let newAccount = NewAccount(id: self.currentState.id,
+                                        password: self.currentState.password,
+                                        name: self.currentState.name,
+                                        platform: platformTeam)
+            return .just(.move(to: .termsAgreement(newAccount)))
         }
     }
     
