@@ -11,6 +11,8 @@ import SnapKit
 import ReactorKit
 import MashUp_Core
 import MashUp_UIKit
+import MashUp_User
+import MashUp_SignUpCode
 
 final class TermsAgreementPopupViewController: BaseViewController, View {
     
@@ -65,16 +67,26 @@ final class TermsAgreementPopupViewController: BaseViewController, View {
     private func render(_ reactor: Reactor) {
         reactor.state.map { $0.hasAgreed }
             .distinctUntilChanged()
+            .onMain()
             .bind(to: self.termsAgreementView.rx.hasAgreed)
             .disposed(by: self.disposeBag)
         
         reactor.state.map { $0.canDone }
             .distinctUntilChanged()
+            .onMain()
             .bind(to: self.confirmButton.rx.isEnabled)
             .disposed(by: self.disposeBag)
     }
     
-    private func consume(_ reactor: Reactor) {}
+    private func consume(_ reactor: Reactor) {
+        reactor.pulse(\.$step)
+            .compactMap { $0 }
+            .onMain()
+            .subscribe(onNext: { step in
+                
+            })
+            .disposed(by: self.disposeBag)
+    }
     
     
     func present(on viewController: UIViewController, completion: (() -> Void)? = nil)  {
@@ -196,4 +208,26 @@ extension TermsAgreementPopupViewController {
         self.popupContentView.addArrangedSubview(safeAreaButtomView)
     }
     
+}
+
+extension TermsAgreementPopupViewController {
+    
+    private func move(to step: TermsAgreementStep) {
+        switch step {
+        case .personalPrivacyPolicy:
+            self.presentPersonalPrivacyPolicy()
+        case .signUpCode(let newAccount):
+            self.pushSignUpCode(with: newAccount)
+        }
+    }
+    
+    private func presentPersonalPrivacyPolicy() {
+        #warning("개인정보약관 처리 화면 구현 해야합니다. - booung")
+    }
+    
+    private func pushSignUpCode(with newAccount: NewAccount) {
+        let signUpCodeViewController = SignUpCodeViewController()
+        #warning(" AuthenticationResponder - DIContainer Hirerchy 구현 해야합니다. - booung")
+        self.navigationController?.pushViewController(signUpCodeViewController, animated: true)
+    }
 }
