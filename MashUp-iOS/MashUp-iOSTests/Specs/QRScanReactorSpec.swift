@@ -73,17 +73,30 @@ final class QRScanReactorSpec: QuickSpec {
           }
           it("출석체크 성공 토스트가 표시됩니다") {
             sut.action.onNext(.didSetup)
-            expect { sut.currentState.toastMessage }.to(equal("✅ 출석을 완료하셨습니다."))
+            #warning("스펙 확정 후 작업 - booung")
           }
         }
         context("코드가 올바르지 않다면") {
+          var toastMessage: Observable<String>!
           beforeEach {
+            toastMessage = sut.state.compactMap { $0.toastMessage }.recorded()
             given(qrReaderServiceMock.scanCodeWhileSessionIsOpen()).willReturn(.just(wrongCode))
           }
           it("출석체크 실패 토스트가 표시됩니다") {
             sut.action.onNext(.didSetup)
-            expect { sut.currentState.toastMessage }.to(equal("❌ 올바른 코드가 아닙니다."))
+            expect { try! toastMessage.toBlocking().first() }.to(equal("올바르지 않은 QR 코드입니다"))
           }
+        }
+      }
+      
+      context("닫기 버튼을 누르면") {
+        var shouldClose: Observable<Void>!
+        beforeEach {
+          shouldClose = sut.state.compactMap { $0.shouldClose }.recorded()
+          sut.action.onNext(.didTapClose)
+        }
+        it("화면이 닫힙니다") {
+          expect { try! shouldClose.toBlocking().first() }.notTo(beNil())
         }
       }
     }
