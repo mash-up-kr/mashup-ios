@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "name=success, color=primary, size=20.pdf",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

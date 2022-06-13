@@ -25,6 +25,10 @@ public class MUTextField: UIControl {
         case custom(MUTextFieldStyle)
     }
     
+    deinit {
+        animator.stopAnimation(true)
+    }
+    
     public let textField = UITextField()
     
     public var text: String? {
@@ -39,7 +43,7 @@ public class MUTextField: UIControl {
     public var status: MUTextField.Status {
         didSet {
             self.didUpdateStatus(to: self.status, from: oldValue)
-            self.updateAttributes()
+            self.updateAsstiveLabel()
         }
     }
     
@@ -241,7 +245,6 @@ public class MUTextField: UIControl {
     
     private let disposeBag = DisposeBag()
     
-    #warning("애니메이션 crash 체크해야합니다 - booung")
     private lazy var animator = UIViewPropertyAnimator(duration: 0.2, curve: .linear) { [placeholderLabel, textAreaView] in
         let scale: CGFloat = 20/32
         placeholderLabel.transform = CGAffineTransform(scaleX: scale, y: scale)

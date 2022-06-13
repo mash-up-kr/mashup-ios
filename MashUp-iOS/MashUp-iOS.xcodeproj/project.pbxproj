@@ -27,7 +27,6 @@
 		06531C322840C39600E225EB /* Pretendard-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 06531C2E2840C39600E225EB /* Pretendard-Regular.otf */; };
 		06531C382840C7C500E225EB /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 06531C372840C7C500E225EB /* Colors.xcassets */; };
 		0688CB42284B223B00338A5C /* PlatformTeam+Presentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0688CB41284B223B00338A5C /* PlatformTeam+Presentation.swift */; };
-		0688CB44284E255800338A5C /* PlatformAttendanceHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0688CB43284E255800338A5C /* PlatformAttendanceHeaderView.swift */; };
 		07900EC9117FCF2FA8E23F03 /* MashUp_iOSTests-MashUp_PlatformTeamMocks.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF06792B8FCEDBC254B599C /* MashUp_iOSTests-MashUp_PlatformTeamMocks.generated.swift */; };
 		8150A263D51AF35ED7C1F753 /* MashUp_iOSTests-MashUp_UIKitMocks.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50AEB9142054CE6C0E1FC59A /* MashUp_iOSTests-MashUp_UIKitMocks.generated.swift */; };
 		83BBB1B66AFB5F2C4E95E49C /* MashUp_iOSTests-MashUp_iOSMocks.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 093B68049842CE18EA5AAB9B /* MashUp_iOSTests-MashUp_iOSMocks.generated.swift */; };
@@ -58,6 +57,17 @@
 		CE58818727EC98670068D4E0 /* PartialAttendanceViewModel+Stub.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE58818627EC98670068D4E0 /* PartialAttendanceViewModel+Stub.swift */; };
 		CE58818927EC9BAC0068D4E0 /* QRScanFormatterSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE58818827EC9BAC0068D4E0 /* QRScanFormatterSpec.swift */; };
 		CE58818B27ECB2E60068D4E0 /* AttendanceTimelineSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE58818A27ECB2E60068D4E0 /* AttendanceTimelineSpec.swift */; };
+		CE6A963628538C6700F4C066 /* SignUpStep2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6A963528538C6700F4C066 /* SignUpStep2ViewController.swift */; };
+		CE6A96382853901700F4C066 /* SignUpStep2Reactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6A96372853901700F4C066 /* SignUpStep2Reactor.swift */; };
+		CE6A963B28539B1B00F4C066 /* MUActionSheetController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6A963A28539B1B00F4C066 /* MUActionSheetController.swift */; };
+		CE6A963D28539CD700F4C066 /* MUActionSheetItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6A963C28539CD700F4C066 /* MUActionSheetItem.swift */; };
+		CE6A963F2853AAF900F4C066 /* MUActionSheetTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6A963E2853AAF900F4C066 /* MUActionSheetTableViewCell.swift */; };
+		CE6A96412853B22300F4C066 /* Image.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE6A96402853B22300F4C066 /* Image.xcassets */; };
+		CE6A96422853B2C000F4C066 /* Image.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE6A96402853B22300F4C066 /* Image.xcassets */; };
+		CE6A96432853B2C000F4C066 /* Image.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE6A96402853B22300F4C066 /* Image.xcassets */; };
+		CE6A96452853B91200F4C066 /* UIWindow+.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6A96442853B91200F4C066 /* UIWindow+.swift */; };
+		CE6A96472853B94F00F4C066 /* UIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6A96462853B94F00F4C066 /* UIConstants.swift */; };
+		CE6A964A2853D66700F4C066 /* TermsAgreementPopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6A96492853D66700F4C066 /* TermsAgreementPopupViewController.swift */; };
 		CE6EE81027C7B28C005BF412 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6EE80F27C7B28C005BF412 /* SignInViewController.swift */; };
 		CE6EE81227C7B293005BF412 /* SignInReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6EE81127C7B293005BF412 /* SignInReactor.swift */; };
 		CE6EE82C27C7D8F8005BF412 /* RootController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6EE82B27C7D8F8005BF412 /* RootController.swift */; };
@@ -99,9 +109,17 @@
 		CE729A8B27E60D49001D33D1 /* SeminarSchedulerFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE729A8A27E60D49001D33D1 /* SeminarSchedulerFormatter.swift */; };
 		CE729A8D27E60FD2001D33D1 /* QRScanFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE729A8C27E60FD2001D33D1 /* QRScanFormatter.swift */; };
 		CE729A8F27E61766001D33D1 /* PartialAttendanceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE729A8E27E61766001D33D1 /* PartialAttendanceView.swift */; };
+		CE7CCB982855DB82005AA690 /* TermsAgreementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7CCB972855DB82005AA690 /* TermsAgreementView.swift */; };
+		CE7CCB9B2855E593005AA690 /* TermsAgreementView+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7CCB9A2855E593005AA690 /* TermsAgreementView+Rx.swift */; };
+		CE7CCB9E2855FDEF005AA690 /* EventHookingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7CCB9D2855FDEF005AA690 /* EventHookingView.swift */; };
+		CE7CCBA02855FDF7005AA690 /* EventHookingStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7CCB9F2855FDF7005AA690 /* EventHookingStackView.swift */; };
+		CE7CCBA22855FE28005AA690 /* EventHookingDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7CCBA12855FE28005AA690 /* EventHookingDelegate.swift */; };
+		CE7CCBA42855FFA1005AA690 /* TermsAgreementReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7CCBA32855FFA1005AA690 /* TermsAgreementReactor.swift */; };
+		CE7CCBA5285656EA005AA690 /* PlatformAttendanceHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0688CB43284E255800338A5C /* PlatformAttendanceHeaderView.swift */; };
+		CE7CCBA6285656EA005AA690 /* PlatformAttendanceHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0688CB43284E255800338A5C /* PlatformAttendanceHeaderView.swift */; };
 		CE88D32827E5522B00865C02 /* QRSeminarCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE88D32727E5522B00865C02 /* QRSeminarCardView.swift */; };
 		CE900B7528462C5400FF9C4F /* PlatformTeamMenuViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE900B7428462C5400FF9C4F /* PlatformTeamMenuViewModel.swift */; };
-		CE900B7B2846542B00FF9C4F /* SignUpReactorSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE900B7A2846542B00FF9C4F /* SignUpReactorSpec.swift */; };
+		CE900B7B2846542B00FF9C4F /* SignUpStep1ReactorSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE900B7A2846542B00FF9C4F /* SignUpStep1ReactorSpec.swift */; };
 		CE900BBC28466EF300FF9C4F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE900BBB28466EF300FF9C4F /* AppDelegate.swift */; };
 		CE900BBE28466EF300FF9C4F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE900BBD28466EF300FF9C4F /* SceneDelegate.swift */; };
 		CE900BC028466EF300FF9C4F /* PreviewMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE900BBF28466EF300FF9C4F /* PreviewMenuViewController.swift */; };
@@ -131,7 +149,6 @@
 		CE9C1DD82846849C0020FBCE /* MUButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0F282A28436A9B00C206EA /* MUButton.swift */; };
 		CE9C1DD9284684A00020FBCE /* MUButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0F282F284377B900C206EA /* MUButtonStyle.swift */; };
 		CE9C1DDA284684A30020FBCE /* MUNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0F28422843C53100C206EA /* MUNavigationBar.swift */; };
-		CE9C1DDB284684A70020FBCE /* MUNavigationBarStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0F28442843CC3A00C206EA /* MUNavigationBarStyle.swift */; };
 		CE9C1DDC284684AB0020FBCE /* MUMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE900B76284634F000FF9C4F /* MUMenu.swift */; };
 		CE9C1DDD284684AE0020FBCE /* MUSelectControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE900B7128460F2800FF9C4F /* MUSelectControl.swift */; };
 		CE9C1DDE284684B20020FBCE /* MUSelectControl+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE900B782846497200FF9C4F /* MUSelectControl+Rx.swift */; };
@@ -590,7 +607,6 @@
 		CE0F283D2843B81300C206EA /* SignUpStep1ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpStep1ViewController.swift; sourceTree = "<group>"; };
 		CE0F283F2843B85400C206EA /* SignUpStep1Reactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpStep1Reactor.swift; sourceTree = "<group>"; };
 		CE0F28422843C53100C206EA /* MUNavigationBar.swift */ = {isa = PBXFileReference; indentWidth = 4; lastKnownFileType = sourcecode.swift; path = MUNavigationBar.swift; sourceTree = "<group>"; };
-		CE0F28442843CC3A00C206EA /* MUNavigationBarStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MUNavigationBarStyle.swift; sourceTree = "<group>"; };
 		CE0F28482843EBA500C206EA /* VerificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerificationService.swift; sourceTree = "<group>"; };
 		CE0F284D28444A7000C206EA /* VerificationServiceSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerificationServiceSpec.swift; sourceTree = "<group>"; };
 		CE12DA5327E629AE00F08629 /* AttendanceTimelineViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttendanceTimelineViewModel.swift; sourceTree = "<group>"; };
@@ -613,6 +629,15 @@
 		CE58818627EC98670068D4E0 /* PartialAttendanceViewModel+Stub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PartialAttendanceViewModel+Stub.swift"; sourceTree = "<group>"; };
 		CE58818827EC9BAC0068D4E0 /* QRScanFormatterSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRScanFormatterSpec.swift; sourceTree = "<group>"; };
 		CE58818A27ECB2E60068D4E0 /* AttendanceTimelineSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttendanceTimelineSpec.swift; sourceTree = "<group>"; };
+		CE6A963528538C6700F4C066 /* SignUpStep2ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpStep2ViewController.swift; sourceTree = "<group>"; };
+		CE6A96372853901700F4C066 /* SignUpStep2Reactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpStep2Reactor.swift; sourceTree = "<group>"; };
+		CE6A963A28539B1B00F4C066 /* MUActionSheetController.swift */ = {isa = PBXFileReference; indentWidth = 4; lastKnownFileType = sourcecode.swift; path = MUActionSheetController.swift; sourceTree = "<group>"; };
+		CE6A963C28539CD700F4C066 /* MUActionSheetItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MUActionSheetItem.swift; sourceTree = "<group>"; };
+		CE6A963E2853AAF900F4C066 /* MUActionSheetTableViewCell.swift */ = {isa = PBXFileReference; indentWidth = 4; lastKnownFileType = sourcecode.swift; path = MUActionSheetTableViewCell.swift; sourceTree = "<group>"; };
+		CE6A96402853B22300F4C066 /* Image.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Image.xcassets; sourceTree = "<group>"; };
+		CE6A96442853B91200F4C066 /* UIWindow+.swift */ = {isa = PBXFileReference; indentWidth = 4; lastKnownFileType = sourcecode.swift; path = "UIWindow+.swift"; sourceTree = "<group>"; };
+		CE6A96462853B94F00F4C066 /* UIConstants.swift */ = {isa = PBXFileReference; indentWidth = 4; lastKnownFileType = sourcecode.swift; path = UIConstants.swift; sourceTree = "<group>"; };
+		CE6A96492853D66700F4C066 /* TermsAgreementPopupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsAgreementPopupViewController.swift; sourceTree = "<group>"; };
 		CE6EE80F27C7B28C005BF412 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		CE6EE81127C7B293005BF412 /* SignInReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInReactor.swift; sourceTree = "<group>"; };
 		CE6EE81C27C7BCF6005BF412 /* PlatformTeam.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlatformTeam.swift; sourceTree = "<group>"; };
@@ -658,12 +683,18 @@
 		CE729A8A27E60D49001D33D1 /* SeminarSchedulerFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeminarSchedulerFormatter.swift; sourceTree = "<group>"; };
 		CE729A8C27E60FD2001D33D1 /* QRScanFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRScanFormatter.swift; sourceTree = "<group>"; };
 		CE729A8E27E61766001D33D1 /* PartialAttendanceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartialAttendanceView.swift; sourceTree = "<group>"; };
+		CE7CCB972855DB82005AA690 /* TermsAgreementView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsAgreementView.swift; sourceTree = "<group>"; };
+		CE7CCB9A2855E593005AA690 /* TermsAgreementView+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TermsAgreementView+Rx.swift"; sourceTree = "<group>"; };
+		CE7CCB9D2855FDEF005AA690 /* EventHookingView.swift */ = {isa = PBXFileReference; indentWidth = 4; lastKnownFileType = sourcecode.swift; path = EventHookingView.swift; sourceTree = "<group>"; };
+		CE7CCB9F2855FDF7005AA690 /* EventHookingStackView.swift */ = {isa = PBXFileReference; indentWidth = 4; lastKnownFileType = sourcecode.swift; path = EventHookingStackView.swift; sourceTree = "<group>"; };
+		CE7CCBA12855FE28005AA690 /* EventHookingDelegate.swift */ = {isa = PBXFileReference; indentWidth = 4; lastKnownFileType = sourcecode.swift; path = EventHookingDelegate.swift; sourceTree = "<group>"; };
+		CE7CCBA32855FFA1005AA690 /* TermsAgreementReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsAgreementReactor.swift; sourceTree = "<group>"; };
 		CE88D32727E5522B00865C02 /* QRSeminarCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRSeminarCardView.swift; sourceTree = "<group>"; };
 		CE900B7128460F2800FF9C4F /* MUSelectControl.swift */ = {isa = PBXFileReference; indentWidth = 4; lastKnownFileType = sourcecode.swift; path = MUSelectControl.swift; sourceTree = "<group>"; };
 		CE900B7428462C5400FF9C4F /* PlatformTeamMenuViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlatformTeamMenuViewModel.swift; sourceTree = "<group>"; };
 		CE900B76284634F000FF9C4F /* MUMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MUMenu.swift; sourceTree = "<group>"; };
 		CE900B782846497200FF9C4F /* MUSelectControl+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MUSelectControl+Rx.swift"; sourceTree = "<group>"; };
-		CE900B7A2846542B00FF9C4F /* SignUpReactorSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpReactorSpec.swift; sourceTree = "<group>"; };
+		CE900B7A2846542B00FF9C4F /* SignUpStep1ReactorSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpStep1ReactorSpec.swift; sourceTree = "<group>"; };
 		CE900BB928466EF300FF9C4F /* MashUp-UIPreview.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "MashUp-UIPreview.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE900BBB28466EF300FF9C4F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CE900BBD28466EF300FF9C4F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -691,7 +722,7 @@
 		CEB60F7827A9C0C9001260DB /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Platforms/iPhoneOS.platform/Developer/Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		CEB60F7E27A9C536001260DB /* AttendanceService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttendanceService.swift; sourceTree = "<group>"; };
 		CEB60F8327A9C602001260DB /* FakeAttendanceService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeAttendanceService.swift; sourceTree = "<group>"; };
-		CEBAC6CD28469EE700ABCC36 /* PreviewMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewMenu.swift; sourceTree = "<group>"; };
+		CEBAC6CD28469EE700ABCC36 /* PreviewMenu.swift */ = {isa = PBXFileReference; indentWidth = 4; lastKnownFileType = sourcecode.swift; path = PreviewMenu.swift; sourceTree = "<group>"; };
 		CEBAC7642847670400ABCC36 /* MashUp_Network.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MashUp_Network.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEBAC7662847670400ABCC36 /* MashUp_Network.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MashUp_Network.h; sourceTree = "<group>"; };
 		CEBAC7672847670400ABCC36 /* MashUp_Network.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = MashUp_Network.docc; sourceTree = "<group>"; };
@@ -980,8 +1011,9 @@
 		CE0F283C2843B80200C206EA /* Sign Up */ = {
 			isa = PBXGroup;
 			children = (
-				CE0F283F2843B85400C206EA /* SignUpStep1Reactor.swift */,
-				CE0F283D2843B81300C206EA /* SignUpStep1ViewController.swift */,
+				CE6A963328538C4A00F4C066 /* Step1 */,
+				CE6A963428538C5400F4C066 /* Step2 */,
+				CE6A96482853D5FA00F4C066 /* Terms Agreement Popup */,
 				CE900B7328462C3300FF9C4F /* ViewModel */,
 			);
 			path = "Sign Up";
@@ -991,7 +1023,6 @@
 			isa = PBXGroup;
 			children = (
 				CE0F28422843C53100C206EA /* MUNavigationBar.swift */,
-				CE0F28442843CC3A00C206EA /* MUNavigationBarStyle.swift */,
 			);
 			path = MUNavigationBar;
 			sourceTree = "<group>";
@@ -1141,6 +1172,44 @@
 			path = SupportFile;
 			sourceTree = "<group>";
 		};
+		CE6A963328538C4A00F4C066 /* Step1 */ = {
+			isa = PBXGroup;
+			children = (
+				CE0F283F2843B85400C206EA /* SignUpStep1Reactor.swift */,
+				CE0F283D2843B81300C206EA /* SignUpStep1ViewController.swift */,
+			);
+			path = Step1;
+			sourceTree = "<group>";
+		};
+		CE6A963428538C5400F4C066 /* Step2 */ = {
+			isa = PBXGroup;
+			children = (
+				CE6A96372853901700F4C066 /* SignUpStep2Reactor.swift */,
+				CE6A963528538C6700F4C066 /* SignUpStep2ViewController.swift */,
+			);
+			path = Step2;
+			sourceTree = "<group>";
+		};
+		CE6A963928539AFE00F4C066 /* MUActionSheetController */ = {
+			isa = PBXGroup;
+			children = (
+				CE6A963A28539B1B00F4C066 /* MUActionSheetController.swift */,
+				CE6A963C28539CD700F4C066 /* MUActionSheetItem.swift */,
+				CE6A963E2853AAF900F4C066 /* MUActionSheetTableViewCell.swift */,
+			);
+			path = MUActionSheetController;
+			sourceTree = "<group>";
+		};
+		CE6A96482853D5FA00F4C066 /* Terms Agreement Popup */ = {
+			isa = PBXGroup;
+			children = (
+				CE7CCB992855E566005AA690 /* View */,
+				CE6A96492853D66700F4C066 /* TermsAgreementPopupViewController.swift */,
+				CE7CCBA32855FFA1005AA690 /* TermsAgreementReactor.swift */,
+			);
+			path = "Terms Agreement Popup";
+			sourceTree = "<group>";
+		};
 		CE6EE80E27C7B27D005BF412 /* Sign In */ = {
 			isa = PBXGroup;
 			children = (
@@ -1269,6 +1338,25 @@
 			path = Timer;
 			sourceTree = "<group>";
 		};
+		CE7CCB992855E566005AA690 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				CE7CCB972855DB82005AA690 /* TermsAgreementView.swift */,
+				CE7CCB9A2855E593005AA690 /* TermsAgreementView+Rx.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		CE7CCB9C2855FDD0005AA690 /* EventHookingView */ = {
+			isa = PBXGroup;
+			children = (
+				CE7CCBA12855FE28005AA690 /* EventHookingDelegate.swift */,
+				CE7CCB9F2855FDF7005AA690 /* EventHookingStackView.swift */,
+				CE7CCB9D2855FDEF005AA690 /* EventHookingView.swift */,
+			);
+			path = EventHookingView;
+			sourceTree = "<group>";
+		};
 		CE900B7028460EB900FF9C4F /* MUSelectControl */ = {
 			isa = PBXGroup;
 			children = (
@@ -1348,7 +1436,9 @@
 				06531C392840C96000E225EB /* UIColor+.swift */,
 				06531C352840C43700E225EB /* UIFont+.swift */,
 				06531C372840C7C500E225EB /* Colors.xcassets */,
+				CE6A96402853B22300F4C066 /* Image.xcassets */,
 				06531C342840C39800E225EB /* Font */,
+				CE6A963928539AFE00F4C066 /* MUActionSheetController */,
 				CE0F282E2843777B00C206EA /* MUButton */,
 				CE0F28462843CC3E00C206EA /* MUNavigationBar */,
 				CE900B7028460EB900FF9C4F /* MUSelectControl */,
@@ -1398,7 +1488,7 @@
 				062A960627E99BE300E8E715 /* PlatformAttendanceDetailReactorSpec.swift */,
 				CE6EE85127CA26A6005BF412 /* SignInReactorSpec.swift */,
 				CED3ABB528492E2500621B28 /* SignUpCodeReactorSpec.swift */,
-				CE900B7A2846542B00FF9C4F /* SignUpReactorSpec.swift */,
+				CE900B7A2846542B00FF9C4F /* SignUpStep1ReactorSpec.swift */,
 				CE6EE86A27CA60B6005BF412 /* SplashReactorSpec.swift */,
 				CE0F284D28444A7000C206EA /* VerificationServiceSpec.swift */,
 				0642C945285312D600B9F575 /* AttendanceMemberSpec.swift */,
@@ -1584,12 +1674,15 @@
 		CED3ABD828494F1000621B28 /* UIKit+ */ = {
 			isa = PBXGroup;
 			children = (
-				CED3ABD928494F1000621B28 /* Reusable.swift */,
 				CED3ABDA28494F1000621B28 /* NSCollectionLayoutSectionFactory.swift */,
+				CED3ABD928494F1000621B28 /* Reusable.swift */,
 				CED3ABDB28494F1000621B28 /* UIButton+.swift */,
 				CED3ABDC28494F1000621B28 /* UICollectionView+.swift */,
+				CE6A96462853B94F00F4C066 /* UIConstants.swift */,
 				CED3ABDD28494F1000621B28 /* UITableView+.swift */,
 				0642C949285332F000B9F575 /* UIView+.swift */,
+				CE6A96442853B91200F4C066 /* UIWindow+.swift */,
+				CE7CCB9C2855FDD0005AA690 /* EventHookingView */,
 			);
 			path = "UIKit+";
 			sourceTree = "<group>";
@@ -2032,6 +2125,7 @@
 				CED3AB3D28490D1500621B28 /* Pretendard-Bold.otf in Resources */,
 				06531C322840C39600E225EB /* Pretendard-Regular.otf in Resources */,
 				06531C302840C39600E225EB /* Pretendard-Medium.otf in Resources */,
+				CE6A96422853B2C000F4C066 /* Image.xcassets in Resources */,
 				06531C312840C39600E225EB /* Pretendard-SemiBold.otf in Resources */,
 				06531C382840C7C500E225EB /* Colors.xcassets in Resources */,
 			);
@@ -2055,6 +2149,7 @@
 				CED3AB3F28490D2C00621B28 /* Pretendard-Regular.otf in Resources */,
 				CE900BC528466EF600FF9C4F /* Assets.xcassets in Resources */,
 				CED3AB3E28490D2900621B28 /* Pretendard-SemiBold.otf in Resources */,
+				CE6A96432853B2C000F4C066 /* Image.xcassets in Resources */,
 				CE900BC328466EF300FF9C4F /* Main.storyboard in Resources */,
 				CE9C1DF7284696D50020FBCE /* MashUp-iOS.app in Resources */,
 			);
@@ -2073,6 +2168,7 @@
 			files = (
 				CED3AB3B28490CB800621B28 /* Pretendard-Regular.otf in Resources */,
 				CED3AB3C28490CBE00621B28 /* Pretendard-SemiBold.otf in Resources */,
+				CE6A96412853B22300F4C066 /* Image.xcassets in Resources */,
 				CED3AB3928490CAE00621B28 /* Pretendard-Bold.otf in Resources */,
 				CED3AB3A28490CB600621B28 /* Pretendard-Medium.otf in Resources */,
 			);
@@ -2154,9 +2250,9 @@
 				CE9BE0952848CF5E006691F0 /* PlatformAttendanceCell.swift in Sources */,
 				CE12DA5627E629D700F08629 /* PartialAttendanceViewModel.swift in Sources */,
 				0642C941285223FF00B9F575 /* AttendanceStatusCircleView.swift in Sources */,
-				06531C20283F737100E225EB /* PlatformService.swift in Sources */,
 				CE6EE83F27C7EFF9005BF412 /* HomeReactor.swift in Sources */,
 				CE900B7528462C5400FF9C4F /* PlatformTeamMenuViewModel.swift in Sources */,
+				CE6A964A2853D66700F4C066 /* TermsAgreementPopupViewController.swift in Sources */,
 				CE6EE87327CA7482005BF412 /* AttendanceStatus.swift in Sources */,
 				CE729A8B27E60D49001D33D1 /* SeminarSchedulerFormatter.swift in Sources */,
 				CEB60F4B27A975AD001260DB /* QRScanViewController.swift in Sources */,
@@ -2174,47 +2270,49 @@
 				0618444427E30259004980CC /* AttendanceMember.swift in Sources */,
 				06531C18283F59FF00E225EB /* PlatformAttendanceStatusReactor.swift in Sources */,
 				CE6EE88A27CAA288005BF412 /* SeminarRepository.swift in Sources */,
+				CE6A96382853901700F4C066 /* SignUpStep2Reactor.swift in Sources */,
 				CE729A8927E5C7F1001D33D1 /* SeminarPhase.swift in Sources */,
 				CEB60F8427A9C602001260DB /* FakeAttendanceService.swift in Sources */,
 				CE12DA5427E629AE00F08629 /* AttendanceTimelineViewModel.swift in Sources */,
 				CE396080278B3CB40073AEF4 /* AppDelegate.swift in Sources */,
 				CE0F28402843B85400C206EA /* SignUpStep1Reactor.swift in Sources */,
+				CE7CCBA5285656EA005AA690 /* PlatformAttendanceHeaderView.swift in Sources */,
 				CE6EE89527CB049C005BF412 /* QRCodeFinderView.swift in Sources */,
 				CE88D32827E5522B00865C02 /* QRSeminarCardView.swift in Sources */,
 				CE14D2CB27CFBB1200685CFF /* FakeSeminarRepository.swift in Sources */,
 				CE6EE84127C7F130005BF412 /* HomeTab.swift in Sources */,
 				CE6EE82C27C7D8F8005BF412 /* RootController.swift in Sources */,
 				0618444227E1D2DD004980CC /* PlatformAttendanceDetailReactor.swift in Sources */,
-				0618444227E1D2DD004980CC /* SeminarDetailReactor.swift in Sources */,
-				0688CB44284E255800338A5C /* PlatformAttendanceHeaderView.swift in Sources */,
+				0618444227E1D2DD004980CC /* PlatformAttendanceDetailReactor.swift in Sources */,
+				CE7CCB9B2855E593005AA690 /* TermsAgreementView+Rx.swift in Sources */,
 				CE6EE82E27C7D900005BF412 /* RootReactor.swift in Sources */,
 				CE6EE85D27CA4136005BF412 /* Seminar.swift in Sources */,
 				CE12DA5827E629FE00F08629 /* QRSeminarCardViewModel.swift in Sources */,
-				CE0F283E2843B81300C206EA /* SignUpViewController.swift in Sources */,
+				CE0F283E2843B81300C206EA /* SignUpStep1ViewController.swift in Sources */,
 				06531C2B2840BFAA00E225EB /* AttendanceStatusRectangleViewModel.swift in Sources */,
 				CE0F283E2843B81300C206EA /* SignUpStep1ViewController.swift in Sources */,
+				CE7CCB982855DB82005AA690 /* TermsAgreementView.swift in Sources */,
 				CE6EE83D27C7EFB9005BF412 /* HomeTabBarController.swift in Sources */,
 				06531C292840BF9800E225EB /* AttendanceStatusRectangleView.swift in Sources */,
 				CE6EE87127CA73B7005BF412 /* SeminarCardCell.swift in Sources */,
 				CE6EE87A27CA89F3005BF412 /* SeminarCardCellModel.swift in Sources */,
 				0642C94428522A3700B9F575 /* AttendanceStatus+Presentation.swift in Sources */,
 				CE729A8327E57FCD001D33D1 /* FakeAttendanceTimelineRepository.swift in Sources */,
-				CE6EE82327C7BF79005BF412 /* UserSession.swift in Sources */,
 				0642C93F285223F800B9F575 /* AttendanceStatusCircleViewModel.swift in Sources */,
 				CE6EE85F27CA45EF005BF412 /* SeminarScheduleSection.swift in Sources */,
 				CE729A8F27E61766001D33D1 /* PartialAttendanceView.swift in Sources */,
 				CE6EE85A27CA40C5005BF412 /* SeminarScheduleReactor.swift in Sources */,
 				CE6EE83827C7E2D5005BF412 /* SplashReactor.swift in Sources */,
+				CE6A963628538C6700F4C066 /* SignUpStep2ViewController.swift in Sources */,
 				CE6EE84E27C80C9B005BF412 /* MyPageViewController.swift in Sources */,
-				CE6EE82927C7D655005BF412 /* FakeUserAuthService.swift in Sources */,
 				CE6EE86927CA5609005BF412 /* PlatformAttendanceDetailViewController.swift in Sources */,
-				CE6EE86927CA5609005BF412 /* SeminarDetailViewController.swift in Sources */,
+				CE6EE86927CA5609005BF412 /* PlatformAttendanceDetailViewController.swift in Sources */,
 				CE0F28492843EBA500C206EA /* VerificationService.swift in Sources */,
 				CE729A8127E57EC1001D33D1 /* AttendanceTimeline.swift in Sources */,
+				CE7CCBA42855FFA1005AA690 /* TermsAgreementReactor.swift in Sources */,
 				CE6EE86627CA495F005BF412 /* SeminarSchduleStep.swift in Sources */,
 				CEB60F4827A9746E001260DB /* QRReaderService.swift in Sources */,
 				CE729A8D27E60FD2001D33D1 /* QRScanFormatter.swift in Sources */,
-				CE6EE82527C7BF91005BF412 /* UserAuthService.swift in Sources */,
 				0642C93D2851ED4400B9F575 /* AttendanceDetailCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2228,7 +2326,7 @@
 				CE6EE86B27CA60B6005BF412 /* SplashReactorSpec.swift in Sources */,
 				CE0F284E28444A7000C206EA /* VerificationServiceSpec.swift in Sources */,
 				06531C1C283F5E2200E225EB /* PlatformAttendanceStatusReactorSpec.swift in Sources */,
-				CE900B7B2846542B00FF9C4F /* SignUpReactorSpec.swift in Sources */,
+				CE900B7B2846542B00FF9C4F /* SignUpStep1ReactorSpec.swift in Sources */,
 				CE6EE85227CA26A6005BF412 /* SignInReactorSpec.swift in Sources */,
 				CE58818327EC97140068D4E0 /* QRSeminarCardViewModel+Stub.swift in Sources */,
 				CEB60F4327A9713B001260DB /* TestAppDelegate.swift in Sources */,
@@ -2240,8 +2338,7 @@
 				CE58818B27ECB2E60068D4E0 /* AttendanceTimelineSpec.swift in Sources */,
 				CE58818527EC98540068D4E0 /* AttendanceTimelineViewModel+Stub.swift in Sources */,
 				062A960727E99BE400E8E715 /* PlatformAttendanceDetailReactorSpec.swift in Sources */,
-				CE9E736727C29F4700922D8B /* MashUp_iOSTests-Mock.generated.swift in Sources */,
-				062A960727E99BE400E8E715 /* SeminarDetailReactorSpec.swift in Sources */,
+				062A960727E99BE400E8E715 /* PlatformAttendanceDetailReactorSpec.swift in Sources */,
 				CE6EE85027CA1DBD005BF412 /* RootReactorSpec.swift in Sources */,
 				CE58817D27EC856D0068D4E0 /* AttendanceTimeline+Stub.swift in Sources */,
 				CE58818127EC94120068D4E0 /* Seminar+Stub.swift in Sources */,
@@ -2264,6 +2361,7 @@
 			files = (
 				CEBAC6CE28469EE700ABCC36 /* PreviewMenu.swift in Sources */,
 				CE900BC028466EF300FF9C4F /* PreviewMenuViewController.swift in Sources */,
+				CE7CCBA6285656EA005AA690 /* PlatformAttendanceHeaderView.swift in Sources */,
 				CE900BBC28466EF300FF9C4F /* AppDelegate.swift in Sources */,
 				CE900BBE28466EF300FF9C4F /* SceneDelegate.swift in Sources */,
 			);
@@ -2274,6 +2372,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CED3ABE728494F1000621B28 /* TimeZone+.swift in Sources */,
+				CE7CCB9E2855FDEF005AA690 /* EventHookingView.swift in Sources */,
 				CED3ABF128494F1000621B28 /* UIButton+.swift in Sources */,
 				CED3ABE428494F1000621B28 /* BaseView.swift in Sources */,
 				CED3ABE328494F1000621B28 /* BaseCollectionViewCell.swift in Sources */,
@@ -2285,6 +2384,8 @@
 				CED3ABF228494F1000621B28 /* UICollectionView+.swift in Sources */,
 				0642C94A285332F000B9F575 /* UIView+.swift in Sources */,
 				CED3ABE828494F1000621B28 /* String+.swift in Sources */,
+				CE6A96452853B91200F4C066 /* UIWindow+.swift in Sources */,
+				CE7CCBA22855FE28005AA690 /* EventHookingDelegate.swift in Sources */,
 				CED3ABE228494F1000621B28 /* BaseTableViewCell.swift in Sources */,
 				CE9C1DA428467E5E0020FBCE /* Logger.swift in Sources */,
 				CED3ABE528494F1000621B28 /* Locale+.swift in Sources */,
@@ -2293,6 +2394,8 @@
 				CED3ABEE28494F1000621B28 /* UIViewContorller+Rx.swift in Sources */,
 				CE9C1D9828467E500020FBCE /* MashUp_Core.docc in Sources */,
 				CED3ABE028494F1000621B28 /* BaseTabBarController.swift in Sources */,
+				CE7CCBA02855FDF7005AA690 /* EventHookingStackView.swift in Sources */,
+				CE6A96472853B94F00F4C066 /* UIConstants.swift in Sources */,
 				CED3ABED28494F1000621B28 /* Observable+Main.swift in Sources */,
 				CED3ABEC28494F1000621B28 /* Date+.swift in Sources */,
 				CED3ABF328494F1000621B28 /* UITableView+.swift in Sources */,
@@ -2306,7 +2409,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CE9C1DDB284684A70020FBCE /* MUNavigationBarStyle.swift in Sources */,
 				CE9C1DDF284684B50020FBCE /* MUTextField.swift in Sources */,
 				CE9C1DDD284684AE0020FBCE /* MUSelectControl.swift in Sources */,
 				CE9C1DCE2846846B0020FBCE /* MashUp_UIKit.docc in Sources */,
@@ -2316,9 +2418,12 @@
 				CE9C1DE1284684BC0020FBCE /* MUTextField+Rx.swift in Sources */,
 				CE9C1DD9284684A00020FBCE /* MUButtonStyle.swift in Sources */,
 				CE9C1DD82846849C0020FBCE /* MUButton.swift in Sources */,
+				CE6A963D28539CD700F4C066 /* MUActionSheetItem.swift in Sources */,
+				CE6A963F2853AAF900F4C066 /* MUActionSheetTableViewCell.swift in Sources */,
 				CE9C1DF1284687850020FBCE /* UIColor+.swift in Sources */,
 				CE9C1DDC284684AB0020FBCE /* MUMenu.swift in Sources */,
 				CE9C1DDA284684A30020FBCE /* MUNavigationBar.swift in Sources */,
+				CE6A963B28539B1B00F4C066 /* MUActionSheetController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

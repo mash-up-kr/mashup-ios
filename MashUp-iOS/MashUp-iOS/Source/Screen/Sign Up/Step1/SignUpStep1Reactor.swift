@@ -11,14 +11,20 @@ import ReactorKit
 import MashUp_Core
 import MashUp_PlatformTeam
 
+enum SignUpStep1Step {
+    case signUpStep2(id: String, password: String)
+}
+
 final class SignUpStep1Reactor: Reactor {
+    
+    typealias Step = SignUpStep1Step
     
     enum Action {
         case didEditIDField(String)
         case didEditPasswordField(String)
+        case didFocusPasswordCheckField
         case didEditPasswordCheckField(String)
-        case didTapPlatformSelectControl
-        case didSelectPlatform(at: Int)
+        case didOutOfFocusPasswordCheckField
         case didTapDoneButton
     }
     
@@ -26,34 +32,31 @@ final class SignUpStep1Reactor: Reactor {
         case updateID(String)
         case updatePassword(String)
         case updatePasswordCheck(String)
-        case updatePlatform(PlatformTeam)
-        case showOnBottomSheet([PlatformTeam])
-        case showPolicyAgreementStatus(Bool)
+        case updateCanScroll(Bool)
+        case updateScrollToTop
+        case updateFocusPasswordCheckField
+        case move(to: Step)
     }
     
     struct State {
         var id: String = .empty
         var password: String = .empty
         var passwordCheck: String = .empty
-        var selectedPlatform: PlatformTeam?
         
         var canDone: Bool = false
+        var canScroll: Bool = false
         var hasVaildatedID: Bool?
         var hasVaildatedPassword: Bool?
         var hasVaildatedPasswordCheck: Bool?
-        var hasAgreedPolicy: Bool = false
         
-        @Pulse var shouldShowOnBottomSheet: [PlatformTeam]?
-        @Pulse var shouldShowPolicyAgreementStatus: Bool?
+        @Pulse var shouldScrollToTop: Void?
+        @Pulse var shouldFocusPasswordCheckField: Void?
+        @Pulse var step: Step?
     }
     
     let initialState: State = State()
     
-    init(
-        platformService: any PlatformService,
-        verificationService: any VerificationService
-    ) {
-        self.platformService = platformService
+    init(verificationService: any VerificationService) {
         self.verificationService = verificationService
     }
     
@@ -65,23 +68,22 @@ final class SignUpStep1Reactor: Reactor {
         case .didEditPasswordField(let password):
             return .just(.updatePassword(password))
             
-        case .didEditPasswordCheckField(let name):
-            return .just(.updatePasswordCheck(name))
+        case .didFocusPasswordCheckField:
+            return .of(.updateCanScroll(true), .updateFocusPasswordCheckField)
             
-        case .didTapPlatformSelectControl:
-            let showOnBottomSheet = self.platformService.allPlatformTeams()
-                .map { Mutation.showOnBottomSheet($0) }
-                .catch { _ in .empty() }
-            #warning("구체 에러 핸들링 정의 - booung")
-            return showOnBottomSheet
+        case .didEditPasswordCheckField(let passwordCheck):
+            return .just(.updatePasswordCheck(passwordCheck))
             
-        case .didSelectPlatform(let index):
-            guard let selectedPlatform = self.currentState.shouldShowOnBottomSheet?[safe: index] else { return .empty() }
-            return .just(.updatePlatform(selectedPlatform))
+        case .didOutOfFocusPasswordCheckField:
+            return .of(.updateCanScroll(false), .updateScrollToTop)
             
         case .didTapDoneButton:
-            let policyAgreementStatus = self.currentState.hasAgreedPolicy
-            return .just(.showPolicyAgreementStatus(policyAgreementStatus))
+            #warning("실제 id 중복 체크 와 같은 검증 작업 필요")
+            guard self.currentState.canDone else { return .empty() }
+            
+            let id = self.currentState.id
+            let password = self.currentState.password
+            return .just(.move(to: .signUpStep2(id: id, password: password)))
         }
     }
     
@@ -99,23 +101,27 @@ final class SignUpStep1Reactor: Reactor {
         case .updatePasswordCheck(let passwordCheck):
             newState.passwordCheck = passwordCheck
             newState.hasVaildatedPasswordCheck = self.verificationService.verify(password: passwordCheck) && self.currentState.password == passwordCheck
+       
+        case .updateCanScroll(let canScroll):
+            newState.canScroll = canScroll
             
-        case .updatePlatform(let platform):
-            newState.selectedPlatform = platform
-        
-        case .showPolicyAgreementStatus(let agree):
-            newState.shouldShowPolicyAgreementStatus = agree
+        case .updateScrollToTop:
+            newState.shouldScrollToTop = Void()
             
-        case .showOnBottomSheet(_):
-            ()
+        case .updateFocusPasswordCheckField:
+            newState.shouldFocusPasswordCheckField = Void()
+            
+        case .move(let step):
+            newState.step = step
         }
-        newState.canDone = newState.hasVaildatedID == true
-        && newState.hasVaildatedPassword == true
-        && newState.hasVaildatedPasswordCheck == true
+        newState.canDone = self.allSatisfied(newState)
         return newState
     }
     
-    private let platformService: any PlatformService
+    private func allSatisfied(_ state: State) -> Bool {
+        state.hasVaildatedID == true && state.hasVaildatedPassword == true && state.hasVaildatedPasswordCheck == true
+    }
+    
     private let verificationService: any VerificationService
     
 }

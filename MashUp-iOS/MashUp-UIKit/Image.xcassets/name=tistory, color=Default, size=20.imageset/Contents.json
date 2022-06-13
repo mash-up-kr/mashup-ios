@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "name=tistory, color=Default, size=20.pdf",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

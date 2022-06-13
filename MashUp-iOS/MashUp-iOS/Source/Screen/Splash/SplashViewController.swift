@@ -12,6 +12,7 @@ import RxCocoa
 import SnapKit
 import UIKit
 import MashUp_Core
+import MashUp_UIKit
 
 final class SplashViewController: BaseViewController, ReactorKit.View {
     typealias Reactor = SplashReactor

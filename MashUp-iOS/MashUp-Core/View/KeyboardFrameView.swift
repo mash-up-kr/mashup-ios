@@ -33,7 +33,8 @@ public class KeyboardFrameView: BaseView {
             NotificationCenter.default.rx.notification(UIResponder.keyboardWillShowNotification),
             NotificationCenter.default.rx.notification(UIResponder.keyboardWillHideNotification)
         ).compactMap { notification in
-            notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? CGRect
+          if notification.name == UIResponder.keyboardWillHideNotification { return .zero }
+          else { return notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? CGRect }
         }.subscribe(onNext: { [weak self] keyboardFrame in
             self?.updateFrame(keyboardFrame)
         }).disposed(by: self.disposeBag)

@@ -64,13 +64,18 @@ final class SignUpStep1ViewController: BaseViewController, ReactorKit.View {
             .bind(to: reactor.action)
             .disposed(by: self.disposeBag)
         
-        self.platformSelectControl.rx.controlEvent(.touchUpInside)
-            .map { .didTapPlatformSelectControl }
+        self.doneButton.rx.tap
+            .map { .didTapDoneButton }
             .bind(to: reactor.action)
             .disposed(by: self.disposeBag)
         
-        self.doneButton.rx.tap
-            .map { .didTapDoneButton }
+        self.passwordCheckField.textField.rx.controlEvent(.editingDidBegin)
+            .map { _ in .didFocusPasswordCheckField }
+            .bind(to: reactor.action)
+            .disposed(by: self.disposeBag)
+        
+        self.passwordCheckField.textField.rx.controlEvent(.editingDidEnd)
+            .map { _ in .didOutOfFocusPasswordCheckField }
             .bind(to: reactor.action)
             .disposed(by: self.disposeBag)
     }
@@ -117,42 +122,71 @@ final class SignUpStep1ViewController: BaseViewController, ReactorKit.View {
             .bind(to: self.passwordCheckField.rx.text)
             .disposed(by: self.disposeBag)
         
-        reactor.state.compactMap { $0.selectedPlatform }
+        reactor.state.map { $0.canScroll }
             .distinctUntilChanged()
-            .map { PlatformTeamMenuViewModel(model: $0) }
             .onMain()
-            .bind(to: self.platformSelectControl.rx.selectedMenu)
+            .bind(to: self.scrollView.rx.isScrollEnabled)
             .disposed(by: self.disposeBag)
+        
+        Observable.merge(
+            self.idField.textField.rx.controlEvent(.editingDidEndOnExit).map { [idField] in idField },
+            self.passwordField.textField.rx.controlEvent(.editingDidEndOnExit).map { [passwordField] in passwordField }
+        )
+        .onMain()
+        .subscribe(onNext: { [idField, passwordField, passwordCheckField] textField in
+            switch textField {
+            case idField:
+                passwordField.becomeFirstResponder()
+            case passwordField:
+                passwordCheckField.becomeFirstResponder()
+            default: ()
+            }
+        })
+        .disposed(by: self.disposeBag)
     }
     
     private func consume(_ reactor: Reactor) {
-        reactor.pulse(\.$shouldShowOnBottomSheet)
+        reactor.pulse(\.$shouldScrollToTop)
             .compactMap { $0 }
             .onMain()
-            .subscribe(onNext: { [weak self] allPlatform in
-                self?.presentPopup(platformTeams: allPlatform)
+            .withUnretained(self)
+            .subscribe(onNext: { [scrollView] owner, _ in
+                let offset = owner.topOffset
+                scrollView.setContentOffset(offset, animated: true)
+            })
+            .disposed(by: self.disposeBag)
+        
+        
+        reactor.pulse(\.$shouldFocusPasswordCheckField)
+            .compactMap { $0 }
+            .onMain()
+            .withUnretained(self)
+            .subscribe(onNext: { [scrollView] owner, _ in
+                let offset = owner.passwordCheckFieldHighlightedOffset
+                scrollView.setContentOffset(offset, animated: true)
+            })
+            .disposed(by: self.disposeBag)
+        
+        reactor.pulse(\.$step).compactMap { $0 }
+            .onMain()
+            .subscribe(onNext: { [weak self] step in
+                self?.move(to: step)
             })
             .disposed(by: self.disposeBag)
     }
     
-    private func presentPopup(platformTeams: [PlatformTeam]) {
-        #warning("프로토 타이핑 디자인 확인 후 추가 작업 필요 - Booung")
-        let actionSheet = UIAlertController(
-            title: "플랫폼",
-            message: .empty,
-            preferredStyle: .actionSheet
-        )
-        platformTeams.map { PlatformTeamMenuViewModel(model: $0) }
-            .enumerated()
-            .map { index, menu in
-                UIAlertAction(title: menu.description, style: .default) { [reactor] _ in
-                    reactor?.action.onNext(.didSelectPlatform(at: index))
-                }
-            }
-            .forEach { actionSheet.addAction($0) }
-        actionSheet.addAction(UIAlertAction(title: "취소", style: .cancel))
+    private var topOffset: CGPoint {
+        CGPoint(x: 0, y: -scrollView.contentInset.top)
+    }
+    
+    private var passwordCheckFieldHighlightedOffset: CGPoint {
+        let contentHeight = self.view.frame.height - self.navigationBar.frame.height
+        let doneContainerHeight = self.doneButtonContainerView.frame.origin.y
+        let passwordCheckFieldHeight = self.doneButtonContainerView.frame.height
+        let keyboardHeight = self.keyboardFrameView.frame.height
         
-        self.present(actionSheet, animated: true)
+        let y = contentHeight - passwordCheckFieldHeight - 76 - doneContainerHeight - keyboardHeight
+        return CGPoint(x: 0, y: -y)
     }
     
     private let navigationBar = MUNavigationBar()
@@ -163,11 +197,23 @@ final class SignUpStep1ViewController: BaseViewController, ReactorKit.View {
     private let idField = MUTextField()
     private let passwordField = MUTextField()
     private let passwordCheckField = MUTextField()
-    private let platformSelectControl = MUSelectControl<PlatformTeamMenuViewModel>()
     private let keyboardFrameView = KeyboardFrameView()
+    private let doneButtonContainerView = UIView()
     private let doneButton = MUButton()
+    private let bottomView = UIView()
 }
-
+extension SignUpStep1ViewController {
+    
+    private func move(to step: SignUpStep1Step) {
+        switch step {
+        case .signUpStep2(let id, let password):
+            let reactor = SignUpStep2Reactor(id: id, password: password)
+            let viewController = SignUpStep2ViewController()
+            viewController.reactor = reactor
+            self.navigationController?.pushViewController(viewController, animated: true)
+        }
+    }
+}
 extension SignUpStep1ViewController {
     
     private func setupAttribute() {
@@ -175,7 +221,7 @@ extension SignUpStep1ViewController {
         self.navigationBar.do {
             $0.title = "회원가입"
             #warning("Image 정의되면 수정해야합니다. - Booung")
-            $0.leftIcon = UIImage(systemName: "chevron.backward")?.withTintColor(.gray900)
+            $0.leftBarItem = .back
         }
         self.scrollView.do {
             $0.isScrollEnabled = false
@@ -183,7 +229,6 @@ extension SignUpStep1ViewController {
             $0.contentInset = UIEdgeInsets(top: 12, left: 0, bottom: 0, right: 0)
         }
         self.containterView.do {
-            $0.backgroundColor = .red500
             $0.axis = .vertical
         }
         self.titleLabel.do {
@@ -197,27 +242,18 @@ extension SignUpStep1ViewController {
         self.passwordField.do {
             $0.placeholder = "비밀번호"
             $0.assistiveDescription = "영문, 숫자를 조합하여 8자 이상으로 입력해 주세요."
+            $0.isSecureTextEntry = true
         }
         self.passwordCheckField.do {
             $0.placeholder = "비밀번호 확인"
-        }
-        self.platformSelectControl.do {
-            $0.menuTitle = "플랫폼"
+            $0.isSecureTextEntry = true
         }
         self.doneButton.do {
             $0.setTitle("다음", for: .normal)
         }
-        self.keyboardFrameView.do {
-            $0.backgroundColor = .green500
+        self.doneButtonContainerView.do {
+            $0.backgroundColor = .white
         }
-        Observable.merge(
-            NotificationCenter.default.rx.notification(UIResponder.keyboardWillShowNotification),
-            NotificationCenter.default.rx.notification(UIResponder.keyboardWillHideNotification)
-        ).compactMap { notification in
-            notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? CGRect
-        }.subscribe(onNext:{ [scrollView] offset in
-            scrollView.contentOffset.y = offset.height
-        }).disposed(by: self.disposeBag)
     }
     
     private func setupLayout() {
@@ -243,16 +279,24 @@ extension SignUpStep1ViewController {
             $0.addArrangedSubview(self.idField)
             $0.addArrangedSubview(self.passwordField)
             $0.addArrangedSubview(self.passwordCheckField)
-            $0.addArrangedSubview(self.platformSelectControl)
+            $0.addArrangedSubview(self.bottomView)
         }
-        self.view.addSubview(self.doneButton)
+        self.bottomView.snp.makeConstraints {
+            $0.height.equalTo(300)
+        }
+        self.view.addSubview(self.doneButtonContainerView)
+        self.doneButtonContainerView.snp.makeConstraints {
+            $0.leading.trailing.equalToSuperview()
+            $0.height.equalTo(52)
+        }
+        self.doneButtonContainerView.addSubview(self.doneButton)
         self.doneButton.snp.makeConstraints {
             $0.leading.trailing.equalToSuperview().inset(20)
-            $0.height.equalTo(52)
+            $0.height.equalToSuperview()
         }
         self.view.addSubview(self.keyboardFrameView)
         self.keyboardFrameView.snp.makeConstraints {
-            $0.top.equalTo(self.doneButton.snp.bottom)
+            $0.top.equalTo(self.doneButtonContainerView.snp.bottom)
             $0.width.equalToSuperview()
             $0.bottom.equalTo(self.view.safeAreaLayoutGuide)
         }

@@ -9,6 +9,7 @@
 import UIKit
 import SnapKit
 import Then
+import MashUp_Core
 
 public class MUNavigationBar: UIView {
     
@@ -16,8 +17,25 @@ public class MUNavigationBar: UIView {
     public let titleLabel = UILabel()
     public let rightButton = UIButton()
     
-    public var style: MUNavigationBarStyle? {
-        didSet { self.setupStyle() }
+    public enum BarItem {
+        case back
+        case close
+        case custom(ImageSource)
+        
+        var icon: UIImage? {
+            switch self {
+            case .back:
+                return UIImage(named: "name=chevron, color=gray900, size=Default")
+            case .close:
+                return UIImage(named: "name=xmark, color=gray900, size=Default")
+            case .custom(let imageSource):
+                switch imageSource {
+                case .asset(let name): return UIImage(named: name)
+                case .image(let image): return image
+                default: return nil
+                }
+            }
+        }
     }
     
     public var title: String? {
@@ -25,12 +43,20 @@ public class MUNavigationBar: UIView {
         set { self.titleLabel.text = newValue }
     }
     
-    public var leftIcon: UIImage? {
+    public var leftBarItem: BarItem? {
+        didSet { self.leftIcon = leftBarItem?.icon }
+    }
+    
+    public var rightBarItem: BarItem? {
+        didSet { self.rightIcon = rightBarItem?.icon }
+    }
+    
+    private var leftIcon: UIImage? {
         get { self.leftButton.image(for: .normal) }
         set { self.leftButton.setBackgroundImage(newValue, for: .normal) }
     }
     
-    public var rightIcon: UIImage? {
+    private var rightIcon: UIImage? {
         get { self.rightButton.image(for: .normal) }
         set { self.rightButton.setBackgroundImage(newValue, for: .normal) }
     }
@@ -51,14 +77,8 @@ public class MUNavigationBar: UIView {
         CGSize(width: UIScreen.main.bounds.width, height: 56)
     }
     
-    private func setupStyle() {
-        self.titleLabel.font = self.style?.titleFont
-        self.leftButton.setBackgroundImage(self.style?.leftIconImage, for: .normal)
-        self.rightButton.setBackgroundImage(self.style?.rightIconImage, for: .normal)
-        self.titleLabel.textColor = .gray900
-    }
-    
     private func setupAttribute() {
+        self.titleLabel.textColor = .gray900
         self.titleLabel.font = .pretendardFont(weight: .semiBold, size: 16)
     }
     
