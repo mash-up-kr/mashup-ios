@@ -149,7 +149,6 @@
 		CE9C1DD82846849C0020FBCE /* MUButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0F282A28436A9B00C206EA /* MUButton.swift */; };
 		CE9C1DD9284684A00020FBCE /* MUButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0F282F284377B900C206EA /* MUButtonStyle.swift */; };
 		CE9C1DDA284684A30020FBCE /* MUNavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0F28422843C53100C206EA /* MUNavigationBar.swift */; };
-		CE9C1DDB284684A70020FBCE /* MUNavigationBarStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0F28442843CC3A00C206EA /* MUNavigationBarStyle.swift */; };
 		CE9C1DDC284684AB0020FBCE /* MUMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE900B76284634F000FF9C4F /* MUMenu.swift */; };
 		CE9C1DDD284684AE0020FBCE /* MUSelectControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE900B7128460F2800FF9C4F /* MUSelectControl.swift */; };
 		CE9C1DDE284684B20020FBCE /* MUSelectControl+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE900B782846497200FF9C4F /* MUSelectControl+Rx.swift */; };
@@ -608,7 +607,6 @@
 		CE0F283D2843B81300C206EA /* SignUpStep1ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpStep1ViewController.swift; sourceTree = "<group>"; };
 		CE0F283F2843B85400C206EA /* SignUpStep1Reactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpStep1Reactor.swift; sourceTree = "<group>"; };
 		CE0F28422843C53100C206EA /* MUNavigationBar.swift */ = {isa = PBXFileReference; indentWidth = 4; lastKnownFileType = sourcecode.swift; path = MUNavigationBar.swift; sourceTree = "<group>"; };
-		CE0F28442843CC3A00C206EA /* MUNavigationBarStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MUNavigationBarStyle.swift; sourceTree = "<group>"; };
 		CE0F28482843EBA500C206EA /* VerificationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerificationService.swift; sourceTree = "<group>"; };
 		CE0F284D28444A7000C206EA /* VerificationServiceSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerificationServiceSpec.swift; sourceTree = "<group>"; };
 		CE12DA5327E629AE00F08629 /* AttendanceTimelineViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttendanceTimelineViewModel.swift; sourceTree = "<group>"; };
@@ -1025,7 +1023,6 @@
 			isa = PBXGroup;
 			children = (
 				CE0F28422843C53100C206EA /* MUNavigationBar.swift */,
-				CE0F28442843CC3A00C206EA /* MUNavigationBarStyle.swift */,
 			);
 			path = MUNavigationBar;
 			sourceTree = "<group>";
@@ -2253,7 +2250,6 @@
 				CE9BE0952848CF5E006691F0 /* PlatformAttendanceCell.swift in Sources */,
 				CE12DA5627E629D700F08629 /* PartialAttendanceViewModel.swift in Sources */,
 				0642C941285223FF00B9F575 /* AttendanceStatusCircleView.swift in Sources */,
-				06531C20283F737100E225EB /* PlatformService.swift in Sources */,
 				CE6EE83F27C7EFF9005BF412 /* HomeReactor.swift in Sources */,
 				CE900B7528462C5400FF9C4F /* PlatformTeamMenuViewModel.swift in Sources */,
 				CE6A964A2853D66700F4C066 /* TermsAgreementPopupViewController.swift in Sources */,
@@ -2287,7 +2283,7 @@
 				CE6EE84127C7F130005BF412 /* HomeTab.swift in Sources */,
 				CE6EE82C27C7D8F8005BF412 /* RootController.swift in Sources */,
 				0618444227E1D2DD004980CC /* PlatformAttendanceDetailReactor.swift in Sources */,
-				0618444227E1D2DD004980CC /* SeminarDetailReactor.swift in Sources */,
+				0618444227E1D2DD004980CC /* PlatformAttendanceDetailReactor.swift in Sources */,
 				CE7CCB9B2855E593005AA690 /* TermsAgreementView+Rx.swift in Sources */,
 				CE6EE82E27C7D900005BF412 /* RootReactor.swift in Sources */,
 				CE6EE85D27CA4136005BF412 /* Seminar.swift in Sources */,
@@ -2302,7 +2298,6 @@
 				CE6EE87A27CA89F3005BF412 /* SeminarCardCellModel.swift in Sources */,
 				0642C94428522A3700B9F575 /* AttendanceStatus+Presentation.swift in Sources */,
 				CE729A8327E57FCD001D33D1 /* FakeAttendanceTimelineRepository.swift in Sources */,
-				CE6EE82327C7BF79005BF412 /* UserSession.swift in Sources */,
 				0642C93F285223F800B9F575 /* AttendanceStatusCircleViewModel.swift in Sources */,
 				CE6EE85F27CA45EF005BF412 /* SeminarScheduleSection.swift in Sources */,
 				CE729A8F27E61766001D33D1 /* PartialAttendanceView.swift in Sources */,
@@ -2310,16 +2305,14 @@
 				CE6EE83827C7E2D5005BF412 /* SplashReactor.swift in Sources */,
 				CE6A963628538C6700F4C066 /* SignUpStep2ViewController.swift in Sources */,
 				CE6EE84E27C80C9B005BF412 /* MyPageViewController.swift in Sources */,
-				CE6EE82927C7D655005BF412 /* FakeUserAuthService.swift in Sources */,
 				CE6EE86927CA5609005BF412 /* PlatformAttendanceDetailViewController.swift in Sources */,
-				CE6EE86927CA5609005BF412 /* SeminarDetailViewController.swift in Sources */,
+				CE6EE86927CA5609005BF412 /* PlatformAttendanceDetailViewController.swift in Sources */,
 				CE0F28492843EBA500C206EA /* VerificationService.swift in Sources */,
 				CE729A8127E57EC1001D33D1 /* AttendanceTimeline.swift in Sources */,
 				CE7CCBA42855FFA1005AA690 /* TermsAgreementReactor.swift in Sources */,
 				CE6EE86627CA495F005BF412 /* SeminarSchduleStep.swift in Sources */,
 				CEB60F4827A9746E001260DB /* QRReaderService.swift in Sources */,
 				CE729A8D27E60FD2001D33D1 /* QRScanFormatter.swift in Sources */,
-				CE6EE82527C7BF91005BF412 /* UserAuthService.swift in Sources */,
 				0642C93D2851ED4400B9F575 /* AttendanceDetailCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2345,8 +2338,7 @@
 				CE58818B27ECB2E60068D4E0 /* AttendanceTimelineSpec.swift in Sources */,
 				CE58818527EC98540068D4E0 /* AttendanceTimelineViewModel+Stub.swift in Sources */,
 				062A960727E99BE400E8E715 /* PlatformAttendanceDetailReactorSpec.swift in Sources */,
-				CE9E736727C29F4700922D8B /* MashUp_iOSTests-Mock.generated.swift in Sources */,
-				062A960727E99BE400E8E715 /* SeminarDetailReactorSpec.swift in Sources */,
+				062A960727E99BE400E8E715 /* PlatformAttendanceDetailReactorSpec.swift in Sources */,
 				CE6EE85027CA1DBD005BF412 /* RootReactorSpec.swift in Sources */,
 				CE58817D27EC856D0068D4E0 /* AttendanceTimeline+Stub.swift in Sources */,
 				CE58818127EC94120068D4E0 /* Seminar+Stub.swift in Sources */,
@@ -2417,7 +2409,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CE9C1DDB284684A70020FBCE /* MUNavigationBarStyle.swift in Sources */,
 				CE9C1DDF284684B50020FBCE /* MUTextField.swift in Sources */,
 				CE9C1DDD284684AE0020FBCE /* MUSelectControl.swift in Sources */,
 				CE9C1DCE2846846B0020FBCE /* MashUp_UIKit.docc in Sources */,

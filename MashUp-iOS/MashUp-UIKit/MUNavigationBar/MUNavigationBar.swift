@@ -38,10 +38,6 @@ public class MUNavigationBar: UIView {
         }
     }
     
-    public var style: MUNavigationBarStyle? {
-        didSet { self.setupStyle() }
-    }
-    
     public var title: String? {
         get { self.titleLabel.text }
         set { self.titleLabel.text = newValue }
@@ -81,14 +77,8 @@ public class MUNavigationBar: UIView {
         CGSize(width: UIScreen.main.bounds.width, height: 56)
     }
     
-    private func setupStyle() {
-        self.titleLabel.font = self.style?.titleFont
-        self.leftButton.setBackgroundImage(self.style?.leftIconImage, for: .normal)
-        self.rightButton.setBackgroundImage(self.style?.rightIconImage, for: .normal)
-        self.titleLabel.textColor = .gray900
-    }
-    
     private func setupAttribute() {
+        self.titleLabel.textColor = .gray900
         self.titleLabel.font = .pretendardFont(weight: .semiBold, size: 16)
     }
     
