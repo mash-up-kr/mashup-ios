@@ -15,17 +15,21 @@ final class QRScanReactor: Reactor {
     
     enum Action {
         case didSetup
+        case didTapClose
     }
     
     enum Mutation {
         case updateCode(Code)
         case updateAttendance(Bool)
+        case updateClose
     }
     
     struct State {
         let captureSession: AVCaptureSession
         var code: Code?
+        
         @Pulse var toastMessage: String?
+        @Pulse var shouldClose: Void?
         
         fileprivate var hasAttended: Bool
     }
@@ -52,8 +56,10 @@ final class QRScanReactor: Reactor {
         case .didSetup:
             let readyToQRScan: Observable<Mutation> = self.qrReaderService.scanCodeWhileSessionIsOpen()
                 .flatMap(self.updateCodeAndAttendance)
-            
             return readyToQRScan
+            
+        case .didTapClose:
+            return .just(.updateClose)
         }
     }
     
@@ -65,7 +71,12 @@ final class QRScanReactor: Reactor {
             
         case .updateAttendance(let attendance):
             newState.hasAttended = attendance
-            newState.toastMessage = self.messageOf(attendance: attendance)
+            if attendance == false {
+                newState.toastMessage = "올바르지 않은 QR 코드입니다"
+            }
+            
+        case .updateClose:
+            newState.shouldClose = Void()
         }
         return newState
     }
@@ -76,10 +87,6 @@ final class QRScanReactor: Reactor {
         let updateCode = Observable.just(Mutation.updateCode(code))
         let updateAttendance = self.attencanceService.attend(withCode: code).map { Mutation.updateAttendance($0) }
         return .concat(updateCode, updateAttendance)
-    }
-    
-    private func messageOf(attendance: Bool) -> String {
-        return attendance ? "✅ 출석을 완료하셨습니다." : "❌ 올바른 코드가 아닙니다."
     }
     
     private let qrReaderService: QRReaderService
