@@ -136,18 +136,12 @@ extension HomeTabBarController {
     }
     
     private func createQRScanViewController() -> UIViewController {
-        let seminarRepository = self.createSeminarRepository()
         let qrReaderService = QRReaderServiceImpl()
         let attendanceService = self.createAttendanceService()
-        let timerService = TimerServiceImpl()
-        let attendanceTimelineRepository = self.createAttendanceTimelineRepository()
         let formatter = QRScanFormatterImpl()
         let qrScanViewReactor = QRScanReactor(
             qrReaderService: qrReaderService,
-            seminarRepository: seminarRepository,
             attendanceService: attendanceService,
-            timerService: timerService,
-            attendanceTimelineRepository: attendanceTimelineRepository,
             formatter: formatter
         )
         let qrScanViewController = QRScanViewController()
@@ -167,25 +161,6 @@ extension HomeTabBarController {
         let attendanceService = FakeAttendanceService()
         attendanceService.stubedCorrectCode = "I'm correct"
         return attendanceService
-    }
-    
-    private func createAttendanceTimelineRepository() -> AttendanceTimelineRepository {
-        #warning("AttendanceTimelineRepository 실구현체로 대체해야합니다.")
-        let attendanceTimelineRepository = FakeAttendanceTimelineRepository()
-        let partialAttendance1 = PartialAttendance(
-            phase: .phase1,
-            status: .lateness,
-            timestamp: Date(year: 2022, month: 4, day: 1, hour: 3, minute: 16, second: 24)
-        )
-        let partialAttendance2 = PartialAttendance(
-            phase: .phase2,
-            status: .attend,
-            timestamp: Date(year: 2022, month: 4, day: 1, hour: 4, minute: 0, second: 24)
-        )
-        
-        attendanceTimelineRepository.stubbedTimeline = AttendanceTimeline(partialAttendance1: partialAttendance1,
-                                                                          partialAttendance2: partialAttendance2)
-        return attendanceTimelineRepository
     }
     
 }

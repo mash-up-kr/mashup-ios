@@ -14,13 +14,6 @@ import SnapKit
 import UIKit
 import MashUp_Core
 
-
-struct TimerStyle: Equatable {
-    let isAdmin: Bool
-    let remainTime: String?
-}
-
-
 final class QRScanViewController: BaseViewController, ReactorKit.View {
     typealias Reactor = QRScanReactor
     
@@ -50,10 +43,6 @@ final class QRScanViewController: BaseViewController, ReactorKit.View {
         self.rx.viewDidLoad.map { .didSetup }
         .bind(to: reactor.action)
         .disposed(by: self.disposeBag)
-        
-        self.adminTimerButton.rx.tap.map { .didTapTimerButton }
-        .bind(to: reactor.action)
-        .disposed(by: self.disposeBag)
     }
     
     private func render(_ reactor: Reactor) {
@@ -68,20 +57,6 @@ final class QRScanViewController: BaseViewController, ReactorKit.View {
         .distinctUntilChanged()
         .onMain()
         .bind(to: self.codeLabel.rx.text)
-        .disposed(by: self.disposeBag)
-        
-        reactor.state.compactMap { $0.timer }
-        .distinctUntilChanged()
-        .onMain()
-        .withUnretained(self)
-        .subscribe(onNext: { $0.updateTimer($1) })
-        .disposed(by: self.disposeBag)
-        
-        reactor.state.compactMap { $0.seminarCardViewModel }
-        .distinctUntilChanged()
-        .onMain()
-        .withUnretained(self)
-        .subscribe(onNext: { $0.updateQRSeminarCard($1) })
         .disposed(by: self.disposeBag)
     }
     
@@ -100,14 +75,6 @@ final class QRScanViewController: BaseViewController, ReactorKit.View {
     
     private func updateQRSeminarCard(_ viewModel: QRSeminarCardViewModel) {
         self.seminarCardView.configure(with: viewModel)
-    }
-    
-    private func updateTimer(_ timerStyle: TimerStyle) {
-        self.timerView.isHidden = timerStyle.isAdmin == true
-        self.adminTimerButton.isHidden = timerStyle.isAdmin != true
-        self.timerView.text = timerStyle.remainTime
-        self.adminTimerButton.isEnabled = timerStyle.remainTime == nil
-        self.adminTimerButton.setTitle("타이머 동작중  |  \(timerStyle.remainTime ?? .empty)", for: .disabled)
     }
     
     private func showToast(message: String) {
