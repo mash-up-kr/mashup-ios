@@ -94,9 +94,9 @@ extension SeminarScheduleViewController {
     }
     
     private func setupAttribute() {
-        self.view.backgroundColor = .white
+        self.view.backgroundColor = .gray50
         self.collectionView.do {
-            $0.backgroundColor = .white
+            $0.backgroundColor = .clear
             $0.registerCell(SeminarCardCell.self)
             $0.registerSupplementaryView(SeminarHeaderView.self)
             $0.collectionViewLayout = self.collectionViewLayout()
@@ -106,7 +106,7 @@ extension SeminarScheduleViewController {
     private func setupLayout() {
         self.view.addSubview(self.collectionView)
         self.collectionView.snp.makeConstraints {
-            $0.top.equalToSuperview().inset(56)
+            $0.top.equalToSuperview().inset(24)
             $0.leading.trailing.bottom.equalToSuperview()
         }
     }
@@ -115,8 +115,8 @@ extension SeminarScheduleViewController {
         return UICollectionViewCompositionalLayout(sectionProvider: { index, _ in
             guard let sectionType = SeminarSectionType(rawValue: index) else { return nil }
             switch sectionType {
-            case .upcoming: return .horizontalCardLayoutSection
-            case .total: return .verticalCardLayoutSection
+//            case .upcoming: return .horizontalCardLayoutSection
+            case .total: return .horizontalCardLayoutSection
             }
         })
     }
@@ -130,7 +130,7 @@ extension SeminarScheduleViewController {
             collectionView: collectionView,
             cellProvider: { collectionView, indexPath, item in
                 switch item {
-                case .upcoming(let model), .total(let model):
+                case .total(let model):
                     let cell = collectionView.dequeueCell(SeminarCardCell.self, for: indexPath)
                     cell?.configure(with: model)
                     return cell

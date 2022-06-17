@@ -102,12 +102,12 @@ extension RootController {
         #warning("둘 중 하나만 주석을 푸시면 케이스 테스트 가능합니다.")
         
         // ✅ 자동 로그인 케이스 테스트
-        /* self.userAuthService.stubedUserSession = UserSession(id: "fake.user.id",
+        self.userAuthService.stubedUserSession = UserSession(id: "fake.user.id",
                                                                    accessToken: "fake.access.token")
-         */
+         
         
         // ❌ 자동 로그인 아닌 케이스 테스트
-        self.userAuthService.stubedUserSession = nil
+//        self.userAuthService.stubedUserSession = nil
         
         let splashViewController = SplashViewController()
         splashViewController.reactor = SplashReactor(
