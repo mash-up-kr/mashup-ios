@@ -28,6 +28,8 @@
 		06531C382840C7C500E225EB /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 06531C372840C7C500E225EB /* Colors.xcassets */; };
 		0688CB42284B223B00338A5C /* PlatformTeam+Presentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0688CB41284B223B00338A5C /* PlatformTeam+Presentation.swift */; };
 		07900EC9117FCF2FA8E23F03 /* MashUp_iOSTests-MashUp_PlatformTeamMocks.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF06792B8FCEDBC254B599C /* MashUp_iOSTests-MashUp_PlatformTeamMocks.generated.swift */; };
+		2820E16A285CE03B0058EE40 /* NowAttendenceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2820E169285CE03B0058EE40 /* NowAttendenceView.swift */; };
+		2820E16C285CE7750058EE40 /* AttendenceTimeAndCheckView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2820E16B285CE7750058EE40 /* AttendenceTimeAndCheckView.swift */; };
 		8150A263D51AF35ED7C1F753 /* MashUp_iOSTests-MashUp_UIKitMocks.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50AEB9142054CE6C0E1FC59A /* MashUp_iOSTests-MashUp_UIKitMocks.generated.swift */; };
 		83BBB1B66AFB5F2C4E95E49C /* MashUp_iOSTests-MashUp_iOSMocks.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 093B68049842CE18EA5AAB9B /* MashUp_iOSTests-MashUp_iOSMocks.generated.swift */; };
 		95DDF9F37D94A72B0668DA86 /* MashUp_iOSTests-MashUp_SignUpCodeMocks.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 263804E226FD88597A662F28 /* MashUp_iOSTests-MashUp_SignUpCodeMocks.generated.swift */; };
@@ -597,6 +599,8 @@
 		1345AE365F8570B51C4B2A6E /* MashUp_iOSTests-MashUp_CoreMocks.generated.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; name = "MashUp_iOSTests-MashUp_CoreMocks.generated.swift"; path = "MockingbirdMocks/MashUp_iOSTests-MashUp_CoreMocks.generated.swift"; sourceTree = "<group>"; };
 		263804E226FD88597A662F28 /* MashUp_iOSTests-MashUp_SignUpCodeMocks.generated.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; name = "MashUp_iOSTests-MashUp_SignUpCodeMocks.generated.swift"; path = "MockingbirdMocks/MashUp_iOSTests-MashUp_SignUpCodeMocks.generated.swift"; sourceTree = "<group>"; };
 		26726427CAEA121D4500767F /* MashUp_iOSTests-MashUp_NetworkMocks.generated.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; name = "MashUp_iOSTests-MashUp_NetworkMocks.generated.swift"; path = "MockingbirdMocks/MashUp_iOSTests-MashUp_NetworkMocks.generated.swift"; sourceTree = "<group>"; };
+		2820E169285CE03B0058EE40 /* NowAttendenceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NowAttendenceView.swift; sourceTree = "<group>"; };
+		2820E16B285CE7750058EE40 /* AttendenceTimeAndCheckView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttendenceTimeAndCheckView.swift; sourceTree = "<group>"; };
 		50AEB9142054CE6C0E1FC59A /* MashUp_iOSTests-MashUp_UIKitMocks.generated.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; name = "MashUp_iOSTests-MashUp_UIKitMocks.generated.swift"; path = "MockingbirdMocks/MashUp_iOSTests-MashUp_UIKitMocks.generated.swift"; sourceTree = "<group>"; };
 		CE0F282A28436A9B00C206EA /* MUButton.swift */ = {isa = PBXFileReference; indentWidth = 4; lastKnownFileType = sourcecode.swift; path = MUButton.swift; sourceTree = "<group>"; };
 		CE0F282F284377B900C206EA /* MUButtonStyle.swift */ = {isa = PBXFileReference; indentWidth = 4; lastKnownFileType = sourcecode.swift; path = MUButtonStyle.swift; sourceTree = "<group>"; };
@@ -1310,6 +1314,8 @@
 			isa = PBXGroup;
 			children = (
 				CE6EE87027CA73B7005BF412 /* SeminarCardCell.swift */,
+				2820E169285CE03B0058EE40 /* NowAttendenceView.swift */,
+				2820E16B285CE7750058EE40 /* AttendenceTimeAndCheckView.swift */,
 				CE6EE87927CA89F3005BF412 /* SeminarCardCellModel.swift */,
 				CE6EE88527CA91ED005BF412 /* SeminarHeaderView.swift */,
 			);
@@ -2277,6 +2283,7 @@
 				CE396080278B3CB40073AEF4 /* AppDelegate.swift in Sources */,
 				CE0F28402843B85400C206EA /* SignUpStep1Reactor.swift in Sources */,
 				CE7CCBA5285656EA005AA690 /* PlatformAttendanceHeaderView.swift in Sources */,
+				2820E16A285CE03B0058EE40 /* NowAttendenceView.swift in Sources */,
 				CE6EE89527CB049C005BF412 /* QRCodeFinderView.swift in Sources */,
 				CE88D32827E5522B00865C02 /* QRSeminarCardView.swift in Sources */,
 				CE14D2CB27CFBB1200685CFF /* FakeSeminarRepository.swift in Sources */,
@@ -2311,6 +2318,7 @@
 				CE729A8127E57EC1001D33D1 /* AttendanceTimeline.swift in Sources */,
 				CE7CCBA42855FFA1005AA690 /* TermsAgreementReactor.swift in Sources */,
 				CE6EE86627CA495F005BF412 /* SeminarSchduleStep.swift in Sources */,
+				2820E16C285CE7750058EE40 /* AttendenceTimeAndCheckView.swift in Sources */,
 				CEB60F4827A9746E001260DB /* QRReaderService.swift in Sources */,
 				CE729A8D27E60FD2001D33D1 /* QRScanFormatter.swift in Sources */,
 				0642C93D2851ED4400B9F575 /* AttendanceDetailCell.swift in Sources */,
