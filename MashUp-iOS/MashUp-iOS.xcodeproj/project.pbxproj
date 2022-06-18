@@ -47,6 +47,7 @@
 		CE12DA5827E629FE00F08629 /* QRSeminarCardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE12DA5727E629FE00F08629 /* QRSeminarCardViewModel.swift */; };
 		CE14D2CB27CFBB1200685CFF /* FakeSeminarRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE14D2CA27CFBB1100685CFF /* FakeSeminarRepository.swift */; };
 		CE307A05285DE1B50092C09A /* MyPageSummaryBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE307A04285DE1B50092C09A /* MyPageSummaryBar.swift */; };
+		CE307A07285DE50E0092C09A /* MyPageSummaryBar+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE307A06285DE50E0092C09A /* MyPageSummaryBar+Rx.swift */; };
 		CE396080278B3CB40073AEF4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE39607F278B3CB40073AEF4 /* AppDelegate.swift */; };
 		CE396089278B3CB60073AEF4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE396088278B3CB60073AEF4 /* Assets.xcassets */; };
 		CE39608C278B3CB60073AEF4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE39608A278B3CB60073AEF4 /* LaunchScreen.storyboard */; };
@@ -617,6 +618,7 @@
 		CE12DA5727E629FE00F08629 /* QRSeminarCardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRSeminarCardViewModel.swift; sourceTree = "<group>"; };
 		CE14D2CA27CFBB1100685CFF /* FakeSeminarRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeSeminarRepository.swift; sourceTree = "<group>"; };
 		CE307A04285DE1B50092C09A /* MyPageSummaryBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageSummaryBar.swift; sourceTree = "<group>"; };
+		CE307A06285DE50E0092C09A /* MyPageSummaryBar+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MyPageSummaryBar+Rx.swift"; sourceTree = "<group>"; };
 		CE39607C278B3CB40073AEF4 /* MashUp-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "MashUp-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE39607F278B3CB40073AEF4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CE396088278B3CB60073AEF4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -1344,6 +1346,7 @@
 				CE307A04285DE1B50092C09A /* MyPageSummaryBar.swift */,
 				CE7C9E81285DC39000B71C0E /* MyPageHeaderView.swift */,
 				CE7C9E83285DC4C600B71C0E /* MyPageHeaderView+Rx.swift */,
+				CE307A06285DE50E0092C09A /* MyPageSummaryBar+Rx.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -2310,6 +2313,7 @@
 				CE6EE87A27CA89F3005BF412 /* SeminarCardCellModel.swift in Sources */,
 				0642C94428522A3700B9F575 /* AttendanceStatus+Presentation.swift in Sources */,
 				CE729A8327E57FCD001D33D1 /* FakeAttendanceTimelineRepository.swift in Sources */,
+				CE307A07285DE50E0092C09A /* MyPageSummaryBar+Rx.swift in Sources */,
 				0642C93F285223F800B9F575 /* AttendanceStatusCircleViewModel.swift in Sources */,
 				CE6EE85F27CA45EF005BF412 /* SeminarScheduleSection.swift in Sources */,
 				CE729A8F27E61766001D33D1 /* PartialAttendanceView.swift in Sources */,

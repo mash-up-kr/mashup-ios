@@ -21,16 +21,20 @@ extension Reactive where Base: TermsAgreementView {
         })
     }
     
-    var didTapAcceptArea: Observable<Bool> {
-        self.delegate.methodInvoked(#selector(TermsAgreementViewDelegate.termsAgreementView(_:didTapAcceptArea:)))
-            .debug("didTapAcceptArea")
+    var didTapAcceptArea: ControlEvent<Bool> {
+        let source = self.delegate
+            .methodInvoked(#selector(TermsAgreementViewDelegate.termsAgreementView(_:didTapAcceptArea:)))
             .compactMap { parameters in parameters[safe: 1] as? Bool }
+        
+        return ControlEvent(events: source)
     }
     
-    var didTapSeeMoreButton: Observable<Bool> {
-        self.delegate.methodInvoked(#selector(TermsAgreementViewDelegate.termsAgreementView(_:didTapSeeMoreButton:)))
-            .debug("didTapSeeMoreButton")
+    var didTapSeeMoreButton: ControlEvent<Bool> {
+       let source = self.delegate
+            .methodInvoked(#selector(TermsAgreementViewDelegate.termsAgreementView(_:didTapSeeMoreButton:)))
             .compactMap { parameters in parameters[safe: 1] as? Bool }
+        
+       return ControlEvent(events: source)
     }
     
 }

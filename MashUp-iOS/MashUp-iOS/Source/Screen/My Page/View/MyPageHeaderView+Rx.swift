@@ -16,11 +16,18 @@ extension Reactive where Base: MyPageHeaderView {
         MyPageHeaderViewDelegateProxy.proxy(for: self.base)
     }
     
-    var didTapSettingButton: Observable<Void> {
-        self.delegate.methodInvoked(#selector(MyPageHeaderViewDelegate.myPageHeaderViewDidTapSettingButton(_:))).map { _ in Void() }
+    var didTapSettingButton: ControlEvent<Void> {
+        let source = self.delegate
+            .methodInvoked(#selector(MyPageHeaderViewDelegate.myPageHeaderViewDidTapSettingButton(_:)))
+            .map { _ in Void() }
+        return ControlEvent(events: source)
     }
-    var didTapQuestionMarkButton: Observable<Void> {
-        self.delegate.methodInvoked(#selector(MyPageHeaderViewDelegate.myPageHeaderViewDidTapQuestionMarkButton(_:))).map { _ in Void() }
+    
+    var didTapQuestionMarkButton: ControlEvent<Void> {
+        let source = self.delegate
+            .methodInvoked(#selector(MyPageHeaderViewDelegate.myPageHeaderViewDidTapQuestionMarkButton(_:)))
+            .map { _ in Void() }
+        return ControlEvent(events: source)
     }
 }
 
