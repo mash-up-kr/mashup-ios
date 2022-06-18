@@ -43,7 +43,7 @@ final class AttendanceScoreHistoryCell: BaseTableViewCell {
         self.appliedTotalScoreLabel.text = model.appliedTotalScoreText
         self.apply(style: model.scoreChangeStyle)
         #warning("프로토타이핑 - booung")
-        self.eventColorView.backgroundColor = [.blue500, .green500, .red500, .primary500].randomElement()!
+        self.eventColorView.backgroundColor = [.blue500, .green500, .red500, .yellow500, .primary500].randomElement()!
     }
     
     private func apply(style: ScoreChangeStyle) {
@@ -52,8 +52,10 @@ final class AttendanceScoreHistoryCell: BaseTableViewCell {
             self.changedScoreLabel.textColor = .blue500
             self.changedScoreLabel.text = changedScoreText
         case .deduction(let changedScoreText):
+            self.changedScoreLabel.textColor = .red500
             self.changedScoreLabel.text = changedScoreText
         case .custom(let changedScoreText):
+            self.changedScoreLabel.textColor = .black
             self.changedScoreLabel.text = changedScoreText
         }
     }

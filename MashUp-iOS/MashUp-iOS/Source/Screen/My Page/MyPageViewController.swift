@@ -131,7 +131,7 @@ extension MyPageViewController: UITableViewDataSource {
         let model = AttendanceScoreHistoryCellModel(
             historyTitle: "전체 세미나 지각",
             description: "2022.03.05 | 2차 전체 세미나",
-            scoreChangeStyle: .addition("+1점"),
+            scoreChangeStyle: [.addition("+1점"), .deduction("-1점"), .custom("💖 🔫")].randomElement()!,
             appliedTotalScoreText: "4점"
         )
         return AttendanceScoreHistoryCell().then {
