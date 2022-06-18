@@ -66,7 +66,8 @@ final class MyPageViewController: BaseViewController, View {
     private func render(_ reactor: Reactor) {
         reactor.state.map { !$0.summaryBarHasVisable }
             .distinctUntilChanged()
-            .bind(to: self.summaryBar.rx.isHidden)
+            .onMain()
+            .subscribe(onNext: { [weak self] in self?.updateSummaryBarWithAnimation(isHidden: $0) })
             .disposed(by: self.disposeBag)
     }
     
@@ -77,6 +78,9 @@ final class MyPageViewController: BaseViewController, View {
     private let headerView = MyPageHeaderView(frame: CGRect(x: 0, y: 0, width: screenWidth, height: 200))
     private let summaryBar = MyPageSummaryBar()
     private let historyTableView = UITableView()
+    
+    private let animator = UIViewPropertyAnimator(duration: 0.3, curve: .linear)
+    
 }
 extension MyPageViewController {
     
@@ -99,7 +103,16 @@ extension MyPageViewController {
             $0.top.leading.width.equalTo(self.view.safeAreaLayoutGuide)
             $0.height.equalTo(84)
         }
-        self.summaryBar.isHidden = true
+    }
+    
+    private func updateSummaryBarWithAnimation(isHidden: Bool) {
+        self.animator.pauseAnimation()
+        
+        self.summaryBar.alpha = isHidden ? 1 : 0
+        self.animator.addAnimations({
+            self.summaryBar.alpha = isHidden ? 0 : 1
+        })
+        self.animator.startAnimation()
     }
     
 }
@@ -107,11 +120,13 @@ extension MyPageViewController {
 extension MyPageViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        100
+        return 100
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return UITableViewCell().then { $0.contentView.backgroundColor = .gray500 }
+        return UITableViewCell().then {
+            $0.contentView.backgroundColor = .gray500
+        }
     }
     
     
