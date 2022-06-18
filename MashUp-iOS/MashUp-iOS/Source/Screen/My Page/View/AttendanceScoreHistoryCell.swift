@@ -20,14 +20,26 @@ enum ScoreChangeStyle {
 
 struct AttendanceScoreHistoryCellModel {
     let historyTitle: String
+    let description: String
     let scoreChangeStyle: ScoreChangeStyle
     let appliedTotalScoreText: String
 }
 
 final class AttendanceScoreHistoryCell: BaseTableViewCell {
     
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
+        self.setupAttribute()
+        self.setupLayout()
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     func configure(with model: AttendanceScoreHistoryCellModel) {
         self.historyTitleLabel.text = model.historyTitle
+        self.descriptionLabel.text = model.description
         self.appliedTotalScoreLabel.text = model.appliedTotalScoreText
         self.apply(style: model.scoreChangeStyle)
         #warning("프로토타이핑 - booung")
@@ -57,6 +69,7 @@ final class AttendanceScoreHistoryCell: BaseTableViewCell {
 extension AttendanceScoreHistoryCell {
     
     private func setupAttribute() {
+        self.backgroundColor = .gray50
         self.eventColorView.do {
             $0.clipsToBounds = true
             $0.layer.cornerRadius = 12
@@ -88,7 +101,37 @@ extension AttendanceScoreHistoryCell {
     }
     
     private func setupLayout() {
-        
+        self.contentView.addSubview(self.eventColorView)
+        self.eventColorView.snp.makeConstraints {
+            $0.width.height.equalTo(40)
+            $0.leading.equalToSuperview().inset(20)
+            $0.top.bottom.equalToSuperview().inset(12)
+        }
+        self.contentView.addSubview(self.historyTitleLabel)
+        self.historyTitleLabel.snp.makeConstraints {
+            $0.top.equalTo(self.eventColorView)
+            $0.leading.equalTo(self.eventColorView.snp.trailing).offset(12)
+        }
+        self.contentView.addSubview(self.dateLabel)
+        self.dateLabel.snp.makeConstraints {
+            $0.leading.equalTo(self.eventColorView.snp.trailing).offset(12)
+            $0.bottom.equalTo(self.eventColorView)
+        }
+        self.contentView.addSubview(self.descriptionLabel)
+        self.descriptionLabel.snp.makeConstraints {
+            $0.leading.equalTo(self.eventColorView.snp.trailing).offset(12)
+            $0.bottom.equalTo(self.eventColorView)
+        }
+        self.contentView.addSubview(self.changedScoreLabel)
+        self.changedScoreLabel.snp.makeConstraints {
+            $0.trailing.equalToSuperview().inset(20)
+            $0.top.equalTo(self.historyTitleLabel)
+        }
+        self.contentView.addSubview(self.appliedTotalScoreLabel)
+        self.appliedTotalScoreLabel.snp.makeConstraints {
+            $0.trailing.equalToSuperview().inset(20)
+            $0.bottom.equalTo(self.eventColorView)
+        }
     }
     
 }

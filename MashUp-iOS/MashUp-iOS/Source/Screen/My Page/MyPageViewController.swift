@@ -86,10 +86,13 @@ extension MyPageViewController {
     
     private func setupAttribute() {
         self.view.backgroundColor = .gray50
+        self.summaryBar.do {
+            $0.backgroundColor = .gray50
+        }
         self.historyTableView.do {
             $0.tableHeaderView = self.headerView
-            $0.backgroundColor = .green100
             $0.dataSource = self
+            $0.rowHeight = UITableView.automaticDimension
         }
     }
     
@@ -124,8 +127,14 @@ extension MyPageViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return UITableViewCell().then {
-            $0.contentView.backgroundColor = .gray500
+        let model = AttendanceScoreHistoryCellModel(
+            historyTitle: "전체 세미나 지각",
+            description: "2022.03.05 | 2차 전체 세미나",
+            scoreChangeStyle: .addition("+1점"),
+            appliedTotalScoreText: "4점"
+        )
+        return AttendanceScoreHistoryCell().then {
+            $0.configure(with: model)
         }
     }
     
