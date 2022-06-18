@@ -69,6 +69,7 @@ final class AttendanceScoreHistoryCell: BaseTableViewCell {
 extension AttendanceScoreHistoryCell {
     
     private func setupAttribute() {
+        self.selectionStyle = .none
         self.backgroundColor = .gray50
         self.eventColorView.do {
             $0.clipsToBounds = true

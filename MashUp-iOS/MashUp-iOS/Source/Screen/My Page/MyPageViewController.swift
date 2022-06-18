@@ -87,12 +87,13 @@ extension MyPageViewController {
     private func setupAttribute() {
         self.view.backgroundColor = .gray50
         self.summaryBar.do {
-            $0.backgroundColor = .gray50
+            $0.backgroundColor = .white
         }
         self.historyTableView.do {
             $0.tableHeaderView = self.headerView
-            $0.dataSource = self
             $0.rowHeight = UITableView.automaticDimension
+            $0.separatorStyle = .none
+            $0.dataSource = self
         }
     }
     
@@ -103,8 +104,8 @@ extension MyPageViewController {
         }
         self.view.addSubview(self.summaryBar)
         self.summaryBar.snp.makeConstraints {
-            $0.top.leading.width.equalTo(self.view.safeAreaLayoutGuide)
-            $0.height.equalTo(84)
+            $0.top.leading.width.equalToSuperview()
+            $0.height.equalTo(126)
         }
     }
     

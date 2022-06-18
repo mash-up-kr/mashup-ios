@@ -82,14 +82,14 @@ extension MyPageSummaryBar {
     
     private func setupLayout() {
         self.addSubview(self.userNameLabel)
+        self.addSubview(self.scoreTitleLabel)
         self.userNameLabel.snp.makeConstraints {
-            $0.top.equalToSuperview().inset(7)
+            $0.bottom.equalTo(self.scoreTitleLabel.snp.top).offset(-10)
             $0.leading.equalToSuperview().inset(20)
         }
-        self.addSubview(self.scoreTitleLabel)
         self.scoreTitleLabel.snp.makeConstraints {
-            $0.top.equalTo(self.userNameLabel.snp.bottom).offset(10)
             $0.leading.equalToSuperview().inset(20)
+            $0.bottom.equalToSuperview().inset(21)
         }
         self.addSubview(self.questionMarkButton)
         self.questionMarkButton.snp.makeConstraints {
@@ -99,8 +99,8 @@ extension MyPageSummaryBar {
         }
         self.addSubview(self.totalAttendanceScoreLabel)
         self.totalAttendanceScoreLabel.snp.makeConstraints {
-            $0.centerY.equalTo(self.scoreTitleLabel)
             $0.trailing.equalToSuperview().inset(24)
+            $0.bottom.equalToSuperview().inset(21)
         }
     }
     
