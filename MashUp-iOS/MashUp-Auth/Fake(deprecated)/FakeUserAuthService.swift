@@ -26,7 +26,12 @@ public final class FakeUserAuthService: UserAuthService {
         let isCorrectPW = password.lowercased().contains("test")
         
         guard isCorrectID, isCorrectPW else { return .error("sign in failure") }
-        let fakeSession = UserSession(id: "fake.user.id", accessToken: "\(id).\(password)")
+        let fakeSession = UserSession(
+            id: "fake.user.id",
+            accessToken: "\(id).\(password)",
+            name: "fake.name",
+            platformTeam: .iOS
+        )
         
         return .just(fakeSession)
     }
@@ -36,7 +41,12 @@ public final class FakeUserAuthService: UserAuthService {
         let isCorrectPW = newAccount.password.lowercased().contains("test")
         
         guard isCorrectID, isCorrectPW else { return .failure(.undefined("sign in failure")) }
-        let fakeSession = UserSession(id: "fake.user.id", accessToken: "\(newAccount.id).\(newAccount.password)")
+        let fakeSession = UserSession(
+            id: "fake.user.id",
+            accessToken: "\(newAccount.id).\(newAccount.password)",
+            name: "fake.name",
+            platformTeam: .iOS
+        )
         return .success(fakeSession)
     }
     

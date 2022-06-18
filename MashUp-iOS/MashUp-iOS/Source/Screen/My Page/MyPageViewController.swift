@@ -20,4 +20,7 @@ final class MyPageViewController: BaseViewController {
         super.viewDidAppear(animated)
         self.setupTabBarTheme(.light)
     }
+    
+    private let settingButton = UIButton()
+    
 }
