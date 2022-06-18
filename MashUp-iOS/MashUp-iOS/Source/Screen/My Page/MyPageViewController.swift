@@ -21,6 +21,6 @@ final class MyPageViewController: BaseViewController {
         self.setupTabBarTheme(.light)
     }
     
-    private let settingButton = UIButton()
+    private let headerView = MyPageHeaderView()
     
 }

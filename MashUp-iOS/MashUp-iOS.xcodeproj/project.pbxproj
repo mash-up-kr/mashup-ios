@@ -108,6 +108,8 @@
 		CE729A8B27E60D49001D33D1 /* SeminarSchedulerFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE729A8A27E60D49001D33D1 /* SeminarSchedulerFormatter.swift */; };
 		CE729A8D27E60FD2001D33D1 /* QRScanFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE729A8C27E60FD2001D33D1 /* QRScanFormatter.swift */; };
 		CE729A8F27E61766001D33D1 /* PartialAttendanceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE729A8E27E61766001D33D1 /* PartialAttendanceView.swift */; };
+		CE7C9E82285DC39000B71C0E /* MyPageHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7C9E81285DC39000B71C0E /* MyPageHeaderView.swift */; };
+		CE7C9E84285DC4C600B71C0E /* MyPageHeaderView+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7C9E83285DC4C600B71C0E /* MyPageHeaderView+Rx.swift */; };
 		CE7CCB982855DB82005AA690 /* TermsAgreementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7CCB972855DB82005AA690 /* TermsAgreementView.swift */; };
 		CE7CCB9B2855E593005AA690 /* TermsAgreementView+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7CCB9A2855E593005AA690 /* TermsAgreementView+Rx.swift */; };
 		CE7CCB9E2855FDEF005AA690 /* EventHookingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7CCB9D2855FDEF005AA690 /* EventHookingView.swift */; };
@@ -681,6 +683,8 @@
 		CE729A8A27E60D49001D33D1 /* SeminarSchedulerFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SeminarSchedulerFormatter.swift; sourceTree = "<group>"; };
 		CE729A8C27E60FD2001D33D1 /* QRScanFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRScanFormatter.swift; sourceTree = "<group>"; };
 		CE729A8E27E61766001D33D1 /* PartialAttendanceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartialAttendanceView.swift; sourceTree = "<group>"; };
+		CE7C9E81285DC39000B71C0E /* MyPageHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageHeaderView.swift; sourceTree = "<group>"; };
+		CE7C9E83285DC4C600B71C0E /* MyPageHeaderView+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MyPageHeaderView+Rx.swift"; sourceTree = "<group>"; };
 		CE7CCB972855DB82005AA690 /* TermsAgreementView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsAgreementView.swift; sourceTree = "<group>"; };
 		CE7CCB9A2855E593005AA690 /* TermsAgreementView+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TermsAgreementView+Rx.swift"; sourceTree = "<group>"; };
 		CE7CCB9D2855FDEF005AA690 /* EventHookingView.swift */ = {isa = PBXFileReference; indentWidth = 4; lastKnownFileType = sourcecode.swift; path = EventHookingView.swift; sourceTree = "<group>"; };
@@ -1251,6 +1255,8 @@
 			isa = PBXGroup;
 			children = (
 				CE6EE84D27C80C9B005BF412 /* MyPageViewController.swift */,
+				CE7C9E81285DC39000B71C0E /* MyPageHeaderView.swift */,
+				CE7C9E83285DC4C600B71C0E /* MyPageHeaderView+Rx.swift */,
 			);
 			path = "My Page";
 			sourceTree = "<group>";
@@ -2245,6 +2251,7 @@
 				CE729A8B27E60D49001D33D1 /* SeminarSchedulerFormatter.swift in Sources */,
 				CEB60F4B27A975AD001260DB /* QRScanViewController.swift in Sources */,
 				0688CB42284B223B00338A5C /* PlatformTeam+Presentation.swift in Sources */,
+				CE7C9E84285DC4C600B71C0E /* MyPageHeaderView+Rx.swift in Sources */,
 				06531C272840B4CF00E225EB /* PlatformStatusViewController.swift in Sources */,
 				CE6EE88627CA91ED005BF412 /* SeminarHeaderView.swift in Sources */,
 				CE6EE83227C7D948005BF412 /* RootStep.swift in Sources */,
@@ -2279,6 +2286,7 @@
 				CE0F283E2843B81300C206EA /* SignUpStep1ViewController.swift in Sources */,
 				06531C2B2840BFAA00E225EB /* AttendanceStatusRectangleViewModel.swift in Sources */,
 				CE0F283E2843B81300C206EA /* SignUpStep1ViewController.swift in Sources */,
+				CE7C9E82285DC39000B71C0E /* MyPageHeaderView.swift in Sources */,
 				CE7CCB982855DB82005AA690 /* TermsAgreementView.swift in Sources */,
 				CE6EE83D27C7EFB9005BF412 /* HomeTabBarController.swift in Sources */,
 				06531C292840BF9800E225EB /* AttendanceStatusRectangleView.swift in Sources */,
