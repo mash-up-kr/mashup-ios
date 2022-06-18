@@ -1254,9 +1254,8 @@
 		CE6EE84627C80C66005BF412 /* My Page */ = {
 			isa = PBXGroup;
 			children = (
+				CE7C9E85285DDCF200B71C0E /* View */,
 				CE6EE84D27C80C9B005BF412 /* MyPageViewController.swift */,
-				CE7C9E81285DC39000B71C0E /* MyPageHeaderView.swift */,
-				CE7C9E83285DC4C600B71C0E /* MyPageHeaderView+Rx.swift */,
 			);
 			path = "My Page";
 			sourceTree = "<group>";
@@ -1330,6 +1329,15 @@
 				CE6EE89427CB049C005BF412 /* QRCodeFinderView.swift */,
 				CE88D32727E5522B00865C02 /* QRSeminarCardView.swift */,
 				CE12DA5727E629FE00F08629 /* QRSeminarCardViewModel.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		CE7C9E85285DDCF200B71C0E /* View */ = {
+			isa = PBXGroup;
+			children = (
+				CE7C9E81285DC39000B71C0E /* MyPageHeaderView.swift */,
+				CE7C9E83285DC4C600B71C0E /* MyPageHeaderView+Rx.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";

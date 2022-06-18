@@ -14,6 +14,10 @@ final class MyPageViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = .systemGreen
+        
+        self.setupLayout()
+        
+        self.headerView.configure(with: .init(userName: "김매시업", platformTeamText: "iOS", totalScoreText: "3.5점"))
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -22,5 +26,16 @@ final class MyPageViewController: BaseViewController {
     }
     
     private let headerView = MyPageHeaderView()
+    
+}
+extension MyPageViewController {
+    
+    private func setupLayout() {
+        self.view.addSubview(self.headerView)
+        self.headerView.snp.makeConstraints {
+            $0.top.leading.width.equalTo(self.view.safeAreaLayoutGuide)
+            $0.height.equalTo(200)
+        }
+    }
     
 }
