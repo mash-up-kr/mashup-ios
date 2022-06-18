@@ -8,6 +8,7 @@
 
 import UIKit
 import MashUp_Core
+import MashUp_UIKit
 
 final class MyPageViewController: BaseViewController {
     
@@ -17,7 +18,11 @@ final class MyPageViewController: BaseViewController {
         
         self.setupLayout()
         
-        self.headerView.configure(with: .init(userName: "김매시업", platformTeamText: "iOS", totalScoreText: "3.5점"))
+        self.headerView.configure(with: .init(userName: "김매시업",
+                                              platformTeamText: "iOS",
+                                              totalScoreText: "3.5점"))
+        self.summaryBar.configure(with: .init(userName: "김매시업",
+                                              totalScoreText: "3.5점"))
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -26,6 +31,7 @@ final class MyPageViewController: BaseViewController {
     }
     
     private let headerView = MyPageHeaderView()
+    private let summaryBar = MyPageSummaryBar()
     
 }
 extension MyPageViewController {
@@ -35,6 +41,11 @@ extension MyPageViewController {
         self.headerView.snp.makeConstraints {
             $0.top.leading.width.equalTo(self.view.safeAreaLayoutGuide)
             $0.height.equalTo(200)
+        }
+        self.view.addSubview(self.summaryBar)
+        self.summaryBar.snp.makeConstraints {
+            $0.top.leading.width.equalTo(self.view.safeAreaLayoutGuide)
+            $0.height.equalTo(84)
         }
     }
     

@@ -2,7 +2,7 @@
 //  MyPageHeaderView.swift
 //  MashUp-iOS
 //
-//  Created by NZ10221 on 2022/06/18.
+//  Created by Booung on 2022/06/18.
 //  Copyright © 2022 Mash Up Corp. All rights reserved.
 //
 

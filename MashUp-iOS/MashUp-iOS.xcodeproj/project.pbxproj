@@ -46,6 +46,7 @@
 		CE12DA5627E629D700F08629 /* PartialAttendanceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE12DA5527E629D700F08629 /* PartialAttendanceViewModel.swift */; };
 		CE12DA5827E629FE00F08629 /* QRSeminarCardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE12DA5727E629FE00F08629 /* QRSeminarCardViewModel.swift */; };
 		CE14D2CB27CFBB1200685CFF /* FakeSeminarRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE14D2CA27CFBB1100685CFF /* FakeSeminarRepository.swift */; };
+		CE307A05285DE1B50092C09A /* MyPageSummaryBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE307A04285DE1B50092C09A /* MyPageSummaryBar.swift */; };
 		CE396080278B3CB40073AEF4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE39607F278B3CB40073AEF4 /* AppDelegate.swift */; };
 		CE396089278B3CB60073AEF4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE396088278B3CB60073AEF4 /* Assets.xcassets */; };
 		CE39608C278B3CB60073AEF4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE39608A278B3CB60073AEF4 /* LaunchScreen.storyboard */; };
@@ -110,6 +111,7 @@
 		CE729A8F27E61766001D33D1 /* PartialAttendanceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE729A8E27E61766001D33D1 /* PartialAttendanceView.swift */; };
 		CE7C9E82285DC39000B71C0E /* MyPageHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7C9E81285DC39000B71C0E /* MyPageHeaderView.swift */; };
 		CE7C9E84285DC4C600B71C0E /* MyPageHeaderView+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7C9E83285DC4C600B71C0E /* MyPageHeaderView+Rx.swift */; };
+		CE7C9E87285DDD0C00B71C0E /* MyPageReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7C9E86285DDD0C00B71C0E /* MyPageReactor.swift */; };
 		CE7CCB982855DB82005AA690 /* TermsAgreementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7CCB972855DB82005AA690 /* TermsAgreementView.swift */; };
 		CE7CCB9B2855E593005AA690 /* TermsAgreementView+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7CCB9A2855E593005AA690 /* TermsAgreementView+Rx.swift */; };
 		CE7CCB9E2855FDEF005AA690 /* EventHookingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE7CCB9D2855FDEF005AA690 /* EventHookingView.swift */; };
@@ -614,6 +616,7 @@
 		CE12DA5527E629D700F08629 /* PartialAttendanceViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartialAttendanceViewModel.swift; sourceTree = "<group>"; };
 		CE12DA5727E629FE00F08629 /* QRSeminarCardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRSeminarCardViewModel.swift; sourceTree = "<group>"; };
 		CE14D2CA27CFBB1100685CFF /* FakeSeminarRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeSeminarRepository.swift; sourceTree = "<group>"; };
+		CE307A04285DE1B50092C09A /* MyPageSummaryBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageSummaryBar.swift; sourceTree = "<group>"; };
 		CE39607C278B3CB40073AEF4 /* MashUp-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "MashUp-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE39607F278B3CB40073AEF4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CE396088278B3CB60073AEF4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -685,6 +688,7 @@
 		CE729A8E27E61766001D33D1 /* PartialAttendanceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartialAttendanceView.swift; sourceTree = "<group>"; };
 		CE7C9E81285DC39000B71C0E /* MyPageHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageHeaderView.swift; sourceTree = "<group>"; };
 		CE7C9E83285DC4C600B71C0E /* MyPageHeaderView+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MyPageHeaderView+Rx.swift"; sourceTree = "<group>"; };
+		CE7C9E86285DDD0C00B71C0E /* MyPageReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageReactor.swift; sourceTree = "<group>"; };
 		CE7CCB972855DB82005AA690 /* TermsAgreementView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TermsAgreementView.swift; sourceTree = "<group>"; };
 		CE7CCB9A2855E593005AA690 /* TermsAgreementView+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TermsAgreementView+Rx.swift"; sourceTree = "<group>"; };
 		CE7CCB9D2855FDEF005AA690 /* EventHookingView.swift */ = {isa = PBXFileReference; indentWidth = 4; lastKnownFileType = sourcecode.swift; path = EventHookingView.swift; sourceTree = "<group>"; };
@@ -1256,6 +1260,7 @@
 			children = (
 				CE7C9E85285DDCF200B71C0E /* View */,
 				CE6EE84D27C80C9B005BF412 /* MyPageViewController.swift */,
+				CE7C9E86285DDD0C00B71C0E /* MyPageReactor.swift */,
 			);
 			path = "My Page";
 			sourceTree = "<group>";
@@ -1336,6 +1341,7 @@
 		CE7C9E85285DDCF200B71C0E /* View */ = {
 			isa = PBXGroup;
 			children = (
+				CE307A04285DE1B50092C09A /* MyPageSummaryBar.swift */,
 				CE7C9E81285DC39000B71C0E /* MyPageHeaderView.swift */,
 				CE7C9E83285DC4C600B71C0E /* MyPageHeaderView+Rx.swift */,
 			);
@@ -2278,6 +2284,7 @@
 				CEB60F8427A9C602001260DB /* FakeAttendanceService.swift in Sources */,
 				CE12DA5427E629AE00F08629 /* AttendanceTimelineViewModel.swift in Sources */,
 				CE396080278B3CB40073AEF4 /* AppDelegate.swift in Sources */,
+				CE307A05285DE1B50092C09A /* MyPageSummaryBar.swift in Sources */,
 				CE0F28402843B85400C206EA /* SignUpStep1Reactor.swift in Sources */,
 				CE7CCBA5285656EA005AA690 /* PlatformAttendanceHeaderView.swift in Sources */,
 				CE6EE89527CB049C005BF412 /* QRCodeFinderView.swift in Sources */,
@@ -2296,6 +2303,7 @@
 				CE0F283E2843B81300C206EA /* SignUpStep1ViewController.swift in Sources */,
 				CE7C9E82285DC39000B71C0E /* MyPageHeaderView.swift in Sources */,
 				CE7CCB982855DB82005AA690 /* TermsAgreementView.swift in Sources */,
+				CE7C9E87285DDD0C00B71C0E /* MyPageReactor.swift in Sources */,
 				CE6EE83D27C7EFB9005BF412 /* HomeTabBarController.swift in Sources */,
 				06531C292840BF9800E225EB /* AttendanceStatusRectangleView.swift in Sources */,
 				CE6EE87127CA73B7005BF412 /* SeminarCardCell.swift in Sources */,
