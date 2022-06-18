@@ -11,7 +11,7 @@ import ReactorKit
 
 enum MyPageStep {
     case setting
-    case attendanceSystemGuide
+    case attendanceScoreRule
 }
 
 class MyPageReactor: Reactor {
@@ -42,7 +42,7 @@ class MyPageReactor: Reactor {
             return .just(.moveTo(step: .setting))
             
         case .didTapQuestMarkButton:
-            return .just(.moveTo(step: .attendanceSystemGuide))
+            return .just(.moveTo(step: .attendanceScoreRule))
             
         case .didAppearHeaderView:
             return .just(.updateSummaryBarVisablity(false))

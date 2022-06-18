@@ -112,7 +112,7 @@ extension MyPageHeaderView {
     private func setupLayout() {
         self.addSubview(self.userNameLabel)
         self.userNameLabel.snp.makeConstraints {
-            $0.top.equalToSuperview().inset(22)
+            $0.top.equalToSuperview().inset(12)
             $0.leading.equalToSuperview().inset(20)
         }
         self.addSubview(self.settingButton)

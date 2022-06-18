@@ -48,6 +48,7 @@
 		CE14D2CB27CFBB1200685CFF /* FakeSeminarRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE14D2CA27CFBB1100685CFF /* FakeSeminarRepository.swift */; };
 		CE307A05285DE1B50092C09A /* MyPageSummaryBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE307A04285DE1B50092C09A /* MyPageSummaryBar.swift */; };
 		CE307A07285DE50E0092C09A /* MyPageSummaryBar+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE307A06285DE50E0092C09A /* MyPageSummaryBar+Rx.swift */; };
+		CE307A09285DE74D0092C09A /* AttendanceScoreHistoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE307A08285DE74D0092C09A /* AttendanceScoreHistoryCell.swift */; };
 		CE396080278B3CB40073AEF4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE39607F278B3CB40073AEF4 /* AppDelegate.swift */; };
 		CE396089278B3CB60073AEF4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE396088278B3CB60073AEF4 /* Assets.xcassets */; };
 		CE39608C278B3CB60073AEF4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE39608A278B3CB60073AEF4 /* LaunchScreen.storyboard */; };
@@ -619,6 +620,7 @@
 		CE14D2CA27CFBB1100685CFF /* FakeSeminarRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeSeminarRepository.swift; sourceTree = "<group>"; };
 		CE307A04285DE1B50092C09A /* MyPageSummaryBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageSummaryBar.swift; sourceTree = "<group>"; };
 		CE307A06285DE50E0092C09A /* MyPageSummaryBar+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MyPageSummaryBar+Rx.swift"; sourceTree = "<group>"; };
+		CE307A08285DE74D0092C09A /* AttendanceScoreHistoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttendanceScoreHistoryCell.swift; sourceTree = "<group>"; };
 		CE39607C278B3CB40073AEF4 /* MashUp-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "MashUp-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE39607F278B3CB40073AEF4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CE396088278B3CB60073AEF4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -1347,6 +1349,7 @@
 				CE7C9E81285DC39000B71C0E /* MyPageHeaderView.swift */,
 				CE7C9E83285DC4C600B71C0E /* MyPageHeaderView+Rx.swift */,
 				CE307A06285DE50E0092C09A /* MyPageSummaryBar+Rx.swift */,
+				CE307A08285DE74D0092C09A /* AttendanceScoreHistoryCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -2264,6 +2267,7 @@
 				CE6EE83F27C7EFF9005BF412 /* HomeReactor.swift in Sources */,
 				CE900B7528462C5400FF9C4F /* PlatformTeamMenuViewModel.swift in Sources */,
 				CE6A964A2853D66700F4C066 /* TermsAgreementPopupViewController.swift in Sources */,
+				CE307A09285DE74D0092C09A /* AttendanceScoreHistoryCell.swift in Sources */,
 				CE6EE87327CA7482005BF412 /* AttendanceStatus.swift in Sources */,
 				CE729A8B27E60D49001D33D1 /* SeminarSchedulerFormatter.swift in Sources */,
 				CEB60F4B27A975AD001260DB /* QRScanViewController.swift in Sources */,

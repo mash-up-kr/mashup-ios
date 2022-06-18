@@ -83,7 +83,7 @@ extension MyPageSummaryBar {
     private func setupLayout() {
         self.addSubview(self.userNameLabel)
         self.userNameLabel.snp.makeConstraints {
-            $0.top.equalToSuperview().inset(17)
+            $0.top.equalToSuperview().inset(7)
             $0.leading.equalToSuperview().inset(20)
         }
         self.addSubview(self.scoreTitleLabel)

@@ -132,6 +132,7 @@ extension HomeTabBarController {
     
     private func createMyPageViewController() -> UIViewController {
         let myPageViewController = MyPageViewController()
+        myPageViewController.reactor = MyPageReactor()
         return myPageViewController
     }
     
