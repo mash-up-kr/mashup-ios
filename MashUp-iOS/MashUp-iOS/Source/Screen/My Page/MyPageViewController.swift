@@ -79,7 +79,7 @@ final class MyPageViewController: BaseViewController, View {
     private let summaryBar = MyPageSummaryBar()
     private let historyTableView = UITableView()
     
-    private let animator = UIViewPropertyAnimator(duration: 0.3, curve: .linear)
+    private lazy var animator = UIViewPropertyAnimator(duration: 0.3, curve: .linear)
     
 }
 extension MyPageViewController {
@@ -88,11 +88,13 @@ extension MyPageViewController {
         self.view.backgroundColor = .gray50
         self.summaryBar.do {
             $0.backgroundColor = .white
+            $0.alpha = 0
         }
         self.historyTableView.do {
             $0.tableHeaderView = self.headerView
             $0.rowHeight = UITableView.automaticDimension
             $0.separatorStyle = .none
+            $0.backgroundColor = .gray50
             $0.dataSource = self
         }
     }
@@ -110,12 +112,14 @@ extension MyPageViewController {
     }
     
     private func updateSummaryBarWithAnimation(isHidden: Bool) {
-        self.animator.pauseAnimation()
+        let beforeAlpha: CGFloat = isHidden ? 1 : 0
+        let afterAlpha: CGFloat = isHidden ? 0 : 1
         
-        self.summaryBar.alpha = isHidden ? 1 : 0
-        self.animator.addAnimations({
-            self.summaryBar.alpha = isHidden ? 0 : 1
-        })
+        self.summaryBar.alpha = beforeAlpha
+        self.animator.pauseAnimation()
+        self.animator.addAnimations {
+            self.summaryBar.alpha = afterAlpha
+        }
         self.animator.startAnimation()
     }
     
