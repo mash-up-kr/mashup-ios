@@ -116,12 +116,13 @@ extension MyPageViewController {
         let afterAlpha: CGFloat = isHidden ? 0 : 1
         
         self.summaryBar.alpha = beforeAlpha
-        self.animator.pauseAnimation()
+        self.animator.stopAnimation(true)
         self.animator.addAnimations {
             self.summaryBar.alpha = afterAlpha
         }
         self.animator.startAnimation()
     }
+    
     
 }
 
