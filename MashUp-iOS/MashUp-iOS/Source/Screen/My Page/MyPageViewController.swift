@@ -112,13 +112,9 @@ extension MyPageViewController {
     }
     
     private func updateSummaryBarWithAnimation(isHidden: Bool) {
-        let beforeAlpha: CGFloat = isHidden ? 1 : 0
-        let afterAlpha: CGFloat = isHidden ? 0 : 1
-        
-        self.summaryBar.alpha = beforeAlpha
         self.animator.stopAnimation(true)
         self.animator.addAnimations {
-            self.summaryBar.alpha = afterAlpha
+            self.summaryBar.alpha = isHidden ? 0 : 1
         }
         self.animator.startAnimation()
     }
