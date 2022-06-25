@@ -32,7 +32,7 @@ final class SeminarCardCell: BaseCollectionViewCell {
         self.dDayBadge.backgroundColor = model.attendance.color
     }
     private let cardShapeView = UIView()
-    private let myNowAttendence = NowAttendenceView()
+    private let myNowAttendence = NowAttendenceView(frame: .zero)
     private let titleLabel = UILabel()
     private let summaryLabel = UILabel()
     private let ddayLabel = UILabel()
@@ -125,14 +125,12 @@ extension SeminarCardCell {
             $0.leading.equalTo(calanderImageView.snp.trailing).offset(6)
         }
         self.myNowAttendence.snp.makeConstraints {
-            $0.width.equalTo(254)
-//            $0.height.equalTo(300)// 임시임
+
             $0.top.equalTo(self.timeLabel.snp.bottom).offset(20)
             $0.leading.equalToSuperview().inset(20)
             $0.trailing.equalToSuperview().inset(20)
         }
         self.attendanceButton.snp.makeConstraints {
-            $0.width.equalTo(254)
             $0.height.equalTo(48)
             $0.top.equalTo(self.myNowAttendence.snp.bottom).offset(18)
             $0.bottom.equalToSuperview().inset(20)

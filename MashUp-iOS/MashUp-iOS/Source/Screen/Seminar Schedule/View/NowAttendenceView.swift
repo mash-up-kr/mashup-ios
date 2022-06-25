@@ -29,9 +29,9 @@ class NowAttendenceView: UIView {
     
     private let nameLabel = UILabel()
     private let nowAttendanceLabel = UILabel()
-    private let firstAttendenceTimeAndCheckView: AttendenceTimeAndCheckView = AttendenceTimeAndCheckView()
-    private let secondAttendenceTimeAndCheckView: AttendenceTimeAndCheckView = AttendenceTimeAndCheckView()
-    private let finalAttendenceTimeAndCheckView: AttendenceTimeAndCheckView = AttendenceTimeAndCheckView()
+    private let firstAttendenceTimeAndCheckView: AttendenceTimeAndCheckView = AttendenceTimeAndCheckView(frame: .zero)
+    private let secondAttendenceTimeAndCheckView: AttendenceTimeAndCheckView = AttendenceTimeAndCheckView(frame:.zero)
+    private let finalAttendenceTimeAndCheckView: AttendenceTimeAndCheckView = AttendenceTimeAndCheckView(frame: .zero)
     private let firstlineView = UIView()
     private let secondlineView = UIView()
 
@@ -87,6 +87,7 @@ extension NowAttendenceView {
             $0.trailing.equalToSuperview().inset(20)
         }
         self.firstAttendenceTimeAndCheckView.snp.makeConstraints {
+            $0.height.equalTo(34)
             $0.top.equalTo(self.nameLabel.snp.bottom).offset(16)
             $0.leading.equalTo(self.nameLabel.snp.leading)
             $0.trailing.equalToSuperview().inset(20)

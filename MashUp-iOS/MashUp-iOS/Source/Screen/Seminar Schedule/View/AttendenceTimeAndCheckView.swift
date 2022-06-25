@@ -30,14 +30,16 @@ class AttendenceTimeAndCheckView: UIView {
 
 extension AttendenceTimeAndCheckView {
     private func setupUI() {
-        self.setupAttribute()
         self.setupLayout()
+        self.setupAttribute()
     }
     
     private func setupAttribute() {
+        layoutIfNeeded()
         self.checkImageView.do {
             $0.backgroundColor = .green500
-            $0.layer.cornerRadius = checkImageView.frame.height / 2
+            $0.layer.cornerRadius = $0.bounds.width / 2
+            $0.clipsToBounds = true
         }
         self.seminarSectionLabel.do {
             $0.text = "1부"
@@ -68,7 +70,6 @@ extension AttendenceTimeAndCheckView {
             $0.top.equalToSuperview().inset(0)
             $0.leading.equalToSuperview().inset(0)
             $0.bottom.equalToSuperview().inset(0)
-            $0.height.equalTo(34)
             $0.width.equalTo(34)
         }
         
