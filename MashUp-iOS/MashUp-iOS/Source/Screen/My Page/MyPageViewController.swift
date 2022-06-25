@@ -79,7 +79,7 @@ final class MyPageViewController: BaseViewController, View {
         
     }
     
-    private let headerView = MyPageHeaderView(frame: CGRect(x: 0, y: 0, width: screenWidth, height: 200))
+    private let headerView = MyPageHeaderView(frame: CGRect(x: 0, y: 0, width: screenWidth, height: 380))
     private let summaryBar = MyPageSummaryBar()
     private let historyTableView = UITableView()
     
@@ -89,16 +89,15 @@ final class MyPageViewController: BaseViewController, View {
 extension MyPageViewController {
     
     private func setupAttribute() {
-        self.view.backgroundColor = .gray50
+        self.view.backgroundColor = .gray900
         self.summaryBar.do {
-            $0.backgroundColor = .white
             $0.alpha = 0
         }
         self.historyTableView.do {
             $0.tableHeaderView = self.headerView
             $0.rowHeight = UITableView.automaticDimension
             $0.separatorStyle = .none
-            $0.backgroundColor = .gray50
+            $0.backgroundColor = .gray900
             $0.dataSource = self
         }
     }

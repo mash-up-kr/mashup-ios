@@ -9,7 +9,7 @@
 import Foundation
 import ReactorKit
 
-enum MyPageStep {
+enum MyPageStep: Equatable {
     case setting
     case attendanceScoreRule
 }

@@ -55,28 +55,28 @@ final class MyPageSummaryBar: BaseView {
 extension MyPageSummaryBar {
     
     private func setupAttribute() {
-        self.backgroundColor = .white
+        self.backgroundColor = .gray900
         self.userNameLabel.do {
             $0.font = .pretendardFont(weight: .bold, size: 16)
-            $0.textColor = .gray900
+            $0.textColor = .gray100
         }
         self.scoreTitleLabel.do {
             $0.font = .pretendardFont(weight: .bold, size: 14)
-            $0.textColor = .gray400
+            $0.textColor = .gray100
             $0.text = "총 출석점수"
         }
         self.questionMarkButton.do {
-            $0.backgroundColor = .gray700
+            $0.backgroundColor = .gray200
             $0.clipsToBounds = true
             $0.layer.cornerRadius = 6
             $0.setTitle("?", for: .normal)
-            $0.setTitleColor(.gray100, for: .normal)
+            $0.setTitleColor(.gray600, for: .normal)
             $0.titleLabel?.font = .pretendardFont(weight: .bold, size: 8)
             $0.addTarget(self, action: #selector(didTapQuestionMarkButton(_:)), for: .touchUpInside)
         }
         self.totalAttendanceScoreLabel.do {
             $0.font = .pretendardFont(weight: .bold, size: 24)
-            $0.textColor = .gray700
+            $0.textColor = .gray100
         }
     }
     

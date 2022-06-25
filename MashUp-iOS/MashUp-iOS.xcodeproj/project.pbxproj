@@ -194,6 +194,7 @@
 		CEBAC77F28477DF200ABCC36 /* RxMoya in Frameworks */ = {isa = PBXBuildFile; productRef = CEBAC77E28477DF200ABCC36 /* RxMoya */; };
 		CEC435B72866FCDA003AA5C6 /* FLEX in Frameworks */ = {isa = PBXBuildFile; productRef = CEC435B62866FCDA003AA5C6 /* FLEX */; };
 		CEC435BA2866FEED003AA5C6 /* DebugSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC435B92866FEED003AA5C6 /* DebugSystem.swift */; };
+		CEC435BC28670139003AA5C6 /* MyPageReactorSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC435BB28670139003AA5C6 /* MyPageReactorSpec.swift */; };
 		CED3AAA22849004E00621B28 /* MashUp_SignUpCode.docc in Sources */ = {isa = PBXBuildFile; fileRef = CED3AAA12849004E00621B28 /* MashUp_SignUpCode.docc */; };
 		CED3AAA32849004E00621B28 /* MashUp_SignUpCode.h in Headers */ = {isa = PBXBuildFile; fileRef = CED3AAA02849004E00621B28 /* MashUp_SignUpCode.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		CED3AAA62849004E00621B28 /* MashUp_SignUpCode.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CED3AA9E2849004E00621B28 /* MashUp_SignUpCode.framework */; };
@@ -739,6 +740,7 @@
 		CEBAC7662847670400ABCC36 /* MashUp_Network.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MashUp_Network.h; sourceTree = "<group>"; };
 		CEBAC7672847670400ABCC36 /* MashUp_Network.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = MashUp_Network.docc; sourceTree = "<group>"; };
 		CEC435B92866FEED003AA5C6 /* DebugSystem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebugSystem.swift; sourceTree = "<group>"; };
+		CEC435BB28670139003AA5C6 /* MyPageReactorSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageReactorSpec.swift; sourceTree = "<group>"; };
 		CED3AA9E2849004E00621B28 /* MashUp_SignUpCode.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MashUp_SignUpCode.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CED3AAA02849004E00621B28 /* MashUp_SignUpCode.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MashUp_SignUpCode.h; sourceTree = "<group>"; };
 		CED3AAA12849004E00621B28 /* MashUp_SignUpCode.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = MashUp_SignUpCode.docc; sourceTree = "<group>"; };
@@ -1512,6 +1514,7 @@
 				CE6EE86A27CA60B6005BF412 /* SplashReactorSpec.swift */,
 				CE0F284D28444A7000C206EA /* VerificationServiceSpec.swift */,
 				0642C945285312D600B9F575 /* AttendanceMemberSpec.swift */,
+				CEC435BB28670139003AA5C6 /* MyPageReactorSpec.swift */,
 			);
 			path = Specs;
 			sourceTree = "<group>";
@@ -2373,6 +2376,7 @@
 				CE58817F27EC85A00068D4E0 /* PartialAttendance+Stub.swift in Sources */,
 				CE58818B27ECB2E60068D4E0 /* AttendanceTimelineSpec.swift in Sources */,
 				CE58818527EC98540068D4E0 /* AttendanceTimelineViewModel+Stub.swift in Sources */,
+				CEC435BC28670139003AA5C6 /* MyPageReactorSpec.swift in Sources */,
 				062A960727E99BE400E8E715 /* PlatformAttendanceDetailReactorSpec.swift in Sources */,
 				062A960727E99BE400E8E715 /* PlatformAttendanceDetailReactorSpec.swift in Sources */,
 				CE6EE85027CA1DBD005BF412 /* RootReactorSpec.swift in Sources */,
