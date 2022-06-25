@@ -36,21 +36,22 @@ extension AttendenceTimeAndCheckView {
     
     private func setupAttribute() {
         self.checkImageView.do {
-            $0.backgroundColor = .green
+            $0.backgroundColor = .green500
+            $0.layer.cornerRadius = checkImageView.frame.height / 2
         }
         self.seminarSectionLabel.do {
             $0.text = "1부"
-            $0.textColor = .black
+            $0.textColor = .gray600
             $0.font = .pretendardFont(weight: .regular, size: 12)
         }
         self.attendenceLabel.do {
             $0.text = "출석"
-            $0.textColor = .black
+            $0.textColor = .gray600
             $0.font = .pretendardFont(weight: .semiBold, size: 16)
         }
         self.timeLabel.do {
-            $0.text = "오후 3시:25분"
-            $0.textColor = .black
+            $0.text = "오후 3:25"
+            $0.textColor = .gray500
             $0.font = .pretendardFont(weight: .regular, size: 14)
         }
     }
@@ -73,11 +74,11 @@ extension AttendenceTimeAndCheckView {
         
         self.seminarSectionLabel.snp.makeConstraints {
             $0.top.equalTo(self.checkImageView.snp.top)
-            $0.leading.equalTo(self.checkImageView.snp.trailing).inset(12)
+            $0.leading.equalTo(self.checkImageView.snp.trailing).offset(12)
         }
         self.attendenceLabel.snp.makeConstraints {
             $0.top.equalTo(self.seminarSectionLabel.snp.bottom).inset(2)
-            $0.leading.equalTo(self.seminarSectionLabel.snp.bottom)
+            $0.leading.equalTo(self.seminarSectionLabel.snp.leading)
         }
         self.timeLabel.snp.makeConstraints {
             $0.top.equalTo(self.attendenceLabel.snp.top)

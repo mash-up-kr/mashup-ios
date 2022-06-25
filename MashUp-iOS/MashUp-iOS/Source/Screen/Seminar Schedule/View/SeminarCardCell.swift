@@ -10,6 +10,7 @@ import SnapKit
 import Then
 import UIKit
 import MashUp_Core
+import MashUp_UIKit
 
 final class SeminarCardCell: BaseCollectionViewCell {
     
@@ -27,18 +28,18 @@ final class SeminarCardCell: BaseCollectionViewCell {
         self.titleLabel.text = model.title
         self.summaryLabel.text = model.summary
         self.timeLabel.text = model.time
-        self.attendanceBadge.text = model.attendance.title
-        self.attendanceBadge.backgroundColor = model.attendance.color
+        self.dDayBadge.text = model.attendance.title
+        self.dDayBadge.backgroundColor = model.attendance.color
     }
     private let cardShapeView = UIView()
-    private let myNowAttendence = UIView()
+    private let myNowAttendence = NowAttendenceView()
     private let titleLabel = UILabel()
     private let summaryLabel = UILabel()
     private let ddayLabel = UILabel()
     private let timeLabel = UILabel()
     private let calanderImageView = UIImageView()
-    private let attendanceButton = UIView()
-    private let attendanceBadge = PaddingLabel()
+    private let attendanceButton = MUButton()
+    private let dDayBadge = PaddingLabel()
     
 }
 // MARK: - Setup
@@ -70,13 +71,18 @@ extension SeminarCardCell {
             $0.textColor = .darkGray
             $0.font = .systemFont(ofSize: 12, weight: .semibold)
         }
+        #warning("버튼 스타일 적용해야함")
         self.attendanceButton.do {
-            $0.backgroundColor = .gray50
+            $0.setBackgroundColor(.primary100, for: .normal)
+            $0.titleLabel?.text = "플랫폼별 출석현황 보러가기"
+            $0.titleLabel?.font = .pretendardFont(weight: .medium, size: 14)
+            $0.setTitleColor(.primary500, for: .normal)
         }
+        
         self.calanderImageView.do {
             $0.backgroundColor = .red
         }
-        self.attendanceBadge.do {
+        self.dDayBadge.do {
             $0.textColor = .white
             $0.font = .systemFont(ofSize: 14, weight: .regular)
             $0.layer.cornerRadius = 13
@@ -92,20 +98,20 @@ extension SeminarCardCell {
             $0.addSubview(self.summaryLabel)
             $0.addSubview(self.attendanceButton)
             $0.addSubview(self.calanderImageView)
-            $0.addSubview(self.attendanceBadge)
+            $0.addSubview(self.dDayBadge)
             $0.addSubview(self.myNowAttendence)
         }
        
         self.cardShapeView.snp.makeConstraints {
             $0.edges.equalToSuperview()
         }
-        self.attendanceBadge.snp.makeConstraints {
+        self.dDayBadge.snp.makeConstraints {
             $0.top.equalToSuperview().inset(20)
             $0.leading.equalToSuperview().inset(20)
             $0.height.equalTo(24)
         }
         self.titleLabel.snp.makeConstraints {
-            $0.top.equalTo(self.attendanceBadge.snp.bottom).offset(10)
+            $0.top.equalTo(self.dDayBadge.snp.bottom).offset(10)
             $0.leading.equalToSuperview().inset(20)
         }
         self.calanderImageView.snp.makeConstraints {
@@ -120,15 +126,14 @@ extension SeminarCardCell {
         }
         self.myNowAttendence.snp.makeConstraints {
             $0.width.equalTo(254)
-            $0.height.equalTo(300)// 임시임
+//            $0.height.equalTo(300)// 임시임
             $0.top.equalTo(self.timeLabel.snp.bottom).offset(20)
             $0.leading.equalToSuperview().inset(20)
             $0.trailing.equalToSuperview().inset(20)
         }
-        
         self.attendanceButton.snp.makeConstraints {
             $0.width.equalTo(254)
-            $0.height.equalTo(28)
+            $0.height.equalTo(48)
             $0.top.equalTo(self.myNowAttendence.snp.bottom).offset(18)
             $0.bottom.equalToSuperview().inset(20)
             $0.leading.equalToSuperview().inset(20)
