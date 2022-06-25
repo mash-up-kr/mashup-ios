@@ -59,7 +59,8 @@ final class MyPageHeaderView: BaseView {
     private let scoreTitleLabel = UILabel()
     private let questionMarkButton = UIButton()
     private let totalAttendanceScoreLabel = UILabel()
-    private let mascotImageView = UIImageView()
+    private let mascotBodyImageView = UIImageView()
+    private let mascotHandsImageView = UIImageView()
     private let settingButton = UIButton()
     
 }
@@ -87,7 +88,6 @@ extension MyPageHeaderView {
         }
         self.scoreContainerView.do {
             $0.backgroundColor = .white
-            $0.clipsToBounds = true
             $0.layer.cornerRadius = 12
             $0.addShadow(x: 0, y: 2, color: .black.withAlphaComponent(0.1), radius: 20)
         }
@@ -104,8 +104,11 @@ extension MyPageHeaderView {
             $0.titleLabel?.font = .pretendardFont(weight: .bold, size: 8)
             $0.addTarget(self, action: #selector(didTapQuestionMarkButton(_:)), for: .touchUpInside)
         }
-        self.mascotImageView.do {
-            $0.image = UIImage(named: "mascot")
+        self.mascotBodyImageView.do {
+            $0.image = UIImage(named: "mascot_body")
+        }
+        self.mascotHandsImageView.do {
+            $0.image = UIImage(named: "mascot_hands")
         }
     }
     
@@ -126,15 +129,15 @@ extension MyPageHeaderView {
             $0.top.equalTo(self.userNameLabel.snp.bottom).offset(8)
             $0.leading.equalToSuperview().inset(20)
         }
+        self.addSubview(self.mascotBodyImageView)
         self.addSubview(self.scoreContainerView)
         self.scoreContainerView.snp.makeConstraints {
             $0.top.equalTo(self.platformTeamLabel.snp.bottom).offset(36)
             $0.leading.trailing.equalToSuperview().inset(20)
             $0.height.equalTo(76)
         }
-        self.addSubview(self.mascotImageView)
-        self.mascotImageView.snp.makeConstraints {
-            $0.bottom.equalTo(self.scoreContainerView.snp.top).offset(22)
+        self.mascotBodyImageView.snp.makeConstraints {
+            $0.bottom.equalTo(self.scoreContainerView.snp.top).offset(13)
             $0.trailing.equalTo(self.scoreContainerView).offset(-14)
             $0.width.equalTo(80)
             $0.height.equalTo(64)
@@ -143,6 +146,11 @@ extension MyPageHeaderView {
         self.scoreTitleLabel.snp.makeConstraints {
             $0.centerY.equalToSuperview()
             $0.leading.equalToSuperview().inset(24)
+        }
+        self.addSubview(self.mascotHandsImageView)
+        self.mascotHandsImageView.snp.makeConstraints {
+            $0.height.equalTo(20)
+            $0.leading.trailing.bottom.equalTo(self.mascotBodyImageView)
         }
         self.scoreContainerView.addSubview(self.questionMarkButton)
         self.questionMarkButton.snp.makeConstraints {
