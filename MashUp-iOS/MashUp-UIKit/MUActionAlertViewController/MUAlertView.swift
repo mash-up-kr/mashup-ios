@@ -36,6 +36,7 @@ public final class MUAlertView: BaseView {
   }
   
   private func setupAttribute() {
+    backgroundColor = .white
     layer.cornerRadius = 20
     labelContainerStackView.axis = .vertical
     labelContainerStackView.spacing = 8
@@ -63,7 +64,7 @@ public final class MUAlertView: BaseView {
       $0.leading.equalToSuperview().offset(20)
       $0.trailing.equalToSuperview().inset(20)
       $0.height.equalTo(52)
-      $0.bottom.equalToSuperview()
+      $0.bottom.equalToSuperview().offset(-24)
     }
   }
   
@@ -73,7 +74,7 @@ public final class MUAlertView: BaseView {
     action.handler?()
   }
   
-  public func addAction(_ action: MUAlertAction) {
+  func addAction(_ action: MUAlertAction) {
     let button = MUButton(frame: .zero, style: action.style)
     button.addTarget(self, action: #selector(didTapButton), for: .touchUpInside)
     actions.append(action)
