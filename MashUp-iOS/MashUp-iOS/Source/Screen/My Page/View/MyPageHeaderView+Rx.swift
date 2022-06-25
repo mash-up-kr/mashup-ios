@@ -29,6 +29,13 @@ extension Reactive where Base: MyPageHeaderView {
             .map { _ in Void() }
         return ControlEvent(events: source)
     }
+    
+    var didTap5TimesMascotImage: ControlEvent<Void> {
+        let source = self.delegate
+            .methodInvoked(#selector(MyPageHeaderViewDelegate.myPageHeaderViewDidTap5TimesMascotImage(_:)))
+            .map { _ in Void() }
+        return ControlEvent(events: source)
+    }
 }
 
 class MyPageHeaderViewDelegateProxy:

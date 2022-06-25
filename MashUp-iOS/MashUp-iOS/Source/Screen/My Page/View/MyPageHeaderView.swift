@@ -16,6 +16,7 @@ import UIKit
 @objc protocol MyPageHeaderViewDelegate: AnyObject {
     @objc optional func myPageHeaderViewDidTapSettingButton(_ view: MyPageHeaderView)
     @objc optional func myPageHeaderViewDidTapQuestionMarkButton(_ view: MyPageHeaderView)
+    @objc optional func myPageHeaderViewDidTap5TimesMascotImage(_ view: MyPageHeaderView)
 }
 
 struct MyPageHeaderViewModel {
@@ -51,6 +52,10 @@ final class MyPageHeaderView: BaseView {
     
     @objc private func didTapQuestionMarkButton(_ sender: Any) {
         self.delegate?.myPageHeaderViewDidTapQuestionMarkButton?(self)
+    }
+    
+    @objc private func didTap10TimesMascot(_ sender: Any) {
+        self.delegate?.myPageHeaderViewDidTap5TimesMascotImage?(self)
     }
     
     private let userNameLabel = UILabel()
@@ -104,8 +109,11 @@ extension MyPageHeaderView {
             $0.titleLabel?.font = .pretendardFont(weight: .bold, size: 8)
             $0.addTarget(self, action: #selector(didTapQuestionMarkButton(_:)), for: .touchUpInside)
         }
+        let tap5TimesGesture = UITapGestureRecognizer(target: self, action: #selector(didTap10TimesMascot(_:))).then { $0.numberOfTapsRequired = 5 }
         self.mascotBodyImageView.do {
             $0.image = UIImage(named: "mascot_body")
+            $0.isUserInteractionEnabled = true
+            $0.addGestureRecognizer(tap5TimesGesture)
         }
         self.mascotHandsImageView.do {
             $0.image = UIImage(named: "mascot_hands")

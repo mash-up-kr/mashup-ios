@@ -12,6 +12,7 @@ import RxCocoa
 import SnapKit
 import UIKit
 import MashUp_Core
+import FLEX
 
 final class HomeTabBarController: BaseTabBarController, ReactorKit.View {
     typealias Reactor = HomeReactor
@@ -132,7 +133,7 @@ extension HomeTabBarController {
     
     private func createMyPageViewController() -> UIViewController {
         let myPageViewController = MyPageViewController()
-        myPageViewController.reactor = MyPageReactor()
+        myPageViewController.reactor = MyPageReactor(debugSystem: FLEXManager.shared)
         return myPageViewController
     }
     

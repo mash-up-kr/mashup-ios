@@ -61,6 +61,10 @@ final class MyPageViewController: BaseViewController, View {
             .bind(to: reactor.action)
             .disposed(by: self.disposeBag)
         
+        self.headerView.rx.didTap5TimesMascotImage
+            .map { _ in .didTap5TimesMascot }
+            .bind(to: reactor.action)
+            .disposed(by: self.disposeBag)
     }
     
     private func render(_ reactor: Reactor) {

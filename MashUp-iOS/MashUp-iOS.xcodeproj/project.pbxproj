@@ -192,6 +192,8 @@
 		CEBAC7742847674E00ABCC36 /* HTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4A6C04278B47040052F7E7 /* HTTPClient.swift */; };
 		CEBAC7752847674E00ABCC36 /* NetworkConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4A6C08278B4A3C0052F7E7 /* NetworkConfig.swift */; };
 		CEBAC77F28477DF200ABCC36 /* RxMoya in Frameworks */ = {isa = PBXBuildFile; productRef = CEBAC77E28477DF200ABCC36 /* RxMoya */; };
+		CEC435B72866FCDA003AA5C6 /* FLEX in Frameworks */ = {isa = PBXBuildFile; productRef = CEC435B62866FCDA003AA5C6 /* FLEX */; };
+		CEC435BA2866FEED003AA5C6 /* DebugSystem.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEC435B92866FEED003AA5C6 /* DebugSystem.swift */; };
 		CED3AAA22849004E00621B28 /* MashUp_SignUpCode.docc in Sources */ = {isa = PBXBuildFile; fileRef = CED3AAA12849004E00621B28 /* MashUp_SignUpCode.docc */; };
 		CED3AAA32849004E00621B28 /* MashUp_SignUpCode.h in Headers */ = {isa = PBXBuildFile; fileRef = CED3AAA02849004E00621B28 /* MashUp_SignUpCode.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		CED3AAA62849004E00621B28 /* MashUp_SignUpCode.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CED3AA9E2849004E00621B28 /* MashUp_SignUpCode.framework */; };
@@ -736,6 +738,7 @@
 		CEBAC7642847670400ABCC36 /* MashUp_Network.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MashUp_Network.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEBAC7662847670400ABCC36 /* MashUp_Network.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MashUp_Network.h; sourceTree = "<group>"; };
 		CEBAC7672847670400ABCC36 /* MashUp_Network.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = MashUp_Network.docc; sourceTree = "<group>"; };
+		CEC435B92866FEED003AA5C6 /* DebugSystem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DebugSystem.swift; sourceTree = "<group>"; };
 		CED3AA9E2849004E00621B28 /* MashUp_SignUpCode.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MashUp_SignUpCode.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CED3AAA02849004E00621B28 /* MashUp_SignUpCode.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MashUp_SignUpCode.h; sourceTree = "<group>"; };
 		CED3AAA12849004E00621B28 /* MashUp_SignUpCode.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = MashUp_SignUpCode.docc; sourceTree = "<group>"; };
@@ -786,6 +789,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CEC435B72866FCDA003AA5C6 /* FLEX in Frameworks */,
 				CED3AB84284922D000621B28 /* MashUp_PlatformTeam.framework in Frameworks */,
 				CED3AAA62849004E00621B28 /* MashUp_SignUpCode.framework in Frameworks */,
 				CE6EE86227CA4691005BF412 /* Differentiator in Frameworks */,
@@ -1535,6 +1539,7 @@
 			isa = PBXGroup;
 			children = (
 				CEB60F8227A9C5EA001260DB /* Attendance */,
+				CEC435B82866FEDA003AA5C6 /* Debug */,
 				CEB60F8127A9C5E1001260DB /* QR */,
 				CE6EE85B27CA4128005BF412 /* Seminar */,
 				CE0F28472843EB8C00C206EA /* Verification */,
@@ -1574,6 +1579,14 @@
 				CE9BE09A2848D1E1006691F0 /* Network */,
 			);
 			path = "MashUp-Network";
+			sourceTree = "<group>";
+		};
+		CEC435B82866FEDA003AA5C6 /* Debug */ = {
+			isa = PBXGroup;
+			children = (
+				CEC435B92866FEED003AA5C6 /* DebugSystem.swift */,
+			);
+			path = Debug;
 			sourceTree = "<group>";
 		};
 		CED3AA9F2849004E00621B28 /* MashUp-SignUpCode */ = {
@@ -1804,6 +1817,7 @@
 				CED3AB212849060700621B28 /* RxCocoa */,
 				CED3AB232849060700621B28 /* RxSwift */,
 				CED3AB252849060700621B28 /* SnapKit */,
+				CEC435B62866FCDA003AA5C6 /* FLEX */,
 			);
 			productName = "MashUp-iOS";
 			productReference = CE39607C278B3CB40073AEF4 /* MashUp-iOS.app */;
@@ -2111,6 +2125,7 @@
 				CE9E734F27C28A4200922D8B /* XCRemoteSwiftPackageReference "RxFlow" */,
 				CE6EE86027CA4691005BF412 /* XCRemoteSwiftPackageReference "RxDataSources" */,
 				CE9BE092284790D1006691F0 /* XCRemoteSwiftPackageReference "Alamofire" */,
+				CEC435B52866FCDA003AA5C6 /* XCRemoteSwiftPackageReference "FLEX" */,
 			);
 			productRefGroup = CE39607D278B3CB40073AEF4 /* Products */;
 			projectDirPath = "";
@@ -2325,6 +2340,7 @@
 				CE6EE83827C7E2D5005BF412 /* SplashReactor.swift in Sources */,
 				CE6A963628538C6700F4C066 /* SignUpStep2ViewController.swift in Sources */,
 				CE6EE84E27C80C9B005BF412 /* MyPageViewController.swift in Sources */,
+				CEC435BA2866FEED003AA5C6 /* DebugSystem.swift in Sources */,
 				CE6EE86927CA5609005BF412 /* PlatformAttendanceDetailViewController.swift in Sources */,
 				CE6EE86927CA5609005BF412 /* PlatformAttendanceDetailViewController.swift in Sources */,
 				CE0F28492843EBA500C206EA /* VerificationService.swift in Sources */,
@@ -4022,6 +4038,14 @@
 				minimumVersion = 2.0.0;
 			};
 		};
+		CEC435B52866FCDA003AA5C6 /* XCRemoteSwiftPackageReference "FLEX" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/FLEXTool/FLEX";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -4114,6 +4138,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = CE4A6BFA278B46970052F7E7 /* XCRemoteSwiftPackageReference "Moya" */;
 			productName = RxMoya;
+		};
+		CEC435B62866FCDA003AA5C6 /* FLEX */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CEC435B52866FCDA003AA5C6 /* XCRemoteSwiftPackageReference "FLEX" */;
+			productName = FLEX;
 		};
 		CED3AAB92849013C00621B28 /* Then */ = {
 			isa = XCSwiftPackageProductDependency;

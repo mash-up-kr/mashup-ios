@@ -21,6 +21,7 @@ class MyPageReactor: Reactor {
         case didTapQuestMarkButton
         case didAppearHeaderView
         case didDisappearHeaderView
+        case didTap5TimesMascot
     }
     
     enum Mutation {
@@ -36,6 +37,10 @@ class MyPageReactor: Reactor {
     
     let initialState: State = State()
     
+    init(debugSystem: any DebugSystem) {
+        self.debugSystem = debugSystem
+    }
+    
     func mutate(action: Action) -> Observable<Mutation> {
         switch action {
         case .didTapSettingButton:
@@ -49,6 +54,10 @@ class MyPageReactor: Reactor {
             
         case .didDisappearHeaderView:
             return .just(.updateSummaryBarVisablity(true))
+            
+        case .didTap5TimesMascot:
+            self.debugSystem.on()
+            return .empty()
         }
     }
     
@@ -63,5 +72,7 @@ class MyPageReactor: Reactor {
         }
         return newState
     }
+    
+    private let debugSystem: any DebugSystem
     
 }
