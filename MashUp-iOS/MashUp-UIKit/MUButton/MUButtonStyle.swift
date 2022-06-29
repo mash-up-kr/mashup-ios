@@ -17,9 +17,9 @@ extension MUButtonStyle {
     
     public static let primary = MUButtonStyle(titleColor: .white,
                                               titleFont: .pretendardFont(weight: .medium, size: 16),
-                                              backgroundColor: .primary500)
+                                              backgroundColor: .brand500)
     
-    public static let sort3 = MUButtonStyle(titleColor: .primary500,
+    public static let sort3 = MUButtonStyle(titleColor: .brand500,
                                             titleFont: .pretendardFont(weight: .medium, size: 16),
                                             backgroundColor: .white)
     
