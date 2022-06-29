@@ -81,17 +81,3 @@ public final class MUAlertView: BaseView {
     buttonContainerStackView.addArrangedSubview(button)
   }
 }
-
-public struct MUAlertAction {
-  public typealias Style = MUButtonStyle
-  
-  let title: String?
-  let handler: (() -> Void)?
-  let style: Style
-  
-  public init(title: String?, style: MUAlertAction.Style, handler: (() -> Void)?) {
-    self.title = title
-    self.handler = handler
-    self.style = style
-  }
-}
