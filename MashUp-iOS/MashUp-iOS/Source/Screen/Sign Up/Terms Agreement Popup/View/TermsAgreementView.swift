@@ -122,7 +122,7 @@ extension TermsAgreementView {
     private func updateUI() {
         self.titleLabel.text = self.title
         if self.hasAgreed {
-            self.checkBackgroundView.backgroundColor = .primary600
+            self.checkBackgroundView.backgroundColor = .brand600
             self.checkBackgroundView.layer.borderWidth = 0
         } else {
             self.checkBackgroundView.layer.borderWidth = 1

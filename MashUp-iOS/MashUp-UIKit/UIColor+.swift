@@ -20,9 +20,10 @@ extension UIColor {
     public static let gray800 = UIColor(named: "gray800")!
     public static let gray900 = UIColor(named: "gray900")!
     
-    public static let primary100 = UIColor(named: "primary100")!
-    public static let primary500 = UIColor(named: "primary500")!
-    public static let primary600 = UIColor(named: "primary600")!
+    public static let brand100 = UIColor(named: "brand100")!
+    public static let brand300 = UIColor(named: "brand300")!
+    public static let brand500 = UIColor(named: "brand500")!
+    public static let brand600 = UIColor(named: "brand600")!
     
     public static let red100 = UIColor(named: "red100")!
     public static let red500 = UIColor(named: "red500")!
@@ -37,4 +38,11 @@ extension UIColor {
     public static let yellow600 = UIColor(named: "yellow600")!
     
     public static let blue500 = UIColor(named: "blue500")!
+    
+    public static let teamAndroid = UIColor(named: "teamAndroid")!
+    public static let teamiOS = UIColor(named: "teamiOS")!
+    public static let teamNode = UIColor(named: "teamNode")!
+    public static let teamProductDesign = UIColor(named: "teamProductDesign")!
+    public static let teamSpring = UIColor(named: "teamSpring")!
+    public static let teamWeb = UIColor(named: "teamWeb")!
 }
