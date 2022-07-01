@@ -26,6 +26,8 @@
 		06531C312840C39600E225EB /* Pretendard-SemiBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 06531C2D2840C39600E225EB /* Pretendard-SemiBold.otf */; };
 		06531C322840C39600E225EB /* Pretendard-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 06531C2E2840C39600E225EB /* Pretendard-Regular.otf */; };
 		06531C382840C7C500E225EB /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 06531C372840C7C500E225EB /* Colors.xcassets */; };
+		066CE3F2286ED0CC00B6F841 /* UIImage+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 066CE3F1286ED0CC00B6F841 /* UIImage+.swift */; };
+		066CE3F4286EDA0E00B6F841 /* MUImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 066CE3F3286EDA0E00B6F841 /* MUImage.swift */; };
 		0688CB42284B223B00338A5C /* PlatformTeam+Presentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0688CB41284B223B00338A5C /* PlatformTeam+Presentation.swift */; };
 		07900EC9117FCF2FA8E23F03 /* MashUp_iOSTests-MashUp_PlatformTeamMocks.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF06792B8FCEDBC254B599C /* MashUp_iOSTests-MashUp_PlatformTeamMocks.generated.swift */; };
 		8150A263D51AF35ED7C1F753 /* MashUp_iOSTests-MashUp_UIKitMocks.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50AEB9142054CE6C0E1FC59A /* MashUp_iOSTests-MashUp_UIKitMocks.generated.swift */; };
@@ -589,6 +591,8 @@
 		06531C352840C43700E225EB /* UIFont+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+.swift"; sourceTree = "<group>"; };
 		06531C372840C7C500E225EB /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		06531C392840C96000E225EB /* UIColor+.swift */ = {isa = PBXFileReference; indentWidth = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+.swift"; sourceTree = "<group>"; };
+		066CE3F1286ED0CC00B6F841 /* UIImage+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+.swift"; sourceTree = "<group>"; };
+		066CE3F3286EDA0E00B6F841 /* MUImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MUImage.swift; sourceTree = "<group>"; };
 		0688CB41284B223B00338A5C /* PlatformTeam+Presentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PlatformTeam+Presentation.swift"; sourceTree = "<group>"; };
 		0688CB43284E255800338A5C /* PlatformAttendanceHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlatformAttendanceHeaderView.swift; sourceTree = "<group>"; };
 		093B68049842CE18EA5AAB9B /* MashUp_iOSTests-MashUp_iOSMocks.generated.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; name = "MashUp_iOSTests-MashUp_iOSMocks.generated.swift"; path = "MockingbirdMocks/MashUp_iOSTests-MashUp_iOSMocks.generated.swift"; sourceTree = "<group>"; };
@@ -1423,8 +1427,10 @@
 			children = (
 				CE9C1DCD2846846B0020FBCE /* MashUp_UIKit.docc */,
 				CE9C1DCC2846846B0020FBCE /* MashUp_UIKit.h */,
+				066CE3F3286EDA0E00B6F841 /* MUImage.swift */,
 				06531C392840C96000E225EB /* UIColor+.swift */,
 				06531C352840C43700E225EB /* UIFont+.swift */,
+				066CE3F1286ED0CC00B6F841 /* UIImage+.swift */,
 				06531C372840C7C500E225EB /* Colors.xcassets */,
 				CE6A96402853B22300F4C066 /* Image.xcassets */,
 				06531C342840C39800E225EB /* Font */,
@@ -2402,6 +2408,7 @@
 				CE9C1DCE2846846B0020FBCE /* MashUp_UIKit.docc in Sources */,
 				CE9C1DF0284687850020FBCE /* UIFont+.swift in Sources */,
 				CE9C1DDE284684B20020FBCE /* MUSelectControl+Rx.swift in Sources */,
+				066CE3F2286ED0CC00B6F841 /* UIImage+.swift in Sources */,
 				CE9C1DE0284684B80020FBCE /* MUTextFieldStyle.swift in Sources */,
 				CE9C1DE1284684BC0020FBCE /* MUTextField+Rx.swift in Sources */,
 				CE9C1DD9284684A00020FBCE /* MUButtonStyle.swift in Sources */,
@@ -2410,6 +2417,7 @@
 				CE6A963F2853AAF900F4C066 /* MUActionSheetTableViewCell.swift in Sources */,
 				CE9C1DF1284687850020FBCE /* UIColor+.swift in Sources */,
 				CE9C1DDC284684AB0020FBCE /* MUMenu.swift in Sources */,
+				066CE3F4286EDA0E00B6F841 /* MUImage.swift in Sources */,
 				CE9C1DDA284684A30020FBCE /* MUNavigationBar.swift in Sources */,
 				CE6A963B28539B1B00F4C066 /* MUActionSheetController.swift in Sources */,
 			);
