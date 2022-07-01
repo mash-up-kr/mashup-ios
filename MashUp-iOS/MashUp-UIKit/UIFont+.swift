@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import MashUp_Core
 
 public enum PretendardFontWeight {
     case regular, medium, semiBold, bold

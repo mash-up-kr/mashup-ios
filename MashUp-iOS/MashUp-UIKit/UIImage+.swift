@@ -8,12 +8,11 @@
 
 import UIKit
 
-
 extension UIImage {
   /**
    - svg이미지를 넣을때
-   - resize - preserve vector data옵션 클릭
-   - scales - single scale옵션으로 설정해야합니다.
+   - resizing옵션 -> preserve vector data옵션 클릭
+   - scales옵션 -> single scale옵션으로 설정해야합니다.
    */
   public static func muImage(_ image: MUImage) -> UIImage? {
     image.asset
