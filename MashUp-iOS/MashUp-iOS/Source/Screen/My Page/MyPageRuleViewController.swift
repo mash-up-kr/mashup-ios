@@ -84,7 +84,7 @@ public final class MyPageRuleViewController: BaseViewController {
         ruleStackView.snp.makeConstraints {
             $0.horizontalEdges.equalToSuperview().inset(20)
             $0.verticalEdges.equalToSuperview()
-            $0.width.equalToSuperview().inset(20)
+            $0.width.equalToSuperview().offset(-40)
         }
     }
     
