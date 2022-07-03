@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		060DD396287166B000CB5F1E /* ImageSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0F283628437B6A00C206EA /* ImageSource.swift */; };
 		0618444227E1D2DD004980CC /* PlatformAttendanceDetailReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0618444127E1D2DD004980CC /* PlatformAttendanceDetailReactor.swift */; };
 		0618444427E30259004980CC /* AttendanceMember.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0618444327E30259004980CC /* AttendanceMember.swift */; };
 		062A960727E99BE400E8E715 /* PlatformAttendanceDetailReactorSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 062A960627E99BE300E8E715 /* PlatformAttendanceDetailReactorSpec.swift */; };
@@ -141,7 +142,6 @@
 		CE9C1D9928467E500020FBCE /* MashUp_Core.h in Headers */ = {isa = PBXBuildFile; fileRef = CE9C1D9628467E500020FBCE /* MashUp_Core.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		CE9C1D9C28467E500020FBCE /* MashUp_Core.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE9C1D9428467E500020FBCE /* MashUp_Core.framework */; };
 		CE9C1D9D28467E500020FBCE /* MashUp_Core.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = CE9C1D9428467E500020FBCE /* MashUp_Core.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		CE9C1DA328467E5E0020FBCE /* ImageSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0F283628437B6A00C206EA /* ImageSource.swift */; };
 		CE9C1DA428467E5E0020FBCE /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6EE84227C7F933005BF412 /* Logger.swift */; };
 		CE9C1DCE2846846B0020FBCE /* MashUp_UIKit.docc in Sources */ = {isa = PBXBuildFile; fileRef = CE9C1DCD2846846B0020FBCE /* MashUp_UIKit.docc */; };
 		CE9C1DCF2846846B0020FBCE /* MashUp_UIKit.h in Headers */ = {isa = PBXBuildFile; fileRef = CE9C1DCC2846846B0020FBCE /* MashUp_UIKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -1411,7 +1411,6 @@
 			children = (
 				CE9C1D9728467E500020FBCE /* MashUp_Core.docc */,
 				CE9C1D9628467E500020FBCE /* MashUp_Core.h */,
-				CE0F283628437B6A00C206EA /* ImageSource.swift */,
 				CE6EE84227C7F933005BF412 /* Logger.swift */,
 				CED3ABC628494F0F00621B28 /* Base */,
 				CED3ABCC28494F1000621B28 /* Foundation+ */,
@@ -1427,6 +1426,7 @@
 			children = (
 				CE9C1DCD2846846B0020FBCE /* MashUp_UIKit.docc */,
 				CE9C1DCC2846846B0020FBCE /* MashUp_UIKit.h */,
+				CE0F283628437B6A00C206EA /* ImageSource.swift */,
 				066CE3F3286EDA0E00B6F841 /* MUImage.swift */,
 				06531C392840C96000E225EB /* UIColor+.swift */,
 				06531C352840C43700E225EB /* UIFont+.swift */,
@@ -2372,7 +2372,6 @@
 				CED3ABE328494F1000621B28 /* BaseCollectionViewCell.swift in Sources */,
 				CED3ABEF28494F1000621B28 /* Reusable.swift in Sources */,
 				CED3ABF428494F1000621B28 /* PaddingLabel.swift in Sources */,
-				CE9C1DA328467E5E0020FBCE /* ImageSource.swift in Sources */,
 				CED3ABF028494F1000621B28 /* NSCollectionLayoutSectionFactory.swift in Sources */,
 				CED3ABEB28494F1000621B28 /* Optional+.swift in Sources */,
 				CED3ABF228494F1000621B28 /* UICollectionView+.swift in Sources */,
@@ -2407,6 +2406,7 @@
 				CE9C1DDD284684AE0020FBCE /* MUSelectControl.swift in Sources */,
 				CE9C1DCE2846846B0020FBCE /* MashUp_UIKit.docc in Sources */,
 				CE9C1DF0284687850020FBCE /* UIFont+.swift in Sources */,
+				060DD396287166B000CB5F1E /* ImageSource.swift in Sources */,
 				CE9C1DDE284684B20020FBCE /* MUSelectControl+Rx.swift in Sources */,
 				066CE3F2286ED0CC00B6F841 /* UIImage+.swift in Sources */,
 				CE9C1DE0284684B80020FBCE /* MUTextFieldStyle.swift in Sources */,

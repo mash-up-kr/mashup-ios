@@ -30,8 +30,7 @@ public class MUNavigationBar: UIView {
                 return UIImage(named: "name=xmark, color=gray900, size=Default")
             case .custom(let imageSource):
                 switch imageSource {
-                case .asset(let name): return UIImage(named: name)
-                case .image(let image): return image
+                case .asset(let muImage): return muImage.asset
                 default: return nil
                 }
             }

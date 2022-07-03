@@ -6,12 +6,8 @@
 //  Copyright © 2022 Mash Up Corp. All rights reserved.
 //
 
-import UIKit
-
 public enum ImageSource {
-    case urlPath(String)
     case url(URL)
     case data(Data)
-    case asset(String)
-    case image(UIImage)
+    case asset(MUImage)
 }
