@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		061665A22866FB5700A5D5DC /* MUAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 061665A12866FB5700A5D5DC /* MUAlertView.swift */; };
+		061665A42867611100A5D5DC /* MUActionAlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 061665A32867611100A5D5DC /* MUActionAlertViewController.swift */; };
 		0618444227E1D2DD004980CC /* PlatformAttendanceDetailReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0618444127E1D2DD004980CC /* PlatformAttendanceDetailReactor.swift */; };
 		0618444427E30259004980CC /* AttendanceMember.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0618444327E30259004980CC /* AttendanceMember.swift */; };
 		062A960727E99BE400E8E715 /* PlatformAttendanceDetailReactorSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 062A960627E99BE300E8E715 /* PlatformAttendanceDetailReactorSpec.swift */; };
@@ -30,6 +32,7 @@
 		06D9F074286C285F005786A3 /* MyPageRuleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06D9F073286C285F005786A3 /* MyPageRuleViewController.swift */; };
 		06D9F076286C3F06005786A3 /* RuleHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06D9F075286C3F06005786A3 /* RuleHeaderView.swift */; };
 		06D9F078286C7896005786A3 /* DotLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06D9F077286C7896005786A3 /* DotLabel.swift */; };
+		06D9F072286C0E0A005786A3 /* MUAlertAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06D9F071286C0E0A005786A3 /* MUAlertAction.swift */; };
 		07900EC9117FCF2FA8E23F03 /* MashUp_iOSTests-MashUp_PlatformTeamMocks.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF06792B8FCEDBC254B599C /* MashUp_iOSTests-MashUp_PlatformTeamMocks.generated.swift */; };
 		8150A263D51AF35ED7C1F753 /* MashUp_iOSTests-MashUp_UIKitMocks.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50AEB9142054CE6C0E1FC59A /* MashUp_iOSTests-MashUp_UIKitMocks.generated.swift */; };
 		83BBB1B66AFB5F2C4E95E49C /* MashUp_iOSTests-MashUp_iOSMocks.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 093B68049842CE18EA5AAB9B /* MashUp_iOSTests-MashUp_iOSMocks.generated.swift */; };
@@ -566,6 +569,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		061665A12866FB5700A5D5DC /* MUAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MUAlertView.swift; sourceTree = "<group>"; };
+		061665A32867611100A5D5DC /* MUActionAlertViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MUActionAlertViewController.swift; sourceTree = "<group>"; };
 		0618444127E1D2DD004980CC /* PlatformAttendanceDetailReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlatformAttendanceDetailReactor.swift; sourceTree = "<group>"; };
 		0618444327E30259004980CC /* AttendanceMember.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttendanceMember.swift; sourceTree = "<group>"; };
 		062A960627E99BE300E8E715 /* PlatformAttendanceDetailReactorSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlatformAttendanceDetailReactorSpec.swift; sourceTree = "<group>"; };
@@ -597,6 +602,7 @@
 		06D9F073286C285F005786A3 /* MyPageRuleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageRuleViewController.swift; sourceTree = "<group>"; };
 		06D9F075286C3F06005786A3 /* RuleHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RuleHeaderView.swift; sourceTree = "<group>"; };
 		06D9F077286C7896005786A3 /* DotLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DotLabel.swift; sourceTree = "<group>"; };
+		06D9F071286C0E0A005786A3 /* MUAlertAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MUAlertAction.swift; sourceTree = "<group>"; };
 		093B68049842CE18EA5AAB9B /* MashUp_iOSTests-MashUp_iOSMocks.generated.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; name = "MashUp_iOSTests-MashUp_iOSMocks.generated.swift"; path = "MockingbirdMocks/MashUp_iOSTests-MashUp_iOSMocks.generated.swift"; sourceTree = "<group>"; };
 		0FF06792B8FCEDBC254B599C /* MashUp_iOSTests-MashUp_PlatformTeamMocks.generated.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; name = "MashUp_iOSTests-MashUp_PlatformTeamMocks.generated.swift"; path = "MockingbirdMocks/MashUp_iOSTests-MashUp_PlatformTeamMocks.generated.swift"; sourceTree = "<group>"; };
 		1345AE365F8570B51C4B2A6E /* MashUp_iOSTests-MashUp_CoreMocks.generated.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; name = "MashUp_iOSTests-MashUp_CoreMocks.generated.swift"; path = "MockingbirdMocks/MashUp_iOSTests-MashUp_CoreMocks.generated.swift"; sourceTree = "<group>"; };
@@ -911,6 +917,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		061665A02866FA3300A5D5DC /* MUActionAlertViewController */ = {
+			isa = PBXGroup;
+			children = (
+				061665A32867611100A5D5DC /* MUActionAlertViewController.swift */,
+				06D9F071286C0E0A005786A3 /* MUAlertAction.swift */,
+				061665A12866FB5700A5D5DC /* MUAlertView.swift */,
+			);
+			path = MUActionAlertViewController;
+			sourceTree = "<group>";
+		};
 		062A960827E9CDA600E8E715 /* TestHelper */ = {
 			isa = PBXGroup;
 			children = (
@@ -1437,6 +1453,7 @@
 				06531C372840C7C500E225EB /* Colors.xcassets */,
 				CE6A96402853B22300F4C066 /* Image.xcassets */,
 				06531C342840C39800E225EB /* Font */,
+				061665A02866FA3300A5D5DC /* MUActionAlertViewController */,
 				CE6A963928539AFE00F4C066 /* MUActionSheetController */,
 				CE0F282E2843777B00C206EA /* MUButton */,
 				CE0F28462843CC3E00C206EA /* MUNavigationBar */,
@@ -2410,6 +2427,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CE9C1DDF284684B50020FBCE /* MUTextField.swift in Sources */,
+				061665A22866FB5700A5D5DC /* MUAlertView.swift in Sources */,
 				CE9C1DDD284684AE0020FBCE /* MUSelectControl.swift in Sources */,
 				CE9C1DCE2846846B0020FBCE /* MashUp_UIKit.docc in Sources */,
 				CE9C1DF0284687850020FBCE /* UIFont+.swift in Sources */,
@@ -2418,11 +2436,13 @@
 				CE9C1DE1284684BC0020FBCE /* MUTextField+Rx.swift in Sources */,
 				CE9C1DD9284684A00020FBCE /* MUButtonStyle.swift in Sources */,
 				CE9C1DD82846849C0020FBCE /* MUButton.swift in Sources */,
+				06D9F072286C0E0A005786A3 /* MUAlertAction.swift in Sources */,
 				CE6A963D28539CD700F4C066 /* MUActionSheetItem.swift in Sources */,
 				CE6A963F2853AAF900F4C066 /* MUActionSheetTableViewCell.swift in Sources */,
 				CE9C1DF1284687850020FBCE /* UIColor+.swift in Sources */,
 				CE9C1DDC284684AB0020FBCE /* MUMenu.swift in Sources */,
 				CE9C1DDA284684A30020FBCE /* MUNavigationBar.swift in Sources */,
+				061665A42867611100A5D5DC /* MUActionAlertViewController.swift in Sources */,
 				CE6A963B28539B1B00F4C066 /* MUActionSheetController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
