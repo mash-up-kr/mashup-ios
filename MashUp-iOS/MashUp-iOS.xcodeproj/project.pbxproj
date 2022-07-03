@@ -7,10 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		060DD398287169F000CB5F1E /* ImageProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 060DD397287169F000CB5F1E /* ImageProvider.swift */; };
 		060DD39A28716E9A00CB5F1E /* ImageProviderImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 060DD39928716E9A00CB5F1E /* ImageProviderImpl.swift */; };
-		060DD39B28716F3500CB5F1E /* MUImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 066CE3F3286EDA0E00B6F841 /* MUImage.swift */; };
 		060DD39E287178C800CB5F1E /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 060DD39D287178C800CB5F1E /* Kingfisher */; };
+		060DD39F28717E4700CB5F1E /* MUImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 066CE3F3286EDA0E00B6F841 /* MUImage.swift */; };
+		060DD3A028717E4A00CB5F1E /* ImageProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 060DD397287169F000CB5F1E /* ImageProvider.swift */; };
 		0618444227E1D2DD004980CC /* PlatformAttendanceDetailReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0618444127E1D2DD004980CC /* PlatformAttendanceDetailReactor.swift */; };
 		0618444427E30259004980CC /* AttendanceMember.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0618444327E30259004980CC /* AttendanceMember.swift */; };
 		062A960727E99BE400E8E715 /* PlatformAttendanceDetailReactorSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 062A960627E99BE300E8E715 /* PlatformAttendanceDetailReactorSpec.swift */; };
@@ -1415,9 +1415,7 @@
 			children = (
 				CE9C1D9728467E500020FBCE /* MashUp_Core.docc */,
 				CE9C1D9628467E500020FBCE /* MashUp_Core.h */,
-				060DD397287169F000CB5F1E /* ImageProvider.swift */,
 				CE6EE84227C7F933005BF412 /* Logger.swift */,
-				066CE3F3286EDA0E00B6F841 /* MUImage.swift */,
 				CED3ABC628494F0F00621B28 /* Base */,
 				CED3ABCC28494F1000621B28 /* Foundation+ */,
 				CED3ABD528494F1000621B28 /* Rx+ */,
@@ -1432,7 +1430,9 @@
 			children = (
 				CE9C1DCD2846846B0020FBCE /* MashUp_UIKit.docc */,
 				CE9C1DCC2846846B0020FBCE /* MashUp_UIKit.h */,
+				060DD397287169F000CB5F1E /* ImageProvider.swift */,
 				060DD39928716E9A00CB5F1E /* ImageProviderImpl.swift */,
+				066CE3F3286EDA0E00B6F841 /* MUImage.swift */,
 				06531C392840C96000E225EB /* UIColor+.swift */,
 				06531C352840C43700E225EB /* UIFont+.swift */,
 				066CE3F1286ED0CC00B6F841 /* UIImage+.swift */,
@@ -2384,7 +2384,6 @@
 				0642C94A285332F000B9F575 /* UIView+.swift in Sources */,
 				CED3ABE828494F1000621B28 /* String+.swift in Sources */,
 				CE6A96452853B91200F4C066 /* UIWindow+.swift in Sources */,
-				060DD39B28716F3500CB5F1E /* MUImage.swift in Sources */,
 				CE7CCBA22855FE28005AA690 /* EventHookingDelegate.swift in Sources */,
 				CED3ABE228494F1000621B28 /* BaseTableViewCell.swift in Sources */,
 				CE9C1DA428467E5E0020FBCE /* Logger.swift in Sources */,
@@ -2392,7 +2391,6 @@
 				CED3ABE628494F1000621B28 /* Collection+.swift in Sources */,
 				CED3ABE128494F1000621B28 /* BaseViewController.swift in Sources */,
 				CED3ABEE28494F1000621B28 /* UIViewContorller+Rx.swift in Sources */,
-				060DD398287169F000CB5F1E /* ImageProvider.swift in Sources */,
 				CE9C1D9828467E500020FBCE /* MashUp_Core.docc in Sources */,
 				CED3ABE028494F1000621B28 /* BaseTabBarController.swift in Sources */,
 				CE7CCBA02855FDF7005AA690 /* EventHookingStackView.swift in Sources */,
@@ -2423,9 +2421,11 @@
 				CE6A963D28539CD700F4C066 /* MUActionSheetItem.swift in Sources */,
 				CE6A963F2853AAF900F4C066 /* MUActionSheetTableViewCell.swift in Sources */,
 				CE9C1DF1284687850020FBCE /* UIColor+.swift in Sources */,
+				060DD39F28717E4700CB5F1E /* MUImage.swift in Sources */,
 				CE9C1DDC284684AB0020FBCE /* MUMenu.swift in Sources */,
 				CE9C1DDA284684A30020FBCE /* MUNavigationBar.swift in Sources */,
 				CE6A963B28539B1B00F4C066 /* MUActionSheetController.swift in Sources */,
+				060DD3A028717E4A00CB5F1E /* ImageProvider.swift in Sources */,
 				060DD39A28716E9A00CB5F1E /* ImageProviderImpl.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

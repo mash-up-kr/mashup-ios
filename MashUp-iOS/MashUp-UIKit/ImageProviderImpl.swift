@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import MashUp_Core
 import Kingfisher
 
 public final class ImageProviderImpl: ImageProvider {
