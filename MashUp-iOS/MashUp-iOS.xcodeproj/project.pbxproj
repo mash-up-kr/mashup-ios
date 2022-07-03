@@ -7,7 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		060DD396287166B000CB5F1E /* ImageSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0F283628437B6A00C206EA /* ImageSource.swift */; };
+		060DD398287169F000CB5F1E /* ImageProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 060DD397287169F000CB5F1E /* ImageProvider.swift */; };
+		060DD39A28716E9A00CB5F1E /* ImageProviderImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 060DD39928716E9A00CB5F1E /* ImageProviderImpl.swift */; };
+		060DD39B28716F3500CB5F1E /* MUImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 066CE3F3286EDA0E00B6F841 /* MUImage.swift */; };
+		060DD39E287178C800CB5F1E /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 060DD39D287178C800CB5F1E /* Kingfisher */; };
 		0618444227E1D2DD004980CC /* PlatformAttendanceDetailReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0618444127E1D2DD004980CC /* PlatformAttendanceDetailReactor.swift */; };
 		0618444427E30259004980CC /* AttendanceMember.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0618444327E30259004980CC /* AttendanceMember.swift */; };
 		062A960727E99BE400E8E715 /* PlatformAttendanceDetailReactorSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 062A960627E99BE300E8E715 /* PlatformAttendanceDetailReactorSpec.swift */; };
@@ -28,7 +31,6 @@
 		06531C322840C39600E225EB /* Pretendard-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 06531C2E2840C39600E225EB /* Pretendard-Regular.otf */; };
 		06531C382840C7C500E225EB /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 06531C372840C7C500E225EB /* Colors.xcassets */; };
 		066CE3F2286ED0CC00B6F841 /* UIImage+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 066CE3F1286ED0CC00B6F841 /* UIImage+.swift */; };
-		066CE3F4286EDA0E00B6F841 /* MUImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 066CE3F3286EDA0E00B6F841 /* MUImage.swift */; };
 		0688CB42284B223B00338A5C /* PlatformTeam+Presentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0688CB41284B223B00338A5C /* PlatformTeam+Presentation.swift */; };
 		07900EC9117FCF2FA8E23F03 /* MashUp_iOSTests-MashUp_PlatformTeamMocks.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF06792B8FCEDBC254B599C /* MashUp_iOSTests-MashUp_PlatformTeamMocks.generated.swift */; };
 		8150A263D51AF35ED7C1F753 /* MashUp_iOSTests-MashUp_UIKitMocks.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50AEB9142054CE6C0E1FC59A /* MashUp_iOSTests-MashUp_UIKitMocks.generated.swift */; };
@@ -565,6 +567,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		060DD397287169F000CB5F1E /* ImageProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageProvider.swift; sourceTree = "<group>"; };
+		060DD39928716E9A00CB5F1E /* ImageProviderImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageProviderImpl.swift; sourceTree = "<group>"; };
 		0618444127E1D2DD004980CC /* PlatformAttendanceDetailReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlatformAttendanceDetailReactor.swift; sourceTree = "<group>"; };
 		0618444327E30259004980CC /* AttendanceMember.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttendanceMember.swift; sourceTree = "<group>"; };
 		062A960627E99BE300E8E715 /* PlatformAttendanceDetailReactorSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlatformAttendanceDetailReactorSpec.swift; sourceTree = "<group>"; };
@@ -604,7 +608,6 @@
 		CE0F282A28436A9B00C206EA /* MUButton.swift */ = {isa = PBXFileReference; indentWidth = 4; lastKnownFileType = sourcecode.swift; path = MUButton.swift; sourceTree = "<group>"; };
 		CE0F282F284377B900C206EA /* MUButtonStyle.swift */ = {isa = PBXFileReference; indentWidth = 4; lastKnownFileType = sourcecode.swift; path = MUButtonStyle.swift; sourceTree = "<group>"; };
 		CE0F283428437A1700C206EA /* MUTextField.swift */ = {isa = PBXFileReference; indentWidth = 4; lastKnownFileType = sourcecode.swift; path = MUTextField.swift; sourceTree = "<group>"; };
-		CE0F283628437B6A00C206EA /* ImageSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageSource.swift; sourceTree = "<group>"; };
 		CE0F2838284387A600C206EA /* MUTextFieldStyle.swift */ = {isa = PBXFileReference; indentWidth = 4; lastKnownFileType = sourcecode.swift; path = MUTextFieldStyle.swift; sourceTree = "<group>"; };
 		CE0F283A2843A50400C206EA /* MUTextField+Rx.swift */ = {isa = PBXFileReference; indentWidth = 4; lastKnownFileType = sourcecode.swift; path = "MUTextField+Rx.swift"; sourceTree = "<group>"; };
 		CE0F283D2843B81300C206EA /* SignUpStep1ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpStep1ViewController.swift; sourceTree = "<group>"; };
@@ -843,6 +846,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				060DD39E287178C800CB5F1E /* Kingfisher in Frameworks */,
 				CEBAC75B2847657300ABCC36 /* MashUp_Core.framework in Frameworks */,
 				CED3AB1A284905CF00621B28 /* RxCocoa in Frameworks */,
 				CED3AB1C284905CF00621B28 /* RxSwift in Frameworks */,
@@ -1411,7 +1415,9 @@
 			children = (
 				CE9C1D9728467E500020FBCE /* MashUp_Core.docc */,
 				CE9C1D9628467E500020FBCE /* MashUp_Core.h */,
+				060DD397287169F000CB5F1E /* ImageProvider.swift */,
 				CE6EE84227C7F933005BF412 /* Logger.swift */,
+				066CE3F3286EDA0E00B6F841 /* MUImage.swift */,
 				CED3ABC628494F0F00621B28 /* Base */,
 				CED3ABCC28494F1000621B28 /* Foundation+ */,
 				CED3ABD528494F1000621B28 /* Rx+ */,
@@ -1426,8 +1432,7 @@
 			children = (
 				CE9C1DCD2846846B0020FBCE /* MashUp_UIKit.docc */,
 				CE9C1DCC2846846B0020FBCE /* MashUp_UIKit.h */,
-				CE0F283628437B6A00C206EA /* ImageSource.swift */,
-				066CE3F3286EDA0E00B6F841 /* MUImage.swift */,
+				060DD39928716E9A00CB5F1E /* ImageProviderImpl.swift */,
 				06531C392840C96000E225EB /* UIColor+.swift */,
 				06531C352840C43700E225EB /* UIFont+.swift */,
 				066CE3F1286ED0CC00B6F841 /* UIImage+.swift */,
@@ -1896,6 +1901,7 @@
 				CED3AB19284905CF00621B28 /* RxCocoa */,
 				CED3AB1B284905CF00621B28 /* RxSwift */,
 				CED3AB1D284905CF00621B28 /* SnapKit */,
+				060DD39D287178C800CB5F1E /* Kingfisher */,
 			);
 			productName = "MashUp-UIKit";
 			productReference = CE9C1DCA2846846B0020FBCE /* MashUp_UIKit.framework */;
@@ -2378,6 +2384,7 @@
 				0642C94A285332F000B9F575 /* UIView+.swift in Sources */,
 				CED3ABE828494F1000621B28 /* String+.swift in Sources */,
 				CE6A96452853B91200F4C066 /* UIWindow+.swift in Sources */,
+				060DD39B28716F3500CB5F1E /* MUImage.swift in Sources */,
 				CE7CCBA22855FE28005AA690 /* EventHookingDelegate.swift in Sources */,
 				CED3ABE228494F1000621B28 /* BaseTableViewCell.swift in Sources */,
 				CE9C1DA428467E5E0020FBCE /* Logger.swift in Sources */,
@@ -2385,6 +2392,7 @@
 				CED3ABE628494F1000621B28 /* Collection+.swift in Sources */,
 				CED3ABE128494F1000621B28 /* BaseViewController.swift in Sources */,
 				CED3ABEE28494F1000621B28 /* UIViewContorller+Rx.swift in Sources */,
+				060DD398287169F000CB5F1E /* ImageProvider.swift in Sources */,
 				CE9C1D9828467E500020FBCE /* MashUp_Core.docc in Sources */,
 				CED3ABE028494F1000621B28 /* BaseTabBarController.swift in Sources */,
 				CE7CCBA02855FDF7005AA690 /* EventHookingStackView.swift in Sources */,
@@ -2406,7 +2414,6 @@
 				CE9C1DDD284684AE0020FBCE /* MUSelectControl.swift in Sources */,
 				CE9C1DCE2846846B0020FBCE /* MashUp_UIKit.docc in Sources */,
 				CE9C1DF0284687850020FBCE /* UIFont+.swift in Sources */,
-				060DD396287166B000CB5F1E /* ImageSource.swift in Sources */,
 				CE9C1DDE284684B20020FBCE /* MUSelectControl+Rx.swift in Sources */,
 				066CE3F2286ED0CC00B6F841 /* UIImage+.swift in Sources */,
 				CE9C1DE0284684B80020FBCE /* MUTextFieldStyle.swift in Sources */,
@@ -2417,9 +2424,9 @@
 				CE6A963F2853AAF900F4C066 /* MUActionSheetTableViewCell.swift in Sources */,
 				CE9C1DF1284687850020FBCE /* UIColor+.swift in Sources */,
 				CE9C1DDC284684AB0020FBCE /* MUMenu.swift in Sources */,
-				066CE3F4286EDA0E00B6F841 /* MUImage.swift in Sources */,
 				CE9C1DDA284684A30020FBCE /* MUNavigationBar.swift in Sources */,
 				CE6A963B28539B1B00F4C066 /* MUActionSheetController.swift in Sources */,
+				060DD39A28716E9A00CB5F1E /* ImageProviderImpl.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -4001,6 +4008,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		060DD39D287178C800CB5F1E /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = CE3960DC278B40DF0073AEF4 /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
+		};
 		CE6EE86127CA4691005BF412 /* Differentiator */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = CE6EE86027CA4691005BF412 /* XCRemoteSwiftPackageReference "RxDataSources" */;

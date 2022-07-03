@@ -32,7 +32,9 @@ public enum MUImage {
   case notice
   case tistory
   case youtube
-  
+}
+
+extension MUImage {
   public var asset: UIImage? {
     switch self {
     case .calender: return UIImage(named: "ic_calender")

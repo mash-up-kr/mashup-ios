@@ -20,19 +20,16 @@ public class MUNavigationBar: UIView {
     public enum BarItem {
         case back
         case close
-        case custom(ImageSource)
+        case custom(MUImage)
         
         var icon: UIImage? {
             switch self {
             case .back:
-                return UIImage(named: "name=chevron, color=gray900, size=Default")
+                return ImageProviderImpl.shared.image(muImage: .chevronLeft)
             case .close:
-                return UIImage(named: "name=xmark, color=gray900, size=Default")
-            case .custom(let imageSource):
-                switch imageSource {
-                case .asset(let muImage): return muImage.asset
-                default: return nil
-                }
+                return ImageProviderImpl.shared.image(muImage: .close)
+            case .custom(let muImage):
+                return ImageProviderImpl.shared.image(muImage: muImage)
             }
         }
     }

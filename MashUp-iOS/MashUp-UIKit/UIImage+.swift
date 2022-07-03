@@ -13,12 +13,8 @@ extension UIImage {
    - svg이미지를 넣을때
    - resizing옵션 -> preserve vector data옵션 클릭
    - scales옵션 -> single scale옵션으로 설정해야합니다.
+   - **기본사이즈는 24**입니다.
    */
-  public static func muImage(_ image: MUImage) -> UIImage? {
-    image.asset
-  }
-  
-  /// 기본 이미지사이즈는 24입니다.
   public func resize(width: CGFloat, height: CGFloat) -> UIImage {
     let size = CGSize(width: width, height: height)
     let render = UIGraphicsImageRenderer(size: size)
