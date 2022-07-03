@@ -47,14 +47,14 @@ final class MyPageViewController: BaseViewController, View {
             .withUnretained(self.historyTableView)
             .compactMap { [weak self] _ in self?.historyTableView.contentOffset.y }
         
-        yOffset.map { $0 > 210 }
+        yOffset.map { $0 > 390 }
             .distinctUntilChanged()
             .filter { $0 }
             .map { _ in .didDisappearHeaderView }
             .bind(to: reactor.action)
             .disposed(by: self.disposeBag)
         
-        yOffset.map { $0 < 200 }
+        yOffset.map { $0 < 380 }
             .distinctUntilChanged()
             .filter { $0 }
             .map { _ in .didAppearHeaderView }

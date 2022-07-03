@@ -59,13 +59,12 @@ final class MyPageHeaderView: BaseView {
     }
     
     private let userNameLabel = UILabel()
-    private let platformTeamLabel = UILabel()
-    private let scoreCardView = UIView()
+    private let platformTeamLabel = PaddingLabel()
+    private let scoreCardView = UIImageView()
     private let scoreTitleLabel = UILabel()
     private let questionMarkButton = UIButton()
     private let totalAttendanceScoreLabel = UILabel()
-    private let mascotBodyImageView = UIImageView()
-    private let mascotHandsImageView = UIImageView()
+    private let mascotImageView = UIImageView()
     private let settingButton = UIButton()
     private let darkHalfBackgroundView = UIView()
 }
@@ -79,7 +78,7 @@ extension MyPageHeaderView {
         self.backgroundColor = .gray50
         self.userNameLabel.do {
             $0.font = .pretendardFont(weight: .bold, size: 24)
-            $0.textColor = .gray900
+            $0.textColor = .white
         }
         self.platformTeamLabel.do {
             $0.font = .pretendardFont(weight: .bold, size: 16)
@@ -89,38 +88,37 @@ extension MyPageHeaderView {
             $0.backgroundColor = .red500
             $0.addTarget(self, action: #selector(didTapSettingButton(_:)), for: .touchUpInside)
         }
-        self.scoreTitleLabel.do {
-            $0.font = .pretendardFont(weight: .bold, size: 14)
-            $0.textColor = .gray400
-            $0.text = "총 출석점수"
-        }
         self.scoreCardView.do {
             $0.backgroundColor = .white
             $0.layer.cornerRadius = 12
             $0.addShadow(x: 0, y: 2, color: .black.withAlphaComponent(0.1), radius: 20)
+            $0.image = UIImage(named: "mypage_card")
         }
         self.totalAttendanceScoreLabel.do {
             $0.font = .pretendardFont(weight: .bold, size: 24)
-            $0.textColor = .gray700
+            $0.textColor = .white
+        }
+        self.scoreTitleLabel.do {
+            $0.font = .pretendardFont(weight: .bold, size: 16)
+            $0.textColor = .white
+            $0.text = "출석점수"
         }
         self.questionMarkButton.do {
-            $0.backgroundColor = .gray700
+            $0.backgroundColor = .white
             $0.clipsToBounds = true
-            $0.layer.cornerRadius = 6
+            $0.layer.cornerRadius = 9
             $0.setTitle("?", for: .normal)
-            $0.setTitleColor(.gray100, for: .normal)
+            $0.setTitleColor(.gray900, for: .normal)
             $0.titleLabel?.font = .pretendardFont(weight: .bold, size: 8)
             $0.addTarget(self, action: #selector(didTapQuestionMarkButton(_:)), for: .touchUpInside)
         }
         let tap5TimesGesture = UITapGestureRecognizer(target: self, action: #selector(didTap10TimesMascot(_:))).then { $0.numberOfTapsRequired = 5 }
-        self.mascotBodyImageView.do {
-            $0.image = UIImage(named: "mascot_body")
+        self.mascotImageView.do {
+            $0.image = UIImage(named: "img_profile_team")
             $0.isUserInteractionEnabled = true
             $0.addGestureRecognizer(tap5TimesGesture)
         }
-        self.mascotHandsImageView.do {
-            $0.image = UIImage(named: "mascot_hands")
-        }
+        
     }
     
     private func setupLayout() {
@@ -136,49 +134,54 @@ extension MyPageHeaderView {
         }
         self.addSubview(self.settingButton)
         self.settingButton.snp.makeConstraints {
-            $0.centerY.equalTo(self.userNameLabel)
-            $0.trailing.equalToSuperview().inset(24)
-            $0.width.height.equalTo(20)
+            $0.top.equalToSuperview()
+            $0.trailing.equalToSuperview().inset(8)
+            $0.width.height.equalTo(44)
         }
         self.addSubview(self.platformTeamLabel)
         self.platformTeamLabel.snp.makeConstraints {
             $0.top.equalTo(self.userNameLabel.snp.bottom).offset(8)
             $0.leading.equalToSuperview().inset(20)
         }
-        self.addSubview(self.mascotBodyImageView)
+        self.addSubview(self.mascotImageView)
         self.addSubview(self.scoreCardView)
         self.scoreCardView.snp.makeConstraints {
             $0.top.equalTo(self.darkHalfBackgroundView.snp.bottom).offset(-72)
             $0.leading.trailing.equalToSuperview().inset(20)
             $0.height.equalTo(114)
         }
-        self.mascotBodyImageView.snp.makeConstraints {
-            $0.bottom.equalTo(self.scoreCardView.snp.top).offset(13)
-            $0.trailing.equalTo(self.scoreCardView).offset(-14)
-            $0.width.equalTo(80)
-            $0.height.equalTo(64)
+        self.mascotImageView.snp.makeConstraints {
+            $0.top.equalToSuperview().inset(58)
+            $0.centerX.equalToSuperview()
+            $0.width.equalTo(160)
+            $0.height.equalTo(90)
         }
-        self.scoreCardView.addSubview(self.scoreTitleLabel)
-        self.scoreTitleLabel.snp.makeConstraints {
-            $0.centerY.equalToSuperview()
-            $0.leading.equalToSuperview().inset(24)
+        let stackView = UIStackView().then {
+            $0.axis = .vertical
+            $0.spacing = 4
         }
-        self.addSubview(self.mascotHandsImageView)
-        self.mascotHandsImageView.snp.makeConstraints {
-            $0.height.equalTo(20)
-            $0.leading.trailing.bottom.equalTo(self.mascotBodyImageView)
-        }
+        stackView.addArrangedSubview(self.totalAttendanceScoreLabel)
+        stackView.addArrangedSubview(self.scoreTitleLabel)
         self.scoreCardView.addSubview(self.questionMarkButton)
         self.questionMarkButton.snp.makeConstraints {
-            $0.leading.equalTo(self.scoreTitleLabel.snp.trailing).offset(4)
-            $0.centerY.equalToSuperview()
-            $0.width.height.equalTo(12)
+            $0.top.trailing.equalToSuperview().inset(13)
+            $0.width.height.equalTo(18)
         }
-        self.scoreCardView.addSubview(self.totalAttendanceScoreLabel)
-        self.totalAttendanceScoreLabel.snp.makeConstraints {
-            $0.centerY.equalToSuperview()
-            $0.trailing.equalToSuperview().inset(24)
+        self.scoreCardView.addSubview(stackView)
+        stackView.snp.makeConstraints {
+            $0.center.equalToSuperview()
         }
     }
     
+}
+
+
+import RxSwift
+import RxCocoa
+
+protocol ViewModel {
+    // Input
+    var tappedPlayPause: PublishRelay<Void> { get }
+    // Output
+    var isPlaying: Driver<Bool> { get }
 }

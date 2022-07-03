@@ -156,7 +156,6 @@ final class SignUpStep1ViewController: BaseViewController, ReactorKit.View {
             })
             .disposed(by: self.disposeBag)
         
-        
         reactor.pulse(\.$shouldFocusPasswordCheckField)
             .compactMap { $0 }
             .onMain()
@@ -247,6 +246,9 @@ extension SignUpStep1ViewController {
         self.passwordCheckField.do {
             $0.placeholder = "비밀번호 확인"
             $0.isSecureTextEntry = true
+        }
+        self.keyboardFrameView.do {
+            $0.backgroundColor = .white
         }
         self.doneButton.do {
             $0.setTitle("다음", for: .normal)
