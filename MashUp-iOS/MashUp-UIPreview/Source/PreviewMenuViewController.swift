@@ -58,6 +58,17 @@ extension PreviewMenuViewController: UITableViewDelegate {
             actionSheet.addAction(.init(title: "Spring", style: .default, handler: nil))
             actionSheet.addAction(.init(title: "Node", style: .default, handler: nil))
             actionSheet.present(on: self)
+        case .alertView:
+            let alertVC = MUActionAlertViewController(title: "이전 화면으로 이동하시겠어요?", message: "입력한 전체 내용이 삭제됩니다.")
+            let action1 = MUAlertAction(title: "취소", style: .default) {
+                alertVC.dismiss(animated: false)
+            }
+            let action2 = MUAlertAction(title: "확인", style: .primary) {
+                print("확인")
+            }
+            alertVC.addAction(action1)
+            alertVC.addAction(action2)
+            present(alertVC, animated: false)
         }
     }
     
