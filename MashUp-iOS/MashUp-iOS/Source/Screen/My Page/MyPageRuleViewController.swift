@@ -20,7 +20,6 @@ public final class MyPageRuleViewController: BaseViewController {
     
     public override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .white
         setupUI()
         bind()
     }
@@ -31,6 +30,7 @@ public final class MyPageRuleViewController: BaseViewController {
     }
     
     private func setupAttribute() {
+        view.backgroundColor = .white
         navigationBar.do {
             $0.rightBarItem = .close
             $0.title = "매시업 출석 점수 제도"
