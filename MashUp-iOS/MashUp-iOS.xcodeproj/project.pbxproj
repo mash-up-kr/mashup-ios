@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		060DD39F28717E4700CB5F1E /* MUImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 066CE3F3286EDA0E00B6F841 /* MUImage.swift */; };
 		0618444227E1D2DD004980CC /* PlatformAttendanceDetailReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0618444127E1D2DD004980CC /* PlatformAttendanceDetailReactor.swift */; };
 		0618444427E30259004980CC /* AttendanceMember.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0618444327E30259004980CC /* AttendanceMember.swift */; };
 		062A960727E99BE400E8E715 /* PlatformAttendanceDetailReactorSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 062A960627E99BE300E8E715 /* PlatformAttendanceDetailReactorSpec.swift */; };
@@ -594,7 +593,6 @@
 		06531C372840C7C500E225EB /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		06531C392840C96000E225EB /* UIColor+.swift */ = {isa = PBXFileReference; indentWidth = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+.swift"; sourceTree = "<group>"; };
 		066CE3F1286ED0CC00B6F841 /* UIImage+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+.swift"; sourceTree = "<group>"; };
-		066CE3F3286EDA0E00B6F841 /* MUImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MUImage.swift; sourceTree = "<group>"; };
 		0688CB41284B223B00338A5C /* PlatformTeam+Presentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PlatformTeam+Presentation.swift"; sourceTree = "<group>"; };
 		0688CB43284E255800338A5C /* PlatformAttendanceHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlatformAttendanceHeaderView.swift; sourceTree = "<group>"; };
 		06FE4FAC2872BC4600AAA8B7 /* ImageSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageSource.swift; sourceTree = "<group>"; };
@@ -1431,7 +1429,6 @@
 			children = (
 				CE9C1DCD2846846B0020FBCE /* MashUp_UIKit.docc */,
 				CE9C1DCC2846846B0020FBCE /* MashUp_UIKit.h */,
-				066CE3F3286EDA0E00B6F841 /* MUImage.swift */,
 				06531C392840C96000E225EB /* UIColor+.swift */,
 				06531C352840C43700E225EB /* UIFont+.swift */,
 				066CE3F1286ED0CC00B6F841 /* UIImage+.swift */,
@@ -2423,7 +2420,6 @@
 				CE6A963D28539CD700F4C066 /* MUActionSheetItem.swift in Sources */,
 				CE6A963F2853AAF900F4C066 /* MUActionSheetTableViewCell.swift in Sources */,
 				CE9C1DF1284687850020FBCE /* UIColor+.swift in Sources */,
-				060DD39F28717E4700CB5F1E /* MUImage.swift in Sources */,
 				CE9C1DDC284684AB0020FBCE /* MUMenu.swift in Sources */,
 				CE9C1DDA284684A30020FBCE /* MUNavigationBar.swift in Sources */,
 				CE6A963B28539B1B00F4C066 /* MUActionSheetController.swift in Sources */,
