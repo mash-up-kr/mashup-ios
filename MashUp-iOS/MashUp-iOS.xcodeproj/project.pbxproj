@@ -7,10 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		060DD39A28716E9A00CB5F1E /* ImageProviderImpl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 060DD39928716E9A00CB5F1E /* ImageProviderImpl.swift */; };
-		060DD39E287178C800CB5F1E /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 060DD39D287178C800CB5F1E /* Kingfisher */; };
 		060DD39F28717E4700CB5F1E /* MUImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 066CE3F3286EDA0E00B6F841 /* MUImage.swift */; };
-		060DD3A028717E4A00CB5F1E /* ImageProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 060DD397287169F000CB5F1E /* ImageProvider.swift */; };
 		0618444227E1D2DD004980CC /* PlatformAttendanceDetailReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0618444127E1D2DD004980CC /* PlatformAttendanceDetailReactor.swift */; };
 		0618444427E30259004980CC /* AttendanceMember.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0618444327E30259004980CC /* AttendanceMember.swift */; };
 		062A960727E99BE400E8E715 /* PlatformAttendanceDetailReactorSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 062A960627E99BE300E8E715 /* PlatformAttendanceDetailReactorSpec.swift */; };
@@ -32,6 +29,9 @@
 		06531C382840C7C500E225EB /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 06531C372840C7C500E225EB /* Colors.xcassets */; };
 		066CE3F2286ED0CC00B6F841 /* UIImage+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 066CE3F1286ED0CC00B6F841 /* UIImage+.swift */; };
 		0688CB42284B223B00338A5C /* PlatformTeam+Presentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0688CB41284B223B00338A5C /* PlatformTeam+Presentation.swift */; };
+		06FE4FAE2872BE5E00AAA8B7 /* ImageSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06FE4FAC2872BC4600AAA8B7 /* ImageSource.swift */; };
+		06FE4FB02872BE6D00AAA8B7 /* UIImageView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06FE4FAF2872BE6D00AAA8B7 /* UIImageView+.swift */; };
+		06FE4FB22872BF8600AAA8B7 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 06FE4FB12872BF8600AAA8B7 /* Kingfisher */; };
 		07900EC9117FCF2FA8E23F03 /* MashUp_iOSTests-MashUp_PlatformTeamMocks.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF06792B8FCEDBC254B599C /* MashUp_iOSTests-MashUp_PlatformTeamMocks.generated.swift */; };
 		8150A263D51AF35ED7C1F753 /* MashUp_iOSTests-MashUp_UIKitMocks.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50AEB9142054CE6C0E1FC59A /* MashUp_iOSTests-MashUp_UIKitMocks.generated.swift */; };
 		83BBB1B66AFB5F2C4E95E49C /* MashUp_iOSTests-MashUp_iOSMocks.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 093B68049842CE18EA5AAB9B /* MashUp_iOSTests-MashUp_iOSMocks.generated.swift */; };
@@ -567,8 +567,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		060DD397287169F000CB5F1E /* ImageProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageProvider.swift; sourceTree = "<group>"; };
-		060DD39928716E9A00CB5F1E /* ImageProviderImpl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageProviderImpl.swift; sourceTree = "<group>"; };
 		0618444127E1D2DD004980CC /* PlatformAttendanceDetailReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlatformAttendanceDetailReactor.swift; sourceTree = "<group>"; };
 		0618444327E30259004980CC /* AttendanceMember.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttendanceMember.swift; sourceTree = "<group>"; };
 		062A960627E99BE300E8E715 /* PlatformAttendanceDetailReactorSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlatformAttendanceDetailReactorSpec.swift; sourceTree = "<group>"; };
@@ -599,6 +597,8 @@
 		066CE3F3286EDA0E00B6F841 /* MUImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MUImage.swift; sourceTree = "<group>"; };
 		0688CB41284B223B00338A5C /* PlatformTeam+Presentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PlatformTeam+Presentation.swift"; sourceTree = "<group>"; };
 		0688CB43284E255800338A5C /* PlatformAttendanceHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlatformAttendanceHeaderView.swift; sourceTree = "<group>"; };
+		06FE4FAC2872BC4600AAA8B7 /* ImageSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageSource.swift; sourceTree = "<group>"; };
+		06FE4FAF2872BE6D00AAA8B7 /* UIImageView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+.swift"; sourceTree = "<group>"; };
 		093B68049842CE18EA5AAB9B /* MashUp_iOSTests-MashUp_iOSMocks.generated.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; name = "MashUp_iOSTests-MashUp_iOSMocks.generated.swift"; path = "MockingbirdMocks/MashUp_iOSTests-MashUp_iOSMocks.generated.swift"; sourceTree = "<group>"; };
 		0FF06792B8FCEDBC254B599C /* MashUp_iOSTests-MashUp_PlatformTeamMocks.generated.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; name = "MashUp_iOSTests-MashUp_PlatformTeamMocks.generated.swift"; path = "MockingbirdMocks/MashUp_iOSTests-MashUp_PlatformTeamMocks.generated.swift"; sourceTree = "<group>"; };
 		1345AE365F8570B51C4B2A6E /* MashUp_iOSTests-MashUp_CoreMocks.generated.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; name = "MashUp_iOSTests-MashUp_CoreMocks.generated.swift"; path = "MockingbirdMocks/MashUp_iOSTests-MashUp_CoreMocks.generated.swift"; sourceTree = "<group>"; };
@@ -839,6 +839,7 @@
 				CED3AB092849040600621B28 /* SnapKit in Frameworks */,
 				CED3AB052849040600621B28 /* RxCocoa in Frameworks */,
 				CED3AAE22849036400621B28 /* Then in Frameworks */,
+				06FE4FB22872BF8600AAA8B7 /* Kingfisher in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -846,7 +847,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				060DD39E287178C800CB5F1E /* Kingfisher in Frameworks */,
 				CEBAC75B2847657300ABCC36 /* MashUp_Core.framework in Frameworks */,
 				CED3AB1A284905CF00621B28 /* RxCocoa in Frameworks */,
 				CED3AB1C284905CF00621B28 /* RxSwift in Frameworks */,
@@ -1415,6 +1415,7 @@
 			children = (
 				CE9C1D9728467E500020FBCE /* MashUp_Core.docc */,
 				CE9C1D9628467E500020FBCE /* MashUp_Core.h */,
+				06FE4FAC2872BC4600AAA8B7 /* ImageSource.swift */,
 				CE6EE84227C7F933005BF412 /* Logger.swift */,
 				CED3ABC628494F0F00621B28 /* Base */,
 				CED3ABCC28494F1000621B28 /* Foundation+ */,
@@ -1430,8 +1431,6 @@
 			children = (
 				CE9C1DCD2846846B0020FBCE /* MashUp_UIKit.docc */,
 				CE9C1DCC2846846B0020FBCE /* MashUp_UIKit.h */,
-				060DD397287169F000CB5F1E /* ImageProvider.swift */,
-				060DD39928716E9A00CB5F1E /* ImageProviderImpl.swift */,
 				066CE3F3286EDA0E00B6F841 /* MUImage.swift */,
 				06531C392840C96000E225EB /* UIColor+.swift */,
 				06531C352840C43700E225EB /* UIFont+.swift */,
@@ -1679,6 +1678,7 @@
 				CED3ABDB28494F1000621B28 /* UIButton+.swift */,
 				CED3ABDC28494F1000621B28 /* UICollectionView+.swift */,
 				CE6A96462853B94F00F4C066 /* UIConstants.swift */,
+				06FE4FAF2872BE6D00AAA8B7 /* UIImageView+.swift */,
 				CED3ABDD28494F1000621B28 /* UITableView+.swift */,
 				0642C949285332F000B9F575 /* UIView+.swift */,
 				CE6A96442853B91200F4C066 /* UIWindow+.swift */,
@@ -1875,6 +1875,7 @@
 				CED3AB042849040600621B28 /* RxCocoa */,
 				CED3AB062849040600621B28 /* RxSwift */,
 				CED3AB082849040600621B28 /* SnapKit */,
+				06FE4FB12872BF8600AAA8B7 /* Kingfisher */,
 			);
 			productName = "MashUp-Core";
 			productReference = CE9C1D9428467E500020FBCE /* MashUp_Core.framework */;
@@ -1901,7 +1902,6 @@
 				CED3AB19284905CF00621B28 /* RxCocoa */,
 				CED3AB1B284905CF00621B28 /* RxSwift */,
 				CED3AB1D284905CF00621B28 /* SnapKit */,
-				060DD39D287178C800CB5F1E /* Kingfisher */,
 			);
 			productName = "MashUp-UIKit";
 			productReference = CE9C1DCA2846846B0020FBCE /* MashUp_UIKit.framework */;
@@ -2391,12 +2391,14 @@
 				CED3ABE628494F1000621B28 /* Collection+.swift in Sources */,
 				CED3ABE128494F1000621B28 /* BaseViewController.swift in Sources */,
 				CED3ABEE28494F1000621B28 /* UIViewContorller+Rx.swift in Sources */,
+				06FE4FB02872BE6D00AAA8B7 /* UIImageView+.swift in Sources */,
 				CE9C1D9828467E500020FBCE /* MashUp_Core.docc in Sources */,
 				CED3ABE028494F1000621B28 /* BaseTabBarController.swift in Sources */,
 				CE7CCBA02855FDF7005AA690 /* EventHookingStackView.swift in Sources */,
 				CE6A96472853B94F00F4C066 /* UIConstants.swift in Sources */,
 				CED3ABED28494F1000621B28 /* Observable+Main.swift in Sources */,
 				CED3ABEC28494F1000621B28 /* Date+.swift in Sources */,
+				06FE4FAE2872BE5E00AAA8B7 /* ImageSource.swift in Sources */,
 				CED3ABF328494F1000621B28 /* UITableView+.swift in Sources */,
 				CED3ABEA28494F1000621B28 /* Error+.swift in Sources */,
 				CED3ABF628494F4000621B28 /* KeyboardFrameView.swift in Sources */,
@@ -2425,8 +2427,6 @@
 				CE9C1DDC284684AB0020FBCE /* MUMenu.swift in Sources */,
 				CE9C1DDA284684A30020FBCE /* MUNavigationBar.swift in Sources */,
 				CE6A963B28539B1B00F4C066 /* MUActionSheetController.swift in Sources */,
-				060DD3A028717E4A00CB5F1E /* ImageProvider.swift in Sources */,
-				060DD39A28716E9A00CB5F1E /* ImageProviderImpl.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -4008,7 +4008,7 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		060DD39D287178C800CB5F1E /* Kingfisher */ = {
+		06FE4FB12872BF8600AAA8B7 /* Kingfisher */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = CE3960DC278B40DF0073AEF4 /* XCRemoteSwiftPackageReference "Kingfisher" */;
 			productName = Kingfisher;
