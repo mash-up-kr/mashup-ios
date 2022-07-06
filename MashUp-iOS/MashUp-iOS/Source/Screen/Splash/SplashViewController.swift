@@ -22,7 +22,7 @@ final class SplashViewController: BaseViewController, ReactorKit.View {
     override func viewDidLoad() {
         super.viewDidLoad()
         #warning("Splash UI 구현해야합니다. - Booung")
-        self.view.backgroundColor = .primary500
+        self.view.backgroundColor = .brand500
     }
     
     func bind(reactor: SplashReactor) {

@@ -79,7 +79,7 @@ extension HomeTabBarController {
         self.tabBar.backgroundColor = .white
         
         self.qrButton.do {
-            $0.backgroundColor = .primary500
+            $0.backgroundColor = .brand500
             $0.layer.cornerRadius = 24
             $0.layer.masksToBounds = true
         }
