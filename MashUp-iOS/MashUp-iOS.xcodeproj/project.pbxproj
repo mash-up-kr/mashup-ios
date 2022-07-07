@@ -29,10 +29,12 @@
 		06531C322840C39600E225EB /* Pretendard-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 06531C2E2840C39600E225EB /* Pretendard-Regular.otf */; };
 		06531C382840C7C500E225EB /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 06531C372840C7C500E225EB /* Colors.xcassets */; };
 		0688CB42284B223B00338A5C /* PlatformTeam+Presentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0688CB41284B223B00338A5C /* PlatformTeam+Presentation.swift */; };
+		06D103282876E62900978426 /* MembershipWithdrawalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06D103272876E62900978426 /* MembershipWithdrawalViewController.swift */; };
+		06D1032A2876E6FC00978426 /* MembershipWithdrawalReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06D103292876E6FC00978426 /* MembershipWithdrawalReactor.swift */; };
+		06D9F072286C0E0A005786A3 /* MUAlertAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06D9F071286C0E0A005786A3 /* MUAlertAction.swift */; };
 		06D9F074286C285F005786A3 /* MyPageRuleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06D9F073286C285F005786A3 /* MyPageRuleViewController.swift */; };
 		06D9F076286C3F06005786A3 /* RuleHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06D9F075286C3F06005786A3 /* RuleHeaderView.swift */; };
 		06D9F078286C7896005786A3 /* DotLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06D9F077286C7896005786A3 /* DotLabel.swift */; };
-		06D9F072286C0E0A005786A3 /* MUAlertAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06D9F071286C0E0A005786A3 /* MUAlertAction.swift */; };
 		07900EC9117FCF2FA8E23F03 /* MashUp_iOSTests-MashUp_PlatformTeamMocks.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF06792B8FCEDBC254B599C /* MashUp_iOSTests-MashUp_PlatformTeamMocks.generated.swift */; };
 		8150A263D51AF35ED7C1F753 /* MashUp_iOSTests-MashUp_UIKitMocks.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50AEB9142054CE6C0E1FC59A /* MashUp_iOSTests-MashUp_UIKitMocks.generated.swift */; };
 		83BBB1B66AFB5F2C4E95E49C /* MashUp_iOSTests-MashUp_iOSMocks.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 093B68049842CE18EA5AAB9B /* MashUp_iOSTests-MashUp_iOSMocks.generated.swift */; };
@@ -599,10 +601,12 @@
 		06531C392840C96000E225EB /* UIColor+.swift */ = {isa = PBXFileReference; indentWidth = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+.swift"; sourceTree = "<group>"; };
 		0688CB41284B223B00338A5C /* PlatformTeam+Presentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PlatformTeam+Presentation.swift"; sourceTree = "<group>"; };
 		0688CB43284E255800338A5C /* PlatformAttendanceHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlatformAttendanceHeaderView.swift; sourceTree = "<group>"; };
+		06D103272876E62900978426 /* MembershipWithdrawalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MembershipWithdrawalViewController.swift; sourceTree = "<group>"; };
+		06D103292876E6FC00978426 /* MembershipWithdrawalReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MembershipWithdrawalReactor.swift; sourceTree = "<group>"; };
+		06D9F071286C0E0A005786A3 /* MUAlertAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MUAlertAction.swift; sourceTree = "<group>"; };
 		06D9F073286C285F005786A3 /* MyPageRuleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageRuleViewController.swift; sourceTree = "<group>"; };
 		06D9F075286C3F06005786A3 /* RuleHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RuleHeaderView.swift; sourceTree = "<group>"; };
 		06D9F077286C7896005786A3 /* DotLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DotLabel.swift; sourceTree = "<group>"; };
-		06D9F071286C0E0A005786A3 /* MUAlertAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MUAlertAction.swift; sourceTree = "<group>"; };
 		093B68049842CE18EA5AAB9B /* MashUp_iOSTests-MashUp_iOSMocks.generated.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; name = "MashUp_iOSTests-MashUp_iOSMocks.generated.swift"; path = "MockingbirdMocks/MashUp_iOSTests-MashUp_iOSMocks.generated.swift"; sourceTree = "<group>"; };
 		0FF06792B8FCEDBC254B599C /* MashUp_iOSTests-MashUp_PlatformTeamMocks.generated.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; name = "MashUp_iOSTests-MashUp_PlatformTeamMocks.generated.swift"; path = "MockingbirdMocks/MashUp_iOSTests-MashUp_PlatformTeamMocks.generated.swift"; sourceTree = "<group>"; };
 		1345AE365F8570B51C4B2A6E /* MashUp_iOSTests-MashUp_CoreMocks.generated.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; name = "MashUp_iOSTests-MashUp_CoreMocks.generated.swift"; path = "MockingbirdMocks/MashUp_iOSTests-MashUp_CoreMocks.generated.swift"; sourceTree = "<group>"; };
@@ -1273,6 +1277,8 @@
 			isa = PBXGroup;
 			children = (
 				06D9F077286C7896005786A3 /* DotLabel.swift */,
+				06D103292876E6FC00978426 /* MembershipWithdrawalReactor.swift */,
+				06D103272876E62900978426 /* MembershipWithdrawalViewController.swift */,
 				06D9F073286C285F005786A3 /* MyPageRuleViewController.swift */,
 				CE6EE84D27C80C9B005BF412 /* MyPageViewController.swift */,
 				06D9F075286C3F06005786A3 /* RuleHeaderView.swift */,
@@ -2258,6 +2264,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CE6EE81227C7B293005BF412 /* SignInReactor.swift in Sources */,
+				06D103282876E62900978426 /* MembershipWithdrawalViewController.swift in Sources */,
 				CEB60F7F27A9C536001260DB /* AttendanceService.swift in Sources */,
 				CE6EE83A27C7E2DE005BF412 /* SplashViewController.swift in Sources */,
 				CEB60F4527A97163001260DB /* main.swift in Sources */,
@@ -2281,6 +2288,7 @@
 				CE729A7F27E57D0D001D33D1 /* AttendanceTimelineRepository.swift in Sources */,
 				CE729A8727E5C31A001D33D1 /* PartialAttendance.swift in Sources */,
 				CE6EE84C27C80C92005BF412 /* SeminarScheduleViewController.swift in Sources */,
+				06D1032A2876E6FC00978426 /* MembershipWithdrawalReactor.swift in Sources */,
 				0618444427E30259004980CC /* AttendanceMember.swift in Sources */,
 				06531C18283F59FF00E225EB /* PlatformAttendanceStatusReactor.swift in Sources */,
 				CE6EE88A27CAA288005BF412 /* SeminarRepository.swift in Sources */,
