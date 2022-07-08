@@ -779,9 +779,9 @@
 		CED3ABD628494F1000621B28 /* Observable+Main.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Observable+Main.swift"; sourceTree = "<group>"; };
 		CED3ABD728494F1000621B28 /* UIViewContorller+Rx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewContorller+Rx.swift"; sourceTree = "<group>"; };
 		CED3ABD928494F1000621B28 /* Reusable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Reusable.swift; sourceTree = "<group>"; };
-		CED3ABDA28494F1000621B28 /* NSCollectionLayoutSectionFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NSCollectionLayoutSectionFactory.swift; sourceTree = "<group>"; };
+		CED3ABDA28494F1000621B28 /* NSCollectionLayoutSectionFactory.swift */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 4; lastKnownFileType = sourcecode.swift; path = NSCollectionLayoutSectionFactory.swift; sourceTree = "<group>"; };
 		CED3ABDB28494F1000621B28 /* UIButton+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIButton+.swift"; sourceTree = "<group>"; };
-		CED3ABDC28494F1000621B28 /* UICollectionView+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UICollectionView+.swift"; sourceTree = "<group>"; };
+		CED3ABDC28494F1000621B28 /* UICollectionView+.swift */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 4; lastKnownFileType = sourcecode.swift; path = "UICollectionView+.swift"; sourceTree = "<group>"; };
 		CED3ABDD28494F1000621B28 /* UITableView+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITableView+.swift"; sourceTree = "<group>"; };
 		CED3ABDF28494F1000621B28 /* PaddingLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaddingLabel.swift; sourceTree = "<group>"; };
 		CED3ABF528494F4000621B28 /* KeyboardFrameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardFrameView.swift; sourceTree = "<group>"; };
@@ -1469,6 +1469,7 @@
 				CED3ABD828494F1000621B28 /* UIKit+ */,
 				CED3ABDE28494F1000621B28 /* View */,
 			);
+			indentWidth = 4;
 			path = "MashUp-Core";
 			sourceTree = "<group>";
 		};
