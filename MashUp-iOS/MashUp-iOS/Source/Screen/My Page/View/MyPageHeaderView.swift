@@ -82,7 +82,10 @@ extension MyPageHeaderView {
         }
         self.platformTeamLabel.do {
             $0.font = .pretendardFont(weight: .bold, size: 16)
-            $0.textColor = .primary500
+            $0.backgroundColor = .brand500
+            $0.layer.cornerRadius = 6
+            $0.layer.masksToBounds = true
+            $0.textColor = .white
         }
         self.settingButton.do {
             $0.backgroundColor = .red500
@@ -127,34 +130,36 @@ extension MyPageHeaderView {
             $0.top.leading.trailing.equalToSuperview()
             $0.height.equalTo(308)
         }
-        self.addSubview(self.userNameLabel)
-        self.userNameLabel.snp.makeConstraints {
-            $0.top.equalToSuperview().inset(12)
-            $0.leading.equalToSuperview().inset(20)
-        }
         self.addSubview(self.settingButton)
         self.settingButton.snp.makeConstraints {
             $0.top.equalToSuperview()
             $0.trailing.equalToSuperview().inset(8)
             $0.width.height.equalTo(44)
         }
-        self.addSubview(self.platformTeamLabel)
-        self.platformTeamLabel.snp.makeConstraints {
-            $0.top.equalTo(self.userNameLabel.snp.bottom).offset(8)
-            $0.leading.equalToSuperview().inset(20)
+        let userInfoStackView = UIStackView().then {
+            $0.alignment = .center
+            $0.axis = .vertical
         }
-        self.addSubview(self.mascotImageView)
         self.addSubview(self.scoreCardView)
+        self.darkHalfBackgroundView.addSubview(userInfoStackView)
+        userInfoStackView.snp.makeConstraints {
+            $0.centerX.equalToSuperview()
+            $0.bottom.equalTo(self.scoreCardView.snp.top).offset(-20)
+        }
+        userInfoStackView.addArrangedSubview(self.mascotImageView)
+        self.mascotImageView.snp.makeConstraints {
+            $0.width.equalTo(160)
+            $0.height.equalTo(90)
+        }
+        userInfoStackView.setCustomSpacing(20, after: self.mascotImageView)
+        userInfoStackView.addArrangedSubview(self.userNameLabel)
+        userInfoStackView.setCustomSpacing(12, after: self.userNameLabel)
+        userInfoStackView.addArrangedSubview(self.platformTeamLabel)
+        
         self.scoreCardView.snp.makeConstraints {
             $0.top.equalTo(self.darkHalfBackgroundView.snp.bottom).offset(-72)
             $0.leading.trailing.equalToSuperview().inset(20)
             $0.height.equalTo(114)
-        }
-        self.mascotImageView.snp.makeConstraints {
-            $0.top.equalToSuperview().inset(58)
-            $0.centerX.equalToSuperview()
-            $0.width.equalTo(160)
-            $0.height.equalTo(90)
         }
         let stackView = UIStackView().then {
             $0.axis = .vertical
@@ -173,15 +178,4 @@ extension MyPageHeaderView {
         }
     }
     
-}
-
-
-import RxSwift
-import RxCocoa
-
-protocol ViewModel {
-    // Input
-    var tappedPlayPause: PublishRelay<Void> { get }
-    // Output
-    var isPlaying: Driver<Bool> { get }
 }

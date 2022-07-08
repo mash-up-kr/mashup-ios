@@ -111,7 +111,7 @@ extension RootController {
          
         
         // ❌ 자동 로그인 아닌 케이스 테스트
-         self.userAuthService.stubedUserSession = nil
+//         self.userAuthService.stubedUserSession = nil
         
         let splashViewController = SplashViewController()
         splashViewController.reactor = SplashReactor(
