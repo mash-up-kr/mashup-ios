@@ -33,6 +33,7 @@
 		06D1032A2876E6FC00978426 /* MembershipWithdrawalReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06D103292876E6FC00978426 /* MembershipWithdrawalReactor.swift */; };
 		06D103302878095700978426 /* MembershipWithdrawalReactorSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06D1032F2878095700978426 /* MembershipWithdrawalReactorSpec.swift */; };
 		06D103332878205F00978426 /* MembershipWithdrawalService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06D103322878205F00978426 /* MembershipWithdrawalService.swift */; };
+		06D1033728784CDF00978426 /* DontForgetMashUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06D1033628784CDF00978426 /* DontForgetMashUpView.swift */; };
 		06D9F072286C0E0A005786A3 /* MUAlertAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06D9F071286C0E0A005786A3 /* MUAlertAction.swift */; };
 		06D9F074286C285F005786A3 /* MyPageRuleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06D9F073286C285F005786A3 /* MyPageRuleViewController.swift */; };
 		06D9F076286C3F06005786A3 /* RuleHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06D9F075286C3F06005786A3 /* RuleHeaderView.swift */; };
@@ -607,6 +608,7 @@
 		06D103292876E6FC00978426 /* MembershipWithdrawalReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MembershipWithdrawalReactor.swift; sourceTree = "<group>"; };
 		06D1032F2878095700978426 /* MembershipWithdrawalReactorSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MembershipWithdrawalReactorSpec.swift; sourceTree = "<group>"; };
 		06D103322878205F00978426 /* MembershipWithdrawalService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MembershipWithdrawalService.swift; sourceTree = "<group>"; };
+		06D1033628784CDF00978426 /* DontForgetMashUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DontForgetMashUpView.swift; sourceTree = "<group>"; };
 		06D9F071286C0E0A005786A3 /* MUAlertAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MUAlertAction.swift; sourceTree = "<group>"; };
 		06D9F073286C285F005786A3 /* MyPageRuleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageRuleViewController.swift; sourceTree = "<group>"; };
 		06D9F075286C3F06005786A3 /* RuleHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RuleHeaderView.swift; sourceTree = "<group>"; };
@@ -1280,6 +1282,7 @@
 		CE6EE84627C80C66005BF412 /* My Page */ = {
 			isa = PBXGroup;
 			children = (
+				06D1033628784CDF00978426 /* DontForgetMashUpView.swift */,
 				06D9F077286C7896005786A3 /* DotLabel.swift */,
 				06D103292876E6FC00978426 /* MembershipWithdrawalReactor.swift */,
 				06D103322878205F00978426 /* MembershipWithdrawalService.swift */,
@@ -2323,6 +2326,7 @@
 				CE0F283E2843B81300C206EA /* SignUpStep1ViewController.swift in Sources */,
 				CE7CCB982855DB82005AA690 /* TermsAgreementView.swift in Sources */,
 				CE6EE83D27C7EFB9005BF412 /* HomeTabBarController.swift in Sources */,
+				06D1033728784CDF00978426 /* DontForgetMashUpView.swift in Sources */,
 				06531C292840BF9800E225EB /* AttendanceStatusRectangleView.swift in Sources */,
 				CE6EE87127CA73B7005BF412 /* SeminarCardCell.swift in Sources */,
 				CE6EE87A27CA89F3005BF412 /* SeminarCardCellModel.swift in Sources */,
