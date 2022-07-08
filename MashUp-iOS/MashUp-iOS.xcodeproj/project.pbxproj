@@ -309,6 +309,7 @@
 		CED3ABF628494F4000621B28 /* KeyboardFrameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED3ABF528494F4000621B28 /* KeyboardFrameView.swift */; };
 		CEDC9F812878182500221683 /* MyPageSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDC9F802878182500221683 /* MyPageSection.swift */; };
 		CEDC9F83287846C600221683 /* Generation.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDC9F82287846C600221683 /* Generation.swift */; };
+		CEDC9F8628784BE900221683 /* AttendanceHistorySectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDC9F8528784BE900221683 /* AttendanceHistorySectionHeaderView.swift */; };
 		EDB9E3E1C1C0556600627702 /* MashUp_iOSTests-MashUp_CoreMocks.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1345AE365F8570B51C4B2A6E /* MashUp_iOSTests-MashUp_CoreMocks.generated.swift */; };
 /* End PBXBuildFile section */
 
@@ -798,6 +799,7 @@
 		CED3ABF528494F4000621B28 /* KeyboardFrameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardFrameView.swift; sourceTree = "<group>"; };
 		CEDC9F802878182500221683 /* MyPageSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageSection.swift; sourceTree = "<group>"; };
 		CEDC9F82287846C600221683 /* Generation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Generation.swift; sourceTree = "<group>"; };
+		CEDC9F8528784BE900221683 /* AttendanceHistorySectionHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttendanceHistorySectionHeaderView.swift; sourceTree = "<group>"; };
 		DAD32E8AA1567DD34445CF4D /* MashUp_iOSTests-MashUp_AuthMocks.generated.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; name = "MashUp_iOSTests-MashUp_AuthMocks.generated.swift"; path = "MockingbirdMocks/MashUp_iOSTests-MashUp_AuthMocks.generated.swift"; sourceTree = "<group>"; };
 		EBA6CECD109EF7738D4B4516 /* MashUp_iOSTests-MashUp_UserMocks.generated.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; name = "MashUp_iOSTests-MashUp_UserMocks.generated.swift"; path = "MockingbirdMocks/MashUp_iOSTests-MashUp_UserMocks.generated.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -1294,11 +1296,11 @@
 		CE6EE84627C80C66005BF412 /* My Page */ = {
 			isa = PBXGroup;
 			children = (
-				CEDC9F842878470900221683 /* AttendanceScoreRule */,
 				CEDC9F82287846C600221683 /* Generation.swift */,
 				CE7C9E86285DDD0C00B71C0E /* MyPageReactor.swift */,
 				CEDC9F802878182500221683 /* MyPageSection.swift */,
 				CE6EE84D27C80C9B005BF412 /* MyPageViewController.swift */,
+				CEDC9F842878470900221683 /* AttendanceScoreRule */,
 				CE7C9E85285DDCF200B71C0E /* View */,
 			);
 			path = "My Page";
@@ -1380,6 +1382,7 @@
 		CE7C9E85285DDCF200B71C0E /* View */ = {
 			isa = PBXGroup;
 			children = (
+				CEDC9F8528784BE900221683 /* AttendanceHistorySectionHeaderView.swift */,
 				CE307A08285DE74D0092C09A /* AttendanceScoreHistoryCell.swift */,
 				CE7C9E81285DC39000B71C0E /* MyPageHeaderView.swift */,
 				CE7C9E83285DC4C600B71C0E /* MyPageHeaderView+Rx.swift */,
@@ -2360,6 +2363,7 @@
 				06D9F078286C7896005786A3 /* DotLabel.swift in Sources */,
 				CE6EE82C27C7D8F8005BF412 /* RootController.swift in Sources */,
 				0618444227E1D2DD004980CC /* PlatformAttendanceDetailReactor.swift in Sources */,
+				CEDC9F8628784BE900221683 /* AttendanceHistorySectionHeaderView.swift in Sources */,
 				0618444227E1D2DD004980CC /* PlatformAttendanceDetailReactor.swift in Sources */,
 				CE7CCB9B2855E593005AA690 /* TermsAgreementView+Rx.swift in Sources */,
 				CE6EE82E27C7D900005BF412 /* RootReactor.swift in Sources */,

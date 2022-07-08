@@ -10,5 +10,5 @@ import Foundation
 
 enum MyPageSection {
     case title
-    case history(generation: Generation, items: [AttendanceScoreHistoryCellModel])
+    case historys(header: AttendanceHistorySectionHeaderModel, items: [AttendanceScoreHistoryCellModel])
 }
