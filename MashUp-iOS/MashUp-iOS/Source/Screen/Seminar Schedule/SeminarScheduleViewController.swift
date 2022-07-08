@@ -25,6 +25,7 @@ final class SeminarScheduleViewController: BaseViewController, ReactorKit.View {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setupUI()
+        self.collectionView.bounces = false
     }
     
     override func viewDidLayoutSubviews() {
@@ -167,6 +168,7 @@ extension SeminarScheduleViewController {
     
     private func createSeminarDetailViewController(seminarID: String) -> SeminarDetailViewController {
         let seminarDetailViewController = SeminarDetailViewController()
+        seminarDetailViewController.hidesBottomBarWhenPushed = true
         return seminarDetailViewController
     }
 }

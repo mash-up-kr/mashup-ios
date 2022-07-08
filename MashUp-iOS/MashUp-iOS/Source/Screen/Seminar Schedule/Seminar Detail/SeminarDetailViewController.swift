@@ -12,7 +12,9 @@ import RxDataSources
 import RxSwift
 import SnapKit
 import UIKit
+import Then
 import MashUp_Core
+import MashUp_UIKit
 
 final class SeminarDetailViewController: BaseViewController, ReactorKit.View {
     typealias Reactor = SeminarScheduleReactor
@@ -33,14 +35,13 @@ final class SeminarDetailViewController: BaseViewController, ReactorKit.View {
                                                         SeminarDetailCellModel.init(title: "안드z로이드 세미나",
                                                                                     platform: "안로이드 팀",
                                                                                     time: "14~75")])
-    
-    
+    private let goToBackButton = MUButton()
+    private let bottomSafeAreaView = UIView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setupUI()
         self.applySections([firstDummy,secondDummy])
-        self.collectionView.bounces = true
     }
     
     override func viewDidLayoutSubviews() {
@@ -118,13 +119,34 @@ extension SeminarDetailViewController {
             $0.registerSupplementaryFooterView(SeminarDetailFooterView.self)
             $0.collectionViewLayout = self.collectionViewLayout()
         }
+        self.goToBackButton.do {
+            $0.titleLabel?.text = "돌아가기"
+            $0.titleLabel?.font = .pretendardFont(weight: .medium, size: 14)
+            $0.setBackgroundColor(.primary100, for: .normal)
+            $0.setTitleColor(.primary500, for: .normal)
+        }
+        self.bottomSafeAreaView.do {
+            $0.backgroundColor = .white
+        }
     }
     
     private func setupLayout() {
         self.view.addSubview(self.collectionView)
+        self.view.addSubview(self.goToBackButton)
         self.collectionView.snp.makeConstraints {
             $0.top.equalToSuperview().inset(24)
             $0.leading.trailing.bottom.equalToSuperview()
+        }
+        self.view.addSubview(self.bottomSafeAreaView)
+        self.goToBackButton.snp.makeConstraints {
+            $0.height.equalTo(52)
+            $0.bottom.equalToSuperview().inset(28)
+            $0.trailing.equalToSuperview().inset(20)
+            $0.leading.equalToSuperview().inset(20)
+        }
+        self.bottomSafeAreaView.snp.makeConstraints {
+            $0.leading.trailing.bottom.equalToSuperview()
+            $0.top.equalTo(self.goToBackButton.snp.bottom)
         }
     }
     

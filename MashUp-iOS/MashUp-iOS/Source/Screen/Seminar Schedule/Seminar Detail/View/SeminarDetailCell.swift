@@ -62,7 +62,6 @@ final class SeminarDetailCell: BaseCollectionViewCell {
             $0.textColor = .gray400
             $0.font = .pretendardFont(weight: .regular, size: 13)
         }
-        
     }
      
     private func setupLayout() {
@@ -86,7 +85,7 @@ final class SeminarDetailCell: BaseCollectionViewCell {
             $0.leading.equalTo(self.seminarTitleLabel.snp.leading)
             $0.bottom.equalToSuperview()
         }
-        self.timeLabel.snp.makeConstraints{
+        self.timeLabel.snp.makeConstraints {
             $0.centerY.equalTo(self.seminarTitleLabel.snp.centerY)
             $0.trailing.equalToSuperview()
         }
