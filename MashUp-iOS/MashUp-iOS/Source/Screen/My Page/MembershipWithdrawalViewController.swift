@@ -49,11 +49,19 @@ public final class MembershipWithdrawalViewController: BaseViewController, React
             .bind(to: withdrawalButton.rx.isEnabled)
             .disposed(by: disposeBag)
         
-        reactor.state.compactMap { $0.isSuccessfulWithdrawal }
-            .distinctUntilChanged()
+        reactor.pulse { $0.$isSuccessfulWithdrawal }
+            .compactMap { $0 }
             .onMain()
             .subscribe(onNext: {
                 $0 ? print("회원탈퇴성공") : print("회원탈퇴실패")
+            })
+            .disposed(by: disposeBag)
+        
+        reactor.pulse { $0.$error }
+            .compactMap { $0 }
+            .onMain()
+            .subscribe(onNext: {
+                print($0)
             })
             .disposed(by: disposeBag)
     }

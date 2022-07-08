@@ -937,6 +937,14 @@
 			path = MUActionAlertViewController;
 			sourceTree = "<group>";
 		};
+		061EA5E72878685800AEEB7B /* MyPage */ = {
+			isa = PBXGroup;
+			children = (
+				06D103322878205F00978426 /* MembershipWithdrawalService.swift */,
+			);
+			path = MyPage;
+			sourceTree = "<group>";
+		};
 		062A960827E9CDA600E8E715 /* TestHelper */ = {
 			isa = PBXGroup;
 			children = (
@@ -1002,6 +1010,16 @@
 				0688CB41284B223B00338A5C /* PlatformTeam+Presentation.swift */,
 			);
 			path = Extension;
+			sourceTree = "<group>";
+		};
+		06D10338287859AC00978426 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				06D1033628784CDF00978426 /* DontForgetMashUpView.swift */,
+				06D9F077286C7896005786A3 /* DotLabel.swift */,
+				06D9F075286C3F06005786A3 /* RuleHeaderView.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		1C34724CEBE3A5751405B00D /* Generated Mocks */ = {
@@ -1282,14 +1300,11 @@
 		CE6EE84627C80C66005BF412 /* My Page */ = {
 			isa = PBXGroup;
 			children = (
-				06D1033628784CDF00978426 /* DontForgetMashUpView.swift */,
-				06D9F077286C7896005786A3 /* DotLabel.swift */,
 				06D103292876E6FC00978426 /* MembershipWithdrawalReactor.swift */,
-				06D103322878205F00978426 /* MembershipWithdrawalService.swift */,
 				06D103272876E62900978426 /* MembershipWithdrawalViewController.swift */,
 				06D9F073286C285F005786A3 /* MyPageRuleViewController.swift */,
 				CE6EE84D27C80C9B005BF412 /* MyPageViewController.swift */,
-				06D9F075286C3F06005786A3 /* RuleHeaderView.swift */,
+				06D10338287859AC00978426 /* View */,
 			);
 			path = "My Page";
 			sourceTree = "<group>";
@@ -1549,6 +1564,7 @@
 		CEB60F8027A9C5DC001260DB /* Domain */ = {
 			isa = PBXGroup;
 			children = (
+				061EA5E72878685800AEEB7B /* MyPage */,
 				CEB60F8227A9C5EA001260DB /* Attendance */,
 				CEB60F8127A9C5E1001260DB /* QR */,
 				CE6EE85B27CA4128005BF412 /* Seminar */,

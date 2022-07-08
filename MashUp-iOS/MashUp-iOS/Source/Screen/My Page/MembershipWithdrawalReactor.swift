@@ -19,13 +19,14 @@ public final class MembershipWithdrawalReactor: Reactor {
         case updateConfirmText(String)
         case updateValidate(Bool)
         case withdrawal(Bool)
+        case occurError(Error)
     }
     
     public struct State {
         var confirmText: String?
         var isValidated: Bool?
         @Pulse var isSuccessfulWithdrawal: Bool?
-        @Pulse var isError: Error?
+        @Pulse var error: Error?
     }
     
     public var initialState: State = State()
@@ -45,6 +46,9 @@ public final class MembershipWithdrawalReactor: Reactor {
         case .didTapWithdrawalButton:
             return service.withdrawal()
                 .map { Mutation.withdrawal($0) }
+                .catch {
+                    return .concat(.just(.occurError($0)), .just(.withdrawal(false)))
+                }
         }
     }
     
@@ -63,6 +67,8 @@ public final class MembershipWithdrawalReactor: Reactor {
             state.isValidated = isValidated
         case .withdrawal(let isSuccessful):
             state.isSuccessfulWithdrawal = isSuccessful
+        case .occurError(let error):
+            state.error = error
         }
         
         return state
