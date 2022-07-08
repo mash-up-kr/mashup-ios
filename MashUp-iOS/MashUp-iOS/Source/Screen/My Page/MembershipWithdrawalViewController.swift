@@ -48,6 +48,14 @@ public final class MembershipWithdrawalViewController: BaseViewController, React
         isValidatedObservable
             .bind(to: withdrawalButton.rx.isEnabled)
             .disposed(by: disposeBag)
+        
+        reactor.state.compactMap { $0.isSuccessfulWithdrawal }
+            .distinctUntilChanged()
+            .onMain()
+            .subscribe(onNext: {
+                $0 ? print("회원탈퇴성공") : print("회원탈퇴실패")
+            })
+            .disposed(by: disposeBag)
     }
     
     private func setupUI() {
