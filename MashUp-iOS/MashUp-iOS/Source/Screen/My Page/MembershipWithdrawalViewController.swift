@@ -10,6 +10,7 @@ import UIKit
 import MashUp_Core
 import ReactorKit
 import MashUp_UIKit
+import RxOptional
 
 public final class MembershipWithdrawalViewController: BaseViewController, ReactorKit.View {
     private let navigationBar: MUNavigationBar = MUNavigationBar()
@@ -27,10 +28,25 @@ public final class MembershipWithdrawalViewController: BaseViewController, React
     }
     
     public func bind(reactor: MembershipWithdrawalReactor) {
-        confirmTextField.rx.text
-            .filter { $0?.count ?? 0 > 0 }
-            .map { $0 != "12" ? MUTextField.Status.focus : MUTextField.Status.invaild }
+        confirmTextField.rx.text.orEmpty
+            .skip(1)
+            .distinctUntilChanged()
+            .map { .didEditConfirmTextField($0) }
+            .bind(to: reactor.action)
+            .disposed(by: disposeBag)
+        
+        let isValidatedObservable = reactor.state.compactMap { $0.isValidated }
+            .distinctUntilChanged()
+            .onMain()
+            .share()
+            
+        isValidatedObservable
+            .map { $0 ? .vaild : .invaild }
             .bind(to: confirmTextField.rx.status)
+            .disposed(by: disposeBag)
+        
+        isValidatedObservable
+            .bind(to: withdrawalButton.rx.isEnabled)
             .disposed(by: disposeBag)
     }
     
@@ -73,7 +89,7 @@ public final class MembershipWithdrawalViewController: BaseViewController, React
     }
     
     private func setupAttribute() {
-        view.backgroundColor = .white
+        view.backgroundColor = .gray50
         navigationBar.do {
             $0.title = "회원탈퇴"
             $0.leftBarItem = .back
@@ -87,6 +103,10 @@ public final class MembershipWithdrawalViewController: BaseViewController, React
             $0.assistiveDescription = "위 문구를 입력해주세요."
             $0.errorAssistiveDescription = "문구가 동일하지 않아요"
             $0.placeholder = "탈퇴할게요"
+        }
+        withdrawalButton.do {
+            $0.setTitle("탈퇴하기", for: .normal)
+            $0.isEnabled = false
         }
     }
 }
