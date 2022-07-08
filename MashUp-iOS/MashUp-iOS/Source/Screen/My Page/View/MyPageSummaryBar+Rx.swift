@@ -15,7 +15,7 @@ extension Reactive where Base: MyPageSummaryBar {
         return MyPageSummaryBarDelegateProxy.proxy(for: self.base)
     }
     
-    var didTapSettingButton: ControlEvent<Void> {
+    var didTapQuestionMarkButton: ControlEvent<Void> {
         let source = self.delegate
             .methodInvoked(#selector(MyPageSummaryBarDelegate.myPageHeaderViewDidTapQuestionMarkButton(_:)))
             .map { _ in Void() }

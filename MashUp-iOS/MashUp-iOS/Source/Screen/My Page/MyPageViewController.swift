@@ -62,6 +62,22 @@ final class MyPageViewController: BaseViewController, View {
             .bind(to: reactor.action)
             .disposed(by: self.disposeBag)
         
+        
+        self.headerView.rx.didTapSettingButton
+            .map { .didTapSettingButton }
+            .bind(to: reactor.action)
+            .disposed(by: self.disposeBag)
+        
+        self.headerView.rx.didTapQuestionMarkButton
+            .map { .didTapQuestMarkButton }
+            .bind(to: reactor.action)
+            .disposed(by: self.disposeBag)
+
+        self.summaryBar.rx.didTapQuestionMarkButton
+            .map { .didTapQuestMarkButton }
+            .bind(to: reactor.action)
+            .disposed(by: self.disposeBag)
+        
         self.headerView.rx.didTap5TimesMascotImage
             .map { _ in .didTap5TimesMascot }
             .bind(to: reactor.action)
@@ -77,7 +93,11 @@ final class MyPageViewController: BaseViewController, View {
     }
     
     private func consume(_ reactor: Reactor) {
-        
+        reactor.pulse(\.$step)
+            .compactMap { $0 }
+            .onMain()
+            .subscribe(onNext: { [weak self] step in self?.move(to: step) })
+            .disposed(by: self.disposeBag)
     }
     
     private let headerView = MyPageHeaderView(frame: CGRect(x: 0, y: 0, width: screenWidth, height: 380))
@@ -104,6 +124,7 @@ extension MyPageViewController {
     }
     
     private func setupLayout() {
+        
         self.view.addSubview(self.historyTableView)
         self.historyTableView.snp.makeConstraints {
             $0.edges.equalTo(self.view.safeAreaLayoutGuide)
@@ -123,6 +144,30 @@ extension MyPageViewController {
         self.animator.startAnimation()
     }
     
+    
+}
+
+extension MyPageViewController {
+    
+    private func move(to step: MyPageStep) {
+        switch step {
+        case .setting:
+            let viewController = self.makeSettingViewController()
+            
+        case .attendanceScoreRule:
+            let viewController = self.makeAttendanceScoreRuleViewController()
+            viewController.modalPresentationStyle = .pageSheet
+            self.present(viewController, animated: true)
+        }
+    }
+    
+    private func makeSettingViewController() -> UIViewController {
+        return UIViewController()
+    }
+    
+    private func makeAttendanceScoreRuleViewController() -> UIViewController {
+        return MyPageRuleViewController()
+    }
     
 }
 

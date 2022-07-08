@@ -81,7 +81,7 @@ extension MyPageHeaderView {
             $0.textColor = .white
         }
         self.platformTeamLabel.do {
-            $0.font = .pretendardFont(weight: .bold, size: 16)
+            $0.font = .pretendardFont(weight: .medium, size: 14)
             $0.backgroundColor = .brand500
             $0.layer.cornerRadius = 6
             $0.layer.masksToBounds = true
