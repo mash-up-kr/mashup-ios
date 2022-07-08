@@ -66,6 +66,23 @@ final class MembershipWithdrawalReactorSpec: QuickSpec {
           expect { reactor.currentState.isSuccessfulWithdrawal }.to(beFalse())
         }
       }
+      
+      let error: NSError = NSError(domain: "", code: 0)
+      context("회원탈퇴버튼을 누르고 에러가 발생한다면") {
+        beforeEach {
+          let service = mock(MembershipWithdrawalService.self)
+          given(service.withdrawal()).willReturn(.error(error))
+          reactor = MembershipWithdrawalReactor(service: service)
+          
+          reactor.action.onNext(.didTapWithdrawalButton)
+        }
+        it("회원탈퇴 통신실패") {
+          expect { reactor.currentState.isSuccessfulWithdrawal }.to(beFalse())
+        }
+        it("에러 표시") {
+          expect { reactor.currentState.error }.to(matchError(error))
+        }
+      }
     }
   }
 }
