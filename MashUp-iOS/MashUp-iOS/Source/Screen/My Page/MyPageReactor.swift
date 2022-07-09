@@ -44,7 +44,7 @@ class MyPageReactor: Reactor {
         self.debugSystem = debugSystem
     }
     
-    fileprivate func randomItem() -> AttendanceScoreHistoryCellModel {
+    private func randomItem() -> AttendanceScoreHistoryCellModel {
         return AttendanceScoreHistoryCellModel(
             historyTitle: "전체 세미나 지각",
             description: "2022.03.05 | 2차 전체 세미나",
@@ -53,20 +53,26 @@ class MyPageReactor: Reactor {
         )
     }
     
+    private func sections() -> [MyPageSection] {
+        let titleHeader = MyPageSection.TitleHeader(title: "출석 히스토리")
+        let generationHeader1 = MyPageSection.HistoryHeader(generationText: "12기")
+        let historyItems1: [MyPageSection.Item] = (0..<10).map { _ in .history(randomItem()) }
+        let generationHeader2 = MyPageSection.HistoryHeader(generationText: "11기")
+        let historyItems2: [MyPageSection.Item] = (0..<10).map { _ in .history(randomItem()) }
+        
+//        let sections: [MyPageSection] = [
+//            .title(titleHeader),
+//            .historys(generationHeader1, items: historyItems1),
+//            .historys(generationHeader2, items: historyItems2),
+//        ]
+        let sections: [MyPageSection] = [.empty]
+        return sections
+    }
+    
     func mutate(action: Action) -> Observable<Mutation> {
         switch action {
         case .didSetup:
-            let titleHeader = MyPageSection.TitleHeader(title: "출석 히스토리")
-            let generationHeader1 = MyPageSection.HistoryHeader(generationText: "12기")
-            let historyItems1: [MyPageSection.Item] = (0..<10).map { _ in .history(randomItem()) }
-            let generationHeader2 = MyPageSection.HistoryHeader(generationText: "11기")
-            let historyItems2: [MyPageSection.Item] = (0..<10).map { _ in .history(randomItem()) }
-            
-            let sections: [MyPageSection] = [
-                .title(titleHeader),
-                .historys(generationHeader1, items: historyItems1),
-                .historys(generationHeader2, items: historyItems2),
-            ]
+            let sections = self.sections()
             return .just(.updateSections(sections))
             
         case .didTapSettingButton:

@@ -15,6 +15,7 @@ enum MyPageSection: Hashable {
     
     case title(TitleHeader)
     case historys(HistoryHeader, items: [Item])
+    case empty
 }
 
 enum MyPageSectionItem: Hashable {

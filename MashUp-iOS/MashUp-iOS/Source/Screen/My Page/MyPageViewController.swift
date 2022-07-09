@@ -50,19 +50,18 @@ final class MyPageViewController: BaseViewController, View {
         let yOffset =  self.historyTableView.rx.didScroll
             .withUnretained(self.historyTableView)
             .compactMap { [weak self] _ in self?.historyTableView.contentOffset.y }
-            .debug("HeaderView yOffset")
         
         yOffset.map { $0 > 390 }
             .distinctUntilChanged()
             .filter { $0 }
-            .map { _ in .didDisappearHeaderView }.debug("didDisappearHeaderView")
+            .map { _ in .didDisappearHeaderView }
             .bind(to: reactor.action)
             .disposed(by: self.disposeBag)
         
         yOffset.map { $0 < 380 }
             .distinctUntilChanged()
             .filter { $0 }
-            .map { _ in .didAppearHeaderView }.debug("didAppearHeaderView")
+            .map { _ in .didAppearHeaderView }
             .bind(to: reactor.action)
             .disposed(by: self.disposeBag)
         
@@ -128,16 +127,16 @@ final class MyPageViewController: BaseViewController, View {
     private let summaryBar = MyPageSummaryBar()
     private let historyTableView = UITableView()
     
-    private lazy var dataSource = self.makeDataSource()
+    private lazy var dataSource = self.dataSource(of: self.historyTableView)
     private let animator = UIViewPropertyAnimator(duration: 0.3, curve: .linear)
     private var sections: [Section] = []
     
 }
 extension MyPageViewController {
     
-    private func makeDataSource() -> DataSource {
+    private func dataSource(of tableView: UITableView) -> DataSource {
         let dataSource = DataSource(
-            tableView: self.historyTableView,
+            tableView: tableView,
             cellProvider: { (tableView, indexPath, item) in
                 switch item {
                 case .history(let cellModel):
@@ -164,6 +163,7 @@ extension MyPageViewController {
             $0.backgroundColor = .gray900
             $0.registerHeaderFooter(AttendanceHistoryTitleHeaderView.self)
             $0.registerHeaderFooter(AttendanceHistorySectionHeaderView.self)
+            $0.registerHeaderFooter(EmptyAttendanceHistoryView.self)
             $0.registerCell(AttendanceScoreHistoryCell.self)
         }
     }
@@ -178,6 +178,11 @@ extension MyPageViewController {
             $0.top.leading.width.equalToSuperview()
             $0.height.equalTo(126)
         }
+        let footerView = UIView().then {
+            $0.backgroundColor = .gray50
+            $0.bounds.size.height = 200
+        }
+        self.historyTableView.tableFooterView = footerView
     }
     
     private func updateSummaryBarWithAnimation(isHidden: Bool) {
@@ -241,6 +246,10 @@ extension MyPageViewController: UITableViewDelegate {
         case .historys(let viewModel, _):
             let header = tableView.dequeueHeaderFooter(AttendanceHistorySectionHeaderView.self)
             header?.configure(with: viewModel)
+            return header
+            
+        case .empty:
+            let header = tableView.dequeueHeaderFooter(EmptyAttendanceHistoryView.self)
             return header
         }
     }
