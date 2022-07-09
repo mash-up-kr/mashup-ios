@@ -10,11 +10,11 @@ import Foundation
 
 enum MyPageSection: Hashable {
     typealias TitleHeader = AttendanceHistoryTitleHeaderModel
-    typealias SectionHeader = AttendanceHistorySectionHeaderModel
+    typealias HistoryHeader = AttendanceHistorySectionHeaderModel
     typealias Item = MyPageSectionItem
     
     case title(TitleHeader)
-    case historys(SectionHeader, items: [Item])
+    case historys(HistoryHeader, items: [Item])
 }
 
 enum MyPageSectionItem: Hashable {

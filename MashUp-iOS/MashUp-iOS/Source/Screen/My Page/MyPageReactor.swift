@@ -57,9 +57,9 @@ class MyPageReactor: Reactor {
         switch action {
         case .didSetup:
             let titleHeader = MyPageSection.TitleHeader(title: "출석 히스토리")
-            let generationHeader1 = MyPageSection.SectionHeader(generationText: "12기")
+            let generationHeader1 = MyPageSection.HistoryHeader(generationText: "12기")
             let historyItems1: [MyPageSection.Item] = (0..<10).map { _ in .history(randomItem()) }
-            let generationHeader2 = MyPageSection.SectionHeader(generationText: "11기")
+            let generationHeader2 = MyPageSection.HistoryHeader(generationText: "11기")
             let historyItems2: [MyPageSection.Item] = (0..<10).map { _ in .history(randomItem()) }
             
             let sections: [MyPageSection] = [
