@@ -11,13 +11,13 @@ import Foundation
 import MashUp_User
 
 protocol ClubActivityRepository {
-    func totalClubActivityScore(ofUser user: UserSession) -> Observable<ClubActivityScore>
-    func historys(generation: Generation, ofUser user: UserSession) -> Observable<[ClubActivityHistory]>
+    func totalClubActivityScore() -> Observable<ClubActivityScore>
+    func histories(generation: Generation) -> Observable<[ClubActivityHistory]>
 }
 
 protocol ClubActivityService {
-    func totalClubActivityScore(ofUser user: UserSession) -> Observable<ClubActivityScore>
-    func historys(generation: Generation, ofUser user: UserSession) -> Observable<[ClubActivityHistory]>
+    func totalClubActivityScore() -> Observable<ClubActivityScore>
+    func histories(generation: Generation) -> Observable<[ClubActivityHistory]>
 }
 
 final class ClubActivityServiceImp: ClubActivityService {
@@ -26,12 +26,12 @@ final class ClubActivityServiceImp: ClubActivityService {
         self.clubActivityRepository = clubActivityRepository
     }
     
-    func totalClubActivityScore(ofUser user: UserSession) -> Observable<ClubActivityScore> {
-        return self.clubActivityRepository.totalClubActivityScore(ofUser: user)
+    func totalClubActivityScore() -> Observable<ClubActivityScore> {
+        return self.clubActivityRepository.totalClubActivityScore()
     }
     
-    func historys(generation: Generation, ofUser user: UserSession) -> Observable<[ClubActivityHistory]> {
-        return self.clubActivityRepository.historys(generation: generation, ofUser: user)
+    func histories(generation: Generation) -> Observable<[ClubActivityHistory]> {
+        return self.clubActivityRepository.histories(generation: generation)
     }
     
     private let clubActivityRepository: any ClubActivityRepository

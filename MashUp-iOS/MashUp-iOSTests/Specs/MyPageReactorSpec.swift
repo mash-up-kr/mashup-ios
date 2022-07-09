@@ -7,6 +7,7 @@
 //
 
 import Foundation
+@testable import MashUp_User
 @testable import MashUp_iOS
 import Mockingbird
 import Nimble
@@ -16,15 +17,18 @@ class MyPageReactorSpec: QuickSpec {
   
   override func spec() {
     var sut: MyPageReactor!
+    var userSession: UserSession!
     var clubActivityService: ClubActivityServiceMock!
     var debugSystem: DebugSystemMock!
     beforeEach {
+      userSession = UserSession.stub()
       clubActivityService = mock(ClubActivityService.self)
       debugSystem = mock(DebugSystem.self)
     }
     describe("마이페이지에서") {
       beforeEach {
         sut = MyPageReactor(
+          userSession: userSession,
           clubActivityService: clubActivityService,
           debugSystem: debugSystem
         )

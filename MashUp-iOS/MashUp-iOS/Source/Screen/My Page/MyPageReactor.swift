@@ -8,6 +8,8 @@
 
 import Foundation
 import ReactorKit
+import MashUp_PlatformTeam
+import MashUp_User
 
 enum MyPageStep: Equatable {
     case setting
@@ -33,17 +35,25 @@ class MyPageReactor: Reactor {
     
     struct State {
         var summaryBarHasVisable: Bool = false
+        var summaryBarModel: MyPageSummaryBarModel?
+        var headerModel: MyPageHeaderViewModel?
         var sections: [MyPageSection] = []
         
         @Pulse var step: MyPageStep?
+        
+        fileprivate var totalClubActivityScore: String = .empty
+        fileprivate let userName: String
+        fileprivate let userPlatform: PlatformTeam
     }
     
-    let initialState: State = State()
+    let initialState: State
     
     init(
+        userSession: UserSession,
         clubActivityService: any ClubActivityService,
         debugSystem: any DebugSystem
     ) {
+        self.initialState = State(userName: userSession.name, userPlatform: userSession.platformTeam)
         self.clubActivityService = clubActivityService
         self.debugSystem = debugSystem
     }
@@ -76,6 +86,7 @@ class MyPageReactor: Reactor {
     func mutate(action: Action) -> Observable<Mutation> {
         switch action {
         case .didSetup:
+            self.clubActivityService.histories(generation: 12)
             let sections = self.sections()
             return .just(.updateSections(sections))
             

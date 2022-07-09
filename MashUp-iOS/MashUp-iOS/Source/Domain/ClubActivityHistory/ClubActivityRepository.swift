@@ -17,12 +17,12 @@ class ClubActivityRepositoryImp: ClubActivityRepository {
         self.network = network
     }
     
-    func totalClubActivityScore(ofUser user: UserSession) -> Observable<ClubActivityScore> {
+    func totalClubActivityScore() -> Observable<ClubActivityScore> {
         #warning("API 연동 - booung")
         return .empty()
     }
     
-    func historys(generation: Generation, ofUser user: UserSession) -> Observable<[ClubActivityHistory]> {
+    func histories(generation: Generation) -> Observable<[ClubActivityHistory]> {
         #warning("API 연동 - booung")
         return .empty()
     }

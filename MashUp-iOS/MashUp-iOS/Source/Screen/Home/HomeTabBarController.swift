@@ -13,6 +13,7 @@ import SnapKit
 import UIKit
 import MashUp_Core
 import FLEX
+import MashUp_User
 
 final class HomeTabBarController: BaseTabBarController, ReactorKit.View {
     typealias Reactor = HomeReactor
@@ -135,7 +136,10 @@ extension HomeTabBarController {
         let myPageViewController = MyPageViewController()
         let clubActivityRepository = FakeClubActivityRepository()
         let clubActivityService = ClubActivityServiceImp(clubActivityRepository: clubActivityRepository)
+        #warning("user session injection - booung")
+        let userSession = UserSession(id: .empty, accessToken: .empty, name: "김매시업", platformTeam: .iOS)
         myPageViewController.reactor = MyPageReactor(
+            userSession: userSession,
             clubActivityService: clubActivityService,
             debugSystem: FLEXManager.shared
         )

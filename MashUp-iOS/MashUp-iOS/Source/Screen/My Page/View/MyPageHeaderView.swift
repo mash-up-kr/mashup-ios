@@ -19,7 +19,7 @@ import UIKit
     @objc optional func myPageHeaderViewDidTap5TimesMascotImage(_ view: MyPageHeaderView)
 }
 
-struct MyPageHeaderViewModel {
+struct MyPageHeaderViewModel: Equatable {
     let userName: String
     let platformTeamText: String
     let totalScoreText: String

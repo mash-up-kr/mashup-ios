@@ -105,6 +105,22 @@ final class MyPageViewController: BaseViewController, View {
             })
             .disposed(by: self.disposeBag)
         
+        reactor.state.compactMap { $0.summaryBarModel }
+            .distinctUntilChanged()
+            .onMain()
+            .subscribe(onNext: { [weak self] viewModel in
+                self?.summaryBar.configure(with: viewModel)
+            })
+            .disposed(by: self.disposeBag)
+        
+        reactor.state.compactMap { $0.headerModel }
+            .distinctUntilChanged()
+            .onMain()
+            .subscribe(onNext: { [weak self] viewModel in
+                self?.headerView.configure(with: viewModel)
+            })
+            .disposed(by: self.disposeBag)
+        
         reactor.state.map { $0.sections }
             .distinctUntilChanged()
             .onMain()

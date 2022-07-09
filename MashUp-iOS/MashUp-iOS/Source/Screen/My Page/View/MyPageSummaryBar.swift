@@ -17,7 +17,7 @@ import Then
     @objc optional func myPageHeaderViewDidTapQuestionMarkButton(_ view: MyPageSummaryBar)
 }
 
-struct MyPageSummaryBarModel {
+struct MyPageSummaryBarModel: Equatable {
     let userName: String
     let totalScoreText: String
 }
