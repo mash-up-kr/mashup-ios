@@ -63,7 +63,7 @@
 		CE396080278B3CB40073AEF4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE39607F278B3CB40073AEF4 /* AppDelegate.swift */; };
 		CE396089278B3CB60073AEF4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE396088278B3CB60073AEF4 /* Assets.xcassets */; };
 		CE39608C278B3CB60073AEF4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE39608A278B3CB60073AEF4 /* LaunchScreen.storyboard */; };
-		CE4730532879B0EB0050B897 /* EmptyAttendanceHistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4730522879B0EB0050B897 /* EmptyAttendanceHistoryView.swift */; };
+		CE4730532879B0EB0050B897 /* EmptyClubActivityHistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4730522879B0EB0050B897 /* EmptyClubActivityHistoryView.swift */; };
 		CE4730572879CBAA0050B897 /* ClubActivityService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4730562879CBAA0050B897 /* ClubActivityService.swift */; };
 		CE4730592879CBE00050B897 /* ClubActivityHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4730582879CBE00050B897 /* ClubActivityHistory.swift */; };
 		CE47305B2879CC5E0050B897 /* ClubActivityScore.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE47305A2879CC5E0050B897 /* ClubActivityScore.swift */; };
@@ -662,7 +662,7 @@
 		CE39608B278B3CB60073AEF4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CE39608D278B3CB60073AEF4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CE396092278B3CB60073AEF4 /* MashUp-iOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "MashUp-iOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		CE4730522879B0EB0050B897 /* EmptyAttendanceHistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyAttendanceHistoryView.swift; sourceTree = "<group>"; };
+		CE4730522879B0EB0050B897 /* EmptyClubActivityHistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyClubActivityHistoryView.swift; sourceTree = "<group>"; };
 		CE4730562879CBAA0050B897 /* ClubActivityService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClubActivityService.swift; sourceTree = "<group>"; };
 		CE4730582879CBE00050B897 /* ClubActivityHistory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClubActivityHistory.swift; sourceTree = "<group>"; };
 		CE47305A2879CC5E0050B897 /* ClubActivityScore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClubActivityScore.swift; sourceTree = "<group>"; };
@@ -1428,7 +1428,7 @@
 				CEDC9F8528784BE900221683 /* ClubActivityHistorySectionHeaderView.swift */,
 				CEDC9F8728786A8000221683 /* ClubActivityHistoryTitleHeaderView.swift */,
 				CE307A08285DE74D0092C09A /* ClubActivityHistoryCell.swift */,
-				CE4730522879B0EB0050B897 /* EmptyAttendanceHistoryView.swift */,
+				CE4730522879B0EB0050B897 /* EmptyClubActivityHistoryView.swift */,
 				CE7C9E81285DC39000B71C0E /* MyPageHeaderView.swift */,
 				CE7C9E83285DC4C600B71C0E /* MyPageHeaderView+Rx.swift */,
 				CE307A04285DE1B50092C09A /* MyPageSummaryBar.swift */,
@@ -2425,7 +2425,7 @@
 				CE6EE85D27CA4136005BF412 /* Seminar.swift in Sources */,
 				CE12DA5827E629FE00F08629 /* QRSeminarCardViewModel.swift in Sources */,
 				CE0F283E2843B81300C206EA /* SignUpStep1ViewController.swift in Sources */,
-				CE4730532879B0EB0050B897 /* EmptyAttendanceHistoryView.swift in Sources */,
+				CE4730532879B0EB0050B897 /* EmptyClubActivityHistoryView.swift in Sources */,
 				06531C2B2840BFAA00E225EB /* AttendanceStatusRectangleViewModel.swift in Sources */,
 				CE0F283E2843B81300C206EA /* SignUpStep1ViewController.swift in Sources */,
 				CE7C9E82285DC39000B71C0E /* MyPageHeaderView.swift in Sources */,

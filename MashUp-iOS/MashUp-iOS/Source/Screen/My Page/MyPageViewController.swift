@@ -26,13 +26,6 @@ final class MyPageViewController: BaseViewController, View {
         
         self.setupAttribute()
         self.setupLayout()
-        
-        #warning("제거해야합니다. - booung")
-        self.headerView.configure(with: .init(userName: "김매시업",
-                                              platformTeamText: "iOS",
-                                              totalScoreText: "3.5점"))
-        self.summaryBar.configure(with: .init(userName: "김매시업",
-                                              totalScoreText: "3.5점"))
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -179,7 +172,7 @@ extension MyPageViewController {
             $0.backgroundColor = .gray900
             $0.registerHeaderFooter(ClubActivityHistoryTitleHeaderView.self)
             $0.registerHeaderFooter(ClubActivityHistorySectionHeaderView.self)
-            $0.registerHeaderFooter(EmptyAttendanceHistoryView.self)
+            $0.registerHeaderFooter(EmptyClubActivityHistoryView.self)
             $0.registerCell(ClubActivityHistoryCell.self)
         }
     }
@@ -265,7 +258,7 @@ extension MyPageViewController: UITableViewDelegate {
             return header
             
         case .empty:
-            let header = tableView.dequeueHeaderFooter(EmptyAttendanceHistoryView.self)
+            let header = tableView.dequeueHeaderFooter(EmptyClubActivityHistoryView.self)
             return header
         }
     }

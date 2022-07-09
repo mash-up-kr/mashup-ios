@@ -12,7 +12,7 @@ import UIKit
 import MashUp_Core
 import MashUp_UIKit
 
-final class EmptyAttendanceHistoryView: UITableViewHeaderFooterView, Reusable {
+final class EmptyClubActivityHistoryView: UITableViewHeaderFooterView, Reusable {
     
     override init(reuseIdentifier: String?) {
         super.init(reuseIdentifier: reuseIdentifier)
@@ -29,7 +29,7 @@ final class EmptyAttendanceHistoryView: UITableViewHeaderFooterView, Reusable {
     
 }
 
-extension EmptyAttendanceHistoryView {
+extension EmptyClubActivityHistoryView {
     
     private func setupAttribute() {
         self.contentView.backgroundColor = .gray50
