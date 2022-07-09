@@ -1,17 +1,15 @@
 //
-//  ImageSourcve.swift
-//  MashUp-iOS
+//  ImageSource.swift
+//  MashUp-UIKit
 //
-//  Created by Booung on 2022/05/29.
+//  Created by 남수김 on 2022/07/04.
 //  Copyright © 2022 Mash Up Corp. All rights reserved.
 //
 
 import UIKit
 
 public enum ImageSource {
-    case urlPath(String)
-    case url(URL)
-    case data(Data)
-    case asset(String)
-    case image(UIImage)
+  case urlString(String)
+  case data(Data)
+  case asset(UIImage)
 }
