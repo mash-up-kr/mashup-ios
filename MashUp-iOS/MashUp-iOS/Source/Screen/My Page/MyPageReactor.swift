@@ -28,12 +28,16 @@ class MyPageReactor: Reactor {
     }
     
     enum Mutation {
+        case updateLoading(Bool)
         case updateSummaryBarVisablity(Bool)
+        case updateSummaryBar(MyPageSummaryBarModel)
+        case updateHeader(MyPageHeaderViewModel)
         case updateSections([MyPageSection])
-        case moveTo(step: MyPageStep)
+        case moveTo(MyPageStep)
     }
     
     struct State {
+        var isLoading: Bool = false
         var summaryBarHasVisable: Bool = false
         var summaryBarModel: MyPageSummaryBarModel?
         var headerModel: MyPageHeaderViewModel?
@@ -41,9 +45,10 @@ class MyPageReactor: Reactor {
         
         @Pulse var step: MyPageStep?
         
-        fileprivate var totalClubActivityScore: String = .empty
         fileprivate let userName: String
         fileprivate let userPlatform: PlatformTeam
+        fileprivate var totalClubActivityScore: String = .empty
+        fileprivate var generation: Generation?
     }
     
     let initialState: State
@@ -58,43 +63,52 @@ class MyPageReactor: Reactor {
         self.debugSystem = debugSystem
     }
     
-    private func randomItem() -> ClubActivityHistoryCellModel {
+    private func formatCell(history: ClubActivityHistory) -> ClubActivityHistoryCellModel {
+        let scoreStyle: ScoreChangeStyle = history.changedScore > 0
+        ? .addition("+\(history.changedScore)점")
+        : .deduction("\(history.changedScore)점")
+        
         return ClubActivityHistoryCellModel(
-            historyTitle: "전체 세미나 지각",
-            description: "2022.03.05 | 2차 전체 세미나",
-            scoreChangeStyle: [.addition("+1점"), .deduction("-1점"), .custom("💖 🔫")].randomElement()!,
-            appliedTotalScoreText: "4점"
+            historyTitle: history.activityTitle,
+            description: "\(history.date.description) | \(history.eventTitle)",
+            scoreChangeStyle: scoreStyle,
+            appliedTotalScoreText: "\(history.appliedTotalScore)점"
         )
     }
     
-    private func sections() -> [MyPageSection] {
-        let titleHeader = MyPageSection.TitleHeader(title: "출석 히스토리")
-        let generationHeader1 = MyPageSection.HistoryHeader(generationText: "12기")
-        let historyItems1: [MyPageSection.Item] = (0..<10).map { _ in .history(randomItem()) }
-        let generationHeader2 = MyPageSection.HistoryHeader(generationText: "11기")
-        let historyItems2: [MyPageSection.Item] = (0..<10).map { _ in .history(randomItem()) }
+    private func formatSections(with histories: [Generation: [ClubActivityHistory]]) -> [MyPageSection] {
+        let titleHeader = MyPageSection.TitleHeader(title: "활동 히스토리")
+        let historySections: [MyPageSection] = histories.map { generation, histories in
+            let header = MyPageSection.HistoryHeader(generationText: generation.description)
+            let items: [MyPageSection.Item] = histories
+                .map { self.formatCell(history: $0) }
+                .map { .history($0) }
+            return MyPageSection.histories(header, items: items)
+        }
         
-        let sections: [MyPageSection] = [
-            .title(titleHeader),
-            .histories(generationHeader1, items: historyItems1),
-            .histories(generationHeader2, items: historyItems2),
-        ]
-        //        let sections: [MyPageSection] = [.title(titleHeader), .empty]
+        let sections: [MyPageSection] = historySections.isNotEmpty
+        ? [.title(titleHeader)] + historySections
+        : [.empty]
+        
         return sections
     }
     
     func mutate(action: Action) -> Observable<Mutation> {
         switch action {
         case .didSetup:
-            self.clubActivityService.histories(generation: 12)
-            let sections = self.sections()
-            return .just(.updateSections(sections))
+            let startLoading: Observable<Mutation> = .just(.updateLoading(true))
+            let loadHistories: Observable<Mutation> = self.clubActivityService.histories(generation: 12)
+                .map { histories in self.formatSections(with: [12: histories]) }
+                .map { .updateSections($0) }
+            let endLoading: Observable<Mutation> = .just(.updateLoading(false))
+            
+            return .concat(startLoading, loadHistories, endLoading)
             
         case .didTapSettingButton:
-            return .just(.moveTo(step: .setting))
+            return .just(.moveTo(.setting))
             
         case .didTapQuestMarkButton:
-            return .just(.moveTo(step: .clubActivityScoreRule))
+            return .just(.moveTo(.clubActivityScoreRule))
             
         case .didAppearHeaderView:
             return .just(.updateSummaryBarVisablity(false))
@@ -111,11 +125,20 @@ class MyPageReactor: Reactor {
     func reduce(state: State, mutation: Mutation) -> State {
         var newState = state
         switch mutation {
-        case .updateSections(let sections):
-            newState.sections = sections
+        case .updateLoading(let isLoading):
+            newState.isLoading = isLoading
             
         case .updateSummaryBarVisablity(let isVisable):
             newState.summaryBarHasVisable = isVisable
+            
+        case .updateSummaryBar(let summaryBarModel):
+            newState.summaryBarModel = summaryBarModel
+            
+        case .updateHeader(let headerModel):
+            newState.headerModel = headerModel
+            
+        case .updateSections(let sections):
+            newState.sections = sections
             
         case .moveTo(let step):
             newState.step = step
