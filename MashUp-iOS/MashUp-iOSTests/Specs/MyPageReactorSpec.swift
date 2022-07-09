@@ -19,10 +19,13 @@ class MyPageReactorSpec: QuickSpec {
     var sut: MyPageReactor!
     var userSession: UserSession!
     var clubActivityService: ClubActivityServiceMock!
+    var formatter: MyPageFormatterMock!
     var debugSystem: DebugSystemMock!
+    
     beforeEach {
       userSession = UserSession.stub()
       clubActivityService = mock(ClubActivityService.self)
+      formatter = mock(MyPageFormatter.self)
       debugSystem = mock(DebugSystem.self)
     }
     describe("마이페이지에서") {
@@ -30,6 +33,7 @@ class MyPageReactorSpec: QuickSpec {
         sut = MyPageReactor(
           userSession: userSession,
           clubActivityService: clubActivityService,
+          formatter: formatter,
           debugSystem: debugSystem
         )
       }

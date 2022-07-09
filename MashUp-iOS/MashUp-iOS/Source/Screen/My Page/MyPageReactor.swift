@@ -33,6 +33,7 @@ class MyPageReactor: Reactor {
         case updateSummaryBar(MyPageSummaryBarModel)
         case updateHeader(MyPageHeaderViewModel)
         case updateSections([MyPageSection])
+        case updateTotalClubActivityScore(ClubActivityScore)
         case moveTo(MyPageStep)
     }
     
@@ -45,9 +46,8 @@ class MyPageReactor: Reactor {
         
         @Pulse var step: MyPageStep?
         
-        fileprivate let userName: String
-        fileprivate let userPlatform: PlatformTeam
-        fileprivate var totalClubActivityScore: String = .empty
+        fileprivate let user: UserSession
+        fileprivate var totalClubActivityScore: ClubActivityScore?
         fileprivate var generation: Generation?
     }
     
@@ -56,53 +56,39 @@ class MyPageReactor: Reactor {
     init(
         userSession: UserSession,
         clubActivityService: any ClubActivityService,
+        formatter: any MyPageFormatter,
         debugSystem: any DebugSystem
     ) {
-        self.initialState = State(userName: userSession.name, userPlatform: userSession.platformTeam)
+        self.initialState = State(user: userSession)
         self.clubActivityService = clubActivityService
+        self.formatter = formatter
         self.debugSystem = debugSystem
-    }
-    
-    private func formatCell(history: ClubActivityHistory) -> ClubActivityHistoryCellModel {
-        let scoreStyle: ScoreChangeStyle = history.changedScore > 0
-        ? .addition("+\(history.changedScore)점")
-        : .deduction("\(history.changedScore)점")
-        
-        return ClubActivityHistoryCellModel(
-            historyTitle: history.activityTitle,
-            description: "\(history.date.description) | \(history.eventTitle)",
-            scoreChangeStyle: scoreStyle,
-            appliedTotalScoreText: "\(history.appliedTotalScore)점"
-        )
-    }
-    
-    private func formatSections(with histories: [Generation: [ClubActivityHistory]]) -> [MyPageSection] {
-        let titleHeader = MyPageSection.TitleHeader(title: "활동 히스토리")
-        let historySections: [MyPageSection] = histories.map { generation, histories in
-            let header = MyPageSection.HistoryHeader(generationText: generation.description)
-            let items: [MyPageSection.Item] = histories
-                .map { self.formatCell(history: $0) }
-                .map { .history($0) }
-            return MyPageSection.histories(header, items: items)
-        }
-        
-        let sections: [MyPageSection] = historySections.isNotEmpty
-        ? [.title(titleHeader)] + historySections
-        : [.empty]
-        
-        return sections
     }
     
     func mutate(action: Action) -> Observable<Mutation> {
         switch action {
         case .didSetup:
             let startLoading: Observable<Mutation> = .just(.updateLoading(true))
-            let loadHistories: Observable<Mutation> = self.clubActivityService.histories(generation: 12)
-                .map { histories in self.formatSections(with: [12: histories]) }
-                .map { .updateSections($0) }
             let endLoading: Observable<Mutation> = .just(.updateLoading(false))
+            let loadTotalScore = self.clubActivityService.totalClubActivityScore().share()
             
-            return .concat(startLoading, loadHistories, endLoading)
+            let updateTotalScore: Observable<Mutation> = loadTotalScore
+                .map { .updateTotalClubActivityScore($0)}
+            let updateSummaryBar: Observable<Mutation> = loadTotalScore
+                .map { self.formatter.formatSummaryBar(user: self.currentState.user, totalScore: $0) }
+                .map { .updateSummaryBar($0) }
+            let updateHeader: Observable<Mutation> = loadTotalScore
+                .map { self.formatter.formatHeader(user: self.currentState.user, totalScore: $0) }
+                .map { .updateHeader($0) }
+            let updateHistorySections: Observable<Mutation> = self.clubActivityService.histories(generation: 12)
+                .map { histories in self.formatter.formatSections(with: [12: histories]) }
+                .map { .updateSections($0) }
+            
+            return .concat(
+                startLoading,
+                updateTotalScore, updateSummaryBar, updateHeader, updateHistorySections,
+                endLoading
+            )
             
         case .didTapSettingButton:
             return .just(.moveTo(.setting))
@@ -131,6 +117,9 @@ class MyPageReactor: Reactor {
         case .updateSummaryBarVisablity(let isVisable):
             newState.summaryBarHasVisable = isVisable
             
+        case .updateTotalClubActivityScore(let totalClubActivityScore):
+            newState.totalClubActivityScore = totalClubActivityScore
+            
         case .updateSummaryBar(let summaryBarModel):
             newState.summaryBarModel = summaryBarModel
             
@@ -147,6 +136,7 @@ class MyPageReactor: Reactor {
     }
     
     private let clubActivityService: any ClubActivityService
+    private let formatter: any MyPageFormatter
     private let debugSystem: any DebugSystem
     
 }

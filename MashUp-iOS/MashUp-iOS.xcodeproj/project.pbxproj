@@ -68,6 +68,7 @@
 		CE47305B2879CC5E0050B897 /* ClubActivityScore.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE47305A2879CC5E0050B897 /* ClubActivityScore.swift */; };
 		CE47305D2879CEC90050B897 /* ClubActivityRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE47305C2879CEC90050B897 /* ClubActivityRepository.swift */; };
 		CE47305F2879D1DB0050B897 /* FakeClubActivityRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE47305E2879D1DB0050B897 /* FakeClubActivityRepository.swift */; };
+		CE4730612879F6510050B897 /* MyPageFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4730602879F6510050B897 /* MyPageFormatter.swift */; };
 		CE58817D27EC856D0068D4E0 /* AttendanceTimeline+Stub.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE58817C27EC856D0068D4E0 /* AttendanceTimeline+Stub.swift */; };
 		CE58817F27EC85A00068D4E0 /* PartialAttendance+Stub.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE58817E27EC85A00068D4E0 /* PartialAttendance+Stub.swift */; };
 		CE58818127EC94120068D4E0 /* Seminar+Stub.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE58818027EC94120068D4E0 /* Seminar+Stub.swift */; };
@@ -663,6 +664,7 @@
 		CE47305A2879CC5E0050B897 /* ClubActivityScore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClubActivityScore.swift; sourceTree = "<group>"; };
 		CE47305C2879CEC90050B897 /* ClubActivityRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClubActivityRepository.swift; sourceTree = "<group>"; };
 		CE47305E2879D1DB0050B897 /* FakeClubActivityRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeClubActivityRepository.swift; sourceTree = "<group>"; };
+		CE4730602879F6510050B897 /* MyPageFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageFormatter.swift; sourceTree = "<group>"; };
 		CE4A6C04278B47040052F7E7 /* HTTPClient.swift */ = {isa = PBXFileReference; indentWidth = 4; lastKnownFileType = sourcecode.swift; path = HTTPClient.swift; sourceTree = "<group>"; };
 		CE4A6C08278B4A3C0052F7E7 /* NetworkConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkConfig.swift; sourceTree = "<group>"; };
 		CE58817C27EC856D0068D4E0 /* AttendanceTimeline+Stub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AttendanceTimeline+Stub.swift"; sourceTree = "<group>"; };
@@ -1329,6 +1331,7 @@
 			isa = PBXGroup;
 			children = (
 				CEDC9F82287846C600221683 /* Generation.swift */,
+				CE4730602879F6510050B897 /* MyPageFormatter.swift */,
 				CE7C9E86285DDD0C00B71C0E /* MyPageReactor.swift */,
 				CEDC9F802878182500221683 /* MyPageSection.swift */,
 				CE6EE84D27C80C9B005BF412 /* MyPageViewController.swift */,
@@ -2375,6 +2378,7 @@
 				CEB60F4B27A975AD001260DB /* QRScanViewController.swift in Sources */,
 				0688CB42284B223B00338A5C /* PlatformTeam+Presentation.swift in Sources */,
 				CE7C9E84285DC4C600B71C0E /* MyPageHeaderView+Rx.swift in Sources */,
+				CE4730612879F6510050B897 /* MyPageFormatter.swift in Sources */,
 				06531C272840B4CF00E225EB /* PlatformStatusViewController.swift in Sources */,
 				CE6EE88627CA91ED005BF412 /* SeminarHeaderView.swift in Sources */,
 				CE6EE83227C7D948005BF412 /* RootStep.swift in Sources */,
