@@ -12,13 +12,14 @@ import MashUp_UIKit
 import UIKit
 
 
-enum ScoreChangeStyle {
+enum ScoreChangeStyle: Hashable {
     case addition(String)
     case deduction(String)
     case custom(String)
 }
 
-struct AttendanceScoreHistoryCellModel {
+struct AttendanceScoreHistoryCellModel: Hashable {
+    let id: String = UUID().uuidString
     let historyTitle: String
     let description: String
     let scoreChangeStyle: ScoreChangeStyle

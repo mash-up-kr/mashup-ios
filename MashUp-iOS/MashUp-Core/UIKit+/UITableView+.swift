@@ -10,10 +10,19 @@ import UIKit
 
 extension UITableView {
     
+    public typealias ReusableHeaderFooter = UITableViewHeaderFooterView & Reusable
     public typealias ReusableCell = UITableViewCell & Reusable
+    
+    public func registerHeaderFooter<HeaderFooter: ReusableHeaderFooter>(_ headerFooterType: HeaderFooter.Type) {
+        self.register(headerFooterType, forHeaderFooterViewReuseIdentifier: headerFooterType.reuseIdentifier)
+    }
     
     public func registerCell<Cell: ReusableCell>(_ cellType: Cell.Type) {
         self.register(cellType, forCellReuseIdentifier: cellType.reuseIdentifier)
+    }
+    
+    public func dequeueHeaderFooter<HeaderFooter: ReusableHeaderFooter>(_ headerFooterType: HeaderFooter.Type) -> HeaderFooter? {
+        self.dequeueReusableHeaderFooterView(withIdentifier: headerFooterType.reuseIdentifier) as? HeaderFooter
     }
     
     public func dequeueCell<Cell: ReusableCell>(_ cellType: Cell.Type, for indexPath: IndexPath) -> Cell? {

@@ -17,6 +17,7 @@ enum MyPageStep: Equatable {
 class MyPageReactor: Reactor {
     
     enum Action {
+        case didSetup
         case didTapSettingButton
         case didTapQuestMarkButton
         case didAppearHeaderView
@@ -26,11 +27,13 @@ class MyPageReactor: Reactor {
     
     enum Mutation {
         case updateSummaryBarVisablity(Bool)
+        case updateSections([MyPageSection])
         case moveTo(step: MyPageStep)
     }
     
     struct State {
         var summaryBarHasVisable: Bool = false
+        var sections: [MyPageSection] = []
         
         @Pulse var step: MyPageStep?
     }
@@ -41,8 +44,31 @@ class MyPageReactor: Reactor {
         self.debugSystem = debugSystem
     }
     
+    fileprivate func randomItem() -> AttendanceScoreHistoryCellModel {
+        return AttendanceScoreHistoryCellModel(
+            historyTitle: "전체 세미나 지각",
+            description: "2022.03.05 | 2차 전체 세미나",
+            scoreChangeStyle: [.addition("+1점"), .deduction("-1점"), .custom("💖 🔫")].randomElement()!,
+            appliedTotalScoreText: "4점"
+        )
+    }
+    
     func mutate(action: Action) -> Observable<Mutation> {
         switch action {
+        case .didSetup:
+            let titleHeader = MyPageSection.TitleHeader(title: "출석 히스토리")
+            let generationHeader1 = MyPageSection.SectionHeader(generationText: "12기")
+            let historyItems1: [MyPageSection.Item] = (0..<10).map { _ in .history(randomItem()) }
+            let generationHeader2 = MyPageSection.SectionHeader(generationText: "11기")
+            let historyItems2: [MyPageSection.Item] = (0..<10).map { _ in .history(randomItem()) }
+            
+            let sections: [MyPageSection] = [
+                .title(titleHeader),
+                .historys(generationHeader1, items: historyItems1),
+                .historys(generationHeader2, items: historyItems2),
+            ]
+            return .just(.updateSections(sections))
+            
         case .didTapSettingButton:
             return .just(.moveTo(step: .setting))
             
@@ -64,6 +90,9 @@ class MyPageReactor: Reactor {
     func reduce(state: State, mutation: Mutation) -> State {
         var newState = state
         switch mutation {
+        case .updateSections(let sections):
+            newState.sections = sections
+            
         case .updateSummaryBarVisablity(let isVisable):
             newState.summaryBarHasVisable = isVisable
             

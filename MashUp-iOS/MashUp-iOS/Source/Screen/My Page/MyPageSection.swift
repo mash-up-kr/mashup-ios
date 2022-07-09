@@ -8,7 +8,15 @@
 
 import Foundation
 
-enum MyPageSection {
-    case title
-    case historys(header: AttendanceHistorySectionHeaderModel, items: [AttendanceScoreHistoryCellModel])
+enum MyPageSection: Hashable {
+    typealias TitleHeader = AttendanceHistoryTitleHeaderModel
+    typealias SectionHeader = AttendanceHistorySectionHeaderModel
+    typealias Item = MyPageSectionItem
+    
+    case title(TitleHeader)
+    case historys(SectionHeader, items: [Item])
+}
+
+enum MyPageSectionItem: Hashable {
+    case history(AttendanceScoreHistoryCellModel)
 }

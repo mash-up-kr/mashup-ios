@@ -14,6 +14,9 @@ import ReactorKit
 final class MyPageViewController: BaseViewController, View {
     
     typealias Reactor = MyPageReactor
+    typealias Section = MyPageSection
+    typealias DataSource = UITableViewDiffableDataSource<Section, Section.Item>
+    typealias Snapshot = NSDiffableDataSourceSnapshot<Section, Section.Item>
     
     var disposeBag: DisposeBag = DisposeBag()
     
@@ -47,21 +50,21 @@ final class MyPageViewController: BaseViewController, View {
         let yOffset =  self.historyTableView.rx.didScroll
             .withUnretained(self.historyTableView)
             .compactMap { [weak self] _ in self?.historyTableView.contentOffset.y }
+            .debug("HeaderView yOffset")
         
         yOffset.map { $0 > 390 }
             .distinctUntilChanged()
             .filter { $0 }
-            .map { _ in .didDisappearHeaderView }
+            .map { _ in .didDisappearHeaderView }.debug("didDisappearHeaderView")
             .bind(to: reactor.action)
             .disposed(by: self.disposeBag)
         
         yOffset.map { $0 < 380 }
             .distinctUntilChanged()
             .filter { $0 }
-            .map { _ in .didAppearHeaderView }
+            .map { _ in .didAppearHeaderView }.debug("didAppearHeaderView")
             .bind(to: reactor.action)
             .disposed(by: self.disposeBag)
-        
         
         self.headerView.rx.didTapSettingButton
             .map { .didTapSettingButton }
@@ -82,13 +85,34 @@ final class MyPageViewController: BaseViewController, View {
             .map { _ in .didTap5TimesMascot }
             .bind(to: reactor.action)
             .disposed(by: self.disposeBag)
+        
+        self.rx.viewDidLoad
+            .take(1)
+            .map { .didSetup }
+            .bind(to: reactor.action)
+            .disposed(by: self.disposeBag)
+        
+        self.historyTableView.rx
+            .setDelegate(self)
+            .disposed(by: self.disposeBag)
     }
     
     private func render(_ reactor: Reactor) {
         reactor.state.map { !$0.summaryBarHasVisable }
             .distinctUntilChanged()
             .onMain()
-            .subscribe(onNext: { [weak self] in self?.updateSummaryBarWithAnimation(isHidden: $0) })
+            .subscribe(onNext: { [weak self] in
+                self?.updateSummaryBarWithAnimation(isHidden: $0)
+            })
+            .disposed(by: self.disposeBag)
+        
+        reactor.state.map { $0.sections }
+            .distinctUntilChanged()
+            .onMain()
+            .subscribe(onNext: { [weak self] sections in
+                self?.sections = sections
+                self?.apply(sections: sections)
+            })
             .disposed(by: self.disposeBag)
     }
     
@@ -104,7 +128,26 @@ final class MyPageViewController: BaseViewController, View {
     private let summaryBar = MyPageSummaryBar()
     private let historyTableView = UITableView()
     
-    private lazy var animator = UIViewPropertyAnimator(duration: 0.3, curve: .linear)
+    private lazy var dataSource = self.makeDataSource()
+    private let animator = UIViewPropertyAnimator(duration: 0.3, curve: .linear)
+    private var sections: [Section] = []
+    
+}
+extension MyPageViewController {
+    
+    private func makeDataSource() -> DataSource {
+        let dataSource = DataSource(
+            tableView: self.historyTableView,
+            cellProvider: { (tableView, indexPath, item) in
+                switch item {
+                case .history(let cellModel):
+                    let cell = tableView.dequeueCell(AttendanceScoreHistoryCell.self, for: indexPath)
+                    cell?.configure(with: cellModel)
+                    return cell
+                }
+            })
+        return dataSource
+    }
     
 }
 extension MyPageViewController {
@@ -119,12 +162,13 @@ extension MyPageViewController {
             $0.rowHeight = UITableView.automaticDimension
             $0.separatorStyle = .none
             $0.backgroundColor = .gray900
-            $0.dataSource = self
+            $0.registerHeaderFooter(AttendanceHistoryTitleHeaderView.self)
+            $0.registerHeaderFooter(AttendanceHistorySectionHeaderView.self)
+            $0.registerCell(AttendanceScoreHistoryCell.self)
         }
     }
     
     private func setupLayout() {
-        
         self.view.addSubview(self.historyTableView)
         self.historyTableView.snp.makeConstraints {
             $0.edges.equalTo(self.view.safeAreaLayoutGuide)
@@ -143,7 +187,6 @@ extension MyPageViewController {
         }
         self.animator.startAnimation()
     }
-    
     
 }
 
@@ -170,24 +213,57 @@ extension MyPageViewController {
     }
     
 }
-
-extension MyPageViewController: UITableViewDataSource {
+extension MyPageViewController {
     
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 100
+    private func apply(sections: [Section]) {
+        var snapshot = Snapshot()
+        
+        snapshot.appendSections(sections)
+        sections.forEach { section in
+            guard case .historys(_, let items) = section else { return }
+            snapshot.appendItems(items, toSection: section)
+        }
+        self.dataSource.apply(snapshot)
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let model = AttendanceScoreHistoryCellModel(
-            historyTitle: "전체 세미나 지각",
-            description: "2022.03.05 | 2차 전체 세미나",
-            scoreChangeStyle: [.addition("+1점"), .deduction("-1점"), .custom("💖 🔫")].randomElement()!,
-            appliedTotalScoreText: "4점"
-        )
-        return AttendanceScoreHistoryCell().then {
-            $0.configure(with: model)
+}
+extension MyPageViewController: UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        guard let section = self.sections[safe: section] else { return nil }
+        
+        switch section {
+        case .title(let viewModel):
+            let header = tableView.dequeueHeaderFooter(AttendanceHistoryTitleHeaderView.self)
+            header?.configure(with: viewModel)
+            return header
+            
+        case .historys(let viewModel, _):
+            let header = tableView.dequeueHeaderFooter(AttendanceHistorySectionHeaderView.self)
+            header?.configure(with: viewModel)
+            return header
         }
     }
     
-    
 }
+
+//extension MyPageViewController: UITableViewDataSource {
+//
+//    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+//        return 100
+//    }
+//
+//    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+//        let model = AttendanceScoreHistoryCellModel(
+//            historyTitle: "전체 세미나 지각",
+//            description: "2022.03.05 | 2차 전체 세미나",
+//            scoreChangeStyle: [.addition("+1점"), .deduction("-1점"), .custom("💖 🔫")].randomElement()!,
+//            appliedTotalScoreText: "4점"
+//        )
+//        return AttendanceScoreHistoryCell().then {
+//            $0.configure(with: model)
+//        }
+//    }
+//
+//
+//}
