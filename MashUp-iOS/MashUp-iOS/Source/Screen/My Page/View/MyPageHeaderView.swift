@@ -43,7 +43,7 @@ final class MyPageHeaderView: BaseView {
     func configure(with viewModel: MyPageHeaderViewModel) {
         self.userNameLabel.text = viewModel.userName
         self.platformTeamLabel.text = viewModel.platformTeamText
-        self.totalAttendanceScoreLabel.text = viewModel.totalScoreText
+        self.totalClubActivityScoreLabel.text = viewModel.totalScoreText
     }
     
     @objc private func didTapSettingButton(_ sender: Any) {
@@ -63,7 +63,7 @@ final class MyPageHeaderView: BaseView {
     private let scoreCardView = UIImageView()
     private let scoreTitleLabel = UILabel()
     private let questionMarkButton = UIButton()
-    private let totalAttendanceScoreLabel = UILabel()
+    private let totalClubActivityScoreLabel = UILabel()
     private let mascotImageView = UIImageView()
     private let settingButton = UIButton()
     private let darkHalfBackgroundView = UIView()
@@ -99,14 +99,14 @@ extension MyPageHeaderView {
             $0.addShadow(x: 0, y: 2, color: .black.withAlphaComponent(0.1), radius: 20)
             $0.image = UIImage(named: "mypage_card")
         }
-        self.totalAttendanceScoreLabel.do {
+        self.totalClubActivityScoreLabel.do {
             $0.font = .pretendardFont(weight: .bold, size: 24)
             $0.textColor = .white
         }
         self.scoreTitleLabel.do {
             $0.font = .pretendardFont(weight: .bold, size: 16)
             $0.textColor = .white
-            $0.text = "출석점수"
+            $0.text = "활동점수"
         }
         self.questionMarkButton.do {
             let questionMarkImage = UIImage.info?.resized(width: 18, height: 18).withTintColor(.white)
@@ -163,7 +163,7 @@ extension MyPageHeaderView {
             $0.axis = .vertical
             $0.spacing = 4
         }
-        stackView.addArrangedSubview(self.totalAttendanceScoreLabel)
+        stackView.addArrangedSubview(self.totalClubActivityScoreLabel)
         stackView.addArrangedSubview(self.scoreTitleLabel)
         self.scoreCardView.addSubview(self.questionMarkButton)
         self.questionMarkButton.snp.makeConstraints {

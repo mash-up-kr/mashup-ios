@@ -18,7 +18,7 @@ enum ScoreChangeStyle: Hashable {
     case custom(String)
 }
 
-struct AttendanceScoreHistoryCellModel: Hashable {
+struct ClubActivityHistoryCellModel: Hashable {
     let id: String = UUID().uuidString
     let historyTitle: String
     let description: String
@@ -26,7 +26,7 @@ struct AttendanceScoreHistoryCellModel: Hashable {
     let appliedTotalScoreText: String
 }
 
-final class AttendanceScoreHistoryCell: BaseTableViewCell {
+final class ClubActivityHistoryCell: BaseTableViewCell {
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -38,7 +38,7 @@ final class AttendanceScoreHistoryCell: BaseTableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func configure(with model: AttendanceScoreHistoryCellModel) {
+    func configure(with model: ClubActivityHistoryCellModel) {
         self.historyTitleLabel.text = model.historyTitle
         self.descriptionLabel.text = model.description
         self.appliedTotalScoreLabel.text = model.appliedTotalScoreText
@@ -69,7 +69,7 @@ final class AttendanceScoreHistoryCell: BaseTableViewCell {
     private let appliedTotalScoreLabel = UILabel()
     
 }
-extension AttendanceScoreHistoryCell {
+extension ClubActivityHistoryCell {
     
     private func setupAttribute() {
         self.selectionStyle = .none

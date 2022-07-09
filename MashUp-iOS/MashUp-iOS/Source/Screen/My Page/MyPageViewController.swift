@@ -140,7 +140,7 @@ extension MyPageViewController {
             cellProvider: { (tableView, indexPath, item) in
                 switch item {
                 case .history(let cellModel):
-                    let cell = tableView.dequeueCell(AttendanceScoreHistoryCell.self, for: indexPath)
+                    let cell = tableView.dequeueCell(ClubActivityHistoryCell.self, for: indexPath)
                     cell?.configure(with: cellModel)
                     return cell
                 }
@@ -161,10 +161,10 @@ extension MyPageViewController {
             $0.rowHeight = UITableView.automaticDimension
             $0.separatorStyle = .none
             $0.backgroundColor = .gray900
-            $0.registerHeaderFooter(AttendanceHistoryTitleHeaderView.self)
-            $0.registerHeaderFooter(AttendanceHistorySectionHeaderView.self)
+            $0.registerHeaderFooter(ClubActivityHistoryTitleHeaderView.self)
+            $0.registerHeaderFooter(ClubActivityHistorySectionHeaderView.self)
             $0.registerHeaderFooter(EmptyAttendanceHistoryView.self)
-            $0.registerCell(AttendanceScoreHistoryCell.self)
+            $0.registerCell(ClubActivityHistoryCell.self)
         }
     }
     
@@ -202,8 +202,8 @@ extension MyPageViewController {
         case .setting:
             let viewController = self.makeSettingViewController()
             
-        case .attendanceScoreRule:
-            let viewController = self.makeAttendanceScoreRuleViewController()
+        case .clubActivityScoreRule:
+            let viewController = self.makeClubActivityScoreRuleViewController()
             viewController.modalPresentationStyle = .pageSheet
             self.present(viewController, animated: true)
         }
@@ -213,8 +213,8 @@ extension MyPageViewController {
         return UIViewController()
     }
     
-    private func makeAttendanceScoreRuleViewController() -> UIViewController {
-        return AttendanceScoreRuleViewController()
+    private func makeClubActivityScoreRuleViewController() -> UIViewController {
+        return ClubActivityScoreRuleViewController()
     }
     
 }
@@ -239,12 +239,12 @@ extension MyPageViewController: UITableViewDelegate {
         
         switch section {
         case .title(let viewModel):
-            let header = tableView.dequeueHeaderFooter(AttendanceHistoryTitleHeaderView.self)
+            let header = tableView.dequeueHeaderFooter(ClubActivityHistoryTitleHeaderView.self)
             header?.configure(with: viewModel)
             return header
             
         case .historys(let viewModel, _):
-            let header = tableView.dequeueHeaderFooter(AttendanceHistorySectionHeaderView.self)
+            let header = tableView.dequeueHeaderFooter(ClubActivityHistorySectionHeaderView.self)
             header?.configure(with: viewModel)
             return header
             

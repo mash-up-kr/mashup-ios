@@ -57,7 +57,7 @@ class MyPageReactorSpec: QuickSpec {
           sut.action.onNext(.didTapQuestMarkButton)
         }
         it("출석점수정책 화면으로 이동합니다") {
-          expect { sut.currentState.step }.to(equal(.attendanceScoreRule))
+          expect { sut.currentState.step }.to(equal(.clubActivityScoreRule))
         }
       }
       

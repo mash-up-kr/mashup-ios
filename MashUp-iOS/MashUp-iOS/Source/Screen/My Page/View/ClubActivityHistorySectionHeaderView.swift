@@ -12,11 +12,11 @@ import SnapKit
 import MashUp_Core
 import MashUp_UIKit
 
-struct AttendanceHistorySectionHeaderModel: Hashable {
+struct ClubActivityHistorySectionHeaderModel: Hashable {
     let generationText: String
 }
 
-final class AttendanceHistorySectionHeaderView: UITableViewHeaderFooterView, Reusable {
+final class ClubActivityHistorySectionHeaderView: UITableViewHeaderFooterView, Reusable {
     
     override init(reuseIdentifier: String?) {
         super.init(reuseIdentifier: reuseIdentifier)
@@ -28,7 +28,7 @@ final class AttendanceHistorySectionHeaderView: UITableViewHeaderFooterView, Reu
         fatalError("init(coder:) has not been implemented")
     }
     
-    func configure(with model: AttendanceHistorySectionHeaderModel) {
+    func configure(with model: ClubActivityHistorySectionHeaderModel) {
         self.generationBadgeView.text =  model.generationText
     }
     
@@ -36,7 +36,7 @@ final class AttendanceHistorySectionHeaderView: UITableViewHeaderFooterView, Reu
     
 }
 
-extension AttendanceHistorySectionHeaderView {
+extension ClubActivityHistorySectionHeaderView {
     
     private func setupAttribute() {
         self.contentView.backgroundColor = .gray50

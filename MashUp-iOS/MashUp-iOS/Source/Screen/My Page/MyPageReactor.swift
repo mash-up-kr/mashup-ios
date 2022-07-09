@@ -11,7 +11,7 @@ import ReactorKit
 
 enum MyPageStep: Equatable {
     case setting
-    case attendanceScoreRule
+    case clubActivityScoreRule
 }
 
 class MyPageReactor: Reactor {
@@ -44,8 +44,8 @@ class MyPageReactor: Reactor {
         self.debugSystem = debugSystem
     }
     
-    private func randomItem() -> AttendanceScoreHistoryCellModel {
-        return AttendanceScoreHistoryCellModel(
+    private func randomItem() -> ClubActivityHistoryCellModel {
+        return ClubActivityHistoryCellModel(
             historyTitle: "전체 세미나 지각",
             description: "2022.03.05 | 2차 전체 세미나",
             scoreChangeStyle: [.addition("+1점"), .deduction("-1점"), .custom("💖 🔫")].randomElement()!,
@@ -79,7 +79,7 @@ class MyPageReactor: Reactor {
             return .just(.moveTo(step: .setting))
             
         case .didTapQuestMarkButton:
-            return .just(.moveTo(step: .attendanceScoreRule))
+            return .just(.moveTo(step: .clubActivityScoreRule))
             
         case .didAppearHeaderView:
             return .just(.updateSummaryBarVisablity(false))

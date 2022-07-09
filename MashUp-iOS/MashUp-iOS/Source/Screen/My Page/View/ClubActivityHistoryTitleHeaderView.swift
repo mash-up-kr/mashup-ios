@@ -10,11 +10,11 @@ import UIKit
 import MashUp_Core
 import MashUp_UIKit
 
-struct AttendanceHistoryTitleHeaderModel: Hashable {
+struct ClubActivityHistoryTitleHeaderModel: Hashable {
     let title: String
 }
 
-final class AttendanceHistoryTitleHeaderView: UITableViewHeaderFooterView, Reusable {
+final class ClubActivityHistoryTitleHeaderView: UITableViewHeaderFooterView, Reusable {
     
     override init(reuseIdentifier: String?) {
         super.init(reuseIdentifier: reuseIdentifier)
@@ -26,7 +26,7 @@ final class AttendanceHistoryTitleHeaderView: UITableViewHeaderFooterView, Reusa
         fatalError("init(coder:) has not been implemented")
     }
     
-    func configure(with model: AttendanceHistoryTitleHeaderModel) {
+    func configure(with model: ClubActivityHistoryTitleHeaderModel) {
         self.titleLabel.text = model.title
     }
     
@@ -34,7 +34,7 @@ final class AttendanceHistoryTitleHeaderView: UITableViewHeaderFooterView, Reusa
     
 }
 
-extension AttendanceHistoryTitleHeaderView {
+extension ClubActivityHistoryTitleHeaderView {
     
     private func setupAttribute() {
         self.contentView.backgroundColor = .gray50

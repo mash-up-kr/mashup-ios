@@ -38,7 +38,7 @@ final class MyPageSummaryBar: BaseView {
     
     func configure(with model: MyPageSummaryBarModel) {
         self.userNameLabel.text = model.userName
-        self.totalAttendanceScoreLabel.text = model.totalScoreText
+        self.totalClubActivityScoreLabel.text = model.totalScoreText
     }
     
     @objc private func didTapQuestionMarkButton(_ sender: Any) {
@@ -48,7 +48,7 @@ final class MyPageSummaryBar: BaseView {
     private let userNameLabel = UILabel()
     private let scoreTitleLabel = UILabel()
     private let questionMarkButton = UIButton()
-    private let totalAttendanceScoreLabel = UILabel()
+    private let totalClubActivityScoreLabel = UILabel()
     
 }
 
@@ -63,14 +63,14 @@ extension MyPageSummaryBar {
         self.scoreTitleLabel.do {
             $0.font = .pretendardFont(weight: .bold, size: 14)
             $0.textColor = .gray100
-            $0.text = "총 출석점수"
+            $0.text = "총 활동 점수"
         }
         self.questionMarkButton.do {
             let questionMarkImage = UIImage.info?.resized(width: 14, height: 14).withTintColor(.white)
             $0.setImage(questionMarkImage, for: .normal)
             $0.addTarget(self, action: #selector(didTapQuestionMarkButton(_:)), for: .touchUpInside)
         }
-        self.totalAttendanceScoreLabel.do {
+        self.totalClubActivityScoreLabel.do {
             $0.font = .pretendardFont(weight: .bold, size: 24)
             $0.textColor = .gray100
         }
@@ -93,8 +93,8 @@ extension MyPageSummaryBar {
             $0.centerY.equalTo(self.scoreTitleLabel)
             $0.width.height.equalTo(40)
         }
-        self.addSubview(self.totalAttendanceScoreLabel)
-        self.totalAttendanceScoreLabel.snp.makeConstraints {
+        self.addSubview(self.totalClubActivityScoreLabel)
+        self.totalClubActivityScoreLabel.snp.makeConstraints {
             $0.trailing.equalToSuperview().inset(24)
             $0.bottom.equalToSuperview().inset(21)
         }
