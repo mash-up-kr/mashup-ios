@@ -88,7 +88,8 @@ extension MyPageHeaderView {
             $0.textColor = .white
         }
         self.settingButton.do {
-            $0.backgroundColor = .red500
+            let settingImage = UIImage.setting?.resized(width: 24, height: 24).withTintColor(.white)
+            $0.setImage(settingImage, for: .normal)
             $0.addTarget(self, action: #selector(didTapSettingButton(_:)), for: .touchUpInside)
         }
         self.scoreCardView.do {
@@ -107,12 +108,10 @@ extension MyPageHeaderView {
             $0.text = "출석점수"
         }
         self.questionMarkButton.do {
-            $0.backgroundColor = .white
+            let questionMarkImage = UIImage.info?.resized(width: 18, height: 18).withTintColor(.white)
+            $0.setImage(questionMarkImage, for: .normal)
             $0.clipsToBounds = true
             $0.layer.cornerRadius = 9
-            $0.setTitle("?", for: .normal)
-            $0.setTitleColor(.gray900, for: .normal)
-            $0.titleLabel?.font = .pretendardFont(weight: .bold, size: 8)
             $0.addTarget(self, action: #selector(didTapQuestionMarkButton(_:)), for: .touchUpInside)
         }
         let tap5TimesGesture = UITapGestureRecognizer(target: self, action: #selector(didTap10TimesMascot(_:))).then { $0.numberOfTapsRequired = 5 }

@@ -10,6 +10,7 @@ import Then
 import SnapKit
 import UIKit
 import MashUp_Core
+import MashUp_UIKit
 
 final class EmptyAttendanceHistoryView: UITableViewHeaderFooterView, Reusable {
     
@@ -24,6 +25,7 @@ final class EmptyAttendanceHistoryView: UITableViewHeaderFooterView, Reusable {
     }
     
     private let emptyImageView = UIImageView()
+    private let emptyLabel = UILabel()
     
 }
 
@@ -31,16 +33,28 @@ extension EmptyAttendanceHistoryView {
     
     private func setupAttribute() {
         self.contentView.backgroundColor = .gray50
-        self.emptyImageView.backgroundColor = .red
+        self.emptyImageView.do {
+            $0.image = .placeholder
+        }
+        self.emptyLabel.do {
+            $0.text = "아직 매시업 활동 내역이 없어요"
+            $0.font = .pretendardFont(weight: .bold, size: 16)
+            $0.textColor = .gray400
+        }
     }
     
     private func setupLayout() {
         self.contentView.addSubview(self.emptyImageView)
         self.emptyImageView.snp.makeConstraints {
-            $0.width.equalTo(182)
-            $0.height.equalTo(127)
+            $0.width.equalTo(180)
+            $0.height.equalTo(100)
             $0.centerX.equalToSuperview()
             $0.top.bottom.equalToSuperview().inset(42)
+        }
+        self.contentView.addSubview(self.emptyLabel)
+        self.emptyLabel.snp.makeConstraints {
+            $0.top.equalTo(self.emptyImageView.snp.bottom).offset(8)
+            $0.centerX.equalToSuperview()
         }
     }
     
