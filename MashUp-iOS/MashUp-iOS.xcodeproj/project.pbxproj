@@ -63,6 +63,11 @@
 		CE396089278B3CB60073AEF4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE396088278B3CB60073AEF4 /* Assets.xcassets */; };
 		CE39608C278B3CB60073AEF4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE39608A278B3CB60073AEF4 /* LaunchScreen.storyboard */; };
 		CE4730532879B0EB0050B897 /* EmptyAttendanceHistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4730522879B0EB0050B897 /* EmptyAttendanceHistoryView.swift */; };
+		CE4730572879CBAA0050B897 /* ClubActivityService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4730562879CBAA0050B897 /* ClubActivityService.swift */; };
+		CE4730592879CBE00050B897 /* ClubActivityHistory.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4730582879CBE00050B897 /* ClubActivityHistory.swift */; };
+		CE47305B2879CC5E0050B897 /* ClubActivityScore.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE47305A2879CC5E0050B897 /* ClubActivityScore.swift */; };
+		CE47305D2879CEC90050B897 /* ClubActivityRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE47305C2879CEC90050B897 /* ClubActivityRepository.swift */; };
+		CE47305F2879D1DB0050B897 /* FakeClubActivityRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE47305E2879D1DB0050B897 /* FakeClubActivityRepository.swift */; };
 		CE58817D27EC856D0068D4E0 /* AttendanceTimeline+Stub.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE58817C27EC856D0068D4E0 /* AttendanceTimeline+Stub.swift */; };
 		CE58817F27EC85A00068D4E0 /* PartialAttendance+Stub.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE58817E27EC85A00068D4E0 /* PartialAttendance+Stub.swift */; };
 		CE58818127EC94120068D4E0 /* Seminar+Stub.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE58818027EC94120068D4E0 /* Seminar+Stub.swift */; };
@@ -653,6 +658,11 @@
 		CE39608D278B3CB60073AEF4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CE396092278B3CB60073AEF4 /* MashUp-iOSTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "MashUp-iOSTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE4730522879B0EB0050B897 /* EmptyAttendanceHistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyAttendanceHistoryView.swift; sourceTree = "<group>"; };
+		CE4730562879CBAA0050B897 /* ClubActivityService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClubActivityService.swift; sourceTree = "<group>"; };
+		CE4730582879CBE00050B897 /* ClubActivityHistory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClubActivityHistory.swift; sourceTree = "<group>"; };
+		CE47305A2879CC5E0050B897 /* ClubActivityScore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClubActivityScore.swift; sourceTree = "<group>"; };
+		CE47305C2879CEC90050B897 /* ClubActivityRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClubActivityRepository.swift; sourceTree = "<group>"; };
+		CE47305E2879D1DB0050B897 /* FakeClubActivityRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeClubActivityRepository.swift; sourceTree = "<group>"; };
 		CE4A6C04278B47040052F7E7 /* HTTPClient.swift */ = {isa = PBXFileReference; indentWidth = 4; lastKnownFileType = sourcecode.swift; path = HTTPClient.swift; sourceTree = "<group>"; };
 		CE4A6C08278B4A3C0052F7E7 /* NetworkConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkConfig.swift; sourceTree = "<group>"; };
 		CE58817C27EC856D0068D4E0 /* AttendanceTimeline+Stub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AttendanceTimeline+Stub.swift"; sourceTree = "<group>"; };
@@ -1226,6 +1236,18 @@
 			path = SupportFile;
 			sourceTree = "<group>";
 		};
+		CE4730552879CB850050B897 /* ClubActivityHistory */ = {
+			isa = PBXGroup;
+			children = (
+				CE4730582879CBE00050B897 /* ClubActivityHistory.swift */,
+				CE47305C2879CEC90050B897 /* ClubActivityRepository.swift */,
+				CE47305A2879CC5E0050B897 /* ClubActivityScore.swift */,
+				CE4730562879CBAA0050B897 /* ClubActivityService.swift */,
+				CE47305E2879D1DB0050B897 /* FakeClubActivityRepository.swift */,
+			);
+			path = ClubActivityHistory;
+			sourceTree = "<group>";
+		};
 		CE6A963328538C4A00F4C066 /* Step1 */ = {
 			isa = PBXGroup;
 			children = (
@@ -1588,6 +1610,7 @@
 			isa = PBXGroup;
 			children = (
 				CEB60F8227A9C5EA001260DB /* Attendance */,
+				CE4730552879CB850050B897 /* ClubActivityHistory */,
 				CEC435B82866FEDA003AA5C6 /* Debug */,
 				CEB60F8127A9C5E1001260DB /* QR */,
 				CE6EE85B27CA4128005BF412 /* Seminar */,
@@ -2340,12 +2363,14 @@
 				CE9BE0952848CF5E006691F0 /* PlatformAttendanceCell.swift in Sources */,
 				CE12DA5627E629D700F08629 /* PartialAttendanceViewModel.swift in Sources */,
 				0642C941285223FF00B9F575 /* AttendanceStatusCircleView.swift in Sources */,
+				CE4730572879CBAA0050B897 /* ClubActivityService.swift in Sources */,
 				CE6EE83F27C7EFF9005BF412 /* HomeReactor.swift in Sources */,
 				CE900B7528462C5400FF9C4F /* PlatformTeamMenuViewModel.swift in Sources */,
 				CE6A964A2853D66700F4C066 /* TermsAgreementPopupViewController.swift in Sources */,
 				CEDC9F812878182500221683 /* MyPageSection.swift in Sources */,
 				CE307A09285DE74D0092C09A /* ClubActivityHistoryCell.swift in Sources */,
 				CE6EE87327CA7482005BF412 /* AttendanceStatus.swift in Sources */,
+				CE47305F2879D1DB0050B897 /* FakeClubActivityRepository.swift in Sources */,
 				CE729A8B27E60D49001D33D1 /* SeminarSchedulerFormatter.swift in Sources */,
 				CEB60F4B27A975AD001260DB /* QRScanViewController.swift in Sources */,
 				0688CB42284B223B00338A5C /* PlatformTeam+Presentation.swift in Sources */,
@@ -2360,11 +2385,13 @@
 				CE729A7F27E57D0D001D33D1 /* AttendanceTimelineRepository.swift in Sources */,
 				CE729A8727E5C31A001D33D1 /* PartialAttendance.swift in Sources */,
 				CE6EE84C27C80C92005BF412 /* SeminarScheduleViewController.swift in Sources */,
+				CE47305B2879CC5E0050B897 /* ClubActivityScore.swift in Sources */,
 				0618444427E30259004980CC /* AttendanceMember.swift in Sources */,
 				06531C18283F59FF00E225EB /* PlatformAttendanceStatusReactor.swift in Sources */,
 				CE6EE88A27CAA288005BF412 /* SeminarRepository.swift in Sources */,
 				CE6A96382853901700F4C066 /* SignUpStep2Reactor.swift in Sources */,
 				CE729A8927E5C7F1001D33D1 /* SeminarPhase.swift in Sources */,
+				CE4730592879CBE00050B897 /* ClubActivityHistory.swift in Sources */,
 				CEB60F8427A9C602001260DB /* FakeAttendanceService.swift in Sources */,
 				CE12DA5427E629AE00F08629 /* AttendanceTimelineViewModel.swift in Sources */,
 				CE396080278B3CB40073AEF4 /* AppDelegate.swift in Sources */,
@@ -2406,6 +2433,7 @@
 				CE6EE85A27CA40C5005BF412 /* SeminarScheduleReactor.swift in Sources */,
 				CE6EE83827C7E2D5005BF412 /* SplashReactor.swift in Sources */,
 				CE6A963628538C6700F4C066 /* SignUpStep2ViewController.swift in Sources */,
+				CE47305D2879CEC90050B897 /* ClubActivityRepository.swift in Sources */,
 				CE6EE84E27C80C9B005BF412 /* MyPageViewController.swift in Sources */,
 				CEC435BA2866FEED003AA5C6 /* DebugSystem.swift in Sources */,
 				CE6EE86927CA5609005BF412 /* PlatformAttendanceDetailViewController.swift in Sources */,

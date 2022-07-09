@@ -14,7 +14,7 @@ enum MyPageSection: Hashable {
     typealias Item = MyPageSectionItem
     
     case title(TitleHeader)
-    case historys(HistoryHeader, items: [Item])
+    case histories(HistoryHeader, items: [Item])
     case empty
 }
 

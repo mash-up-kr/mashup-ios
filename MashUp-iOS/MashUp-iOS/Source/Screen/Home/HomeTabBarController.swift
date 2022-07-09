@@ -133,7 +133,12 @@ extension HomeTabBarController {
     
     private func createMyPageViewController() -> UIViewController {
         let myPageViewController = MyPageViewController()
-        myPageViewController.reactor = MyPageReactor(debugSystem: FLEXManager.shared)
+        let clubActivityRepository = FakeClubActivityRepository()
+        let clubActivityService = ClubActivityServiceImp(clubActivityRepository: clubActivityRepository)
+        myPageViewController.reactor = MyPageReactor(
+            clubActivityService: clubActivityService,
+            debugSystem: FLEXManager.shared
+        )
         return myPageViewController
     }
     

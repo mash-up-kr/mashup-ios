@@ -16,13 +16,18 @@ class MyPageReactorSpec: QuickSpec {
   
   override func spec() {
     var sut: MyPageReactor!
+    var clubActivityService: ClubActivityServiceMock!
     var debugSystem: DebugSystemMock!
     beforeEach {
+      clubActivityService = mock(ClubActivityService.self)
       debugSystem = mock(DebugSystem.self)
     }
     describe("마이페이지에서") {
       beforeEach {
-        sut = MyPageReactor(debugSystem: debugSystem)
+        sut = MyPageReactor(
+          clubActivityService: clubActivityService,
+          debugSystem: debugSystem
+        )
       }
       
       context("메숑 마스코트를 5번 탭하면") {

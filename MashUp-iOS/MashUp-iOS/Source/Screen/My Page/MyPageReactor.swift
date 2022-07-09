@@ -40,7 +40,11 @@ class MyPageReactor: Reactor {
     
     let initialState: State = State()
     
-    init(debugSystem: any DebugSystem) {
+    init(
+        clubActivityService: any ClubActivityService,
+        debugSystem: any DebugSystem
+    ) {
+        self.clubActivityService = clubActivityService
         self.debugSystem = debugSystem
     }
     
@@ -62,10 +66,10 @@ class MyPageReactor: Reactor {
         
         let sections: [MyPageSection] = [
             .title(titleHeader),
-            .historys(generationHeader1, items: historyItems1),
-            .historys(generationHeader2, items: historyItems2),
+            .histories(generationHeader1, items: historyItems1),
+            .histories(generationHeader2, items: historyItems2),
         ]
-//        let sections: [MyPageSection] = [.title(titleHeader), .empty]
+        //        let sections: [MyPageSection] = [.title(titleHeader), .empty]
         return sections
     }
     
@@ -108,6 +112,7 @@ class MyPageReactor: Reactor {
         return newState
     }
     
+    private let clubActivityService: any ClubActivityService
     private let debugSystem: any DebugSystem
     
 }

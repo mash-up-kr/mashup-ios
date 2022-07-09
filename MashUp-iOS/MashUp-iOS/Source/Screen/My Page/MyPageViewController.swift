@@ -225,7 +225,7 @@ extension MyPageViewController {
         
         snapshot.appendSections(sections)
         sections.forEach { section in
-            guard case .historys(_, let items) = section else { return }
+            guard case .histories(_, let items) = section else { return }
             snapshot.appendItems(items, toSection: section)
         }
         self.dataSource.apply(snapshot)
@@ -243,7 +243,7 @@ extension MyPageViewController: UITableViewDelegate {
             header?.configure(with: viewModel)
             return header
             
-        case .historys(let viewModel, _):
+        case .histories(let viewModel, _):
             let header = tableView.dequeueHeaderFooter(ClubActivityHistorySectionHeaderView.self)
             header?.configure(with: viewModel)
             return header
