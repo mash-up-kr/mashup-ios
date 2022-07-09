@@ -20,20 +20,13 @@ public class MUNavigationBar: UIView {
     public enum BarItem {
         case back
         case close
-        case custom(ImageSource)
+        case custom(UIImage)
         
         var icon: UIImage? {
             switch self {
-            case .back:
-                return UIImage(named: "name=chevron, color=gray900, size=Default")
-            case .close:
-                return UIImage(named: "name=xmark, color=gray900, size=Default")
-            case .custom(let imageSource):
-                switch imageSource {
-                case .asset(let name): return UIImage(named: name)
-                case .image(let image): return image
-                default: return nil
-                }
+            case .back: return .chevronLeft
+            case .close: return .close
+            case .custom(let image): return image
             }
         }
     }
