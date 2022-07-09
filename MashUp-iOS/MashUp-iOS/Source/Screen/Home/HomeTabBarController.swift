@@ -138,7 +138,13 @@ extension HomeTabBarController {
         let clubActivityService = ClubActivityServiceImp(clubActivityRepository: clubActivityRepository)
         let formatter = MyPageFormatterImp()
         #warning("user session injection - booung")
-        let userSession = UserSession(id: .empty, accessToken: .empty, name: "김매시업", platformTeam: .iOS)
+        let userSession = UserSession(
+            id: .empty,
+            accessToken: .empty,
+            name: "김매시업",
+            platformTeam: .iOS,
+            generations: [12]
+        )
         myPageViewController.reactor = MyPageReactor(
             userSession: userSession,
             clubActivityService: clubActivityService,

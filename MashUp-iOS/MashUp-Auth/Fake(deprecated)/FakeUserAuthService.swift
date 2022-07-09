@@ -30,7 +30,8 @@ public final class FakeUserAuthService: UserAuthService {
             id: "fake.user.id",
             accessToken: "\(id).\(password)",
             name: "fake.name",
-            platformTeam: .iOS
+            platformTeam: .iOS,
+            generations: [12]
         )
         
         return .just(fakeSession)
@@ -45,7 +46,8 @@ public final class FakeUserAuthService: UserAuthService {
             id: "fake.user.id",
             accessToken: "\(newAccount.id).\(newAccount.password)",
             name: "fake.name",
-            platformTeam: .iOS
+            platformTeam: .iOS,
+            generations: [12]
         )
         return .success(fakeSession)
     }

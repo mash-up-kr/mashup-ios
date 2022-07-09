@@ -9,25 +9,25 @@
 import Foundation
 import MashUp_User
 
-protocol MyPageFormatter {
-    func formatSummaryBar(user: UserSession, totalScore: ClubActivityScore) -> MyPageSummaryBarModel
-    func formatHeader(user: UserSession, totalScore: ClubActivityScore) -> MyPageHeaderViewModel
+protocol MyPageFormatter: AnyObject {
+    func formatSummaryBar(userSession: UserSession, totalScore: Int) -> MyPageSummaryBarModel
+    func formatHeader(userSession: UserSession, totalScore: Int) -> MyPageHeaderViewModel
     func formatSections(with histories: [Generation: [ClubActivityHistory]]) -> [MyPageSection]
 }
 
-class MyPageFormatterImp: MyPageFormatter {
+final class MyPageFormatterImp: MyPageFormatter {
     
-    func formatSummaryBar(user: UserSession, totalScore: ClubActivityScore) -> MyPageSummaryBarModel {
+    func formatSummaryBar(userSession: UserSession, totalScore: Int) -> MyPageSummaryBarModel {
         return MyPageSummaryBarModel(
-            userName: user.name,
+            userName: userSession.name,
             totalScoreText: "\(totalScore)점"
         )
     }
     
-    func formatHeader(user: UserSession, totalScore: ClubActivityScore) -> MyPageHeaderViewModel {
+    func formatHeader(userSession: UserSession, totalScore: Int) -> MyPageHeaderViewModel {
         return MyPageHeaderViewModel(
-            userName: user.name,
-            platformTeamText: user.platformTeam.title,
+            userName: userSession.name,
+            platformTeamText: userSession.platformTeam.title,
             totalScoreText: "\(totalScore)점"
         )
     }

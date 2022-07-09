@@ -17,13 +17,15 @@ extension UserSession {
     id: String = "fake.id.\(Date.now())",
     accessToken: String = "fake.accessToken.\(Date.now())",
     name: String = "fake.name.\(UUID().uuidString)",
-    platformTeam: PlatformTeam = PlatformTeam.allCases.randomElement()!
+    platformTeam: PlatformTeam = PlatformTeam.allCases.randomElement()!,
+    generations: [Generation] = [12]
   ) -> Self {
     return UserSession(
       id: id,
       accessToken: accessToken,
       name: name,
-      platformTeam: platformTeam
+      platformTeam: platformTeam,
+      generations: generations
     )
   }
 }

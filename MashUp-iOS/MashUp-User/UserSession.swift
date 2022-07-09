@@ -17,17 +17,20 @@ public struct UserSession: Equatable {
     public let accessToken: String
     public let name: String
     public let platformTeam: PlatformTeam
+    public let generations: [Generation]
     
     public init(
         id: String,
         accessToken: String,
         name: String,
-        platformTeam: PlatformTeam
+        platformTeam: PlatformTeam,
+        generations: [Generation]
     ) {
         self.id = id
         self.accessToken = accessToken
         self.name = name
         self.platformTeam = platformTeam
+        self.generations = generations
     }
     
 }

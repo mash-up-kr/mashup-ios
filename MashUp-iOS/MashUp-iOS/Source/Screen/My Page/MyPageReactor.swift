@@ -33,7 +33,7 @@ class MyPageReactor: Reactor {
         case updateSummaryBar(MyPageSummaryBarModel)
         case updateHeader(MyPageHeaderViewModel)
         case updateSections([MyPageSection])
-        case updateTotalClubActivityScore(ClubActivityScore)
+        case updateTotalClubActivityScore(Int)
         case moveTo(MyPageStep)
     }
     
@@ -47,7 +47,7 @@ class MyPageReactor: Reactor {
         @Pulse var step: MyPageStep?
         
         fileprivate let user: UserSession
-        fileprivate var totalClubActivityScore: ClubActivityScore?
+        fileprivate var totalClubActivityScore: Int?
         fileprivate var generation: Generation?
     }
     
@@ -68,25 +68,28 @@ class MyPageReactor: Reactor {
     func mutate(action: Action) -> Observable<Mutation> {
         switch action {
         case .didSetup:
+            let latestGeneration = self.currentState.user.generations.sorted(by: <).last ?? 12
             let startLoading: Observable<Mutation> = .just(.updateLoading(true))
             let endLoading: Observable<Mutation> = .just(.updateLoading(false))
             let loadTotalScore = self.clubActivityService.totalClubActivityScore().share()
-            
+
             let updateTotalScore: Observable<Mutation> = loadTotalScore
                 .map { .updateTotalClubActivityScore($0)}
-            let updateSummaryBar: Observable<Mutation> = loadTotalScore
-                .map { self.formatter.formatSummaryBar(user: self.currentState.user, totalScore: $0) }
+            let updateSummaryBar: Observable<Mutation> =  loadTotalScore
+                .map { self.formatter.formatSummaryBar(userSession: self.currentState.user, totalScore: $0) }
                 .map { .updateSummaryBar($0) }
             let updateHeader: Observable<Mutation> = loadTotalScore
-                .map { self.formatter.formatHeader(user: self.currentState.user, totalScore: $0) }
+                .map { self.formatter.formatHeader(userSession: self.currentState.user, totalScore: $0) }
                 .map { .updateHeader($0) }
-            let updateHistorySections: Observable<Mutation> = self.clubActivityService.histories(generation: 12)
-                .map { histories in self.formatter.formatSections(with: [12: histories]) }
+            let updateHistorySections: Observable<Mutation> = self.clubActivityService.histories(generation: latestGeneration)
+                .map { histories in self.formatter.formatSections(with: [latestGeneration: histories]) }
                 .map { .updateSections($0) }
-            
             return .concat(
                 startLoading,
-                updateTotalScore, updateSummaryBar, updateHeader, updateHistorySections,
+                updateTotalScore,
+                updateSummaryBar,
+                updateHeader,
+                updateHistorySections,
                 endLoading
             )
             

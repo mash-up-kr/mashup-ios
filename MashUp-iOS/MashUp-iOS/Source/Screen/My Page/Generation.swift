@@ -9,14 +9,3 @@
 import Foundation
 
 #warning("모듈 재비치 필요함 - booung")
-struct Generation: Equatable, Hashable {
-    let number: Int
-}
-extension Generation: ExpressibleByIntegerLiteral {
-    init(integerLiteral value: Int) {
-        self.number = value
-    }
-}
-extension Generation: CustomStringConvertible {
-    var description: String { "\(number)기" }
-}

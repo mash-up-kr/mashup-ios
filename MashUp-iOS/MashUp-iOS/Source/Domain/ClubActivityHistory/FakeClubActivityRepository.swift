@@ -18,13 +18,13 @@ class FakeClubActivityRepository: ClubActivityRepository {
     }
     
     func histories(generation: Generation) -> Observable<[ClubActivityHistory]> {
-        let numberOfHistory = 10
+        let numberOfHistory = 50
         let histories = (0..<numberOfHistory).map { _ in self.randomClubActivityHistory() }
         return .just(histories)
     }
     
     private func randomClubActivityHistory() -> ClubActivityHistory {
-        let activityTitles = ["해커톤 준비 위원회", "전체 세미나 지각", ""]
+        let activityTitles = ["해커톤 준비 위원회", "전체 세미나 지각", "프로젝트 배포 성공", "기술블로그", "Mash-Up 콘텐츠 작성"]
         let changedScoreRange = -3...1
         let appliedTotalScoreRange = -3...20
         

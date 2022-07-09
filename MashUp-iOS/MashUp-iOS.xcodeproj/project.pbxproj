@@ -56,6 +56,7 @@
 		CE12DA5627E629D700F08629 /* PartialAttendanceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE12DA5527E629D700F08629 /* PartialAttendanceViewModel.swift */; };
 		CE12DA5827E629FE00F08629 /* QRSeminarCardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE12DA5727E629FE00F08629 /* QRSeminarCardViewModel.swift */; };
 		CE14D2CB27CFBB1200685CFF /* FakeSeminarRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE14D2CA27CFBB1100685CFF /* FakeSeminarRepository.swift */; };
+		CE2E6AD7287A19BB003A03F8 /* Generation.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2E6AD6287A19BB003A03F8 /* Generation.swift */; };
 		CE307A05285DE1B50092C09A /* MyPageSummaryBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE307A04285DE1B50092C09A /* MyPageSummaryBar.swift */; };
 		CE307A07285DE50E0092C09A /* MyPageSummaryBar+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE307A06285DE50E0092C09A /* MyPageSummaryBar+Rx.swift */; };
 		CE307A09285DE74D0092C09A /* ClubActivityHistoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE307A08285DE74D0092C09A /* ClubActivityHistoryCell.swift */; };
@@ -69,6 +70,9 @@
 		CE47305D2879CEC90050B897 /* ClubActivityRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE47305C2879CEC90050B897 /* ClubActivityRepository.swift */; };
 		CE47305F2879D1DB0050B897 /* FakeClubActivityRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE47305E2879D1DB0050B897 /* FakeClubActivityRepository.swift */; };
 		CE4730612879F6510050B897 /* MyPageFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE4730602879F6510050B897 /* MyPageFormatter.swift */; };
+		CE473063287A07A80050B897 /* MyPageSummaryBarModel+Stub.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE473062287A07A80050B897 /* MyPageSummaryBarModel+Stub.swift */; };
+		CE473065287A082F0050B897 /* MyPageHeaderViewModel+Stub.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE473064287A082F0050B897 /* MyPageHeaderViewModel+Stub.swift */; };
+		CE473067287A08D40050B897 /* ClubActivityHistoryCellModel+Stub.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE473066287A08D40050B897 /* ClubActivityHistoryCellModel+Stub.swift */; };
 		CE58817D27EC856D0068D4E0 /* AttendanceTimeline+Stub.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE58817C27EC856D0068D4E0 /* AttendanceTimeline+Stub.swift */; };
 		CE58817F27EC85A00068D4E0 /* PartialAttendance+Stub.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE58817E27EC85A00068D4E0 /* PartialAttendance+Stub.swift */; };
 		CE58818127EC94120068D4E0 /* Seminar+Stub.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE58818027EC94120068D4E0 /* Seminar+Stub.swift */; };
@@ -649,6 +653,7 @@
 		CE12DA5527E629D700F08629 /* PartialAttendanceViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartialAttendanceViewModel.swift; sourceTree = "<group>"; };
 		CE12DA5727E629FE00F08629 /* QRSeminarCardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRSeminarCardViewModel.swift; sourceTree = "<group>"; };
 		CE14D2CA27CFBB1100685CFF /* FakeSeminarRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeSeminarRepository.swift; sourceTree = "<group>"; };
+		CE2E6AD6287A19BB003A03F8 /* Generation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Generation.swift; sourceTree = "<group>"; };
 		CE307A04285DE1B50092C09A /* MyPageSummaryBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageSummaryBar.swift; sourceTree = "<group>"; };
 		CE307A06285DE50E0092C09A /* MyPageSummaryBar+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MyPageSummaryBar+Rx.swift"; sourceTree = "<group>"; };
 		CE307A08285DE74D0092C09A /* ClubActivityHistoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClubActivityHistoryCell.swift; sourceTree = "<group>"; };
@@ -665,6 +670,9 @@
 		CE47305C2879CEC90050B897 /* ClubActivityRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClubActivityRepository.swift; sourceTree = "<group>"; };
 		CE47305E2879D1DB0050B897 /* FakeClubActivityRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeClubActivityRepository.swift; sourceTree = "<group>"; };
 		CE4730602879F6510050B897 /* MyPageFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageFormatter.swift; sourceTree = "<group>"; };
+		CE473062287A07A80050B897 /* MyPageSummaryBarModel+Stub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MyPageSummaryBarModel+Stub.swift"; sourceTree = "<group>"; };
+		CE473064287A082F0050B897 /* MyPageHeaderViewModel+Stub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MyPageHeaderViewModel+Stub.swift"; sourceTree = "<group>"; };
+		CE473066287A08D40050B897 /* ClubActivityHistoryCellModel+Stub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ClubActivityHistoryCellModel+Stub.swift"; sourceTree = "<group>"; };
 		CE4A6C04278B47040052F7E7 /* HTTPClient.swift */ = {isa = PBXFileReference; indentWidth = 4; lastKnownFileType = sourcecode.swift; path = HTTPClient.swift; sourceTree = "<group>"; };
 		CE4A6C08278B4A3C0052F7E7 /* NetworkConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkConfig.swift; sourceTree = "<group>"; };
 		CE58817C27EC856D0068D4E0 /* AttendanceTimeline+Stub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AttendanceTimeline+Stub.swift"; sourceTree = "<group>"; };
@@ -1381,11 +1389,14 @@
 			children = (
 				CE58817C27EC856D0068D4E0 /* AttendanceTimeline+Stub.swift */,
 				CE58818427EC98540068D4E0 /* AttendanceTimelineViewModel+Stub.swift */,
+				CE473062287A07A80050B897 /* MyPageSummaryBarModel+Stub.swift */,
 				CE58817E27EC85A00068D4E0 /* PartialAttendance+Stub.swift */,
 				CE58818627EC98670068D4E0 /* PartialAttendanceViewModel+Stub.swift */,
 				CE58818227EC97140068D4E0 /* QRSeminarCardViewModel+Stub.swift */,
 				CE58818027EC94120068D4E0 /* Seminar+Stub.swift */,
 				CE6EE86D27CA6302005BF412 /* UserSession+Stub.swift */,
+				CE473064287A082F0050B897 /* MyPageHeaderViewModel+Stub.swift */,
+				CE473066287A08D40050B897 /* ClubActivityHistoryCellModel+Stub.swift */,
 			);
 			path = TestDoubles;
 			sourceTree = "<group>";
@@ -1732,6 +1743,7 @@
 			children = (
 				CED3AB982849235200621B28 /* MashUp_User.docc */,
 				CED3AB972849235200621B28 /* MashUp_User.h */,
+				CE2E6AD6287A19BB003A03F8 /* Generation.swift */,
 				CE6EE82627C7C0A1005BF412 /* NewAccount.swift */,
 				CE6EE82227C7BF79005BF412 /* UserSession.swift */,
 			);
@@ -2467,8 +2479,10 @@
 				CE6EE85227CA26A6005BF412 /* SignInReactorSpec.swift in Sources */,
 				CE58818327EC97140068D4E0 /* QRSeminarCardViewModel+Stub.swift in Sources */,
 				CEB60F4327A9713B001260DB /* TestAppDelegate.swift in Sources */,
+				CE473063287A07A80050B897 /* MyPageSummaryBarModel+Stub.swift in Sources */,
 				CE9E735D27C294E800922D8B /* QRScanReactorSpec.swift in Sources */,
 				CE6EE86E27CA6302005BF412 /* UserSession+Stub.swift in Sources */,
+				CE473067287A08D40050B897 /* ClubActivityHistoryCellModel+Stub.swift in Sources */,
 				CE58818927EC9BAC0068D4E0 /* QRScanFormatterSpec.swift in Sources */,
 				0642C946285312D600B9F575 /* AttendanceMemberSpec.swift in Sources */,
 				CE58817F27EC85A00068D4E0 /* PartialAttendance+Stub.swift in Sources */,
@@ -2483,6 +2497,7 @@
 				CE58818727EC98670068D4E0 /* PartialAttendanceViewModel+Stub.swift in Sources */,
 				83BBB1B66AFB5F2C4E95E49C /* MashUp_iOSTests-MashUp_iOSMocks.generated.swift in Sources */,
 				B744438EC13403F0BDB16963 /* MashUp_iOSTests-MashUp_AuthMocks.generated.swift in Sources */,
+				CE473065287A082F0050B897 /* MyPageHeaderViewModel+Stub.swift in Sources */,
 				EDB9E3E1C1C0556600627702 /* MashUp_iOSTests-MashUp_CoreMocks.generated.swift in Sources */,
 				9BA399D8AC75574F51FAC517 /* MashUp_iOSTests-MashUp_NetworkMocks.generated.swift in Sources */,
 				07900EC9117FCF2FA8E23F03 /* MashUp_iOSTests-MashUp_PlatformTeamMocks.generated.swift in Sources */,
@@ -2627,6 +2642,7 @@
 				CED3ABB22849245E00621B28 /* UserSession.swift in Sources */,
 				CED3ABA32849235C00621B28 /* NewAccount.swift in Sources */,
 				CED3AB992849235200621B28 /* MashUp_User.docc in Sources */,
+				CE2E6AD7287A19BB003A03F8 /* Generation.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

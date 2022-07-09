@@ -106,7 +106,8 @@ extension RootController {
             id: "fake.user.id",
             accessToken: "fake.access.token",
             name: "fake.user.name",
-            platformTeam: .iOS
+            platformTeam: .iOS,
+            generations: [12]
         )
          
         
