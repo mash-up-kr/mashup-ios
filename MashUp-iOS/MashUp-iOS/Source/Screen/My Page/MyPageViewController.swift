@@ -209,7 +209,7 @@ extension MyPageViewController {
     }
     
     private func makeAttendanceScoreRuleViewController() -> UIViewController {
-        return MyPageRuleViewController()
+        return AttendanceScoreRuleViewController()
     }
     
 }
@@ -246,24 +246,3 @@ extension MyPageViewController: UITableViewDelegate {
     }
     
 }
-
-//extension MyPageViewController: UITableViewDataSource {
-//
-//    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        return 100
-//    }
-//
-//    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        let model = AttendanceScoreHistoryCellModel(
-//            historyTitle: "전체 세미나 지각",
-//            description: "2022.03.05 | 2차 전체 세미나",
-//            scoreChangeStyle: [.addition("+1점"), .deduction("-1점"), .custom("💖 🔫")].randomElement()!,
-//            appliedTotalScoreText: "4점"
-//        )
-//        return AttendanceScoreHistoryCell().then {
-//            $0.configure(with: model)
-//        }
-//    }
-//
-//
-//}

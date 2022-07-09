@@ -30,7 +30,7 @@
 		06531C382840C7C500E225EB /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 06531C372840C7C500E225EB /* Colors.xcassets */; };
 		0688CB42284B223B00338A5C /* PlatformTeam+Presentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0688CB41284B223B00338A5C /* PlatformTeam+Presentation.swift */; };
 		06D9F072286C0E0A005786A3 /* MUAlertAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06D9F071286C0E0A005786A3 /* MUAlertAction.swift */; };
-		06D9F074286C285F005786A3 /* MyPageRuleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06D9F073286C285F005786A3 /* MyPageRuleViewController.swift */; };
+		06D9F074286C285F005786A3 /* AttendanceScoreRuleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06D9F073286C285F005786A3 /* AttendanceScoreRuleViewController.swift */; };
 		06D9F076286C3F06005786A3 /* RuleHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06D9F075286C3F06005786A3 /* RuleHeaderView.swift */; };
 		06D9F078286C7896005786A3 /* DotLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06D9F077286C7896005786A3 /* DotLabel.swift */; };
 		07900EC9117FCF2FA8E23F03 /* MashUp_iOSTests-MashUp_PlatformTeamMocks.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF06792B8FCEDBC254B599C /* MashUp_iOSTests-MashUp_PlatformTeamMocks.generated.swift */; };
@@ -613,7 +613,7 @@
 		0688CB41284B223B00338A5C /* PlatformTeam+Presentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PlatformTeam+Presentation.swift"; sourceTree = "<group>"; };
 		0688CB43284E255800338A5C /* PlatformAttendanceHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlatformAttendanceHeaderView.swift; sourceTree = "<group>"; };
 		06D9F071286C0E0A005786A3 /* MUAlertAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MUAlertAction.swift; sourceTree = "<group>"; };
-		06D9F073286C285F005786A3 /* MyPageRuleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageRuleViewController.swift; sourceTree = "<group>"; };
+		06D9F073286C285F005786A3 /* AttendanceScoreRuleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttendanceScoreRuleViewController.swift; sourceTree = "<group>"; };
 		06D9F075286C3F06005786A3 /* RuleHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RuleHeaderView.swift; sourceTree = "<group>"; };
 		06D9F077286C7896005786A3 /* DotLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DotLabel.swift; sourceTree = "<group>"; };
 		093B68049842CE18EA5AAB9B /* MashUp_iOSTests-MashUp_iOSMocks.generated.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; name = "MashUp_iOSTests-MashUp_iOSMocks.generated.swift"; path = "MockingbirdMocks/MashUp_iOSTests-MashUp_iOSMocks.generated.swift"; sourceTree = "<group>"; };
@@ -1766,8 +1766,8 @@
 		CEDC9F842878470900221683 /* AttendanceScoreRule */ = {
 			isa = PBXGroup;
 			children = (
+				06D9F073286C285F005786A3 /* AttendanceScoreRuleViewController.swift */,
 				06D9F077286C7896005786A3 /* DotLabel.swift */,
-				06D9F073286C285F005786A3 /* MyPageRuleViewController.swift */,
 				06D9F075286C3F06005786A3 /* RuleHeaderView.swift */,
 			);
 			path = AttendanceScoreRule;
@@ -2401,7 +2401,7 @@
 				06D9F076286C3F06005786A3 /* RuleHeaderView.swift in Sources */,
 				CE729A8127E57EC1001D33D1 /* AttendanceTimeline.swift in Sources */,
 				CE7CCBA42855FFA1005AA690 /* TermsAgreementReactor.swift in Sources */,
-				06D9F074286C285F005786A3 /* MyPageRuleViewController.swift in Sources */,
+				06D9F074286C285F005786A3 /* AttendanceScoreRuleViewController.swift in Sources */,
 				CE6EE86627CA495F005BF412 /* SeminarSchduleStep.swift in Sources */,
 				CEB60F4827A9746E001260DB /* QRReaderService.swift in Sources */,
 				CE729A8D27E60FD2001D33D1 /* QRScanFormatter.swift in Sources */,
