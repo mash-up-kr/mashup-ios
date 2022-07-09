@@ -95,6 +95,7 @@ extension MyPageHeaderView {
         self.scoreCardView.do {
             $0.backgroundColor = .white
             $0.layer.cornerRadius = 12
+            $0.isUserInteractionEnabled = true
             $0.addShadow(x: 0, y: 2, color: .black.withAlphaComponent(0.1), radius: 20)
             $0.image = UIImage(named: "mypage_card")
         }
@@ -110,8 +111,6 @@ extension MyPageHeaderView {
         self.questionMarkButton.do {
             let questionMarkImage = UIImage.info?.resized(width: 18, height: 18).withTintColor(.white)
             $0.setImage(questionMarkImage, for: .normal)
-            $0.clipsToBounds = true
-            $0.layer.cornerRadius = 9
             $0.addTarget(self, action: #selector(didTapQuestionMarkButton(_:)), for: .touchUpInside)
         }
         let tap5TimesGesture = UITapGestureRecognizer(target: self, action: #selector(didTap10TimesMascot(_:))).then { $0.numberOfTapsRequired = 5 }
@@ -168,8 +167,8 @@ extension MyPageHeaderView {
         stackView.addArrangedSubview(self.scoreTitleLabel)
         self.scoreCardView.addSubview(self.questionMarkButton)
         self.questionMarkButton.snp.makeConstraints {
-            $0.top.trailing.equalToSuperview().inset(13)
-            $0.width.height.equalTo(18)
+            $0.top.trailing.equalToSuperview()
+            $0.width.height.equalTo(40)
         }
         self.scoreCardView.addSubview(stackView)
         stackView.snp.makeConstraints {

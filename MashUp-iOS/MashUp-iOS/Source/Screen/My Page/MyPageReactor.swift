@@ -60,12 +60,12 @@ class MyPageReactor: Reactor {
         let generationHeader2 = MyPageSection.HistoryHeader(generationText: "11기")
         let historyItems2: [MyPageSection.Item] = (0..<10).map { _ in .history(randomItem()) }
         
-//        let sections: [MyPageSection] = [
-//            .title(titleHeader),
-//            .historys(generationHeader1, items: historyItems1),
-//            .historys(generationHeader2, items: historyItems2),
-//        ]
-        let sections: [MyPageSection] = [.empty]
+        let sections: [MyPageSection] = [
+            .title(titleHeader),
+            .historys(generationHeader1, items: historyItems1),
+            .historys(generationHeader2, items: historyItems2),
+        ]
+//        let sections: [MyPageSection] = [.title(titleHeader), .empty]
         return sections
     }
     

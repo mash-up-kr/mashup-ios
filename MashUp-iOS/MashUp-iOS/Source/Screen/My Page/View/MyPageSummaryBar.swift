@@ -66,12 +66,8 @@ extension MyPageSummaryBar {
             $0.text = "총 출석점수"
         }
         self.questionMarkButton.do {
-            $0.backgroundColor = .gray200
-            $0.clipsToBounds = true
-            $0.layer.cornerRadius = 6
-            $0.setTitle("?", for: .normal)
-            $0.setTitleColor(.gray600, for: .normal)
-            $0.titleLabel?.font = .pretendardFont(weight: .bold, size: 8)
+            let questionMarkImage = UIImage.info?.resized(width: 14, height: 14).withTintColor(.white)
+            $0.setImage(questionMarkImage, for: .normal)
             $0.addTarget(self, action: #selector(didTapQuestionMarkButton(_:)), for: .touchUpInside)
         }
         self.totalAttendanceScoreLabel.do {
@@ -93,9 +89,9 @@ extension MyPageSummaryBar {
         }
         self.addSubview(self.questionMarkButton)
         self.questionMarkButton.snp.makeConstraints {
-            $0.leading.equalTo(self.scoreTitleLabel.snp.trailing).offset(4)
+            $0.leading.equalTo(self.scoreTitleLabel.snp.trailing).offset(-9)
             $0.centerY.equalTo(self.scoreTitleLabel)
-            $0.width.height.equalTo(12)
+            $0.width.height.equalTo(40)
         }
         self.addSubview(self.totalAttendanceScoreLabel)
         self.totalAttendanceScoreLabel.snp.makeConstraints {

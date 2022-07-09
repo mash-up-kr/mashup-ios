@@ -27,6 +27,7 @@ final class MyPageSummaryBarDelegateProxy:
     DelegateProxy<MyPageSummaryBar, MyPageSummaryBarDelegate>,
     DelegateProxyType,
     MyPageSummaryBarDelegate {
+    
     static func registerKnownImplementations() {
         self.register {
             myPageSummaryBar -> MyPageSummaryBarDelegateProxy in
@@ -41,6 +42,5 @@ final class MyPageSummaryBarDelegateProxy:
     static func setCurrentDelegate(_ delegate: MyPageSummaryBarDelegate?, to object: MyPageSummaryBar) {
         object.delegate = delegate
     }
-    
     
 }
