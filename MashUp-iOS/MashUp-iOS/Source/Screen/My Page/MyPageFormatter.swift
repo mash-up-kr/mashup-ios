@@ -34,13 +34,15 @@ final class MyPageFormatterImp: MyPageFormatter {
     
     func formatSections(with histories: [Generation: [ClubActivityHistory]]) -> [MyPageSection] {
         let titleHeader = MyPageSection.TitleHeader(title: "활동 히스토리")
-        let historySections: [MyPageSection] = histories.map { generation, histories in
-            let header = MyPageSection.HistoryHeader(generationText: generation.description)
-            let items: [MyPageSection.Item] = histories
-                .map { self.formatCell(history: $0) }
-                .map { .history($0) }
-            return MyPageSection.histories(header, items: items)
-        }
+        let historySections: [MyPageSection] = histories
+            .filter { _, histories in histories.isNotEmpty }
+            .map { generation, histories in
+                let header = MyPageSection.HistoryHeader(generationText: generation.description)
+                let items: [MyPageSection.Item] = histories
+                    .map { self.formatCell(history: $0) }
+                    .map { .history($0) }
+                return MyPageSection.histories(header, items: items)
+            }
         
         let sections: [MyPageSection] = historySections.isNotEmpty
         ? [.title(titleHeader)] + historySections
