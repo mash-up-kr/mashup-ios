@@ -13,7 +13,7 @@ import MashUp_Network
 
 final class ClubActivityRepositoryImp: ClubActivityRepository {
     
-    init(network: Network = HTTPClient()) {
+    init(network: any Network = HTTPClient()) {
         self.network = network
     }
     
