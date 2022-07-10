@@ -22,7 +22,6 @@ final class MyPageViewController: BaseViewController, View {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = .systemGreen
         
         self.setupAttribute()
         self.setupLayout()
