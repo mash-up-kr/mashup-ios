@@ -27,6 +27,6 @@ final class ClubActivityRepositoryImp: ClubActivityRepository {
         return .empty()
     }
     
-    private let network: Network
+    private let network: any Network
     
 }
