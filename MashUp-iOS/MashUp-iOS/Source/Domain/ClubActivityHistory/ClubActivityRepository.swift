@@ -11,7 +11,7 @@ import MashUp_User
 import Foundation
 import MashUp_Network
 
-class ClubActivityRepositoryImp: ClubActivityRepository {
+final class ClubActivityRepositoryImp: ClubActivityRepository {
     
     init(network: Network = HTTPClient()) {
         self.network = network
