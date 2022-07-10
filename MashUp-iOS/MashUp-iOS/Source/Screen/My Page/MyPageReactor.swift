@@ -74,7 +74,7 @@ class MyPageReactor: Reactor {
             let loadTotalScore = self.clubActivityService.totalClubActivityScore().share()
 
             let updateTotalScore: Observable<Mutation> = loadTotalScore
-                .map { .updateTotalClubActivityScore($0)}
+                .map { .updateTotalClubActivityScore($0) }
             let updateSummaryBar: Observable<Mutation> =  loadTotalScore
                 .map { self.formatter.formatSummaryBar(userSession: self.currentState.user, totalScore: $0) }
                 .map { .updateSummaryBar($0) }
