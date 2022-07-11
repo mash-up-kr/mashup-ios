@@ -12,22 +12,22 @@ import ReactorKit
 import MashUp_UIKit
 import RxOptional
 
-public final class MembershipWithdrawalViewController: BaseViewController, ReactorKit.View {
+final class MembershipWithdrawalViewController: BaseViewController, ReactorKit.View {
     private let navigationBar: MUNavigationBar = MUNavigationBar()
     private let realLeavingLabel: UILabel = UILabel()
     private let confirmTextField: MUTextField = MUTextField()
     private let dontForgetView: DontForgetMashUpView = DontForgetMashUpView()
     private let withdrawalButton: MUButton = MUButton()
+    private let keyboardFrameView: KeyboardFrameView = KeyboardFrameView()
+    var disposeBag: DisposeBag = DisposeBag()
     
-    public var disposeBag: DisposeBag = DisposeBag()
-    
-    public override func viewDidLoad() {
+    override func viewDidLoad() {
         super.viewDidLoad()
         
         setupUI()
     }
     
-    public func bind(reactor: MembershipWithdrawalReactor) {
+    func bind(reactor: MembershipWithdrawalReactor) {
         confirmTextField.rx.text.orEmpty
             .skip(1)
             .distinctUntilChanged()
@@ -77,6 +77,8 @@ public final class MembershipWithdrawalViewController: BaseViewController, React
         view.addSubview(confirmTextField)
         view.addSubview(dontForgetView)
         view.addSubview(withdrawalButton)
+        view.addSubview(keyboardFrameView)
+        
         navigationBar.snp.makeConstraints {
             $0.height.equalTo(56)
             $0.leading.top.trailing.equalToSuperview()
@@ -96,8 +98,11 @@ public final class MembershipWithdrawalViewController: BaseViewController, React
             $0.trailing.equalToSuperview().offset(-20)
             $0.bottom.equalToSuperview().offset(-100)
         }
+        keyboardFrameView.snp.makeConstraints {
+            $0.directionalHorizontalEdges.bottom.equalToSuperview()
+        }
         withdrawalButton.snp.makeConstraints {
-            $0.bottom.equalToSuperview().offset(-28)
+            $0.bottom.equalTo(keyboardFrameView.snp.top).offset(-28)
             $0.leading.equalToSuperview().offset(20)
             $0.trailing.equalToSuperview().offset(-20)
             $0.height.equalTo(52)

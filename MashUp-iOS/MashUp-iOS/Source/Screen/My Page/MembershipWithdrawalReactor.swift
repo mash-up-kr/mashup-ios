@@ -9,27 +9,27 @@
 import Foundation
 import ReactorKit
 
-public final class MembershipWithdrawalReactor: Reactor {
-    public enum Action {
+final class MembershipWithdrawalReactor: Reactor {
+    enum Action {
         case didEditConfirmTextField(String)
         case didTapWithdrawalButton
     }
     
-    public enum Mutation {
+    enum Mutation {
         case updateConfirmText(String)
         case updateValidate(Bool)
         case withdrawal(Bool)
         case occurError(Error)
     }
     
-    public struct State {
+    struct State {
         var confirmText: String?
         var isValidated: Bool?
         @Pulse var isSuccessfulWithdrawal: Bool?
         @Pulse var error: Error?
     }
     
-    public var initialState: State = State()
+    var initialState: State = State()
     
     private let service: MembershipWithdrawalService
     
@@ -37,7 +37,7 @@ public final class MembershipWithdrawalReactor: Reactor {
         self.service = service
     }
     
-    public func mutate(action: Action) -> Observable<Mutation> {
+    func mutate(action: Action) -> Observable<Mutation> {
         switch action {
         case .didEditConfirmTextField(let text):
             let validateObservable = checkValidate(text: text)
@@ -57,7 +57,7 @@ public final class MembershipWithdrawalReactor: Reactor {
         return .just(.updateValidate(text == validateString))
     }
     
-    public func reduce(state: State, mutation: Mutation) -> State {
+    func reduce(state: State, mutation: Mutation) -> State {
         var state = state
         
         switch mutation {
