@@ -29,8 +29,8 @@ final class MembershipWithdrawalViewController: BaseViewController, ReactorKit.V
     
     func bind(reactor: MembershipWithdrawalReactor) {
         confirmTextField.rx.text.orEmpty
-            .skip(1)
             .distinctUntilChanged()
+            .skip(1)
             .map { .didEditConfirmTextField($0) }
             .bind(to: reactor.action)
             .disposed(by: disposeBag)
