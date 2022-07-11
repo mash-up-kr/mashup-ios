@@ -36,7 +36,6 @@ final class MembershipWithdrawalViewController: BaseViewController, ReactorKit.V
             .disposed(by: disposeBag)
         
         let isValidatedObservable = reactor.state.compactMap { $0.isValidated }
-            .distinctUntilChanged()
             .onMain()
             .share()
             
@@ -46,6 +45,7 @@ final class MembershipWithdrawalViewController: BaseViewController, ReactorKit.V
             .disposed(by: disposeBag)
         
         isValidatedObservable
+            .distinctUntilChanged()
             .bind(to: withdrawalButton.rx.isEnabled)
             .disposed(by: disposeBag)
         
