@@ -8,6 +8,8 @@
 
 import Foundation
 import RxSwift
+import Alamofire
+import MashUp_Core
 import Moya
 import RxMoya
 
@@ -22,11 +24,18 @@ public final class HTTPClient: Network {
             let response = try await self.provider.rx.request(erasedAPI).value
             let responseModel = try decoder.decode(ResponseModel<API.Response>.self, from: response.data)
             return .success(responseModel.data)
+        } catch let error as AFError {
+            Logger.log(error.localizedDescription, .error)
+            if error.isExplicitlyCancelledError { return .failure(.cancelled) }
+            else { return .failure(.undefined(error)) }
         } catch let error as MoyaError {
-            return .failure(.moyaError(error))
+            Logger.log(error.localizedDescription)
+            return .failure(.undefined(error))
         } catch let error as DecodingError {
-            return .failure(.decodeFailure(error))
+            Logger.log(error.localizedDescription)
+            return .failure(.undefined(error))
         } catch {
+            Logger.log(error.localizedDescription, .error)
             return .failure(.undefined(error))
         }
     }
