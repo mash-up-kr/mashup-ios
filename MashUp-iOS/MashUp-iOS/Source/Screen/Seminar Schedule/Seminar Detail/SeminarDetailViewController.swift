@@ -43,6 +43,12 @@ final class SeminarDetailViewController: BaseViewController, ReactorKit.View {
         super.viewDidLoad()
         self.setupUI()
         self.applySections([firstDummy,secondDummy])
+        #warning("reactor 생성 후 옮겨줘야 합니다.")
+        self.goToBackButton.rx.tap
+            .subscribe(onNext: { [weak self] in
+                self?.navigationController?.popViewController(animated: true)
+            })
+            .disposed(by: self.disposeBag)
     }
     
     override func viewDidLayoutSubviews() {
@@ -170,7 +176,7 @@ extension SeminarDetailViewController {
             supplementaryViewProvider: { collectionView, elementKind, indexPath in
                 if elementKind == UICollectionView.elementKindSectionFooter {
                     let footer = collectionView.dequeueSupplementaryFooterView(SeminarDetailFooterView.self, for: indexPath)
-                    footer?.isSeperatorViewHidden = indexPath.section == 1 
+                    footer?.isSeperatorViewHidden = indexPath.section == 1
                     return footer
                 } else if elementKind == UICollectionView.elementKindSectionHeader {
                     guard let sectionType = SeminarDetailSectionType(rawValue: indexPath.section) else { return nil }
