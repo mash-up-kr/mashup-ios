@@ -23,10 +23,15 @@ public final class HTTPClient: Network {
             let result = try await self._request(api)
             return .success(result)
         } catch let error as MashUpError where error.asInternalError() == .unauthorized {
-            guard error.asInternalError() == .unauthorized else { return .failure(.mashUpError(error)) }
+            guard self.needToUpdateToken(whenOccurs: error) else {
+                return .failure(.mashUpError(error))
+            }
             await self.updateAccessToken()
-            guard let result = try? await self._request(api) else { return .failure(.mashUpError(error)) }
-            return .success(result)
+            guard let retryResult = try? await self._request(api) else {
+                self.clearAccessToken()
+                return .failure(.mashUpError(error))
+            }
+            return .success(retryResult)
         } catch {
             return .failure(.undefined(error))
         }
@@ -48,10 +53,6 @@ public final class HTTPClient: Network {
         return responseModel.data
     }
     
-    private func updateAccessToken() async {
-        #warning("토큰 업데이트 구현 - booung")
-    }
-    
     private func prehandleError(_ error: Error) -> NetworkError {
         Logger.log(error.localizedDescription, .error)
         
@@ -61,6 +62,18 @@ public final class HTTPClient: Network {
         default:
             return .undefined(error)
         }
+    }
+    
+    private func needToUpdateToken(whenOccurs error: MashUpError) -> Bool {
+        return error.asInternalError() == .unauthorized
+    }
+    
+    private func updateAccessToken() async {
+        #warning("토큰 업데이트 구현 - booung")
+    }
+    
+    private func clearAccessToken() {
+        #warning("토큰 정리 구현 - booung")
     }
     
     private let provider = MoyaProvider<MultiTarget>()
