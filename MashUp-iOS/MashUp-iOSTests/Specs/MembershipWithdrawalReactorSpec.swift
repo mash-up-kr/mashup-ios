@@ -50,7 +50,7 @@ final class MembershipWithdrawalReactorSpec: QuickSpec {
           reactor.action.onNext(.didTapWithdrawalButton)
         }
         it("회원탈퇴 통신성공") {
-          expect { reactor.currentState.isSuccessfulWithdrawal }.to(beTrue())
+          expect { reactor.currentState.isWithdrawnOfMembership }.to(beTrue())
         }
       }
       
@@ -63,7 +63,7 @@ final class MembershipWithdrawalReactorSpec: QuickSpec {
           reactor.action.onNext(.didTapWithdrawalButton)
         }
         it("회원탈퇴 통신실패") {
-          expect { reactor.currentState.isSuccessfulWithdrawal }.to(beFalse())
+          expect { reactor.currentState.isWithdrawnOfMembership }.to(beFalse())
         }
       }
       
@@ -77,7 +77,7 @@ final class MembershipWithdrawalReactorSpec: QuickSpec {
           reactor.action.onNext(.didTapWithdrawalButton)
         }
         it("회원탈퇴 통신실패") {
-          expect { reactor.currentState.isSuccessfulWithdrawal }.to(beFalse())
+          expect { reactor.currentState.isWithdrawnOfMembership }.to(beFalse())
         }
         it("에러 표시") {
           expect { reactor.currentState.error }.to(matchError(error))

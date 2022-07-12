@@ -49,7 +49,7 @@ final class MembershipWithdrawalViewController: BaseViewController, ReactorKit.V
             .bind(to: withdrawalButton.rx.isEnabled)
             .disposed(by: disposeBag)
         
-        reactor.pulse { $0.$isSuccessfulWithdrawal }
+        reactor.pulse { $0.$isWithdrawnOfMembership }
             .compactMap { $0 }
             .onMain()
             .subscribe(onNext: {

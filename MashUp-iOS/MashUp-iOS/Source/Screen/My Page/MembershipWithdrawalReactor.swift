@@ -25,7 +25,7 @@ final class MembershipWithdrawalReactor: Reactor {
     struct State {
         var confirmText: String?
         var isValidated: Bool?
-        @Pulse var isSuccessfulWithdrawal: Bool?
+        @Pulse var isWithdrawnOfMembership: Bool?
         @Pulse var error: Error?
     }
     
@@ -66,7 +66,7 @@ final class MembershipWithdrawalReactor: Reactor {
         case .updateValidate(let isValidated):
             state.isValidated = isValidated
         case .withdrawal(let isSuccessful):
-            state.isSuccessfulWithdrawal = isSuccessful
+            state.isWithdrawnOfMembership = isSuccessful
         case .occurError(let error):
             state.error = error
         }
