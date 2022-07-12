@@ -24,6 +24,11 @@ final class SeminarDetailFooterView: UICollectionView.ReusableView {
     }
     
     private let seperatorView = UIView()
+    var isSeperatorViewHidden: Bool {
+        get { seperatorView.isHidden }
+        set { seperatorView.isHidden = newValue }
+    }
+    
 }
 
 extension SeminarDetailFooterView {

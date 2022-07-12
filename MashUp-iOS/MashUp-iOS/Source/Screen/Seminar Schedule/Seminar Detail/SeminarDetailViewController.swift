@@ -170,6 +170,7 @@ extension SeminarDetailViewController {
             supplementaryViewProvider: { collectionView, elementKind, indexPath in
                 if elementKind == UICollectionView.elementKindSectionFooter {
                     let footer = collectionView.dequeueSupplementaryFooterView(SeminarDetailFooterView.self, for: indexPath)
+                    footer?.isSeperatorViewHidden = indexPath.section == 1 
                     return footer
                 } else if elementKind == UICollectionView.elementKindSectionHeader {
                     guard let sectionType = SeminarDetailSectionType(rawValue: indexPath.section) else { return nil }
