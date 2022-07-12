@@ -41,8 +41,11 @@ public final class HTTPClient: Network {
         let response = try await self.provider.rx.request(erasedAPI).value
         let responseModel = try decoder.decode(ResponseModel<API.Response>.self, from: response.data)
         
-        if responseModel.isSuccess { return responseModel.data }
-        else { throw MashUpError(code: responseModel.code, message: responseModel.message) }
+        guard responseModel.isSuccess else {
+            throw MashUpError(code: responseModel.code, message: responseModel.message)
+        }
+        
+        return responseModel.data
     }
     
     private func updateAccessToken() async {
