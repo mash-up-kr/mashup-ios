@@ -19,38 +19,34 @@ public final class HTTPClient: Network {
     public init() {}
     
     public func request<API: MashUpAPI>(_ api: API) async -> Result<API.Response, NetworkError> {
-        let erasedAPI = MultiTarget(api)
         do {
-            let response = try await self.provider.rx.request(erasedAPI).value
-            let responseModel = try decoder.decode(ResponseModel<API.Response>.self, from: response.data)
-            
-            if responseModel.isSuccess {
-                return .success(responseModel.data)
-            } else {
-                let mashUpError = MashUpError(code: responseModel.code, message: responseModel.message)
-                if let internalError = mashUpError.asInternalError() {
-                    switch internalError {
-                    case .unauthorized:
-                        #warning("토큰 업데이트 구현 - booung")
-                        Logger.log(mashUpError.message, .error)
-                        #warning("재요청 구현 - booung")
-                        return .failure(.undefined(mashUpError.message))
-                    default:
-                        Logger.log(mashUpError.message, .error)
-                        return .failure(.undefined(mashUpError.message))
-                    }
-                } else {
-                    return .failure(.undefined(String.empty))
-                }
-            }
+            let result = try await self._request(api)
+            return .success(result)
+        } catch let error as MashUpError where error.asInternalError() == .unauthorized {
+            guard error.asInternalError() == .unauthorized else { return .failure(.mashUpError(error)) }
+            await self.updateAccessToken()
+            guard let result = try? await self._request(api) else { return .failure(.mashUpError(error)) }
+            return .success(result)
         } catch {
-            let networkError = self.prehandleError(error)
-            return .failure(networkError)
+            return .failure(.undefined(error))
         }
     }
     
     public func request<API: MashUpAPI>(_ api: API) -> Observable<Result<API.Response, NetworkError>> {
         return AsyncStream { await self.request(api) }.asObservable()
+    }
+    
+    private func _request<API: MashUpAPI>(_ api: API) async throws -> API.Response {
+        let erasedAPI = MultiTarget(api)
+        let response = try await self.provider.rx.request(erasedAPI).value
+        let responseModel = try decoder.decode(ResponseModel<API.Response>.self, from: response.data)
+        
+        if responseModel.isSuccess { return responseModel.data }
+        else { throw MashUpError(code: responseModel.code, message: responseModel.message) }
+    }
+    
+    private func updateAccessToken() async {
+        #warning("토큰 업데이트 구현 - booung")
     }
     
     private func prehandleError(_ error: Error) -> NetworkError {
