@@ -60,6 +60,7 @@
 		CE307A05285DE1B50092C09A /* MyPageSummaryBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE307A04285DE1B50092C09A /* MyPageSummaryBar.swift */; };
 		CE307A07285DE50E0092C09A /* MyPageSummaryBar+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE307A06285DE50E0092C09A /* MyPageSummaryBar+Rx.swift */; };
 		CE307A09285DE74D0092C09A /* ClubActivityHistoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE307A08285DE74D0092C09A /* ClubActivityHistoryCell.swift */; };
+		CE348205287D82FE00B74429 /* MashUpError.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE348204287D82FE00B74429 /* MashUpError.swift */; };
 		CE396080278B3CB40073AEF4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE39607F278B3CB40073AEF4 /* AppDelegate.swift */; };
 		CE396089278B3CB60073AEF4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE396088278B3CB60073AEF4 /* Assets.xcassets */; };
 		CE39608C278B3CB60073AEF4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE39608A278B3CB60073AEF4 /* LaunchScreen.storyboard */; };
@@ -656,6 +657,7 @@
 		CE307A04285DE1B50092C09A /* MyPageSummaryBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageSummaryBar.swift; sourceTree = "<group>"; };
 		CE307A06285DE50E0092C09A /* MyPageSummaryBar+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MyPageSummaryBar+Rx.swift"; sourceTree = "<group>"; };
 		CE307A08285DE74D0092C09A /* ClubActivityHistoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClubActivityHistoryCell.swift; sourceTree = "<group>"; };
+		CE348204287D82FE00B74429 /* MashUpError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MashUpError.swift; sourceTree = "<group>"; };
 		CE39607C278B3CB40073AEF4 /* MashUp-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "MashUp-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE39607F278B3CB40073AEF4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CE396088278B3CB60073AEF4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -1518,12 +1520,14 @@
 				CE9C1D9628467E500020FBCE /* MashUp_Core.h */,
 				06FE4FAC2872BC4600AAA8B7 /* ImageSource.swift */,
 				CE6EE84227C7F933005BF412 /* Logger.swift */,
+				CE348204287D82FE00B74429 /* MashUpError.swift */,
 				CED3ABC628494F0F00621B28 /* Base */,
 				CED3ABCC28494F1000621B28 /* Foundation+ */,
 				CED3ABD528494F1000621B28 /* Rx+ */,
 				CED3ABD828494F1000621B28 /* UIKit+ */,
 				CED3ABDE28494F1000621B28 /* View */,
 			);
+			indentWidth = 4;
 			path = "MashUp-Core";
 			sourceTree = "<group>";
 		};
@@ -1661,6 +1665,7 @@
 				CE9BE1072848E9E1006691F0 /* Model */,
 				CE9BE09A2848D1E1006691F0 /* Network */,
 			);
+			indentWidth = 4;
 			path = "MashUp-Network";
 			sourceTree = "<group>";
 		};
@@ -2531,6 +2536,7 @@
 				CED3ABEB28494F1000621B28 /* Optional+.swift in Sources */,
 				CED3ABF228494F1000621B28 /* UICollectionView+.swift in Sources */,
 				0642C94A285332F000B9F575 /* UIView+.swift in Sources */,
+				CE348205287D82FE00B74429 /* MashUpError.swift in Sources */,
 				CED3ABE828494F1000621B28 /* String+.swift in Sources */,
 				CE6A96452853B91200F4C066 /* UIWindow+.swift in Sources */,
 				CE7CCBA22855FE28005AA690 /* EventHookingDelegate.swift in Sources */,
