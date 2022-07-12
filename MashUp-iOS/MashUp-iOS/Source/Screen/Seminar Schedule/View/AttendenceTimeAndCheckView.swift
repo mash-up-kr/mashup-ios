@@ -11,7 +11,7 @@ import Then
 import UIKit
 import MashUp_Core
 
-class AttendenceTimeAndCheckView: UIView {
+final class AttendenceTimeAndCheckView: UIView {
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -67,9 +67,7 @@ extension AttendenceTimeAndCheckView {
         }
         
         self.checkImageView.snp.makeConstraints {
-            $0.top.equalToSuperview().inset(0)
-            $0.leading.equalToSuperview().inset(0)
-            $0.bottom.equalToSuperview().inset(0)
+            $0.top.leading.bottom.equalToSuperview()
             $0.width.equalTo(34)
         }
         

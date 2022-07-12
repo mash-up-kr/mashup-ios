@@ -108,7 +108,7 @@ extension NowAttendenceView {
             $0.width.equalTo(1)
             $0.height.equalTo(34)
             $0.top.equalTo(self.secondAttendenceTimeAndCheckView.snp.bottom)
-            $0.leading.leading.equalTo(37)
+            $0.leading.equalTo(37)
         }
         self.finalAttendenceTimeAndCheckView.snp.makeConstraints {
             $0.height.equalTo(34)

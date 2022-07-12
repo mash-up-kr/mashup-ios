@@ -116,8 +116,7 @@ extension SeminarScheduleViewController {
         return UICollectionViewCompositionalLayout(sectionProvider: { index, _ in
             guard let sectionType = SeminarSectionType(rawValue: index) else { return nil }
             switch sectionType {
-//            case .upcoming: return .horizontalCardLayoutSection
-            case .total: return .horizontalCardLayoutSection
+            case .upcoming: return .horizontalCardLayoutSection
             }
         })
     }
@@ -131,7 +130,7 @@ extension SeminarScheduleViewController {
             collectionView: collectionView,
             cellProvider: { collectionView, indexPath, item in
                 switch item {
-                case .total(let model):
+                case .upcoming(let model):
                     let cell = collectionView.dequeueCell(SeminarCardCell.self, for: indexPath)
                     cell?.configure(with: model)
                     return cell

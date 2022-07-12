@@ -13,7 +13,7 @@ extension NSCollectionLayoutSection {
     public static var horizontalCardLayoutSection: NSCollectionLayoutSection {
         let itemSize = NSCollectionLayoutSize(
             widthDimension: .fractionalWidth(1),
-            heightDimension: NSCollectionLayoutDimension.estimated(162)
+            heightDimension: .fractionalHeight(1)
         )
         let item = NSCollectionLayoutItem(layoutSize: itemSize)
         

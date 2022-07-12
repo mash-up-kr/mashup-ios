@@ -23,6 +23,7 @@ final class SeminarDetailViewController: BaseViewController, ReactorKit.View {
     typealias Snapshot = NSDiffableDataSourceSnapshot<Section, Section.Item>
     
     var disposeBag = DisposeBag()
+#warning ("추후 테스트 데이터 지우기")
     var firstDummy = SeminarDetailSection.init(type: .first, items: [SeminarDetailCellModel.init(title: "안드j로이드팀 세미나", platform: "안드q로이드 팀", time: "93~14"),SeminarDetailCellModel.init(title: "안드로이드팀 세미나", platform: "안드로l이드 팀", time: "13~16"),SeminarDetailCellModel.init(title: "안드로qw이드팀 세미나", platform: "안드로이드 팀", time: "13~74")])
     
     var secondDummy = SeminarDetailSection.init(type: .second,
@@ -141,8 +142,7 @@ extension SeminarDetailViewController {
         self.goToBackButton.snp.makeConstraints {
             $0.height.equalTo(52)
             $0.bottom.equalToSuperview().inset(28)
-            $0.trailing.equalToSuperview().inset(20)
-            $0.leading.equalToSuperview().inset(20)
+            $0.trailing.leading.equalToSuperview().inset(20)
         }
         self.bottomSafeAreaView.snp.makeConstraints {
             $0.leading.trailing.bottom.equalToSuperview()
@@ -168,7 +168,6 @@ extension SeminarDetailViewController {
                 return cell
             },
             supplementaryViewProvider: { collectionView, elementKind, indexPath in
-                print("🔥",elementKind)
                 if elementKind == UICollectionView.elementKindSectionFooter {
                     let footer = collectionView.dequeueSupplementaryFooterView(SeminarDetailFooterView.self, for: indexPath)
                     return footer

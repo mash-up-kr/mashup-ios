@@ -10,14 +10,13 @@ import Foundation
 import RxDataSources
 
 enum SeminarSectionType: Int, Equatable {
-    case total
+    case upcoming
     
     var header: String {
         switch self {
-        case .total: return "다음 세미나 일정까지\n12일 남았습니다."
+        case .upcoming: return "다음 세미나 일정까지\n12일 남았습니다."
         }
     }
-    
 }
 
 struct SeminarSection: Hashable {
@@ -28,5 +27,5 @@ struct SeminarSection: Hashable {
 }
 
 enum SeminarSectionItem: Hashable {
-    case total(SeminarCardCellModel)
+    case upcoming(SeminarCardCellModel)
 }

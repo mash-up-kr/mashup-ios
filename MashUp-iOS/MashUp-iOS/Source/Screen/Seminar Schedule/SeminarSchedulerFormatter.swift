@@ -20,9 +20,9 @@ final class SeminarSchedulerFormatterImpl: SeminarSchedulerFormatter {
     ) -> [SeminarSection] {
         let totalItems = seminars
             .map { SeminarCardCellModel(from: $0) }
-            .map { SeminarSectionItem.total($0) }
+            .map { SeminarSectionItem.upcoming($0) }
         return [
-            SeminarSection(type: .total, items: totalItems)
+            SeminarSection(type: .upcoming, items: totalItems)
         ]
     }
     

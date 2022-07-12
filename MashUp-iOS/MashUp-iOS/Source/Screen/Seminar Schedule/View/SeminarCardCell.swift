@@ -106,8 +106,7 @@ extension SeminarCardCell {
             $0.edges.equalToSuperview()
         }
         self.dDayBadge.snp.makeConstraints {
-            $0.top.equalToSuperview().inset(20)
-            $0.leading.equalToSuperview().inset(20)
+            $0.top.leading.equalToSuperview().inset(20)
             $0.height.equalTo(24)
         }
         self.titleLabel.snp.makeConstraints {
@@ -125,18 +124,13 @@ extension SeminarCardCell {
             $0.leading.equalTo(calanderImageView.snp.trailing).offset(6)
         }
         self.myNowAttendence.snp.makeConstraints {
-
             $0.top.equalTo(self.timeLabel.snp.bottom).offset(20)
-            $0.leading.equalToSuperview().inset(20)
-            $0.trailing.equalToSuperview().inset(20)
+            $0.leading.trailing.equalToSuperview().inset(20)
         }
         self.attendanceButton.snp.makeConstraints {
             $0.height.equalTo(48)
             $0.top.equalTo(self.myNowAttendence.snp.bottom).offset(18)
-            $0.bottom.equalToSuperview().inset(20)
-            $0.leading.equalToSuperview().inset(20)
-            $0.trailing.equalToSuperview().inset(20)
+            $0.leading.trailing.equalToSuperview().inset(20)
         }
     }
-    
 }

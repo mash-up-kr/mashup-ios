@@ -23,7 +23,7 @@ final class SeminarDetailFooterView: UICollectionView.ReusableView {
         self.setupUI()
     }
     
-    private let footerView = UIView()
+    private let seperatorView = UIView()
 }
 
 extension SeminarDetailFooterView {
@@ -33,14 +33,14 @@ extension SeminarDetailFooterView {
     }
     
     private func setupAttribute() {
-        self.footerView.do {
+        self.seperatorView.do {
             $0.backgroundColor = .gray100
         }
     }
     
     private func setupLayout() {
-        self.addSubview(self.footerView)
-        self.footerView.snp.makeConstraints{
+        self.addSubview(self.seperatorView)
+        self.seperatorView.snp.makeConstraints{
             $0.height.equalTo(1)
             $0.top.equalToSuperview().inset(20)
             $0.leading.equalToSuperview()
