@@ -23,25 +23,45 @@ public final class HTTPClient: Network {
         do {
             let response = try await self.provider.rx.request(erasedAPI).value
             let responseModel = try decoder.decode(ResponseModel<API.Response>.self, from: response.data)
-            return .success(responseModel.data)
-        } catch let error as AFError {
-            Logger.log(error.localizedDescription, .error)
-            if error.isExplicitlyCancelledError { return .failure(.cancelled) }
-            else { return .failure(.undefined(error)) }
-        } catch let error as MoyaError {
-            Logger.log(error.localizedDescription)
-            return .failure(.undefined(error))
-        } catch let error as DecodingError {
-            Logger.log(error.localizedDescription)
-            return .failure(.undefined(error))
+            
+            if responseModel.isSuccess {
+                return .success(responseModel.data)
+            } else {
+                let mashUpError = MashUpError(code: responseModel.code, message: responseModel.message)
+                if let internalError = mashUpError.asInternalError() {
+                    switch internalError {
+                    case .unauthorized:
+                        #warning("토큰 업데이트 구현 - booung")
+                        Logger.log(mashUpError.message, .error)
+                        #warning("재요청 구현 - booung")
+                        return .failure(.undefined(mashUpError.message))
+                    default:
+                        Logger.log(mashUpError.message, .error)
+                        return .failure(.undefined(mashUpError.message))
+                    }
+                } else {
+                    return .failure(.undefined(String.empty))
+                }
+            }
         } catch {
-            Logger.log(error.localizedDescription, .error)
-            return .failure(.undefined(error))
+            let networkError = self.prehandleError(error)
+            return .failure(networkError)
         }
     }
     
     public func request<API: MashUpAPI>(_ api: API) -> Observable<Result<API.Response, NetworkError>> {
         return AsyncStream { await self.request(api) }.asObservable()
+    }
+    
+    private func prehandleError(_ error: Error) -> NetworkError {
+        Logger.log(error.localizedDescription, .error)
+        
+        switch error {
+        case let error as AFError where error.isExplicitlyCancelledError:
+            return .cancelled
+        default:
+            return .undefined(error)
+        }
     }
     
     private let provider = MoyaProvider<MultiTarget>()

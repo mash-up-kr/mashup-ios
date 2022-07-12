@@ -61,6 +61,7 @@
 		CE307A07285DE50E0092C09A /* MyPageSummaryBar+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE307A06285DE50E0092C09A /* MyPageSummaryBar+Rx.swift */; };
 		CE307A09285DE74D0092C09A /* ClubActivityHistoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE307A08285DE74D0092C09A /* ClubActivityHistoryCell.swift */; };
 		CE348205287D82FE00B74429 /* MashUpError.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE348204287D82FE00B74429 /* MashUpError.swift */; };
+		CE348208287D8E2900B74429 /* InternalError.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE348207287D8E2900B74429 /* InternalError.swift */; };
 		CE396080278B3CB40073AEF4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE39607F278B3CB40073AEF4 /* AppDelegate.swift */; };
 		CE396089278B3CB60073AEF4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE396088278B3CB60073AEF4 /* Assets.xcassets */; };
 		CE39608C278B3CB60073AEF4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE39608A278B3CB60073AEF4 /* LaunchScreen.storyboard */; };
@@ -658,6 +659,7 @@
 		CE307A06285DE50E0092C09A /* MyPageSummaryBar+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MyPageSummaryBar+Rx.swift"; sourceTree = "<group>"; };
 		CE307A08285DE74D0092C09A /* ClubActivityHistoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClubActivityHistoryCell.swift; sourceTree = "<group>"; };
 		CE348204287D82FE00B74429 /* MashUpError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MashUpError.swift; sourceTree = "<group>"; };
+		CE348207287D8E2900B74429 /* InternalError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InternalError.swift; sourceTree = "<group>"; };
 		CE39607C278B3CB40073AEF4 /* MashUp-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "MashUp-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE39607F278B3CB40073AEF4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CE396088278B3CB60073AEF4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -1134,6 +1136,15 @@
 			path = "Fake(deprecated)";
 			sourceTree = "<group>";
 		};
+		CE348206287D8E1400B74429 /* Error */ = {
+			isa = PBXGroup;
+			children = (
+				CE348207287D8E2900B74429 /* InternalError.swift */,
+				CE9BE0962848D1BC006691F0 /* NetworkError.swift */,
+			);
+			path = Error;
+			sourceTree = "<group>";
+		};
 		CE396073278B3CB40073AEF4 = {
 			isa = PBXGroup;
 			children = (
@@ -1492,7 +1503,6 @@
 				CE4A6C04278B47040052F7E7 /* HTTPClient.swift */,
 				CE9BE0982848D1DB006691F0 /* Network.swift */,
 				CE4A6C08278B4A3C0052F7E7 /* NetworkConfig.swift */,
-				CE9BE0962848D1BC006691F0 /* NetworkError.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -1662,6 +1672,7 @@
 				CEBAC7672847670400ABCC36 /* MashUp_Network.docc */,
 				CEBAC7662847670400ABCC36 /* MashUp_Network.h */,
 				CE9BE1052848E9E1006691F0 /* API */,
+				CE348206287D8E1400B74429 /* Error */,
 				CE9BE1072848E9E1006691F0 /* Model */,
 				CE9BE09A2848D1E1006691F0 /* Network */,
 			);
@@ -2596,6 +2607,7 @@
 				CEBAC7742847674E00ABCC36 /* HTTPClient.swift in Sources */,
 				CE9BE0992848D1DB006691F0 /* Network.swift in Sources */,
 				CE9BE10A2848E9E2006691F0 /* ResponseModel.swift in Sources */,
+				CE348208287D8E2900B74429 /* InternalError.swift in Sources */,
 				CE9BE1092848E9E2006691F0 /* MashUpAPI.swift in Sources */,
 				CEBAC7682847670400ABCC36 /* MashUp_Network.docc in Sources */,
 			);
