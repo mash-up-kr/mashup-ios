@@ -29,20 +29,20 @@ final class RootController: BaseViewController, ReactorKit.View {
     
     private func dispatch(to reactor: Reactor) {
         self.rx.viewDidLayoutSubviews.take(1).map { .didSetup }
-        .bind(to: reactor.action)
-        .disposed(by: self.disposeBag)
+            .bind(to: reactor.action)
+            .disposed(by: self.disposeBag)
     }
     
     private func consume(_ reactor: Reactor) {
         reactor.pulse(\.$step).compactMap { $0 }
-        .withUnretained(self)
-        .onMain()
-        .subscribe(onNext: { $0.move(to: $1) })
-        .disposed(by: self.disposeBag)
+            .withUnretained(self)
+            .onMain()
+            .subscribe(onNext: { $0.move(to: $1) })
+            .disposed(by: self.disposeBag)
     }
     
     #warning("DIContainer로 로직 이동해야합니다., 가구현체여서 실구현체로 대치되어야합니다")
-    let userAuthService = FakeUserAuthService()
+    private let userAuthServiceProvider = UserAuthServiceProvider()
     
 }
 // MARK: - Navigation
@@ -99,24 +99,26 @@ extension RootController {
     private func createSplashViewController() -> UIViewController? {
         guard let authenticationResponder = self.reactor else { return nil }
         
+        
+        let userAuthService = self.userAuthServiceProvider.provide()
         #warning("둘 중 하나만 주석을 푸시면 케이스 테스트 가능합니다.")
         
         // ✅ 자동 로그인 케이스 테스트
-        self.userAuthService.stubedUserSession = UserSession(
-            id: "fake.user.id",
-            accessToken: "fake.access.token",
-            name: "fake.user.name",
-            platformTeam: .iOS,
-            generations: [12]
-        )
-         
+        //        userAuthService.stubedUserSession = UserSession(
+        //            id: "fake.user.id",
+        //            accessToken: "fake.access.token",
+        //            name: "fake.user.name",
+        //            platformTeam: .iOS,
+        //            generations: [12]
+        //        )
+        
         
         // ❌ 자동 로그인 아닌 케이스 테스트
-//         self.userAuthService.stubedUserSession = nil
+//        userAuthService.stubedUserSession = nil
         
         let splashViewController = SplashViewController()
         splashViewController.reactor = SplashReactor(
-            userAuthService: self.userAuthService,
+            userAuthService: userAuthService,
             authenticationResponder: authenticationResponder
         )
         return splashViewController
@@ -124,9 +126,10 @@ extension RootController {
     
     private func createSignInViewController() -> UIViewController? {
         guard let authenticationResponder = self.reactor else { return nil }
+        let userAuthService = self.userAuthServiceProvider.provide()
         
         let reactor = SignInReactor(
-            userAuthService: self.userAuthService,
+            userAuthService: userAuthService,
             verificationService: VerificationServiceImpl(),
             authenticationResponder: authenticationResponder
         )

@@ -62,6 +62,12 @@
 		CE307A09285DE74D0092C09A /* ClubActivityHistoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE307A08285DE74D0092C09A /* ClubActivityHistoryCell.swift */; };
 		CE348205287D82FE00B74429 /* MashUpError.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE348204287D82FE00B74429 /* MashUpError.swift */; };
 		CE348208287D8E2900B74429 /* InternalError.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE348207287D8E2900B74429 /* InternalError.swift */; };
+		CE348218287F26EC00B74429 /* UserAuthServiceImp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE348217287F26EC00B74429 /* UserAuthServiceImp.swift */; };
+		CE34821A287F273100B74429 /* UserSessionRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE348219287F273100B74429 /* UserSessionRepository.swift */; };
+		CE34821C287F2AFE00B74429 /* SignUpAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE34821B287F2AFE00B74429 /* SignUpAPI.swift */; };
+		CE348220287F2E5E00B74429 /* SignUpResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE34821F287F2E5E00B74429 /* SignUpResponse.swift */; };
+		CE348222287F334700B74429 /* UserAuthServiceProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE348221287F334700B74429 /* UserAuthServiceProvider.swift */; };
+		CE348224287F377700B74429 /* SignUpError.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE348223287F377700B74429 /* SignUpError.swift */; };
 		CE396080278B3CB40073AEF4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE39607F278B3CB40073AEF4 /* AppDelegate.swift */; };
 		CE396089278B3CB60073AEF4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE396088278B3CB60073AEF4 /* Assets.xcassets */; };
 		CE39608C278B3CB60073AEF4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE39608A278B3CB60073AEF4 /* LaunchScreen.storyboard */; };
@@ -660,6 +666,12 @@
 		CE307A08285DE74D0092C09A /* ClubActivityHistoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClubActivityHistoryCell.swift; sourceTree = "<group>"; };
 		CE348204287D82FE00B74429 /* MashUpError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MashUpError.swift; sourceTree = "<group>"; };
 		CE348207287D8E2900B74429 /* InternalError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InternalError.swift; sourceTree = "<group>"; };
+		CE348217287F26EC00B74429 /* UserAuthServiceImp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAuthServiceImp.swift; sourceTree = "<group>"; };
+		CE348219287F273100B74429 /* UserSessionRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSessionRepository.swift; sourceTree = "<group>"; };
+		CE34821B287F2AFE00B74429 /* SignUpAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpAPI.swift; sourceTree = "<group>"; };
+		CE34821F287F2E5E00B74429 /* SignUpResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpResponse.swift; sourceTree = "<group>"; };
+		CE348221287F334700B74429 /* UserAuthServiceProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAuthServiceProvider.swift; sourceTree = "<group>"; };
+		CE348223287F377700B74429 /* SignUpError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpError.swift; sourceTree = "<group>"; };
 		CE39607C278B3CB40073AEF4 /* MashUp-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "MashUp-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE39607F278B3CB40073AEF4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CE396088278B3CB60073AEF4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -1143,6 +1155,25 @@
 				CE9BE0962848D1BC006691F0 /* NetworkError.swift */,
 			);
 			path = Error;
+			sourceTree = "<group>";
+		};
+		CE34821D287F2B0300B74429 /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				CE34821B287F2AFE00B74429 /* SignUpAPI.swift */,
+				CE34821F287F2E5E00B74429 /* SignUpResponse.swift */,
+				CE348219287F273100B74429 /* UserSessionRepository.swift */,
+			);
+			path = Repository;
+			sourceTree = "<group>";
+		};
+		CE34821E287F2B0C00B74429 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				CE6EE82427C7BF91005BF412 /* UserAuthService.swift */,
+				CE348217287F26EC00B74429 /* UserAuthServiceImp.swift */,
+			);
+			path = Service;
 			sourceTree = "<group>";
 		};
 		CE396073278B3CB40073AEF4 = {
@@ -1732,9 +1763,13 @@
 				CED3AB5C2849203100621B28 /* MashUp_Auth.docc */,
 				CED3AB5B2849203100621B28 /* MashUp_Auth.h */,
 				CED3AB752849222900621B28 /* AuthenticationResponder.swift */,
-				CE6EE82427C7BF91005BF412 /* UserAuthService.swift */,
+				CE348223287F377700B74429 /* SignUpError.swift */,
+				CE348221287F334700B74429 /* UserAuthServiceProvider.swift */,
 				CE12DA5B27E62A8900F08629 /* Fake(deprecated) */,
+				CE34821D287F2B0300B74429 /* Repository */,
+				CE34821E287F2B0C00B74429 /* Service */,
 			);
+			indentWidth = 4;
 			path = "MashUp-Auth";
 			sourceTree = "<group>";
 		};
@@ -2630,9 +2665,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE348224287F377700B74429 /* SignUpError.swift in Sources */,
 				CED3AB762849222900621B28 /* AuthenticationResponder.swift in Sources */,
+				CE34821A287F273100B74429 /* UserSessionRepository.swift in Sources */,
+				CE348218287F26EC00B74429 /* UserAuthServiceImp.swift in Sources */,
+				CE34821C287F2AFE00B74429 /* SignUpAPI.swift in Sources */,
+				CE348220287F2E5E00B74429 /* SignUpResponse.swift in Sources */,
 				CED3AB5D2849203100621B28 /* MashUp_Auth.docc in Sources */,
 				CED3AB6A2849207500621B28 /* FakeUserAuthService.swift in Sources */,
+				CE348222287F334700B74429 /* UserAuthServiceProvider.swift in Sources */,
 				CED3AB692849207200621B28 /* UserAuthService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

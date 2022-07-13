@@ -37,11 +37,11 @@ public final class FakeUserAuthService: UserAuthService {
         return .just(fakeSession)
     }
     
-    public func signUp(with newAccount: NewAccount) async -> Result<UserSession, SignUpError> {
+    public func signUp(with newAccount: NewAccount, signUpCode: String) async -> Result<UserSession, SignUpError> {
         let isCorrectID = newAccount.id.lowercased().contains("test")
         let isCorrectPW = newAccount.password.lowercased().contains("test")
         
-        guard isCorrectID, isCorrectPW else { return .failure(.undefined("sign in failure")) }
+        guard isCorrectID, isCorrectPW else { return .failure(.undefined) }
         let fakeSession = UserSession(
             id: "fake.user.id",
             accessToken: "\(newAccount.id).\(newAccount.password)",

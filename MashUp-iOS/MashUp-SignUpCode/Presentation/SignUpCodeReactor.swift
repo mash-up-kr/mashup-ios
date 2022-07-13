@@ -121,7 +121,7 @@ final public class SignUpCodeReactor: Reactor {
             let signUpCodeVerification = await signUpCodeVerificationService.verify(signUpCode: signUpCode)
             if case .failure(let codeError) = signUpCodeVerification { return Mutation.occurSignUpCodeError(codeError) }
             
-            let signUp = await userAuthService.signUp(with: userAccount)
+            let signUp = await userAuthService.signUp(with: userAccount, signUpCode: signUpCode)
             switch signUp {
             case .success(let userSession):
                 return Mutation.signedUp(userSession)
