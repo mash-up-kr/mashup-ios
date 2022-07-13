@@ -222,8 +222,6 @@ extension TermsAgreementPopupViewController {
         switch step {
         case .personalPrivacyPolicy:
             self.presentPersonalPrivacyPolicy()
-        case .signUpCode(let newAccount):
-            self.pushSignUpCode(with: newAccount)
         }
     }
     
@@ -231,9 +229,4 @@ extension TermsAgreementPopupViewController {
         #warning("개인정보약관 처리 화면 구현 해야합니다. - booung")
     }
     
-    private func pushSignUpCode(with newAccount: NewAccount) {
-        let signUpCodeViewController = SignUpCodeViewController()
-        #warning(" AuthenticationResponder - DIContainer Hirerchy 구현 해야합니다. - booung")
-        self.navigationController?.pushViewController(signUpCodeViewController, animated: true)
-    }
 }

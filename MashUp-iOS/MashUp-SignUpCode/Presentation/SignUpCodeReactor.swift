@@ -11,6 +11,7 @@ import ReactorKit
 import MashUp_Auth
 import MashUp_User
 
+
 final public class SignUpCodeReactor: Reactor {
     
     public enum Action {
@@ -134,5 +135,4 @@ final public class SignUpCodeReactor: Reactor {
     private let signUpCodeVerificationService: any SignUpCodeVerificationService
     private let userAuthService: any UserAuthService
     private let authenticationResponder: any AuthenticationResponder
-    
 }

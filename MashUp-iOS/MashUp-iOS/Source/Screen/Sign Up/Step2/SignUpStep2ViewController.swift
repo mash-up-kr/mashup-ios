@@ -198,8 +198,12 @@ extension SignUpStep2ViewController {
     }
     
     private func presentTermAgreementPopup(with newAccount: NewAccount) {
+        guard let termsAgreementResponder = self.reactor else { return }
         let popupViewController = TermsAgreementPopupViewController()
-        popupViewController.reactor = TermsAgreementReactor(newAccount: newAccount)
+        popupViewController.reactor = TermsAgreementReactor(
+            newAccount: newAccount,
+            termsAgreementResponder: termsAgreementResponder
+        )
         popupViewController.present(on: self)
     }
 
