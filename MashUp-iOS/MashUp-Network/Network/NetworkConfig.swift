@@ -12,9 +12,9 @@ enum NetworkConfig {
     
     static var mashupHost: String {
         #if DEV
-        return "api.dev-member.mash-up.kr/"
+        return "https://api.dev-member.mash-up.kr"
         #else
-        return "api.member.mash-up.kr/"
+        return "https://api.member.mash-up.kr"
         #endif
     }
     

@@ -16,6 +16,7 @@ import MashUp_Core
 import MashUp_UIKit
 import MashUp_PlatformTeam
 import MashUp_Auth
+import FLEX
 
 final class SignInViewController: BaseViewController, ReactorKit.View {
     typealias Reactor = SignInReactor
@@ -35,6 +36,8 @@ final class SignInViewController: BaseViewController, ReactorKit.View {
         self.dispatch(to: reactor)
         self.render(reactor)
         self.consume(reactor)
+        
+        FLEXManager.shared.showExplorer()
     }
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {

@@ -22,6 +22,7 @@ final class UserSessionRepositoryImp: UserSessionRepository {
             id: newAccount.id,
             name: newAccount.name,
             password: newAccount.password,
+            platform: newAccount.platform.rawValue,
             signUpCode: signUpCode
         )
         
@@ -31,13 +32,6 @@ final class UserSessionRepositoryImp: UserSessionRepository {
             .map { owner, accessToken in
                 owner.translate(newAccount: newAccount, accessToken: accessToken)
             }
-            .catch({ error in
-                guard let networkError = error as? NetworkError,
-                      let mashUpError = networkError.asMashUpError()
-                else { return .error(error) }
-                
-                return .error(mashUpError.asSignUpError)
-            })
     }
     
     private func translate(newAccount: NewAccount, accessToken: String) -> UserSession {

@@ -8,9 +8,11 @@
 
 import Foundation
 import Moya
+import Alamofire
 
 public typealias HTTPMethod = Moya.Method
 public typealias HTTPTask = Moya.Task
+public typealias JSONEncoding = Alamofire.JSONEncoding
 
 public protocol MashUpAPI: TargetType {
     associatedtype Response: Decodable

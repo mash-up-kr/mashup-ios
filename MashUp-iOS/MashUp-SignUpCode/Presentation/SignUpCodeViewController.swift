@@ -68,6 +68,7 @@ public final class SignUpCodeViewController: BaseViewController, View {
     
     private func consume(_ reactor: Reactor) {
         reactor.pulse(\.$shouldReconfirmStopSigningUp)
+            .compactMap { $0 }
             .onMain()
             .subscribe(onNext: { [weak self] _ in
                 self?.presentAlertReconfirmStopSigningUp()
@@ -75,6 +76,7 @@ public final class SignUpCodeViewController: BaseViewController, View {
             .disposed(by: self.disposeBag)
         
         reactor.pulse(\.$shouldClose)
+            .compactMap { $0 }
             .onMain()
             .subscribe(onNext: { [weak self] _ in
                 self?.close()

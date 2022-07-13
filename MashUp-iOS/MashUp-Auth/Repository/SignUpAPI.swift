@@ -14,15 +14,26 @@ struct SignUpAPI: MashUpAPI {
     let name: String
     let password: String
     let privatePolicyAgreed: Bool = true
+    let platform: String
     let signUpCode: String
 }
 extension SignUpAPI {
     
     typealias Response = SignUpResponse
     
-    var path: String { "/api/v1/member" }
+    var path: String { "/api/v1/members/signup" }
     var httpMethod: HTTPMethod { .post }
-    var httpTask: HTTPTask { .requestPlain }
+    var httpTask: HTTPTask {
+        let parameters: [String : Any] = [
+            "identification": self.id,
+            "name": self.name,
+            "inviteCode": self.signUpCode,
+            "password": self.password,
+            "platform": self.platform,
+            "privatePolicyAgreed": true
+        ]
+        return .requestParameters(parameters: parameters, encoding: JSONEncoding.default)
+    }
     var headers: [String : String]? { nil }
     
 }
