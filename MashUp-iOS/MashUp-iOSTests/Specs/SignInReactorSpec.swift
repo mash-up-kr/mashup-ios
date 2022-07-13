@@ -138,7 +138,7 @@ final class SignInReactorSpec: QuickSpec {
           sut.action.onNext(.didTapSignUpButton)
         }
         it("회원가입 화면으로 이동합니다") {
-          expect { sut.currentState.step }.to(equal(.signUp))
+          expect { sut.currentState.step }.to(equal(.signUp(authenticationResponserMock)))
         }
       }
     }

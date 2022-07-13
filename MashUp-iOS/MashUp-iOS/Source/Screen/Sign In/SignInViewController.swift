@@ -15,6 +15,7 @@ import UIKit
 import MashUp_Core
 import MashUp_UIKit
 import MashUp_PlatformTeam
+import MashUp_Auth
 
 final class SignInViewController: BaseViewController, ReactorKit.View {
     typealias Reactor = SignInReactor
@@ -183,20 +184,23 @@ extension SignInViewController {
     
     private func move(to step: SignInStep) {
         switch step {
-        case .signUp: self.pushSignUpViewController()
+        case .signUp(let authenticationResponder):
+            self.pushSignUpViewController(with: authenticationResponder)
         }
     }
     
-    private func pushSignUpViewController() {
-        let viewController = self.createSignUpViewContorller()
+    private func pushSignUpViewController(with authenticationResponder: AuthenticationResponder) {
+        let viewController = self.createSignUpViewController(with: authenticationResponder)
         self.navigationController?.pushViewController(viewController, animated: true)
     }
     
-    private func createSignUpViewContorller() -> SignUpStep1ViewController {
+    private func createSignUpViewController(with authenticationResponder: AuthenticationResponder) -> SignUpStep1ViewController {
         let verificationService = VerificationServiceImpl()
         let reactor = SignUpStep1Reactor(verificationService: verificationService)
         let viewController = SignUpStep1ViewController()
         viewController.reactor = reactor
+        #warning("DIContainer 적용 후 제거되어야합니다 - booung")
+        viewController.authenticationResponder = authenticationResponder
         return viewController
     }
     

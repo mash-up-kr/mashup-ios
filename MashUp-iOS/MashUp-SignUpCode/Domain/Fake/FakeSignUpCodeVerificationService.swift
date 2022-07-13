@@ -10,6 +10,8 @@ import Foundation
 
 public final class FakeSignUpCodeVerificationService: SignUpCodeVerificationService {
     
+    public init() {}
+    
     public var stubedResult: Result<Void, SignUpCodeError>?
     
     public func verify(signUpCode: String) async -> Result<Void, SignUpCodeError> {

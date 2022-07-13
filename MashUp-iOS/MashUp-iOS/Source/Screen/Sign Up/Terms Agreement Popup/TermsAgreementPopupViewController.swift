@@ -86,6 +86,12 @@ final class TermsAgreementPopupViewController: BaseViewController, View {
                 
             })
             .disposed(by: self.disposeBag)
+        
+        reactor.pulse(\.$shouldClose)
+            .compactMap { $0 }
+            .onMain()
+            .subscribe(onNext: { [weak self] in self?.dismiss(animated: true) })
+            .disposed(by: self.disposeBag)
     }
     
     

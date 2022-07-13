@@ -59,7 +59,7 @@ final class TermsAgreementReactor: Reactor {
             newState.step = .personalPrivacyPolicy
             
         case .didTapConfirm:
-            ()
+            newState.shouldClose = Void()
         }
         return newState
     }

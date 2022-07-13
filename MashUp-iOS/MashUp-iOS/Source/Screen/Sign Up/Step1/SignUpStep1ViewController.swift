@@ -17,10 +17,14 @@ import Then
 import MashUp_Core
 import MashUp_UIKit
 import MashUp_PlatformTeam
+import MashUp_Auth
 
 final class SignUpStep1ViewController: BaseViewController, ReactorKit.View {
     
     typealias Reactor = SignUpStep1Reactor
+    
+    #warning("DIContainer 적용 후 제거되어야합니다 - booung")
+    var authenticationResponder: AuthenticationResponder?
     
     var disposeBag: DisposeBag = DisposeBag()
     
@@ -209,6 +213,8 @@ extension SignUpStep1ViewController {
             let reactor = SignUpStep2Reactor(id: id, password: password)
             let viewController = SignUpStep2ViewController()
             viewController.reactor = reactor
+            #warning("DIContainer 적용 후 제거되어야합니다 - booung")
+            viewController.authenticationResponder = authenticationResponder
             self.navigationController?.pushViewController(viewController, animated: true)
         }
     }

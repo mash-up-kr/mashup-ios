@@ -12,6 +12,11 @@ import MashUp_User
 
 enum SignUpStep2Step {
     case termsAgreement(NewAccount)
+    case signUpCode(NewAccount)
+}
+
+protocol TermsAgreementResponder {
+    func didAgreeTerms()
 }
 
 final class SignUpStep2Reactor: Reactor {
@@ -23,6 +28,7 @@ final class SignUpStep2Reactor: Reactor {
         case didTapSelectControl
         case didSelectPlatformTeam(at: Int)
         case didTapDone
+        case didAgreeTerms
         case didTapBack
     }
     
@@ -69,8 +75,17 @@ final class SignUpStep2Reactor: Reactor {
             
             return .just(.updateSelectedPlatformTeam(platform))
             
-        case .didTapBack:
-            return .just(.updateGoBack)
+        case .didAgreeTerms:
+            guard let platformTeam = self.currentState.platformTeam else { return .empty() }
+            
+            let newAccount = NewAccount(
+                id: self.currentState.id,
+                password: self.currentState.password,
+                name: self.currentState.name,
+                platform: platformTeam
+            )
+            let step = Step.signUpCode(newAccount)
+            return .just(.move(to: step))
             
         case .didTapDone:
             guard let platformTeam = self.currentState.platformTeam else { return .empty() }
@@ -79,6 +94,9 @@ final class SignUpStep2Reactor: Reactor {
                                         name: self.currentState.name,
                                         platform: platformTeam)
             return .just(.move(to: .termsAgreement(newAccount)))
+            
+        case .didTapBack:
+            return .just(.updateGoBack)
         }
     }
     
@@ -105,4 +123,11 @@ final class SignUpStep2Reactor: Reactor {
         newState.canDone = newState.name.isNotEmpty && newState.selectedPlatformTeam != nil
         return newState
     }
+}
+extension SignUpStep2Reactor: TermsAgreementResponder {
+    
+    func didAgreeTerms() {
+        self.action.onNext(.didAgreeTerms)
+    }
+    
 }
