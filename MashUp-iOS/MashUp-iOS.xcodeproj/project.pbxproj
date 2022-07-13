@@ -1524,20 +1524,20 @@
 		CE9E735B27C294E800922D8B /* Specs */ = {
 			isa = PBXGroup;
 			children = (
+				0642C945285312D600B9F575 /* AttendanceMemberSpec.swift */,
 				CE58818A27ECB2E60068D4E0 /* AttendanceTimelineSpec.swift */,
 				CE6EE85527CA38EF005BF412 /* HomeReactorSpec.swift */,
+				06D1032F2878095700978426 /* MembershipWithdrawalReactorSpec.swift */,
+				062A960627E99BE300E8E715 /* PlatformAttendanceDetailReactorSpec.swift */,
 				06531C1B283F5E2200E225EB /* PlatformAttendanceStatusReactorSpec.swift */,
 				CE58818827EC9BAC0068D4E0 /* QRScanFormatterSpec.swift */,
 				CE9E735C27C294E800922D8B /* QRScanReactorSpec.swift */,
 				CE6EE84F27CA1DBD005BF412 /* RootReactorSpec.swift */,
-				062A960627E99BE300E8E715 /* PlatformAttendanceDetailReactorSpec.swift */,
 				CE6EE85127CA26A6005BF412 /* SignInReactorSpec.swift */,
 				CED3ABB528492E2500621B28 /* SignUpCodeReactorSpec.swift */,
 				CE900B7A2846542B00FF9C4F /* SignUpStep1ReactorSpec.swift */,
 				CE6EE86A27CA60B6005BF412 /* SplashReactorSpec.swift */,
 				CE0F284D28444A7000C206EA /* VerificationServiceSpec.swift */,
-				0642C945285312D600B9F575 /* AttendanceMemberSpec.swift */,
-				06D1032F2878095700978426 /* MembershipWithdrawalReactorSpec.swift */,
 			);
 			path = Specs;
 			sourceTree = "<group>";

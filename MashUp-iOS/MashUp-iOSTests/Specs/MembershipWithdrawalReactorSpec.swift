@@ -18,69 +18,51 @@ final class MembershipWithdrawalReactorSpec: QuickSpec {
     var reactor: MembershipWithdrawalReactor!
     
     describe("MembershipWithdrawalReactor테스트") {
-      beforeEach {
-        let service = mock(MembershipWithdrawalService.self)
-        reactor = MembershipWithdrawalReactor(service: service)
-      }
-      
-      context("탈퇴할게요 문자열을 입력하면") {
+      context("회원탈퇴 화면에서 `탈퇴할게요` 문자열을 정확히 입력하면 ") {
         beforeEach {
+          let service = mock(MembershipWithdrawalService.self)
+          given(service.withdrawal()).willReturn(.just(Bool.random()))
+          reactor = MembershipWithdrawalReactor(service: service)
           reactor.action.onNext(.didEditConfirmTextField("탈퇴할게요"))
         }
-        it("유효하다") {
+        it("유효한 상태의 텍스트필드와 회원탈퇴 버튼이 활성화됩니다.") {
           expect { reactor.currentState.isValidated }.to(beTrue())
         }
+        
+        context("회원탈퇴 버튼을 누르고 에러가 없다면") {
+          beforeEach {
+            reactor.action.onNext(.didTapWithdrawalButton)
+          }
+          it("회원탈퇴 통신성공 혹은 실패가 발생합니다.") {
+            expect { reactor.currentState.isWithdrawnOfMembership }.toNot(beNil())
+          }
+        }
+        
+        context("회원탈퇴 버튼을 누르고 에러가 발생한다면") {
+          let error: NSError = NSError(domain: "", code: 0)
+          beforeEach {
+            let service = mock(MembershipWithdrawalService.self)
+            given(service.withdrawal()).willReturn(.error(error))
+            reactor = MembershipWithdrawalReactor(service: service)
+            reactor.action.onNext(.didTapWithdrawalButton)
+          }
+          it("회원탈퇴에 실패합니다.") {
+            expect { reactor.currentState.isWithdrawnOfMembership }.to(beFalse())
+          }
+          it("에러 표시가 나타납니다.") {
+            expect { reactor.currentState.error }.to(matchError(error))
+          }
+        }
       }
       
-      context("다른 텍스트면 유효하지않다") {
+      context("정확한 텍스트가 아니면") {
         beforeEach {
+          let service = mock(MembershipWithdrawalService.self)
+          reactor = MembershipWithdrawalReactor(service: service)
           reactor.action.onNext(.didEditConfirmTextField("탈퇴할까요"))
         }
-        it("유효하지않다") {
+        it("유효하지않은 상태의 텍스트필드와 회원탈퇴 버튼이 비활성화 됩니다.") {
           expect { reactor.currentState.isValidated }.to(beFalse())
-        }
-      }
-      
-      context("회원탈퇴버튼을 누르면") {
-        beforeEach {
-          let service = mock(MembershipWithdrawalService.self)
-          given(service.withdrawal()).willReturn(.just(true))
-          reactor = MembershipWithdrawalReactor(service: service)
-          
-          reactor.action.onNext(.didTapWithdrawalButton)
-        }
-        it("회원탈퇴 통신성공") {
-          expect { reactor.currentState.isWithdrawnOfMembership }.to(beTrue())
-        }
-      }
-      
-      context("회원탈퇴버튼을 누르면") {
-        beforeEach {
-          let service = mock(MembershipWithdrawalService.self)
-          given(service.withdrawal()).willReturn(.just(false))
-          reactor = MembershipWithdrawalReactor(service: service)
-          
-          reactor.action.onNext(.didTapWithdrawalButton)
-        }
-        it("회원탈퇴 통신실패") {
-          expect { reactor.currentState.isWithdrawnOfMembership }.to(beFalse())
-        }
-      }
-      
-      let error: NSError = NSError(domain: "", code: 0)
-      context("회원탈퇴버튼을 누르고 에러가 발생한다면") {
-        beforeEach {
-          let service = mock(MembershipWithdrawalService.self)
-          given(service.withdrawal()).willReturn(.error(error))
-          reactor = MembershipWithdrawalReactor(service: service)
-          
-          reactor.action.onNext(.didTapWithdrawalButton)
-        }
-        it("회원탈퇴 통신실패") {
-          expect { reactor.currentState.isWithdrawnOfMembership }.to(beFalse())
-        }
-        it("에러 표시") {
-          expect { reactor.currentState.error }.to(matchError(error))
         }
       }
     }

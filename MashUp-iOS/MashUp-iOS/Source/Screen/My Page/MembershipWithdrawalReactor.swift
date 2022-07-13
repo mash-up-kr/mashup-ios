@@ -42,7 +42,7 @@ final class MembershipWithdrawalReactor: Reactor {
         case .didEditConfirmTextField(let text):
             let validateObservable = checkValidate(text: text)
             let textObservable: Observable<Mutation> = .just(.updateConfirmText(text))
-            return .concat(textObservable, validateObservable)
+            return .concat(validateObservable, textObservable)
         case .didTapWithdrawalButton:
             return service.withdrawal()
                 .map { Mutation.withdrawal($0) }
