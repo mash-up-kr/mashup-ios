@@ -16,13 +16,17 @@ import Mockingbird
 final class MembershipWithdrawalReactorSpec: QuickSpec {
   override func spec() {
     var reactor: MembershipWithdrawalReactor!
+    var service: MembershipWithdrawalServiceMock!
     
     describe("MembershipWithdrawalReactor테스트") {
+      beforeEach {
+        service = mock(MembershipWithdrawalService.self)
+        reactor = MembershipWithdrawalReactor(service: service)
+      }
+      
       context("회원탈퇴 화면에서 `탈퇴할게요` 문자열을 정확히 입력하면 ") {
         beforeEach {
-          let service = mock(MembershipWithdrawalService.self)
           given(service.withdrawal()).willReturn(.just(Bool.random()))
-          reactor = MembershipWithdrawalReactor(service: service)
           reactor.action.onNext(.didEditConfirmTextField("탈퇴할게요"))
         }
         it("유효한 상태의 텍스트필드와 회원탈퇴 버튼이 활성화됩니다.") {
@@ -41,9 +45,7 @@ final class MembershipWithdrawalReactorSpec: QuickSpec {
         context("회원탈퇴 버튼을 누르고 에러가 발생한다면") {
           let error: NSError = NSError(domain: "", code: 0)
           beforeEach {
-            let service = mock(MembershipWithdrawalService.self)
             given(service.withdrawal()).willReturn(.error(error))
-            reactor = MembershipWithdrawalReactor(service: service)
             reactor.action.onNext(.didTapWithdrawalButton)
           }
           it("회원탈퇴에 실패합니다.") {
@@ -57,8 +59,6 @@ final class MembershipWithdrawalReactorSpec: QuickSpec {
       
       context("정확한 텍스트가 아니면") {
         beforeEach {
-          let service = mock(MembershipWithdrawalService.self)
-          reactor = MembershipWithdrawalReactor(service: service)
           reactor.action.onNext(.didEditConfirmTextField("탈퇴할까요"))
         }
         it("유효하지않은 상태의 텍스트필드와 회원탈퇴 버튼이 비활성화 됩니다.") {
