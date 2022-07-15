@@ -16,6 +16,7 @@ final public class SignUpCodeReactor: Reactor {
     
     public enum Action {
         case didEditSignUpCodeField(String)
+        case didTapBack
         case didTapDone
         case didTapClose
         case didTapStopSigningUp
@@ -26,7 +27,8 @@ final public class SignUpCodeReactor: Reactor {
         case updateSignUpCode(String)
         case signedUp(UserSession)
         case updateReconfirmStopSigningUp
-        case updateClose
+        case goBackward
+        case close
         case occurSignUpCodeError(SignUpCodeError)
         case occurSignUpError(SignUpError)
     }
@@ -38,6 +40,7 @@ final public class SignUpCodeReactor: Reactor {
         var hasWrongSignUpCode: Bool = false
         
         @Pulse var shouldReconfirmStopSigningUp: Void?
+        @Pulse var shouldGoBackward: Void?
         @Pulse var shouldClose: Void?
         
         fileprivate let userInProgressOfSigningUp: NewAccount
@@ -69,12 +72,14 @@ final public class SignUpCodeReactor: Reactor {
             let endLoading: Observable<Mutation> = .just(.updateLoading(true))
             return .concat(startLoading, signUp, endLoading)
             
+        case .didTapBack:
+            return .just(.goBackward)
+            
         case .didTapClose:
             return .just(.updateReconfirmStopSigningUp)
             
         case .didTapStopSigningUp:
-            return .just(.updateClose)
-            
+            return .just(.close)
         }
     }
     
@@ -94,7 +99,10 @@ final public class SignUpCodeReactor: Reactor {
         case .updateReconfirmStopSigningUp:
             newState.shouldReconfirmStopSigningUp = Void()
             
-        case .updateClose:
+        case .goBackward:
+            newState.shouldGoBackward = Void()
+            
+        case .close:
             newState.shouldClose = Void()
             
         case .occurSignUpCodeError(let error):

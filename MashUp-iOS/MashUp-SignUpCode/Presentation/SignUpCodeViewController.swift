@@ -27,7 +27,6 @@ public final class SignUpCodeViewController: BaseViewController, View {
     
     public override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        self.signUpCodeField.becomeFirstResponder()
     }
     
     public func bind(reactor: Reactor) {
@@ -44,6 +43,11 @@ public final class SignUpCodeViewController: BaseViewController, View {
         
         self.doneButton.rx.tap
             .map { .didTapDone }
+            .bind(to: reactor.action)
+            .disposed(by: self.disposeBag)
+        
+        self.navigationBar.leftButton.rx.tap
+            .map { .didTapBack }
             .bind(to: reactor.action)
             .disposed(by: self.disposeBag)
         
@@ -75,12 +79,16 @@ public final class SignUpCodeViewController: BaseViewController, View {
             })
             .disposed(by: self.disposeBag)
         
+        reactor.pulse(\.$shouldGoBackward)
+            .compactMap { $0 }
+            .onMain()
+            .subscribe(onNext: { [weak self] _ in self?.goBackward() })
+            .disposed(by: self.disposeBag)
+        
         reactor.pulse(\.$shouldClose)
             .compactMap { $0 }
             .onMain()
-            .subscribe(onNext: { [weak self] _ in
-                self?.close()
-            })
+            .subscribe(onNext: { [weak self] _ in self?.close() })
             .disposed(by: self.disposeBag)
     }
     
@@ -97,6 +105,10 @@ public final class SignUpCodeViewController: BaseViewController, View {
         alert.addAction(cancel)
         alert.addAction(ok)
         self.present(alert, animated: true)
+    }
+    
+    private func goBackward() {
+        self.navigationController?.popViewController(animated: true)
     }
     
     private func close() {

@@ -36,7 +36,7 @@ final class SignUpStep1Reactor: Reactor {
         case updateCanScroll(Bool)
         case updateScrollToTop
         case updateFocusPasswordCheckField
-        case close
+        case goBackward
         case move(to: Step)
     }
     
@@ -51,7 +51,7 @@ final class SignUpStep1Reactor: Reactor {
         var hasVaildatedPassword: Bool?
         var hasVaildatedPasswordCheck: Bool?
         
-        @Pulse var shouldClose: Void?
+        @Pulse var shouldGoBackward: Void?
         @Pulse var shouldScrollToTop: Void?
         @Pulse var shouldFocusPasswordCheckField: Void?
         @Pulse var step: Step?
@@ -81,7 +81,7 @@ final class SignUpStep1Reactor: Reactor {
             return .of(.updateCanScroll(false), .updateScrollToTop)
             
         case .didTapBack:
-            return .just(.close)
+            return .just(.goBackward)
             
         case .didTapDoneButton:
             #warning("실제 id 중복 체크 와 같은 검증 작업 필요")
@@ -117,8 +117,8 @@ final class SignUpStep1Reactor: Reactor {
         case .updateFocusPasswordCheckField:
             newState.shouldFocusPasswordCheckField = Void()
             
-        case .close:
-            newState.shouldClose = Void()
+        case .goBackward:
+            newState.shouldGoBackward = Void()
             
         case .move(let step):
             newState.step = step

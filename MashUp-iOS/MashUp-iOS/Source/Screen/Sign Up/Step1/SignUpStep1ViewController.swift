@@ -175,10 +175,10 @@ final class SignUpStep1ViewController: BaseViewController, ReactorKit.View {
             })
             .disposed(by: self.disposeBag)
         
-        reactor.pulse(\.$shouldClose)
+        reactor.pulse(\.$shouldGoBackward)
             .compactMap { $0 }
             .onMain()
-            .subscribe(onNext: { [weak self] in self?.close() })
+            .subscribe(onNext: { [weak self] in self?.goBackward() })
             .disposed(by: self.disposeBag)
         
         reactor.pulse(\.$step).compactMap { $0 }
@@ -230,7 +230,7 @@ extension SignUpStep1ViewController {
         }
     }
     
-    private func close() {
+    private func goBackward() {
         self.navigationController?.popViewController(animated: true)
     }
     
