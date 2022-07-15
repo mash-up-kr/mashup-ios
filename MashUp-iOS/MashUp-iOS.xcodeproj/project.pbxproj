@@ -90,6 +90,9 @@
 		CE58818927EC9BAC0068D4E0 /* QRScanFormatterSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE58818827EC9BAC0068D4E0 /* QRScanFormatterSpec.swift */; };
 		CE58818B27ECB2E60068D4E0 /* AttendanceTimelineSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE58818A27ECB2E60068D4E0 /* AttendanceTimelineSpec.swift */; };
 		CE612E322881818700BD5480 /* EventThroughView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE612E312881818700BD5480 /* EventThroughView.swift */; };
+		CE612E3528818C3700BD5480 /* PersonalInfomationPolicyWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE612E3428818C3700BD5480 /* PersonalInfomationPolicyWebViewController.swift */; };
+		CE612E3728818CCE00BD5480 /* PersonalInfomationPolicyReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE612E3628818CCE00BD5480 /* PersonalInfomationPolicyReactor.swift */; };
+		CE612E392881923000BD5480 /* UIViewController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE612E382881923000BD5480 /* UIViewController+.swift */; };
 		CE6A963628538C6700F4C066 /* SignUpStep2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6A963528538C6700F4C066 /* SignUpStep2ViewController.swift */; };
 		CE6A96382853901700F4C066 /* SignUpStep2Reactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6A96372853901700F4C066 /* SignUpStep2Reactor.swift */; };
 		CE6A963B28539B1B00F4C066 /* MUActionSheetController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6A963A28539B1B00F4C066 /* MUActionSheetController.swift */; };
@@ -700,6 +703,9 @@
 		CE58818827EC9BAC0068D4E0 /* QRScanFormatterSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRScanFormatterSpec.swift; sourceTree = "<group>"; };
 		CE58818A27ECB2E60068D4E0 /* AttendanceTimelineSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttendanceTimelineSpec.swift; sourceTree = "<group>"; };
 		CE612E312881818700BD5480 /* EventThroughView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventThroughView.swift; sourceTree = "<group>"; };
+		CE612E3428818C3700BD5480 /* PersonalInfomationPolicyWebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalInfomationPolicyWebViewController.swift; sourceTree = "<group>"; };
+		CE612E3628818CCE00BD5480 /* PersonalInfomationPolicyReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalInfomationPolicyReactor.swift; sourceTree = "<group>"; };
+		CE612E382881923000BD5480 /* UIViewController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+.swift"; sourceTree = "<group>"; };
 		CE6A963528538C6700F4C066 /* SignUpStep2ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpStep2ViewController.swift; sourceTree = "<group>"; };
 		CE6A96372853901700F4C066 /* SignUpStep2Reactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpStep2Reactor.swift; sourceTree = "<group>"; };
 		CE6A963A28539B1B00F4C066 /* MUActionSheetController.swift */ = {isa = PBXFileReference; indentWidth = 4; lastKnownFileType = sourcecode.swift; path = MUActionSheetController.swift; sourceTree = "<group>"; };
@@ -1101,6 +1107,7 @@
 		CE0F283C2843B80200C206EA /* Sign Up */ = {
 			isa = PBXGroup;
 			children = (
+				CE612E3328818C1100BD5480 /* Personal Infomation Policy */,
 				CE6A963328538C4A00F4C066 /* Step1 */,
 				CE6A963428538C5400F4C066 /* Step2 */,
 				CE6A96482853D5FA00F4C066 /* Terms Agreement Popup */,
@@ -1300,6 +1307,15 @@
 				CE47305E2879D1DB0050B897 /* FakeClubActivityRepository.swift */,
 			);
 			path = ClubActivityHistory;
+			sourceTree = "<group>";
+		};
+		CE612E3328818C1100BD5480 /* Personal Infomation Policy */ = {
+			isa = PBXGroup;
+			children = (
+				CE612E3628818CCE00BD5480 /* PersonalInfomationPolicyReactor.swift */,
+				CE612E3428818C3700BD5480 /* PersonalInfomationPolicyWebViewController.swift */,
+			);
+			path = "Personal Infomation Policy";
 			sourceTree = "<group>";
 		};
 		CE6A963328538C4A00F4C066 /* Step1 */ = {
@@ -1850,6 +1866,7 @@
 				0642C949285332F000B9F575 /* UIView+.swift */,
 				CE6A96442853B91200F4C066 /* UIWindow+.swift */,
 				CE7CCB9C2855FDD0005AA690 /* EventHookingView */,
+				CE612E382881923000BD5480 /* UIViewController+.swift */,
 			);
 			path = "UIKit+";
 			sourceTree = "<group>";
@@ -2423,6 +2440,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CE6EE81227C7B293005BF412 /* SignInReactor.swift in Sources */,
+				CE612E3728818CCE00BD5480 /* PersonalInfomationPolicyReactor.swift in Sources */,
 				CEB60F7F27A9C536001260DB /* AttendanceService.swift in Sources */,
 				CE6EE83A27C7E2DE005BF412 /* SplashViewController.swift in Sources */,
 				CEB60F4527A97163001260DB /* main.swift in Sources */,
@@ -2503,6 +2521,7 @@
 				CE6EE84E27C80C9B005BF412 /* MyPageViewController.swift in Sources */,
 				CEC435BA2866FEED003AA5C6 /* DebugSystem.swift in Sources */,
 				CE6EE86927CA5609005BF412 /* PlatformAttendanceDetailViewController.swift in Sources */,
+				CE612E3528818C3700BD5480 /* PersonalInfomationPolicyWebViewController.swift in Sources */,
 				CE6EE86927CA5609005BF412 /* PlatformAttendanceDetailViewController.swift in Sources */,
 				CE0F28492843EBA500C206EA /* VerificationService.swift in Sources */,
 				06D9F076286C3F06005786A3 /* RuleHeaderView.swift in Sources */,
@@ -2581,6 +2600,7 @@
 				CED3ABE328494F1000621B28 /* BaseCollectionViewCell.swift in Sources */,
 				CED3ABEF28494F1000621B28 /* Reusable.swift in Sources */,
 				CED3ABF428494F1000621B28 /* PaddingLabel.swift in Sources */,
+				CE612E392881923000BD5480 /* UIViewController+.swift in Sources */,
 				CED3ABF028494F1000621B28 /* NSCollectionLayoutSectionFactory.swift in Sources */,
 				CED3ABEB28494F1000621B28 /* Optional+.swift in Sources */,
 				CED3ABF228494F1000621B28 /* UICollectionView+.swift in Sources */,

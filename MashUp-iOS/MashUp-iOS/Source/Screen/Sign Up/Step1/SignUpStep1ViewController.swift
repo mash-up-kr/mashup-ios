@@ -241,7 +241,6 @@ extension SignUpStep1ViewController {
         self.view.backgroundColor = .white
         self.navigationBar.do {
             $0.title = "회원가입"
-            #warning("Image 정의되면 수정해야합니다. - Booung")
             $0.leftBarItem = .back
         }
         self.scrollView.do {

@@ -82,9 +82,7 @@ final class TermsAgreementPopupViewController: BaseViewController, View {
         reactor.pulse(\.$step)
             .compactMap { $0 }
             .onMain()
-            .subscribe(onNext: { step in
-                
-            })
+            .subscribe(onNext: { [weak self] step in self?.move(to: step) })
             .disposed(by: self.disposeBag)
         
         reactor.pulse(\.$shouldClose)
@@ -226,7 +224,13 @@ extension TermsAgreementPopupViewController {
     }
     
     private func presentPersonalPrivacyPolicy() {
-        #warning("개인정보약관 처리 화면 구현 해야합니다. - booung")
+        let reactor = PersonalInfomationPolicyReactor()
+        let viewController = PersonalInfomationPolicyWebViewController().then { $0.modalPresentationStyle = .fullScreen
+            $0.reactor = reactor
+        }
+        
+        guard let topMostViewController  = UIViewController.visibleViewController() else { return }
+        topMostViewController.present(viewController, animated: true)
     }
-    
+
 }

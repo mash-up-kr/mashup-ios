@@ -59,11 +59,13 @@ final class TermsAgreementReactor: Reactor {
             newState.canDone = newState.hasAgreed
             
         case .didTapSeeMore:
+            newState.hasAgreed = true
+            newState.canDone = newState.hasAgreed
             newState.step = .personalPrivacyPolicy
             
         case .didTapConfirm:
-            self.termsAgreementResponder.didAgreeTerms()
             newState.shouldClose = Void()
+            self.termsAgreementResponder.didAgreeTerms()
         }
         return newState
     }

@@ -10,9 +10,9 @@ import UIKit
 
 
 final class AppDelegate: UIResponder, UIApplicationDelegate {
-
+    
     var window: UIWindow?
-
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         let window = UIWindow()
@@ -22,7 +22,7 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
         
         return true
     }
-
+    
     
     private func createRootController() -> UIViewController {
         let viewController = RootController()
