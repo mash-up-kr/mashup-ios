@@ -190,7 +190,7 @@ final class SignUpStep1ViewController: BaseViewController, ReactorKit.View {
     }
     
     private var topOffset: CGPoint {
-        CGPoint(x: 0, y: -scrollView.contentInset.top)
+        CGPoint(x: 0, y: -self.scrollView.contentInset.top)
     }
     
     private var passwordCheckFieldHighlightedOffset: CGPoint {
@@ -199,7 +199,7 @@ final class SignUpStep1ViewController: BaseViewController, ReactorKit.View {
         let passwordCheckFieldHeight = self.doneButtonContainerView.frame.height
         let keyboardHeight = self.keyboardFrameView.frame.height
         
-        let y = contentHeight - passwordCheckFieldHeight - 76 - doneContainerHeight - keyboardHeight
+        let y = contentHeight - passwordCheckFieldHeight - 76 - doneContainerHeight - keyboardHeight - 20
         return CGPoint(x: 0, y: -y)
     }
     
@@ -214,7 +214,7 @@ final class SignUpStep1ViewController: BaseViewController, ReactorKit.View {
     private let keyboardFrameView = KeyboardFrameView()
     private let doneButtonContainerView = UIView()
     private let doneButton = MUButton()
-    private let bottomView = UIView()
+    private let bottomView = EventThroughView()
 }
 extension SignUpStep1ViewController {
     

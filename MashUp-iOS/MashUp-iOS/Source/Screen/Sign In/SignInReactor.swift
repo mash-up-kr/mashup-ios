@@ -68,7 +68,7 @@ final class SignInReactor: Reactor {
             return .concat(startLoading, enterHome, endLoading).catch { error in .concat(handleError(error), endLoading) }
             
         case .didTapSignUpButton:
-            let step = SignInStep.signUp(self.authenticationResponder)
+            let step = SignInStep.signUp
             let moveToSignUp: Observable<Mutation> = .just(.move(to: step))
             return moveToSignUp
         }

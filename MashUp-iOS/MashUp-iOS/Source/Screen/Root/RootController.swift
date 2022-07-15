@@ -134,6 +134,8 @@ extension RootController {
             authenticationResponder: authenticationResponder
         )
         let viewController = SignInViewController()
+        #warning("DIContainer 적용 후 제거되어야합니다 - booung")
+        viewController.authenticationResponder = authenticationResponder
         viewController.reactor = reactor
         return viewController
     }
