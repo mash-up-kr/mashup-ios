@@ -26,12 +26,8 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
 
     
     private func createRootController() -> UIViewController {
-        
-        let viewController = PlatformStatusViewController()
-        viewController.reactor = PlatformAttendanceStatusReactor(platformService: PlatformServiceImpl(repository: PlatformRepositoryImpl()))
-        
-//        let viewController = RootController()
-//        viewController.reactor = RootReactor()
+        let viewController = RootController()
+        viewController.reactor = RootReactor()
         return viewController
     }
     
