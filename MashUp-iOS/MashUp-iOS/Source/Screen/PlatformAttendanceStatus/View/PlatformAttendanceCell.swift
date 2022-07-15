@@ -141,13 +141,18 @@ final class PlatformAttendanceCell: BaseCollectionViewCell {
     }
     
     private func setupAttribute() {
-        contentStackView.axis = .vertical
-        contentStackView.spacing = 14
-        attendanceStatusStackView.spacing = 8
-        layer.cornerRadius = 10
-        backgroundColor = .white
+        contentStackView.do {
+            $0.axis = .vertical
+            $0.spacing = 14
+        }
+        attendanceStatusStackView.spacing = 4
         setPlatformViewArea()
         setAttendanceCountViewArea()
+        self.do {
+            $0.layer.cornerRadius = 10
+            $0.backgroundColor = .white
+            $0.addShadow(x: 0, y: 2, color: .black, radius: 20, opacity: 0.1)
+        }
     }
     
     private func setPlatformViewArea() {

@@ -46,23 +46,23 @@ final class AttendanceStatusRectangleView: BaseView {
         attendanceStatusImageView.snp.makeConstraints {
             $0.leading.equalToSuperview().offset(8)
             $0.centerY.equalToSuperview()
-            $0.width.height.equalTo(16)
+            $0.size.equalTo(20)
         }
         
         attendanceStatusTitleLabel.snp.makeConstraints {
-            $0.leading.equalTo(attendanceStatusImageView.snp.trailing).offset(2)
+            $0.leading.equalTo(attendanceStatusImageView.snp.trailing)
             $0.centerY.equalToSuperview()
         }
         
         attendanceStatusCountLabel.snp.makeConstraints {
-            $0.leading.equalTo(attendanceStatusTitleLabel.snp.trailing).offset(8)
-            $0.trailing.equalToSuperview().inset(10)
+            $0.leading.equalTo(attendanceStatusTitleLabel.snp.trailing).offset(2)
+            $0.trailing.equalToSuperview().inset(12)
             $0.centerY.equalToSuperview()
         }
     }
     
     private func setupAttribute() {
-        layer.cornerRadius = 5
+        layer.cornerRadius = 8
         attendanceStatusTitleLabel.font = .pretendardFont(weight: .medium, size: 16)
         attendanceStatusCountLabel.font = .pretendardFont(weight: .semiBold, size: 16)
     }

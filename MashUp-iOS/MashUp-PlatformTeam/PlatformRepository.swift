@@ -35,6 +35,6 @@ extension PlatformRepositoryImpl {
         = [.init(platform: .iOS, numberOfAttend: 0, numberOfLateness: 10, numberOfAbsence: 2),
            .init(platform: .android, numberOfAttend: 5, numberOfLateness: 10, numberOfAbsence: 2),
            .init(platform: .design, numberOfAttend: 10, numberOfLateness: 10, numberOfAbsence: 20)]
-        return .init(platformAttendanceInformations: informations, isAttending: true)
+        return .init(platformAttendanceInformations: informations, isAttending: false)
     }
 }

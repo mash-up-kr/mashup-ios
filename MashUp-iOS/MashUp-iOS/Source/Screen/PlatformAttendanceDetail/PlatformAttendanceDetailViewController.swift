@@ -72,7 +72,7 @@ extension PlatformAttendanceDetailViewController {
         navigationBar.snp.makeConstraints {
             $0.top.equalTo(view.safeAreaLayoutGuide.snp.top)
             $0.horizontalEdges.equalToSuperview()
-            $0.height.equalTo(56)
+            $0.height.equalTo(52)
         }
         memeberCollectionView.snp.makeConstraints {
             $0.horizontalEdges.equalToSuperview()

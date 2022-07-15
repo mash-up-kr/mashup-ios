@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MashUp_UIKit
 
 struct AttendanceStatusRectangleViewModel {
     let status: AttendanceStatus
@@ -22,17 +23,17 @@ struct AttendanceStatusRectangleViewModel {
     
     var titleColor: UIColor {
         switch status {
-        case .attend: return .green
-        case .absence: return .red
-        case .lateness: return .orange
+        case .attend: return .green500
+        case .absence: return .red500
+        case .lateness: return .yellow500
         }
     }
     
     var backgroundColor: UIColor {
         switch status {
-        case .attend: return .green.withAlphaComponent(0.5)
-        case .absence: return .red.withAlphaComponent(0.5)
-        case .lateness: return .orange.withAlphaComponent(0.5)
+        case .attend: return .green100
+        case .absence: return .red100
+        case .lateness: return .yellow100
         }
     }
     
