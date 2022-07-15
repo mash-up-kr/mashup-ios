@@ -204,8 +204,8 @@ final class SignUpStep1ViewController: BaseViewController, ReactorKit.View {
     }
     
     private let navigationBar = MUNavigationBar()
-    private let scrollView = UIScrollView()
-    private let containterView = UIStackView()
+    private let scrollView = EventThroughScrollView()
+    private let containterView = EventThroughStackView()
     
     private let titleLabel = UILabel()
     private let idField = MUTextField()

@@ -90,6 +90,12 @@ public class MUTextField: UIControl {
         self.setupStream()
     }
     
+    public override func hitTest(_ point: CGPoint, with event: UIEvent?) -> UIView? {
+        let hitTestView = super.hitTest(point, with: event)
+        
+        return hitTestView == self ? nil : hitTestView
+    }
+    
     enum AnimationDirection {
         case forward
         case reverse
@@ -235,11 +241,11 @@ public class MUTextField: UIControl {
             .disposed(by: self.disposeBag)
     }
     
-    private let containerView = UIStackView()
+    private let containerView = EventThroughStackView()
     private let titleLabel = UILabel()
-    private let textAreaView = UIView()
+    private let textAreaView = EventThroughView()
     private let placeholderLabel = UILabel()
-    private let assistiveView = UIView()
+    private let assistiveView = EventThroughView()
     private let assistiveLabel = UILabel()
     private let trailingIconImageView = UIImageView()
     

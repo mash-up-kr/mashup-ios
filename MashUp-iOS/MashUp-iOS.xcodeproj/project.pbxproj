@@ -89,6 +89,7 @@
 		CE58818727EC98670068D4E0 /* PartialAttendanceViewModel+Stub.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE58818627EC98670068D4E0 /* PartialAttendanceViewModel+Stub.swift */; };
 		CE58818927EC9BAC0068D4E0 /* QRScanFormatterSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE58818827EC9BAC0068D4E0 /* QRScanFormatterSpec.swift */; };
 		CE58818B27ECB2E60068D4E0 /* AttendanceTimelineSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE58818A27ECB2E60068D4E0 /* AttendanceTimelineSpec.swift */; };
+		CE612E322881818700BD5480 /* EventThroughView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE612E312881818700BD5480 /* EventThroughView.swift */; };
 		CE6A963628538C6700F4C066 /* SignUpStep2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6A963528538C6700F4C066 /* SignUpStep2ViewController.swift */; };
 		CE6A96382853901700F4C066 /* SignUpStep2Reactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6A96372853901700F4C066 /* SignUpStep2Reactor.swift */; };
 		CE6A963B28539B1B00F4C066 /* MUActionSheetController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6A963A28539B1B00F4C066 /* MUActionSheetController.swift */; };
@@ -698,6 +699,7 @@
 		CE58818627EC98670068D4E0 /* PartialAttendanceViewModel+Stub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PartialAttendanceViewModel+Stub.swift"; sourceTree = "<group>"; };
 		CE58818827EC9BAC0068D4E0 /* QRScanFormatterSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRScanFormatterSpec.swift; sourceTree = "<group>"; };
 		CE58818A27ECB2E60068D4E0 /* AttendanceTimelineSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttendanceTimelineSpec.swift; sourceTree = "<group>"; };
+		CE612E312881818700BD5480 /* EventThroughView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventThroughView.swift; sourceTree = "<group>"; };
 		CE6A963528538C6700F4C066 /* SignUpStep2ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpStep2ViewController.swift; sourceTree = "<group>"; };
 		CE6A96372853901700F4C066 /* SignUpStep2Reactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpStep2Reactor.swift; sourceTree = "<group>"; };
 		CE6A963A28539B1B00F4C066 /* MUActionSheetController.swift */ = {isa = PBXFileReference; indentWidth = 4; lastKnownFileType = sourcecode.swift; path = MUActionSheetController.swift; sourceTree = "<group>"; };
@@ -1837,6 +1839,7 @@
 		CED3ABD828494F1000621B28 /* UIKit+ */ = {
 			isa = PBXGroup;
 			children = (
+				CE612E312881818700BD5480 /* EventThroughView.swift */,
 				CED3ABDA28494F1000621B28 /* NSCollectionLayoutSectionFactory.swift */,
 				CED3ABD928494F1000621B28 /* Reusable.swift */,
 				CED3ABDB28494F1000621B28 /* UIButton+.swift */,
@@ -2584,6 +2587,7 @@
 				0642C94A285332F000B9F575 /* UIView+.swift in Sources */,
 				CE348205287D82FE00B74429 /* MashUpError.swift in Sources */,
 				CED3ABE828494F1000621B28 /* String+.swift in Sources */,
+				CE612E322881818700BD5480 /* EventThroughView.swift in Sources */,
 				CE6A96452853B91200F4C066 /* UIWindow+.swift in Sources */,
 				CE7CCBA22855FE28005AA690 /* EventHookingDelegate.swift in Sources */,
 				CED3ABE228494F1000621B28 /* BaseTableViewCell.swift in Sources */,
