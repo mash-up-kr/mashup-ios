@@ -93,13 +93,12 @@ public final class SignUpCodeViewController: BaseViewController, View {
     }
     
     private func presentAlertReconfirmStopSigningUp() {
-        let alert = UIAlertController(
+        let alert = MUActionAlertViewController(
             title: "회원가입을 그만두시겠어요?",
-            message: "입력한 전체 내용이 삭제됩니다.",
-            preferredStyle: .alert
+            message: "입력한 전체 내용이 삭제됩니다."
         )
-        let cancel = UIAlertAction(title: "취소", style: .cancel)
-        let ok = UIAlertAction(title: "확인", style: .default) { [reactor] _ in
+        let cancel = MUAlertAction(title: "취소", style: .default)
+        let ok = MUAlertAction(title: "확인", style: .primary) { [reactor] in
             reactor?.action.onNext(.didTapStopSigningUp)
         }
         alert.addAction(cancel)
