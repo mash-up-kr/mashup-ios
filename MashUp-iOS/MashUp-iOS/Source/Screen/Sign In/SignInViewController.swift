@@ -36,8 +36,6 @@ final class SignInViewController: BaseViewController, ReactorKit.View {
         self.dispatch(to: reactor)
         self.render(reactor)
         self.consume(reactor)
-        
-        FLEXManager.shared.showExplorer()
     }
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {

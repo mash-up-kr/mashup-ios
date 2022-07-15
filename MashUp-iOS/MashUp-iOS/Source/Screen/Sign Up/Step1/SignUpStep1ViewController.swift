@@ -68,6 +68,11 @@ final class SignUpStep1ViewController: BaseViewController, ReactorKit.View {
             .bind(to: reactor.action)
             .disposed(by: self.disposeBag)
         
+        self.navigationBar.leftButton.rx.tap
+            .map { .didTapBack }
+            .bind(to: reactor.action)
+            .disposed(by: self.disposeBag)
+        
         self.doneButton.rx.tap
             .map { .didTapDoneButton }
             .bind(to: reactor.action)
@@ -170,6 +175,12 @@ final class SignUpStep1ViewController: BaseViewController, ReactorKit.View {
             })
             .disposed(by: self.disposeBag)
         
+        reactor.pulse(\.$shouldClose)
+            .compactMap { $0 }
+            .onMain()
+            .subscribe(onNext: { [weak self] in self?.close() })
+            .disposed(by: self.disposeBag)
+        
         reactor.pulse(\.$step).compactMap { $0 }
             .onMain()
             .subscribe(onNext: { [weak self] step in
@@ -218,6 +229,11 @@ extension SignUpStep1ViewController {
             self.navigationController?.pushViewController(viewController, animated: true)
         }
     }
+    
+    private func close() {
+        self.navigationController?.popViewController(animated: true)
+    }
+    
 }
 extension SignUpStep1ViewController {
     
