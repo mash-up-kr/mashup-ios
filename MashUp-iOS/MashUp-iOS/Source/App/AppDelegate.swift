@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MashUp_PlatformTeam
 
 
 final class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -25,8 +26,12 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
 
     
     private func createRootController() -> UIViewController {
-        let viewController = RootController()
-        viewController.reactor = RootReactor()
+        
+        let viewController = PlatformAttendanceDetailViewController()
+        viewController.reactor = PlatformAttendanceDetailReactor(attendanceService: AttendanceServiceImpl(), platform: .iOS)
+        
+//        let viewController = RootController()
+//        viewController.reactor = RootReactor()
         return viewController
     }
     

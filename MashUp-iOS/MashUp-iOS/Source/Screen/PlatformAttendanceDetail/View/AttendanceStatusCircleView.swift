@@ -15,23 +15,19 @@ final class AttendanceStatusCircleView: BaseView {
     private let innerImageView: UIImageView = UIImageView()
     private let statusLabel: UILabel = UILabel()
     private let timeLabel: UILabel = UILabel()
+    private let phase: SeminarPhase
     
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        setupUI()
-    }
-    
-    required init?(coder: NSCoder) {
-        super.init(coder: coder)
-        setupUI()
-    }
-    
-    convenience init(phase: SeminarPhase) {
-        self.init(frame: .zero)
+    init(phase: SeminarPhase) {
+        self.phase = phase
+        super.init(frame: .zero)
         setupUI()
         statusLabel.text = phase.rawValue
         innerImageView.isHidden = phase != .total
         innerView.isHidden = phase == .total
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
     
     private func setupUI() {
@@ -83,7 +79,7 @@ final class AttendanceStatusCircleView: BaseView {
             $0.layer.cornerRadius = $0.bounds.width / 2
             $0.backgroundColor = .white
         }
-        innerImageView.image = UIImage(systemName: "heart")
+        innerImageView.image = .add.withTintColor(.white)
         statusLabel.do {
             $0.font = .pretendardFont(weight: .medium, size: 13)
             $0.textColor = .gray600
@@ -96,8 +92,8 @@ final class AttendanceStatusCircleView: BaseView {
     }
     
     func configure(model: AttendanceStatusCircleViewModel) {
-        outerView.backgroundColor = model.status?.color
-        statusLabel.text = model.status?.title
+        outerView.backgroundColor = model.status?.color ?? .gray200
+        statusLabel.text = model.status?.title ?? phase.rawValue
         timeLabel.text = model.timestamp ?? "-"
     }
 }

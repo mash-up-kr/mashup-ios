@@ -48,6 +48,12 @@ final class PlatformAttendanceDetailViewController: BaseViewController, ReactorK
             .disposed(by: disposeBag)
         
         reactor.action.onNext(.didSetup)
+        
+        navigationBar.leftButton.rx.tap
+            .subscribe(onNext: { [weak self] in
+                self?.navigationController?.popViewController(animated: true)
+            })
+            .disposed(by: disposeBag)
     }
 }
 
@@ -55,7 +61,7 @@ final class PlatformAttendanceDetailViewController: BaseViewController, ReactorK
 extension PlatformAttendanceDetailViewController {
     
     private func setupUI() {
-        self.view.backgroundColor = .systemOrange
+        view.backgroundColor = .white
         setupLayout()
         setupAttribute()
     }
@@ -79,6 +85,9 @@ extension PlatformAttendanceDetailViewController {
         memeberCollectionView.do {
             $0.registerCell(AttendanceDetailCell.self)
             $0.backgroundColor = .clear
+        }
+        navigationBar.do {
+            $0.leftBarItem = .back
         }
     }
 }

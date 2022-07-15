@@ -59,7 +59,7 @@ final class AttendanceDetailCell: BaseCollectionViewCell {
         horizontalLineView1.snp.makeConstraints {
             $0.leading.equalTo(firstHalfStatusView.snp.trailing)
             $0.trailing.equalTo(secondHalfStatusView.snp.leading)
-            $0.centerY.equalTo(firstHalfStatusView)
+            $0.top.equalTo(firstHalfStatusView).offset(9.5)
             $0.width.equalTo(35)
             $0.height.equalTo(1)
         }
@@ -92,7 +92,7 @@ final class AttendanceDetailCell: BaseCollectionViewCell {
         self.do {
             $0.backgroundColor = .white
             $0.layer.cornerRadius = 12
-            //TODO: 그림자 추가
+            $0.addShadow(x: 0, y: 2, color: .black, radius: 20, opacity: 0.1)
         }
     }
     
