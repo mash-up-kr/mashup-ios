@@ -211,7 +211,7 @@ extension SignUpStep2ViewController {
         guard let authenticationResponder = self.authenticationResponder else { return }
         #warning("실 오브젝트로 수정 - booung")
         let signUpCodeVerificationService = FakeSignUpCodeVerificationService()
-        signUpCodeVerificationService.stubedResult = .success(Void())
+        signUpCodeVerificationService.correctCode = "MASHUPCODE"
         
         let viewController = SignUpCodeViewController()
         let reactor = SignUpCodeReactor(

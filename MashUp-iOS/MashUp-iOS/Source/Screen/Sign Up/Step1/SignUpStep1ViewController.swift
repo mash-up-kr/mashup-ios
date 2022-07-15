@@ -131,6 +131,13 @@ final class SignUpStep1ViewController: BaseViewController, ReactorKit.View {
             .bind(to: self.passwordCheckField.rx.text)
             .disposed(by: self.disposeBag)
         
+        reactor.state.compactMap { $0.hasVaildatedPasswordCheck }
+            .distinctUntilChanged()
+            .map { $0 ? .vaild : .invaild }
+            .onMain()
+            .bind(to: self.passwordCheckField.rx.status)
+            .disposed(by: self.disposeBag)
+        
         reactor.state.map { $0.canScroll }
             .distinctUntilChanged()
             .onMain()
@@ -257,15 +264,16 @@ extension SignUpStep1ViewController {
         }
         self.idField.do {
             $0.placeholder = "아이디"
-            $0.assistiveDescription = "영문 대소문자만 사용하여 15자 이내로 입력해 주세요."
+            $0.assistiveDescription = "영문 대소문자만 사용하여 15자 이내로 입력해 주세요"
         }
         self.passwordField.do {
             $0.placeholder = "비밀번호"
-            $0.assistiveDescription = "영문, 숫자를 조합하여 8자 이상으로 입력해 주세요."
+            $0.assistiveDescription = "영문, 숫자를 조합하여 8자 이상으로 입력해 주세요"
             $0.isSecureTextEntry = true
         }
         self.passwordCheckField.do {
             $0.placeholder = "비밀번호 확인"
+            $0.errorAssistiveDescription = "비밀번호가 일치하지 않아요"
             $0.isSecureTextEntry = true
         }
         self.keyboardFrameView.do {

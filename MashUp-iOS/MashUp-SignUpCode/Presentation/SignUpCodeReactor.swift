@@ -37,7 +37,7 @@ final public class SignUpCodeReactor: Reactor {
         var isLoading: Bool = false
         var signUpCode: String = .empty
         var canDone: Bool = false
-        var hasWrongSignUpCode: Bool = false
+        var hasWrongSignUpCode: Bool?
         
         @Pulse var shouldReconfirmStopSigningUp: Void?
         @Pulse var shouldGoBackward: Void?
@@ -63,7 +63,7 @@ final public class SignUpCodeReactor: Reactor {
     public func mutate(action: Action) -> Observable<Mutation> {
         switch action {
         case .didEditSignUpCodeField(let signUpCode):
-            let trimmedSignUpCode = String(signUpCode.prefix(8))
+            let trimmedSignUpCode = String(signUpCode.prefix(8)).uppercased()
             return .just(.updateSignUpCode(trimmedSignUpCode))
             
         case .didTapDone:

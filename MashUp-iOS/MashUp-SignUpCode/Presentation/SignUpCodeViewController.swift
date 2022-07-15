@@ -25,10 +25,6 @@ public final class SignUpCodeViewController: BaseViewController, View {
         self.setupLayout()
     }
     
-    public override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-    }
-    
     public func bind(reactor: Reactor) {
         self.dispatch(to: reactor)
         self.render(reactor)
@@ -37,6 +33,7 @@ public final class SignUpCodeViewController: BaseViewController, View {
     
     private func dispatch(to reactor: Reactor) {
         self.signUpCodeField.rx.text.orEmpty
+            .skip(1)
             .map { .didEditSignUpCodeField($0) }
             .bind(to: reactor.action)
             .disposed(by: self.disposeBag)
@@ -58,12 +55,17 @@ public final class SignUpCodeViewController: BaseViewController, View {
     }
     
     private func render(_ reactor: Reactor) {
+        reactor.state.map { $0.signUpCode }
+            .distinctUntilChanged()
+            .bind(to: self.signUpCodeField.rx.text)
+            .disposed(by: self.disposeBag)
+        
         reactor.state.map { $0.canDone }
             .distinctUntilChanged()
             .bind(to: self.doneButton.rx.isEnabled)
             .disposed(by: self.disposeBag)
         
-        reactor.state.map { $0.hasWrongSignUpCode }
+        reactor.state.compactMap { $0.hasWrongSignUpCode }
             .distinctUntilChanged()
             .map { $0 ? .focus : .invaild }
             .bind(to: self.signUpCodeField.rx.status)
@@ -137,6 +139,7 @@ extension SignUpCodeViewController {
         }
         self.signUpCodeField.do {
             $0.placeholder = "가입코드"
+            $0.keyboardType = .emailAddress
             $0.errorAssistiveDescription = "가입코드가 일치하지 않아요"
         }
         self.doneButton.do {
