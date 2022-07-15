@@ -23,6 +23,11 @@ extension UIImage {
         }
         return renderImage
     }
+    
+    public func resized(side: CGFloat) -> UIImage {
+        return self.resized(width: side, height: side)
+    }
+    
 }
 
 extension UIImage {

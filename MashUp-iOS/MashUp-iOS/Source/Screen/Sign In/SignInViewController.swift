@@ -115,7 +115,7 @@ final class SignInViewController: BaseViewController, ReactorKit.View {
     private let idField = MUTextField()
     private let passwordField = MUTextField()
     private let signInButton = MUButton()
-    private let signUpButton = MUButton(style: .default)
+    private let signUpButton = UIButton()
     private let loadingIndicator = UIActivityIndicatorView()
 }
 // MARK: Setup
@@ -141,7 +141,11 @@ extension SignInViewController {
             $0.setTitle("로그인", for: .normal)
         }
         self.signUpButton.do {
+            $0.titleLabel?.font = .pretendardFont(weight: .regular, size: 16)
             $0.setTitle("회원가입 하러가기", for: .normal)
+            $0.setTitleColor(.gray600, for: .normal)
+            $0.setImage(.chevronRight?.resized(side: 20).withTintColor(.gray400), for: .normal)
+            $0.semanticContentAttribute = .forceRightToLeft
         }
         self.loadingIndicator.do {
             $0.hidesWhenStopped = true
@@ -167,6 +171,7 @@ extension SignInViewController {
             $0.addArrangedSubview(self.idField)
             $0.addArrangedSubview(self.passwordField)
             $0.addArrangedSubview(self.signInButton)
+            $0.setCustomSpacing(4, after: self.signInButton)
             $0.addArrangedSubview(self.signUpButton)
         }
         self.view.addSubview(stackView)
