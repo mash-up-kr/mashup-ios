@@ -30,14 +30,17 @@
 		06531C382840C7C500E225EB /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 06531C372840C7C500E225EB /* Colors.xcassets */; };
 		066CE3F2286ED0CC00B6F841 /* UIImage+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 066CE3F1286ED0CC00B6F841 /* UIImage+.swift */; };
 		0688CB42284B223B00338A5C /* PlatformTeam+Presentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0688CB41284B223B00338A5C /* PlatformTeam+Presentation.swift */; };
-		06FE4FAE2872BE5E00AAA8B7 /* ImageSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06FE4FAC2872BC4600AAA8B7 /* ImageSource.swift */; };
-		06FE4FB02872BE6D00AAA8B7 /* UIImageView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06FE4FAF2872BE6D00AAA8B7 /* UIImageView+.swift */; };
-		06FE4FB22872BF8600AAA8B7 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 06FE4FB12872BF8600AAA8B7 /* Kingfisher */; };
+		06D9F072286C0E0A005786A3 /* MUAlertAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06D9F071286C0E0A005786A3 /* MUAlertAction.swift */; };
 		06D9F074286C285F005786A3 /* MyPageRuleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06D9F073286C285F005786A3 /* MyPageRuleViewController.swift */; };
 		06D9F076286C3F06005786A3 /* RuleHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06D9F075286C3F06005786A3 /* RuleHeaderView.swift */; };
 		06D9F078286C7896005786A3 /* DotLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06D9F077286C7896005786A3 /* DotLabel.swift */; };
-		06D9F072286C0E0A005786A3 /* MUAlertAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06D9F071286C0E0A005786A3 /* MUAlertAction.swift */; };
+		06FE4FAE2872BE5E00AAA8B7 /* ImageSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06FE4FAC2872BC4600AAA8B7 /* ImageSource.swift */; };
+		06FE4FB02872BE6D00AAA8B7 /* UIImageView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06FE4FAF2872BE6D00AAA8B7 /* UIImageView+.swift */; };
+		06FE4FB22872BF8600AAA8B7 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 06FE4FB12872BF8600AAA8B7 /* Kingfisher */; };
 		07900EC9117FCF2FA8E23F03 /* MashUp_iOSTests-MashUp_PlatformTeamMocks.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF06792B8FCEDBC254B599C /* MashUp_iOSTests-MashUp_PlatformTeamMocks.generated.swift */; };
+		281404E32881827000DB99A6 /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 281404E22881827000DB99A6 /* SettingViewController.swift */; };
+		281404E62881829C00DB99A6 /* SettingMenuButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 281404E52881829C00DB99A6 /* SettingMenuButton.swift */; };
+		281404E82881834800DB99A6 /* SNSButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 281404E72881834800DB99A6 /* SNSButton.swift */; };
 		8150A263D51AF35ED7C1F753 /* MashUp_iOSTests-MashUp_UIKitMocks.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50AEB9142054CE6C0E1FC59A /* MashUp_iOSTests-MashUp_UIKitMocks.generated.swift */; };
 		83BBB1B66AFB5F2C4E95E49C /* MashUp_iOSTests-MashUp_iOSMocks.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 093B68049842CE18EA5AAB9B /* MashUp_iOSTests-MashUp_iOSMocks.generated.swift */; };
 		95DDF9F37D94A72B0668DA86 /* MashUp_iOSTests-MashUp_SignUpCodeMocks.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 263804E226FD88597A662F28 /* MashUp_iOSTests-MashUp_SignUpCodeMocks.generated.swift */; };
@@ -603,17 +606,20 @@
 		066CE3F1286ED0CC00B6F841 /* UIImage+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+.swift"; sourceTree = "<group>"; };
 		0688CB41284B223B00338A5C /* PlatformTeam+Presentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PlatformTeam+Presentation.swift"; sourceTree = "<group>"; };
 		0688CB43284E255800338A5C /* PlatformAttendanceHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlatformAttendanceHeaderView.swift; sourceTree = "<group>"; };
-		06FE4FAC2872BC4600AAA8B7 /* ImageSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageSource.swift; sourceTree = "<group>"; };
-		06FE4FAF2872BE6D00AAA8B7 /* UIImageView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+.swift"; sourceTree = "<group>"; };
+		06D9F071286C0E0A005786A3 /* MUAlertAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MUAlertAction.swift; sourceTree = "<group>"; };
 		06D9F073286C285F005786A3 /* MyPageRuleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageRuleViewController.swift; sourceTree = "<group>"; };
 		06D9F075286C3F06005786A3 /* RuleHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RuleHeaderView.swift; sourceTree = "<group>"; };
 		06D9F077286C7896005786A3 /* DotLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DotLabel.swift; sourceTree = "<group>"; };
-		06D9F071286C0E0A005786A3 /* MUAlertAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MUAlertAction.swift; sourceTree = "<group>"; };
+		06FE4FAC2872BC4600AAA8B7 /* ImageSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageSource.swift; sourceTree = "<group>"; };
+		06FE4FAF2872BE6D00AAA8B7 /* UIImageView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+.swift"; sourceTree = "<group>"; };
 		093B68049842CE18EA5AAB9B /* MashUp_iOSTests-MashUp_iOSMocks.generated.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; name = "MashUp_iOSTests-MashUp_iOSMocks.generated.swift"; path = "MockingbirdMocks/MashUp_iOSTests-MashUp_iOSMocks.generated.swift"; sourceTree = "<group>"; };
 		0FF06792B8FCEDBC254B599C /* MashUp_iOSTests-MashUp_PlatformTeamMocks.generated.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; name = "MashUp_iOSTests-MashUp_PlatformTeamMocks.generated.swift"; path = "MockingbirdMocks/MashUp_iOSTests-MashUp_PlatformTeamMocks.generated.swift"; sourceTree = "<group>"; };
 		1345AE365F8570B51C4B2A6E /* MashUp_iOSTests-MashUp_CoreMocks.generated.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; name = "MashUp_iOSTests-MashUp_CoreMocks.generated.swift"; path = "MockingbirdMocks/MashUp_iOSTests-MashUp_CoreMocks.generated.swift"; sourceTree = "<group>"; };
 		263804E226FD88597A662F28 /* MashUp_iOSTests-MashUp_SignUpCodeMocks.generated.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; name = "MashUp_iOSTests-MashUp_SignUpCodeMocks.generated.swift"; path = "MockingbirdMocks/MashUp_iOSTests-MashUp_SignUpCodeMocks.generated.swift"; sourceTree = "<group>"; };
 		26726427CAEA121D4500767F /* MashUp_iOSTests-MashUp_NetworkMocks.generated.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; name = "MashUp_iOSTests-MashUp_NetworkMocks.generated.swift"; path = "MockingbirdMocks/MashUp_iOSTests-MashUp_NetworkMocks.generated.swift"; sourceTree = "<group>"; };
+		281404E22881827000DB99A6 /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
+		281404E52881829C00DB99A6 /* SettingMenuButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingMenuButton.swift; sourceTree = "<group>"; };
+		281404E72881834800DB99A6 /* SNSButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SNSButton.swift; sourceTree = "<group>"; };
 		50AEB9142054CE6C0E1FC59A /* MashUp_iOSTests-MashUp_UIKitMocks.generated.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; name = "MashUp_iOSTests-MashUp_UIKitMocks.generated.swift"; path = "MockingbirdMocks/MashUp_iOSTests-MashUp_UIKitMocks.generated.swift"; sourceTree = "<group>"; };
 		CE0F282A28436A9B00C206EA /* MUButton.swift */ = {isa = PBXFileReference; indentWidth = 4; lastKnownFileType = sourcecode.swift; path = MUButton.swift; sourceTree = "<group>"; };
 		CE0F282F284377B900C206EA /* MUButtonStyle.swift */ = {isa = PBXFileReference; indentWidth = 4; lastKnownFileType = sourcecode.swift; path = MUButtonStyle.swift; sourceTree = "<group>"; };
@@ -1015,6 +1021,24 @@
 			name = "Generated Mocks";
 			sourceTree = "<group>";
 		};
+		281404E12881825000DB99A6 /* Setting */ = {
+			isa = PBXGroup;
+			children = (
+				281404E22881827000DB99A6 /* SettingViewController.swift */,
+				281404E42881827800DB99A6 /* View */,
+			);
+			path = Setting;
+			sourceTree = "<group>";
+		};
+		281404E42881827800DB99A6 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				281404E52881829C00DB99A6 /* SettingMenuButton.swift */,
+				281404E72881834800DB99A6 /* SNSButton.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		CE0F282E2843777B00C206EA /* MUButton */ = {
 			isa = PBXGroup;
 			children = (
@@ -1159,6 +1183,7 @@
 			children = (
 				CE6EE83B27C7EFA6005BF412 /* Home */,
 				CE6EE84627C80C66005BF412 /* My Page */,
+				281404E12881825000DB99A6 /* Setting */,
 				CE6EE86727CA55FB005BF412 /* PlatformAttendanceDetail */,
 				06531C16283F58F100E225EB /* PlatformAttendanceStatus */,
 				CEB60F4927A9759C001260DB /* QR Scan */,
@@ -2301,12 +2326,14 @@
 				CE0F28402843B85400C206EA /* SignUpStep1Reactor.swift in Sources */,
 				CE7CCBA5285656EA005AA690 /* PlatformAttendanceHeaderView.swift in Sources */,
 				CE6EE89527CB049C005BF412 /* QRCodeFinderView.swift in Sources */,
+				281404E32881827000DB99A6 /* SettingViewController.swift in Sources */,
 				CE88D32827E5522B00865C02 /* QRSeminarCardView.swift in Sources */,
 				CE14D2CB27CFBB1200685CFF /* FakeSeminarRepository.swift in Sources */,
 				CE6EE84127C7F130005BF412 /* HomeTab.swift in Sources */,
 				06D9F078286C7896005786A3 /* DotLabel.swift in Sources */,
 				CE6EE82C27C7D8F8005BF412 /* RootController.swift in Sources */,
 				0618444227E1D2DD004980CC /* PlatformAttendanceDetailReactor.swift in Sources */,
+				281404E62881829C00DB99A6 /* SettingMenuButton.swift in Sources */,
 				0618444227E1D2DD004980CC /* PlatformAttendanceDetailReactor.swift in Sources */,
 				CE7CCB9B2855E593005AA690 /* TermsAgreementView+Rx.swift in Sources */,
 				CE6EE82E27C7D900005BF412 /* RootReactor.swift in Sources */,
@@ -2333,6 +2360,7 @@
 				CE6EE86927CA5609005BF412 /* PlatformAttendanceDetailViewController.swift in Sources */,
 				CE0F28492843EBA500C206EA /* VerificationService.swift in Sources */,
 				06D9F076286C3F06005786A3 /* RuleHeaderView.swift in Sources */,
+				281404E82881834800DB99A6 /* SNSButton.swift in Sources */,
 				CE729A8127E57EC1001D33D1 /* AttendanceTimeline.swift in Sources */,
 				CE7CCBA42855FFA1005AA690 /* TermsAgreementReactor.swift in Sources */,
 				06D9F074286C285F005786A3 /* MyPageRuleViewController.swift in Sources */,
