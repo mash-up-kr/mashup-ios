@@ -30,13 +30,18 @@
 		06531C382840C7C500E225EB /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 06531C372840C7C500E225EB /* Colors.xcassets */; };
 		066CE3F2286ED0CC00B6F841 /* UIImage+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 066CE3F1286ED0CC00B6F841 /* UIImage+.swift */; };
 		0688CB42284B223B00338A5C /* PlatformTeam+Presentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0688CB41284B223B00338A5C /* PlatformTeam+Presentation.swift */; };
+		06D103282876E62900978426 /* MembershipWithdrawalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06D103272876E62900978426 /* MembershipWithdrawalViewController.swift */; };
+		06D1032A2876E6FC00978426 /* MembershipWithdrawalReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06D103292876E6FC00978426 /* MembershipWithdrawalReactor.swift */; };
+		06D103302878095700978426 /* MembershipWithdrawalReactorSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06D1032F2878095700978426 /* MembershipWithdrawalReactorSpec.swift */; };
+		06D103332878205F00978426 /* MembershipWithdrawalService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06D103322878205F00978426 /* MembershipWithdrawalService.swift */; };
+		06D1033728784CDF00978426 /* DontForgetMashUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06D1033628784CDF00978426 /* DontForgetMashUpView.swift */; };
+		06D9F072286C0E0A005786A3 /* MUAlertAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06D9F071286C0E0A005786A3 /* MUAlertAction.swift */; };
 		06FE4FAE2872BE5E00AAA8B7 /* ImageSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06FE4FAC2872BC4600AAA8B7 /* ImageSource.swift */; };
 		06FE4FB02872BE6D00AAA8B7 /* UIImageView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06FE4FAF2872BE6D00AAA8B7 /* UIImageView+.swift */; };
 		06FE4FB22872BF8600AAA8B7 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 06FE4FB12872BF8600AAA8B7 /* Kingfisher */; };
 		06D9F074286C285F005786A3 /* MyPageRuleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06D9F073286C285F005786A3 /* MyPageRuleViewController.swift */; };
 		06D9F076286C3F06005786A3 /* RuleHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06D9F075286C3F06005786A3 /* RuleHeaderView.swift */; };
 		06D9F078286C7896005786A3 /* DotLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06D9F077286C7896005786A3 /* DotLabel.swift */; };
-		06D9F072286C0E0A005786A3 /* MUAlertAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06D9F071286C0E0A005786A3 /* MUAlertAction.swift */; };
 		07900EC9117FCF2FA8E23F03 /* MashUp_iOSTests-MashUp_PlatformTeamMocks.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FF06792B8FCEDBC254B599C /* MashUp_iOSTests-MashUp_PlatformTeamMocks.generated.swift */; };
 		8150A263D51AF35ED7C1F753 /* MashUp_iOSTests-MashUp_UIKitMocks.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50AEB9142054CE6C0E1FC59A /* MashUp_iOSTests-MashUp_UIKitMocks.generated.swift */; };
 		83BBB1B66AFB5F2C4E95E49C /* MashUp_iOSTests-MashUp_iOSMocks.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 093B68049842CE18EA5AAB9B /* MashUp_iOSTests-MashUp_iOSMocks.generated.swift */; };
@@ -603,12 +608,17 @@
 		066CE3F1286ED0CC00B6F841 /* UIImage+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+.swift"; sourceTree = "<group>"; };
 		0688CB41284B223B00338A5C /* PlatformTeam+Presentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PlatformTeam+Presentation.swift"; sourceTree = "<group>"; };
 		0688CB43284E255800338A5C /* PlatformAttendanceHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlatformAttendanceHeaderView.swift; sourceTree = "<group>"; };
+		06D103272876E62900978426 /* MembershipWithdrawalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MembershipWithdrawalViewController.swift; sourceTree = "<group>"; };
+		06D103292876E6FC00978426 /* MembershipWithdrawalReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MembershipWithdrawalReactor.swift; sourceTree = "<group>"; };
+		06D1032F2878095700978426 /* MembershipWithdrawalReactorSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MembershipWithdrawalReactorSpec.swift; sourceTree = "<group>"; };
+		06D103322878205F00978426 /* MembershipWithdrawalService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MembershipWithdrawalService.swift; sourceTree = "<group>"; };
+		06D1033628784CDF00978426 /* DontForgetMashUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DontForgetMashUpView.swift; sourceTree = "<group>"; };
+		06D9F071286C0E0A005786A3 /* MUAlertAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MUAlertAction.swift; sourceTree = "<group>"; };
 		06FE4FAC2872BC4600AAA8B7 /* ImageSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageSource.swift; sourceTree = "<group>"; };
 		06FE4FAF2872BE6D00AAA8B7 /* UIImageView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+.swift"; sourceTree = "<group>"; };
 		06D9F073286C285F005786A3 /* MyPageRuleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageRuleViewController.swift; sourceTree = "<group>"; };
 		06D9F075286C3F06005786A3 /* RuleHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RuleHeaderView.swift; sourceTree = "<group>"; };
 		06D9F077286C7896005786A3 /* DotLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DotLabel.swift; sourceTree = "<group>"; };
-		06D9F071286C0E0A005786A3 /* MUAlertAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MUAlertAction.swift; sourceTree = "<group>"; };
 		093B68049842CE18EA5AAB9B /* MashUp_iOSTests-MashUp_iOSMocks.generated.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; name = "MashUp_iOSTests-MashUp_iOSMocks.generated.swift"; path = "MockingbirdMocks/MashUp_iOSTests-MashUp_iOSMocks.generated.swift"; sourceTree = "<group>"; };
 		0FF06792B8FCEDBC254B599C /* MashUp_iOSTests-MashUp_PlatformTeamMocks.generated.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; name = "MashUp_iOSTests-MashUp_PlatformTeamMocks.generated.swift"; path = "MockingbirdMocks/MashUp_iOSTests-MashUp_PlatformTeamMocks.generated.swift"; sourceTree = "<group>"; };
 		1345AE365F8570B51C4B2A6E /* MashUp_iOSTests-MashUp_CoreMocks.generated.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; name = "MashUp_iOSTests-MashUp_CoreMocks.generated.swift"; path = "MockingbirdMocks/MashUp_iOSTests-MashUp_CoreMocks.generated.swift"; sourceTree = "<group>"; };
@@ -933,6 +943,14 @@
 			path = MUActionAlertViewController;
 			sourceTree = "<group>";
 		};
+		061EA5E72878685800AEEB7B /* MyPage */ = {
+			isa = PBXGroup;
+			children = (
+				06D103322878205F00978426 /* MembershipWithdrawalService.swift */,
+			);
+			path = MyPage;
+			sourceTree = "<group>";
+		};
 		062A960827E9CDA600E8E715 /* TestHelper */ = {
 			isa = PBXGroup;
 			children = (
@@ -998,6 +1016,16 @@
 				0688CB41284B223B00338A5C /* PlatformTeam+Presentation.swift */,
 			);
 			path = Extension;
+			sourceTree = "<group>";
+		};
+		06D10338287859AC00978426 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				06D1033628784CDF00978426 /* DontForgetMashUpView.swift */,
+				06D9F077286C7896005786A3 /* DotLabel.swift */,
+				06D9F075286C3F06005786A3 /* RuleHeaderView.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		1C34724CEBE3A5751405B00D /* Generated Mocks */ = {
@@ -1278,10 +1306,11 @@
 		CE6EE84627C80C66005BF412 /* My Page */ = {
 			isa = PBXGroup;
 			children = (
-				06D9F077286C7896005786A3 /* DotLabel.swift */,
+				06D103292876E6FC00978426 /* MembershipWithdrawalReactor.swift */,
+				06D103272876E62900978426 /* MembershipWithdrawalViewController.swift */,
 				06D9F073286C285F005786A3 /* MyPageRuleViewController.swift */,
 				CE6EE84D27C80C9B005BF412 /* MyPageViewController.swift */,
-				06D9F075286C3F06005786A3 /* RuleHeaderView.swift */,
+				06D10338287859AC00978426 /* View */,
 			);
 			path = "My Page";
 			sourceTree = "<group>";
@@ -1502,19 +1531,20 @@
 		CE9E735B27C294E800922D8B /* Specs */ = {
 			isa = PBXGroup;
 			children = (
+				0642C945285312D600B9F575 /* AttendanceMemberSpec.swift */,
 				CE58818A27ECB2E60068D4E0 /* AttendanceTimelineSpec.swift */,
 				CE6EE85527CA38EF005BF412 /* HomeReactorSpec.swift */,
+				06D1032F2878095700978426 /* MembershipWithdrawalReactorSpec.swift */,
+				062A960627E99BE300E8E715 /* PlatformAttendanceDetailReactorSpec.swift */,
 				06531C1B283F5E2200E225EB /* PlatformAttendanceStatusReactorSpec.swift */,
 				CE58818827EC9BAC0068D4E0 /* QRScanFormatterSpec.swift */,
 				CE9E735C27C294E800922D8B /* QRScanReactorSpec.swift */,
 				CE6EE84F27CA1DBD005BF412 /* RootReactorSpec.swift */,
-				062A960627E99BE300E8E715 /* PlatformAttendanceDetailReactorSpec.swift */,
 				CE6EE85127CA26A6005BF412 /* SignInReactorSpec.swift */,
 				CED3ABB528492E2500621B28 /* SignUpCodeReactorSpec.swift */,
 				CE900B7A2846542B00FF9C4F /* SignUpStep1ReactorSpec.swift */,
 				CE6EE86A27CA60B6005BF412 /* SplashReactorSpec.swift */,
 				CE0F284D28444A7000C206EA /* VerificationServiceSpec.swift */,
-				0642C945285312D600B9F575 /* AttendanceMemberSpec.swift */,
 			);
 			path = Specs;
 			sourceTree = "<group>";
@@ -1541,6 +1571,7 @@
 		CEB60F8027A9C5DC001260DB /* Domain */ = {
 			isa = PBXGroup;
 			children = (
+				061EA5E72878685800AEEB7B /* MyPage */,
 				CEB60F8227A9C5EA001260DB /* Attendance */,
 				CEB60F8127A9C5E1001260DB /* QR */,
 				CE6EE85B27CA4128005BF412 /* Seminar */,
@@ -2267,6 +2298,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CE6EE81227C7B293005BF412 /* SignInReactor.swift in Sources */,
+				06D103282876E62900978426 /* MembershipWithdrawalViewController.swift in Sources */,
 				CEB60F7F27A9C536001260DB /* AttendanceService.swift in Sources */,
 				CE6EE83A27C7E2DE005BF412 /* SplashViewController.swift in Sources */,
 				CEB60F4527A97163001260DB /* main.swift in Sources */,
@@ -2290,9 +2322,11 @@
 				CE729A7F27E57D0D001D33D1 /* AttendanceTimelineRepository.swift in Sources */,
 				CE729A8727E5C31A001D33D1 /* PartialAttendance.swift in Sources */,
 				CE6EE84C27C80C92005BF412 /* SeminarScheduleViewController.swift in Sources */,
+				06D1032A2876E6FC00978426 /* MembershipWithdrawalReactor.swift in Sources */,
 				0618444427E30259004980CC /* AttendanceMember.swift in Sources */,
 				06531C18283F59FF00E225EB /* PlatformAttendanceStatusReactor.swift in Sources */,
 				CE6EE88A27CAA288005BF412 /* SeminarRepository.swift in Sources */,
+				06D103332878205F00978426 /* MembershipWithdrawalService.swift in Sources */,
 				CE6A96382853901700F4C066 /* SignUpStep2Reactor.swift in Sources */,
 				CE729A8927E5C7F1001D33D1 /* SeminarPhase.swift in Sources */,
 				CEB60F8427A9C602001260DB /* FakeAttendanceService.swift in Sources */,
@@ -2317,6 +2351,7 @@
 				CE0F283E2843B81300C206EA /* SignUpStep1ViewController.swift in Sources */,
 				CE7CCB982855DB82005AA690 /* TermsAgreementView.swift in Sources */,
 				CE6EE83D27C7EFB9005BF412 /* HomeTabBarController.swift in Sources */,
+				06D1033728784CDF00978426 /* DontForgetMashUpView.swift in Sources */,
 				06531C292840BF9800E225EB /* AttendanceStatusRectangleView.swift in Sources */,
 				CE6EE87127CA73B7005BF412 /* SeminarCardCell.swift in Sources */,
 				CE6EE87A27CA89F3005BF412 /* SeminarCardCellModel.swift in Sources */,
@@ -2377,6 +2412,7 @@
 				8150A263D51AF35ED7C1F753 /* MashUp_iOSTests-MashUp_UIKitMocks.generated.swift in Sources */,
 				95DDF9F37D94A72B0668DA86 /* MashUp_iOSTests-MashUp_SignUpCodeMocks.generated.swift in Sources */,
 				CED3ABB628492E2500621B28 /* SignUpCodeReactorSpec.swift in Sources */,
+				06D103302878095700978426 /* MembershipWithdrawalReactorSpec.swift in Sources */,
 				A6F07A0CC0C16B5DBE0CC3C6 /* MashUp_iOSTests-MashUp_UserMocks.generated.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
