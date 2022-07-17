@@ -80,7 +80,7 @@ extension HomeTabBarController {
         self.tabBar.do {
             $0.tintColor = .black
             $0.backgroundColor = .white
-            $0.itemSpacing = 100
+            $0.itemSpacing = 120
             $0.itemPositioning = .centered
         }
         
