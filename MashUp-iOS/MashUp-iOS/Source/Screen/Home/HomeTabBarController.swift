@@ -12,6 +12,8 @@ import RxCocoa
 import SnapKit
 import UIKit
 import MashUp_Core
+import FLEX
+import MashUp_User
 
 final class HomeTabBarController: BaseTabBarController, ReactorKit.View {
     typealias Reactor = HomeReactor
@@ -132,6 +134,23 @@ extension HomeTabBarController {
     
     private func createMyPageViewController() -> UIViewController {
         let myPageViewController = MyPageViewController()
+        let clubActivityRepository = FakeClubActivityRepository()
+        let clubActivityService = ClubActivityServiceImp(clubActivityRepository: clubActivityRepository)
+        let formatter = MyPageFormatterImp()
+        #warning("user session injection - booung")
+        let userSession = UserSession(
+            id: .empty,
+            accessToken: .empty,
+            name: "김매시업",
+            platformTeam: .iOS,
+            generations: [12]
+        )
+        myPageViewController.reactor = MyPageReactor(
+            userSession: userSession,
+            clubActivityService: clubActivityService,
+            formatter: formatter,
+            debugSystem: FLEXManager.shared
+        )
         return myPageViewController
     }
     
