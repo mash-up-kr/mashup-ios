@@ -25,6 +25,7 @@ final class SeminarScheduleViewController: BaseViewController, ReactorKit.View {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setupUI()
+        self.collectionView.bounces = false
     }
     
     override func viewDidLayoutSubviews() {
@@ -94,9 +95,9 @@ extension SeminarScheduleViewController {
     }
     
     private func setupAttribute() {
-        self.view.backgroundColor = .white
+        self.view.backgroundColor = .gray50
         self.collectionView.do {
-            $0.backgroundColor = .white
+            $0.backgroundColor = .clear
             $0.registerCell(SeminarCardCell.self)
             $0.registerSupplementaryView(SeminarHeaderView.self)
             $0.collectionViewLayout = self.collectionViewLayout()
@@ -106,7 +107,7 @@ extension SeminarScheduleViewController {
     private func setupLayout() {
         self.view.addSubview(self.collectionView)
         self.collectionView.snp.makeConstraints {
-            $0.top.equalToSuperview().inset(56)
+            $0.top.equalToSuperview().inset(24)
             $0.leading.trailing.bottom.equalToSuperview()
         }
     }
@@ -116,7 +117,6 @@ extension SeminarScheduleViewController {
             guard let sectionType = SeminarSectionType(rawValue: index) else { return nil }
             switch sectionType {
             case .upcoming: return .horizontalCardLayoutSection
-            case .total: return .verticalCardLayoutSection
             }
         })
     }
@@ -130,7 +130,7 @@ extension SeminarScheduleViewController {
             collectionView: collectionView,
             cellProvider: { collectionView, indexPath, item in
                 switch item {
-                case .upcoming(let model), .total(let model):
+                case .upcoming(let model):
                     let cell = collectionView.dequeueCell(SeminarCardCell.self, for: indexPath)
                     cell?.configure(with: model)
                     return cell
@@ -165,9 +165,9 @@ extension SeminarScheduleViewController {
 // MARK: - Factory
 extension SeminarScheduleViewController {
     
-    private func createSeminarDetailViewController(seminarID: String) -> PlatformAttendanceDetailViewController {
-        let seminarDetailViewController = PlatformAttendanceDetailViewController()
+    private func createSeminarDetailViewController(seminarID: String) -> SeminarDetailViewController {
+        let seminarDetailViewController = SeminarDetailViewController()
+        seminarDetailViewController.hidesBottomBarWhenPushed = true
         return seminarDetailViewController
     }
-    
 }

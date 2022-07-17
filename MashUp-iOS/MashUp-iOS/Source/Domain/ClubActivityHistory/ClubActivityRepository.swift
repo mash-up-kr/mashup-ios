@@ -11,9 +11,9 @@ import MashUp_User
 import Foundation
 import MashUp_Network
 
-class ClubActivityRepositoryImp: ClubActivityRepository {
+final class ClubActivityRepositoryImp: ClubActivityRepository {
     
-    init(network: Network = HTTPClient()) {
+    init(network: any Network = HTTPClient()) {
         self.network = network
     }
     
@@ -27,6 +27,6 @@ class ClubActivityRepositoryImp: ClubActivityRepository {
         return .empty()
     }
     
-    private let network: Network
+    private let network: any Network
     
 }

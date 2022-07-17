@@ -18,15 +18,11 @@ final class SeminarSchedulerFormatterImpl: SeminarSchedulerFormatter {
         from seminars: [Seminar],
         onLoadingPage: Bool
     ) -> [SeminarSection] {
-        let upcomingItems = seminars.prefix(3)
-            .map { SeminarCardCellModel(from: $0) }
-            .map { SeminarSectionItem.upcoming($0) }
         let totalItems = seminars
             .map { SeminarCardCellModel(from: $0) }
-            .map { SeminarSectionItem.total($0) }
+            .map { SeminarSectionItem.upcoming($0) }
         return [
-            SeminarSection(type: .upcoming, items: upcomingItems),
-            SeminarSection(type: .total, items: totalItems)
+            SeminarSection(type: .upcoming, items: totalItems)
         ]
     }
     
