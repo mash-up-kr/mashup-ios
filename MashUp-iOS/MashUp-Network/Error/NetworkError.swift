@@ -14,9 +14,3 @@ public enum NetworkError: Error {
     case mashUpError(MashUpError)
     case undefined(Error)
 }
-extension NetworkError {
-    public func asMashUpError() -> MashUpError? {
-        guard case .mashUpError(let error) = self else { return nil }
-        return error
-    }
-}

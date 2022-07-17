@@ -10,11 +10,11 @@ import UIKit
 
 public extension UIViewController {
     
-    public static var rootViewController: UIViewController? {
+    static var rootViewController: UIViewController? {
         return UIApplication.shared.delegate?.window??.rootViewController
     }
     
-    public class func visibleViewController(_ viewController: UIViewController? = UIViewController.rootViewController) -> UIViewController? {
+    class func visibleViewController(_ viewController: UIViewController? = UIViewController.rootViewController) -> UIViewController? {
         
         if let tabController = viewController as? UITabBarController {
             return visibleViewController(tabController.selectedViewController)
