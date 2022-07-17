@@ -20,11 +20,12 @@ final class SettingMenuView: BaseView {
     private let separatorView: UIView = UIView()
     fileprivate let button: UIButton = UIButton()
     
-    init(title: String, titleColor: UIColor) {
+    init(title: String, titleColor: UIColor, hasDisclosure: Bool = false) {
         super.init(frame: .zero)
-        setupUI()
         menuTitleLabel.textColor = titleColor
         menuTitleLabel.text = title
+        menuTrailingImageView.isHidden = !hasDisclosure
+        setupUI()
     }
     
     required init?(coder: NSCoder) {
@@ -41,7 +42,7 @@ final class SettingMenuView: BaseView {
             $0.font = .pretendardFont(weight: .semiBold, size: 16)
         }
         menuTrailingImageView.do {
-            $0.backgroundColor = .red
+            $0.image = .chevronRight?.withTintColor(.gray400).resized(side: 20)
         }
         separatorView.do {
             $0.backgroundColor = .gray100

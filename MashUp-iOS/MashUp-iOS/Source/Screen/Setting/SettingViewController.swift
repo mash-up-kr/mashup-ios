@@ -25,7 +25,7 @@ final class SettingViewController: BaseViewController, View {
     private let snsRightStackView: UIStackView = UIStackView()
     private let snsContainerStacView: UIStackView = UIStackView()
     private let logoutButton = SettingMenuView(title: "로그아웃", titleColor: .gray800)
-    private let withdrawalButton = SettingMenuView(title: "회원탈퇴", titleColor: .red500)
+    private let withdrawalButton = SettingMenuView(title: "회원탈퇴", titleColor: .red500, hasDisclosure: true)
     private let facebookButton = SNSButton(snsType: .facebook)
     private let instagramButton = SNSButton(snsType: .instagram)
     private let tistoryButton = SNSButton(snsType: .tistory)
