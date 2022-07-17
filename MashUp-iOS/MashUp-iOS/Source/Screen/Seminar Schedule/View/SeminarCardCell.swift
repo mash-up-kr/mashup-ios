@@ -73,10 +73,10 @@ extension SeminarCardCell {
         }
         #warning("버튼 스타일 적용해야함")
         self.attendanceButton.do {
-            $0.setBackgroundColor(.primary100, for: .normal)
+            $0.setBackgroundColor(.brand100, for: .normal)
             $0.titleLabel?.text = "플랫폼별 출석현황 보러가기"
             $0.titleLabel?.font = .pretendardFont(weight: .medium, size: 14)
-            $0.setTitleColor(.primary500, for: .normal)
+            $0.setTitleColor(.brand500, for: .normal)
         }
         
         self.calanderImageView.do {
