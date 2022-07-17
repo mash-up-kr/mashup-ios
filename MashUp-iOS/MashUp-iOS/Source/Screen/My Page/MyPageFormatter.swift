@@ -46,7 +46,7 @@ final class MyPageFormatterImp: MyPageFormatter {
         
         let sections: [MyPageSection] = historySections.isNotEmpty
         ? [.title(titleHeader)] + historySections
-        : [.empty]
+        : [.title(titleHeader), .empty]
         
         return sections
     }
