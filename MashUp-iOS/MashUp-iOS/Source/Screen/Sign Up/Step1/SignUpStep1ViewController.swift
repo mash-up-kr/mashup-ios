@@ -249,6 +249,7 @@ extension SignUpStep1ViewController {
         self.navigationBar.do {
             $0.title = "회원가입"
             $0.leftBarItem = .back
+            $0.interactiveContentScrollView = self.scrollView
         }
         self.scrollView.do {
             $0.isScrollEnabled = false
