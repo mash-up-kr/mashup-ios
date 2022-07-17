@@ -9,6 +9,10 @@
 import Foundation
 
 struct ResponseModel<Model: Decodable>: Decodable {
-    let status: Int
+    let code: String
+    let message: String
     let data: Model
+}
+extension ResponseModel {
+    var isSuccess: Bool { self.code.lowercased() == "success" }
 }
