@@ -151,7 +151,9 @@ extension HomeTabBarController {
             formatter: formatter,
             debugSystem: FLEXManager.shared
         )
-        return myPageViewController
+        return UINavigationController(rootViewController: myPageViewController).then {
+            $0.navigationBar.isHidden = true
+        }
     }
     
     private func createQRScanViewController() -> UIViewController {

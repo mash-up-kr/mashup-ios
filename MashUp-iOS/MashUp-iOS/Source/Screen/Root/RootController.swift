@@ -100,17 +100,18 @@ extension RootController {
         guard let authenticationResponder = self.reactor else { return nil }
         
         
-        let userAuthService = self.userAuthServiceProvider.provide()
+//        let userAuthService = self.userAuthServiceProvider.provide()
+        let userAuthService = FakeUserAuthService()
         #warning("둘 중 하나만 주석을 푸시면 케이스 테스트 가능합니다.")
         
         // ✅ 자동 로그인 케이스 테스트
-        //        userAuthService.stubedUserSession = UserSession(
-        //            id: "fake.user.id",
-        //            accessToken: "fake.access.token",
-        //            name: "fake.user.name",
-        //            platformTeam: .iOS,
-        //            generations: [12]
-        //        )
+        userAuthService.stubedUserSession = UserSession(
+            id: "fake.user.id",
+            accessToken: "fake.access.token",
+            name: "fake.user.name",
+            platformTeam: .iOS,
+            generations: [12]
+        )
         
         
         // ❌ 자동 로그인 아닌 케이스 테스트

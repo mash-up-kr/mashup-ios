@@ -12,6 +12,7 @@ import MashUp_UIKit
 import RxSwift
 
 final class SettingViewController: BaseViewController {
+    
     private let navigationBar: MUNavigationBar = MUNavigationBar(frame: .zero)
     private let settingMenuStackView: UIStackView = UIStackView()
     private let snsLeftStackView: UIStackView = UIStackView()
@@ -28,6 +29,7 @@ final class SettingViewController: BaseViewController {
     private let disposeBag: DisposeBag = DisposeBag()
     
     override func viewDidLoad() {
+        super.viewDidLoad()
         setupUI()
     }
     
@@ -35,6 +37,7 @@ final class SettingViewController: BaseViewController {
         setupLayout()
         setupAttribute()
     }
+    
     private func setupAttribute() {
         view.backgroundColor = .gray50
         navigationBar.do {

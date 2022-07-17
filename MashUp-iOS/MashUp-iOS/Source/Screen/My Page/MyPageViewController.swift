@@ -30,10 +30,6 @@ final class MyPageViewController: BaseViewController, View {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         self.setupTabBarTheme(.light)
-        
-        let vc = SettingViewController()
-        vc.modalPresentationStyle = .fullScreen
-        present(vc, animated: true)
     }
     
     func bind(reactor: Reactor) {
@@ -213,6 +209,7 @@ extension MyPageViewController {
         switch step {
         case .setting:
             let viewController = self.makeSettingViewController()
+            self.navigationController?.pushViewController(viewController, animated: true)
             
         case .clubActivityScoreRule:
             let viewController = self.makeClubActivityScoreRuleViewController()
@@ -222,7 +219,9 @@ extension MyPageViewController {
     }
     
     private func makeSettingViewController() -> UIViewController {
-        return UIViewController()
+        return SettingViewController().then {
+            $0.hidesBottomBarWhenPushed = true
+        }
     }
     
     private func makeClubActivityScoreRuleViewController() -> UIViewController {
