@@ -17,7 +17,7 @@ public typealias JSONEncoding = Alamofire.JSONEncoding
 public protocol MashUpAPI: TargetType {
     associatedtype Response: Decodable
     
-var httpMethod: HTTPMethod { get }
+    var httpMethod: HTTPMethod { get }
     var httpTask: HTTPTask { get }
 }
 public extension MashUpAPI {
