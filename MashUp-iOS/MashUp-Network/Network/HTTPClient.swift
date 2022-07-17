@@ -22,7 +22,7 @@ public final class HTTPClient: Network {
         do {
             let result = try await self._request(api)
             return .success(result)
-        } catch let error as MashUpError where error.asInternalError() == .unauthorized {
+        } catch let error as MashUpError {
             guard self.needToUpdateToken(whenOccurs: error) else {
                 return .failure(.mashUpError(error))
             }
