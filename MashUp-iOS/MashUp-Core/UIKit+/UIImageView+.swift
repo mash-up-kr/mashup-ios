@@ -10,15 +10,29 @@ import UIKit
 import Kingfisher
 
 extension UIImageView {
-  public func image(from source: ImageSource) {
-    switch source {
-    case .urlString(let urlString):
-      guard let url = URL(string: urlString) else { return }
-      self.kf.setImage(with: url, options: [.cacheMemoryOnly, .backgroundDecode, .transition(.fade(0.3))])
-    case .data(let data):
-      self.image = UIImage(data: data)
-    case .asset(let image):
-      self.image = image
+    
+    public var imageTintColor: UIColor? {
+        get {
+            return self.tintColor
+        }
+        set {
+            guard let color = newValue else { return }
+            let newImage = self.image?.withRenderingMode(.alwaysTemplate)
+            self.image = newImage
+            self.tintColor = color
+        }
     }
-  }
+    
+    public func image(from source: ImageSource) {
+        switch source {
+        case .urlString(let urlString):
+            guard let url = URL(string: urlString) else { return }
+            self.kf.setImage(with: url, options: [.cacheMemoryOnly, .backgroundDecode, .transition(.fade(0.3))])
+        case .data(let data):
+            self.image = UIImage(data: data)
+        case .asset(let image):
+            self.image = image
+        }
+    }
+    
 }

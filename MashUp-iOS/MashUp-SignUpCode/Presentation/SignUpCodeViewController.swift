@@ -25,11 +25,6 @@ public final class SignUpCodeViewController: BaseViewController, View {
         self.setupLayout()
     }
     
-    public override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        self.signUpCodeField.becomeFirstResponder()
-    }
-    
     public func bind(reactor: Reactor) {
         self.dispatch(to: reactor)
         self.render(reactor)
@@ -38,12 +33,18 @@ public final class SignUpCodeViewController: BaseViewController, View {
     
     private func dispatch(to reactor: Reactor) {
         self.signUpCodeField.rx.text.orEmpty
+            .skip(1)
             .map { .didEditSignUpCodeField($0) }
             .bind(to: reactor.action)
             .disposed(by: self.disposeBag)
         
         self.doneButton.rx.tap
             .map { .didTapDone }
+            .bind(to: reactor.action)
+            .disposed(by: self.disposeBag)
+        
+        self.navigationBar.leftButton.rx.tap
+            .map { .didTapBack }
             .bind(to: reactor.action)
             .disposed(by: self.disposeBag)
         
@@ -54,12 +55,17 @@ public final class SignUpCodeViewController: BaseViewController, View {
     }
     
     private func render(_ reactor: Reactor) {
+        reactor.state.map { $0.signUpCode }
+            .distinctUntilChanged()
+            .bind(to: self.signUpCodeField.rx.text)
+            .disposed(by: self.disposeBag)
+        
         reactor.state.map { $0.canDone }
             .distinctUntilChanged()
             .bind(to: self.doneButton.rx.isEnabled)
             .disposed(by: self.disposeBag)
         
-        reactor.state.map { $0.hasWrongSignUpCode }
+        reactor.state.compactMap { $0.hasWrongSignUpCode }
             .distinctUntilChanged()
             .map { $0 ? .focus : .invaild }
             .bind(to: self.signUpCodeField.rx.status)
@@ -68,33 +74,42 @@ public final class SignUpCodeViewController: BaseViewController, View {
     
     private func consume(_ reactor: Reactor) {
         reactor.pulse(\.$shouldReconfirmStopSigningUp)
+            .compactMap { $0 }
             .onMain()
             .subscribe(onNext: { [weak self] _ in
                 self?.presentAlertReconfirmStopSigningUp()
             })
             .disposed(by: self.disposeBag)
         
-        reactor.pulse(\.$shouldClose)
+        reactor.pulse(\.$shouldGoBackward)
+            .compactMap { $0 }
             .onMain()
-            .subscribe(onNext: { [weak self] _ in
-                self?.close()
-            })
+            .subscribe(onNext: { [weak self] _ in self?.goBackward() })
+            .disposed(by: self.disposeBag)
+        
+        reactor.pulse(\.$shouldClose)
+            .compactMap { $0 }
+            .onMain()
+            .subscribe(onNext: { [weak self] _ in self?.close() })
             .disposed(by: self.disposeBag)
     }
     
     private func presentAlertReconfirmStopSigningUp() {
-        let alert = UIAlertController(
+        let alert = MUActionAlertViewController(
             title: "회원가입을 그만두시겠어요?",
-            message: "입력한 전체 내용이 삭제됩니다.",
-            preferredStyle: .alert
+            message: "입력한 전체 내용이 삭제됩니다."
         )
-        let cancel = UIAlertAction(title: "취소", style: .cancel)
-        let ok = UIAlertAction(title: "확인", style: .default) { [reactor] _ in
+        let cancel = MUAlertAction(title: "취소", style: .default)
+        let ok = MUAlertAction(title: "확인", style: .primary) { [reactor] in
             reactor?.action.onNext(.didTapStopSigningUp)
         }
         alert.addAction(cancel)
         alert.addAction(ok)
         self.present(alert, animated: true)
+    }
+    
+    private func goBackward() {
+        self.navigationController?.popViewController(animated: true)
     }
     
     private func close() {
@@ -124,6 +139,7 @@ extension SignUpCodeViewController {
         }
         self.signUpCodeField.do {
             $0.placeholder = "가입코드"
+            $0.keyboardType = .emailAddress
             $0.errorAssistiveDescription = "가입코드가 일치하지 않아요"
         }
         self.doneButton.do {

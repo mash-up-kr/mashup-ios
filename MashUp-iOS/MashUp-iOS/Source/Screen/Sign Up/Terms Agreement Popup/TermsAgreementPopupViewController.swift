@@ -82,9 +82,13 @@ final class TermsAgreementPopupViewController: BaseViewController, View {
         reactor.pulse(\.$step)
             .compactMap { $0 }
             .onMain()
-            .subscribe(onNext: { step in
-                
-            })
+            .subscribe(onNext: { [weak self] step in self?.move(to: step) })
+            .disposed(by: self.disposeBag)
+        
+        reactor.pulse(\.$shouldClose)
+            .compactMap { $0 }
+            .onMain()
+            .subscribe(onNext: { [weak self] in self?.dismiss(animated: true) })
             .disposed(by: self.disposeBag)
     }
     
@@ -216,18 +220,17 @@ extension TermsAgreementPopupViewController {
         switch step {
         case .personalPrivacyPolicy:
             self.presentPersonalPrivacyPolicy()
-        case .signUpCode(let newAccount):
-            self.pushSignUpCode(with: newAccount)
         }
     }
     
     private func presentPersonalPrivacyPolicy() {
-        #warning("개인정보약관 처리 화면 구현 해야합니다. - booung")
+        let reactor = PersonalInfomationPolicyReactor()
+        let viewController = PersonalInfomationPolicyWebViewController().then { $0.modalPresentationStyle = .fullScreen
+            $0.reactor = reactor
+        }
+        
+        guard let topMostViewController  = UIViewController.visibleViewController() else { return }
+        topMostViewController.present(viewController, animated: true)
     }
-    
-    private func pushSignUpCode(with newAccount: NewAccount) {
-        let signUpCodeViewController = SignUpCodeViewController()
-        #warning(" AuthenticationResponder - DIContainer Hirerchy 구현 해야합니다. - booung")
-        self.navigationController?.pushViewController(signUpCodeViewController, animated: true)
-    }
+
 }

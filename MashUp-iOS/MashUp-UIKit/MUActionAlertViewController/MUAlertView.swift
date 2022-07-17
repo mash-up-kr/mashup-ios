@@ -76,6 +76,7 @@ public final class MUAlertView: BaseView {
   
   func addAction(_ action: MUAlertAction) {
     let button = MUButton(frame: .zero, style: action.style)
+    button.setTitle(action.title, for: .normal)
     button.addTarget(self, action: #selector(didTapButton), for: .touchUpInside)
     actions.append(action)
     buttonContainerStackView.addArrangedSubview(button)

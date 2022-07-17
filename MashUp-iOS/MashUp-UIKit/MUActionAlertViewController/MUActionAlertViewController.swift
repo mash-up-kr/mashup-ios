@@ -16,6 +16,7 @@ public final class MUActionAlertViewController: BaseViewController {
     alertView = MUAlertView(title: title, message: message)
     super.init(nibName: nil, bundle: nil)
     self.modalPresentationStyle = .overFullScreen
+    self.modalTransitionStyle = .crossDissolve
   }
   
   required init?(coder: NSCoder) {
@@ -37,6 +38,11 @@ public final class MUActionAlertViewController: BaseViewController {
   }
   
   public func addAction(_ action: MUAlertAction) {
+    let action = MUAlertAction(title: action.title, style: action.style) {
+      self.dismiss(animated: false, completion: {
+        action.handler?()
+      })
+    }
     alertView.addAction(action)
   }
 }

@@ -80,6 +80,12 @@
 		CE2E6AD7287A19BB003A03F8 /* Generation.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE2E6AD6287A19BB003A03F8 /* Generation.swift */; };
 		CE348205287D82FE00B74429 /* MashUpError.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE348204287D82FE00B74429 /* MashUpError.swift */; };
 		CE348208287D8E2900B74429 /* InternalError.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE348207287D8E2900B74429 /* InternalError.swift */; };
+		CE348218287F26EC00B74429 /* UserAuthServiceImp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE348217287F26EC00B74429 /* UserAuthServiceImp.swift */; };
+		CE34821A287F273100B74429 /* UserSessionRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE348219287F273100B74429 /* UserSessionRepository.swift */; };
+		CE34821C287F2AFE00B74429 /* SignUpAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE34821B287F2AFE00B74429 /* SignUpAPI.swift */; };
+		CE348220287F2E5E00B74429 /* SignUpResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE34821F287F2E5E00B74429 /* SignUpResponse.swift */; };
+		CE348222287F334700B74429 /* UserAuthServiceProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE348221287F334700B74429 /* UserAuthServiceProvider.swift */; };
+		CE348224287F377700B74429 /* SignUpError.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE348223287F377700B74429 /* SignUpError.swift */; };
 		CE396080278B3CB40073AEF4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE39607F278B3CB40073AEF4 /* AppDelegate.swift */; };
 		CE396089278B3CB60073AEF4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE396088278B3CB60073AEF4 /* Assets.xcassets */; };
 		CE39608C278B3CB60073AEF4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE39608A278B3CB60073AEF4 /* LaunchScreen.storyboard */; };
@@ -100,6 +106,13 @@
 		CE58818727EC98670068D4E0 /* PartialAttendanceViewModel+Stub.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE58818627EC98670068D4E0 /* PartialAttendanceViewModel+Stub.swift */; };
 		CE58818927EC9BAC0068D4E0 /* QRScanFormatterSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE58818827EC9BAC0068D4E0 /* QRScanFormatterSpec.swift */; };
 		CE58818B27ECB2E60068D4E0 /* AttendanceTimelineSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE58818A27ECB2E60068D4E0 /* AttendanceTimelineSpec.swift */; };
+		CE612E322881818700BD5480 /* EventThroughView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE612E312881818700BD5480 /* EventThroughView.swift */; };
+		CE612E3528818C3700BD5480 /* PersonalInfomationPolicyWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE612E3428818C3700BD5480 /* PersonalInfomationPolicyWebViewController.swift */; };
+		CE612E392881923000BD5480 /* UIViewController+.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE612E382881923000BD5480 /* UIViewController+.swift */; };
+		CE612E3A2881ACFC00BD5480 /* MashUp_Network.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEBAC7642847670400ABCC36 /* MashUp_Network.framework */; platformFilter = ios; };
+		CE612E3B2881ACFC00BD5480 /* MashUp_Network.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = CEBAC7642847670400ABCC36 /* MashUp_Network.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		CE612E3E2881AD3100BD5480 /* MashUp_Network.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEBAC7642847670400ABCC36 /* MashUp_Network.framework */; platformFilter = ios; };
+		CE612E3F2881AD3100BD5480 /* MashUp_Network.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = CEBAC7642847670400ABCC36 /* MashUp_Network.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		CE6A963628538C6700F4C066 /* SignUpStep2ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6A963528538C6700F4C066 /* SignUpStep2ViewController.swift */; };
 		CE6A96382853901700F4C066 /* SignUpStep2Reactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6A96372853901700F4C066 /* SignUpStep2Reactor.swift */; };
 		CE6A963B28539B1B00F4C066 /* MUActionSheetController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE6A963A28539B1B00F4C066 /* MUActionSheetController.swift */; };
@@ -342,6 +355,7 @@
 		CEEB4EA22884392400CC4456 /* MyPageHeaderView+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEB4E9B2884392400CC4456 /* MyPageHeaderView+Rx.swift */; };
 		CEEB4EA32884392400CC4456 /* ClubActivityHistorySectionHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEB4E9C2884392400CC4456 /* ClubActivityHistorySectionHeaderView.swift */; };
 		CEEB4EA42884392400CC4456 /* ClubActivityHistoryTitleHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEB4E9D2884392400CC4456 /* ClubActivityHistoryTitleHeaderView.swift */; };
+		CEEB4EA528843B1A00CC4456 /* PersonalInfomationPolicyReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE612E3628818CCE00BD5480 /* PersonalInfomationPolicyReactor.swift */; };
 		EDB9E3E1C1C0556600627702 /* MashUp_iOSTests-MashUp_CoreMocks.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1345AE365F8570B51C4B2A6E /* MashUp_iOSTests-MashUp_CoreMocks.generated.swift */; };
 /* End PBXBuildFile section */
 
@@ -373,6 +387,20 @@
 			proxyType = 1;
 			remoteGlobalIDString = CE39607B278B3CB40073AEF4;
 			remoteInfo = "MashUp-iOS";
+		};
+		CE612E3C2881ACFD00BD5480 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CE396074278B3CB40073AEF4 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CEBAC7632847670400ABCC36;
+			remoteInfo = "MashUp-Network";
+		};
+		CE612E402881AD3100BD5480 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CE396074278B3CB40073AEF4 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CEBAC7632847670400ABCC36;
+			remoteInfo = "MashUp-Network";
 		};
 		CE6540B228477FFA00D976B9 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -521,6 +549,7 @@
 				CED3ABBD284946A300621B28 /* MashUp_User.framework in Embed Frameworks */,
 				CE12B2FE28469B270072D5E7 /* MashUp_Core.framework in Embed Frameworks */,
 				CED3AB2E284907B200621B28 /* MashUp_SignUpCode.framework in Embed Frameworks */,
+				CE612E3F2881AD3100BD5480 /* MashUp_Network.framework in Embed Frameworks */,
 				CE12B30228469B270072D5E7 /* MashUp_UIKit.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -594,6 +623,7 @@
 			dstSubfolderSpec = 10;
 			files = (
 				CED3AB712849214100621B28 /* MashUp_Core.framework in Embed Frameworks */,
+				CE612E3B2881ACFC00BD5480 /* MashUp_Network.framework in Embed Frameworks */,
 				CED3ABAF284923CF00621B28 /* MashUp_User.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
@@ -697,6 +727,12 @@
 		CE2E6AD6287A19BB003A03F8 /* Generation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Generation.swift; sourceTree = "<group>"; };
 		CE348204287D82FE00B74429 /* MashUpError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MashUpError.swift; sourceTree = "<group>"; };
 		CE348207287D8E2900B74429 /* InternalError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InternalError.swift; sourceTree = "<group>"; };
+		CE348217287F26EC00B74429 /* UserAuthServiceImp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAuthServiceImp.swift; sourceTree = "<group>"; };
+		CE348219287F273100B74429 /* UserSessionRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSessionRepository.swift; sourceTree = "<group>"; };
+		CE34821B287F2AFE00B74429 /* SignUpAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpAPI.swift; sourceTree = "<group>"; };
+		CE34821F287F2E5E00B74429 /* SignUpResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpResponse.swift; sourceTree = "<group>"; };
+		CE348221287F334700B74429 /* UserAuthServiceProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAuthServiceProvider.swift; sourceTree = "<group>"; };
+		CE348223287F377700B74429 /* SignUpError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpError.swift; sourceTree = "<group>"; };
 		CE39607C278B3CB40073AEF4 /* MashUp-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "MashUp-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE39607F278B3CB40073AEF4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CE396088278B3CB60073AEF4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -722,6 +758,10 @@
 		CE58818627EC98670068D4E0 /* PartialAttendanceViewModel+Stub.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PartialAttendanceViewModel+Stub.swift"; sourceTree = "<group>"; };
 		CE58818827EC9BAC0068D4E0 /* QRScanFormatterSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRScanFormatterSpec.swift; sourceTree = "<group>"; };
 		CE58818A27ECB2E60068D4E0 /* AttendanceTimelineSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttendanceTimelineSpec.swift; sourceTree = "<group>"; };
+		CE612E312881818700BD5480 /* EventThroughView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventThroughView.swift; sourceTree = "<group>"; };
+		CE612E3428818C3700BD5480 /* PersonalInfomationPolicyWebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalInfomationPolicyWebViewController.swift; sourceTree = "<group>"; };
+		CE612E3628818CCE00BD5480 /* PersonalInfomationPolicyReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalInfomationPolicyReactor.swift; sourceTree = "<group>"; };
+		CE612E382881923000BD5480 /* UIViewController+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+.swift"; sourceTree = "<group>"; };
 		CE6A963528538C6700F4C066 /* SignUpStep2ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpStep2ViewController.swift; sourceTree = "<group>"; };
 		CE6A96372853901700F4C066 /* SignUpStep2Reactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpStep2Reactor.swift; sourceTree = "<group>"; };
 		CE6A963A28539B1B00F4C066 /* MUActionSheetController.swift */ = {isa = PBXFileReference; indentWidth = 4; lastKnownFileType = sourcecode.swift; path = MUActionSheetController.swift; sourceTree = "<group>"; };
@@ -918,6 +958,7 @@
 				CED3AB2D284907B200621B28 /* MashUp_SignUpCode.framework in Frameworks */,
 				CE9C1DFC284697D20020FBCE /* RxSwift in Frameworks */,
 				CED3AB522849151900621B28 /* ReactorKit in Frameworks */,
+				CE612E3E2881AD3100BD5480 /* MashUp_Network.framework in Frameworks */,
 				CE9C1E00284697D20020FBCE /* SnapKit in Frameworks */,
 				CE9C1DFE284697D20020FBCE /* Then in Frameworks */,
 				CED3ABBA2849467C00621B28 /* MashUp_Auth.framework in Frameworks */,
@@ -985,6 +1026,7 @@
 				CED3ABAE284923CF00621B28 /* MashUp_User.framework in Frameworks */,
 				CED3AB6F2849213A00621B28 /* RxCocoa in Frameworks */,
 				CED3AB6D284920DD00621B28 /* RxSwift in Frameworks */,
+				CE612E3A2881ACFC00BD5480 /* MashUp_Network.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1185,6 +1227,7 @@
 		CE0F283C2843B80200C206EA /* Sign Up */ = {
 			isa = PBXGroup;
 			children = (
+				CE612E3328818C1100BD5480 /* Personal Infomation Policy */,
 				CE6A963328538C4A00F4C066 /* Step1 */,
 				CE6A963428538C5400F4C066 /* Step2 */,
 				CE6A96482853D5FA00F4C066 /* Terms Agreement Popup */,
@@ -1241,6 +1284,25 @@
 				CE9BE0962848D1BC006691F0 /* NetworkError.swift */,
 			);
 			path = Error;
+			sourceTree = "<group>";
+		};
+		CE34821D287F2B0300B74429 /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				CE34821B287F2AFE00B74429 /* SignUpAPI.swift */,
+				CE34821F287F2E5E00B74429 /* SignUpResponse.swift */,
+				CE348219287F273100B74429 /* UserSessionRepository.swift */,
+			);
+			path = Repository;
+			sourceTree = "<group>";
+		};
+		CE34821E287F2B0C00B74429 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				CE6EE82427C7BF91005BF412 /* UserAuthService.swift */,
+				CE348217287F26EC00B74429 /* UserAuthServiceImp.swift */,
+			);
+			path = Service;
 			sourceTree = "<group>";
 		};
 		CE396073278B3CB40073AEF4 = {
@@ -1370,6 +1432,15 @@
 				CE47305E2879D1DB0050B897 /* FakeClubActivityRepository.swift */,
 			);
 			path = ClubActivityHistory;
+			sourceTree = "<group>";
+		};
+		CE612E3328818C1100BD5480 /* Personal Infomation Policy */ = {
+			isa = PBXGroup;
+			children = (
+				CE612E3628818CCE00BD5480 /* PersonalInfomationPolicyReactor.swift */,
+				CE612E3428818C3700BD5480 /* PersonalInfomationPolicyWebViewController.swift */,
+			);
+			path = "Personal Infomation Policy";
 			sourceTree = "<group>";
 		};
 		CE6A963328538C4A00F4C066 /* Step1 */ = {
@@ -1832,9 +1903,13 @@
 				CED3AB5C2849203100621B28 /* MashUp_Auth.docc */,
 				CED3AB5B2849203100621B28 /* MashUp_Auth.h */,
 				CED3AB752849222900621B28 /* AuthenticationResponder.swift */,
-				CE6EE82427C7BF91005BF412 /* UserAuthService.swift */,
+				CE348223287F377700B74429 /* SignUpError.swift */,
+				CE348221287F334700B74429 /* UserAuthServiceProvider.swift */,
 				CE12DA5B27E62A8900F08629 /* Fake(deprecated) */,
+				CE34821D287F2B0300B74429 /* Repository */,
+				CE34821E287F2B0C00B74429 /* Service */,
 			);
+			indentWidth = 4;
 			path = "MashUp-Auth";
 			sourceTree = "<group>";
 		};
@@ -1902,6 +1977,7 @@
 		CED3ABD828494F1000621B28 /* UIKit+ */ = {
 			isa = PBXGroup;
 			children = (
+				CE612E312881818700BD5480 /* EventThroughView.swift */,
 				CED3ABDA28494F1000621B28 /* NSCollectionLayoutSectionFactory.swift */,
 				CED3ABD928494F1000621B28 /* Reusable.swift */,
 				CED3ABDB28494F1000621B28 /* UIButton+.swift */,
@@ -1912,6 +1988,7 @@
 				0642C949285332F000B9F575 /* UIView+.swift */,
 				CE6A96442853B91200F4C066 /* UIWindow+.swift */,
 				CE7CCB9C2855FDD0005AA690 /* EventHookingView */,
+				CE612E382881923000BD5480 /* UIViewController+.swift */,
 			);
 			path = "UIKit+";
 			sourceTree = "<group>";
@@ -2108,6 +2185,7 @@
 				CED3AB30284907B200621B28 /* PBXTargetDependency */,
 				CED3ABBF284946A300621B28 /* PBXTargetDependency */,
 				CED3ABC3284946BB00621B28 /* PBXTargetDependency */,
+				CE612E412881AD3100BD5480 /* PBXTargetDependency */,
 			);
 			name = "MashUp-UIPreview";
 			packageProductDependencies = (
@@ -2242,6 +2320,7 @@
 			dependencies = (
 				CED3AB732849214100621B28 /* PBXTargetDependency */,
 				CED3ABB1284923CF00621B28 /* PBXTargetDependency */,
+				CE612E3D2881ACFD00BD5480 /* PBXTargetDependency */,
 			);
 			name = "MashUp-Auth";
 			packageProductDependencies = (
@@ -2586,6 +2665,7 @@
 				CE7CCB982855DB82005AA690 /* TermsAgreementView.swift in Sources */,
 				CE7C9E87285DDD0C00B71C0E /* MyPageReactor.swift in Sources */,
 				CE6EE83D27C7EFB9005BF412 /* HomeTabBarController.swift in Sources */,
+				CEEB4EA528843B1A00CC4456 /* PersonalInfomationPolicyReactor.swift in Sources */,
 				CEEB4EA02884392400CC4456 /* EmptyClubActivityHistoryView.swift in Sources */,
 				06531C292840BF9800E225EB /* AttendanceStatusRectangleView.swift in Sources */,
 				CE6EE87127CA73B7005BF412 /* SeminarCardCell.swift in Sources */,
@@ -2602,6 +2682,7 @@
 				CE6EE84E27C80C9B005BF412 /* MyPageViewController.swift in Sources */,
 				CEC435BA2866FEED003AA5C6 /* DebugSystem.swift in Sources */,
 				CE6EE86927CA5609005BF412 /* PlatformAttendanceDetailViewController.swift in Sources */,
+				CE612E3528818C3700BD5480 /* PersonalInfomationPolicyWebViewController.swift in Sources */,
 				CE6EE86927CA5609005BF412 /* PlatformAttendanceDetailViewController.swift in Sources */,
 				CEEB4E942884391000CC4456 /* DontForgetMashUpView.swift in Sources */,
 				CE0F28492843EBA500C206EA /* VerificationService.swift in Sources */,
@@ -2685,12 +2766,14 @@
 				CED3ABE328494F1000621B28 /* BaseCollectionViewCell.swift in Sources */,
 				CED3ABEF28494F1000621B28 /* Reusable.swift in Sources */,
 				CED3ABF428494F1000621B28 /* PaddingLabel.swift in Sources */,
+				CE612E392881923000BD5480 /* UIViewController+.swift in Sources */,
 				CED3ABF028494F1000621B28 /* NSCollectionLayoutSectionFactory.swift in Sources */,
 				CED3ABEB28494F1000621B28 /* Optional+.swift in Sources */,
 				CED3ABF228494F1000621B28 /* UICollectionView+.swift in Sources */,
 				0642C94A285332F000B9F575 /* UIView+.swift in Sources */,
 				CE348205287D82FE00B74429 /* MashUpError.swift in Sources */,
 				CED3ABE828494F1000621B28 /* String+.swift in Sources */,
+				CE612E322881818700BD5480 /* EventThroughView.swift in Sources */,
 				CE6A96452853B91200F4C066 /* UIWindow+.swift in Sources */,
 				CE7CCBA22855FE28005AA690 /* EventHookingDelegate.swift in Sources */,
 				CED3ABE228494F1000621B28 /* BaseTableViewCell.swift in Sources */,
@@ -2772,9 +2855,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CE348224287F377700B74429 /* SignUpError.swift in Sources */,
 				CED3AB762849222900621B28 /* AuthenticationResponder.swift in Sources */,
+				CE34821A287F273100B74429 /* UserSessionRepository.swift in Sources */,
+				CE348218287F26EC00B74429 /* UserAuthServiceImp.swift in Sources */,
+				CE34821C287F2AFE00B74429 /* SignUpAPI.swift in Sources */,
+				CE348220287F2E5E00B74429 /* SignUpResponse.swift in Sources */,
 				CED3AB5D2849203100621B28 /* MashUp_Auth.docc in Sources */,
 				CED3AB6A2849207500621B28 /* FakeUserAuthService.swift in Sources */,
+				CE348222287F334700B74429 /* UserAuthServiceProvider.swift in Sources */,
 				CED3AB692849207200621B28 /* UserAuthService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2826,6 +2915,18 @@
 			isa = PBXTargetDependency;
 			target = CE39607B278B3CB40073AEF4 /* MashUp-iOS */;
 			targetProxy = CE396093278B3CB60073AEF4 /* PBXContainerItemProxy */;
+		};
+		CE612E3D2881ACFD00BD5480 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			platformFilter = ios;
+			target = CEBAC7632847670400ABCC36 /* MashUp-Network */;
+			targetProxy = CE612E3C2881ACFD00BD5480 /* PBXContainerItemProxy */;
+		};
+		CE612E412881AD3100BD5480 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			platformFilter = ios;
+			target = CEBAC7632847670400ABCC36 /* MashUp-Network */;
+			targetProxy = CE612E402881AD3100BD5480 /* PBXContainerItemProxy */;
 		};
 		CE6540B328477FFA00D976B9 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;

@@ -6,11 +6,11 @@
 //  Copyright © 2022 Mash Up Corp. All rights reserved.
 //
 
-public enum PlatformTeam: Equatable, CaseIterable {
-    case design
-    case android
-    case iOS
-    case web
-    case node
-    case spring
+public enum PlatformTeam: String, Equatable, CaseIterable {
+    case design = "DESIGN"
+    case android = "ANDROID"
+    case iOS = "IOS"
+    case web = "WEB"
+    case node = "NODE"
+    case spring = "SPRING"
 }
