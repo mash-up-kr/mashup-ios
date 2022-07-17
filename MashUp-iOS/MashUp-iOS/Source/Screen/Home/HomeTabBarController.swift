@@ -12,8 +12,9 @@ import RxCocoa
 import SnapKit
 import UIKit
 import MashUp_Core
-import FLEX
+import MashUp_UIKit
 import MashUp_User
+import FLEX
 
 final class HomeTabBarController: BaseTabBarController, ReactorKit.View {
     typealias Reactor = HomeReactor
@@ -76,15 +77,20 @@ final class HomeTabBarController: BaseTabBarController, ReactorKit.View {
 extension HomeTabBarController {
     
     private func setupUI() {
-        self.tabBar.tintColor = .black
-        self.tabBar.backgroundColor = .white
+        self.tabBar.do {
+            $0.tintColor = .black
+            $0.backgroundColor = .white
+            $0.itemSpacing = 100
+            $0.itemPositioning = .centered
+        }
         
         self.qrButton.do {
             $0.backgroundColor = .brand500
             $0.layer.cornerRadius = 24
             $0.layer.masksToBounds = true
+            $0.setImage(.qr?.resized(side: 24).withTintColor(.white), for: .normal)
         }
-        self.view.addSubview(self.qrButton)
+        self.tabBar.addSubview(self.qrButton)
         self.qrButton.snp.makeConstraints {
             $0.centerX.equalToSuperview()
             $0.top.equalTo(self.tabBar).inset(10)
