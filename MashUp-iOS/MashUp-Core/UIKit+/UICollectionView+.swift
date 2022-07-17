@@ -19,6 +19,12 @@ extension UICollectionView {
                       withReuseIdentifier: supplementaryViewType.reuseIdentifier)
     }
     
+    public func registerSupplementaryFooterView<SupplementaryView: ReusableView>(_ supplementaryViewType: SupplementaryView.Type) {
+        self.register(supplementaryViewType,
+                      forSupplementaryViewOfKind: UICollectionView.elementKindSectionFooter,
+                      withReuseIdentifier: supplementaryViewType.reuseIdentifier)
+    }
+    
     public func registerCell<Cell: ReusableCell>(_ cellType: Cell.Type) {
         self.register(cellType, forCellWithReuseIdentifier: cellType.reuseIdentifier)
     }
@@ -29,6 +35,17 @@ extension UICollectionView {
     ) -> SupplementaryView? {
         return self.dequeueReusableSupplementaryView(
             ofKind: UICollectionView.elementKindSectionHeader,
+            withReuseIdentifier: supplementaryViewType.reuseIdentifier,
+            for: indexPath
+        ) as? SupplementaryView
+    }
+    
+    public func dequeueSupplementaryFooterView<SupplementaryView: ReusableView>(
+        _ supplementaryViewType: SupplementaryView.Type,
+        for indexPath: IndexPath
+    ) -> SupplementaryView? {
+        return self.dequeueReusableSupplementaryView(
+            ofKind: UICollectionView.elementKindSectionFooter,
             withReuseIdentifier: supplementaryViewType.reuseIdentifier,
             for: indexPath
         ) as? SupplementaryView

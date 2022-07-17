@@ -15,6 +15,10 @@ extension Array {
     }
 }
 
+extension Array {
+    public var isNotEmpty: Bool { !self.isEmpty }
+}
+
 extension Collection {
     public var isNotEmpty: Bool { !self.isEmpty }
 }
