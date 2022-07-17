@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import MashUp_PlatformTeam
 
 
 final class AppDelegate: UIResponder, UIApplicationDelegate {

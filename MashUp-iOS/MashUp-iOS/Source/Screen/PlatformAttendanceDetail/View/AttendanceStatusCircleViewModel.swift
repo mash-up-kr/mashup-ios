@@ -11,4 +11,5 @@ import Foundation
 struct AttendanceStatusCircleViewModel {
     let timestamp: String?
     let status: AttendanceStatus?
+    let seminarPhase: SeminarPhase
 }

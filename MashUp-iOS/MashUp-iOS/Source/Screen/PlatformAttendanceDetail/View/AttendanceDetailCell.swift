@@ -11,9 +11,9 @@ import MashUp_Core
 
 final class AttendanceDetailCell: BaseCollectionViewCell {
     private let nameLabel: UILabel = UILabel()
-    private let firstHalfStatusView: AttendanceStatusCircleView = AttendanceStatusCircleView(phase: .phase1)
-    private let secondHalfStatusView: AttendanceStatusCircleView = AttendanceStatusCircleView(phase: .phase2)
-    private let finalStatusView: AttendanceStatusCircleView = AttendanceStatusCircleView(phase: .total)
+    private let firstHalfStatusView: AttendanceStatusCircleView = AttendanceStatusCircleView()
+    private let secondHalfStatusView: AttendanceStatusCircleView = AttendanceStatusCircleView()
+    private let finalStatusView: AttendanceStatusCircleView = AttendanceStatusCircleView()
     private let verticalLineView: UIView = UIView()
     private let horizontalLineView1: UIView = UIView()
     private let horizontalLineView2: UIView = UIView()
@@ -99,11 +99,14 @@ final class AttendanceDetailCell: BaseCollectionViewCell {
     func configure(model: AttendanceMember) {
         nameLabel.text = model.name
         let firstStatus = AttendanceStatusCircleViewModel(timestamp: model.firstSeminarAttendanceTimeStamp,
-                                                          status: model.firstSeminarAttendance)
+                                                          status: model.firstSeminarAttendance,
+                                                          seminarPhase: .phase1)
         let secondStatus = AttendanceStatusCircleViewModel(timestamp: model.secondSeminarAttendanceTimeStamp,
-                                                          status: model.secondSeminarAttendance)
+                                                           status: model.secondSeminarAttendance,
+                                                           seminarPhase: .phase2)
         let finalStatus = AttendanceStatusCircleViewModel(timestamp: model.secondSeminarAttendanceTimeStamp,
-                                                          status: model.finalSeminarAttendance)
+                                                          status: model.finalSeminarAttendance,
+                                                          seminarPhase: .total)
         firstHalfStatusView.configure(model: firstStatus)
         secondHalfStatusView.configure(model: secondStatus)
         finalStatusView.configure(model: finalStatus)

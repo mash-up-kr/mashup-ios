@@ -15,15 +15,10 @@ final class AttendanceStatusCircleView: BaseView {
     private let innerImageView: UIImageView = UIImageView()
     private let statusLabel: UILabel = UILabel()
     private let timeLabel: UILabel = UILabel()
-    private let phase: SeminarPhase
     
-    init(phase: SeminarPhase) {
-        self.phase = phase
+    init() {
         super.init(frame: .zero)
         setupUI()
-        statusLabel.text = phase.rawValue
-        innerImageView.isHidden = phase != .total
-        innerView.isHidden = phase == .total
     }
     
     required init?(coder: NSCoder) {
@@ -93,7 +88,9 @@ final class AttendanceStatusCircleView: BaseView {
     
     func configure(model: AttendanceStatusCircleViewModel) {
         outerView.backgroundColor = model.status?.color ?? .gray200
-        statusLabel.text = model.status?.title ?? phase.rawValue
+        statusLabel.text = model.status?.title ?? model.seminarPhase.rawValue
         timeLabel.text = model.timestamp ?? "-"
+        innerImageView.isHidden = model.seminarPhase != .total
+        innerView.isHidden = model.seminarPhase == .total
     }
 }
