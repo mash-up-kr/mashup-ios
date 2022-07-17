@@ -1341,7 +1341,7 @@
 				CEDC9F802878182500221683 /* MyPageSection.swift */,
 				CE6EE84D27C80C9B005BF412 /* MyPageViewController.swift */,
 				CEDC9F842878470900221683 /* ClubActivityScoreRule */,
-				CE7C9E85285DDCF200B71C0E /* View */,
+				CE7C9E85285DDCF200B71C0E /* Views */,
 			);
 			path = "My Page";
 			sourceTree = "<group>";
@@ -1422,7 +1422,7 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		CE7C9E85285DDCF200B71C0E /* View */ = {
+		CE7C9E85285DDCF200B71C0E /* Views */ = {
 			isa = PBXGroup;
 			children = (
 				CEDC9F8528784BE900221683 /* ClubActivityHistorySectionHeaderView.swift */,
@@ -1434,7 +1434,7 @@
 				CE307A04285DE1B50092C09A /* MyPageSummaryBar.swift */,
 				CE307A06285DE50E0092C09A /* MyPageSummaryBar+Rx.swift */,
 			);
-			path = View;
+			path = Views;
 			sourceTree = "<group>";
 		};
 		CE7CCB992855E566005AA690 /* View */ = {
