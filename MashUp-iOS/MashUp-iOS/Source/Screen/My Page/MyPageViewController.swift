@@ -30,6 +30,10 @@ final class MyPageViewController: BaseViewController, View {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         self.setupTabBarTheme(.light)
+        
+        let vc = SettingViewController()
+        vc.modalPresentationStyle = .fullScreen
+        present(vc, animated: true)
     }
     
     func bind(reactor: Reactor) {

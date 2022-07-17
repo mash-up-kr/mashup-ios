@@ -11,7 +11,7 @@ import MashUp_User
 import Foundation
 import MashUp_Network
 
-class FakeClubActivityRepository: ClubActivityRepository {
+final class FakeClubActivityRepository: ClubActivityRepository {
     
     func totalClubActivityScore() -> Observable<ClubActivityScore> {
         return .just(10)
