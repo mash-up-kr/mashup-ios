@@ -12,7 +12,7 @@ import MashUp_Core
 public final class MUActionAlertViewController: BaseViewController {
   private let alertView: MUAlertView
   
-  public init(title: String?, message: String?) {
+  public init(title: String? = nil, message: String? = nil) {
     alertView = MUAlertView(title: title, message: message)
     super.init(nibName: nil, bundle: nil)
     self.modalPresentationStyle = .overFullScreen

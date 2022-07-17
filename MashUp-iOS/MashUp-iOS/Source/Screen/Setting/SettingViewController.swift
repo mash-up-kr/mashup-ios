@@ -10,28 +10,149 @@ import UIKit
 import MashUp_Core
 import MashUp_UIKit
 import RxSwift
+import RxCocoa
+import ReactorKit
 
-final class SettingViewController: BaseViewController {
+final class SettingViewController: BaseViewController, View {
+    
+    typealias Reactor = SettingReactor
+    
+    var disposeBag: DisposeBag = DisposeBag()
     
     private let navigationBar: MUNavigationBar = MUNavigationBar(frame: .zero)
     private let settingMenuStackView: UIStackView = UIStackView()
     private let snsLeftStackView: UIStackView = UIStackView()
     private let snsRightStackView: UIStackView = UIStackView()
     private let snsContainerStacView: UIStackView = UIStackView()
-    private let logoutButton: BaseView = SettingMenuView(title: "로그아웃", titleColor: .gray800)
-    private let withdrawalButton: BaseView = SettingMenuView(title: "회원탈퇴", titleColor: .red500)
-    private let facebookButton: BaseView = SNSButton(snsType: .facebook)
-    private let instagramButton: BaseView = SNSButton(snsType: .instagram)
-    private let tistoryButton: BaseView = SNSButton(snsType: .tistory)
-    private let youtubeButton: BaseView = SNSButton(snsType: .youtube)
-    private let mashUpHomeButton: BaseView = SNSButton(snsType: .home)
-    private let recruitButton: BaseView = SNSButton(snsType: .recruit)
-    private let disposeBag: DisposeBag = DisposeBag()
+    private let logoutButton = SettingMenuView(title: "로그아웃", titleColor: .gray800)
+    private let withdrawalButton = SettingMenuView(title: "회원탈퇴", titleColor: .red500)
+    private let facebookButton = SNSButton(snsType: .facebook)
+    private let instagramButton = SNSButton(snsType: .instagram)
+    private let tistoryButton = SNSButton(snsType: .tistory)
+    private let youtubeButton = SNSButton(snsType: .youtube)
+    private let mashUpHomeButton = SNSButton(snsType: .home)
+    private let recruitButton = SNSButton(snsType: .recruit)
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
     }
+    
+    func bind(reactor: Reactor) {
+        self.dispatch(to: reactor)
+        self.render(reactor)
+        self.consume(reactor)
+    }
+    
+    private func dispatch(to reactor: Reactor) {
+        self.navigationBar.leftButton.rx.tap
+            .map { .didTapBack }
+            .bind(to: reactor.action)
+            .disposed(by: self.disposeBag)
+        
+        self.logoutButton.rx.tap
+            .map { .didTapSignOut }
+            .bind(to: reactor.action)
+            .disposed(by: self.disposeBag)
+        
+        self.withdrawalButton.rx.tap
+            .map { .didTapWithdrawal }
+            .bind(to: reactor.action)
+            .disposed(by: self.disposeBag)
+        
+        self.facebookButton.rx.tap
+            .map { .didTapFacebook }
+            .bind(to: reactor.action)
+            .disposed(by: self.disposeBag)
+        
+        self.instagramButton.rx.tap
+            .map { .didTapInstagram }
+            .bind(to: reactor.action)
+            .disposed(by: self.disposeBag)
+        
+        self.tistoryButton.rx.tap
+            .map { .didTapTistory }
+            .bind(to: reactor.action)
+            .disposed(by: self.disposeBag)
+        
+        self.youtubeButton.rx.tap
+            .map { .didTapYoutube }
+            .bind(to: reactor.action)
+            .disposed(by: self.disposeBag)
+        
+        self.mashUpHomeButton.rx.tap
+            .map { .didTapHomepage }
+            .bind(to: reactor.action)
+            .disposed(by: self.disposeBag)
+        
+        self.recruitButton.rx.tap
+            .map { .didTapRecruit }
+            .bind(to: reactor.action)
+            .disposed(by: self.disposeBag)
+    }
+    
+    private func render(_ reactor: Reactor) {
+    }
+    
+    private func consume(_ reactor: Reactor) {
+        reactor.pulse(\.$shouldGoBackward)
+            .compactMap { $0 }
+            .onMain()
+            .subscribe(onNext: { [weak self] in self?.goBackward() })
+            .disposed(by: self.disposeBag)
+        
+        reactor.pulse(\.$askUserToSignOut)
+            .compactMap { $0 }
+            .onMain()
+            .subscribe(onNext: { [weak self] in self?.showAlertSignOut() })
+            .disposed(by: self.disposeBag)
+        
+        
+        reactor.pulse(\.$step)
+            .compactMap { $0 }
+            .onMain()
+            .subscribe(onNext: { [weak self] step in self?.move(to: step) })
+            .disposed(by: self.disposeBag)
+    }
+    
+    private func goBackward() {
+        self.navigationController?.popViewController(animated: true)
+    }
+    
+    private func move(to step: SettingStep) {
+        switch step {
+        case .withdrawal:
+            let viewController = self.makeMembershipWithdrawalViewController()
+            self.navigationController?.pushViewController(viewController, animated: true)
+            
+        case .open(let url):
+            guard UIApplication.shared.canOpenURL(url) else { return }
+            UIApplication.shared.open(url)
+        }
+    }
+    
+    private func showAlertSignOut() {
+        let alert = MUActionAlertViewController(title: "로그아웃을 하시겠습니까?")
+        let cancel = MUAlertAction(title: "취소", style: .default)
+        let confirm = MUAlertAction(title: "확인", style: .primary, handler: {
+            self.reactor?.action.onNext(.didConfirmSignOut)
+        })
+        alert.addAction(cancel)
+        alert.addAction(confirm)
+        self.present(alert, animated: true)
+    }
+    
+    private func makeMembershipWithdrawalViewController() -> UIViewController {
+        let withdrawalService = MembershipWithdrawalServiceImpl()
+        let withdrawalReactor = MembershipWithdrawalReactor(service: withdrawalService)
+        let withdrawalViewController = MembershipWithdrawalViewController()
+        withdrawalViewController.reactor = withdrawalReactor
+        return withdrawalViewController
+    }
+    
+}
+
+extension SettingViewController {
     
     private func setupUI() {
         setupLayout()

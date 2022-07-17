@@ -11,6 +11,9 @@ import Then
 import UIKit
 import MashUp_Core
 import MashUp_UIKit
+import RxSwift
+import RxCocoa
+
 
 final class SNSButton: BaseView {
     
@@ -25,7 +28,7 @@ final class SNSButton: BaseView {
     
     private let snsImageView: UIImageView = UIImageView()
     private let snsLabel: UILabel = UILabel()
-    private let button: UIButton = UIButton()
+    fileprivate let button: UIButton = UIButton()
     
     init(snsType: SNSType) {
         super.init(frame: .zero)
@@ -95,5 +98,10 @@ final class SNSButton: BaseView {
         button.snp.makeConstraints {
             $0.leading.top.trailing.bottom.equalToSuperview()
         }
+    }
+}
+extension Reactive where Base: SNSButton {
+    var tap: ControlEvent<Void> {
+        self.base.button.rx.tap
     }
 }

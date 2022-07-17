@@ -11,12 +11,14 @@ import Then
 import UIKit
 import MashUp_Core
 import MashUp_UIKit
+import RxSwift
+import RxCocoa
 
 final class SettingMenuView: BaseView {
     private let menuTitleLabel: UILabel = UILabel()
     private let menuTrailingImageView: UIImageView = UIImageView()
     private let separatorView: UIView = UIView()
-    private let button: UIButton = UIButton()
+    fileprivate let button: UIButton = UIButton()
     
     init(title: String, titleColor: UIColor) {
         super.init(frame: .zero)
@@ -70,5 +72,11 @@ final class SettingMenuView: BaseView {
         button.snp.makeConstraints {
             $0.leading.top.trailing.bottom.equalToSuperview()
         }
+    }
+}
+
+extension Reactive where Base: SettingMenuView {
+    var tap: ControlEvent<Void> {
+        self.base.button.rx.tap
     }
 }

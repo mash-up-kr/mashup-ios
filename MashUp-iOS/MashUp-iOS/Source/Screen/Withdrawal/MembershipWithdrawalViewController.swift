@@ -13,6 +13,7 @@ import MashUp_UIKit
 import RxOptional
 
 final class MembershipWithdrawalViewController: BaseViewController, ReactorKit.View {
+    
     private let navigationBar: MUNavigationBar = MUNavigationBar()
     private let realLeavingLabel: UILabel = UILabel()
     private let confirmTextField: MUTextField = MUTextField()
@@ -81,7 +82,8 @@ final class MembershipWithdrawalViewController: BaseViewController, ReactorKit.V
         
         navigationBar.snp.makeConstraints {
             $0.height.equalTo(56)
-            $0.leading.top.trailing.equalToSuperview()
+            $0.leading.trailing.equalToSuperview()
+            $0.top.equalTo(self.view.safeAreaLayoutGuide)
         }
         realLeavingLabel.snp.makeConstraints {
             $0.top.equalTo(navigationBar.snp.bottom).offset(12)

@@ -220,6 +220,7 @@ extension MyPageViewController {
     
     private func makeSettingViewController() -> UIViewController {
         return SettingViewController().then {
+            $0.reactor = SettingReactor()
             $0.hidesBottomBarWhenPushed = true
         }
     }
