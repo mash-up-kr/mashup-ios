@@ -110,7 +110,7 @@ final class SettingReactor: Reactor {
         case .askSignOut:
             newState.askUserToSignOut = Void()
         case .signedOut:
-            self.authenticationResponder.loadFailure()
+            self.authenticationResponder.signOutSuccess()
         case .goBackward:
             newState.shouldGoBackward = Void()
         case .moveTo(let step):

@@ -20,8 +20,8 @@ final class AttendenceTimeAndCheckView: UIView {
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
-        setupUI()
     }
+    
     private let checkImageView = UIImageView()
     private let seminarSectionLabel = UILabel()
     private let attendenceLabel = UILabel()

@@ -24,7 +24,7 @@ final class SignUpStep1ViewController: BaseViewController, ReactorKit.View {
     typealias Reactor = SignUpStep1Reactor
     
     #warning("DIContainer 적용 후 제거되어야합니다 - booung")
-    var authenticationResponder: AuthenticationResponder?
+    var authenticationResponder: (any AuthenticationResponder)?
     
     var disposeBag: DisposeBag = DisposeBag()
     

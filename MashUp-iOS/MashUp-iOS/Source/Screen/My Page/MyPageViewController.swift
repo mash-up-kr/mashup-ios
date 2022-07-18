@@ -228,10 +228,13 @@ extension MyPageViewController {
         }
     }
     
-    private func makeSettingViewController(userAuthService: any UserAuthService, authenticationResponder: any AuthenticationResponder) -> UIViewController {
+    private func makeSettingViewController(
+        userAuthService: any UserAuthService,
+        authenticationResponder: any AuthenticationResponder
+    ) -> UIViewController {
+        let reactor = SettingReactor(userAuthService: userAuthService, authenticationResponder: authenticationResponder)
         return SettingViewController().then {
-            $0.reactor = SettingReactor(userAuthService: userAuthService,
-                                        authenticationResponder: authenticationResponder)
+            $0.reactor = reactor
             $0.hidesBottomBarWhenPushed = true
         }
     }

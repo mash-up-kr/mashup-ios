@@ -11,6 +11,7 @@ import UIKit
 import MashUp_Core
 import MashUp_Auth
 import MashUp_User
+import MashUp_UIKit
 
 final class RootController: BaseViewController, ReactorKit.View {
     typealias Reactor = RootReactor
@@ -39,6 +40,23 @@ final class RootController: BaseViewController, ReactorKit.View {
             .onMain()
             .subscribe(onNext: { $0.move(to: $1) })
             .disposed(by: self.disposeBag)
+        
+        reactor.pulse(\.$toastMessage).compactMap { $0 }
+            .onMain()
+            .subscribe(onNext: { [weak self] in self?.showToast(message: $0) })
+            .disposed(by: self.disposeBag)
+    }
+    
+    private func showToast(message: String) {
+        #warning("Toast로 바뀔 예정 - booung")
+        let alert = MUActionAlertViewController(title: message)
+        let confirm = MUAlertAction(title: "확인", style: .primary)
+        alert.addAction(confirm)
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1, execute: {
+            guard let visableViewController = UIViewController.visibleViewController() else { return }
+            visableViewController.present(alert, animated: true)
+        })
     }
     
     #warning("DIContainer로 로직 이동해야합니다., 가구현체여서 실구현체로 대치되어야합니다")
@@ -143,6 +161,11 @@ extension RootController {
     
     private func createHomeTabController() -> UIViewController {
         let homeTabBarController = HomeTabBarController()
+        let userAuthService = FakeUserAuthService()
+        userAuthService.stubedSignOutResult = true
+        #warning("DIContainer 적용 후 제거되어야합니다 - booung")
+        homeTabBarController.userAuthService = userAuthService
+        homeTabBarController.authenticationResponder = self.reactor
         homeTabBarController.reactor = HomeReactor()
         return homeTabBarController
     }

@@ -52,7 +52,7 @@ final class SettingReactorSpec: QuickSpec {
           }
           
           it("홈화면으로 이동합니다") {
-            verify(authenticationResponderMock.loadFailure()).wasCalled()
+            verify(authenticationResponderMock.signOutSuccess()).wasCalled()
           }
         }
       }

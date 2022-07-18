@@ -15,9 +15,15 @@ import MashUp_Core
 import MashUp_UIKit
 import MashUp_User
 import FLEX
+import MashUp_Auth
 
 final class HomeTabBarController: BaseTabBarController, ReactorKit.View {
+    
     typealias Reactor = HomeReactor
+    
+    #warning("DIContainer로 로직 이동해야합니다.")
+    var userAuthService: (any UserAuthService)?
+    var authenticationResponder: (any AuthenticationResponder)?
     
     var disposeBag = DisposeBag()
     
@@ -157,6 +163,9 @@ extension HomeTabBarController {
             formatter: formatter,
             debugSystem: FLEXManager.shared
         )
+        #warning("DIContainer 적용 후 제거되어야합니다 - booung")
+        myPageViewController.userAuthService = self.userAuthService
+        myPageViewController.authenticationResponder = self.authenticationResponder
         return UINavigationController(rootViewController: myPageViewController).then {
             $0.navigationBar.isHidden = true
         }
