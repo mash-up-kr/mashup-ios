@@ -41,6 +41,10 @@ final class UserAuthServiceImp: UserAuthService {
         }
     }
     
+    func signOut() -> Observable<Bool> {
+        return .empty()
+    }
+    
     private let userSessionRepository: any UserSessionRepository
     
 }

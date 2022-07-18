@@ -9,8 +9,9 @@
 import Foundation
 import RxSwift
 import ReactorKit
+import MashUp_Auth
 
-enum SettingStep {
+enum SettingStep: Equatable {
     case withdrawal
     case open(URL)
 }
@@ -33,6 +34,7 @@ final class SettingReactor: Reactor {
     enum Mutation {
         case updateLoading(Bool)
         case askSignOut
+        case signedOut
         case goBackward
         case moveTo(SettingStep)
     }
@@ -47,6 +49,13 @@ final class SettingReactor: Reactor {
     
     let initialState: State = State()
     
+    init(
+        userAuthService: any UserAuthService,
+        authenticationResponder: any AuthenticationResponder
+    ) {
+        self.userAuthService = userAuthService
+        self.authenticationResponder = authenticationResponder
+    }
     
     func mutate(action: Action) -> Observable<Mutation> {
         switch action {
@@ -73,18 +82,20 @@ final class SettingReactor: Reactor {
             return .just(.moveTo(.open(youtubeURL)))
             
         case .didTapHomepage:
-            guard let webPageURL = URL(string: "https://mash-up.kr/") else { return .empty() }
+            guard let webPageURL = URL(string: "https://mash-up.kr") else { return .empty() }
             return .just(.moveTo(.open(webPageURL)))
             
         case .didTapRecruit:
-            guard let recruitURL = URL(string: "https://recruit.mash-up.kr/") else { return .empty() }
+            guard let recruitURL = URL(string: "https://recruit.mash-up.kr") else { return .empty() }
             return .just(.moveTo(.open(recruitURL)))
             
         case .didConfirmSignOut:
-            let startLoading = Mutation.updateLoading(true)
-            #warning("로그아웃 API 로직 구현 - booung")
-            let endLoading = Mutation.updateLoading(false)
-            return .empty()
+            let startLoading: Observable<Mutation> = .just(.updateLoading(true))
+            let signOut: Observable<Mutation> = self.userAuthService.signOut()
+                .filter { $0 }
+                .map { _ in .signedOut }
+            let endLoading: Observable<Mutation> = .just(.updateLoading(false))
+            return .concat(startLoading, signOut, endLoading)
             
         case .didTapBack:
             return .just(.goBackward)
@@ -98,6 +109,8 @@ final class SettingReactor: Reactor {
             newState.isLoading = isLoading
         case .askSignOut:
             newState.askUserToSignOut = Void()
+        case .signedOut:
+            self.authenticationResponder.loadFailure()
         case .goBackward:
             newState.shouldGoBackward = Void()
         case .moveTo(let step):
@@ -106,4 +119,6 @@ final class SettingReactor: Reactor {
         return newState
     }
     
+    private let userAuthService: any UserAuthService
+    private let authenticationResponder: any AuthenticationResponder
 }

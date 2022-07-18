@@ -23,15 +23,15 @@ extension HomeTab {
     
     var activeIcon: UIImage? {
         switch self {
-        case .seminarSchedule: return UIImage.seminar
-        case .myPage: return UIImage.user
+        case .seminarSchedule: return UIImage.ic_seminar
+        case .myPage: return UIImage.ic_user
         }
     }
     
     var icon: UIImage? {
         switch self {
-        case .seminarSchedule: return UIImage.seminar
-        case .myPage: return UIImage.user
+        case .seminarSchedule: return UIImage.ic_seminar
+        case .myPage: return UIImage.ic_user
         }
     }
 }

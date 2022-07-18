@@ -14,6 +14,7 @@ import MashUp_User
 public final class FakeUserAuthService: UserAuthService {
     
     public var stubedUserSession: UserSession?
+    public var stubedSignOutResult: Bool?
     
     public init() {}
     
@@ -50,6 +51,11 @@ public final class FakeUserAuthService: UserAuthService {
             generations: [12]
         )
         return .success(fakeSession)
+    }
+    
+    public func signOut() -> Observable<Bool> {
+        guard let stubedSignOutResult = self.stubedSignOutResult else { return .just(false) }
+        return .just(stubedSignOutResult)
     }
     
 }
