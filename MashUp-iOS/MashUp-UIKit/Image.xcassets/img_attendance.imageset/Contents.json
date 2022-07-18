@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "img_attendance.pdf",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

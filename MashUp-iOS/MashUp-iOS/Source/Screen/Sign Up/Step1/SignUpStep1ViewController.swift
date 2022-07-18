@@ -24,7 +24,7 @@ final class SignUpStep1ViewController: BaseViewController, ReactorKit.View {
     typealias Reactor = SignUpStep1Reactor
     
     #warning("DIContainer 적용 후 제거되어야합니다 - booung")
-    var authenticationResponder: AuthenticationResponder?
+    var authenticationResponder: (any AuthenticationResponder)?
     
     var disposeBag: DisposeBag = DisposeBag()
     
@@ -249,6 +249,7 @@ extension SignUpStep1ViewController {
         self.navigationBar.do {
             $0.title = "회원가입"
             $0.leftBarItem = .back
+            $0.interactiveContentScrollView = self.scrollView
         }
         self.scrollView.do {
             $0.isScrollEnabled = false

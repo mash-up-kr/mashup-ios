@@ -21,7 +21,7 @@ final class SignInViewController: BaseViewController, ReactorKit.View {
     typealias Reactor = SignInReactor
     
     #warning("DIContainer 적용 후 제거되어야합니다 - booung")
-    var authenticationResponder: AuthenticationResponder?
+    var authenticationResponder: (any AuthenticationResponder)?
     
     var disposeBag: DisposeBag = DisposeBag()
     
@@ -144,7 +144,7 @@ extension SignInViewController {
             $0.titleLabel?.font = .pretendardFont(weight: .regular, size: 16)
             $0.setTitle("회원가입 하러가기", for: .normal)
             $0.setTitleColor(.gray600, for: .normal)
-            $0.setImage(.chevronRight?.resized(side: 20).withTintColor(.gray400), for: .normal)
+            $0.setImage(.ic_chevron_right?.resized(side: 20).withTintColor(.gray400), for: .normal)
             $0.semanticContentAttribute = .forceRightToLeft
         }
         self.loadingIndicator.do {

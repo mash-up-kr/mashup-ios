@@ -60,7 +60,7 @@ extension TermsAgreementView {
         }
         self.checkImageView.do {
             $0.backgroundColor = .clear
-            $0.image = .check
+            $0.image = .ic_check
         }
         self.titleLabel.do {
             $0.textColor = .gray700

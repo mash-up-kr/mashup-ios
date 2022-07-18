@@ -20,7 +20,6 @@ class NowAttendenceView: UIView {
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
-        self.setupUI()
     }
     
     func configure(with model: SeminarCardCellModel) {

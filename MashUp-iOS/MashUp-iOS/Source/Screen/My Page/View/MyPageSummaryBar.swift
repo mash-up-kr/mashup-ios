@@ -66,7 +66,7 @@ extension MyPageSummaryBar {
             $0.text = "총 활동 점수"
         }
         self.questionMarkButton.do {
-            let questionMarkImage = UIImage.info?.resized(width: 14, height: 14).withTintColor(.white)
+            let questionMarkImage = UIImage.ic_info?.resized(width: 14, height: 14).withTintColor(.white)
             $0.setImage(questionMarkImage, for: .normal)
             $0.addTarget(self, action: #selector(didTapQuestionMarkButton(_:)), for: .touchUpInside)
         }

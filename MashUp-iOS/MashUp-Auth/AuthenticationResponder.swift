@@ -12,4 +12,5 @@ import MashUp_User
 public protocol AuthenticationResponder {
     func loadSuccess(userSession: UserSession)
     func loadFailure()
+    func signOutSuccess()
 }

@@ -15,6 +15,7 @@ public protocol UserAuthService {
     func signIn(id: String, password: String) -> Observable<UserSession>
     func signUp(with newAccount: NewAccount, signUpCode: String) async -> Result<UserSession, SignUpError>
     func signUp(with newAccount: NewAccount, signUpCode: String) -> Observable<Result<UserSession, SignUpError>>
+    func signOut() -> Observable<Bool>
 }
 public extension UserAuthService {
     func signUp(with newAccount: NewAccount, signUpCode: String) -> Observable<Result<UserSession, SignUpError>> {

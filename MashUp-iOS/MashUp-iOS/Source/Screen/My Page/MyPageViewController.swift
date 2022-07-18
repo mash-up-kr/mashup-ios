@@ -10,6 +10,7 @@ import UIKit
 import MashUp_Core
 import MashUp_UIKit
 import ReactorKit
+import MashUp_Auth
 
 final class MyPageViewController: BaseViewController, View {
     
@@ -17,6 +18,10 @@ final class MyPageViewController: BaseViewController, View {
     typealias Section = MyPageSection
     typealias DataSource = UITableViewDiffableDataSource<Section, Section.Item>
     typealias Snapshot = NSDiffableDataSourceSnapshot<Section, Section.Item>
+    
+    #warning("DIContainer 변경 이후 수정되어야함 - booung")
+    var userAuthService: (any UserAuthService)?
+    var authenticationResponder: (any AuthenticationResponder)?
     
     var disposeBag: DisposeBag = DisposeBag()
     
@@ -30,10 +35,6 @@ final class MyPageViewController: BaseViewController, View {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         self.setupTabBarTheme(.light)
-        
-        let vc = SettingViewController()
-        vc.modalPresentationStyle = .fullScreen
-        present(vc, animated: true)
     }
     
     func bind(reactor: Reactor) {
@@ -212,7 +213,13 @@ extension MyPageViewController {
     private func move(to step: MyPageStep) {
         switch step {
         case .setting:
-            let viewController = self.makeSettingViewController()
+            guard let userAuthService = self.userAuthService else { return }
+            guard let authenticationResponder = self.authenticationResponder else { return }
+            let viewController = self.makeSettingViewController(
+                userAuthService: userAuthService,
+                authenticationResponder: authenticationResponder
+            )
+            self.navigationController?.pushViewController(viewController, animated: true)
             
         case .clubActivityScoreRule:
             let viewController = self.makeClubActivityScoreRuleViewController()
@@ -221,8 +228,15 @@ extension MyPageViewController {
         }
     }
     
-    private func makeSettingViewController() -> UIViewController {
-        return UIViewController()
+    private func makeSettingViewController(
+        userAuthService: any UserAuthService,
+        authenticationResponder: any AuthenticationResponder
+    ) -> UIViewController {
+        let reactor = SettingReactor(userAuthService: userAuthService, authenticationResponder: authenticationResponder)
+        return SettingViewController().then {
+            $0.reactor = reactor
+            $0.hidesBottomBarWhenPushed = true
+        }
     }
     
     private func makeClubActivityScoreRuleViewController() -> UIViewController {

@@ -12,11 +12,18 @@ import RxCocoa
 import SnapKit
 import UIKit
 import MashUp_Core
-import FLEX
+import MashUp_UIKit
 import MashUp_User
+import FLEX
+import MashUp_Auth
 
 final class HomeTabBarController: BaseTabBarController, ReactorKit.View {
+    
     typealias Reactor = HomeReactor
+    
+    #warning("DIContainer로 로직 이동해야합니다.")
+    var userAuthService: (any UserAuthService)?
+    var authenticationResponder: (any AuthenticationResponder)?
     
     var disposeBag = DisposeBag()
     
@@ -76,15 +83,20 @@ final class HomeTabBarController: BaseTabBarController, ReactorKit.View {
 extension HomeTabBarController {
     
     private func setupUI() {
-        self.tabBar.tintColor = .black
-        self.tabBar.backgroundColor = .white
+        self.tabBar.do {
+            $0.tintColor = .black
+            $0.backgroundColor = .white
+            $0.itemSpacing = 120
+            $0.itemPositioning = .centered
+        }
         
         self.qrButton.do {
             $0.backgroundColor = .brand500
             $0.layer.cornerRadius = 24
             $0.layer.masksToBounds = true
+            $0.setImage(.ic_qr?.resized(side: 24).withTintColor(.white), for: .normal)
         }
-        self.view.addSubview(self.qrButton)
+        self.tabBar.addSubview(self.qrButton)
         self.qrButton.snp.makeConstraints {
             $0.centerX.equalToSuperview()
             $0.top.equalTo(self.tabBar).inset(10)
@@ -151,7 +163,12 @@ extension HomeTabBarController {
             formatter: formatter,
             debugSystem: FLEXManager.shared
         )
-        return myPageViewController
+        #warning("DIContainer 적용 후 제거되어야합니다 - booung")
+        myPageViewController.userAuthService = self.userAuthService
+        myPageViewController.authenticationResponder = self.authenticationResponder
+        return UINavigationController(rootViewController: myPageViewController).then {
+            $0.navigationBar.isHidden = true
+        }
     }
     
     private func createQRScanViewController() -> UIViewController {

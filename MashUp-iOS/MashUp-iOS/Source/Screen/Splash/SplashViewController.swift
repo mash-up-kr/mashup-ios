@@ -21,8 +21,6 @@ final class SplashViewController: BaseViewController, ReactorKit.View {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        #warning("Splash UI 구현해야합니다. - Booung")
-        self.view.backgroundColor = .brand500
     }
     
     func bind(reactor: SplashReactor) {
@@ -31,6 +29,18 @@ final class SplashViewController: BaseViewController, ReactorKit.View {
         .disposed(by: self.disposeBag)
     }
     
+    private let splashLogoImageView = UIImageView()
 }
-
+extension SplashViewController {
+    
+    private func setupAttribute() {
+        self.view.backgroundColor = .brand500
+        self.splashLogoImageView.image = .img_splash
+    }
+    
+    private func setupLayout() {
+        
+    }
+    
+}
 

@@ -11,18 +11,21 @@ import Then
 import UIKit
 import MashUp_Core
 import MashUp_UIKit
+import RxSwift
+import RxCocoa
 
 final class SettingMenuView: BaseView {
     private let menuTitleLabel: UILabel = UILabel()
     private let menuTrailingImageView: UIImageView = UIImageView()
     private let separatorView: UIView = UIView()
-    private let button: UIButton = UIButton()
+    fileprivate let button: UIButton = UIButton()
     
-    init(title: String, titleColor: UIColor) {
+    init(title: String, titleColor: UIColor, hasDisclosure: Bool = false) {
         super.init(frame: .zero)
-        setupUI()
         menuTitleLabel.textColor = titleColor
         menuTitleLabel.text = title
+        menuTrailingImageView.isHidden = !hasDisclosure
+        setupUI()
     }
     
     required init?(coder: NSCoder) {
@@ -39,7 +42,7 @@ final class SettingMenuView: BaseView {
             $0.font = .pretendardFont(weight: .semiBold, size: 16)
         }
         menuTrailingImageView.do {
-            $0.backgroundColor = .red
+            $0.image = .ic_chevron_right?.withTintColor(.gray400).resized(side: 20)
         }
         separatorView.do {
             $0.backgroundColor = .gray100
@@ -70,5 +73,11 @@ final class SettingMenuView: BaseView {
         button.snp.makeConstraints {
             $0.leading.top.trailing.bottom.equalToSuperview()
         }
+    }
+}
+
+extension Reactive where Base: SettingMenuView {
+    var tap: ControlEvent<Void> {
+        self.base.button.rx.tap
     }
 }
