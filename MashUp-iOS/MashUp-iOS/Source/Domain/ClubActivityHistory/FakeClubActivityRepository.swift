@@ -24,7 +24,6 @@ final class FakeClubActivityRepository: ClubActivityRepository {
     }
     
     private func randomClubActivityHistory() -> ClubActivityHistory {
-        let activityTitles = ["해커톤 준비 위원회", "전체 세미나 지각", "프로젝트 배포 성공", "기술블로그", "Mash-Up 콘텐츠 작성"]
         let changedScoreRange = -3...1
         let appliedTotalScoreRange = -3...20
         
@@ -34,7 +33,7 @@ final class FakeClubActivityRepository: ClubActivityRepository {
         
         return ClubActivityHistory(
             id: UUID().uuidString,
-            activityTitle: activityTitles.randomElement()!,
+            activityType: ClubActivity.allCases.randomElement()!,
             changedScore: changedScoreRange.randomElement()!,
             appliedTotalScore: appliedTotalScoreRange.randomElement()!,
             date: Date(year: 2022, month: monthRange.randomElement()!, day: dayRange.randomElement()!, hour: 0, minute: 0, second: 0),

@@ -20,8 +20,8 @@ enum ScoreChangeStyle: Hashable {
 
 struct ClubActivityHistoryCellModel: Hashable {
     let id: String = UUID().uuidString
-    let historyTitle: String
     let description: String
+    let clubActivityStyle: ClubActivityStyle
     let scoreChangeStyle: ScoreChangeStyle
     let appliedTotalScoreText: String
 }
@@ -39,12 +39,11 @@ final class ClubActivityHistoryCell: BaseTableViewCell {
     }
     
     func configure(with model: ClubActivityHistoryCellModel) {
-        self.historyTitleLabel.text = model.historyTitle
+        self.historyTitleLabel.text = model.clubActivityStyle.title
+        self.clubActivityImageView.image = model.clubActivityStyle.icon
         self.descriptionLabel.text = model.description
         self.appliedTotalScoreLabel.text = model.appliedTotalScoreText
         self.apply(style: model.scoreChangeStyle)
-        #warning("프로토타이핑 - booung")
-        self.eventColorView.backgroundColor = [.blue500, .green500, .red500, .yellow500, .brand500].randomElement()!
     }
     
     private func apply(style: ScoreChangeStyle) {
@@ -61,7 +60,7 @@ final class ClubActivityHistoryCell: BaseTableViewCell {
         }
     }
     
-    private let eventColorView = UIView()
+    private let clubActivityImageView = UIImageView()
     private let historyTitleLabel = UILabel()
     private let dateLabel = UILabel()
     private let descriptionLabel = UILabel()
@@ -74,7 +73,7 @@ extension ClubActivityHistoryCell {
     private func setupAttribute() {
         self.selectionStyle = .none
         self.backgroundColor = .gray50
-        self.eventColorView.do {
+        self.clubActivityImageView.do {
             $0.clipsToBounds = true
             $0.layer.cornerRadius = 12
         }
@@ -105,26 +104,26 @@ extension ClubActivityHistoryCell {
     }
     
     private func setupLayout() {
-        self.contentView.addSubview(self.eventColorView)
-        self.eventColorView.snp.makeConstraints {
+        self.contentView.addSubview(self.clubActivityImageView)
+        self.clubActivityImageView.snp.makeConstraints {
             $0.width.height.equalTo(40)
             $0.leading.equalToSuperview().inset(20)
             $0.top.bottom.equalToSuperview().inset(12)
         }
         self.contentView.addSubview(self.historyTitleLabel)
         self.historyTitleLabel.snp.makeConstraints {
-            $0.top.equalTo(self.eventColorView)
-            $0.leading.equalTo(self.eventColorView.snp.trailing).offset(12)
+            $0.top.equalTo(self.clubActivityImageView)
+            $0.leading.equalTo(self.clubActivityImageView.snp.trailing).offset(12)
         }
         self.contentView.addSubview(self.dateLabel)
         self.dateLabel.snp.makeConstraints {
-            $0.leading.equalTo(self.eventColorView.snp.trailing).offset(12)
-            $0.bottom.equalTo(self.eventColorView)
+            $0.leading.equalTo(self.clubActivityImageView.snp.trailing).offset(12)
+            $0.bottom.equalTo(self.clubActivityImageView)
         }
         self.contentView.addSubview(self.descriptionLabel)
         self.descriptionLabel.snp.makeConstraints {
-            $0.leading.equalTo(self.eventColorView.snp.trailing).offset(12)
-            $0.bottom.equalTo(self.eventColorView)
+            $0.leading.equalTo(self.clubActivityImageView.snp.trailing).offset(12)
+            $0.bottom.equalTo(self.clubActivityImageView)
         }
         self.contentView.addSubview(self.changedScoreLabel)
         self.changedScoreLabel.snp.makeConstraints {
@@ -134,7 +133,7 @@ extension ClubActivityHistoryCell {
         self.contentView.addSubview(self.appliedTotalScoreLabel)
         self.appliedTotalScoreLabel.snp.makeConstraints {
             $0.trailing.equalToSuperview().inset(20)
-            $0.bottom.equalTo(self.eventColorView)
+            $0.bottom.equalTo(self.clubActivityImageView)
         }
     }
     

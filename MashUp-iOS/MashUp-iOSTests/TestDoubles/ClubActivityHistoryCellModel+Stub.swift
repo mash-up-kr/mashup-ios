@@ -13,14 +13,14 @@ import Foundation
 extension ClubActivityHistoryCellModel {
   
   static func stub(
-    historyTitle: String = "stub.history.title.\(UUID().uuidString)",
     description: String = "stub.description.\(UUID().uuidString)",
+    clubActivityStyle: ClubActivityStyle = .allCases.randomElement()!,
     scoreChangeStyle: ScoreChangeStyle = .custom(UUID().uuidString),
     appliedTotalScoreText: String = "stub.total.score.\(UUID().uuidString)"
   ) -> Self {
     return ClubActivityHistoryCellModel(
-      historyTitle: historyTitle,
       description: description,
+      clubActivityStyle: clubActivityStyle,
       scoreChangeStyle: scoreChangeStyle,
       appliedTotalScoreText: appliedTotalScoreText
     )
