@@ -34,7 +34,7 @@ extension EmptyClubActivityHistoryView {
     private func setupAttribute() {
         self.contentView.backgroundColor = .gray50
         self.emptyImageView.do {
-            $0.image = .placeholder
+            $0.image = .img_placeholder_sleeping
         }
         self.emptyLabel.do {
             $0.text = "아직 매시업 활동 내역이 없어요"

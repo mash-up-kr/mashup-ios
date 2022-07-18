@@ -19,9 +19,67 @@ import UIKit
     @objc optional func myPageHeaderViewDidTap5TimesMascotImage(_ view: MyPageHeaderView)
 }
 
+struct MyPagePlatformStyle: Equatable {
+    let mascotImage: UIImage?
+    let textColor: UIColor
+    let backgroundColor: UIColor
+}
+
+extension MyPagePlatformStyle {
+    static var design: Self {
+        return MyPagePlatformStyle(
+            mascotImage: .img_profile_design,
+            textColor: .gray300,
+            backgroundColor: .gray300
+        )
+    }
+    
+    static var android: Self {
+        return MyPagePlatformStyle(
+            mascotImage: .img_profile_android,
+            textColor: .gray300,
+            backgroundColor: .gray300
+        )
+    }
+    
+    static var iOS: Self {
+        return MyPagePlatformStyle(
+            mascotImage: .img_profile_iOS,
+            textColor: .gray300,
+            backgroundColor: .gray300
+        )
+    }
+    
+    static var web: Self {
+        return MyPagePlatformStyle(
+            mascotImage: .img_profile_web,
+            textColor: .gray300,
+            backgroundColor: .gray300
+        )
+    }
+    
+    static var spring: Self {
+        return MyPagePlatformStyle(
+            mascotImage: .img_profile_spring,
+            textColor: .gray300,
+            backgroundColor: .gray300
+        )
+    }
+    
+    static var node: Self {
+        return MyPagePlatformStyle(
+            mascotImage: .img_profile_node,
+            textColor: .gray300,
+            backgroundColor: .gray300
+        )
+    }
+    
+}
+
 struct MyPageHeaderViewModel: Equatable {
     let userName: String
     let platformTeamText: String
+    let platformStyle: MyPagePlatformStyle
     let totalScoreText: String
 }
 
@@ -43,6 +101,9 @@ final class MyPageHeaderView: BaseView {
     func configure(with viewModel: MyPageHeaderViewModel) {
         self.userNameLabel.text = viewModel.userName
         self.platformTeamLabel.text = viewModel.platformTeamText
+        self.platformTeamLabel.textColor = viewModel.platformStyle.textColor
+        self.platformTeamLabel.backgroundColor = viewModel.platformStyle.backgroundColor
+        self.mascotImageView.image = viewModel.platformStyle.mascotImage?.resized(width: 180, height: 146)
         self.totalClubActivityScoreLabel.text = viewModel.totalScoreText
     }
     
@@ -83,7 +144,7 @@ extension MyPageHeaderView {
         self.platformTeamLabel.do {
             $0.font = .pretendardFont(weight: .medium, size: 14)
             $0.backgroundColor = .brand500
-            $0.layer.cornerRadius = 6
+            $0.layer.cornerRadius = 10
             $0.layer.masksToBounds = true
             $0.textColor = .white
         }
@@ -97,7 +158,7 @@ extension MyPageHeaderView {
             $0.layer.cornerRadius = 12
             $0.isUserInteractionEnabled = true
             $0.addShadow(x: 0, y: 2, color: .black.withAlphaComponent(0.1), radius: 20)
-            $0.image = UIImage(named: "mypage_card")
+            $0.image = .img_card_bg
         }
         self.totalClubActivityScoreLabel.do {
             $0.font = .pretendardFont(weight: .bold, size: 24)
@@ -146,10 +207,10 @@ extension MyPageHeaderView {
         }
         userInfoStackView.addArrangedSubview(self.mascotImageView)
         self.mascotImageView.snp.makeConstraints {
-            $0.width.equalTo(160)
-            $0.height.equalTo(90)
+            $0.width.equalTo(180)
+            $0.height.equalTo(146)
         }
-        userInfoStackView.setCustomSpacing(20, after: self.mascotImageView)
+        userInfoStackView.setCustomSpacing(0, after: self.mascotImageView)
         userInfoStackView.addArrangedSubview(self.userNameLabel)
         userInfoStackView.setCustomSpacing(12, after: self.userNameLabel)
         userInfoStackView.addArrangedSubview(self.platformTeamLabel)

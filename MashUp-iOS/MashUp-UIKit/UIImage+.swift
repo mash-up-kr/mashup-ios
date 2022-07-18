@@ -31,10 +31,11 @@ extension UIImage {
 }
 
 extension UIImage {
-    public static var placeholder: UIImage? { UIImage(named: "placeholder") }
+    public static var img_placeholder_sleeping: UIImage? { UIImage(named: "img_placeholder_sleeping") }
     
     public static var img_absent: UIImage? { UIImage(named: "img_absent") }
     public static var img_attendance: UIImage? { UIImage(named: "img_attendance") }
+    public static var img_card_bg: UIImage? { UIImage(named: "img_card_bg") }
     public static var img_facebook: UIImage? { UIImage(named: "img_facebook") }
     public static var img_hackathonprepare: UIImage? { UIImage(named: "img_hackathonprepare") }
     public static var img_instagram: UIImage? { UIImage(named: "img_instagram") }
