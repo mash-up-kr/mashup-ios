@@ -12,6 +12,7 @@ import MashUp_UIKit
 import SnapKit
 import Then
 import UIKit
+import MashUp_PlatformTeam
 
 @objc protocol MyPageHeaderViewDelegate: AnyObject {
     @objc optional func myPageHeaderViewDidTapSettingButton(_ view: MyPageHeaderView)
@@ -19,59 +20,62 @@ import UIKit
     @objc optional func myPageHeaderViewDidTap5TimesMascotImage(_ view: MyPageHeaderView)
 }
 
-struct MyPagePlatformStyle: Equatable {
-    let mascotImage: UIImage?
-    let textColor: UIColor
-    let backgroundColor: UIColor
-}
 
-extension MyPagePlatformStyle {
-    static var design: Self {
-        return MyPagePlatformStyle(
-            mascotImage: .img_profile_design,
-            textColor: .gray300,
-            backgroundColor: .gray300
-        )
+enum MyPagePlatformStyle: CaseIterable {
+    case design
+    case android
+    case iOS
+    case web
+    case node
+    case spring
+    
+    var mascotImage: UIImage? {
+        switch self {
+        case .design: return .img_profile_design
+        case .android: return .img_profile_android
+        case .iOS: return .img_profile_iOS
+        case .web: return .img_profile_web
+        case .node: return .img_profile_node
+        case .spring: return .img_profile_spring
+        }
+    }
+    var textColor: UIColor? {
+        switch self {
+        case .design: return UIColor(hexString: "#C5C0FF")
+        case .android: return UIColor(hexString: "#B3D7B2")
+        case .iOS: return UIColor(hexString: "#F5B8B8")
+        case .web: return UIColor(hexString: "#BFD1FF")
+        case .node: return UIColor(hexString: "#C0C0DB")
+        case .spring: return UIColor(hexString: "#9DDDD5")
+            
+        }
+    }
+    var backgroundColor: UIColor? {
+        switch self {
+        case .design: return UIColor(hexString: "#8176FB", alpha: 0.3)
+        case .android: return UIColor(hexString: "#58AE56", alpha: 0.3)
+        case .iOS: return UIColor(hexString: "#D35C5C", alpha: 0.3)
+        case .web: return UIColor(hexString: "#5A88FF", alpha: 0.3)
+        case .node: return UIColor(hexString: "#6B6B80", alpha: 0.3)
+        case .spring: return UIColor(hexString: "#259688", alpha: 0.3)
+        }
     }
     
-    static var android: Self {
-        return MyPagePlatformStyle(
-            mascotImage: .img_profile_android,
-            textColor: .gray300,
-            backgroundColor: .gray300
-        )
-    }
-    
-    static var iOS: Self {
-        return MyPagePlatformStyle(
-            mascotImage: .img_profile_iOS,
-            textColor: .gray300,
-            backgroundColor: .gray300
-        )
-    }
-    
-    static var web: Self {
-        return MyPagePlatformStyle(
-            mascotImage: .img_profile_web,
-            textColor: .gray300,
-            backgroundColor: .gray300
-        )
-    }
-    
-    static var spring: Self {
-        return MyPagePlatformStyle(
-            mascotImage: .img_profile_spring,
-            textColor: .gray300,
-            backgroundColor: .gray300
-        )
-    }
-    
-    static var node: Self {
-        return MyPagePlatformStyle(
-            mascotImage: .img_profile_node,
-            textColor: .gray300,
-            backgroundColor: .gray300
-        )
+    init(platform: PlatformTeam) {
+        switch platform {
+        case .design:
+            self = .design
+        case .android:
+            self = .android
+        case .iOS:
+            self = .iOS
+        case .web:
+            self = .web
+        case .node:
+            self = .node
+        case .spring:
+            self = .spring
+        }
     }
     
 }
@@ -144,7 +148,7 @@ extension MyPageHeaderView {
         self.platformTeamLabel.do {
             $0.font = .pretendardFont(weight: .medium, size: 14)
             $0.backgroundColor = .brand500
-            $0.layer.cornerRadius = 10
+            $0.layer.cornerRadius = 13
             $0.layer.masksToBounds = true
             $0.textColor = .white
         }
