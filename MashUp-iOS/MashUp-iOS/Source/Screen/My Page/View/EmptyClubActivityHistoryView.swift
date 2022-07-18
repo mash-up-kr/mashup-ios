@@ -46,8 +46,8 @@ extension EmptyClubActivityHistoryView {
     private func setupLayout() {
         self.contentView.addSubview(self.emptyImageView)
         self.emptyImageView.snp.makeConstraints {
-            $0.width.equalTo(180)
-            $0.height.equalTo(100)
+            $0.width.equalTo(120)
+            $0.height.equalTo(80)
             $0.centerX.equalToSuperview()
             $0.top.bottom.equalToSuperview().inset(42)
         }
