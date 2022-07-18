@@ -21,12 +21,15 @@ final class SplashViewController: BaseViewController, ReactorKit.View {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.setupAttribute()
+        self.setupLayout()
     }
     
     func bind(reactor: SplashReactor) {
         self.rx.viewDidLayoutSubviews.take(1).map { .didSetup }
-        .bind(to: reactor.action)
-        .disposed(by: self.disposeBag)
+            .delay(.seconds(2), scheduler: MainScheduler.instance)
+            .bind(to: reactor.action)
+            .disposed(by: self.disposeBag)
     }
     
     private let splashLogoImageView = UIImageView()
@@ -39,7 +42,12 @@ extension SplashViewController {
     }
     
     private func setupLayout() {
-        
+        self.view.addSubview(self.splashLogoImageView)
+        self.splashLogoImageView.snp.makeConstraints {
+            $0.width.height.equalTo(200)
+            $0.centerX.equalToSuperview()
+            $0.centerY.equalToSuperview().multipliedBy(293.0/380.0)
+        }
     }
     
 }
