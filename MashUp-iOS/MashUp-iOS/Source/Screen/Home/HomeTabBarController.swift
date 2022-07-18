@@ -88,7 +88,7 @@ extension HomeTabBarController {
             $0.backgroundColor = .brand500
             $0.layer.cornerRadius = 24
             $0.layer.masksToBounds = true
-            $0.setImage(.qr?.resized(side: 24).withTintColor(.white), for: .normal)
+            $0.setImage(.ic_qr?.resized(side: 24).withTintColor(.white), for: .normal)
         }
         self.tabBar.addSubview(self.qrButton)
         self.qrButton.snp.makeConstraints {

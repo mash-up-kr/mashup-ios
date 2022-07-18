@@ -42,7 +42,7 @@ final class SettingMenuView: BaseView {
             $0.font = .pretendardFont(weight: .semiBold, size: 16)
         }
         menuTrailingImageView.do {
-            $0.image = .chevronRight?.withTintColor(.gray400).resized(side: 20)
+            $0.image = .ic_chevron_right?.withTintColor(.gray400).resized(side: 20)
         }
         separatorView.do {
             $0.backgroundColor = .gray100

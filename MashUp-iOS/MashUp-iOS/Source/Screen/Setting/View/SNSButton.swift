@@ -43,27 +43,27 @@ final class SNSButton: BaseView {
     private func makeButtonStyle(from type : SNSType) {
         switch type {
         case .facebook:
-            snsImageView.image = .facebook
+            snsImageView.image = .img_facebook
             snsLabel.text = "Facebook"
             
         case .instagram:
-            snsImageView.image = .instagram
+            snsImageView.image = .img_instagram
             snsLabel.text = "Instagram"
             
         case .tistory:
-            snsImageView.image = .tistory
+            snsImageView.image = .img_tistory
             snsLabel.text = "Tistory"
             
         case .youtube:
-            snsImageView.image = .youtube
+            snsImageView.image = .img_youtube
             snsLabel.text = "Youtube"
             
         case .home:
-            snsImageView.image = .mashupDark
+            snsImageView.image = .img_mashup_dark
             snsLabel.text = "Mash-Up Home"
             
         case .recruit:
-            snsImageView.image = .mashup
+            snsImageView.image = .img_mashup
             snsLabel.text = "Mash-Up Recruit"
         }
     }

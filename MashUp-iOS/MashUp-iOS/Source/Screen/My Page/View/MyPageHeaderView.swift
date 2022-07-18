@@ -88,7 +88,7 @@ extension MyPageHeaderView {
             $0.textColor = .white
         }
         self.settingButton.do {
-            let settingImage = UIImage.setting?.resized(width: 24, height: 24).withTintColor(.white)
+            let settingImage = UIImage.ic_setting?.resized(width: 24, height: 24).withTintColor(.white)
             $0.setImage(settingImage, for: .normal)
             $0.addTarget(self, action: #selector(didTapSettingButton(_:)), for: .touchUpInside)
         }
@@ -109,7 +109,7 @@ extension MyPageHeaderView {
             $0.text = "활동점수"
         }
         self.questionMarkButton.do {
-            let questionMarkImage = UIImage.info?.resized(width: 18, height: 18).withTintColor(.white)
+            let questionMarkImage = UIImage.ic_info?.resized(width: 18, height: 18).withTintColor(.white)
             $0.setImage(questionMarkImage, for: .normal)
             $0.addTarget(self, action: #selector(didTapQuestionMarkButton(_:)), for: .touchUpInside)
         }

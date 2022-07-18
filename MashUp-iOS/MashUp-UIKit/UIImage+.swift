@@ -31,55 +31,51 @@ extension UIImage {
 }
 
 extension UIImage {
-    // a
-    // b
-    // c
-    public static var calender: UIImage? { UIImage(named: "ic_calender") }
-    public static var check: UIImage? { UIImage(named: "ic_check") }
-    public static var chevronDown: UIImage? { UIImage(named: "ic_chevron_down") }
-    public static var chevronLeft: UIImage? { UIImage(named: "ic_chevron_left") }
-    public static var chevronRight: UIImage? { UIImage(named: "ic_chevron_right") }
-    public static var chevronUp: UIImage? { UIImage(named: "ic_chevron_up") }
-    public static var clock: UIImage? { UIImage(named: "ic_clock") }
-    public static var close: UIImage? { UIImage(named: "ic_close") }
-    // d
-    // e
-    public static var error: UIImage? { UIImage(named: "ic_error") }
-    // f
-    public static var facebook: UIImage? { UIImage(named: "img_facebook") }
-    // g
-    // h
-    // i
-    public static var info: UIImage? { UIImage(named: "ic_info") }
-    public static var instagram: UIImage? { UIImage(named: "img_instagram") }
-    // j
-    // k
-    // l
-    // m
-    public static var mashup: UIImage? { UIImage(named: "img_mashup") }
-    public static var mashupDark: UIImage? { UIImage(named: "img_mashup_dark") }
-    // n
-    public static var notice: UIImage? { UIImage(named: "img_notice") }
-    // o
-    // p
     public static var placeholder: UIImage? { UIImage(named: "placeholder") }
-    // q
-    public static var qr: UIImage? { UIImage(named: "ic_qr") }
-    // r
-    // s
-    public static var seminar: UIImage? { UIImage(named: "ic_seminar") }
-    public static var setting: UIImage? { UIImage(named: "ic_setting") }
-    // t
-    public static var tistory: UIImage? { UIImage(named: "img_tistory") }
-    public static var triangle: UIImage? { UIImage(named: "ic_triangle") }
-    // u
-    public static var user: UIImage? { UIImage(named: "ic_user") }
-    // v
-    // w
-    // x
-    public static var xmark: UIImage? { UIImage(named: "ic_xmark") }
-    // y
-    public static var youtube: UIImage? { UIImage(named: "img_youtube") }
-    // z
-   
+    
+    public static var img_absent: UIImage? { UIImage(named: "img_absent") }
+    public static var img_attendance: UIImage? { UIImage(named: "img_attendance") }
+    public static var img_facebook: UIImage? { UIImage(named: "img_facebook") }
+    public static var img_hackathonprepare: UIImage? { UIImage(named: "img_hackathonprepare") }
+    public static var img_instagram: UIImage? { UIImage(named: "img_instagram") }
+    public static var img_late: UIImage? { UIImage(named: "img_late") }
+    public static var img_mashong_crying: UIImage? { UIImage(named: "img_mashong_crying") }
+    public static var img_mashup: UIImage? { UIImage(named: "img_mashup") }
+    public static var img_mashup_dark: UIImage? { UIImage(named: "img_mashup_dark") }
+    public static var img_mashupcontentswrite: UIImage? { UIImage(named: "img_mashupcontentswrite") }
+    public static var img_mashupleader: UIImage? { UIImage(named: "img_mashupleader") }
+    public static var img_mashupsubleader: UIImage? { UIImage(named: "img_mashupsubleader") }
+    public static var img_notice: UIImage? { UIImage(named: "img_notice") }
+    public static var img_presentation: UIImage? { UIImage(named: "img_presentation") }
+    public static var img_projectfail: UIImage? { UIImage(named: "img_projectfail") }
+    public static var img_projectleader: UIImage? { UIImage(named: "img_projectleader") }
+    public static var img_projectsubleader: UIImage? { UIImage(named: "img_projectsubleader") }
+    public static var img_projectsuccess: UIImage? { UIImage(named: "img_projectsuccess") }
+    public static var img_profile_android: UIImage? { UIImage(named: "img_profile_android") }
+    public static var img_profile_design: UIImage? { UIImage(named: "img_profile_design") }
+    public static var img_profile_iOS: UIImage? { UIImage(named: "img_profile_iOS") }
+    public static var img_profile_node: UIImage? { UIImage(named: "img_profile_node") }
+    public static var img_profile_spring: UIImage? { UIImage(named: "img_profile_spring") }
+    public static var img_profile_web: UIImage? { UIImage(named: "img_profile_web") }
+    public static var img_staff: UIImage? { UIImage(named: "img_staff") }
+    public static var img_splash: UIImage? { UIImage(named: "img_splash") }
+    public static var img_techblogwrite: UIImage? { UIImage(named: "img_techblogwrite") }
+    public static var img_tistory: UIImage? { UIImage(named: "img_tistory") }
+    public static var img_youtube: UIImage? { UIImage(named: "img_youtube") }
+    
+    public static var ic_check: UIImage? { UIImage(named: "ic_check") }
+    public static var ic_chevron_down: UIImage? { UIImage(named: "ic_chevron_down") }
+    public static var ic_chevron_left: UIImage? { UIImage(named: "ic_chevron_left") }
+    public static var ic_chevron_right: UIImage? { UIImage(named: "ic_chevron_right") }
+    public static var ic_chevron_up: UIImage? { UIImage(named: "ic_chevron_up") }
+    public static var ic_clock: UIImage? { UIImage(named: "ic_clock") }
+    public static var ic_close: UIImage? { UIImage(named: "ic_close") }
+    public static var ic_error: UIImage? { UIImage(named: "ic_error") }
+    public static var ic_info: UIImage? { UIImage(named: "ic_info") }
+    public static var ic_qr: UIImage? { UIImage(named: "ic_qr") }
+    public static var ic_seminar: UIImage? { UIImage(named: "ic_seminar") }
+    public static var ic_setting: UIImage? { UIImage(named: "ic_setting") }
+    public static var ic_triangle: UIImage? { UIImage(named: "ic_triangle") }
+    public static var ic_user: UIImage? { UIImage(named: "ic_user") }
+    public static var ic_xmark: UIImage? { UIImage(named: "ic_xmark") }
 }

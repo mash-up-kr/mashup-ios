@@ -144,7 +144,7 @@ extension SignInViewController {
             $0.titleLabel?.font = .pretendardFont(weight: .regular, size: 16)
             $0.setTitle("회원가입 하러가기", for: .normal)
             $0.setTitleColor(.gray600, for: .normal)
-            $0.setImage(.chevronRight?.resized(side: 20).withTintColor(.gray400), for: .normal)
+            $0.setImage(.ic_chevron_right?.resized(side: 20).withTintColor(.gray400), for: .normal)
             $0.semanticContentAttribute = .forceRightToLeft
         }
         self.loadingIndicator.do {

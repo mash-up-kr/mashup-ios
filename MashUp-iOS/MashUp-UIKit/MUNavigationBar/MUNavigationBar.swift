@@ -25,8 +25,8 @@ public class MUNavigationBar: UIView {
         
         var icon: UIImage? {
             switch self {
-            case .back: return .chevronLeft
-            case .close: return .close
+            case .back: return .ic_chevron_left
+            case .close: return .ic_close
             case .custom(let image): return image
             }
         }
