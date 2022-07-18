@@ -28,23 +28,42 @@ final class RootReactorSpec: QuickSpec {
     }
     describe("authentication responder (root reactor)") {
       var userSessionStub: UserSession!
+      
       context("스플래시 화면에서 자동 로그인에 성공하면") {
         beforeEach {
           userSessionStub = .stub(accessToken: "fake.access.token")
           sut.loadSuccess(userSession: userSessionStub)
         }
+        
         it("홈 화면으로 이동합니다") {
           expect { sut.currentState.step }.to(equal(.home(userSessionStub)))
         }
+        
+        context("로그아웃이 성공하면") {
+          beforeEach {
+            sut.signOutSuccess()
+          }
+          
+          it("로그인 화면으로 이동합니다") {
+            expect { sut.currentState.step }.to(equal(.signIn))
+          }
+          
+          it("로그아웃 성공 문구를 표시합니다") {
+            expect { sut.currentState.toastMessage }.to(equal("성공적으로 로그아웃되었습니다"))
+          }
+        }
       }
+      
       context("스플래시 화면에서 자동로그인을 실패하면") {
         beforeEach {
           sut.loadFailure()
         }
+        
         it("로그인 화면으로 이동합니다") {
           expect { sut.currentState.step }.to(equal(.signIn))
         }
       }
+      
     }
   }
 }
