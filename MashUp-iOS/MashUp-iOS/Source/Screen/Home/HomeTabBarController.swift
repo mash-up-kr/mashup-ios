@@ -114,6 +114,13 @@ extension HomeTabBarController {
             let viewController = self.createQRScanViewController()
             viewController.modalPresentationStyle = .fullScreen
             self.present(viewController, animated: true)
+            
+        case .attendanceComplete:
+            self.presentedViewController?.dismiss(animated: true, completion: {
+                let viewController = UIViewController().then { $0.view.backgroundColor = .gray300 }
+                viewController.modalPresentationStyle = .fullScreen
+                self.present(viewController, animated: true)
+            })
         }
     }
     
@@ -173,13 +180,18 @@ extension HomeTabBarController {
     }
     
     private func createQRScanViewController() -> UIViewController {
+        guard let qrCodeAttendanceResponder = self.reactor else {
+            #warning("DIContainer 적용 후 제거되어야합니다 - booung")
+            return UIViewController()
+        }
         let qrReaderService = QRReaderServiceImpl()
         let attendanceService = self.createAttendanceService()
         let formatter = QRScanFormatterImpl()
         let qrScanViewReactor = QRScanReactor(
             qrReaderService: qrReaderService,
             attendanceService: attendanceService,
-            formatter: formatter
+            formatter: formatter,
+            qrCodeAttendanceResponder: qrCodeAttendanceResponder
         )
         let qrScanViewController = QRScanViewController()
         qrScanViewController.reactor = qrScanViewReactor

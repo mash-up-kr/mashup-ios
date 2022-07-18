@@ -9,8 +9,9 @@
 import RxSwift
 import ReactorKit
 
-enum HomeStep {
+enum HomeStep: Equatable {
     case qr
+    case attendanceComplete
 }
 
 final class HomeReactor: Reactor {
@@ -18,6 +19,7 @@ final class HomeReactor: Reactor {
     enum Action {
         case didSelectTabItem(at: Int)
         case didTapQRButton
+        case didCompleteAttendance
     }
     
     struct State {
@@ -45,7 +47,17 @@ final class HomeReactor: Reactor {
             
         case .didTapQRButton:
             newState.step = .qr
+            
+        case .didCompleteAttendance:
+            newState.step = .attendanceComplete
         }
         return newState
     }
+}
+extension HomeReactor: QRCodeAttendanceResponder {
+    
+    func didCompleteAttendance() {
+        self.action.onNext(.didCompleteAttendance)
+    }
+    
 }

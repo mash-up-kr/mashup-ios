@@ -16,6 +16,7 @@ import MashUp_Core
 import MashUp_UIKit
 
 final class QRScanViewController: BaseViewController, ReactorKit.View {
+    
     typealias Reactor = QRScanReactor
     
     var disposeBag: DisposeBag = DisposeBag()

@@ -12,7 +12,6 @@ import MashUp_PlatformTeam
 
 protocol AttendanceService {
     func attend(withCode code: Code) -> Observable<Bool>
-    
     func attendanceMembers(platform: PlatformTeam) -> Observable<[AttendanceMember]>
 }
 
