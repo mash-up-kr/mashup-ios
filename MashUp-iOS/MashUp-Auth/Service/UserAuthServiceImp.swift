@@ -11,6 +11,7 @@ import MashUp_User
 import RxSwift
 
 protocol UserSessionRepository {
+    func signIn(id: String, password: String) -> Observable<UserSession>
     func signUp(with newAccount: NewAccount, signUpCode: String) -> Observable<UserSession>
 }
 

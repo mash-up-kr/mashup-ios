@@ -14,6 +14,7 @@ public struct UserSession: Equatable {
     public typealias ID = String
     
     public let id: String
+    public let userID: Int
     public let accessToken: String
     public let name: String
     public let platformTeam: PlatformTeam
@@ -21,12 +22,14 @@ public struct UserSession: Equatable {
     
     public init(
         id: String,
+        userID: Int,
         accessToken: String,
         name: String,
         platformTeam: PlatformTeam,
         generations: [Generation]
     ) {
         self.id = id
+        self.userID = userID
         self.accessToken = accessToken
         self.name = name
         self.platformTeam = platformTeam

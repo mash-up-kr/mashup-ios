@@ -9,12 +9,24 @@
 import Foundation
 import MashUp_Network
 import MashUp_User
+import MashUp_PlatformTeam
 import RxSwift
 
 final class UserSessionRepositoryImp: UserSessionRepository {
     
     init(network: any Network) {
         self.network = network
+    }
+    
+    func signIn(id: String, password: String) -> Observable<UserSession> {
+        let api = SignInAPI(id: id, password: password)
+        
+        return self.network.request(api)
+            .map { try $0.get() }
+            .withUnretained(self)
+            .map { owner, entity in
+                owner.translate(id: id, user: entity)
+            }
     }
     
     func signUp(with newAccount: NewAccount, signUpCode: String) -> Observable<UserSession> {
@@ -27,20 +39,34 @@ final class UserSessionRepositoryImp: UserSessionRepository {
         )
         
         return self.network.request(api)
-            .map { try $0.get().accessToken }
+//            .map { try $0.get().accessToken }
             .withUnretained(self)
-            .map { owner, accessToken in
-                owner.translate(newAccount: newAccount, accessToken: accessToken)
+            .flatMapFirst { owner, _ in
+                owner.signIn(id: newAccount.id, password: newAccount.password)
             }
+//            .map { owner, accessToken in
+//                owner.translate(newAccount: newAccount, accessToken: accessToken)
+//            }
     }
     
     private func translate(newAccount: NewAccount, accessToken: String) -> UserSession {
         return UserSession(
-            id: newAccount.id,
+            id: newAccount.id, userID: 0,
             accessToken: accessToken,
             name: newAccount.name,
             platformTeam: newAccount.platform,
             generations: []
+        )
+    }
+    
+    private func translate(id: String, user: SignInResponse) -> UserSession {
+        return UserSession(
+            id: id,
+            userID: user.userID,
+            accessToken: user.accessToken,
+            name: user.userName,
+            platformTeam: PlatformTeam(rawValue: user.platform) ?? .iOS,
+            generations: [12]
         )
     }
     

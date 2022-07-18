@@ -152,6 +152,7 @@ extension HomeTabBarController {
         #warning("user session injection - booung")
         let userSession = UserSession(
             id: .empty,
+            userID: Int.random(in: Int.min..<Int.max),
             accessToken: .empty,
             name: "김매시업",
             platformTeam: .iOS,

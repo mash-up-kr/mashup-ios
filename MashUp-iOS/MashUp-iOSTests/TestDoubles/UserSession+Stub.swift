@@ -15,6 +15,7 @@ import MashUp_PlatformTeam
 extension UserSession {
   static func stub(
     id: String = "fake.id.\(Date.now())",
+    userID: Int = Int.random(in: Int.min..<Int.max),
     accessToken: String = "fake.accessToken.\(Date.now())",
     name: String = "fake.name.\(UUID().uuidString)",
     platformTeam: PlatformTeam = PlatformTeam.allCases.randomElement()!,
@@ -22,6 +23,7 @@ extension UserSession {
   ) -> Self {
     return UserSession(
       id: id,
+      userID: userID,
       accessToken: accessToken,
       name: name,
       platformTeam: platformTeam,
