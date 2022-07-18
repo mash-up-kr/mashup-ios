@@ -60,6 +60,7 @@ extension UIImage {
     public static var img_profile_web: UIImage? { UIImage(named: "img_profile_web") }
     public static var img_staff: UIImage? { UIImage(named: "img_staff") }
     public static var img_splash: UIImage? { UIImage(named: "img_splash") }
+    public static var img_success: UIImage? { UIImage(named: "img_success") }
     public static var img_techblogwrite: UIImage? { UIImage(named: "img_techblogwrite") }
     public static var img_tistory: UIImage? { UIImage(named: "img_tistory") }
     public static var img_youtube: UIImage? { UIImage(named: "img_youtube") }

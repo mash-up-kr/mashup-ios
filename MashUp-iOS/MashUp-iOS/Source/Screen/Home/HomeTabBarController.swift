@@ -117,8 +117,7 @@ extension HomeTabBarController {
             
         case .attendanceComplete:
             self.presentedViewController?.dismiss(animated: true, completion: {
-                let viewController = UIViewController().then { $0.view.backgroundColor = .gray300 }
-                viewController.modalPresentationStyle = .fullScreen
+                let viewController = self.createAttendanceCompleteViewController()
                 self.present(viewController, animated: true)
             })
         }
@@ -196,6 +195,12 @@ extension HomeTabBarController {
         let qrScanViewController = QRScanViewController()
         qrScanViewController.reactor = qrScanViewReactor
         return qrScanViewController
+    }
+    
+    private func createAttendanceCompleteViewController() -> UIViewController {
+        return AttendanceCompleteViewController().then {
+            $0.reactor = AttendanceCompleteReactor()
+        }
     }
     
     private func createSeminarRepository() -> SeminarRepository {
