@@ -20,7 +20,6 @@ import MashUp_PlatformTeam
     @objc optional func myPageHeaderViewDidTap5TimesMascotImage(_ view: MyPageHeaderView)
 }
 
-
 enum MyPagePlatformStyle: CaseIterable {
     case design
     case android

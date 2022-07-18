@@ -28,7 +28,7 @@ final class MyPageFormatterImp: MyPageFormatter {
         return MyPageHeaderViewModel(
             userName: userSession.name,
             platformTeamText: userSession.platformTeam.title,
-            platformStyle: .iOS,
+            platformStyle: MyPagePlatformStyle(platform: userSession.platformTeam),
             totalScoreText: "\(totalScore)점"
         )
     }
