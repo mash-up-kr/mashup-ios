@@ -19,7 +19,6 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
         self.window = window
         window.rootViewController = self.createRootController()
         window.makeKeyAndVisible()
-        FLEXManager.shared.showExplorer()
         return true
     }
     

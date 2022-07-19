@@ -38,15 +38,12 @@ final class UserSessionRepositoryImp: UserSessionRepository {
             signUpCode: signUpCode
         )
         
+        #warning("회원가입시에도 유저 정보 내려오게 요청 '수정 필요' - booung")
         return self.network.request(api)
-//            .map { try $0.get().accessToken }
             .withUnretained(self)
             .flatMapFirst { owner, _ in
                 owner.signIn(id: newAccount.id, password: newAccount.password)
             }
-//            .map { owner, accessToken in
-//                owner.translate(newAccount: newAccount, accessToken: accessToken)
-//            }
     }
     
     private func translate(newAccount: NewAccount, accessToken: String) -> UserSession {
