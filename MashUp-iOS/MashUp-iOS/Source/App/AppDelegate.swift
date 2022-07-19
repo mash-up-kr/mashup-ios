@@ -20,7 +20,9 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
         window.rootViewController = self.createRootController()
         window.makeKeyAndVisible()
         
+        #if DEBUG
         FLEXManager.shared.showExplorer()
+        #endif
         return true
     }
     
