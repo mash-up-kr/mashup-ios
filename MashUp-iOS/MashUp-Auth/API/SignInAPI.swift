@@ -19,14 +19,12 @@ extension SignInAPI: MashUpAPI {
     
     var path: String { "/api/v1/members/login" }
     var httpMethod: HTTPMethod { .post }
-    
+    var headers: [String : String]? { [:] }
     var httpTask: HTTPTask {
         return .requestParameters(
             parameters: ["identification": self.id, "password": self.password],
             encoding: JSONEncoding.default
         )
     }
-    
-    var headers: [String : String]? { [:] }
     
 }

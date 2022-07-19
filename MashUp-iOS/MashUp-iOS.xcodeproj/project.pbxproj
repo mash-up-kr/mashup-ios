@@ -231,6 +231,8 @@
 		CEBA9780288722C50048A02C /* QRCodeAttendanceAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBA977F288722C50048A02C /* QRCodeAttendanceAPI.swift */; };
 		CEBA9782288723560048A02C /* AttendanceError.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBA9781288723560048A02C /* AttendanceError.swift */; };
 		CEBA9785288725790048A02C /* AttendanceStatusEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBA9784288725790048A02C /* AttendanceStatusEntity.swift */; };
+		CEBA9788288734CE0048A02C /* AuthenticationAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBA9787288734CE0048A02C /* AuthenticationAPI.swift */; };
+		CEBA978B288735A90048A02C /* Authorization.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBA978A288735A90048A02C /* Authorization.swift */; };
 		CEBAC6CE28469EE700ABCC36 /* PreviewMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBAC6CD28469EE700ABCC36 /* PreviewMenu.swift */; };
 		CEBAC75B2847657300ABCC36 /* MashUp_Core.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE9C1D9428467E500020FBCE /* MashUp_Core.framework */; platformFilter = ios; };
 		CEBAC75C2847657300ABCC36 /* MashUp_Core.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = CE9C1D9428467E500020FBCE /* MashUp_Core.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -867,6 +869,8 @@
 		CEBA977F288722C50048A02C /* QRCodeAttendanceAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRCodeAttendanceAPI.swift; sourceTree = "<group>"; };
 		CEBA9781288723560048A02C /* AttendanceError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttendanceError.swift; sourceTree = "<group>"; };
 		CEBA9784288725790048A02C /* AttendanceStatusEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttendanceStatusEntity.swift; sourceTree = "<group>"; };
+		CEBA9787288734CE0048A02C /* AuthenticationAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationAPI.swift; sourceTree = "<group>"; };
+		CEBA978A288735A90048A02C /* Authorization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Authorization.swift; sourceTree = "<group>"; };
 		CEBAC6CD28469EE700ABCC36 /* PreviewMenu.swift */ = {isa = PBXFileReference; indentWidth = 4; lastKnownFileType = sourcecode.swift; path = PreviewMenu.swift; sourceTree = "<group>"; };
 		CEBAC7642847670400ABCC36 /* MashUp_Network.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MashUp_Network.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEBAC7662847670400ABCC36 /* MashUp_Network.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MashUp_Network.h; sourceTree = "<group>"; };
@@ -1909,12 +1913,30 @@
 			path = Entity;
 			sourceTree = "<group>";
 		};
+		CEBA9789288735950048A02C /* Authentication */ = {
+			isa = PBXGroup;
+			children = (
+				CEBA9787288734CE0048A02C /* AuthenticationAPI.swift */,
+				CEBA978A288735A90048A02C /* Authorization.swift */,
+			);
+			path = Authentication;
+			sourceTree = "<group>";
+		};
+		CEBA978C28873AF30048A02C /* Error */ = {
+			isa = PBXGroup;
+			children = (
+				CE348223287F377700B74429 /* SignUpError.swift */,
+			);
+			path = Error;
+			sourceTree = "<group>";
+		};
 		CEBAC7652847670400ABCC36 /* MashUp-Network */ = {
 			isa = PBXGroup;
 			children = (
 				CEBAC7672847670400ABCC36 /* MashUp_Network.docc */,
 				CEBAC7662847670400ABCC36 /* MashUp_Network.h */,
 				CE9BE1052848E9E1006691F0 /* API */,
+				CEBA9789288735950048A02C /* Authentication */,
 				CE348206287D8E1400B74429 /* Error */,
 				CE9BE1072848E9E1006691F0 /* Model */,
 				CE9BE09A2848D1E1006691F0 /* Network */,
@@ -1975,9 +1997,9 @@
 				CED3AB5C2849203100621B28 /* MashUp_Auth.docc */,
 				CED3AB5B2849203100621B28 /* MashUp_Auth.h */,
 				CED3AB752849222900621B28 /* AuthenticationResponder.swift */,
-				CE348223287F377700B74429 /* SignUpError.swift */,
 				CE348221287F334700B74429 /* UserAuthServiceProvider.swift */,
 				CEEB4EB228859AA200CC4456 /* API */,
+				CEBA978C28873AF30048A02C /* Error */,
 				CE12DA5B27E62A8900F08629 /* Fake(deprecated) */,
 				CE34821D287F2B0300B74429 /* Repository */,
 				CE34821E287F2B0C00B74429 /* Service */,
@@ -2947,9 +2969,11 @@
 				CEBAC7742847674E00ABCC36 /* HTTPClient.swift in Sources */,
 				CE9BE0992848D1DB006691F0 /* Network.swift in Sources */,
 				CE9BE10A2848E9E2006691F0 /* ResponseModel.swift in Sources */,
+				CEBA9788288734CE0048A02C /* AuthenticationAPI.swift in Sources */,
 				CE348208287D8E2900B74429 /* InternalError.swift in Sources */,
 				CE9BE1092848E9E2006691F0 /* MashUpAPI.swift in Sources */,
 				CEBAC7682847670400ABCC36 /* MashUp_Network.docc in Sources */,
+				CEBA978B288735A90048A02C /* Authorization.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

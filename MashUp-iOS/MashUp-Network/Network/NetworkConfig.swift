@@ -19,3 +19,7 @@ enum NetworkConfig {
     }
     
 }
+
+struct AccessTokenCache {
+    var accessToken: String?
+}

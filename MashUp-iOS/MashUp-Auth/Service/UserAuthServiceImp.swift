@@ -10,6 +10,11 @@ import Foundation
 import MashUp_User
 import RxSwift
 
+enum SignInError: String, Error {
+    case idError = "MEMBER_NOT_FOUND"
+    case passwordError = "MEMBER_NOT_MATCH_PASSWORD"
+}
+
 protocol UserSessionRepository {
     func signIn(id: String, password: String) -> Observable<UserSession>
     func signUp(with newAccount: NewAccount, signUpCode: String) -> Observable<UserSession>
@@ -26,7 +31,17 @@ final class UserAuthServiceImp: UserAuthService {
     }
     
     func signIn(id: String, password: String) -> Observable<UserSession> {
-        .empty()
+        return .empty()
+//        do {
+//            let userSession = try await self.userSessionRepository.signIn(id: id, password: password)
+//                .asSingle()
+//                .value
+//            return .success(userSession)
+//        } catch let signUpError as SignUpError {
+//            return .failure(signUpError)
+//        } catch {
+//            return .failure(.undefined)
+//        }
     }
     
     func signUp(with newAccount: NewAccount, signUpCode: String) async -> Result<UserSession, SignUpError> {

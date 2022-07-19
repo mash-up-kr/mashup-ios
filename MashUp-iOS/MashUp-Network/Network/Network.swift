@@ -13,3 +13,8 @@ public protocol Network {
     func request<API: MashUpAPI>(_ api: API) async -> Result<API.Response, NetworkError>
     func request<API: MashUpAPI>(_ api: API) -> Observable<Result<API.Response, NetworkError>>
 }
+extension Network {
+    public func request<API: MashUpAPI>(_ api: API) -> Observable<Result<API.Response, NetworkError>> {
+        AsyncStream.single { await self.request(api) }.asObservable()
+    }
+}

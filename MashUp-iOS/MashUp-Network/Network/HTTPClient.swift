@@ -13,7 +13,6 @@ import MashUp_Core
 import Moya
 import RxMoya
 
-
 public final class HTTPClient: Network {
     
     public init() {}
@@ -37,10 +36,7 @@ public final class HTTPClient: Network {
         }
     }
     
-    public func request<API: MashUpAPI>(_ api: API) -> Observable<Result<API.Response, NetworkError>> {
-        AsyncStream.single { await self.request(api) }.asObservable()
-    }
-    
+    @discardableResult
     private func _request<API: MashUpAPI>(_ api: API) async throws -> API.Response {
         let erasedAPI = MultiTarget(api)
         let response = try await self.provider.rx.request(erasedAPI).value
@@ -48,6 +44,11 @@ public final class HTTPClient: Network {
         
         guard responseModel.isSuccess else {
             throw MashUpError(code: responseModel.code, message: responseModel.message)
+        }
+        
+        if let authorization = responseModel.data as? Authorization {
+            self.headers["Authorization"] = authorization.accessToken
+            Logger.log("✅ 토큰 업데이트 성공: \(authorization.accessToken)")
         }
         
         return responseModel.data
@@ -69,14 +70,20 @@ public final class HTTPClient: Network {
     }
     
     private func updateAccessToken() async {
-        #warning("토큰 업데이트 구현 - booung")
+        let authenticationAPI = AuthenticationAPI()
+        do {
+            try await self._request(authenticationAPI)
+        } catch {
+            Logger.log("❌ 토큰 업데이트 실패: \(error.localizedDescription)")
+        }
+
     }
     
     private func clearAccessToken() {
-        #warning("토큰 정리 구현 - booung")
+        self.headers.removeValue(forKey: "Authorization")
     }
     
     private let provider = MoyaProvider<MultiTarget>()
     private let decoder = JSONDecoder()
-    
+    private var headers: [String: String] = [:]
 }

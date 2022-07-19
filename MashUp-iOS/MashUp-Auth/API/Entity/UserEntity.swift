@@ -7,8 +7,9 @@
 //
 
 import Foundation
+import MashUp_Network
 
-struct UserEntity: Decodable {
+struct UserEntity: Decodable, Authorization {
     let userID: Int
     let userName: String
     let accessToken: String
