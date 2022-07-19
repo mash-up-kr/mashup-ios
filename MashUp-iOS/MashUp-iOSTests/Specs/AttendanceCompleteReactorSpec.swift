@@ -25,7 +25,6 @@ final class AttendanceCompleteReactorSpec: QuickSpec {
       beforeEach {
         sut.action.onNext(.didSetup)
       }
-      
       context("화면에 표시된 후 1초가 지나면") {
         var shouldClose: Void?
         beforeEach {
