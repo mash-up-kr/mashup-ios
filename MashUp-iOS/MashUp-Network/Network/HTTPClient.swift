@@ -38,7 +38,13 @@ public final class HTTPClient: Network {
     }
     
     public func request<API: MashUpAPI>(_ api: API) -> Observable<Result<API.Response, NetworkError>> {
-        return AsyncStream { await self.request(api) }.asObservable()
+        return AsyncStream(Result<API.Response, NetworkError>.self, bufferingPolicy: .unbounded) { continuation in
+            _Concurrency.Task {
+                let result = await self.request(api)
+                continuation.yield(result)
+                continuation.finish()
+            }
+        }.asObservable()
     }
     
     private func _request<API: MashUpAPI>(_ api: API) async throws -> API.Response {
