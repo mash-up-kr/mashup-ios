@@ -137,7 +137,7 @@ final public class SignUpCodeReactor: Reactor {
             case .failure(let error):
                 return Mutation.occurSignUpError(error)
             }
-        }.asObservable()
+        }.asObservable().asSingle().asObservable()
     }
     
     private let signUpCodeVerificationService: any SignUpCodeVerificationService
