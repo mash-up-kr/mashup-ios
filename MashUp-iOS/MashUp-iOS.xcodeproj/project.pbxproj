@@ -31,7 +31,6 @@
 		065358702885AC810069AAB8 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = 0653586F2885AC810069AAB8 /* RxCocoa */; };
 		065358712885AC810069AAB8 /* MashUp_Network.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CEBAC7642847670400ABCC36 /* MashUp_Network.framework */; platformFilter = ios; };
 		065358722885AC810069AAB8 /* MashUp_Network.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = CEBAC7642847670400ABCC36 /* MashUp_Network.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		065358772885ACA50069AAB8 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 065358762885ACA50069AAB8 /* Kingfisher */; };
 		065359112886C75E0069AAB8 /* PlatformStatusError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 065359102886C75E0069AAB8 /* PlatformStatusError.swift */; };
 		065359132886C78D0069AAB8 /* PlatformAttendanceAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 065359122886C78D0069AAB8 /* PlatformAttendanceAPI.swift */; };
 		065359192886C9F20069AAB8 /* PlatformAttendanceResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 065359182886C9F20069AAB8 /* PlatformAttendanceResponse.swift */; };
@@ -1068,7 +1067,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				065358772885ACA50069AAB8 /* Kingfisher in Frameworks */,
 				065358702885AC810069AAB8 /* RxCocoa in Frameworks */,
 				065358712885AC810069AAB8 /* MashUp_Network.framework in Frameworks */,
 				CED3AB8F2849230C00621B28 /* RxSwift in Frameworks */,
@@ -2393,7 +2391,6 @@
 			packageProductDependencies = (
 				CED3AB8E2849230C00621B28 /* RxSwift */,
 				0653586F2885AC810069AAB8 /* RxCocoa */,
-				065358762885ACA50069AAB8 /* Kingfisher */,
 			);
 			productName = "MashUp-PlatformTeam";
 			productReference = CED3AB7C284922D000621B28 /* MashUp_PlatformTeam.framework */;
@@ -4492,11 +4489,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = CE3960B7278B3F270073AEF4 /* XCRemoteSwiftPackageReference "RxSwift" */;
 			productName = RxCocoa;
-		};
-		065358762885ACA50069AAB8 /* Kingfisher */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = CE3960DC278B40DF0073AEF4 /* XCRemoteSwiftPackageReference "Kingfisher" */;
-			productName = Kingfisher;
 		};
 		06FE4FB12872BF8600AAA8B7 /* Kingfisher */ = {
 			isa = XCSwiftPackageProductDependency;
