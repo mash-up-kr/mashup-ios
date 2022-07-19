@@ -40,10 +40,10 @@ final class PlatformAttendanceCell: BaseCollectionViewCell {
     }
     
     func configure(model: PlatformAttendanceInformation, isAttending: Bool) {
-        platformLabel.text = model.platform.title
-        let icons = model.platform.icons
-        platformLeftImageView.image = icons.0
-        platformRightImageView.image = icons.1
+        platformLabel.text = model.platform?.title
+        let icons = model.platform?.icons
+        platformLeftImageView.image = icons?.0
+        platformRightImageView.image = icons?.1
         drawByAttend(isAttending,
                      numberOfAttend: model.numberOfAttend,
                      numberOfLateness: model.numberOfLateness,

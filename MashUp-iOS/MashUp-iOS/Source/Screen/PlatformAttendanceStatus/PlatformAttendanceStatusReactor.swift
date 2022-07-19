@@ -26,20 +26,21 @@ final class PlatformAttendanceStatusReactor: Reactor {
         var platformsAttendance: [PlatformAttendanceInformation] = []
         var selectedPlatform: PlatformTeam?
         var isAttending: Bool = false
+        var scheduleID: Int
     }
     
     let initialState: State
     private let platformService: any PlatformService
     
-    init(platformService: PlatformService) {
-        initialState = State()
+    init(platformService: PlatformService, scheduleID: Int) {
+        initialState = State(scheduleID: scheduleID)
         self.platformService = platformService
     }
     
     func mutate(action: Action) -> Observable<Mutation> {
         switch action {
         case .didSetup:
-            return requestPlatformsAttendance()
+            return requestPlatformsAttendance(scheduleID: currentState.scheduleID)
         case .didTapPlatform(let platform):
             return .just(.updateSelectedPlatform(platform))
         }
@@ -58,8 +59,8 @@ final class PlatformAttendanceStatusReactor: Reactor {
         return state
     }
     
-    private func requestPlatformsAttendance() -> Observable<Mutation> {
-        return platformService.attendanceStatus()
+    private func requestPlatformsAttendance(scheduleID: Int) -> Observable<Mutation> {
+        return platformService.attendanceStatus(scheduleID: scheduleID)
             .flatMap { status -> Observable<Mutation> in
                 return .concat(.just(.updatePlatformsAttendance(status.platformAttendanceInformations)),
                                .just(.updateAttending(status.isAttending)))

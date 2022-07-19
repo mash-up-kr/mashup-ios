@@ -11,7 +11,7 @@ import MashUp_Core
 import ReactorKit
 import MashUp_PlatformTeam
 
-final class PlatformStatusViewController: BaseViewController, ReactorKit.View {
+final class PlatformAttendanceStatusViewController: BaseViewController, ReactorKit.View {
     private lazy var platformCollectionView: UICollectionView = {
         let flowLayout = UICollectionViewFlowLayout()
         flowLayout.minimumInteritemSpacing = 12
@@ -60,7 +60,7 @@ final class PlatformStatusViewController: BaseViewController, ReactorKit.View {
     }
 }
 
-extension PlatformStatusViewController: UICollectionViewDataSource {
+extension PlatformAttendanceStatusViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return reactor?.currentState.platformsAttendance.count ?? 0
     }

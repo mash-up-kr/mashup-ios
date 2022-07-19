@@ -20,13 +20,13 @@ public struct PlatformAttendance: Equatable {
 }
 
 public struct PlatformAttendanceInformation: Equatable {
-    public let platform: PlatformTeam
+    public let platform: PlatformTeam?
     public let numberOfAttend: Int
     public let numberOfLateness: Int
     public let numberOfAbsence: Int
     
     public init(
-        platform: PlatformTeam,
+        platform: PlatformTeam?,
         numberOfAttend: Int,
         numberOfLateness: Int,
         numberOfAbsence: Int
