@@ -25,13 +25,16 @@ final class AttendanceCompleteReactorSpec: QuickSpec {
       beforeEach {
         sut.action.onNext(.didSetup)
       }
+      
       context("화면에 표시된 후 1초가 지나면") {
-        var shouldCloses: Observable<Void>!
+        var shouldClose: Void?
         beforeEach {
-          shouldCloses = sut.state.map { $0.shouldClose }.compactMap { $0 }.recorded()
+          shouldClose = try? sut.state.map { $0.shouldClose }
+            .compactMap { $0 }
+            .toBlocking(timeout: 1.0 + .tolerance)
+            .first()
         }
         it("화면이 닫힙니다") {
-          let shouldClose: Void? = try! shouldCloses.toBlocking(timeout: 1.1).first()
           expect { shouldClose }.toNot(beNil())
         }
       }
@@ -39,4 +42,8 @@ final class AttendanceCompleteReactorSpec: QuickSpec {
     
   }
   
+}
+
+extension TimeInterval {
+  static let tolerance = 0.1
 }
