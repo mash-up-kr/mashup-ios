@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import FLEX
 
 final class AppDelegate: UIResponder, UIApplicationDelegate {
     
@@ -20,6 +20,7 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
         window.rootViewController = self.createRootController()
         window.makeKeyAndVisible()
         
+        FLEXManager.shared.showExplorer()
         return true
     }
     

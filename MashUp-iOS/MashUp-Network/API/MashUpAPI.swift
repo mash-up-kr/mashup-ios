@@ -13,6 +13,7 @@ import Alamofire
 public typealias HTTPMethod = Moya.Method
 public typealias HTTPTask = Moya.Task
 public typealias JSONEncoding = Alamofire.JSONEncoding
+public typealias URLEncoding = Alamofire.URLEncoding
 
 public protocol MashUpAPI: TargetType {
     associatedtype Response: Decodable

@@ -38,7 +38,7 @@ public final class HTTPClient: Network {
     }
     
     public func request<API: MashUpAPI>(_ api: API) -> Observable<Result<API.Response, NetworkError>> {
-        return AsyncStream { await self.request(api) }.asObservable()
+        AsyncStream.single { await self.request(api) }.asObservable()
     }
     
     private func _request<API: MashUpAPI>(_ api: API) async throws -> API.Response {
