@@ -22,11 +22,12 @@ public final class FakeUserAuthService: UserAuthService {
         return .just(self.stubedUserSession)
     }
     
-    public func signIn(id: String, password: String) -> Observable<UserSession> {
+    public func signIn(id: String, password: String) async -> Result<UserSession, SignInError> {
         let isCorrectID = id.lowercased().contains("test")
         let isCorrectPW = password.lowercased().contains("test")
         
-        guard isCorrectID, isCorrectPW else { return .error("sign in failure") }
+        guard isCorrectID else { return .failure(.idError) }
+        guard isCorrectID, isCorrectPW else { return .failure(.passwordError) }
         let fakeSession = UserSession(
             id: "fake.user.id", userID: Int.random(in: Int.min..<Int.max),
             accessToken: "\(id).\(password)",
@@ -35,7 +36,7 @@ public final class FakeUserAuthService: UserAuthService {
             generations: [12]
         )
         
-        return .just(fakeSession)
+        return .success(fakeSession)
     }
     
     public func signUp(with newAccount: NewAccount, signUpCode: String) async -> Result<UserSession, SignUpError> {

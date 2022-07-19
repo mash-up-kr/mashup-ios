@@ -81,7 +81,7 @@ final class SignInReactorSpec: QuickSpec {
         given(userAuthServiceMock.signIn(id: any(), password: any()))
           .willReturn(.error(error))
         given(userAuthServiceMock.signIn(id: correctID, password: correctPassword))
-          .willReturn(.just(stubedUserSession))
+          .willReturn(.just(.success(stubedUserSession)))
       }
       context("로그인 버튼을 탭하면") {
         let idLongerThan4 = "12345"
@@ -111,7 +111,7 @@ final class SignInReactorSpec: QuickSpec {
         given(userAuthServiceMock.signIn(id: any(), password: any()))
           .willReturn(.error(error))
         given(userAuthServiceMock.signIn(id: correctID, password: correctPassword))
-          .willReturn(.just(userSessionStub))
+          .willReturn(.just(.success(userSessionStub)))
       }
       context("로그인을 성공하면") {
         beforeEach {

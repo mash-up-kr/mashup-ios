@@ -15,7 +15,10 @@ import RxMoya
 
 public final class HTTPClient: Network {
     
-    public init() {}
+    #warning("DI된 후 싱글턴 제거 되어야합니다 - booung")
+    public init(tokenStorage: (any TokenStorage)? = nil) {
+        self.tokenStorage = tokenStorage ?? TokenStorageImp.shared
+    }
     
     public func request<API: MashUpAPI>(_ api: API) async -> Result<API.Response, NetworkError> {
         do {
@@ -47,7 +50,7 @@ public final class HTTPClient: Network {
         }
         
         if let authorization = responseModel.data as? Authorization {
-            self.headers["Authorization"] = authorization.accessToken
+            self.tokenStorage.accessToken = authorization.accessToken
             Logger.log("✅ 토큰 업데이트 성공: \(authorization.accessToken)")
         }
         
@@ -70,20 +73,36 @@ public final class HTTPClient: Network {
     }
     
     private func updateAccessToken() async {
-        let authenticationAPI = AuthenticationAPI()
         do {
+            let authenticationAPI = AuthenticationAPI()
             try await self._request(authenticationAPI)
         } catch {
             Logger.log("❌ 토큰 업데이트 실패: \(error.localizedDescription)")
         }
-
     }
     
     private func clearAccessToken() {
-        self.headers.removeValue(forKey: "Authorization")
+        self.tokenStorage.accessToken = nil
     }
     
-    private let provider = MoyaProvider<MultiTarget>()
+    private let provider = MoyaProvider<MultiTarget>(endpointClosure: MoyaProvider.authorizedEndpointMapping)
     private let decoder = JSONDecoder()
-    private var headers: [String: String] = [:]
+    private var tokenStorage: any TokenStorage
+    
+}
+
+extension MoyaProvider {
+    final class func authorizedEndpointMapping(for target: Target) -> Endpoint {
+        var headerFields = target.headers
+        if let accessToken = TokenStorageImp.shared.accessToken {
+            headerFields?["Authorization"] = accessToken
+        }
+        return Endpoint(
+            url: URL(target: target).absoluteString,
+            sampleResponseClosure: { .networkResponse(200, target.sampleData) },
+            method: target.method,
+            task: target.task,
+            httpHeaderFields: headerFields
+        )
+    }
 }

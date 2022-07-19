@@ -233,6 +233,8 @@
 		CEBA9785288725790048A02C /* AttendanceStatusEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBA9784288725790048A02C /* AttendanceStatusEntity.swift */; };
 		CEBA9788288734CE0048A02C /* AuthenticationAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBA9787288734CE0048A02C /* AuthenticationAPI.swift */; };
 		CEBA978B288735A90048A02C /* Authorization.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBA978A288735A90048A02C /* Authorization.swift */; };
+		CEBA978E28873B530048A02C /* SignInError.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBA978D28873B530048A02C /* SignInError.swift */; };
+		CEBA9790288740BA0048A02C /* TokenStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBA978F288740BA0048A02C /* TokenStorage.swift */; };
 		CEBAC6CE28469EE700ABCC36 /* PreviewMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBAC6CD28469EE700ABCC36 /* PreviewMenu.swift */; };
 		CEBAC75B2847657300ABCC36 /* MashUp_Core.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE9C1D9428467E500020FBCE /* MashUp_Core.framework */; platformFilter = ios; };
 		CEBAC75C2847657300ABCC36 /* MashUp_Core.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = CE9C1D9428467E500020FBCE /* MashUp_Core.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -871,6 +873,8 @@
 		CEBA9784288725790048A02C /* AttendanceStatusEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttendanceStatusEntity.swift; sourceTree = "<group>"; };
 		CEBA9787288734CE0048A02C /* AuthenticationAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationAPI.swift; sourceTree = "<group>"; };
 		CEBA978A288735A90048A02C /* Authorization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Authorization.swift; sourceTree = "<group>"; };
+		CEBA978D28873B530048A02C /* SignInError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInError.swift; sourceTree = "<group>"; };
+		CEBA978F288740BA0048A02C /* TokenStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenStorage.swift; sourceTree = "<group>"; };
 		CEBAC6CD28469EE700ABCC36 /* PreviewMenu.swift */ = {isa = PBXFileReference; indentWidth = 4; lastKnownFileType = sourcecode.swift; path = PreviewMenu.swift; sourceTree = "<group>"; };
 		CEBAC7642847670400ABCC36 /* MashUp_Network.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MashUp_Network.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEBAC7662847670400ABCC36 /* MashUp_Network.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MashUp_Network.h; sourceTree = "<group>"; };
@@ -1708,6 +1712,7 @@
 				CE4A6C04278B47040052F7E7 /* HTTPClient.swift */,
 				CE9BE0982848D1DB006691F0 /* Network.swift */,
 				CE4A6C08278B4A3C0052F7E7 /* NetworkConfig.swift */,
+				CEBA978F288740BA0048A02C /* TokenStorage.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -1926,6 +1931,7 @@
 			isa = PBXGroup;
 			children = (
 				CE348223287F377700B74429 /* SignUpError.swift */,
+				CEBA978D28873B530048A02C /* SignInError.swift */,
 			);
 			path = Error;
 			sourceTree = "<group>";
@@ -2965,6 +2971,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CEBAC7752847674E00ABCC36 /* NetworkConfig.swift in Sources */,
+				CEBA9790288740BA0048A02C /* TokenStorage.swift in Sources */,
 				CE9BE0972848D1BC006691F0 /* NetworkError.swift in Sources */,
 				CEBAC7742847674E00ABCC36 /* HTTPClient.swift in Sources */,
 				CE9BE0992848D1DB006691F0 /* Network.swift in Sources */,
@@ -3004,6 +3011,7 @@
 				CED3AB6A2849207500621B28 /* FakeUserAuthService.swift in Sources */,
 				CEEB4EB428859ABF00CC4456 /* SignInAPI.swift in Sources */,
 				CE348222287F334700B74429 /* UserAuthServiceProvider.swift in Sources */,
+				CEBA978E28873B530048A02C /* SignInError.swift in Sources */,
 				CED3AB692849207200621B28 /* UserAuthService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
