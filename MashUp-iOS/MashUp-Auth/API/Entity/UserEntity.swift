@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct SignInResponse: Decodable {
+struct UserEntity: Decodable {
     let userID: Int
     let userName: String
     let accessToken: String

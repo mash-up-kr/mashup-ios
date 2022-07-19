@@ -24,9 +24,7 @@ final class UserSessionRepositoryImp: UserSessionRepository {
         return self.network.request(api)
             .map { try $0.get() }
             .withUnretained(self)
-            .map { owner, entity in
-                owner.translate(id: id, user: entity)
-            }
+            .map { owner, userEntity in owner.translate(id: id, userEntity: userEntity) }
     }
     
     func signUp(with newAccount: NewAccount, signUpCode: String) -> Observable<UserSession> {
@@ -38,32 +36,20 @@ final class UserSessionRepositoryImp: UserSessionRepository {
             signUpCode: signUpCode
         )
         
-        #warning("회원가입시에도 유저 정보 내려오게 요청 '수정 필요' - booung")
         return self.network.request(api)
+            .map { try $0.get() }
             .withUnretained(self)
-            .flatMapFirst { owner, _ in
-                owner.signIn(id: newAccount.id, password: newAccount.password)
-            }
+            .map { owner, userEntity in owner.translate(id: newAccount.id, userEntity: userEntity) }
     }
     
-    private func translate(newAccount: NewAccount, accessToken: String) -> UserSession {
-        return UserSession(
-            id: newAccount.id, userID: 0,
-            accessToken: accessToken,
-            name: newAccount.name,
-            platformTeam: newAccount.platform,
-            generations: []
-        )
-    }
-    
-    private func translate(id: String, user: SignInResponse) -> UserSession {
+    private func translate(id: String, userEntity: UserEntity) -> UserSession {
         return UserSession(
             id: id,
-            userID: user.userID,
-            accessToken: user.accessToken,
-            name: user.userName,
-            platformTeam: PlatformTeam(rawValue: user.platform) ?? .iOS,
-            generations: [12]
+            userID: userEntity.userID,
+            accessToken: userEntity.accessToken,
+            name: userEntity.userName,
+            platformTeam: PlatformTeam(rawValue: userEntity.platform) ?? .iOS,
+            generations: [Generation(integerLiteral: userEntity.generationNumber)]
         )
     }
     

@@ -15,7 +15,7 @@ struct SignInAPI {
     let password: String
 }
 extension SignInAPI: MashUpAPI {
-    typealias Response = SignInResponse
+    typealias Response = UserEntity
     
     var path: String { "/api/v1/members/login" }
     var httpMethod: HTTPMethod { .post }

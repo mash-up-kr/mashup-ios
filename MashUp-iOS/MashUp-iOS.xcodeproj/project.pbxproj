@@ -83,7 +83,6 @@
 		CE348218287F26EC00B74429 /* UserAuthServiceImp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE348217287F26EC00B74429 /* UserAuthServiceImp.swift */; };
 		CE34821A287F273100B74429 /* UserSessionRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE348219287F273100B74429 /* UserSessionRepository.swift */; };
 		CE34821C287F2AFE00B74429 /* SignUpAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE34821B287F2AFE00B74429 /* SignUpAPI.swift */; };
-		CE348220287F2E5E00B74429 /* SignUpResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE34821F287F2E5E00B74429 /* SignUpResponse.swift */; };
 		CE348222287F334700B74429 /* UserAuthServiceProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE348221287F334700B74429 /* UserAuthServiceProvider.swift */; };
 		CE348224287F377700B74429 /* SignUpError.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE348223287F377700B74429 /* SignUpError.swift */; };
 		CE396080278B3CB40073AEF4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE39607F278B3CB40073AEF4 /* AppDelegate.swift */; };
@@ -363,7 +362,7 @@
 		CEEB4EAF28858BF700CC4456 /* ClubActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEB4EAE28858BF700CC4456 /* ClubActivity.swift */; };
 		CEEB4EB128858E5200CC4456 /* ClubActivityStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEB4EB028858E5200CC4456 /* ClubActivityStyle.swift */; };
 		CEEB4EB428859ABF00CC4456 /* SignInAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEB4EB328859ABF00CC4456 /* SignInAPI.swift */; };
-		CEEB4EB728859D0500CC4456 /* SignInResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEB4EB628859D0500CC4456 /* SignInResponse.swift */; };
+		CEEB4EB728859D0500CC4456 /* UserEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEB4EB628859D0500CC4456 /* UserEntity.swift */; };
 		CEEB4EB92885AC8800CC4456 /* AttendanceCompleteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEB4EB82885AC8800CC4456 /* AttendanceCompleteViewController.swift */; };
 		CEEB4EBC2885ACAD00CC4456 /* AttendanceCompleteReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEB4EBB2885ACAD00CC4456 /* AttendanceCompleteReactor.swift */; };
 		CEEB4EBE2885B3FC00CC4456 /* AttendanceCompleteReactorSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEB4EBD2885B3FC00CC4456 /* AttendanceCompleteReactorSpec.swift */; };
@@ -741,7 +740,6 @@
 		CE348217287F26EC00B74429 /* UserAuthServiceImp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAuthServiceImp.swift; sourceTree = "<group>"; };
 		CE348219287F273100B74429 /* UserSessionRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSessionRepository.swift; sourceTree = "<group>"; };
 		CE34821B287F2AFE00B74429 /* SignUpAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpAPI.swift; sourceTree = "<group>"; };
-		CE34821F287F2E5E00B74429 /* SignUpResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpResponse.swift; sourceTree = "<group>"; };
 		CE348221287F334700B74429 /* UserAuthServiceProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAuthServiceProvider.swift; sourceTree = "<group>"; };
 		CE348223287F377700B74429 /* SignUpError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpError.swift; sourceTree = "<group>"; };
 		CE39607C278B3CB40073AEF4 /* MashUp-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "MashUp-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -923,7 +921,7 @@
 		CEEB4EAE28858BF700CC4456 /* ClubActivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClubActivity.swift; sourceTree = "<group>"; };
 		CEEB4EB028858E5200CC4456 /* ClubActivityStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClubActivityStyle.swift; sourceTree = "<group>"; };
 		CEEB4EB328859ABF00CC4456 /* SignInAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInAPI.swift; sourceTree = "<group>"; };
-		CEEB4EB628859D0500CC4456 /* SignInResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInResponse.swift; sourceTree = "<group>"; };
+		CEEB4EB628859D0500CC4456 /* UserEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserEntity.swift; sourceTree = "<group>"; };
 		CEEB4EB82885AC8800CC4456 /* AttendanceCompleteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttendanceCompleteViewController.swift; sourceTree = "<group>"; };
 		CEEB4EBB2885ACAD00CC4456 /* AttendanceCompleteReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttendanceCompleteReactor.swift; sourceTree = "<group>"; };
 		CEEB4EBD2885B3FC00CC4456 /* AttendanceCompleteReactorSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttendanceCompleteReactorSpec.swift; sourceTree = "<group>"; };
@@ -2070,20 +2068,19 @@
 		CEEB4EB228859AA200CC4456 /* API */ = {
 			isa = PBXGroup;
 			children = (
-				CEEB4EB528859CE900CC4456 /* Response */,
+				CEEB4EB528859CE900CC4456 /* Entity */,
 				CE34821B287F2AFE00B74429 /* SignUpAPI.swift */,
 				CEEB4EB328859ABF00CC4456 /* SignInAPI.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
 		};
-		CEEB4EB528859CE900CC4456 /* Response */ = {
+		CEEB4EB528859CE900CC4456 /* Entity */ = {
 			isa = PBXGroup;
 			children = (
-				CEEB4EB628859D0500CC4456 /* SignInResponse.swift */,
-				CE34821F287F2E5E00B74429 /* SignUpResponse.swift */,
+				CEEB4EB628859D0500CC4456 /* UserEntity.swift */,
 			);
-			path = Response;
+			path = Entity;
 			sourceTree = "<group>";
 		};
 		CEEB4EBA2885AC9500CC4456 /* AttendanceComplete */ = {
@@ -2926,8 +2923,7 @@
 				CE34821A287F273100B74429 /* UserSessionRepository.swift in Sources */,
 				CE348218287F26EC00B74429 /* UserAuthServiceImp.swift in Sources */,
 				CE34821C287F2AFE00B74429 /* SignUpAPI.swift in Sources */,
-				CE348220287F2E5E00B74429 /* SignUpResponse.swift in Sources */,
-				CEEB4EB728859D0500CC4456 /* SignInResponse.swift in Sources */,
+				CEEB4EB728859D0500CC4456 /* UserEntity.swift in Sources */,
 				CED3AB5D2849203100621B28 /* MashUp_Auth.docc in Sources */,
 				CED3AB6A2849207500621B28 /* FakeUserAuthService.swift in Sources */,
 				CEEB4EB428859ABF00CC4456 /* SignInAPI.swift in Sources */,
