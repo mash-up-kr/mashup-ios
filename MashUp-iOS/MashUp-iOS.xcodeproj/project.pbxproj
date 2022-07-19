@@ -227,6 +227,10 @@
 		CEB60F7F27A9C536001260DB /* AttendanceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB60F7E27A9C536001260DB /* AttendanceService.swift */; };
 		CEB60F8427A9C602001260DB /* FakeAttendanceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB60F8327A9C602001260DB /* FakeAttendanceService.swift */; };
 		CEBA977428871B460048A02C /* AsyncSequence+.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBA977328871B460048A02C /* AsyncSequence+.swift */; };
+		CEBA977E288722840048A02C /* AttendanceRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBA977D288722830048A02C /* AttendanceRepository.swift */; };
+		CEBA9780288722C50048A02C /* QRCodeAttendanceAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBA977F288722C50048A02C /* QRCodeAttendanceAPI.swift */; };
+		CEBA9782288723560048A02C /* AttendanceError.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBA9781288723560048A02C /* AttendanceError.swift */; };
+		CEBA9785288725790048A02C /* AttendanceStatusEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBA9784288725790048A02C /* AttendanceStatusEntity.swift */; };
 		CEBAC6CE28469EE700ABCC36 /* PreviewMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBAC6CD28469EE700ABCC36 /* PreviewMenu.swift */; };
 		CEBAC75B2847657300ABCC36 /* MashUp_Core.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE9C1D9428467E500020FBCE /* MashUp_Core.framework */; platformFilter = ios; };
 		CEBAC75C2847657300ABCC36 /* MashUp_Core.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = CE9C1D9428467E500020FBCE /* MashUp_Core.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -859,6 +863,10 @@
 		CEB60F7E27A9C536001260DB /* AttendanceService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttendanceService.swift; sourceTree = "<group>"; };
 		CEB60F8327A9C602001260DB /* FakeAttendanceService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeAttendanceService.swift; sourceTree = "<group>"; };
 		CEBA977328871B460048A02C /* AsyncSequence+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AsyncSequence+.swift"; sourceTree = "<group>"; };
+		CEBA977D288722830048A02C /* AttendanceRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttendanceRepository.swift; sourceTree = "<group>"; };
+		CEBA977F288722C50048A02C /* QRCodeAttendanceAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRCodeAttendanceAPI.swift; sourceTree = "<group>"; };
+		CEBA9781288723560048A02C /* AttendanceError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttendanceError.swift; sourceTree = "<group>"; };
+		CEBA9784288725790048A02C /* AttendanceStatusEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttendanceStatusEntity.swift; sourceTree = "<group>"; };
 		CEBAC6CD28469EE700ABCC36 /* PreviewMenu.swift */ = {isa = PBXFileReference; indentWidth = 4; lastKnownFileType = sourcecode.swift; path = PreviewMenu.swift; sourceTree = "<group>"; };
 		CEBAC7642847670400ABCC36 /* MashUp_Network.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MashUp_Network.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEBAC7662847670400ABCC36 /* MashUp_Network.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MashUp_Network.h; sourceTree = "<group>"; };
@@ -1854,13 +1862,16 @@
 		CEB60F8227A9C5EA001260DB /* Attendance */ = {
 			isa = PBXGroup;
 			children = (
+				CEBA9786288725830048A02C /* Entity */,
 				0618444327E30259004980CC /* AttendanceMember.swift */,
-				CE729A8627E5C31A001D33D1 /* PartialAttendance.swift */,
 				CEB60F7E27A9C536001260DB /* AttendanceService.swift */,
 				CE6EE87227CA7482005BF412 /* AttendanceStatus.swift */,
 				CE729A8027E57EC1001D33D1 /* AttendanceTimeline.swift */,
 				CE729A7E27E57D0D001D33D1 /* AttendanceTimelineRepository.swift */,
+				CE729A8627E5C31A001D33D1 /* PartialAttendance.swift */,
+				CEBA9783288723600048A02C /* Error */,
 				CE12DA5927E62A7100F08629 /* Fake(deprecated) */,
+				CEBA977C288722750048A02C /* Repository */,
 			);
 			path = Attendance;
 			sourceTree = "<group>";
@@ -1871,6 +1882,31 @@
 				CEBA977328871B460048A02C /* AsyncSequence+.swift */,
 			);
 			path = Concurrency;
+			sourceTree = "<group>";
+		};
+		CEBA977C288722750048A02C /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				CEBA977D288722830048A02C /* AttendanceRepository.swift */,
+				CEBA977F288722C50048A02C /* QRCodeAttendanceAPI.swift */,
+			);
+			path = Repository;
+			sourceTree = "<group>";
+		};
+		CEBA9783288723600048A02C /* Error */ = {
+			isa = PBXGroup;
+			children = (
+				CEBA9781288723560048A02C /* AttendanceError.swift */,
+			);
+			path = Error;
+			sourceTree = "<group>";
+		};
+		CEBA9786288725830048A02C /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				CEBA9784288725790048A02C /* AttendanceStatusEntity.swift */,
+			);
+			path = Entity;
 			sourceTree = "<group>";
 		};
 		CEBAC7652847670400ABCC36 /* MashUp-Network */ = {
@@ -2693,6 +2729,7 @@
 				CE47305B2879CC5E0050B897 /* ClubActivityScore.swift in Sources */,
 				0618444427E30259004980CC /* AttendanceMember.swift in Sources */,
 				06531C18283F59FF00E225EB /* PlatformAttendanceStatusReactor.swift in Sources */,
+				CEBA9782288723560048A02C /* AttendanceError.swift in Sources */,
 				CEEB4EA32884392400CC4456 /* ClubActivityHistorySectionHeaderView.swift in Sources */,
 				28D52F542878525800CA3D1B /* QRScanViewController.swift in Sources */,
 				CE6EE88A27CAA288005BF412 /* SeminarRepository.swift in Sources */,
@@ -2728,6 +2765,7 @@
 				CE0F283E2843B81300C206EA /* SignUpStep1ViewController.swift in Sources */,
 				28D52F4B2878523E00CA3D1B /* QRSeminarCardViewModel.swift in Sources */,
 				06531C2B2840BFAA00E225EB /* AttendanceStatusRectangleViewModel.swift in Sources */,
+				CEBA977E288722840048A02C /* AttendanceRepository.swift in Sources */,
 				CE0F283E2843B81300C206EA /* SignUpStep1ViewController.swift in Sources */,
 				CE7CCB982855DB82005AA690 /* TermsAgreementView.swift in Sources */,
 				CE7C9E87285DDD0C00B71C0E /* MyPageReactor.swift in Sources */,
@@ -2739,6 +2777,7 @@
 				CE6EE87A27CA89F3005BF412 /* SeminarCardCellModel.swift in Sources */,
 				0642C94428522A3700B9F575 /* AttendanceStatus+Presentation.swift in Sources */,
 				CEEB4EBC2885ACAD00CC4456 /* AttendanceCompleteReactor.swift in Sources */,
+				CEBA9785288725790048A02C /* AttendanceStatusEntity.swift in Sources */,
 				CE729A8327E57FCD001D33D1 /* FakeAttendanceTimelineRepository.swift in Sources */,
 				0642C93F285223F800B9F575 /* AttendanceStatusCircleViewModel.swift in Sources */,
 				CE6EE85F27CA45EF005BF412 /* SeminarScheduleSection.swift in Sources */,
@@ -2765,6 +2804,7 @@
 				06D9F074286C285F005786A3 /* ClubActivityScoreRuleViewController.swift in Sources */,
 				CE6EE86627CA495F005BF412 /* SeminarSchduleStep.swift in Sources */,
 				2820E16C285CE7750058EE40 /* AttendenceTimeAndCheckView.swift in Sources */,
+				CEBA9780288722C50048A02C /* QRCodeAttendanceAPI.swift in Sources */,
 				CEB60F4827A9746E001260DB /* QRReaderService.swift in Sources */,
 				28D52F4A2878523E00CA3D1B /* PartialAttendanceViewModel.swift in Sources */,
 				0642C93D2851ED4400B9F575 /* AttendanceDetailCell.swift in Sources */,
