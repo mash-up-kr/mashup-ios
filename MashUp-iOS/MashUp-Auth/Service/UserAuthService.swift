@@ -19,15 +19,6 @@ public protocol UserAuthService {
 }
 public extension UserAuthService {
     func signUp(with newAccount: NewAccount, signUpCode: String) -> Observable<Result<UserSession, SignUpError>> {
-        return AsyncStream(
-            Result<UserSession, SignUpError>.self,
-            bufferingPolicy: .unbounded
-        ) { continuation in
-            Task.detached {
-                let result = await signUp(with: newAccount, signUpCode: signUpCode)
-                continuation.yield(result)
-                continuation.finish()
-            }
-        }.asObservable()
+        AsyncStream.single { await signUp(with: newAccount, signUpCode: signUpCode) }.asObservable()
     }
 }

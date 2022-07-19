@@ -126,7 +126,7 @@ final public class SignUpCodeReactor: Reactor {
         let signUpCode = self.currentState.signUpCode
         let userAccount = self.currentState.userInProgressOfSigningUp
         
-        return AsyncStream { [signUpCodeVerificationService, userAuthService] in
+        return AsyncStream.single { [signUpCodeVerificationService, userAuthService] in
             let signUpCodeVerification = await signUpCodeVerificationService.verify(signUpCode: signUpCode)
             if case .failure(let codeError) = signUpCodeVerification { return Mutation.occurSignUpCodeError(codeError) }
             
@@ -137,7 +137,7 @@ final public class SignUpCodeReactor: Reactor {
             case .failure(let error):
                 return Mutation.occurSignUpError(error)
             }
-        }.asObservable().asSingle().asObservable()
+        }.asObservable()
     }
     
     private let signUpCodeVerificationService: any SignUpCodeVerificationService
