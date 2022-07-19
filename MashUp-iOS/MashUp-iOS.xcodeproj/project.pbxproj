@@ -226,6 +226,7 @@
 		CEB60F6827A9BDAE001260DB /* RxOptional in Frameworks */ = {isa = PBXBuildFile; productRef = CEB60F6727A9BDAE001260DB /* RxOptional */; };
 		CEB60F7F27A9C536001260DB /* AttendanceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB60F7E27A9C536001260DB /* AttendanceService.swift */; };
 		CEB60F8427A9C602001260DB /* FakeAttendanceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEB60F8327A9C602001260DB /* FakeAttendanceService.swift */; };
+		CEBA977428871B460048A02C /* AsyncSequence+.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBA977328871B460048A02C /* AsyncSequence+.swift */; };
 		CEBAC6CE28469EE700ABCC36 /* PreviewMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBAC6CD28469EE700ABCC36 /* PreviewMenu.swift */; };
 		CEBAC75B2847657300ABCC36 /* MashUp_Core.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE9C1D9428467E500020FBCE /* MashUp_Core.framework */; platformFilter = ios; };
 		CEBAC75C2847657300ABCC36 /* MashUp_Core.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = CE9C1D9428467E500020FBCE /* MashUp_Core.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -857,6 +858,7 @@
 		CEB60F7827A9C0C9001260DB /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Platforms/iPhoneOS.platform/Developer/Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		CEB60F7E27A9C536001260DB /* AttendanceService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttendanceService.swift; sourceTree = "<group>"; };
 		CEB60F8327A9C602001260DB /* FakeAttendanceService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FakeAttendanceService.swift; sourceTree = "<group>"; };
+		CEBA977328871B460048A02C /* AsyncSequence+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AsyncSequence+.swift"; sourceTree = "<group>"; };
 		CEBAC6CD28469EE700ABCC36 /* PreviewMenu.swift */ = {isa = PBXFileReference; indentWidth = 4; lastKnownFileType = sourcecode.swift; path = PreviewMenu.swift; sourceTree = "<group>"; };
 		CEBAC7642847670400ABCC36 /* MashUp_Network.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MashUp_Network.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEBAC7662847670400ABCC36 /* MashUp_Network.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MashUp_Network.h; sourceTree = "<group>"; };
@@ -1723,6 +1725,7 @@
 				CE6EE84227C7F933005BF412 /* Logger.swift */,
 				CE348204287D82FE00B74429 /* MashUpError.swift */,
 				CED3ABC628494F0F00621B28 /* Base */,
+				CEBA977528871B530048A02C /* Concurrency */,
 				CED3ABCC28494F1000621B28 /* Foundation+ */,
 				CED3ABD528494F1000621B28 /* Rx+ */,
 				CED3ABD828494F1000621B28 /* UIKit+ */,
@@ -1860,6 +1863,14 @@
 				CE12DA5927E62A7100F08629 /* Fake(deprecated) */,
 			);
 			path = Attendance;
+			sourceTree = "<group>";
+		};
+		CEBA977528871B530048A02C /* Concurrency */ = {
+			isa = PBXGroup;
+			children = (
+				CEBA977328871B460048A02C /* AsyncSequence+.swift */,
+			);
+			path = Concurrency;
 			sourceTree = "<group>";
 		};
 		CEBAC7652847670400ABCC36 /* MashUp-Network */ = {
@@ -2851,6 +2862,7 @@
 				CE7CCBA02855FDF7005AA690 /* EventHookingStackView.swift in Sources */,
 				CE6A96472853B94F00F4C066 /* UIConstants.swift in Sources */,
 				CED3ABED28494F1000621B28 /* Observable+Main.swift in Sources */,
+				CEBA977428871B460048A02C /* AsyncSequence+.swift in Sources */,
 				CED3ABEC28494F1000621B28 /* Date+.swift in Sources */,
 				06FE4FAE2872BE5E00AAA8B7 /* ImageSource.swift in Sources */,
 				CED3ABF328494F1000621B28 /* UITableView+.swift in Sources */,
