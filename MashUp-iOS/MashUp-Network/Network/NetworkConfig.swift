@@ -11,7 +11,7 @@ import Foundation
 enum NetworkConfig {
     
     static var mashupHost: String {
-        #if DEV
+        #if DEBUG
         return "https://api.dev-member.mash-up.kr"
         #else
         return "https://api.member.mash-up.kr"
