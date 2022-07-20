@@ -19,8 +19,13 @@ public struct PlatformAttendanceAPI: MashUpAPI {
 
 extension PlatformAttendanceAPI {
     public typealias Response = PlatformAttendanceResponse?
-    public var path: String { "/api/v1/attendance/platforms?scheduleId=\(scheduleID)" }
+    public var path: String { "/api/v1/attendance/platforms" }
     public var httpMethod: HTTPMethod { .get }
-    public var httpTask: HTTPTask { return .requestPlain }
+    public var httpTask: HTTPTask {
+        let parameters: [String: Any] = [
+            "scheduleId": scheduleID
+        ]
+        return .requestParameters(parameters: parameters, encoding: URLEncoding.default)
+    }
     public var headers: [String : String]? { nil }
 }

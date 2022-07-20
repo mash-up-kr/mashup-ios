@@ -29,7 +29,6 @@ final public class PlatformRepositoryImpl: PlatformRepository {
     public func attendanceStatus(scheduleID: Int) -> Observable<PlatformAttendance> {
         let api = PlatformAttendanceAPI(scheduleID: scheduleID)
         return network.request(api)
-            .debug("🐳")
             .compactMap { try $0.get() }
             .map { $0.asPlatformAttendance }
     }
