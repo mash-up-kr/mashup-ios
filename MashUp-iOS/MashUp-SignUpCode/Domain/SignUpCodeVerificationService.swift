@@ -16,7 +16,7 @@ public protocol SignUpCodeVerificationService {
 public extension SignUpCodeVerificationService {
     
     func verify(signUpCode: String) -> Observable<Result<Void, SignUpCodeError>> {
-        AsyncStream { await self.verify(signUpCode: signUpCode) }.asObservable()
+        AsyncStream.single { await self.verify(signUpCode: signUpCode) }.asObservable()
     }
     
 }
