@@ -14,8 +14,7 @@ import MashUp_UIKit
 final class PlatformAttendanceCell: BaseCollectionViewCell {
     private let contentStackView: UIStackView = UIStackView()
     private let platformContainerView: UIView = UIView()
-    private let platformLeftImageView: UIImageView = UIImageView()
-    private let platformRightImageView: UIImageView = UIImageView()
+    private let platformImageView: UIImageView = UIImageView()
     private let platformLabel: UILabel = UILabel()
     
     // MARK: 출석진행중
@@ -41,9 +40,7 @@ final class PlatformAttendanceCell: BaseCollectionViewCell {
     
     func configure(model: PlatformAttendanceInformation, isAttending: Bool) {
         platformLabel.text = model.platform.title
-        let icons = model.platform.icons
-        platformLeftImageView.image = icons.0
-        platformRightImageView.image = icons.1
+        platformImageView.image = model.platform.icon
         drawByAttend(isAttending,
                      numberOfAttend: model.numberOfAttend,
                      numberOfLateness: model.numberOfLateness,
@@ -86,8 +83,7 @@ final class PlatformAttendanceCell: BaseCollectionViewCell {
         addSubview(contentStackView)
         contentStackView.addArrangedSubview(platformContainerView)
         contentStackView.addArrangedSubview(attendanceStatusStackView)
-        platformContainerView.addSubview(platformLeftImageView)
-        platformContainerView.addSubview(platformRightImageView)
+        platformContainerView.addSubview(platformImageView)
         platformContainerView.addSubview(platformLabel)
         addSubview(attendanceCountContainerView)
         attendanceCountContainerView.addSubview(attendanceCountTitleLabel)
@@ -102,20 +98,14 @@ final class PlatformAttendanceCell: BaseCollectionViewCell {
             $0.bottom.equalToSuperview().inset(20)
         }
 
-        platformLeftImageView.snp.makeConstraints {
+        platformImageView.snp.makeConstraints {
             $0.leading.top.equalToSuperview()
             $0.width.height.equalTo(20)
         }
         
-        platformRightImageView.snp.makeConstraints {
-            $0.leading.equalTo(platformLeftImageView.snp.trailing)
-            $0.centerY.equalTo(platformLeftImageView)
-            $0.width.height.equalTo(20)
-        }
-        
         platformLabel.snp.makeConstraints {
-            $0.leading.equalTo(platformLeftImageView)
-            $0.top.equalTo(platformLeftImageView.snp.bottom).offset(4)
+            $0.leading.equalTo(platformImageView)
+            $0.top.equalTo(platformImageView.snp.bottom).offset(4)
             $0.bottom.equalToSuperview()
         }
         
