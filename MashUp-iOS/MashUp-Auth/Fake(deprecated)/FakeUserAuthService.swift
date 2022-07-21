@@ -28,7 +28,7 @@ public final class FakeUserAuthService: UserAuthService {
         
         guard isCorrectID, isCorrectPW else { return .error("sign in failure") }
         let fakeSession = UserSession(
-            id: "fake.user.id",
+            id: "fake.user.id", userID: Int.random(in: Int.min..<Int.max),
             accessToken: "\(id).\(password)",
             name: "fake.name",
             platformTeam: .iOS,
@@ -45,6 +45,7 @@ public final class FakeUserAuthService: UserAuthService {
         guard isCorrectID, isCorrectPW else { return .failure(.undefined) }
         let fakeSession = UserSession(
             id: "fake.user.id",
+            userID: .random(in: Int.min..<Int.max),
             accessToken: "\(newAccount.id).\(newAccount.password)",
             name: "fake.name",
             platformTeam: .iOS,

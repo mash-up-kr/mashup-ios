@@ -28,6 +28,7 @@ final class MyPageFormatterImp: MyPageFormatter {
         return MyPageHeaderViewModel(
             userName: userSession.name,
             platformTeamText: userSession.platformTeam.title,
+            platformStyle: MyPagePlatformStyle(platform: userSession.platformTeam),
             totalScoreText: "\(totalScore)점"
         )
     }
@@ -57,8 +58,8 @@ final class MyPageFormatterImp: MyPageFormatter {
         : .deduction("\(history.changedScore)점")
         
         return ClubActivityHistoryCellModel(
-            historyTitle: history.activityTitle,
             description: "\(history.date.description) | \(history.eventTitle)",
+            clubActivityStyle: ClubActivityStyle(clubActivity: history.activityType),
             scoreChangeStyle: scoreStyle,
             appliedTotalScoreText: "\(history.appliedTotalScore)점"
         )

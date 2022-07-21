@@ -13,8 +13,10 @@ import RxCocoa
 import SnapKit
 import UIKit
 import MashUp_Core
+import MashUp_UIKit
 
 final class QRScanViewController: BaseViewController, ReactorKit.View {
+    
     typealias Reactor = QRScanReactor
     
     var disposeBag: DisposeBag = DisposeBag()
@@ -118,7 +120,7 @@ extension QRScanViewController {
     
     private func setupAttribute() {
         self.closeButton.do {
-            $0.setBackgroundImage(UIImage(named: "name=xmark, color=white, size=Default"), for: .normal)
+            $0.setImage(.ic_close?.resized(side: 40).withTintColor(.white), for: .normal)
         }
         self.qrGuideLabel.do {
             $0.text = "QR 코드를 스캔하세요"
@@ -142,8 +144,7 @@ extension QRScanViewController {
             $0.addSubview(self.toastView)
         }
         self.closeButton.snp.makeConstraints {
-            $0.top.equalTo(self.view.safeAreaLayoutGuide).inset(21)
-            $0.trailing.equalToSuperview().inset(14)
+            $0.top.trailing.equalTo(self.view.safeAreaLayoutGuide).inset(20)
             $0.size.equalTo(40)
         }
         self.qrGuideLabel.snp.makeConstraints {

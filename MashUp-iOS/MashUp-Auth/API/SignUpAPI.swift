@@ -19,7 +19,7 @@ struct SignUpAPI: MashUpAPI {
 }
 extension SignUpAPI {
     
-    typealias Response = SignUpResponse
+    typealias Response = UserEntity
     
     var path: String { "/api/v1/members/signup" }
     var httpMethod: HTTPMethod { .post }

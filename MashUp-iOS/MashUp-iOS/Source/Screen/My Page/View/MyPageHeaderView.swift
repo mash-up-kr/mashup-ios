@@ -12,6 +12,7 @@ import MashUp_UIKit
 import SnapKit
 import Then
 import UIKit
+import MashUp_PlatformTeam
 
 @objc protocol MyPageHeaderViewDelegate: AnyObject {
     @objc optional func myPageHeaderViewDidTapSettingButton(_ view: MyPageHeaderView)
@@ -19,9 +20,69 @@ import UIKit
     @objc optional func myPageHeaderViewDidTap5TimesMascotImage(_ view: MyPageHeaderView)
 }
 
+enum MyPagePlatformStyle: CaseIterable {
+    case design
+    case android
+    case iOS
+    case web
+    case node
+    case spring
+    
+    var mascotImage: UIImage? {
+        switch self {
+        case .design: return .img_profile_design
+        case .android: return .img_profile_android
+        case .iOS: return .img_profile_iOS
+        case .web: return .img_profile_web
+        case .node: return .img_profile_node
+        case .spring: return .img_profile_spring
+        }
+    }
+    var textColor: UIColor? {
+        switch self {
+        case .design: return UIColor(hexString: "#C5C0FF")
+        case .android: return UIColor(hexString: "#B3D7B2")
+        case .iOS: return UIColor(hexString: "#F5B8B8")
+        case .web: return UIColor(hexString: "#BFD1FF")
+        case .node: return UIColor(hexString: "#C0C0DB")
+        case .spring: return UIColor(hexString: "#9DDDD5")
+            
+        }
+    }
+    var backgroundColor: UIColor? {
+        switch self {
+        case .design: return UIColor(hexString: "#8176FB", alpha: 0.3)
+        case .android: return UIColor(hexString: "#58AE56", alpha: 0.3)
+        case .iOS: return UIColor(hexString: "#D35C5C", alpha: 0.3)
+        case .web: return UIColor(hexString: "#5A88FF", alpha: 0.3)
+        case .node: return UIColor(hexString: "#6B6B80", alpha: 0.3)
+        case .spring: return UIColor(hexString: "#259688", alpha: 0.3)
+        }
+    }
+    
+    init(platform: PlatformTeam) {
+        switch platform {
+        case .design:
+            self = .design
+        case .android:
+            self = .android
+        case .iOS:
+            self = .iOS
+        case .web:
+            self = .web
+        case .node:
+            self = .node
+        case .spring:
+            self = .spring
+        }
+    }
+    
+}
+
 struct MyPageHeaderViewModel: Equatable {
     let userName: String
     let platformTeamText: String
+    let platformStyle: MyPagePlatformStyle
     let totalScoreText: String
 }
 
@@ -43,6 +104,9 @@ final class MyPageHeaderView: BaseView {
     func configure(with viewModel: MyPageHeaderViewModel) {
         self.userNameLabel.text = viewModel.userName
         self.platformTeamLabel.text = viewModel.platformTeamText
+        self.platformTeamLabel.textColor = viewModel.platformStyle.textColor
+        self.platformTeamLabel.backgroundColor = viewModel.platformStyle.backgroundColor
+        self.mascotImageView.image = viewModel.platformStyle.mascotImage?.resized(width: 180, height: 146)
         self.totalClubActivityScoreLabel.text = viewModel.totalScoreText
     }
     
@@ -83,7 +147,7 @@ extension MyPageHeaderView {
         self.platformTeamLabel.do {
             $0.font = .pretendardFont(weight: .medium, size: 14)
             $0.backgroundColor = .brand500
-            $0.layer.cornerRadius = 6
+            $0.layer.cornerRadius = 13
             $0.layer.masksToBounds = true
             $0.textColor = .white
         }
@@ -97,7 +161,7 @@ extension MyPageHeaderView {
             $0.layer.cornerRadius = 12
             $0.isUserInteractionEnabled = true
             $0.addShadow(x: 0, y: 2, color: .black.withAlphaComponent(0.1), radius: 20)
-            $0.image = UIImage(named: "mypage_card")
+            $0.image = .img_card_bg
         }
         self.totalClubActivityScoreLabel.do {
             $0.font = .pretendardFont(weight: .bold, size: 24)
@@ -146,10 +210,10 @@ extension MyPageHeaderView {
         }
         userInfoStackView.addArrangedSubview(self.mascotImageView)
         self.mascotImageView.snp.makeConstraints {
-            $0.width.equalTo(160)
-            $0.height.equalTo(90)
+            $0.width.equalTo(180)
+            $0.height.equalTo(146)
         }
-        userInfoStackView.setCustomSpacing(20, after: self.mascotImageView)
+        userInfoStackView.setCustomSpacing(0, after: self.mascotImageView)
         userInfoStackView.addArrangedSubview(self.userNameLabel)
         userInfoStackView.setCustomSpacing(12, after: self.userNameLabel)
         userInfoStackView.addArrangedSubview(self.platformTeamLabel)

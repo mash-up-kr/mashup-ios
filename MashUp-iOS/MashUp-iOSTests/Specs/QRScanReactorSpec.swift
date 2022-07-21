@@ -24,12 +24,14 @@ final class QRScanReactorSpec: QuickSpec {
     var qrReaderServiceMock: QRReaderServiceMock!
     var attendanceServiceMock: AttendanceServiceMock!
     var formatterMock: QRScanFormatterMock!
+    var qrCodeAttendanceResponderMock: QRCodeAttendanceResponderMock!
     
     beforeEach {
       captureSessionDummy = AVCaptureSession()
       qrReaderServiceMock = mock(QRReaderService.self)
       attendanceServiceMock = mock(AttendanceService.self)
       formatterMock = mock(QRScanFormatter.self)
+      qrCodeAttendanceResponderMock = mock(QRCodeAttendanceResponder.self)
     }
     describe("QRScanReactor") {
       let seminarCardViewModelStub = QRSeminarCardViewModel.stub()
@@ -43,7 +45,8 @@ final class QRScanReactorSpec: QuickSpec {
         sut = QRScanReactor(
           qrReaderService: qrReaderServiceMock,
           attendanceService: attendanceServiceMock,
-          formatter: formatterMock
+          formatter: formatterMock,
+          qrCodeAttendanceResponder: qrCodeAttendanceResponderMock
         )
       }
       context("화면이 준비가 되면") {
@@ -70,10 +73,10 @@ final class QRScanReactorSpec: QuickSpec {
         context("코드가 올바르다면") {
           beforeEach {
             given(qrReaderServiceMock.scanCodeWhileSessionIsOpen()).willReturn(.just(correctCode))
-          }
-          it("출석체크 성공 토스트가 표시됩니다") {
             sut.action.onNext(.didSetup)
-            #warning("스펙 확정 후 작업 - booung")
+          }
+          it("홈화면으로 넘어갑니다") {
+            verify(qrCodeAttendanceResponderMock.didCompleteAttendance()).wasCalled()
           }
         }
         context("코드가 올바르지 않다면") {

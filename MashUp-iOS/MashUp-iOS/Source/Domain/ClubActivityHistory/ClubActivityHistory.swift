@@ -10,7 +10,7 @@ import Foundation
 
 struct ClubActivityHistory {
     let id: String
-    let activityTitle: String
+    let activityType: ClubActivity
     let changedScore: ClubActivityScore
     let appliedTotalScore: ClubActivityScore
     let date: Date

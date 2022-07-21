@@ -85,7 +85,6 @@
 		CE348218287F26EC00B74429 /* UserAuthServiceImp.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE348217287F26EC00B74429 /* UserAuthServiceImp.swift */; };
 		CE34821A287F273100B74429 /* UserSessionRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE348219287F273100B74429 /* UserSessionRepository.swift */; };
 		CE34821C287F2AFE00B74429 /* SignUpAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE34821B287F2AFE00B74429 /* SignUpAPI.swift */; };
-		CE348220287F2E5E00B74429 /* SignUpResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE34821F287F2E5E00B74429 /* SignUpResponse.swift */; };
 		CE348222287F334700B74429 /* UserAuthServiceProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE348221287F334700B74429 /* UserAuthServiceProvider.swift */; };
 		CE348224287F377700B74429 /* SignUpError.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE348223287F377700B74429 /* SignUpError.swift */; };
 		CE396080278B3CB40073AEF4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE39607F278B3CB40073AEF4 /* AppDelegate.swift */; };
@@ -362,6 +361,14 @@
 		CEEB4EA72884635300CC4456 /* SettingReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEB4EA62884635300CC4456 /* SettingReactor.swift */; };
 		CEEB4EA92884690200CC4456 /* SNSButton+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEB4EA82884690200CC4456 /* SNSButton+Rx.swift */; };
 		CEEB4EAB2885679D00CC4456 /* SettingReactorSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEB4EAA2885679D00CC4456 /* SettingReactorSpec.swift */; };
+		CEEB4EAD2885836700CC4456 /* UIColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEB4EAC2885836700CC4456 /* UIColor+.swift */; };
+		CEEB4EAF28858BF700CC4456 /* ClubActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEB4EAE28858BF700CC4456 /* ClubActivity.swift */; };
+		CEEB4EB128858E5200CC4456 /* ClubActivityStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEB4EB028858E5200CC4456 /* ClubActivityStyle.swift */; };
+		CEEB4EB428859ABF00CC4456 /* SignInAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEB4EB328859ABF00CC4456 /* SignInAPI.swift */; };
+		CEEB4EB728859D0500CC4456 /* UserEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEB4EB628859D0500CC4456 /* UserEntity.swift */; };
+		CEEB4EB92885AC8800CC4456 /* AttendanceCompleteViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEB4EB82885AC8800CC4456 /* AttendanceCompleteViewController.swift */; };
+		CEEB4EBC2885ACAD00CC4456 /* AttendanceCompleteReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEB4EBB2885ACAD00CC4456 /* AttendanceCompleteReactor.swift */; };
+		CEEB4EBE2885B3FC00CC4456 /* AttendanceCompleteReactorSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEB4EBD2885B3FC00CC4456 /* AttendanceCompleteReactorSpec.swift */; };
 		EDB9E3E1C1C0556600627702 /* MashUp_iOSTests-MashUp_CoreMocks.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1345AE365F8570B51C4B2A6E /* MashUp_iOSTests-MashUp_CoreMocks.generated.swift */; };
 /* End PBXBuildFile section */
 
@@ -738,7 +745,6 @@
 		CE348217287F26EC00B74429 /* UserAuthServiceImp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAuthServiceImp.swift; sourceTree = "<group>"; };
 		CE348219287F273100B74429 /* UserSessionRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSessionRepository.swift; sourceTree = "<group>"; };
 		CE34821B287F2AFE00B74429 /* SignUpAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpAPI.swift; sourceTree = "<group>"; };
-		CE34821F287F2E5E00B74429 /* SignUpResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpResponse.swift; sourceTree = "<group>"; };
 		CE348221287F334700B74429 /* UserAuthServiceProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserAuthServiceProvider.swift; sourceTree = "<group>"; };
 		CE348223287F377700B74429 /* SignUpError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpError.swift; sourceTree = "<group>"; };
 		CE39607C278B3CB40073AEF4 /* MashUp-iOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "MashUp-iOS.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -917,6 +923,14 @@
 		CEEB4EA62884635300CC4456 /* SettingReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingReactor.swift; sourceTree = "<group>"; };
 		CEEB4EA82884690200CC4456 /* SNSButton+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SNSButton+Rx.swift"; sourceTree = "<group>"; };
 		CEEB4EAA2885679D00CC4456 /* SettingReactorSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingReactorSpec.swift; sourceTree = "<group>"; };
+		CEEB4EAC2885836700CC4456 /* UIColor+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+.swift"; sourceTree = "<group>"; };
+		CEEB4EAE28858BF700CC4456 /* ClubActivity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClubActivity.swift; sourceTree = "<group>"; };
+		CEEB4EB028858E5200CC4456 /* ClubActivityStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClubActivityStyle.swift; sourceTree = "<group>"; };
+		CEEB4EB328859ABF00CC4456 /* SignInAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInAPI.swift; sourceTree = "<group>"; };
+		CEEB4EB628859D0500CC4456 /* UserEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserEntity.swift; sourceTree = "<group>"; };
+		CEEB4EB82885AC8800CC4456 /* AttendanceCompleteViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttendanceCompleteViewController.swift; sourceTree = "<group>"; };
+		CEEB4EBB2885ACAD00CC4456 /* AttendanceCompleteReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttendanceCompleteReactor.swift; sourceTree = "<group>"; };
+		CEEB4EBD2885B3FC00CC4456 /* AttendanceCompleteReactorSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttendanceCompleteReactorSpec.swift; sourceTree = "<group>"; };
 		DAD32E8AA1567DD34445CF4D /* MashUp_iOSTests-MashUp_AuthMocks.generated.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; name = "MashUp_iOSTests-MashUp_AuthMocks.generated.swift"; path = "MockingbirdMocks/MashUp_iOSTests-MashUp_AuthMocks.generated.swift"; sourceTree = "<group>"; };
 		EBA6CECD109EF7738D4B4516 /* MashUp_iOSTests-MashUp_UserMocks.generated.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; name = "MashUp_iOSTests-MashUp_UserMocks.generated.swift"; path = "MockingbirdMocks/MashUp_iOSTests-MashUp_UserMocks.generated.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -1152,11 +1166,12 @@
 				CEEB4E9A2884392400CC4456 /* ClubActivityHistoryCell.swift */,
 				CEEB4E9C2884392400CC4456 /* ClubActivityHistorySectionHeaderView.swift */,
 				CEEB4E9D2884392400CC4456 /* ClubActivityHistoryTitleHeaderView.swift */,
+				CEEB4EB028858E5200CC4456 /* ClubActivityStyle.swift */,
 				CEEB4E992884392400CC4456 /* EmptyClubActivityHistoryView.swift */,
 				CEEB4E982884392400CC4456 /* MyPageHeaderView.swift */,
 				CEEB4E9B2884392400CC4456 /* MyPageHeaderView+Rx.swift */,
-				CEEB4E972884392400CC4456 /* MyPageSummaryBar+Rx.swift */,
 				CEEB4E952884391B00CC4456 /* MyPageSummaryBar.swift */,
+				CEEB4E972884392400CC4456 /* MyPageSummaryBar+Rx.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1303,8 +1318,6 @@
 		CE34821D287F2B0300B74429 /* Repository */ = {
 			isa = PBXGroup;
 			children = (
-				CE34821B287F2AFE00B74429 /* SignUpAPI.swift */,
-				CE34821F287F2E5E00B74429 /* SignUpResponse.swift */,
 				CE348219287F273100B74429 /* UserSessionRepository.swift */,
 			);
 			path = Repository;
@@ -1391,6 +1404,7 @@
 		CE3960B1278B3D850073AEF4 /* Screen */ = {
 			isa = PBXGroup;
 			children = (
+				CEEB4EBA2885AC9500CC4456 /* AttendanceComplete */,
 				CEDC9F842878470900221683 /* ClubActivityScoreRule */,
 				CE6EE83B27C7EFA6005BF412 /* Home */,
 				CE6EE84627C80C66005BF412 /* My Page */,
@@ -1444,6 +1458,7 @@
 				CE47305A2879CC5E0050B897 /* ClubActivityScore.swift */,
 				CE4730562879CBAA0050B897 /* ClubActivityService.swift */,
 				CE47305E2879D1DB0050B897 /* FakeClubActivityRepository.swift */,
+				CEEB4EAE28858BF700CC4456 /* ClubActivity.swift */,
 			);
 			path = ClubActivityHistory;
 			sourceTree = "<group>";
@@ -1777,22 +1792,23 @@
 		CE9E735B27C294E800922D8B /* Specs */ = {
 			isa = PBXGroup;
 			children = (
+				CEEB4EBD2885B3FC00CC4456 /* AttendanceCompleteReactorSpec.swift */,
+				0642C945285312D600B9F575 /* AttendanceMemberSpec.swift */,
 				CE58818A27ECB2E60068D4E0 /* AttendanceTimelineSpec.swift */,
 				CE6EE85527CA38EF005BF412 /* HomeReactorSpec.swift */,
 				06D1032F2878095700978426 /* MembershipWithdrawalReactorSpec.swift */,
+				CEC435BB28670139003AA5C6 /* MyPageReactorSpec.swift */,
 				062A960627E99BE300E8E715 /* PlatformAttendanceDetailReactorSpec.swift */,
 				06531C1B283F5E2200E225EB /* PlatformAttendanceStatusReactorSpec.swift */,
 				CE58818827EC9BAC0068D4E0 /* QRScanFormatterSpec.swift */,
 				CE9E735C27C294E800922D8B /* QRScanReactorSpec.swift */,
 				CE6EE84F27CA1DBD005BF412 /* RootReactorSpec.swift */,
+				CEEB4EAA2885679D00CC4456 /* SettingReactorSpec.swift */,
 				CE6EE85127CA26A6005BF412 /* SignInReactorSpec.swift */,
 				CED3ABB528492E2500621B28 /* SignUpCodeReactorSpec.swift */,
 				CE900B7A2846542B00FF9C4F /* SignUpStep1ReactorSpec.swift */,
 				CE6EE86A27CA60B6005BF412 /* SplashReactorSpec.swift */,
 				CE0F284D28444A7000C206EA /* VerificationServiceSpec.swift */,
-				0642C945285312D600B9F575 /* AttendanceMemberSpec.swift */,
-				CEC435BB28670139003AA5C6 /* MyPageReactorSpec.swift */,
-				CEEB4EAA2885679D00CC4456 /* SettingReactorSpec.swift */,
 			);
 			path = Specs;
 			sourceTree = "<group>";
@@ -1929,6 +1945,7 @@
 				CED3AB752849222900621B28 /* AuthenticationResponder.swift */,
 				CE348223287F377700B74429 /* SignUpError.swift */,
 				CE348221287F334700B74429 /* UserAuthServiceProvider.swift */,
+				CEEB4EB228859AA200CC4456 /* API */,
 				CE12DA5B27E62A8900F08629 /* Fake(deprecated) */,
 				CE34821D287F2B0300B74429 /* Repository */,
 				CE34821E287F2B0C00B74429 /* Service */,
@@ -2006,13 +2023,14 @@
 				CED3ABD928494F1000621B28 /* Reusable.swift */,
 				CED3ABDB28494F1000621B28 /* UIButton+.swift */,
 				CED3ABDC28494F1000621B28 /* UICollectionView+.swift */,
+				CEEB4EAC2885836700CC4456 /* UIColor+.swift */,
 				CE6A96462853B94F00F4C066 /* UIConstants.swift */,
 				06FE4FAF2872BE6D00AAA8B7 /* UIImageView+.swift */,
 				CED3ABDD28494F1000621B28 /* UITableView+.swift */,
 				0642C949285332F000B9F575 /* UIView+.swift */,
+				CE612E382881923000BD5480 /* UIViewController+.swift */,
 				CE6A96442853B91200F4C066 /* UIWindow+.swift */,
 				CE7CCB9C2855FDD0005AA690 /* EventHookingView */,
-				CE612E382881923000BD5480 /* UIViewController+.swift */,
 			);
 			path = "UIKit+";
 			sourceTree = "<group>";
@@ -2060,6 +2078,33 @@
 				06D1033628784CDF00978426 /* DontForgetMashUpView.swift */,
 			);
 			name = "Recovered References";
+			sourceTree = "<group>";
+		};
+		CEEB4EB228859AA200CC4456 /* API */ = {
+			isa = PBXGroup;
+			children = (
+				CEEB4EB528859CE900CC4456 /* Entity */,
+				CE34821B287F2AFE00B74429 /* SignUpAPI.swift */,
+				CEEB4EB328859ABF00CC4456 /* SignInAPI.swift */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		CEEB4EB528859CE900CC4456 /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				CEEB4EB628859D0500CC4456 /* UserEntity.swift */,
+			);
+			path = Entity;
+			sourceTree = "<group>";
+		};
+		CEEB4EBA2885AC9500CC4456 /* AttendanceComplete */ = {
+			isa = PBXGroup;
+			children = (
+				CEEB4EBB2885ACAD00CC4456 /* AttendanceCompleteReactor.swift */,
+				CEEB4EB82885AC8800CC4456 /* AttendanceCompleteViewController.swift */,
+			);
+			path = AttendanceComplete;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -2644,6 +2689,7 @@
 				2820E198286F58520058EE40 /* SeminarDetailViewController.swift in Sources */,
 				CE729A7F27E57D0D001D33D1 /* AttendanceTimelineRepository.swift in Sources */,
 				CE729A8727E5C31A001D33D1 /* PartialAttendance.swift in Sources */,
+				CEEB4EB92885AC8800CC4456 /* AttendanceCompleteViewController.swift in Sources */,
 				28D52F552878525800CA3D1B /* QRScanFormatter.swift in Sources */,
 				CE6EE84C27C80C92005BF412 /* SeminarScheduleViewController.swift in Sources */,
 				06D1032A2876E6FC00978426 /* MembershipWithdrawalReactor.swift in Sources */,
@@ -2696,9 +2742,11 @@
 				CE6EE87127CA73B7005BF412 /* SeminarCardCell.swift in Sources */,
 				CE6EE87A27CA89F3005BF412 /* SeminarCardCellModel.swift in Sources */,
 				0642C94428522A3700B9F575 /* AttendanceStatus+Presentation.swift in Sources */,
+				CEEB4EBC2885ACAD00CC4456 /* AttendanceCompleteReactor.swift in Sources */,
 				CE729A8327E57FCD001D33D1 /* FakeAttendanceTimelineRepository.swift in Sources */,
 				0642C93F285223F800B9F575 /* AttendanceStatusCircleViewModel.swift in Sources */,
 				CE6EE85F27CA45EF005BF412 /* SeminarScheduleSection.swift in Sources */,
+				CEEB4EB128858E5200CC4456 /* ClubActivityStyle.swift in Sources */,
 				CE6EE85A27CA40C5005BF412 /* SeminarScheduleReactor.swift in Sources */,
 				CE6EE83827C7E2D5005BF412 /* SplashReactor.swift in Sources */,
 				CE6A963628538C6700F4C066 /* SignUpStep2ViewController.swift in Sources */,
@@ -2707,6 +2755,7 @@
 				CE6EE84E27C80C9B005BF412 /* MyPageViewController.swift in Sources */,
 				CEC435BA2866FEED003AA5C6 /* DebugSystem.swift in Sources */,
 				CE6EE86927CA5609005BF412 /* PlatformAttendanceDetailViewController.swift in Sources */,
+				CEEB4EAF28858BF700CC4456 /* ClubActivity.swift in Sources */,
 				CE612E3528818C3700BD5480 /* PersonalInfomationPolicyWebViewController.swift in Sources */,
 				CE6EE86927CA5609005BF412 /* PlatformAttendanceDetailViewController.swift in Sources */,
 				CEEB4E942884391000CC4456 /* DontForgetMashUpView.swift in Sources */,
@@ -2763,6 +2812,7 @@
 				9BA399D8AC75574F51FAC517 /* MashUp_iOSTests-MashUp_NetworkMocks.generated.swift in Sources */,
 				07900EC9117FCF2FA8E23F03 /* MashUp_iOSTests-MashUp_PlatformTeamMocks.generated.swift in Sources */,
 				8150A263D51AF35ED7C1F753 /* MashUp_iOSTests-MashUp_UIKitMocks.generated.swift in Sources */,
+				CEEB4EBE2885B3FC00CC4456 /* AttendanceCompleteReactorSpec.swift in Sources */,
 				95DDF9F37D94A72B0668DA86 /* MashUp_iOSTests-MashUp_SignUpCodeMocks.generated.swift in Sources */,
 				CED3ABB628492E2500621B28 /* SignUpCodeReactorSpec.swift in Sources */,
 				06D103302878095700978426 /* MembershipWithdrawalReactorSpec.swift in Sources */,
@@ -2803,6 +2853,7 @@
 				CE612E322881818700BD5480 /* EventThroughView.swift in Sources */,
 				CE6A96452853B91200F4C066 /* UIWindow+.swift in Sources */,
 				CE7CCBA22855FE28005AA690 /* EventHookingDelegate.swift in Sources */,
+				CEEB4EAD2885836700CC4456 /* UIColor+.swift in Sources */,
 				CED3ABE228494F1000621B28 /* BaseTableViewCell.swift in Sources */,
 				CE9C1DA428467E5E0020FBCE /* Logger.swift in Sources */,
 				CED3ABE528494F1000621B28 /* Locale+.swift in Sources */,
@@ -2888,9 +2939,10 @@
 				CE34821A287F273100B74429 /* UserSessionRepository.swift in Sources */,
 				CE348218287F26EC00B74429 /* UserAuthServiceImp.swift in Sources */,
 				CE34821C287F2AFE00B74429 /* SignUpAPI.swift in Sources */,
-				CE348220287F2E5E00B74429 /* SignUpResponse.swift in Sources */,
+				CEEB4EB728859D0500CC4456 /* UserEntity.swift in Sources */,
 				CED3AB5D2849203100621B28 /* MashUp_Auth.docc in Sources */,
 				CED3AB6A2849207500621B28 /* FakeUserAuthService.swift in Sources */,
+				CEEB4EB428859ABF00CC4456 /* SignInAPI.swift in Sources */,
 				CE348222287F334700B74429 /* UserAuthServiceProvider.swift in Sources */,
 				CED3AB692849207200621B28 /* UserAuthService.swift in Sources */,
 			);

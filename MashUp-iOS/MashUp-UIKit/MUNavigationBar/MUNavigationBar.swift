@@ -25,9 +25,9 @@ public class MUNavigationBar: UIView {
         
         var icon: UIImage? {
             switch self {
-            case .back: return .ic_chevron_left
-            case .close: return .ic_close
-            case .custom(let image): return image
+            case .back: return .ic_chevron_left?.resized(side: 24)
+            case .close: return .ic_close?.resized(side: 24)
+            case .custom(let image): return image.resized(side: 24)
             }
         }
     }
@@ -47,12 +47,12 @@ public class MUNavigationBar: UIView {
     
     private var leftIcon: UIImage? {
         get { self.leftButton.image(for: .normal) }
-        set { self.leftButton.setBackgroundImage(newValue, for: .normal) }
+        set { self.leftButton.setImage(newValue, for: .normal) }
     }
     
     private var rightIcon: UIImage? {
         get { self.rightButton.image(for: .normal) }
-        set { self.rightButton.setBackgroundImage(newValue, for: .normal) }
+        set { self.rightButton.setImage(newValue, for: .normal) }
     }
     
     public override init(frame: CGRect = .zero) {

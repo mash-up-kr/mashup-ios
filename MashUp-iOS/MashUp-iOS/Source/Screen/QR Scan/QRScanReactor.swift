@@ -11,6 +11,10 @@ import ReactorKit
 import AVFoundation
 import MashUp_Core
 
+protocol QRCodeAttendanceResponder {
+    func didCompleteAttendance()
+}
+
 final class QRScanReactor: Reactor {
     
     enum Action {
@@ -37,13 +41,15 @@ final class QRScanReactor: Reactor {
     let initialState: State
     
     init(
-        qrReaderService: QRReaderService,
-        attendanceService: AttendanceService,
-        formatter: QRScanFormatter
+        qrReaderService: any QRReaderService,
+        attendanceService: any AttendanceService,
+        formatter: any QRScanFormatter,
+        qrCodeAttendanceResponder: any QRCodeAttendanceResponder
     ) {
         self.qrReaderService = qrReaderService
         self.attencanceService = attendanceService
         self.formatter = formatter
+        self.qrCodeAttendanceResponder = qrCodeAttendanceResponder
         
         self.initialState = State(
             captureSession: qrReaderService.captureSession,
@@ -71,7 +77,9 @@ final class QRScanReactor: Reactor {
             
         case .updateAttendance(let attendance):
             newState.hasAttended = attendance
-            if attendance == false {
+            if attendance == true {
+                self.qrCodeAttendanceResponder.didCompleteAttendance()
+            } else {
                 newState.toastMessage = "올바르지 않은 QR 코드입니다"
             }
             
@@ -89,8 +97,8 @@ final class QRScanReactor: Reactor {
         return .concat(updateCode, updateAttendance)
     }
     
-    private let qrReaderService: QRReaderService
-    private let attencanceService: AttendanceService
-    private let formatter: QRScanFormatter
-    
+    private let qrReaderService: any QRReaderService
+    private let attencanceService: any AttendanceService
+    private let formatter: any QRScanFormatter
+    private let qrCodeAttendanceResponder: any QRCodeAttendanceResponder
 }

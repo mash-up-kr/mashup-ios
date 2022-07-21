@@ -14,11 +14,13 @@ extension MyPageHeaderViewModel {
   static func stub(
     userName: String = "stub.user.name.\(Date.now())",
     platformTeamText: String = "stub.platform.\(Date.now())",
+    platformStyle: MyPagePlatformStyle = .allCases.randomElement()!,
     totalScoreText: String = "stub.total.score.\(Date.now())"
   ) -> Self {
     return MyPageHeaderViewModel(
       userName: userName,
       platformTeamText: platformTeamText,
+      platformStyle: platformStyle,
       totalScoreText: totalScoreText
     )
   }

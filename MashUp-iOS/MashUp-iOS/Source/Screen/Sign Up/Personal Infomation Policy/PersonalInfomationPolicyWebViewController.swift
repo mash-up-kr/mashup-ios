@@ -79,6 +79,7 @@ extension PersonalInfomationPolicyWebViewController {
         self.navigationBar.do {
             $0.title = "개인정보방침"
             $0.rightBarItem = .close
+            $0.interactiveContentScrollView = self.webView.scrollView
         }
         self.webView.do {
             $0.navigationDelegate = self

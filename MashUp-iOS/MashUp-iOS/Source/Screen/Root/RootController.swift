@@ -125,6 +125,7 @@ extension RootController {
         // ✅ 자동 로그인 케이스 테스트
         userAuthService.stubedUserSession = UserSession(
             id: "fake.user.id",
+            userID: 0,
             accessToken: "fake.access.token",
             name: "fake.user.name",
             platformTeam: .iOS,
@@ -161,6 +162,7 @@ extension RootController {
     
     private func createHomeTabController() -> UIViewController {
         let homeTabBarController = HomeTabBarController()
+//        let userAuthService = self.userAuthServiceProvider.provide()
         let userAuthService = FakeUserAuthService()
         userAuthService.stubedSignOutResult = true
         #warning("DIContainer 적용 후 제거되어야합니다 - booung")
