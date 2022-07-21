@@ -234,7 +234,7 @@
 		CEBA9788288734CE0048A02C /* AuthenticationAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBA9787288734CE0048A02C /* AuthenticationAPI.swift */; };
 		CEBA978B288735A90048A02C /* Authorization.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBA978A288735A90048A02C /* Authorization.swift */; };
 		CEBA978E28873B530048A02C /* SignInError.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBA978D28873B530048A02C /* SignInError.swift */; };
-		CEBA9790288740BA0048A02C /* TokenStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBA978F288740BA0048A02C /* TokenStorage.swift */; };
+		CEBA9790288740BA0048A02C /* AuthorizationStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBA978F288740BA0048A02C /* AuthorizationStorage.swift */; };
 		CEBAC6CE28469EE700ABCC36 /* PreviewMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEBAC6CD28469EE700ABCC36 /* PreviewMenu.swift */; };
 		CEBAC75B2847657300ABCC36 /* MashUp_Core.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE9C1D9428467E500020FBCE /* MashUp_Core.framework */; platformFilter = ios; };
 		CEBAC75C2847657300ABCC36 /* MashUp_Core.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = CE9C1D9428467E500020FBCE /* MashUp_Core.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -352,6 +352,8 @@
 		CED3ABF328494F1000621B28 /* UITableView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED3ABDD28494F1000621B28 /* UITableView+.swift */; };
 		CED3ABF428494F1000621B28 /* PaddingLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED3ABDF28494F1000621B28 /* PaddingLabel.swift */; };
 		CED3ABF628494F4000621B28 /* KeyboardFrameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED3ABF528494F4000621B28 /* KeyboardFrameView.swift */; };
+		CED63F642889869D009E80B1 /* EmptyResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED63F632889869D009E80B1 /* EmptyResponse.swift */; };
+		CED63F6628899694009E80B1 /* AccessToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = CED63F6528899694009E80B1 /* AccessToken.swift */; };
 		CEDC9F812878182500221683 /* MyPageSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEDC9F802878182500221683 /* MyPageSection.swift */; };
 		CEEB4E842884232C00CC4456 /* PartialAttendanceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28D52F452878523E00CA3D1B /* PartialAttendanceView.swift */; };
 		CEEB4E942884391000CC4456 /* DontForgetMashUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CEEB4E932884391000CC4456 /* DontForgetMashUpView.swift */; };
@@ -874,7 +876,7 @@
 		CEBA9787288734CE0048A02C /* AuthenticationAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationAPI.swift; sourceTree = "<group>"; };
 		CEBA978A288735A90048A02C /* Authorization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Authorization.swift; sourceTree = "<group>"; };
 		CEBA978D28873B530048A02C /* SignInError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInError.swift; sourceTree = "<group>"; };
-		CEBA978F288740BA0048A02C /* TokenStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TokenStorage.swift; sourceTree = "<group>"; };
+		CEBA978F288740BA0048A02C /* AuthorizationStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationStorage.swift; sourceTree = "<group>"; };
 		CEBAC6CD28469EE700ABCC36 /* PreviewMenu.swift */ = {isa = PBXFileReference; indentWidth = 4; lastKnownFileType = sourcecode.swift; path = PreviewMenu.swift; sourceTree = "<group>"; };
 		CEBAC7642847670400ABCC36 /* MashUp_Network.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MashUp_Network.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CEBAC7662847670400ABCC36 /* MashUp_Network.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MashUp_Network.h; sourceTree = "<group>"; };
@@ -922,6 +924,8 @@
 		CED3ABDD28494F1000621B28 /* UITableView+.swift */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 4; lastKnownFileType = sourcecode.swift; path = "UITableView+.swift"; sourceTree = "<group>"; };
 		CED3ABDF28494F1000621B28 /* PaddingLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaddingLabel.swift; sourceTree = "<group>"; };
 		CED3ABF528494F4000621B28 /* KeyboardFrameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyboardFrameView.swift; sourceTree = "<group>"; };
+		CED63F632889869D009E80B1 /* EmptyResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmptyResponse.swift; sourceTree = "<group>"; };
+		CED63F6528899694009E80B1 /* AccessToken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessToken.swift; sourceTree = "<group>"; };
 		CEDC9F802878182500221683 /* MyPageSection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageSection.swift; sourceTree = "<group>"; };
 		CEEB4E932884391000CC4456 /* DontForgetMashUpView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DontForgetMashUpView.swift; sourceTree = "<group>"; };
 		CEEB4E952884391B00CC4456 /* MyPageSummaryBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyPageSummaryBar.swift; sourceTree = "<group>"; };
@@ -1709,10 +1713,10 @@
 		CE9BE09A2848D1E1006691F0 /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				CEBA978F288740BA0048A02C /* AuthorizationStorage.swift */,
 				CE4A6C04278B47040052F7E7 /* HTTPClient.swift */,
 				CE9BE0982848D1DB006691F0 /* Network.swift */,
 				CE4A6C08278B4A3C0052F7E7 /* NetworkConfig.swift */,
-				CEBA978F288740BA0048A02C /* TokenStorage.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -1729,6 +1733,7 @@
 			isa = PBXGroup;
 			children = (
 				CE9BE1082848E9E1006691F0 /* ResponseModel.swift */,
+				CED63F632889869D009E80B1 /* EmptyResponse.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1921,6 +1926,7 @@
 		CEBA9789288735950048A02C /* Authentication */ = {
 			isa = PBXGroup;
 			children = (
+				CED63F6528899694009E80B1 /* AccessToken.swift */,
 				CEBA9787288734CE0048A02C /* AuthenticationAPI.swift */,
 				CEBA978A288735A90048A02C /* Authorization.swift */,
 			);
@@ -2970,8 +2976,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CED63F642889869D009E80B1 /* EmptyResponse.swift in Sources */,
+				CED63F6628899694009E80B1 /* AccessToken.swift in Sources */,
 				CEBAC7752847674E00ABCC36 /* NetworkConfig.swift in Sources */,
-				CEBA9790288740BA0048A02C /* TokenStorage.swift in Sources */,
+				CEBA9790288740BA0048A02C /* AuthorizationStorage.swift in Sources */,
 				CE9BE0972848D1BC006691F0 /* NetworkError.swift in Sources */,
 				CEBAC7742847674E00ABCC36 /* HTTPClient.swift in Sources */,
 				CE9BE0992848D1DB006691F0 /* Network.swift in Sources */,

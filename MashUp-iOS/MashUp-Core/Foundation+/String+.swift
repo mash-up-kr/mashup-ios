@@ -8,6 +8,8 @@
 
 import Foundation
 
+public typealias AccessToken = String
+
 extension String {
     public static let empty = ""
     public var isNotEmpty: Bool { !isEmpty }

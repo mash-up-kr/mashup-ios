@@ -7,7 +7,8 @@
 //
 
 import Foundation
+import MashUp_Core
 
 public protocol Authorization {
-    var accessToken: String { get }
+    var accessToken: AccessToken { get }
 }
