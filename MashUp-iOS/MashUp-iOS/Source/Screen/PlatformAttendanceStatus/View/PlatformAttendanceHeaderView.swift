@@ -47,15 +47,21 @@ final class PlatformAttendanceHeaderView: UICollectionReusableView, Reusable {
         }
         
         titleLabel.snp.makeConstraints {
-            $0.center.equalToSuperview()
+            $0.leading.equalTo(leadingImageView.snp.trailing).offset(6)
+            $0.centerY.equalTo(leadingImageView)
         }
     }
     
     private func setupAttribute() {
-        titleLabel.textColor = .gray800
-        titleLabel.font = .pretendardFont(weight: .medium, size: 14)
-        containerView.layer.cornerRadius = 8
-        containerView.backgroundColor = .white
+        titleLabel.do {
+            $0.textColor = .gray800
+            $0.font = .pretendardFont(weight: .medium, size: 14)
+        }
+        containerView.do {
+            $0.layer.cornerRadius = 8
+            $0.backgroundColor = .white
+            $0.addShadow(x: 0, y: 2, color: .black, radius: 20, opacity: 0.1)
+        }
     }
     
     func setTitle(_ title: String) {

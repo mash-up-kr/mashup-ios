@@ -11,9 +11,9 @@ import MashUp_Core
 
 final class AttendanceDetailCell: BaseCollectionViewCell {
     private let nameLabel: UILabel = UILabel()
-    private let firstHalfStatusView: AttendanceStatusCircleView = AttendanceStatusCircleView(phase: .phase1)
-    private let secondHalfStatusView: AttendanceStatusCircleView = AttendanceStatusCircleView(phase: .phase2)
-    private let finalStatusView: AttendanceStatusCircleView = AttendanceStatusCircleView(phase: .total)
+    private let firstHalfStatusView: AttendanceStatusCircleView = AttendanceStatusCircleView()
+    private let secondHalfStatusView: AttendanceStatusCircleView = AttendanceStatusCircleView()
+    private let finalStatusView: AttendanceStatusCircleView = AttendanceStatusCircleView()
     private let verticalLineView: UIView = UIView()
     private let horizontalLineView1: UIView = UIView()
     private let horizontalLineView2: UIView = UIView()
@@ -59,7 +59,7 @@ final class AttendanceDetailCell: BaseCollectionViewCell {
         horizontalLineView1.snp.makeConstraints {
             $0.leading.equalTo(firstHalfStatusView.snp.trailing)
             $0.trailing.equalTo(secondHalfStatusView.snp.leading)
-            $0.centerY.equalTo(firstHalfStatusView)
+            $0.top.equalTo(firstHalfStatusView).offset(9.5)
             $0.width.equalTo(35)
             $0.height.equalTo(1)
         }
@@ -92,18 +92,21 @@ final class AttendanceDetailCell: BaseCollectionViewCell {
         self.do {
             $0.backgroundColor = .white
             $0.layer.cornerRadius = 12
-            //TODO: 그림자 추가
+            $0.addShadow(x: 0, y: 2, color: .black, radius: 20, opacity: 0.1)
         }
     }
     
     func configure(model: AttendanceMember) {
         nameLabel.text = model.name
         let firstStatus = AttendanceStatusCircleViewModel(timestamp: model.firstSeminarAttendanceTimeStamp,
-                                                          status: model.firstSeminarAttendance)
+                                                          status: model.firstSeminarAttendance,
+                                                          seminarPhase: .phase1)
         let secondStatus = AttendanceStatusCircleViewModel(timestamp: model.secondSeminarAttendanceTimeStamp,
-                                                          status: model.secondSeminarAttendance)
+                                                           status: model.secondSeminarAttendance,
+                                                           seminarPhase: .phase2)
         let finalStatus = AttendanceStatusCircleViewModel(timestamp: model.secondSeminarAttendanceTimeStamp,
-                                                          status: model.finalSeminarAttendance)
+                                                          status: model.finalSeminarAttendance,
+                                                          seminarPhase: .total)
         firstHalfStatusView.configure(model: firstStatus)
         secondHalfStatusView.configure(model: secondStatus)
         finalStatusView.configure(model: finalStatus)

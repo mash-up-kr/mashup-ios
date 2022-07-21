@@ -10,8 +10,10 @@ import UIKit
 import MashUp_Core
 import ReactorKit
 import MashUp_PlatformTeam
+import MashUp_UIKit
 
 final class PlatformStatusViewController: BaseViewController, ReactorKit.View {
+    private let navigationBar: MUNavigationBar = MUNavigationBar(frame: .zero)
     private lazy var platformCollectionView: UICollectionView = {
         let flowLayout = UICollectionViewFlowLayout()
         flowLayout.minimumInteritemSpacing = 12
@@ -24,11 +26,6 @@ final class PlatformStatusViewController: BaseViewController, ReactorKit.View {
     }()
     var disposeBag: DisposeBag = DisposeBag()
     
-    override func loadView() {
-        view = UIView()
-        view.backgroundColor = .lightGray
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
@@ -36,6 +33,12 @@ final class PlatformStatusViewController: BaseViewController, ReactorKit.View {
     
     func bind(reactor: PlatformAttendanceStatusReactor) {
         reactor.action.onNext(.didSetup)
+        
+        navigationBar.leftButton.rx.tap
+            .subscribe(onNext: { [weak self] in
+                self?.navigationController?.popViewController(animated: true)
+            })
+            .disposed(by: disposeBag)
     }
     
     private func setupUI() {
@@ -44,19 +47,33 @@ final class PlatformStatusViewController: BaseViewController, ReactorKit.View {
     }
     
     private func setupLayout() {
+        view.addSubview(navigationBar)
         view.addSubview(platformCollectionView)
+        
+        navigationBar.snp.makeConstraints {
+            $0.top.equalTo(view.safeAreaLayoutGuide.snp.top)
+            $0.horizontalEdges.equalToSuperview()
+            $0.height.equalTo(52)
+        }
+        
         platformCollectionView.snp.makeConstraints {
             $0.horizontalEdges.equalToSuperview()
-            $0.top.equalTo(view.safeAreaLayoutGuide.snp.top)
+            $0.top.equalTo(navigationBar.snp.bottom)
             $0.bottom.equalToSuperview()
         }
     }
     
     private func setupAttribute() {
+        view.backgroundColor = .gray50
         platformCollectionView.dataSource = self
         platformCollectionView.registerCell(PlatformAttendanceCell.self)
         platformCollectionView.registerSupplementaryView(PlatformAttendanceHeaderView.self)
         platformCollectionView.backgroundColor = .clear
+        
+        navigationBar.do {
+            $0.leftBarItem = .back
+            $0.title = "플랫폼별 출석현황"
+        }
     }
 }
 

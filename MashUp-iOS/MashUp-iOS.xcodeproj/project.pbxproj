@@ -30,6 +30,8 @@
 		06531C382840C7C500E225EB /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 06531C372840C7C500E225EB /* Colors.xcassets */; };
 		066CE3F2286ED0CC00B6F841 /* UIImage+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 066CE3F1286ED0CC00B6F841 /* UIImage+.swift */; };
 		0688CB42284B223B00338A5C /* PlatformTeam+Presentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0688CB41284B223B00338A5C /* PlatformTeam+Presentation.swift */; };
+		06D9F072286C0E0A005786A3 /* MUAlertAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06D9F071286C0E0A005786A3 /* MUAlertAction.swift */; };
+		06D9F074286C285F005786A3 /* MyPageRuleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06D9F073286C285F005786A3 /* MyPageRuleViewController.swift */; };
 		06D103282876E62900978426 /* MembershipWithdrawalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06D103272876E62900978426 /* MembershipWithdrawalViewController.swift */; };
 		06D1032A2876E6FC00978426 /* MembershipWithdrawalReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06D103292876E6FC00978426 /* MembershipWithdrawalReactor.swift */; };
 		06D103302878095700978426 /* MembershipWithdrawalReactorSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06D1032F2878095700978426 /* MembershipWithdrawalReactorSpec.swift */; };
@@ -678,6 +680,8 @@
 		066CE3F1286ED0CC00B6F841 /* UIImage+.swift */ = {isa = PBXFileReference; indentWidth = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+.swift"; sourceTree = "<group>"; };
 		0688CB41284B223B00338A5C /* PlatformTeam+Presentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PlatformTeam+Presentation.swift"; sourceTree = "<group>"; };
 		0688CB43284E255800338A5C /* PlatformAttendanceHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlatformAttendanceHeaderView.swift; sourceTree = "<group>"; };
+		06D9F071286C0E0A005786A3 /* MUAlertAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MUAlertAction.swift; sourceTree = "<group>"; };
+		06D9F073286C285F005786A3 /* MyPageRuleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageRuleViewController.swift; sourceTree = "<group>"; };
 		06D103272876E62900978426 /* MembershipWithdrawalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MembershipWithdrawalViewController.swift; sourceTree = "<group>"; };
 		06D103292876E6FC00978426 /* MembershipWithdrawalReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MembershipWithdrawalReactor.swift; sourceTree = "<group>"; };
 		06D1032F2878095700978426 /* MembershipWithdrawalReactorSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MembershipWithdrawalReactorSpec.swift; sourceTree = "<group>"; };
@@ -837,7 +841,7 @@
 		CE900BC928466EF600FF9C4F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CE9BE0962848D1BC006691F0 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
 		CE9BE0982848D1DB006691F0 /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
-		CE9BE1062848E9E1006691F0 /* MashUpAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MashUpAPI.swift; sourceTree = "<group>"; };
+		CE9BE1062848E9E1006691F0 /* MashUpAPI.swift */ = {isa = PBXFileReference; fileEncoding = 4; indentWidth = 4; lastKnownFileType = sourcecode.swift; path = MashUpAPI.swift; sourceTree = "<group>"; };
 		CE9BE1082848E9E1006691F0 /* ResponseModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResponseModel.swift; sourceTree = "<group>"; };
 		CE9C1D9428467E500020FBCE /* MashUp_Core.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MashUp_Core.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE9C1D9628467E500020FBCE /* MashUp_Core.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MashUp_Core.h; sourceTree = "<group>"; };

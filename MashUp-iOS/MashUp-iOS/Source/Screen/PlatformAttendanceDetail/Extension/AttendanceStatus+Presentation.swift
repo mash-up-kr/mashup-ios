@@ -19,9 +19,9 @@ extension AttendanceStatus {
     
     var color: UIColor {
         switch self {
-        case .attend: return UIColor.green
-        case .absence: return UIColor.systemRed
-        case .lateness: return UIColor.systemOrange
+        case .attend: return UIColor.green500
+        case .absence: return UIColor.red500
+        case .lateness: return UIColor.yellow500
         }
     }
 }
