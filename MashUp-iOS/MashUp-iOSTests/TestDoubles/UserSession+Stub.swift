@@ -7,14 +7,25 @@
 //
 
 import Foundation
+
 import MashUp_User
+import MashUp_PlatformTeam
 @testable import MashUp_iOS
 
 extension UserSession {
   static func stub(
     id: String = "fake.id.\(Date.now())",
-    accessToken: String = "fake.accessToken.\(Date.now())"
+    accessToken: String = "fake.accessToken.\(Date.now())",
+    name: String = "fake.name.\(UUID().uuidString)",
+    platformTeam: PlatformTeam = PlatformTeam.allCases.randomElement()!,
+    generations: [Generation] = [12]
   ) -> Self {
-    return UserSession(id: id, accessToken: accessToken)
+    return UserSession(
+      id: id,
+      accessToken: accessToken,
+      name: name,
+      platformTeam: platformTeam,
+      generations: generations
+    )
   }
 }

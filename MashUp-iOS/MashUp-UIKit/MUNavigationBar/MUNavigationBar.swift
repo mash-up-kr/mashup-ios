@@ -10,6 +10,7 @@ import UIKit
 import SnapKit
 import Then
 import MashUp_Core
+import RxSwift
 
 public class MUNavigationBar: UIView {
     
@@ -24,8 +25,8 @@ public class MUNavigationBar: UIView {
         
         var icon: UIImage? {
             switch self {
-            case .back: return .chevronLeft
-            case .close: return .close
+            case .back: return .ic_chevron_left
+            case .close: return .ic_close
             case .custom(let image): return image
             }
         }
@@ -70,9 +71,19 @@ public class MUNavigationBar: UIView {
         CGSize(width: UIScreen.main.bounds.width, height: 56)
     }
     
+    public var interactiveContentScrollView: UIScrollView? {
+        didSet { self.setupBottomSeperator() }
+    }
+    
     private func setupAttribute() {
-        self.titleLabel.textColor = .gray900
-        self.titleLabel.font = .pretendardFont(weight: .semiBold, size: 16)
+        self.titleLabel.do {
+            $0.textColor = .gray900
+            $0.font = .pretendardFont(weight: .semiBold, size: 16)
+        }
+        self.bottomSeperator.do {
+            $0.backgroundColor = .gray100
+            $0.isHidden = true
+        }
     }
     
     private func setupLayout() {
@@ -93,6 +104,30 @@ public class MUNavigationBar: UIView {
             $0.centerY.equalToSuperview()
             $0.trailing.equalToSuperview().inset(8)
         }
+        self.addSubview(self.bottomSeperator)
+        self.bottomSeperator.snp.makeConstraints {
+            $0.leading.trailing.bottom.equalToSuperview()
+            $0.height.equalTo(1)
+        }
     }
+    
+    private func setupBottomSeperator() {
+        guard let scrollView = self.interactiveContentScrollView else { return }
+        
+        self.disposeBag = DisposeBag()
+        guard let disposeBag = self.disposeBag else { return }
+        
+        let initialOffsetY = scrollView.contentOffset.y
+        
+        scrollView.rx.contentOffset.map { $0.y }
+            .map { $0 <= initialOffsetY }
+            .distinctUntilChanged()
+            .onMain()
+            .bind(to: self.bottomSeperator.rx.isHidden)
+            .disposed(by: disposeBag)
+    }
+    
+    private let bottomSeperator = UIView()
+    private var disposeBag: DisposeBag?
     
 }

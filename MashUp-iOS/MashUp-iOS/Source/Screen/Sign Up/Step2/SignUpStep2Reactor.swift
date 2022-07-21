@@ -12,8 +12,11 @@ import MashUp_User
 
 enum SignUpStep2Step {
     case termsAgreement(NewAccount)
+    case signUpCode(NewAccount)
 }
-
+protocol TermsAgreementResponder {
+    func didAgreeTerms()
+}
 final class SignUpStep2Reactor: Reactor {
     
     typealias Step = SignUpStep2Step
@@ -23,6 +26,7 @@ final class SignUpStep2Reactor: Reactor {
         case didTapSelectControl
         case didSelectPlatformTeam(at: Int)
         case didTapDone
+        case didAgreeTerms
         case didTapBack
     }
     
@@ -51,7 +55,10 @@ final class SignUpStep2Reactor: Reactor {
     
     let initialState: State
     
-    init(id: String, password: String) {
+    init(
+        id: String,
+        password: String
+    ) {
         self.initialState = State(id: id, password: password)
     }
      
@@ -69,9 +76,6 @@ final class SignUpStep2Reactor: Reactor {
             
             return .just(.updateSelectedPlatformTeam(platform))
             
-        case .didTapBack:
-            return .just(.updateGoBack)
-            
         case .didTapDone:
             guard let platformTeam = self.currentState.platformTeam else { return .empty() }
             let newAccount = NewAccount(id: self.currentState.id,
@@ -79,6 +83,21 @@ final class SignUpStep2Reactor: Reactor {
                                         name: self.currentState.name,
                                         platform: platformTeam)
             return .just(.move(to: .termsAgreement(newAccount)))
+            
+        case .didAgreeTerms:
+            guard let platformTeam = self.currentState.platformTeam else { return .empty() }
+            
+            let newAccount = NewAccount(
+                id: self.currentState.id,
+                password: self.currentState.password,
+                name: self.currentState.name,
+                platform: platformTeam
+            )
+            let step = Step.signUpCode(newAccount)
+            return .just(.move(to: step))
+            
+        case .didTapBack:
+            return .just(.updateGoBack)
         }
     }
     
@@ -105,4 +124,12 @@ final class SignUpStep2Reactor: Reactor {
         newState.canDone = newState.name.isNotEmpty && newState.selectedPlatformTeam != nil
         return newState
     }
+    
+}
+extension SignUpStep2Reactor: TermsAgreementResponder {
+    
+    func didAgreeTerms() {
+        self.action.onNext(.didAgreeTerms)
+    }
+    
 }

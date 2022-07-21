@@ -10,11 +10,14 @@ import Foundation
 
 public final class FakeSignUpCodeVerificationService: SignUpCodeVerificationService {
     
-    public var stubedResult: Result<Void, SignUpCodeError>?
+    public init() {}
+    
+    public var correctCode: String?
     
     public func verify(signUpCode: String) async -> Result<Void, SignUpCodeError> {
-        guard let result = self.stubedResult else { return .failure(.undefined("stub did not set")) }
-        return result
+        guard signUpCode == self.correctCode else { return .failure(.wrongCode) }
+        
+        return .success(Void())
     }
     
 }

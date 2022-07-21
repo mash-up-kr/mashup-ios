@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MashUp_UIKit
 
 enum HomeTab: Int, CaseIterable, Equatable {
     case seminarSchedule
@@ -15,22 +16,22 @@ enum HomeTab: Int, CaseIterable, Equatable {
 extension HomeTab {
     var title: String {
         switch self {
-        case .seminarSchedule: return "일정리스트"
+        case .seminarSchedule: return "세미나"
         case .myPage: return "마이페이지"
         }
     }
     
     var activeIcon: UIImage? {
         switch self {
-        case .seminarSchedule: return UIImage(systemName: "list.bullet")
-        case .myPage: return UIImage(systemName: "person")
+        case .seminarSchedule: return UIImage.ic_seminar
+        case .myPage: return UIImage.ic_user
         }
     }
     
     var icon: UIImage? {
         switch self {
-        case .seminarSchedule: return UIImage(systemName: "list.bullet")
-        case .myPage: return UIImage(systemName: "person")
+        case .seminarSchedule: return UIImage.ic_seminar
+        case .myPage: return UIImage.ic_user
         }
     }
 }

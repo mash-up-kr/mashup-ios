@@ -19,12 +19,16 @@ extension MUButtonStyle {
                                               titleFont: .pretendardFont(weight: .medium, size: 16),
                                               backgroundColor: .brand500)
     
+    public static let secondary = MUButtonStyle(titleColor: .brand500,
+                                                titleFont: .pretendardFont(weight: .medium, size: 16),
+                                                backgroundColor: .brand100)
+    
     public static let sort3 = MUButtonStyle(titleColor: .brand500,
                                             titleFont: .pretendardFont(weight: .medium, size: 16),
                                             backgroundColor: .white)
     
     public static let `default` = MUButtonStyle(titleColor: .gray600,
                                                 titleFont: .pretendardFont(weight: .medium, size: 16),
-                                                backgroundColor: .white)
+                                                backgroundColor: .gray100)
 }
 

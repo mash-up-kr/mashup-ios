@@ -7,10 +7,10 @@
 //
 
 import Foundation
-import Moya
+import MashUp_Core
 
 public enum NetworkError: Error {
-    case moyaError(MoyaError)
-    case decodeFailure(DecodingError)
+    case cancelled
+    case mashUpError(MashUpError)
     case undefined(Error)
 }

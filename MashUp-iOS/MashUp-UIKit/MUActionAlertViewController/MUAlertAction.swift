@@ -15,7 +15,7 @@ public struct MUAlertAction {
   let handler: (() -> Void)?
   let style: Style
   
-  public init(title: String?, style: MUAlertAction.Style, handler: (() -> Void)?) {
+  public init(title: String?, style: MUAlertAction.Style, handler: (() -> Void)? = nil) {
     self.title = title
     self.handler = handler
     self.style = style

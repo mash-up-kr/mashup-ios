@@ -7,14 +7,20 @@
 //
 
 import UIKit
+import Then
 import ReactorKit
 import MashUp_Core
 import MashUp_UIKit
 import MashUp_User
+import MashUp_SignUpCode
+import MashUp_Auth
 
 final class SignUpStep2ViewController: BaseViewController, View {
     
     typealias Reactor = SignUpStep2Reactor
+    
+    #warning("DIContainer 적용 후 제거되어야합니다 - booung")
+    var authenticationResponder: (any AuthenticationResponder)?
     
     var disposeBag = DisposeBag()
     
@@ -185,12 +191,37 @@ extension SignUpStep2ViewController {
         switch step {
         case .termsAgreement(let newAccount):
             self.presentTermAgreementPopup(with: newAccount)
+            
+        case .signUpCode(let newAccount):
+            self.presentSignUpCode(with: newAccount)
         }
     }
     
     private func presentTermAgreementPopup(with newAccount: NewAccount) {
+        guard let termsAgreementResponder = self.reactor else { return }
         let popupViewController = TermsAgreementPopupViewController()
-        popupViewController.reactor = TermsAgreementReactor(newAccount: newAccount)
+        popupViewController.reactor = TermsAgreementReactor(
+            newAccount: newAccount,
+            termsAgreementResponder: termsAgreementResponder
+        )
         popupViewController.present(on: self)
     }
+
+    private func presentSignUpCode(with newAccount: NewAccount) {
+        guard let authenticationResponder = self.authenticationResponder else { return }
+        #warning("실 오브젝트로 수정 - booung")
+        let signUpCodeVerificationService = FakeSignUpCodeVerificationService()
+        signUpCodeVerificationService.correctCode = "TESTCODE"
+        
+        let viewController = SignUpCodeViewController()
+        let reactor = SignUpCodeReactor(
+            userInProgressOfSigningUp: newAccount,
+            signUpCodeVerificationService: signUpCodeVerificationService,
+            userAuthService: UserAuthServiceProvider().provide(),
+            authenticationResponder: authenticationResponder
+        )
+        viewController.reactor = reactor
+        self.navigationController?.pushViewController(viewController, animated: true)
+    }
+    
 }

@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import MashUp_Auth
 
 enum SignInStep: Equatable {
     case signUp

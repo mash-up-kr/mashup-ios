@@ -16,9 +16,11 @@ final class RootReactor: Reactor {
     enum Action {
         case didSetup
         case didLoad(UserSession?)
+        case didSuccessSignOut
     }
     
     struct State {
+        @Pulse var toastMessage: String?
         @Pulse var step: RootStep?
     }
     
@@ -40,6 +42,9 @@ final class RootReactor: Reactor {
             } else {
                 newState.step = .signIn
             }
+            
+        case .didSuccessSignOut:
+            newState.toastMessage = "성공적으로 로그아웃되었습니다"
         }
         return newState
     }
@@ -55,4 +60,9 @@ extension RootReactor: AuthenticationResponder {
         self.action.onNext(.didLoad(nil))
     }
 
+    func signOutSuccess() {
+        self.action.onNext(.didLoad(nil))
+        self.action.onNext(.didSuccessSignOut)
+    }
+    
 }

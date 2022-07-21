@@ -60,6 +60,7 @@ extension TermsAgreementView {
         }
         self.checkImageView.do {
             $0.backgroundColor = .clear
+            $0.image = .ic_check
         }
         self.titleLabel.do {
             $0.textColor = .gray700
@@ -122,9 +123,11 @@ extension TermsAgreementView {
     private func updateUI() {
         self.titleLabel.text = self.title
         if self.hasAgreed {
-            self.checkBackgroundView.backgroundColor = .brand600
+            self.checkImageView.imageTintColor = .white
             self.checkBackgroundView.layer.borderWidth = 0
+            self.checkBackgroundView.backgroundColor = .brand600
         } else {
+            self.checkImageView.imageTintColor = .gray200
             self.checkBackgroundView.layer.borderWidth = 1
             self.checkBackgroundView.backgroundColor = .white
         }

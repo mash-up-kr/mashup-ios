@@ -14,6 +14,7 @@ import MashUp_User
 public final class FakeUserAuthService: UserAuthService {
     
     public var stubedUserSession: UserSession?
+    public var stubedSignOutResult: Bool?
     
     public init() {}
     
@@ -26,18 +27,35 @@ public final class FakeUserAuthService: UserAuthService {
         let isCorrectPW = password.lowercased().contains("test")
         
         guard isCorrectID, isCorrectPW else { return .error("sign in failure") }
-        let fakeSession = UserSession(id: "fake.user.id", accessToken: "\(id).\(password)")
+        let fakeSession = UserSession(
+            id: "fake.user.id",
+            accessToken: "\(id).\(password)",
+            name: "fake.name",
+            platformTeam: .iOS,
+            generations: [12]
+        )
         
         return .just(fakeSession)
     }
     
-    public func signUp(with newAccount: NewAccount) async -> Result<UserSession, SignUpError> {
+    public func signUp(with newAccount: NewAccount, signUpCode: String) async -> Result<UserSession, SignUpError> {
         let isCorrectID = newAccount.id.lowercased().contains("test")
         let isCorrectPW = newAccount.password.lowercased().contains("test")
         
-        guard isCorrectID, isCorrectPW else { return .failure(.undefined("sign in failure")) }
-        let fakeSession = UserSession(id: "fake.user.id", accessToken: "\(newAccount.id).\(newAccount.password)")
+        guard isCorrectID, isCorrectPW else { return .failure(.undefined) }
+        let fakeSession = UserSession(
+            id: "fake.user.id",
+            accessToken: "\(newAccount.id).\(newAccount.password)",
+            name: "fake.name",
+            platformTeam: .iOS,
+            generations: [12]
+        )
         return .success(fakeSession)
+    }
+    
+    public func signOut() -> Observable<Bool> {
+        guard let stubedSignOutResult = self.stubedSignOutResult else { return .just(false) }
+        return .just(stubedSignOutResult)
     }
     
 }

@@ -15,9 +15,13 @@ import UIKit
 import MashUp_Core
 import MashUp_UIKit
 import MashUp_PlatformTeam
+import MashUp_Auth
 
 final class SignInViewController: BaseViewController, ReactorKit.View {
     typealias Reactor = SignInReactor
+    
+    #warning("DIContainer 적용 후 제거되어야합니다 - booung")
+    var authenticationResponder: (any AuthenticationResponder)?
     
     var disposeBag: DisposeBag = DisposeBag()
     
@@ -111,7 +115,7 @@ final class SignInViewController: BaseViewController, ReactorKit.View {
     private let idField = MUTextField()
     private let passwordField = MUTextField()
     private let signInButton = MUButton()
-    private let signUpButton = MUButton(style: .default)
+    private let signUpButton = UIButton()
     private let loadingIndicator = UIActivityIndicatorView()
 }
 // MARK: Setup
@@ -137,7 +141,11 @@ extension SignInViewController {
             $0.setTitle("로그인", for: .normal)
         }
         self.signUpButton.do {
+            $0.titleLabel?.font = .pretendardFont(weight: .regular, size: 16)
             $0.setTitle("회원가입 하러가기", for: .normal)
+            $0.setTitleColor(.gray600, for: .normal)
+            $0.setImage(.ic_chevron_right?.resized(side: 20).withTintColor(.gray400), for: .normal)
+            $0.semanticContentAttribute = .forceRightToLeft
         }
         self.loadingIndicator.do {
             $0.hidesWhenStopped = true
@@ -163,6 +171,7 @@ extension SignInViewController {
             $0.addArrangedSubview(self.idField)
             $0.addArrangedSubview(self.passwordField)
             $0.addArrangedSubview(self.signInButton)
+            $0.setCustomSpacing(4, after: self.signInButton)
             $0.addArrangedSubview(self.signUpButton)
         }
         self.view.addSubview(stackView)
@@ -183,21 +192,25 @@ extension SignInViewController {
     
     private func move(to step: SignInStep) {
         switch step {
-        case .signUp: self.pushSignUpViewController()
+        case .signUp:
+            self.pushSignUpViewController()
         }
     }
     
     private func pushSignUpViewController() {
-        let viewController = self.createSignUpViewContorller()
+        let viewController = self.createSignUpViewController()
         self.navigationController?.pushViewController(viewController, animated: true)
     }
     
-    private func createSignUpViewContorller() -> SignUpStep1ViewController {
+    private func createSignUpViewController() -> SignUpStep1ViewController {
         let verificationService = VerificationServiceImpl()
         let reactor = SignUpStep1Reactor(verificationService: verificationService)
         let viewController = SignUpStep1ViewController()
         viewController.reactor = reactor
+        #warning("DIContainer 적용 후 제거되어야합니다 - booung")
+        viewController.authenticationResponder = self.authenticationResponder
         return viewController
     }
     
 }
+

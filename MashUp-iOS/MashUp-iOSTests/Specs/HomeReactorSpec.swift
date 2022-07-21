@@ -19,7 +19,7 @@ final class HomeReactorSpec: QuickSpec {
     }
     describe("home tab bar") {
       context("초기 진입시") {
-        it("QR화면을 표시합니다.") {
+        it("세미나 스케줄을 표시합니다.") {
           expect { sut.currentState.currentTab }.to(equal(.seminarSchedule))
         }
       }

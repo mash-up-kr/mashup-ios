@@ -11,10 +11,12 @@ import ReactorKit
 import MashUp_Auth
 import MashUp_User
 
+
 final public class SignUpCodeReactor: Reactor {
     
     public enum Action {
         case didEditSignUpCodeField(String)
+        case didTapBack
         case didTapDone
         case didTapClose
         case didTapStopSigningUp
@@ -25,7 +27,8 @@ final public class SignUpCodeReactor: Reactor {
         case updateSignUpCode(String)
         case signedUp(UserSession)
         case updateReconfirmStopSigningUp
-        case updateClose
+        case goBackward
+        case close
         case occurSignUpCodeError(SignUpCodeError)
         case occurSignUpError(SignUpError)
     }
@@ -34,9 +37,10 @@ final public class SignUpCodeReactor: Reactor {
         var isLoading: Bool = false
         var signUpCode: String = .empty
         var canDone: Bool = false
-        var hasWrongSignUpCode: Bool = false
+        var hasWrongSignUpCode: Bool?
         
         @Pulse var shouldReconfirmStopSigningUp: Void?
+        @Pulse var shouldGoBackward: Void?
         @Pulse var shouldClose: Void?
         
         fileprivate let userInProgressOfSigningUp: NewAccount
@@ -59,7 +63,7 @@ final public class SignUpCodeReactor: Reactor {
     public func mutate(action: Action) -> Observable<Mutation> {
         switch action {
         case .didEditSignUpCodeField(let signUpCode):
-            let trimmedSignUpCode = String(signUpCode.prefix(8))
+            let trimmedSignUpCode = String(signUpCode.prefix(8)).uppercased()
             return .just(.updateSignUpCode(trimmedSignUpCode))
             
         case .didTapDone:
@@ -68,12 +72,14 @@ final public class SignUpCodeReactor: Reactor {
             let endLoading: Observable<Mutation> = .just(.updateLoading(true))
             return .concat(startLoading, signUp, endLoading)
             
+        case .didTapBack:
+            return .just(.goBackward)
+            
         case .didTapClose:
             return .just(.updateReconfirmStopSigningUp)
             
         case .didTapStopSigningUp:
-            return .just(.updateClose)
-            
+            return .just(.close)
         }
     }
     
@@ -93,7 +99,10 @@ final public class SignUpCodeReactor: Reactor {
         case .updateReconfirmStopSigningUp:
             newState.shouldReconfirmStopSigningUp = Void()
             
-        case .updateClose:
+        case .goBackward:
+            newState.shouldGoBackward = Void()
+            
+        case .close:
             newState.shouldClose = Void()
             
         case .occurSignUpCodeError(let error):
@@ -117,11 +126,11 @@ final public class SignUpCodeReactor: Reactor {
         let signUpCode = self.currentState.signUpCode
         let userAccount = self.currentState.userInProgressOfSigningUp
         
-        return AsyncStream { [signUpCodeVerificationService, userAuthService] in
+        return AsyncStream.single { [signUpCodeVerificationService, userAuthService] in
             let signUpCodeVerification = await signUpCodeVerificationService.verify(signUpCode: signUpCode)
             if case .failure(let codeError) = signUpCodeVerification { return Mutation.occurSignUpCodeError(codeError) }
             
-            let signUp = await userAuthService.signUp(with: userAccount)
+            let signUp = await userAuthService.signUp(with: userAccount, signUpCode: signUpCode)
             switch signUp {
             case .success(let userSession):
                 return Mutation.signedUp(userSession)
@@ -134,5 +143,4 @@ final public class SignUpCodeReactor: Reactor {
     private let signUpCodeVerificationService: any SignUpCodeVerificationService
     private let userAuthService: any UserAuthService
     private let authenticationResponder: any AuthenticationResponder
-    
 }

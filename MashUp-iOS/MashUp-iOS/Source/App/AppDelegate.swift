@@ -7,12 +7,12 @@
 //
 
 import UIKit
-
+import FLEX
 
 final class AppDelegate: UIResponder, UIApplicationDelegate {
-
+    
     var window: UIWindow?
-
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         let window = UIWindow()
@@ -20,9 +20,10 @@ final class AppDelegate: UIResponder, UIApplicationDelegate {
         window.rootViewController = self.createRootController()
         window.makeKeyAndVisible()
         
+        FLEXManager.shared.showExplorer()
         return true
     }
-
+    
     
     private func createRootController() -> UIViewController {
         let viewController = RootController()

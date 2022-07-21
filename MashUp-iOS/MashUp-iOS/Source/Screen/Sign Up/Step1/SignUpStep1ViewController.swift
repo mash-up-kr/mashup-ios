@@ -17,10 +17,14 @@ import Then
 import MashUp_Core
 import MashUp_UIKit
 import MashUp_PlatformTeam
+import MashUp_Auth
 
 final class SignUpStep1ViewController: BaseViewController, ReactorKit.View {
     
     typealias Reactor = SignUpStep1Reactor
+    
+    #warning("DIContainer 적용 후 제거되어야합니다 - booung")
+    var authenticationResponder: (any AuthenticationResponder)?
     
     var disposeBag: DisposeBag = DisposeBag()
     
@@ -61,6 +65,11 @@ final class SignUpStep1ViewController: BaseViewController, ReactorKit.View {
             .distinctUntilChanged()
             .skip(1)
             .map { .didEditPasswordCheckField($0) }
+            .bind(to: reactor.action)
+            .disposed(by: self.disposeBag)
+        
+        self.navigationBar.leftButton.rx.tap
+            .map { .didTapBack }
             .bind(to: reactor.action)
             .disposed(by: self.disposeBag)
         
@@ -122,6 +131,13 @@ final class SignUpStep1ViewController: BaseViewController, ReactorKit.View {
             .bind(to: self.passwordCheckField.rx.text)
             .disposed(by: self.disposeBag)
         
+        reactor.state.compactMap { $0.hasVaildatedPasswordCheck }
+            .distinctUntilChanged()
+            .map { $0 ? .vaild : .invaild }
+            .onMain()
+            .bind(to: self.passwordCheckField.rx.status)
+            .disposed(by: self.disposeBag)
+        
         reactor.state.map { $0.canScroll }
             .distinctUntilChanged()
             .onMain()
@@ -156,7 +172,6 @@ final class SignUpStep1ViewController: BaseViewController, ReactorKit.View {
             })
             .disposed(by: self.disposeBag)
         
-        
         reactor.pulse(\.$shouldFocusPasswordCheckField)
             .compactMap { $0 }
             .onMain()
@@ -165,6 +180,12 @@ final class SignUpStep1ViewController: BaseViewController, ReactorKit.View {
                 let offset = owner.passwordCheckFieldHighlightedOffset
                 scrollView.setContentOffset(offset, animated: true)
             })
+            .disposed(by: self.disposeBag)
+        
+        reactor.pulse(\.$shouldGoBackward)
+            .compactMap { $0 }
+            .onMain()
+            .subscribe(onNext: { [weak self] in self?.goBackward() })
             .disposed(by: self.disposeBag)
         
         reactor.pulse(\.$step).compactMap { $0 }
@@ -176,7 +197,7 @@ final class SignUpStep1ViewController: BaseViewController, ReactorKit.View {
     }
     
     private var topOffset: CGPoint {
-        CGPoint(x: 0, y: -scrollView.contentInset.top)
+        CGPoint(x: 0, y: -self.scrollView.contentInset.top)
     }
     
     private var passwordCheckFieldHighlightedOffset: CGPoint {
@@ -185,13 +206,13 @@ final class SignUpStep1ViewController: BaseViewController, ReactorKit.View {
         let passwordCheckFieldHeight = self.doneButtonContainerView.frame.height
         let keyboardHeight = self.keyboardFrameView.frame.height
         
-        let y = contentHeight - passwordCheckFieldHeight - 76 - doneContainerHeight - keyboardHeight
+        let y = contentHeight - passwordCheckFieldHeight - 76 - doneContainerHeight - keyboardHeight - 20
         return CGPoint(x: 0, y: -y)
     }
     
     private let navigationBar = MUNavigationBar()
-    private let scrollView = UIScrollView()
-    private let containterView = UIStackView()
+    private let scrollView = EventThroughScrollView()
+    private let containterView = EventThroughStackView()
     
     private let titleLabel = UILabel()
     private let idField = MUTextField()
@@ -200,7 +221,7 @@ final class SignUpStep1ViewController: BaseViewController, ReactorKit.View {
     private let keyboardFrameView = KeyboardFrameView()
     private let doneButtonContainerView = UIView()
     private let doneButton = MUButton()
-    private let bottomView = UIView()
+    private let bottomView = EventThroughView()
 }
 extension SignUpStep1ViewController {
     
@@ -210,9 +231,16 @@ extension SignUpStep1ViewController {
             let reactor = SignUpStep2Reactor(id: id, password: password)
             let viewController = SignUpStep2ViewController()
             viewController.reactor = reactor
+            #warning("DIContainer 적용 후 제거되어야합니다 - booung")
+            viewController.authenticationResponder = authenticationResponder
             self.navigationController?.pushViewController(viewController, animated: true)
         }
     }
+    
+    private func goBackward() {
+        self.navigationController?.popViewController(animated: true)
+    }
+    
 }
 extension SignUpStep1ViewController {
     
@@ -220,8 +248,8 @@ extension SignUpStep1ViewController {
         self.view.backgroundColor = .white
         self.navigationBar.do {
             $0.title = "회원가입"
-            #warning("Image 정의되면 수정해야합니다. - Booung")
             $0.leftBarItem = .back
+            $0.interactiveContentScrollView = self.scrollView
         }
         self.scrollView.do {
             $0.isScrollEnabled = false
@@ -237,16 +265,20 @@ extension SignUpStep1ViewController {
         }
         self.idField.do {
             $0.placeholder = "아이디"
-            $0.assistiveDescription = "영문 대소문자만 사용하여 15자 이내로 입력해 주세요."
+            $0.assistiveDescription = "영문 대소문자만 사용하여 15자 이내로 입력해 주세요"
         }
         self.passwordField.do {
             $0.placeholder = "비밀번호"
-            $0.assistiveDescription = "영문, 숫자를 조합하여 8자 이상으로 입력해 주세요."
+            $0.assistiveDescription = "영문, 숫자를 조합하여 8자 이상으로 입력해 주세요"
             $0.isSecureTextEntry = true
         }
         self.passwordCheckField.do {
             $0.placeholder = "비밀번호 확인"
+            $0.errorAssistiveDescription = "비밀번호가 일치하지 않아요"
             $0.isSecureTextEntry = true
+        }
+        self.keyboardFrameView.do {
+            $0.backgroundColor = .white
         }
         self.doneButton.do {
             $0.setTitle("다음", for: .normal)

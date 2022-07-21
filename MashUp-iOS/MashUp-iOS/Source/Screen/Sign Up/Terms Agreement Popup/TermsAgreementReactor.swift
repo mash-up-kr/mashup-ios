@@ -13,7 +13,6 @@ import MashUp_User
 
 enum TermsAgreementStep {
     case personalPrivacyPolicy
-    case signUpCode(NewAccount)
 }
 
 final class TermsAgreementReactor: Reactor {
@@ -37,7 +36,11 @@ final class TermsAgreementReactor: Reactor {
     
     let initialState: State
     
-    init(newAccount: NewAccount) {
+    init(
+        newAccount: NewAccount,
+        termsAgreementResponder: any TermsAgreementResponder
+    ) {
+        self.termsAgreementResponder = termsAgreementResponder
         self.initialState = State(
             canDone: false,
             hasAgreed: false,
@@ -56,12 +59,16 @@ final class TermsAgreementReactor: Reactor {
             newState.canDone = newState.hasAgreed
             
         case .didTapSeeMore:
+            newState.hasAgreed = true
+            newState.canDone = newState.hasAgreed
             newState.step = .personalPrivacyPolicy
             
         case .didTapConfirm:
-            ()
+            newState.shouldClose = Void()
+            self.termsAgreementResponder.didAgreeTerms()
         }
         return newState
     }
-    
+ 
+    private let termsAgreementResponder: any TermsAgreementResponder
 }

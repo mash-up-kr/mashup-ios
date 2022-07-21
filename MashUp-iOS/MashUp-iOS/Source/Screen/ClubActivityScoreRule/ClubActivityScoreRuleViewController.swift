@@ -11,7 +11,8 @@ import MashUp_Core
 import MashUp_UIKit
 import RxSwift
 
-public final class MyPageRuleViewController: BaseViewController {
+public final class ClubActivityScoreRuleViewController: BaseViewController {
+    
     private let navigationBar: MUNavigationBar = MUNavigationBar(frame: .zero)
     private let navigationLineView: UIView = UIView()
     private let scrollView: UIScrollView = UIScrollView()
@@ -97,7 +98,7 @@ public final class MyPageRuleViewController: BaseViewController {
     }
 }
 
-extension MyPageRuleViewController {
+extension ClubActivityScoreRuleViewController {
     private func makeOutCountView() -> UIView {
         let containerView: UIView = UIView()
         let outCountTitleView: RuleHeaderView = RuleHeaderView()
