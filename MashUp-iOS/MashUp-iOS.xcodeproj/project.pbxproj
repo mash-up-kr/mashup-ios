@@ -22,7 +22,7 @@
 		06531C18283F59FF00E225EB /* PlatformAttendanceStatusReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06531C17283F59FF00E225EB /* PlatformAttendanceStatusReactor.swift */; };
 		06531C1C283F5E2200E225EB /* PlatformAttendanceStatusReactorSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06531C1B283F5E2200E225EB /* PlatformAttendanceStatusReactorSpec.swift */; };
 		06531C272840B4CF00E225EB /* PlatformStatusViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06531C262840B4CE00E225EB /* PlatformStatusViewController.swift */; };
-		06531C292840BF9800E225EB /* AttendanceStatusRectangleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06531C282840BF9800E225EB /* AttendanceStatusRectangleView.swift */; };
+		06531C292840BF9800E225EB /* AttendanceStatusCountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06531C282840BF9800E225EB /* AttendanceStatusCountView.swift */; };
 		06531C2B2840BFAA00E225EB /* AttendanceStatusRectangleViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06531C2A2840BFAA00E225EB /* AttendanceStatusRectangleViewModel.swift */; };
 		06531C302840C39600E225EB /* Pretendard-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 06531C2C2840C39500E225EB /* Pretendard-Medium.otf */; };
 		06531C312840C39600E225EB /* Pretendard-SemiBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 06531C2D2840C39600E225EB /* Pretendard-SemiBold.otf */; };
@@ -30,8 +30,6 @@
 		06531C382840C7C500E225EB /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 06531C372840C7C500E225EB /* Colors.xcassets */; };
 		066CE3F2286ED0CC00B6F841 /* UIImage+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 066CE3F1286ED0CC00B6F841 /* UIImage+.swift */; };
 		0688CB42284B223B00338A5C /* PlatformTeam+Presentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0688CB41284B223B00338A5C /* PlatformTeam+Presentation.swift */; };
-		06D9F072286C0E0A005786A3 /* MUAlertAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06D9F071286C0E0A005786A3 /* MUAlertAction.swift */; };
-		06D9F074286C285F005786A3 /* MyPageRuleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06D9F073286C285F005786A3 /* MyPageRuleViewController.swift */; };
 		06D103282876E62900978426 /* MembershipWithdrawalViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06D103272876E62900978426 /* MembershipWithdrawalViewController.swift */; };
 		06D1032A2876E6FC00978426 /* MembershipWithdrawalReactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06D103292876E6FC00978426 /* MembershipWithdrawalReactor.swift */; };
 		06D103302878095700978426 /* MembershipWithdrawalReactorSpec.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06D1032F2878095700978426 /* MembershipWithdrawalReactorSpec.swift */; };
@@ -668,7 +666,7 @@
 		06531C1F283F737100E225EB /* PlatformService.swift */ = {isa = PBXFileReference; indentWidth = 4; lastKnownFileType = sourcecode.swift; path = PlatformService.swift; sourceTree = "<group>"; };
 		06531C222840A02C00E225EB /* PlatformAttendanceCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlatformAttendanceCell.swift; sourceTree = "<group>"; };
 		06531C262840B4CE00E225EB /* PlatformStatusViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlatformStatusViewController.swift; sourceTree = "<group>"; };
-		06531C282840BF9800E225EB /* AttendanceStatusRectangleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttendanceStatusRectangleView.swift; sourceTree = "<group>"; };
+		06531C282840BF9800E225EB /* AttendanceStatusCountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttendanceStatusCountView.swift; sourceTree = "<group>"; };
 		06531C2A2840BFAA00E225EB /* AttendanceStatusRectangleViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttendanceStatusRectangleViewModel.swift; sourceTree = "<group>"; };
 		06531C2C2840C39500E225EB /* Pretendard-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Medium.otf"; sourceTree = "<group>"; };
 		06531C2D2840C39600E225EB /* Pretendard-SemiBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-SemiBold.otf"; sourceTree = "<group>"; };
@@ -680,8 +678,6 @@
 		066CE3F1286ED0CC00B6F841 /* UIImage+.swift */ = {isa = PBXFileReference; indentWidth = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+.swift"; sourceTree = "<group>"; };
 		0688CB41284B223B00338A5C /* PlatformTeam+Presentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "PlatformTeam+Presentation.swift"; sourceTree = "<group>"; };
 		0688CB43284E255800338A5C /* PlatformAttendanceHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlatformAttendanceHeaderView.swift; sourceTree = "<group>"; };
-		06D9F071286C0E0A005786A3 /* MUAlertAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MUAlertAction.swift; sourceTree = "<group>"; };
-		06D9F073286C285F005786A3 /* MyPageRuleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageRuleViewController.swift; sourceTree = "<group>"; };
 		06D103272876E62900978426 /* MembershipWithdrawalViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MembershipWithdrawalViewController.swift; sourceTree = "<group>"; };
 		06D103292876E6FC00978426 /* MembershipWithdrawalReactor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MembershipWithdrawalReactor.swift; sourceTree = "<group>"; };
 		06D1032F2878095700978426 /* MembershipWithdrawalReactorSpec.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MembershipWithdrawalReactorSpec.swift; sourceTree = "<group>"; };
@@ -1119,7 +1115,7 @@
 		06531C2128409F5F00E225EB /* View */ = {
 			isa = PBXGroup;
 			children = (
-				06531C282840BF9800E225EB /* AttendanceStatusRectangleView.swift */,
+				06531C282840BF9800E225EB /* AttendanceStatusCountView.swift */,
 				06531C2A2840BFAA00E225EB /* AttendanceStatusRectangleViewModel.swift */,
 				06531C222840A02C00E225EB /* PlatformAttendanceCell.swift */,
 				0688CB43284E255800338A5C /* PlatformAttendanceHeaderView.swift */,
@@ -2692,7 +2688,7 @@
 				CE6EE83D27C7EFB9005BF412 /* HomeTabBarController.swift in Sources */,
 				CEEB4EA528843B1A00CC4456 /* PersonalInfomationPolicyReactor.swift in Sources */,
 				CEEB4EA02884392400CC4456 /* EmptyClubActivityHistoryView.swift in Sources */,
-				06531C292840BF9800E225EB /* AttendanceStatusRectangleView.swift in Sources */,
+				06531C292840BF9800E225EB /* AttendanceStatusCountView.swift in Sources */,
 				CE6EE87127CA73B7005BF412 /* SeminarCardCell.swift in Sources */,
 				CE6EE87A27CA89F3005BF412 /* SeminarCardCellModel.swift in Sources */,
 				0642C94428522A3700B9F575 /* AttendanceStatus+Presentation.swift in Sources */,

@@ -32,9 +32,9 @@ final public class PlatformRepositoryImpl: PlatformRepository {
 extension PlatformRepositoryImpl {
     fileprivate static var mockPlatformAttendance: PlatformAttendance {
         let informations: [PlatformAttendanceInformation]
-        = [.init(platform: .iOS, numberOfAttend: 0, numberOfLateness: 10, numberOfAbsence: 2),
-           .init(platform: .android, numberOfAttend: 5, numberOfLateness: 10, numberOfAbsence: 2),
-           .init(platform: .design, numberOfAttend: 10, numberOfLateness: 10, numberOfAbsence: 20)]
+        = [.init(platform: .iOS, numberOfAttend: 011, numberOfLateness: 10, numberOfAbsence: 12),
+           .init(platform: .android, numberOfAttend: 5, numberOfLateness: 100, numberOfAbsence: 2),
+           .init(platform: .design, numberOfAttend: 110, numberOfLateness: 0, numberOfAbsence: 200)]
         return .init(platformAttendanceInformations: informations, isAttending: false)
     }
 }

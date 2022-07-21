@@ -9,8 +9,7 @@
 import UIKit
 import MashUp_Core
 
-final class AttendanceStatusRectangleView: BaseView {
-    private let attendanceStatusImageView: UIImageView = UIImageView()
+final class AttendanceStatusCountView: BaseView {
     private let attendanceStatusTitleLabel: UILabel = UILabel()
     private let attendanceStatusCountLabel: UILabel = UILabel()
   
@@ -26,11 +25,9 @@ final class AttendanceStatusRectangleView: BaseView {
     
     func configure(model: AttendanceStatusRectangleViewModel) {
         attendanceStatusTitleLabel.text = model.title
-        attendanceStatusTitleLabel.textColor = model.titleColor
+        attendanceStatusTitleLabel.textColor = .gray500
         attendanceStatusCountLabel.text = "\(model.count)"
         attendanceStatusCountLabel.textColor = model.titleColor
-        backgroundColor = model.backgroundColor
-        attendanceStatusImageView.image = model.image
     }
     
     private func setupUI() {
@@ -39,31 +36,25 @@ final class AttendanceStatusRectangleView: BaseView {
     }
     
     private func setupLayout() {
-        addSubview(attendanceStatusImageView)
         addSubview(attendanceStatusTitleLabel)
         addSubview(attendanceStatusCountLabel)
         
-        attendanceStatusImageView.snp.makeConstraints {
-            $0.leading.equalToSuperview().offset(8)
-            $0.centerY.equalToSuperview()
-            $0.size.equalTo(20)
-        }
-        
         attendanceStatusTitleLabel.snp.makeConstraints {
-            $0.leading.equalTo(attendanceStatusImageView.snp.trailing)
-            $0.centerY.equalToSuperview()
+            $0.directionalHorizontalEdges.top.equalToSuperview()
+            $0.height.equalTo(14)
         }
         
         attendanceStatusCountLabel.snp.makeConstraints {
-            $0.leading.equalTo(attendanceStatusTitleLabel.snp.trailing).offset(2)
-            $0.trailing.equalToSuperview().inset(12)
-            $0.centerY.equalToSuperview()
+            $0.top.equalTo(attendanceStatusTitleLabel.snp.bottom).offset(2)
+            $0.directionalHorizontalEdges.bottom.equalToSuperview()
+            $0.height.equalTo(22)
         }
     }
     
     private func setupAttribute() {
-        layer.cornerRadius = 8
-        attendanceStatusTitleLabel.font = .pretendardFont(weight: .medium, size: 16)
-        attendanceStatusCountLabel.font = .pretendardFont(weight: .semiBold, size: 16)
+        attendanceStatusTitleLabel.textAlignment = .center
+        attendanceStatusTitleLabel.font = .pretendardFont(weight: .regular, size: 12)
+        attendanceStatusCountLabel.textAlignment = .center
+        attendanceStatusCountLabel.font = .pretendardFont(weight: .semiBold, size: 18)
     }
 }
