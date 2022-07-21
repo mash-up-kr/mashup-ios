@@ -16,7 +16,26 @@ import RxMoya
 
 public final class HTTPClient: Network {
     
-    public init() {}
+    #warning("DI된 후 싱글턴 제거 되어야합니다 - booung")
+    public init(tokenStorage: (any AuthorizationStorage)? = nil) {
+        self.authorizationStorage = tokenStorage ?? AuthorizationStorageImp.shared
+        
+        let authorizationHeaderFieldsResolver: (MultiTarget) -> Endpoint = { [authorizationStorage] target in
+            var headerFields = target.headers
+            if let accessToken = authorizationStorage.fetchAccessToken() {
+                headerFields?["Authorization"] = accessToken
+            }
+            return Endpoint(
+                url: URL(target: target).absoluteString,
+                sampleResponseClosure: { .networkResponse(200, target.sampleData) },
+                method: target.method,
+                task: target.task,
+                httpHeaderFields: headerFields
+            )
+        }
+        
+        self.provider = MoyaProvider<MultiTarget>(endpointClosure: authorizationHeaderFieldsResolver)
+    }
     
     public func request<API: MashUpAPI>(_ api: API) async -> Result<API.Response, NetworkError> {
         do {
@@ -37,20 +56,26 @@ public final class HTTPClient: Network {
         }
     }
     
-    public func request<API: MashUpAPI>(_ api: API) -> Observable<Result<API.Response, NetworkError>> {
-        AsyncStream.single { await self.request(api) }.asObservable()
-    }
-    
+    @discardableResult
     private func _request<API: MashUpAPI>(_ api: API) async throws -> API.Response {
         let erasedAPI = MultiTarget(api)
         let response = try await self.provider.rx.request(erasedAPI).value
+        
         let responseModel = try decoder.decode(ResponseModel<API.Response>.self, from: response.data)
         
         guard responseModel.isSuccess else {
             throw MashUpError(code: responseModel.code, message: responseModel.message)
         }
+        guard let data = responseModel.data else {
+            throw NetworkError.undefined("bad response")
+        }
         
-        return responseModel.data
+        if let authorization = responseModel.data as? Authorization {
+            self.authorizationStorage.saveAccessToken(authorization.accessToken)
+            Logger.log("✅ 토큰 업데이트 성공: \(authorization.accessToken)")
+        }
+        
+        return data
     }
     
     private func prehandleError(_ error: Error) -> NetworkError {
@@ -69,14 +94,19 @@ public final class HTTPClient: Network {
     }
     
     private func updateAccessToken() async {
-        #warning("토큰 업데이트 구현 - booung")
+        do {
+            let authenticationAPI = AuthenticationAPI()
+            try await self._request(authenticationAPI)
+        } catch {
+            Logger.log("❌ 토큰 업데이트 실패: \(error.localizedDescription)")
+        }
     }
     
     private func clearAccessToken() {
-        #warning("토큰 정리 구현 - booung")
+        self.authorizationStorage.deleteAccessToken()
     }
     
-    private let provider = MoyaProvider<MultiTarget>()
+    private let provider: MoyaProvider<MultiTarget>
     private let decoder = JSONDecoder()
-    
+    private var authorizationStorage: any AuthorizationStorage
 }

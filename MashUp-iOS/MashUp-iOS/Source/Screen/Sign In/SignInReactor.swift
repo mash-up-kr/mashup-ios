@@ -105,6 +105,7 @@ final class SignInReactor: Reactor {
         let id = self.currentState.id
         let password = self.currentState.password
         return self.userAuthService.signIn(id: id, password: password)
+            .map { try $0.get() }
     }
     
     private func verify(id: String, password: String) -> Bool {

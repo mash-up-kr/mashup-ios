@@ -10,6 +10,7 @@ import Foundation
 import MashUp_User
 import RxSwift
 
+
 protocol UserSessionRepository {
     func signIn(id: String, password: String) -> Observable<UserSession>
     func signUp(with newAccount: NewAccount, signUpCode: String) -> Observable<UserSession>
@@ -25,8 +26,17 @@ final class UserAuthServiceImp: UserAuthService {
         return .just(nil)
     }
     
-    func signIn(id: String, password: String) -> Observable<UserSession> {
-        .empty()
+    func signIn(id: String, password: String) async -> Result<UserSession, SignInError> {
+        do {
+            let userSession = try await self.userSessionRepository.signIn(id: id, password: password)
+                .asSingle()
+                .value
+            return .success(userSession)
+        } catch let signInError as SignInError {
+            return .failure(signInError)
+        } catch {
+            return .failure(.undefined)
+        }
     }
     
     func signUp(with newAccount: NewAccount, signUpCode: String) async -> Result<UserSession, SignUpError> {
@@ -43,7 +53,7 @@ final class UserAuthServiceImp: UserAuthService {
     }
     
     func signOut() -> Observable<Bool> {
-        return .empty()
+        return .just(true)
     }
     
     private let userSessionRepository: any UserSessionRepository
