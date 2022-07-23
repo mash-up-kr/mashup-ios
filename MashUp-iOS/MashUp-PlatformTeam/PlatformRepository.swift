@@ -34,7 +34,7 @@ extension PlatformRepositoryImpl {
         let informations: [PlatformAttendanceInformation]
         = [.init(platform: .iOS, numberOfAttend: 011, numberOfLateness: 10, numberOfAbsence: 12),
            .init(platform: .android, numberOfAttend: 5, numberOfLateness: 100, numberOfAbsence: 2),
-           .init(platform: .design, numberOfAttend: 110, numberOfLateness: 0, numberOfAbsence: 200)]
+           .init(platform: .design, numberOfAttend: 1, numberOfLateness: 0, numberOfAbsence: 200)]
         return .init(platformAttendanceInformations: informations, isAttending: false)
     }
 }

@@ -35,8 +35,7 @@ final class PlatformAttendanceHeaderView: UICollectionReusableView, Reusable {
         containerView.addSubview(titleLabel)
         
         containerView.snp.makeConstraints {
-            $0.leading.equalToSuperview().offset(20)
-            $0.trailing.equalToSuperview().inset(20)
+            $0.directionalHorizontalEdges.equalToSuperview()
             $0.top.equalToSuperview()
             $0.bottom.equalToSuperview().inset(12)
         }
