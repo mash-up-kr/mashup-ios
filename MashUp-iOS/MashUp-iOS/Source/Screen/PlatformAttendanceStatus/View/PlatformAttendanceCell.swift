@@ -12,22 +12,32 @@ import MashUp_PlatformTeam
 import MashUp_UIKit
 
 final class PlatformAttendanceCell: BaseCollectionViewCell {
-    private let contentStackView: UIStackView = UIStackView()
+    private let containerStackView: UIStackView = UIStackView()
+    
     private let platformContainerView: UIView = UIView()
-    private let platformLeftImageView: UIImageView = UIImageView()
-    private let platformRightImageView: UIImageView = UIImageView()
+    private let platformImageView: UIImageView = UIImageView()
     private let platformLabel: UILabel = UILabel()
+    
+    private let horizontalSeperatorView: UIView = UIView()
+    private let verticalSeperatorView1: UIView = UIView()
+    private let verticalSeperatorView2: UIView = UIView()
     
     // MARK: 출석진행중
     private let attendanceCountContainerView: UIView = UIView()
+    /// 출석인원 타이틀
     private let attendanceCountTitleLabel: UILabel = UILabel()
+    /// 출석인원/총인원 스텍뷰
     private let attendanceCountStackView: UIStackView = UIStackView()
+    /// 출석인원
     private let attendanceCountLabel: UILabel = UILabel()
+    /// 총인원
     private let attendanceTotalCountLabel: UILabel = UILabel()
-    private let attendanceUnitLabel: UILabel = UILabel()
     
     // MARK: 출석종료
-    private let attendanceStatusStackView: UIStackView = UIStackView()
+    private let attendanceAllStatusContainerView: UIView = UIView()
+    private let attendanceCountView = AttendanceStatusCountView()
+    private let lateCountView = AttendanceStatusCountView()
+    private let absentCountView = AttendanceStatusCountView()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -41,9 +51,7 @@ final class PlatformAttendanceCell: BaseCollectionViewCell {
     
     func configure(model: PlatformAttendanceInformation, isAttending: Bool) {
         platformLabel.text = model.platform.title
-        let icons = model.platform.icons
-        platformLeftImageView.image = icons.0
-        platformRightImageView.image = icons.1
+        platformImageView.image = model.platform.icon
         drawByAttend(isAttending,
                      numberOfAttend: model.numberOfAttend,
                      numberOfLateness: model.numberOfLateness,
@@ -61,18 +69,17 @@ final class PlatformAttendanceCell: BaseCollectionViewCell {
             let statusModel = [AttendanceStatusRectangleViewModel(status: .attend, count: numberOfAttend),
                                AttendanceStatusRectangleViewModel(status: .lateness, count: numberOfLateness),
                                AttendanceStatusRectangleViewModel(status: .absence, count: numberOfAbsence)]
-            statusModel.forEach {
-                let view = AttendanceStatusRectangleView()
-                view.configure(model: $0)
-                attendanceStatusStackView.addArrangedSubview(view)
-            }
+            
+            attendanceCountView.configure(model: statusModel[0])
+            lateCountView.configure(model: statusModel[1])
+            absentCountView.configure(model: statusModel[2])
         }
-        attendanceStatusStackView.isHidden = isAttending
+        attendanceAllStatusContainerView.isHidden = isAttending
         attendanceCountContainerView.isHidden = !isAttending
     }
     
     private func updateAttendLabel(attend: Int, total: Int) {
-        attendanceCountLabel.textColor = attend == 0 ? .gray300 : .green500
+        attendanceCountLabel.textColor = attend == 0 ? .gray500 : .green600
         attendanceCountLabel.text = "\(attend)"
         attendanceTotalCountLabel.text = "/\(total)"
     }
@@ -83,69 +90,104 @@ final class PlatformAttendanceCell: BaseCollectionViewCell {
     }
     
     private func setupLayout() {
-        addSubview(contentStackView)
-        contentStackView.addArrangedSubview(platformContainerView)
-        contentStackView.addArrangedSubview(attendanceStatusStackView)
-        platformContainerView.addSubview(platformLeftImageView)
-        platformContainerView.addSubview(platformRightImageView)
+        addSubview(containerStackView)
+        containerStackView.snp.makeConstraints {
+            $0.center.equalToSuperview()
+            $0.height.equalTo(144)
+            $0.width.equalTo(134)
+        }
+        // 상단 플랫폼 나타내는 뷰레이아웃
+        containerStackView.addArrangedSubview(platformContainerView)
+        platformContainerView.addSubview(platformImageView)
+        platformImageView.snp.makeConstraints {
+            $0.top.centerX.equalToSuperview()
+            $0.width.equalTo(60)
+            $0.height.equalTo(48)
+        }
         platformContainerView.addSubview(platformLabel)
-        addSubview(attendanceCountContainerView)
+        platformLabel.snp.makeConstraints {
+            $0.top.equalTo(platformImageView.snp.bottom).offset(6)
+            $0.centerX.equalToSuperview()
+        }
+        platformContainerView.addSubview(horizontalSeperatorView)
+        horizontalSeperatorView.snp.makeConstraints {
+            $0.directionalHorizontalEdges.equalToSuperview()
+            $0.height.equalTo(1)
+            $0.width.equalTo(134)
+            $0.top.equalTo(platformLabel.snp.bottom).offset(16)
+        }
+        
+        // 출석진행중 뷰레이아웃
+        containerStackView.addArrangedSubview(attendanceCountContainerView)
+        attendanceCountContainerView.snp.makeConstraints {
+            $0.top.equalTo(horizontalSeperatorView.snp.bottom).offset(16)
+            $0.centerX.equalToSuperview()
+            $0.height.equalTo(38)
+            $0.width.equalTo(134)
+        }
         attendanceCountContainerView.addSubview(attendanceCountTitleLabel)
+        attendanceCountTitleLabel.snp.makeConstraints {
+            $0.top.directionalHorizontalEdges.equalToSuperview()
+            $0.height.equalTo(14)
+        }
+        
         attendanceCountContainerView.addSubview(attendanceCountStackView)
+        attendanceCountStackView.snp.makeConstraints {
+            $0.top.equalTo(attendanceCountTitleLabel.snp.bottom).offset(2)
+            $0.centerX.bottom.equalToSuperview()
+            $0.height.equalTo(22)
+        }
         attendanceCountStackView.addArrangedSubview(attendanceCountLabel)
         attendanceCountStackView.addArrangedSubview(attendanceTotalCountLabel)
-        attendanceCountStackView.addArrangedSubview(attendanceUnitLabel)
         
-        contentStackView.snp.makeConstraints {
-            $0.leading.equalToSuperview().offset(20)
-            $0.top.equalToSuperview().offset(20)
-            $0.bottom.equalToSuperview().inset(20)
+        // 출석완료 뷰레이아웃
+        containerStackView.addArrangedSubview(attendanceAllStatusContainerView)
+        attendanceAllStatusContainerView.addSubview(attendanceCountView)
+        attendanceAllStatusContainerView.addSubview(verticalSeperatorView1)
+        attendanceAllStatusContainerView.addSubview(lateCountView)
+        attendanceAllStatusContainerView.addSubview(verticalSeperatorView2)
+        attendanceAllStatusContainerView.addSubview(absentCountView)
+        attendanceCountView.snp.makeConstraints {
+            $0.directionalVerticalEdges.leading.equalToSuperview()
+            $0.width.equalTo(44)
+            $0.height.equalTo(38)
         }
-
-        platformLeftImageView.snp.makeConstraints {
-            $0.leading.top.equalToSuperview()
-            $0.width.height.equalTo(20)
-        }
-        
-        platformRightImageView.snp.makeConstraints {
-            $0.leading.equalTo(platformLeftImageView.snp.trailing)
-            $0.centerY.equalTo(platformLeftImageView)
-            $0.width.height.equalTo(20)
-        }
-        
-        platformLabel.snp.makeConstraints {
-            $0.leading.equalTo(platformLeftImageView)
-            $0.top.equalTo(platformLeftImageView.snp.bottom).offset(4)
-            $0.bottom.equalToSuperview()
-        }
-        
-        attendanceCountContainerView.snp.makeConstraints {
-            $0.trailing.equalToSuperview().inset(20)
+        verticalSeperatorView1.snp.makeConstraints {
+            $0.leading.equalTo(attendanceCountView.snp.trailing)
             $0.centerY.equalToSuperview()
+            $0.width.equalTo(1)
+            $0.height.equalTo(20)
         }
-        
-        attendanceCountTitleLabel.snp.makeConstraints {
+        lateCountView.snp.makeConstraints {
+            $0.leading.equalTo(verticalSeperatorView1.snp.trailing)
+            $0.size.equalTo(attendanceCountView)
+            $0.centerY.equalTo(attendanceCountView)
+        }
+        verticalSeperatorView2.snp.makeConstraints {
+            $0.leading.equalTo(lateCountView.snp.trailing)
+            $0.centerY.equalToSuperview()
+            $0.width.equalTo(1)
+            $0.height.equalTo(20)
+        }
+        absentCountView.snp.makeConstraints {
+            $0.leading.equalTo(verticalSeperatorView2.snp.trailing)
             $0.trailing.equalToSuperview()
-            $0.top.equalToSuperview().offset(10)
-        }
-        
-        attendanceCountStackView.snp.makeConstraints {
-            $0.trailing.equalTo(attendanceCountTitleLabel)
-            $0.top.equalTo(attendanceCountTitleLabel.snp.bottom).offset(4)
-            $0.leading.bottom.equalToSuperview()
-        }
-        
-        attendanceStatusStackView.snp.makeConstraints {
-            $0.height.equalTo(32)
+            $0.size.equalTo(attendanceCountView)
+            $0.centerY.equalTo(attendanceCountView)
         }
     }
     
     private func setupAttribute() {
-        contentStackView.do {
+        containerStackView.do {
             $0.axis = .vertical
-            $0.spacing = 14
+            $0.spacing = 16
+            $0.distribution = .equalSpacing
         }
-        attendanceStatusStackView.spacing = 4
+        
+        [horizontalSeperatorView, verticalSeperatorView1, verticalSeperatorView2].forEach {
+            $0.backgroundColor = .gray100
+        }
+        platformLabel.textAlignment = .center
         setPlatformViewArea()
         setAttendanceCountViewArea()
         self.do {
@@ -157,22 +199,21 @@ final class PlatformAttendanceCell: BaseCollectionViewCell {
     
     private func setPlatformViewArea() {
         platformLabel.textColor = .gray800
-        platformLabel.font = .pretendardFont(weight: .bold, size: 20)
+        platformLabel.font = .pretendardFont(weight: .bold, size: 16)
     }
     
     private func setAttendanceCountViewArea() {
-        attendanceCountTitleLabel.textColor = .gray600
+        attendanceCountTitleLabel.textAlignment = .center
+        attendanceCountTitleLabel.textColor = .gray500
         attendanceCountTitleLabel.font = .pretendardFont(weight: .regular, size: 12)
-        attendanceCountLabel.textColor = .gray300
-        attendanceCountLabel.font = .pretendardFont(weight: .semiBold, size: 20)
+        attendanceCountLabel.textColor = .gray500
+        attendanceCountLabel.font = .pretendardFont(weight: .semiBold, size: 18)
         attendanceTotalCountLabel.textColor = .gray700
-        attendanceTotalCountLabel.font = .pretendardFont(weight: .semiBold, size: 20)
-        attendanceUnitLabel.textColor = .gray500
-        attendanceUnitLabel.font = .pretendardFont(weight: .regular, size: 14)
+        attendanceTotalCountLabel.font = .pretendardFont(weight: .semiBold, size: 18)
         
-        attendanceCountStackView.spacing = 2
-        attendanceCountTitleLabel.text = "출석인원"
-        attendanceUnitLabel.text = "명"
+        attendanceCountStackView.distribution = .equalCentering
+        attendanceCountStackView.spacing = 0
+        attendanceCountTitleLabel.text = "출석/전체"
         attendanceCountLabel.text = "0"
         attendanceTotalCountLabel.text = "/0"
     }

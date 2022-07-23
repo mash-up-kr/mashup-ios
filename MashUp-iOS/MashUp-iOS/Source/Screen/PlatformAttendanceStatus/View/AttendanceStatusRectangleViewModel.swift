@@ -23,21 +23,9 @@ struct AttendanceStatusRectangleViewModel {
     
     var titleColor: UIColor {
         switch status {
-        case .attend: return .green500
-        case .absence: return .red500
-        case .lateness: return .yellow500
+        case .attend: return .green600
+        case .absence: return .red600
+        case .lateness: return .yellow600
         }
-    }
-    
-    var backgroundColor: UIColor {
-        switch status {
-        case .attend: return .green100
-        case .absence: return .red100
-        case .lateness: return .yellow100
-        }
-    }
-    
-    var image: UIImage? {
-        UIImage(systemName: "heart")
     }
 }

@@ -17,10 +17,13 @@ final class PlatformStatusViewController: BaseViewController, ReactorKit.View {
     private lazy var platformCollectionView: UICollectionView = {
         let flowLayout = UICollectionViewFlowLayout()
         flowLayout.minimumInteritemSpacing = 12
-        let width: CGFloat = UIScreen.main.bounds.width - 40
-        flowLayout.estimatedItemSize = CGSize(width: width, height: 138)
-        flowLayout.headerReferenceSize =  CGSize(width: width, height: 48)
-        
+        let screenWidth = UIApplication.shared.delegate?.window??.windowScene?.screen.bounds.width ?? 0
+        let spacing: CGFloat = 12
+        let width: CGFloat = (screenWidth - spacing - 40) / 2
+        let height: CGFloat = width * 200 / 156
+        flowLayout.itemSize = CGSize(width: width, height: height)
+        flowLayout.headerReferenceSize =  CGSize(width: width, height: 36)
+        flowLayout.minimumInteritemSpacing = spacing
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: flowLayout)
         return collectionView
     }()
@@ -65,11 +68,13 @@ final class PlatformStatusViewController: BaseViewController, ReactorKit.View {
     
     private func setupAttribute() {
         view.backgroundColor = .gray50
-        platformCollectionView.dataSource = self
-        platformCollectionView.registerCell(PlatformAttendanceCell.self)
-        platformCollectionView.registerSupplementaryView(PlatformAttendanceHeaderView.self)
-        platformCollectionView.backgroundColor = .clear
-        
+        platformCollectionView.do {
+            $0.dataSource = self
+            $0.registerCell(PlatformAttendanceCell.self)
+            $0.registerSupplementaryView(PlatformAttendanceHeaderView.self)
+            $0.backgroundColor = .clear
+            $0.contentInset = .init(top: 0, left: 20, bottom: 0, right: 20)
+        }
         navigationBar.do {
             $0.leftBarItem = .back
             $0.title = "플랫폼별 출석현황"

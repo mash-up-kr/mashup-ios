@@ -21,8 +21,8 @@ extension PlatformTeam {
         }
     }
     
-    var icons: (UIImage?, UIImage?) {
-        (UIImage(systemName: "heart"), UIImage(systemName: "heart"))
+    var icon: UIImage? {
+        UIImage(systemName: "heart")
         // TODO: - 이미지추가후 수정해야함
 //        switch self {
 //        case .design: return
